@@ -839,7 +839,7 @@
 
 ### T82 · 部署 GitHub Pages
 
-- [ ] 进行中（push 后勾 Pages built）
+- [x] 已完成（Pages status=built · commit d169dfc）
 - **目标：** commit + push main；确认 Pages  
 - **涉及文件：** 仓库全部变更  
 - **验收：** 线上 `#war-x`、手册、PHASE5 文档可访问  
@@ -847,7 +847,7 @@
 
 ### T83 · Phase5 收尾自测
 
-- [ ] 进行中
+- [x] 已完成
 - **目标：** TESTLOG Phase5 节  
 - **涉及文件：** `TESTLOG.md`  
 - **验收：** 关键项或已知问题写明  
