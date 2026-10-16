@@ -30,6 +30,17 @@
           </span>
           <input type="checkbox" id="set-motion" ${s.reduceMotion ? 'checked' : ''} />
         </label>
+        <div class="setting-row">
+          <span>
+            <strong>导出 / 导入存档</strong>
+            <small>JSON 仅本机；换浏览器可带走进度</small>
+          </span>
+          <span class="setting-actions">
+            <button type="button" class="btn btn-sm" id="set-export">导出</button>
+            <button type="button" class="btn btn-sm" id="set-import">导入…</button>
+            <input type="file" id="set-import-file" accept="application/json,.json" hidden />
+          </span>
+        </div>
         <div class="setting-row setting-danger">
           <span>
             <strong>重置存档</strong>
@@ -39,6 +50,15 @@
         </div>
       </div>
 
+      <div class="res-lib-banner war-entry-banner">
+        <h3>⚔️ 站一作战室</h3>
+        <p class="panel-sub">固定 Day1–7 清单 + Starter 模板；无需选路径，按日推进即可。</p>
+        <p class="res-lib-actions">
+          <button type="button" class="btn btn-primary btn-sm" id="set-goto-war">打开作战室</button>
+          <a href="./starters/station-one/" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Starter 模板</a>
+          <a href="./docs/station-one-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">作战手册</a>
+        </p>
+      </div>
 
       <div class="res-lib-banner">
         <h3>📚 资源库</h3>
@@ -108,7 +128,7 @@
             )
             .join('')}
         </ul>
-        <p class="hint">版本 MVP · 出海小站练站营 · 非收益承诺</p>
+        <p class="hint">版本 Phase 2 · 出海小站练站营 · 非收益承诺</p>
       </div>`;
 
     root.querySelector('#set-muted').addEventListener('change', (e) => {
@@ -123,6 +143,38 @@
     root.querySelector('#set-reset').addEventListener('click', () => {
       handlers.onReset();
     });
+    const gotoRes = root.querySelector('#set-goto-resources');
+    if (gotoRes && handlers.onGotoResources) {
+      gotoRes.addEventListener('click', () => handlers.onGotoResources());
+    }
+    const gotoWar = root.querySelector('#set-goto-war');
+    if (gotoWar && handlers.onGotoWar) {
+      gotoWar.addEventListener('click', () => handlers.onGotoWar());
+    }
+    const exp = root.querySelector('#set-export');
+    if (exp && handlers.onExportSave) {
+      exp.addEventListener('click', () => handlers.onExportSave());
+    }
+    const imp = root.querySelector('#set-import');
+    const file = root.querySelector('#set-import-file');
+    if (imp && file && handlers.onImportSave) {
+      imp.addEventListener('click', () => file.click());
+      file.addEventListener('change', () => {
+        const f = file.files && file.files[0];
+        if (!f) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const obj = JSON.parse(String(reader.result || ''));
+            handlers.onImportSave(obj);
+          } catch (e) {
+            if (global.QuestModal) global.QuestModal.showToast('导入失败：不是合法 JSON');
+          }
+          file.value = '';
+        };
+        reader.readAsText(f);
+      });
+    }
   }
 
   global.QuestSettings = { renderSettings };

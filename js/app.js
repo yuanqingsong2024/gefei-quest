@@ -98,6 +98,21 @@
         currentTab = 'quest';
         renderAll();
       });
+    } else if (currentTab === 'war') {
+      QuestWarRoom.renderWarRoom(state, $('#panel-war'), {
+        onToggle(questId, checked, el) {
+          handleToggle(questId, checked, el);
+        },
+        onGotoQuest() {
+          currentChapter = 'ch-stage1';
+          if ((state.unlocked || []).indexOf('ch-stage1') < 0) {
+            currentChapter = QuestProgress.getActiveChapterId(state);
+          }
+          currentTab = 'quest';
+          location.hash = 'quest';
+          renderAll();
+        },
+      });
     } else if (currentTab === 'quest') {
       QuestBoard.renderBoard(state, currentChapter, $('#panel-quest'), (msg) => {
         if (msg.type === 'back') {
@@ -143,6 +158,43 @@
         },
         onGotoResources() {
           currentTab = 'resources';
+          try { location.hash = 'resources'; } catch (_) {}
+          renderAll();
+        },
+        onGotoWar() {
+          currentTab = 'war';
+          try { location.hash = 'war'; } catch (_) {}
+          renderAll();
+        },
+        onExportSave() {
+          const blob = new Blob([JSON.stringify(state, null, 2)], {
+            type: 'application/json',
+          });
+          const aEl = document.createElement('a');
+          aEl.href = URL.createObjectURL(blob);
+          aEl.download = 'gefei-quest-save-v1.json';
+          aEl.click();
+          setTimeout(() => URL.revokeObjectURL(aEl.href), 2000);
+          QuestModal.showToast('存档已导出');
+        },
+        onImportSave(obj) {
+          if (!QuestSave.isValidSave(obj)) {
+            QuestModal.showToast('导入失败：存档格式无效');
+            return;
+          }
+          const def = QuestSave.getDefaultSave();
+          state = {
+            ...def,
+            ...obj,
+            settings: { ...def.settings, ...(obj.settings || {}) },
+            energy: { ...def.energy, ...(obj.energy || {}) },
+            achievementDates: obj.achievementDates || {},
+            notes: obj.notes || {},
+          };
+          state = QuestProgress.recomputeUnlocks(state);
+          persist();
+          currentChapter = QuestProgress.getActiveChapterId(state);
+          QuestModal.showToast('存档已导入');
           renderAll();
         },
         onReset() {
@@ -202,6 +254,17 @@
     renderAll();
   }
 
+  function tabFromHash() {
+    const h = (location.hash || '').replace(/^#/, '');
+    const allowed = ['map', 'war', 'quest', 'ship', 'ach', 'resources', 'settings'];
+    return allowed.indexOf(h) >= 0 ? h : null;
+  }
+
+  function applyHashTab() {
+    const t = tabFromHash();
+    if (t) currentTab = t;
+  }
+
   function init() {
     let hadSave = false;
     try {
@@ -217,6 +280,7 @@
 
     state = QuestProgress.recomputeUnlocks(state);
     currentChapter = QuestProgress.getActiveChapterId(state);
+    applyHashTab();
 
     document.querySelectorAll('.tab-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -224,8 +288,16 @@
         if (currentTab === 'quest' && !currentChapter) {
           currentChapter = QuestProgress.getActiveChapterId(state);
         }
+        try {
+          location.hash = currentTab;
+        } catch (_) {}
         renderAll();
       });
+    });
+
+    window.addEventListener('hashchange', () => {
+      applyHashTab();
+      renderAll();
     });
 
     QuestModal.ensureRoots();

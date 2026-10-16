@@ -984,6 +984,15 @@
 
   const TRY_CHANNELS = [
     {
+      id: 'ch-station-one-starter',
+      cat: 'hosting',
+      name: '站一 Starter 英文单页',
+      blurb: 'gefei-quest 自带最小 HTML：替换 YOURBRAND 即可丢到 GH/CF Pages。',
+      how: '打开 starters/station-one/ → 全局替换 → 按 README 部署 → 回作战室勾 q-s1-02。',
+      caveat: '占位站不是成品生意；先上线再打磨。',
+      url: './starters/station-one/',
+    },
+    {
       id: 'ch-gsc',
       cat: 'tools',
       name: 'Google Search Console',
@@ -1348,6 +1357,22 @@
 
   const RESOURCES = [
     {
+      title: '站一作战室（主站 Tab）',
+      url: './index.html#war',
+    },
+    {
+      title: '站一 Starter 模板',
+      url: './starters/station-one/',
+    },
+    {
+      title: '站一作战手册',
+      url: './docs/station-one-playbook.md',
+    },
+    {
+      title: 'Phase 2 路线图',
+      url: './docs/PHASE2-ROADMAP.md',
+    },
+    {
       title: '资源库（分类筛选）',
       url: './resources.html',
     },
@@ -1389,6 +1414,54 @@
     },
   ];
 
+
+  /** 站一作战室 · 固定 Day1–7（Phase 2 · 无路径分支） */
+  const STATION_ONE_DAYS = [
+    {
+      day: 1,
+      title: '定规矩与主词',
+      tip: '今天只写死类型 + 1 个英文主词，不要开十个坑。',
+      questIds: ['q-p-01', 'q-p-02', 'q-p-03'],
+    },
+    {
+      day: 2,
+      title: '方向备忘 + 领地',
+      tip: '一句话方向 = 类型 + 主词；域名可后补，先记下子域也行。',
+      questIds: ['q-p-boss', 'q-s1-01'],
+    },
+    {
+      day: 3,
+      title: 'Starter 上线',
+      tip: '复制 starters/station-one/，替换 YOURBRAND，部署到 GH/CF Pages。',
+      questIds: ['q-s1-02'],
+    },
+    {
+      day: 4,
+      title: '挂上统计',
+      tip: 'GA4 或 Clarity 二选一即可，确认有命中。',
+      questIds: ['q-s1-03'],
+    },
+    {
+      day: 5,
+      title: 'GSC 验证',
+      tip: 'DNS / HTML 标签 / 文件任选一种验证成功即可。',
+      questIds: ['q-s1-04'],
+    },
+    {
+      day: 6,
+      title: '交地图给航会',
+      tip: '提交 sitemap 或对首页请求编入索引；可顺手接 Bing。',
+      questIds: ['q-s1-05'],
+    },
+    {
+      day: 7,
+      title: '呼名 / 复查',
+      tip: '未收录先别换主词；收录后再勾 Boss。支线可随后补。',
+      questIds: ['q-s1-boss'],
+      optionalQuestIds: ['q-s1-s1', 'q-s1-s2', 'q-s1-s3', 'q-s1-s4'],
+    },
+  ];
+
   function getChapter(id) {
     return CHAPTERS.find((c) => c.id === id) || null;
   }
@@ -1410,6 +1483,7 @@
     TRY_CHANNEL_CATEGORIES,
     TRY_CHANNELS,
     RESOURCES,
+    STATION_ONE_DAYS,
     getChapter,
     getQuestsByChapter,
     getQuest,

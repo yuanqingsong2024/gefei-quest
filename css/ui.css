@@ -870,3 +870,173 @@ a.btn:hover {
   color: var(--cyan);
   font-weight: 600;
 }
+
+/* —— Phase 2 · 站一作战室 —— */
+.war-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+.war-progress {
+  color: var(--cyan);
+  font-weight: 600;
+  margin-right: 6px;
+}
+.war-days {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.war-day {
+  background: linear-gradient(145deg, var(--panel), var(--panel2));
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.war-day-today {
+  border-color: var(--cyan-hot);
+  box-shadow: 0 0 0 1px rgba(94, 177, 255, 0.25), var(--shadow);
+}
+.war-day-done {
+  opacity: 0.92;
+}
+.war-day-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+.war-day-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--gold);
+}
+.war-day-count {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.war-day-tip {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.war-quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.war-quest {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #0b1220;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+.war-quest.is-done {
+  border-color: #2d6a4f;
+}
+.war-quest.is-locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.war-quest input {
+  margin-top: 4px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.war-quest-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.war-quest-title {
+  font-weight: 600;
+  color: var(--ink);
+}
+.war-quest-action {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+.war-quest-meta {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.war-optional {
+  margin-top: 10px;
+}
+.war-optional summary {
+  cursor: pointer;
+  color: var(--cyan);
+  font-size: 0.9rem;
+}
+.war-foot {
+  margin-top: 16px;
+}
+.war-entry-banner h3 {
+  margin: 0 0 6px;
+  color: var(--gold);
+}
+.setting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.res-station-bar {
+  margin-bottom: 4px;
+}
+.res-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 10px 0 4px;
+}
+.res-search-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.res-search {
+  flex: 1;
+  min-width: 180px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.res-search:focus {
+  outline: 2px solid var(--cyan);
+  outline-offset: 1px;
+}
+
+@media print {
+  .game-header .tagline,
+  .hud,
+  .tabs,
+  .footer-note,
+  .war-toolbar,
+  .war-optional {
+    display: none !important;
+  }
+  .war-day {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #333;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}

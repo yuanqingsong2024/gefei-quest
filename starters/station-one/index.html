@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Replace YOURBRAND with your one primary keyword / brand -->
+    <title>YOURBRAND — simple starter page</title>
+    <meta
+      name="description"
+      content="YOURBRAND is a practice site for learning to ship a single English page and get indexed."
+    />
+    <!-- Optional: Google Search Console HTML tag verification
+    <meta name="google-site-verification" content="PASTE_CODE_HERE" />
+    -->
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f1419;
+        --card: #1a2332;
+        --ink: #e8eef7;
+        --muted: #9aa8bc;
+        --accent: #5eb1ff;
+        --line: #2a3a52;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f6f8fb;
+          --card: #fff;
+          --ink: #142033;
+          --muted: #5a6a7e;
+          --accent: #0b6bcb;
+          --line: #d5deea;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.55;
+      }
+      header,
+      main,
+      footer {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 20px;
+      }
+      header {
+        padding-top: 48px;
+      }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.85rem;
+        letter-spacing: -0.02em;
+      }
+      .tag {
+        color: var(--muted);
+        margin: 0 0 24px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+      }
+      a {
+        color: var(--accent);
+      }
+      nav a {
+        margin-right: 14px;
+        text-decoration: none;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      footer {
+        color: var(--muted);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--line);
+        margin-top: 32px;
+      }
+      code {
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#privacy">Privacy</a>
+      </nav>
+      <!-- Unique h1 must include your primary keyword -->
+      <h1 id="home">YOURBRAND</h1>
+      <p class="tag">One page. One keyword. Ship first, polish later.</p>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="what">
+        <h2 id="what">What this site is</h2>
+        <p>
+          <strong>YOURBRAND</strong> is a minimal practice site. Replace this
+          paragraph with one sentence: what you offer, for whom, in plain English.
+        </p>
+        <p>
+          Primary keyword (keep one): <code>YOURBRAND</code>. Domain placeholder:
+          <code>yourbrand.example</code>.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="next">
+        <h2 id="next">Next checklist</h2>
+        <ol>
+          <li>Replace every <code>YOURBRAND</code> and this copy.</li>
+          <li>Deploy to GitHub Pages or Cloudflare Pages (see README).</li>
+          <li>Add analytics (GA4 or Microsoft Clarity).</li>
+          <li>Verify the property in Google Search Console.</li>
+          <li>Submit a sitemap or request indexing for this URL.</li>
+        </ol>
+      </section>
+
+      <section class="card" id="about" aria-labelledby="about-h">
+        <h2 id="about-h">About</h2>
+        <p>
+          This starter ships with the
+          <a href="https://yuanqingsong2024.github.io/gefei-quest/">gefei-quest</a>
+          station-one kit. It is for learning to publish—not a promise of traffic or
+          revenue.
+        </p>
+      </section>
+
+      <section class="card" id="privacy" aria-labelledby="privacy-h">
+        <h2 id="privacy-h">Privacy</h2>
+        <p>
+          If you add analytics or ads later, update this section. For a practice
+          page with no trackers yet: we do not intentionally collect personal data
+          on this static page.
+        </p>
+        <p>Contact: <code>you@yourbrand.example</code> (replace).</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="y"></span> YOURBRAND · Practice site · No revenue guarantee</p>
+    </footer>
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+    <!-- Optional: paste GA4 / Clarity snippet before </body> -->
+  </body>
+</html>

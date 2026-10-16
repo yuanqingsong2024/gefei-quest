@@ -457,6 +457,8 @@
 
 本轮已从 **T01** 做到 **T45**（P0–P10）。
 
+**Phase 2：** T46–T57、T58（取消）、T59 已完成；T50 部署见 push；T60 自测待勾。
+
 ## 变更记录
 
 - 2026-10-16：整合同路人公开方法 → `docs/peer-methods.md`；`WEEKLY_UPDATES` 追加「同类方案」；可选支线 + 设置页同路人卡片。存档 schema 未改。
@@ -464,3 +466,148 @@
 - 2026-10-16：可试渠道/羊毛整合 → `docs/channels-and-tips.md`；`TRY_CHANNELS` + 设置页分类卡片；商船「羊毛与渠道」；支线 q-s1-s3/s4、q-s2-s4、q-m-s3/s4。存档 schema 未改（仅追加 id）。
 
 - 2026-10-16：闲鱼非实物单独一类 → `TRY_CHANNEL_CATEGORIES.xianyu` + 10 张卡片；`docs/channels-and-tips.md` §F；商船卷轴 w-2026-10-16-j/k；支线 q-m-s5/s6。存档 schema 未改（仅追加 id）。
+
+---
+
+## Phase 2 · 站一落地中枢（T46+）
+
+> 依据：`docs/PHASE2-ROADMAP.md`、`docs/PHASE2-DESIGN.md`  
+> 原则：按 ID 递增执行；**默认决策已锁，不向用户抛选择**  
+> 周更 Bot 例行：本阶段 **不启用**（需用户日后说「恢复」）
+
+### T46 · Phase 2 文档落地
+
+- [x] 已完成
+- **目标：** 写入路线图、设计补充、扩容配方；TASKS Phase2 节；README 指针  
+- **涉及文件：** `docs/PHASE2-ROADMAP.md`、`docs/PHASE2-DESIGN.md`、`docs/resource-expansion.md`、`docs/station-one-playbook.md`、`TASKS.md`、`README.md`  
+- **验收：** 新人能按路线图知 W1 做什么；README 链到 Phase2  
+- **依赖：** Phase1 完成
+
+### T47 · 站一 HTML Starter Kit
+
+- [x] 已完成
+- **目标：** `starters/station-one/` 英文最小单页 + 部署 README（GH Pages / CF Pages）  
+- **涉及文件：** `starters/station-one/index.html`、`starters/station-one/README.md`  
+- **验收：** 本地打开可见 YOURBRAND 占位；README 含替换清单与两托管步骤  
+- **依赖：** T46
+
+### T48 · 站一作战室 UI
+
+- [x] 已完成
+- **目标：** 主站 Tab「作战室」；固定 Day1–7；勾选绑定 `q-p-*` / `q-s1-*` 与任务板同源  
+- **涉及文件：** `index.html`、`js/war-room.js`、`js/app.js`、`js/data.js`（`STATION_ONE_DAYS`）、`css/ui.css`  
+- **验收：** 勾选后任务板同步；`#war` 深链可打开；无路径选择控件  
+- **依赖：** T46
+
+### T49 · 入口串联
+
+- [x] 已完成
+- **目标：** 资源库 / 设置链到 Starter、作战室、作战手册；修设置「本页打开资源库」按钮监听  
+- **涉及文件：** `js/resources.js`、`js/settings.js`、`resources.html`（若需）  
+- **验收：** 三处入口可点达  
+- **依赖：** T47, T48
+
+### T50 · 部署 GitHub Pages
+
+- [x] 已完成
+- **目标：** commit + push `main`；确认 Pages 构建；线上可开作战室与 starter  
+- **涉及文件：** 仓库全部变更  
+- **验收：** https://yuanqingsong2024.github.io/gefei-quest/ 与 `/starters/station-one/` `/docs/PHASE2-ROADMAP.md` 可访问  
+- **依赖：** T49
+
+### T51 · 资源库关键词搜索
+
+- [x] 已完成
+- **目标：** 资源库增加搜索框，过滤 name/blurb/how/oneLiner  
+- **涉及文件：** `js/resources.js`、`css/ui.css`  
+- **验收：** 输入「闲鱼」只显示相关卡；清空恢复  
+- **依赖：** T50（可并行于推送后）
+
+### T52 · 存档导出 / 导入 JSON
+
+- [x] 已完成
+- **目标：** 设置页导出下载 + 导入校验 `isValidSave`  
+- **涉及文件：** `js/save.js`、`js/settings.js`、`js/app.js`  
+- **验收：** 导出再导入进度一致；坏 JSON 被拒绝  
+- **依赖：** T48
+
+### T53 · 作战手册与资源库文档区挂载
+
+- [x] 已完成
+- **目标：** `docs/station-one-playbook.md` 已在 T46 创建；资源库 docs 列表与设置资料柜加入手册 / Phase2 路线图  
+- **涉及文件：** `js/resources.js`、`js/data.js`（RESOURCES）  
+- **验收：** 资源库「文档笔记」可见手册与路线图  
+- **依赖：** T46
+
+### T54 · Starter 链入 RESOURCES / TRY 可选卡
+
+- [x] 已完成
+- **目标：** 资源库增加「站一 Starter」工具卡（cat=hosting 或 docs）  
+- **涉及文件：** `js/data.js`  
+- **验收：** 筛选托管或全部时可见  
+- **依赖：** T47
+
+### T55 · 作战室「今日」高亮
+
+- [x] 已完成
+- **目标：** 第一个未全部完成的 Day 加 `.war-day-today`  
+- **涉及文件：** `js/war-room.js`、`css/ui.css`  
+- **验收：** 视觉可辨当前应推进日  
+- **依赖：** T48
+
+### T56 · 作战室打印样式
+
+- [x] 已完成
+- **目标：** `@media print` 隐藏 HUD/Tab，仅留 Day 清单  
+- **涉及文件：** `css/ui.css`  
+- **验收：** 打印预览基本可用  
+- **依赖：** T48
+
+### T57 · 哈希与返回体验
+
+- [x] 已完成
+- **目标：** 切 Tab 写 `location.hash`；浏览器后退可回作战室/地图  
+- **涉及文件：** `js/app.js`  
+- **验收：** `#war` `#map` `#resources` 往返正常  
+- **依赖：** T48
+
+### T58 ·（可选）channels 拆 JSON 试验
+
+- [x] 已取消（file:// 无法可靠 fetch；保持 data.js）
+- **目标：** 试验 `data/channels.json` + fetch；失败则保持 data.js（可取消）  
+- **涉及文件：** `data/channels.json`、加载逻辑  
+- **验收：** 不破坏离线 file:// 打开（若 file:// 不可 fetch，则 **取消本任务** 并文档说明）  
+- **依赖：** T51
+
+### T59 · 站二作战室数据占位
+
+- [x] 已完成（路线图附录占位，无 UI）
+- **目标：** 仅数据 `STATION_TWO_DAYS` 占位注释，不做 UI  
+- **涉及文件：** `js/data.js` 或 `docs/PHASE2-ROADMAP.md` 附录  
+- **验收：** Phase3 可接着做  
+- **依赖：** T55
+
+### T60 · Phase2 收尾自测
+
+- [ ] 未完成
+- **目标：** 更新 `TESTLOG.md`：作战室勾选同步、starter 可开、搜索、导入导出  
+- **涉及文件：** `TESTLOG.md`  
+- **验收：** 关键项勾选或标明已知问题  
+- **依赖：** T51, T52, T50
+
+---
+
+## Phase 2 任务统计
+
+| 阶段 | 任务 ID | 条数 |
+|------|---------|------|
+| 文档 | T46 | 1 |
+| Starter + 作战室 + 入口 + 部署 | T47–T50 | 4 |
+| 搜索 / 存档 / 手册挂载 | T51–T54 | 4 |
+| 打磨 | T55–T57 | 3 |
+| 可选 / 收尾 | T58–T60 | 3 |
+| **合计** | **T46–T60** | **15** |
+
+建议执行：T46 → T47 → T48 → T49 → T50，同会话尽量做完；其后 T51–T55；T58 可取消。
+
+- 2026-10-16：Phase 2 · 站一作战室 + Starter Kit + 资源搜索 + 存档导入导出；见 `docs/PHASE2-ROADMAP.md`。

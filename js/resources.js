@@ -1,4 +1,4 @@
-/** 资源库 · 分类筛选浏览 TRY_CHANNELS / PEER_METHODS / 文档 */
+/** 资源库 · 分类筛选 + 关键词搜索 */
 (function (global) {
   function esc(s) {
     return String(s == null ? '' : s)
@@ -9,8 +9,9 @@
   }
 
   function renderChannelCard(c) {
+    const hay = [c.name, c.blurb, c.how, c.caveat, c.id].join(' ').toLowerCase();
     return `
-      <article class="peer-card channel-card" data-cat="${esc(c.cat)}">
+      <article class="peer-card channel-card" data-cat="${esc(c.cat)}" data-hay="${esc(hay)}">
         <h4>${esc(c.name)}</h4>
         <p class="peer-line">${esc(c.blurb)}</p>
         <p class="peer-steal"><span class="tag">怎么试</span> ${esc(c.how)}</p>
@@ -20,8 +21,9 @@
   }
 
   function renderPeerCard(p) {
+    const hay = [p.name, p.oneLiner, p.steal, p.caveat].join(' ').toLowerCase();
     return `
-      <article class="peer-card">
+      <article class="peer-card" data-hay="${esc(hay)}">
         <h4>${esc(p.name)}</h4>
         <p class="peer-line">${esc(p.oneLiner)}</p>
         <p class="peer-steal"><span class="tag">可偷</span> ${esc(p.steal)}</p>
@@ -32,7 +34,7 @@
 
   /**
    * @param {HTMLElement} root
-   * @param {{ embedded?: boolean }} opts embedded=true 时省略顶栏返回链（用于 SPA 页签）
+   * @param {{ embedded?: boolean }} opts
    */
   function renderLibrary(root, opts) {
     if (!root) return;
@@ -41,6 +43,9 @@
     const channels = global.QuestData.TRY_CHANNELS || [];
     const peers = global.QuestData.PEER_METHODS || [];
     const docs = [
+      { title: '站一作战手册', url: './docs/station-one-playbook.md' },
+      { title: 'Phase 2 路线图', url: './docs/PHASE2-ROADMAP.md' },
+      { title: '资源库扩容配方', url: './docs/resource-expansion.md' },
       { title: '可试渠道 · 羊毛与工具笔记', url: './docs/channels-and-tips.md' },
       { title: '同路人方法调研笔记', url: './docs/peer-methods.md' },
       { title: '周更模板', url: './docs/weekly-template.md' },
@@ -57,11 +62,21 @@
       <div class="panel-head">
         <h2>资源库</h2>
         <p class="panel-sub">免费工具 · 托管 · 变现 · 可试路径 · 闲鱼非实物 · 技巧 · 同路人 · 文档。公开摘要，额度与规则会变；收入≠保证。</p>
+        <div class="war-toolbar res-station-bar">
+          <a class="btn btn-primary btn-sm" href="./index.html#war">站一作战室</a>
+          <a class="btn btn-sm" href="./starters/station-one/" target="_blank" rel="noopener noreferrer">Starter 模板</a>
+          <a class="btn btn-sm" href="./docs/station-one-playbook.md" target="_blank" rel="noopener noreferrer">作战手册</a>
+        </div>
         ${
           embedded
             ? ''
             : `<p class="res-back"><a href="./index.html">← 返回练站营</a></p>`
         }
+      </div>
+
+      <div class="res-search-row">
+        <label class="res-search-label" for="res-search">搜索</label>
+        <input type="search" id="res-search" class="res-search" placeholder="关键词：如 闲鱼、GSC、AdSense…" autocomplete="off" />
       </div>
 
       <div class="res-filters" role="tablist" aria-label="资源分类">
@@ -103,7 +118,7 @@
             ${docs
               .map(
                 (d) =>
-                  `<li><a href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${esc(d.title)}</a></li>`
+                  `<li data-hay="${esc(d.title.toLowerCase())}"><a href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${esc(d.title)}</a></li>`
               )
               .join('')}
           </ul>
@@ -118,34 +133,57 @@
     const sectionsRoot = root.querySelector('#res-sections');
     const countEl = root.querySelector('#res-count');
     const buttons = root.querySelectorAll('.res-filter-btn');
+    const searchInput = root.querySelector('#res-search');
+    let currentFilter = 'all';
+    let currentQ = '';
 
-    function applyFilter(filterId) {
+    function apply() {
       buttons.forEach((btn) => {
-        const on = btn.getAttribute('data-filter') === filterId;
+        const on = btn.getAttribute('data-filter') === currentFilter;
         btn.classList.toggle('active', on);
         btn.setAttribute('aria-selected', on ? 'true' : 'false');
       });
+      const q = currentQ.trim().toLowerCase();
       let visible = 0;
       sectionsRoot.querySelectorAll('.res-section').forEach((sec) => {
         const sid = sec.getAttribute('data-section');
-        const show = filterId === 'all' || sid === filterId;
-        sec.hidden = !show;
-        if (show) {
-          const n = sec.querySelectorAll('.peer-card, .res-doc-list li').length;
-          visible += n;
+        const sectionOk = currentFilter === 'all' || sid === currentFilter;
+        if (!sectionOk) {
+          sec.hidden = true;
+          return;
         }
+        let sectionVisible = 0;
+        sec.querySelectorAll('.peer-card, .res-doc-list li').forEach((card) => {
+          const hay = (card.getAttribute('data-hay') || card.textContent || '').toLowerCase();
+          const match = !q || hay.indexOf(q) >= 0;
+          card.hidden = !match;
+          if (match) {
+            sectionVisible += 1;
+            visible += 1;
+          }
+        });
+        sec.hidden = sectionVisible === 0;
       });
       const label =
-        filterId === 'all'
+        currentFilter === 'all'
           ? '全部'
-          : (filterChips.find((f) => f.id === filterId) || {}).label || filterId;
-      countEl.textContent = `当前：${label} · ${visible} 条`;
+          : (filterChips.find((f) => f.id === currentFilter) || {}).label || currentFilter;
+      countEl.textContent = q
+        ? `当前：${label} · 搜索「${currentQ.trim()}」· ${visible} 条`
+        : `当前：${label} · ${visible} 条`;
     }
 
     buttons.forEach((btn) => {
-      btn.addEventListener('click', () => applyFilter(btn.getAttribute('data-filter')));
+      btn.addEventListener('click', () => {
+        currentFilter = btn.getAttribute('data-filter');
+        apply();
+      });
     });
-    applyFilter('all');
+    searchInput.addEventListener('input', () => {
+      currentQ = searchInput.value || '';
+      apply();
+    });
+    apply();
   }
 
   global.QuestResources = { renderLibrary };

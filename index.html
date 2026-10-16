@@ -19,6 +19,7 @@
 
       <nav class="tabs" role="tablist" aria-label="主导航">
         <button type="button" class="tab-btn active" role="tab" data-tab="map" aria-selected="true">地图</button>
+        <button type="button" class="tab-btn" role="tab" data-tab="war" aria-selected="false">作战室</button>
         <button type="button" class="tab-btn" role="tab" data-tab="quest" aria-selected="false">任务</button>
         <button type="button" class="tab-btn" role="tab" data-tab="ship" aria-selected="false">商船</button>
         <button type="button" class="tab-btn" role="tab" data-tab="ach" aria-selected="false">成就</button>
@@ -28,6 +29,7 @@
 
       <main>
         <section id="panel-map" class="tab-panel" role="tabpanel"></section>
+        <section id="panel-war" class="tab-panel" role="tabpanel" hidden></section>
         <section id="panel-quest" class="tab-panel" role="tabpanel" hidden></section>
         <section id="panel-ship" class="tab-panel" role="tabpanel" hidden></section>
         <section id="panel-ach" class="tab-panel" role="tabpanel" hidden></section>
@@ -49,6 +51,7 @@
     <script src="js/weekly.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/resources.js"></script>
+    <script src="js/war-room.js"></script>
     <script src="js/map.js"></script>
     <script src="js/quest.js"></script>
     <script src="js/app.js"></script>

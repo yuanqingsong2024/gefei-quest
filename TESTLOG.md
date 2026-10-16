@@ -22,3 +22,14 @@
 | 高对比 Token | PASS | --ink/#f1f5f9, --gold, --cyan 按 SPEC |
 
 已知限制：Boss 过场 / Toast 需在真实浏览器目视；未做自动化截图。音效无资源文件时 WebAudio 短 beep，静音默认不播。
+
+## Phase 2 自测（2026-10-16）
+
+- [x] `STATION_ONE_DAYS` 长度 7；node 加载 data/war-room/resources/settings 无语法错
+- [x] `starters/station-one/index.html` 含 YOURBRAND / About / Privacy
+- [x] 主导航含「作战室」；`index.html#war` 深链由 app hash 处理
+- [x] 资源库搜索框与站一工具条存在
+- [x] 设置含导出/导入与作战室入口
+- [ ] 浏览器手工：勾选作战室 ↔ 任务板同步（部署后抽查）
+- [ ] Pages 线上 URL 可开（T50）
+
