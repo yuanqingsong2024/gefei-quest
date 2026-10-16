@@ -74,3 +74,9 @@
 - [x] Starter / playbook / MASTER / Phase / TASKS 外链可开
 - [x] 移动端两列卡片可读
 - [x] Pages built（见部署 commit）
+
+## 2026-10-16 · Phase 7 美化 + 落地页
+- Playwright Chromium：1280×800 / 390×844
+- `/` → `#home` 落地页，body.is-home，HUD/Tab 隐藏 ✅；`#war` / `#war-s2` 显示 HUD+Tab ✅；`#home-faq` 回首页并滚动 ✅
+- 390 宽无横向溢出（scrollWidth=390）✅；`resources.html#xianyu` 深链 ✅；页面 JS 错误 0
+- 截图：/workspace/gefei-quest-shots/{home-desktop,home-mobile,war-desktop,resources-desktop}.png

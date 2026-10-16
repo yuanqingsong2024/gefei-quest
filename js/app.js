@@ -65,6 +65,11 @@
   }
 
   function renderTabs() {
+    document.body.classList.toggle('is-home', currentTab === 'home');
+    document.querySelectorAll('.site-links a[data-nav]').forEach((a) => {
+      const n = a.getAttribute('data-nav');
+      a.classList.toggle('active', (n === 'home' && currentTab === 'home') || (n === 'war' && currentTab === 'war'));
+    });
     document.querySelectorAll('.tab-btn').forEach((btn) => {
       const tab = btn.getAttribute('data-tab');
       btn.classList.toggle('active', tab === currentTab);
@@ -296,6 +301,14 @@
 
   function applyHashTabFromValue(h) {
     const raw = (h || '').replace(/^#/, '');
+    if (/^home-/.test(raw || '')) {
+      currentTab = 'home';
+      setTimeout(() => {
+        const el = document.getElementById(raw);
+        if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth' });
+      }, 30);
+      return;
+    }
     const warMap = {
       'war-s2': 2,
       'war-s3': 3,

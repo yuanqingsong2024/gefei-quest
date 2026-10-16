@@ -80,3 +80,6 @@
 | 模块 | `js/home.js` + `css/ui.css` 首页卡片样式 |
 | 入口 | 实战 · 资源羊毛 · 模板手册 · 进度文档 |
 | 任务 | T84–T87（见 `TASKS.md`） |
+
+## Phase 7 · 整站美化（2026-10-16）
+- T88–T95 全部完成：网站式落地页首页、图标/背景/favicon/manifest/og:image、整站玻璃卡片与吸顶导航、resources.html 统一头尾。方案：`docs/PHASE7-DESIGN.md`

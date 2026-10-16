@@ -110,3 +110,6 @@ python3 -m http.server 8765
 - 不收益承诺；案例收入 ≠ 你的收入。
 - 不复刻付费社群生意；只整理公开方法与可执行清单。
 - 不做账号 / 云同步 / 排行榜（MVP）。
+
+## Phase 7 · 首页与视觉
+打开即网站式落地页（`#home`）：Hero、五步路线、功能卡、进度快照、资源入口、手册、FAQ。其余 hash（`#war`、`#map`…）进入游戏应用区。资源：`assets/`（图标、hero 背景）、`manifest.webmanifest`。
