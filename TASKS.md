@@ -1027,3 +1027,13 @@
 | Phase 13 | T137–T142 | 6 |
 
 - 2026-10-17：Phase 13 · AI 设置（Grok Bot / 自定义 OpenAI 兼容）+ 三个 AI 按钮。
+
+## Phase 14 · AI 服务商列表（见 docs/PHASE14-AI-PROVIDERS.md）
+- [x] T143 方案定稿 + 任务表
+- [ ] T144 数据迁移 v2（providers / activeId），不进存档
+- [ ] T145 三种格式客户端（OpenAI / Anthropic / Ollama）+ 自定义头 + 获取模型
+- [ ] T146 服务商列表 UI：模板新建、编辑、复制、删除、测试、设为当前
+- [ ] T147 导入 / 导出（无 Key）+ 工具页切换器
+- [ ] T148 假服务扩展 + site-check、390px、截图、更新日志、push
+
+| Phase 14 | T143–T148 | 6 |
