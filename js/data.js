@@ -5,7 +5,9 @@
   const CHAPTERS = [
     {
       id: 'ch-prologue',
-      name: '序章营地',
+      name: '入门准备',
+      nick: '序章营地',
+      icon: 'flag',
       emoji: '🏕️',
       order: 0,
       next: 'ch-stage1',
@@ -14,7 +16,9 @@
     },
     {
       id: 'ch-stage1',
-      name: '站一 · 新手岛',
+      name: '站一 · 上线第一站',
+      nick: '新手岛',
+      icon: 'island1',
       emoji: '🏝️',
       order: 1,
       next: 'ch-stage2',
@@ -23,7 +27,9 @@
     },
     {
       id: 'ch-stage2',
-      name: '站二 · 蓝海岛',
+      name: '站二 · 一词一站',
+      nick: '蓝海岛',
+      icon: 'island2',
       emoji: '🌊',
       order: 2,
       next: 'ch-stage3',
@@ -32,7 +38,9 @@
     },
     {
       id: 'ch-stage3',
-      name: '站三 · 内页群岛',
+      name: '站三 · 扩内页',
+      nick: '内页群岛',
+      icon: 'island3',
       emoji: '🗺️',
       order: 3,
       next: 'ch-monetize',
@@ -41,7 +49,9 @@
     },
     {
       id: 'ch-monetize',
-      name: '变现港',
+      name: '变现 · 广告与联盟',
+      nick: '变现港',
+      icon: 'chart',
       emoji: '💰',
       order: 4,
       next: 'ch-scale',
@@ -50,7 +60,9 @@
     },
     {
       id: 'ch-scale',
-      name: '放大航线',
+      name: '放大 · 复制到多站',
+      nick: '放大航线',
+      icon: 'rocket',
       emoji: '🚢',
       order: 5,
       next: null,
@@ -130,8 +142,8 @@
       id: 'q-p-s2',
       chapterId: 'ch-prologue',
       title: '支线 · 逛一圈资源库',
-      action: '打开主导航「资源库」（或 resources.html），点一遍分类筛选：免费工具 / 托管 / 变现 / 路径 / 闲鱼·非实物 / 技巧。收藏 1 个本周准备试的入口。',
-      tools: '资源库页签 / resources.html',
+      action: '打开顶栏「资源库」，点一遍分类筛选：免费工具 / 托管 / 变现 / 路径 / 闲鱼·非实物 / 技巧。收藏 1 个本周准备试的入口。',
+      tools: '顶栏「资源库」',
       doneCriteria: '已浏览 ≥3 个分类 + 记下 1 个本周入口',
       pitfalls: '别一次开十个号；先主线定词上站。额度与规则以官网为准。',
       xp: 5,
@@ -584,7 +596,7 @@
       chapterId: 'ch-monetize',
       title: '支线 · 变现门槛地图',
       action: '对照公开门槛写一页：AdSense（无流量下限）→ Journey≈1k Tier1 → Raptive≈25k PV → Mediavine 年收入档。圈出你「下一跳」是哪一档。',
-      tools: '资源库「变现渠道」/ 设置「可试渠道」/ docs/channels-and-tips.md',
+      tools: '资源库「变现渠道」/ 资源库/ 「手册与模板 › 渠道与羊毛笔记」',
       doneCriteria: '地图页写完 + 下一跳已圈',
       pitfalls: '门槛会变；以官网为准。别为冲门槛买假流量。',
       xp: 10,
@@ -611,7 +623,7 @@
       chapterId: 'ch-monetize',
       title: '支线 · 闲鱼非实物上架清单',
       action: '选 1 个你能交付的数字品或技能（原创模板 / PPT 美化 / 简历优化 / 翻译校对 / 出海答疑）。按清单写：标题、交付物、不接什么、报价分档、修改次数、交付时效、案例图计划。暂不发布也算完成草稿。',
-      tools: '资源库「闲鱼·非实物」/ docs/channels-and-tips.md §F',
+      tools: '资源库「闲鱼·非实物」/ 「手册与模板 › 渠道与羊毛笔记」 §F',
       doneCriteria: '清单 7 项写全（可未上架）',
       pitfalls: '禁：盗版课、破解软件、账号/游戏币、学术代写代考、保证过审。站内交易留凭证。',
       xp: 10,
@@ -624,7 +636,7 @@
       chapterId: 'ch-monetize',
       title: '支线 · 闲鱼禁区自检',
       action: '对照公开规则自检你想卖的东西：是否原创/已授权？是否涉及账号共享、游戏币、代考、无资质法律会计咨询？写出「可卖 / 不可卖」两列。',
-      tools: '闲鱼卖家协议摘要 / docs/channels-and-tips.md §F 禁区',
+      tools: '闲鱼卖家协议摘要 / 「手册与模板 › 渠道与羊毛笔记」 §F 禁区',
       doneCriteria: '两列清单 + 结论一句',
       pitfalls: '规则会变；以 App 内最新规范为准。侵权与作弊是红线。',
       xp: 10,
@@ -727,7 +739,7 @@
     {
       id: 'ach-ship-4',
       name: '四季商船',
-      desc: '累计领取 4 条商船卷轴',
+      desc: '累计领取 4 张每周补给卡',
       icon: '⛵',
     },
     {
@@ -867,8 +879,8 @@
       week: '2026-W42',
       title: '羊毛与渠道：本周可试路径菜单',
       summary:
-        '主线仍是小站 SEO。可选试：评测页+联盟披露、单功能微工具、Newsletter 攒信、视频导流。目录/pSEO 留到放大期且需独特数据。详见设置「可试渠道」与 docs/channels-and-tips.md。',
-      url: './docs/channels-and-tips.md',
+        '主线仍是小站 SEO。可选试：评测页+联盟披露、单功能微工具、Newsletter 攒信、视频导流。目录/pSEO 留到放大期且需独特数据。详见资源库与 「手册与模板 › 渠道与羊毛笔记」。',
+      url: '#guide-channels-and-tips',
       tags: ['羊毛与渠道', '路径'],
       xp: 5,
       addedAt: '2026-10-16',
@@ -890,8 +902,8 @@
       week: '2026-W42',
       title: '闲鱼非实物：原创模板一次卖多次',
       summary:
-        '合规方向：自己做的 PPT/简历/Excel/Notion/提示词模板，边际成本近零。标题写清场景+交付物；主图放目录/效果；定价可从 9.9–39 试；保留创作记录。禁盗版课、破解包、站外引流。详见设置「闲鱼·非实物」。',
-      url: './docs/channels-and-tips.md',
+        '合规方向：自己做的 PPT/简历/Excel/Notion/提示词模板，边际成本近零。标题写清场景+交付物；主图放目录/效果；定价可从 9.9–39 试；保留创作记录。禁盗版课、破解包、站外引流。详见资源库「闲鱼·非实物」。',
+      url: '#guide-channels-and-tips',
       tags: ['闲鱼非实物', '模板', '数字商品'],
       xp: 5,
       addedAt: '2026-10-16',
@@ -902,7 +914,7 @@
       title: '闲鱼非实物：技能服务 + 本周可试阶梯',
       summary:
         '时长换钱：PPT 美化、简历优化、翻译校对、Excel 脚本、出海/SEO 答疑。详情写清「能交付/不接什么/修改次数/时效」。本周可试：完成 1 份样例+草稿上架清单（可先不上架）。禁账号交易、游戏币、学术代写。',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       tags: ['闲鱼非实物', '技能服务'],
       xp: 5,
       addedAt: '2026-10-16',
@@ -913,8 +925,8 @@
       week: '2026-W42',
       title: '资源库上线：分类筛选一站浏览',
       summary:
-        '主导航新增「资源库」页签，并有独立页 resources.html。可按：免费工具 / 托管与域名 / 变现 / 可试路径 / 闲鱼·非实物 / 技巧 / 同路人 / 文档 筛选。设置里仍保留摘要面板。',
-      url: './resources.html',
+        '顶栏「资源库」。可按：免费工具 / 托管与域名 / 变现 / 可试路径 / 闲鱼·非实物 / 技巧 / 同路人 / 文档 筛选。',
+      url: '#lib',
       tags: ['资源库', '羊毛与渠道'],
       xp: 5,
       addedAt: '2026-10-16',
@@ -1007,27 +1019,27 @@
       cat: 'path',
       name: '站三作战手册 · 扩内页',
       blurb: '固定 Day1–7：规划内页 → 上线 → 内链 → sitemap → 合法分发。',
-      how: '打开 docs/station-three-playbook.md → 回作战室 #war-s3 勾选。',
+      how: '「手册与模板 › 站三手册」 → 回作战室 #war-s3 勾选。',
       caveat: '需先完成站二 Boss；无厚 Starter。',
-      url: './docs/station-three-playbook.md',
+      url: '#guide-station-three-playbook',
     },
     {
       id: 'ch-monetize-playbook',
       cat: 'monetize',
       name: '变现港手册 · AdSense/信任页',
       blurb: '港口法令 → 三选一 → 甲板自检 → 信任页/门槛/闲鱼支线 → 升旗路径文档。',
-      how: '打开 docs/monetize-playbook.md → 回作战室 #war-m 勾选。过审非必须。',
+      how: '「手册与模板 › 变现手册」 → 回作战室 #war-m 勾选。过审非必须。',
       caveat: '空站勿申；规则以官网为准；收入≠保证。',
-      url: './docs/monetize-playbook.md',
+      url: '#guide-monetize-playbook',
     },
     {
       id: 'ch-scale-playbook',
       cat: 'path',
       name: '放大手册 · 复用船体与下一站',
       blurb: '拆解模板 → 一词一船 → 反空壳 → 下一站 1–2 天上线清单。',
-      how: '打开 docs/scale-playbook.md → 回作战室 #war-x 勾选。先跑通一站再量产。',
+      how: '「手册与模板 › 放大手册」 → 回作战室 #war-x 勾选。先跑通一站再量产。',
       caveat: '需先完成变现 Boss；无厚 Starter；空壳站难申广告。',
-      url: './docs/scale-playbook.md',
+      url: '#guide-scale-playbook',
     },
     {
       id: 'ch-gsc',
@@ -1197,7 +1209,7 @@
       name: '主线：小站 SEO → AdSense',
       blurb: '挖词 → 上站 → GSC → 扩页 → 合规变现。',
       how: '本周：定 1 主词 + 最小页上线 + GSC',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '勿空站申广告',
     },
     {
@@ -1206,7 +1218,7 @@
       name: '评测站 + 联盟',
       blurb: '比较/评测意图页接 Associates 等。',
       how: '本周：写 1 篇真实对比大纲（含优缺）',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '站二后更合适',
     },
     {
@@ -1215,7 +1227,7 @@
       name: '微工具 / 微 SaaS',
       blurb: '单功能解决一个痛点，可加免费档。',
       how: '本周：上线能用的最小工具页',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '别一上来做大平台',
     },
     {
@@ -1224,7 +1236,7 @@
       name: 'Newsletter-first',
       blurb: '先攒订阅再谈赞助或导流站点。',
       how: '本周：选免费邮件工具发第 1 封',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '冷启动慢',
     },
     {
@@ -1233,7 +1245,7 @@
       name: 'YouTube + 站点',
       blurb: '视频讲解链回英文小站。',
       how: '本周：1 条短视频 + 描述放链接',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '平台算法另学',
     },
     {
@@ -1252,7 +1264,7 @@
       name: '原创 PPT / 简历 / Excel 模板',
       blurb: '一次制作、多次售卖；无实物库存。必须自创或有授权。',
       how: '做 1 套样例→截图目录→标场景与交付格式→试价 9.9–39',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '禁盗版课/他人模板转卖',
     },
     {
@@ -1261,7 +1273,7 @@
       name: 'Notion / 提示词 / 表格包',
       blurb: '数字下载类：工作流模板、AI 提示词合集（你整理的）。',
       how: '选一垂直场景→打包说明页→闲鱼发「虚拟发货」说明',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '勿抄付费提示词库原文',
     },
     {
@@ -1270,7 +1282,7 @@
       name: '设计源文件 / Canva / 预设',
       blurb: '自创海报模板、简约 logo 源文件、调色预设等。',
       how: '导出预览图+说明商用范围→写清修改次数（若含微调）',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '素材须可商用或自绘',
     },
     {
@@ -1279,7 +1291,7 @@
       name: 'PPT 美化 / 定制排版',
       blurb: '技能换时间：客户给大纲/文案，你套版美化。',
       how: '作品集拼图→写清页数单价与修改次数→先低价练 1–2 单',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '勿承诺「保证过审/无限改」',
     },
     {
@@ -1288,7 +1300,7 @@
       name: '简历优化服务',
       blurb: '改结构、量化成绩、排版；交付可编辑稿。',
       how: '准备前后对比样例→报价分档（改版/深度）→约定轮次',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '不保证面试/录用结果',
     },
     {
@@ -1297,7 +1309,7 @@
       name: '翻译校对 / 文案润色',
       blurb: '按字/按篇报价的轻服务；适合有语言能力者。',
       how: '标明语种与领域→样例 1 段→写清交稿时效',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '法律/医学等需专业资质的勿硬接',
     },
     {
@@ -1306,7 +1318,7 @@
       name: '出海建站 / SEO 答疑',
       blurb: '把练站营所学变成咨询：选题、GSC、上线清单陪跑。',
       how: '写清「答疑时长/交付纪要」→用你自己的站做案例→定价按时段',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '案例≠对方收入保证；勿售卖盗版课',
     },
     {
@@ -1315,7 +1327,7 @@
       name: 'Excel 自动化 / 小脚本',
       blurb: '表格公式、简单爬取整理脚本、批量处理工具交付。',
       how: '录 30 秒演示→写清运行环境→交付文件+使用说明',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '禁爬取隐私/破解类工具',
     },
     {
@@ -1324,7 +1336,7 @@
       name: '公开可商用资料整理',
       blurb: '政府公开报告、CC0/开源说明类合集的二次编排（非盗版网课）。',
       how: '只收公开源→注明出处→写「仅供学习」边界',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '网课/付费电子书搬运=侵权红线',
     },
     {
@@ -1333,7 +1345,7 @@
       name: '本周可试阶梯 + 禁区',
       blurb: '新手从「1 个数字交付物」起步；先草稿后上架。',
       how: 'Day1 样例→Day2 清单七段→Day3 上架或只测曝光',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '禁账号/游戏币/代考/破解',
     },
     {
@@ -1342,7 +1354,7 @@
       name: '先写受众再选题',
       blurb: '避免蹭无关热词把主题做散。',
       how: '备忘写清「给谁用、解决什么」',
-      url: './docs/peer-methods.md',
+      url: '#guide-peer-methods',
       caveat: '摘自公开同路人摘要',
     },
     {
@@ -1351,7 +1363,7 @@
       name: 'SERP 嗅探',
       blurb: '前 5–10 条看类型与可超越点。',
       how: '一页笔记：竞品类型 + 你能更好的 1 点',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '学结构不抄内容',
     },
     {
@@ -1360,7 +1372,7 @@
       name: 'MVP 快上线',
       blurb: '先可访问再迭代。',
       how: '48h 内让 HTTPS 可打开',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '尽善尽美会拖死第一站',
     },
     {
@@ -1378,7 +1390,7 @@
       name: '信任页三件套',
       blurb: 'About / Contact / Privacy。',
       how: '页脚链出三页，信息真实',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
       caveat: '以 AdSense 官方政策为准',
     },
     {
@@ -1395,7 +1407,7 @@
   const RESOURCES = [
     {
       title: '站一作战室（主站 Tab）',
-      url: './index.html#war',
+      url: '#war',
     },
     {
       title: '站一 Starter 模板',
@@ -1403,11 +1415,11 @@
     },
     {
       title: '站一作战手册',
-      url: './docs/station-one-playbook.md',
+      url: '#guide-station-one-playbook',
     },
     {
       title: '站二作战室（主站 Tab · 站二）',
-      url: './index.html#war-s2',
+      url: '#war-s2',
     },
     {
       title: '站二 Starter 模板',
@@ -1415,51 +1427,51 @@
     },
     {
       title: '站二作战手册',
-      url: './docs/station-two-playbook.md',
+      url: '#guide-station-two-playbook',
     },
     {
       title: '站三作战室（主站 Tab · 站三）',
-      url: './index.html#war-s3',
+      url: '#war-s3',
     },
     {
       title: '站三作战手册',
-      url: './docs/station-three-playbook.md',
+      url: '#guide-station-three-playbook',
     },
     {
       title: '变现港作战室（主站 Tab · 变现）',
-      url: './index.html#war-m',
+      url: '#war-m',
     },
     {
       title: '变现港作战手册',
-      url: './docs/monetize-playbook.md',
+      url: '#guide-monetize-playbook',
     },
     {
       title: '放大作战室（主站 Tab · 放大）',
-      url: './index.html#war-x',
+      url: '#war-x',
     },
     {
       title: '放大航线作战手册',
-      url: './docs/scale-playbook.md',
+      url: '#guide-scale-playbook',
     },
     {
       title: 'Phase 5 路线图',
-      url: './docs/PHASE5-ROADMAP.md',
+      url: '#dev-PHASE5-ROADMAP',
     },
     {
       title: 'Phase 4 路线图',
-      url: './docs/PHASE4-ROADMAP.md',
+      url: '#dev-PHASE4-ROADMAP',
     },
     {
       title: 'Phase 2 路线图',
-      url: './docs/PHASE2-ROADMAP.md',
+      url: '#dev-PHASE2-ROADMAP',
     },
     {
       title: 'Phase 3 路线图',
-      url: './docs/PHASE3-ROADMAP.md',
+      url: '#dev-PHASE3-ROADMAP',
     },
     {
       title: '资源库（分类筛选）',
-      url: './resources.html',
+      url: '#lib',
     },
     {
       title: '哥飞公众号归档（免费文入口）',
@@ -1479,11 +1491,11 @@
     },
     {
       title: '可试渠道 · 羊毛与工具笔记',
-      url: './docs/channels-and-tips.md',
+      url: '#guide-channels-and-tips',
     },
     {
       title: '同路人方法调研笔记',
-      url: './docs/peer-methods.md',
+      url: '#guide-peer-methods',
     },
     {
       title: 'Google SEO Starter Guide',

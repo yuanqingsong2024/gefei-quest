@@ -2,57 +2,19 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>资源库 · 出海小站练站营</title>
-    <meta name="description" content="免费工具、托管、变现、可试路径、闲鱼非实物、同路人方法与文档笔记一站浏览。" />
-    <meta name="theme-color" content="#0b1220" />
-    <link rel="icon" href="favicon.ico" sizes="any" />
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-    <link rel="manifest" href="manifest.webmanifest" />
-    <meta property="og:title" content="出海小站练站营" />
-    <meta property="og:description" content="挖词 → 上站 → SEO → 变现 → 放大：游戏化出海建站练习营。" />
-    <meta property="og:image" content="https://yuanqingsong2024.github.io/gefei-quest/assets/hero-bg.jpg" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="css/tokens.css" />
-    <link rel="stylesheet" href="css/ui.css" />
-  </head>
-  <body>
-    <div class="page-bg" aria-hidden="true"></div>
-    <header class="site-nav" id="site-nav">
-      <div class="site-nav-inner">
-        <a class="brand" href="index.html#home"><img src="assets/icon-192.png" alt="" width="36" height="36" /><span>出海小站练站营</span></a>
-        <nav class="site-links" aria-label="站点导航">
-          <a href="index.html#home" data-nav="home">首页</a>
-          <a href="index.html#war" data-nav="start">开始练站</a>
-          <a href="index.html#war" data-nav="war">作战室</a>
-          <a href="resources.html" class="active">资源库</a>
-          <a href="index.html#home-guides" data-nav="guides">手册</a>
-          <a href="index.html#home-faq" data-nav="faq">关于</a>
-        </nav>
-      </div>
-    </header>
-    <div id="app" class="res-page site-res">
-      <header class="game-header">
-        <h1>出海小站练站营 · 资源库</h1>
-        <p class="tagline"><a href="./index.html#home">← 首页</a> · 分类筛选 · 公开摘要 · 收入≠保证</p>
-      </header>
-      <main>
-        <section id="panel-resources" class="tab-panel res-standalone" role="region" aria-label="资源库"></section>
-      </main>
-      <p class="footer-note">
-        公开方法学习 · 非官方 · 额度与规则以官网为准 · 收入≠保证 · <a href="index.html#home">返回首页</a>
-      </p>
-    </div>
-    <script src="js/data.js"></script>
-    <script src="js/resources.js"></script>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0; url=index.html#lib" />
+    <link rel="canonical" href="index.html#lib" />
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        QuestResources.renderLibrary(document.getElementById('panel-resources'), {
-          embedded: false,
-        });
-      });
+      (function () {
+        var h = (location.hash || '').replace(/^#/, '').replace(/^cat-/, '');
+        var ok = ['tools', 'hosting', 'monetize', 'paths', 'xianyu', 'tips', 'peers'];
+        location.replace('index.html#' + (ok.indexOf(h) >= 0 ? 'lib-' + h : 'lib'));
+      })();
     </script>
+  </head>
+  <body style="background:#0b1220;color:#f1f5f9;font-family:system-ui,sans-serif;padding:2rem">
+    资源库已并入主站：<a style="color:#fde68a" href="index.html#lib">前往资源库</a>
   </body>
 </html>

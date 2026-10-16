@@ -80,7 +80,7 @@
       <div class="modal-backdrop" data-cancel="1"></div>
       <div class="modal-card" role="dialog" aria-modal="true" aria-label="重置存档">
         <h2>重置存档？</h2>
-        <p>将清空 XP、任务勾选、成就与商船领取记录。此操作不可恢复。</p>
+        <p>将清空 XP、任务勾选、成就与每周补给领取记录。此操作不可恢复。</p>
         <p>请输入「<strong>重置</strong>」确认：</p>
         <input type="text" id="reset-input" class="input" autocomplete="off" aria-label="输入重置" />
         <div class="modal-actions">

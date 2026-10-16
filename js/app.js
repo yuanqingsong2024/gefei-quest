@@ -1,84 +1,50 @@
 /**
- * 出海小站练站营 · 应用入口
+ * 出海小站练站营 · 应用入口（Phase 8：统一壳 + 路由，名称见 js/nav.js SITE_NAV）
  */
 (function () {
   let state = null;
-  let currentTab = 'home';
+  let route = { section: 'home', view: 'home', hash: 'home' };
   let currentChapter = 'ch-prologue';
-
+  const N = window.QuestNav;
+  const I = N.icon;
   const $ = (sel) => document.querySelector(sel);
+  const PANELS = ['home', 'path', 'war', 'lib', 'guides', 'weekly', 'me'];
 
   function persist() {
     state = QuestSave.saveSave(state);
   }
+  function go(hash) {
+    if (location.hash === hash) { route = N.parse(hash); renderAll(); return; }
+    location.hash = hash;
+  }
 
   function applyMotionClass() {
-    document.documentElement.classList.toggle(
-      'reduce-motion',
-      !!(state.settings && state.settings.reduceMotion)
-    );
+    document.documentElement.classList.toggle('reduce-motion', !!(state.settings && state.settings.reduceMotion));
   }
 
-  function renderHUD() {
-    const hud = $('#hud');
-    if (!hud) return;
+  function statsHtml() {
     const prog = QuestProgress.xpProgress(state.xp || 0);
-    const activeId = QuestProgress.getActiveChapterId(state);
-    const activeCh = QuestData.getChapter(activeId);
+    const activeCh = QuestData.getChapter(QuestProgress.getActiveChapterId(state));
     const achTotal = QuestData.ACHIEVEMENTS.length;
     const achHave = (state.achievements || []).length;
-    const energyOn = state.settings && state.settings.energyEnabled;
-    let energyHtml = '';
-    if (energyOn) {
+    let energy = '';
+    if (state.settings && state.settings.energyEnabled) {
       state = QuestProgress.ensureEnergy(state);
-      energyHtml = `
-        <div class="hud-energy" title="今日体力">
-          <span>⚡</span>
-          <div class="bar"><i style="width:${(state.energy.left / 5) * 100}%"></i></div>
-          <span class="hud-num">${state.energy.left}/5</span>
-        </div>`;
+      energy = `<div class="stat"><span class="card-ico">${I('fire')}</span><b>${state.energy.left}/5</b><small>今日体力</small></div>`;
     }
-
-    hud.innerHTML = `
-      <div class="hud-left">
-        <div class="avatar" aria-hidden="true">🧭</div>
-        <div>
-          <div class="hud-name">冒险者 · Lv.${prog.level}</div>
-          <div class="hud-title">${prog.title}</div>
-        </div>
+    return `
+      <div class="me-level glass">
+        <div class="me-lv"><span class="card-ico card-ico-lg">${I('compass')}</span><div><b>Lv.${prog.level} · ${prog.title}</b>
+        <small>XP ${state.xp || 0}${prog.maxed ? ' · 已满级' : ` · 距下一级 ${prog.need - prog.into}`}</small></div></div>
+        <div class="bar bar-xp" role="progressbar" aria-valuenow="${prog.pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${prog.pct}%"></i></div>
       </div>
-      <div class="hud-mid">
-        <div class="hud-xp-label">XP ${state.xp || 0}${
-          prog.maxed ? ' · MAX' : ` · 距下级 ${prog.need - prog.into}`
-        }</div>
-        <div class="bar bar-xp" role="progressbar" aria-valuenow="${prog.pct}" aria-valuemin="0" aria-valuemax="100">
-          <i style="width:${prog.pct}%"></i>
-        </div>
-        ${energyHtml}
-      </div>
-      <div class="hud-right">
-        <div>📍 ${activeCh ? activeCh.name : '—'}</div>
-        <div>🔥 连击 ${state.streak || 0} 天</div>
-        <div>🏅 成就 ${achHave}/${achTotal}</div>
-        <div class="hud-save">本机浏览器</div>
+      <div class="stat-grid">
+        <div class="stat"><span class="card-ico">${I('map')}</span><b>${activeCh ? activeCh.name : '—'}</b><small>当前章节</small></div>
+        <div class="stat"><span class="card-ico">${I('list')}</span><b>${(state.done || []).length}</b><small>已完成任务</small></div>
+        <div class="stat"><span class="card-ico">${I('fire')}</span><b>${state.streak || 0} 天</b><small>连击</small></div>
+        <div class="stat"><span class="card-ico">${I('trophy')}</span><b>${achHave}/${achTotal}</b><small>成就</small></div>
+        ${energy}
       </div>`;
-  }
-
-  function renderTabs() {
-    document.body.classList.toggle('is-home', currentTab === 'home');
-    document.querySelectorAll('.site-links a[data-nav]').forEach((a) => {
-      const n = a.getAttribute('data-nav');
-      a.classList.toggle('active', (n === 'home' && currentTab === 'home') || (n === 'war' && currentTab === 'war'));
-    });
-    document.querySelectorAll('.tab-btn').forEach((btn) => {
-      const tab = btn.getAttribute('data-tab');
-      btn.classList.toggle('active', tab === currentTab);
-      btn.setAttribute('aria-selected', tab === currentTab ? 'true' : 'false');
-    });
-    document.querySelectorAll('.tab-panel').forEach((panel) => {
-      const id = panel.id.replace('panel-', '');
-      panel.hidden = id !== currentTab;
-    });
   }
 
   function showNewlyAchievements(newly) {
@@ -92,95 +58,115 @@
     });
   }
 
+  function subTabs(items, activeId) {
+    return `<nav class="sub-tabs" aria-label="子页面">${items
+      .map((t) => `<a href="${t.hash}" class="sub-tab${t.id === activeId ? ' active' : ''}"${t.id === activeId ? ' aria-current="page"' : ''}>${I(t.icon)}<span>${t.label}</span></a>`)
+      .join('')}</nav>`;
+  }
+
+  function chapterChips() {
+    return `<div class="chip-row" role="tablist" aria-label="章节">${QuestData.CHAPTERS.map((ch) => {
+      const st = QuestProgress.chapterStatus(ch.id, state);
+      return `<button type="button" class="chip${ch.id === currentChapter ? ' active' : ''}${st === 'locked' ? ' is-locked' : ''}" data-ch="${ch.id}" role="tab" aria-selected="${ch.id === currentChapter}">${I(st === 'locked' ? 'lock' : ch.icon)}<span>${ch.name}</span></button>`;
+    }).join('')}</div>`;
+  }
+
+  function renderShell(extraCrumb) {
+    N.renderTopNav(route.section === 'dev' ? '' : route.section);
+    N.renderSectionHead(route, extraCrumb);
+    N.renderFooter();
+    N.titleFor(route, extraCrumb);
+    document.body.classList.toggle('is-home', route.section === 'home');
+    const panel = route.section === 'dev' ? 'guides' : route.section;
+    PANELS.forEach((id) => {
+      const el = document.getElementById('panel-' + id);
+      if (el) el.hidden = id !== panel;
+    });
+  }
+
   function renderAll() {
     applyMotionClass();
-    renderHUD();
-    renderTabs();
-
-    if (currentTab === 'home') {
-      QuestHome.renderHome($('#panel-home'), {
-        onNavigate(action, target) {
-          if (action === 'tab') {
-            currentTab = target;
-            if (target === 'quest' && !currentChapter) {
-              currentChapter = QuestProgress.getActiveChapterId(state);
-            }
-            try {
-              location.hash = target;
-            } catch (_) {}
-            renderAll();
-            return;
-          }
-          if (action === 'hash') {
-            applyHashTabFromValue(target);
-            try {
-              location.hash = target;
-            } catch (_) {}
-            renderAll();
-          }
-        },
-      });
-    } else if (currentTab === 'map') {
-      QuestMap.renderMap(state, $('#panel-map'), (chapterId) => {
-        currentChapter = chapterId;
-        currentTab = 'quest';
-        renderAll();
-      });
-    } else if (currentTab === 'war') {
+    let crumb = '';
+    const sec = route.section;
+    if (sec === 'home') {
+      QuestHome.renderHome($('#panel-home'));
+    } else if (sec === 'path') {
+      const root = $('#panel-path');
+      const quests = route.view === 'quests';
+      crumb = quests ? '任务清单' : '';
+      root.innerHTML = subTabs(N.PATH_TABS, quests ? 'quests' : 'map') +
+        (quests ? chapterChips() : '') + '<div id="path-body"></div>';
+      if (quests) {
+        root.querySelectorAll('[data-ch]').forEach((b) => b.addEventListener('click', () => {
+          const id = b.getAttribute('data-ch');
+          if (QuestProgress.chapterStatus(id, state) === 'locked') { QuestModal.showToast('该章节尚未解锁：先完成上一章'); return; }
+          currentChapter = id; renderAll();
+        }));
+        QuestBoard.renderBoard(state, currentChapter, $('#path-body'), (msg) => {
+          if (msg.type === 'back') { go('#path'); return; }
+          if (msg.type === 'toggle') handleToggle(msg.questId, msg.checked, msg.el);
+        });
+      } else {
+        QuestMap.renderMap(state, $('#path-body'), (chapterId) => { currentChapter = chapterId; go('#path-quests'); });
+      }
+    } else if (sec === 'war') {
+      QuestWarRoom.setActiveStation(route.param || 1);
+      const st = N.STATIONS.find((x) => x.n === (route.param || 1));
+      crumb = st ? st.label : '';
       QuestWarRoom.renderWarRoom(state, $('#panel-war'), {
-        onToggle(questId, checked, el) {
-          handleToggle(questId, checked, el);
-        },
+        onToggle(questId, checked, el) { handleToggle(questId, checked, el); },
         onGotoQuest(station) {
           const map = { 1: 'ch-stage1', 2: 'ch-stage2', 3: 'ch-stage3', 4: 'ch-monetize', 5: 'ch-scale' };
           const prefer = map[station] || 'ch-stage1';
-          currentChapter = prefer;
-          if ((state.unlocked || []).indexOf(prefer) < 0) {
-            currentChapter = QuestProgress.getActiveChapterId(state);
-          }
-          currentTab = 'quest';
-          location.hash = 'quest';
-          renderAll();
+          currentChapter = (state.unlocked || []).indexOf(prefer) < 0 ? QuestProgress.getActiveChapterId(state) : prefer;
+          go('#path-quests');
         },
-        onStationChange(n) {
-          QuestWarRoom.setActiveStation(n);
-          try {
-            location.hash = QuestWarRoom.hashForStation(n);
-          } catch (_) {}
-          renderAll();
+        onStationChange(n) { go(QuestWarRoom.hashForStation(n)); },
+      });
+    } else if (sec === 'lib') {
+      const c = N.LIB_CATS.find((x) => x.id === route.param);
+      crumb = c ? c.label : '';
+      QuestResources.renderLibrary($('#panel-lib'), {
+        embedded: true,
+        filter: route.param,
+        onFilter(f) {
+          const cc = N.LIB_CATS.find((x) => x.id === f);
+          route = N.parse(f === 'all' ? 'lib' : 'lib-' + f);
+          N.renderSectionHead(route, cc ? cc.label : '');
+          N.titleFor(route, cc ? cc.label : '');
         },
       });
-    } else if (currentTab === 'quest') {
-      QuestBoard.renderBoard(state, currentChapter, $('#panel-quest'), (msg) => {
-        if (msg.type === 'back') {
-          currentTab = 'map';
-          renderAll();
-          return;
-        }
-        if (msg.type === 'toggle') {
-          handleToggle(msg.questId, msg.checked, msg.el);
-        }
-      });
-    } else if (currentTab === 'ship') {
-      QuestWeekly.renderShip(state, $('#panel-ship'), (id) => {
+    } else if (sec === 'guides' || sec === 'dev') {
+      const root = $('#panel-guides');
+      if (route.view === 'doc') {
+        crumb = QuestGuides.docTitle(route.param, sec === 'dev');
+        QuestGuides.renderDoc(root, route.param, sec === 'dev');
+      } else if (sec === 'dev') {
+        QuestGuides.renderDev(root);
+      } else {
+        QuestGuides.renderGuides(root);
+      }
+    } else if (sec === 'weekly') {
+      QuestWeekly.renderShip(state, $('#panel-weekly'), (id) => {
         const res = QuestWeekly.claimWeekly(state, id);
         if (!res.ok) {
-          if (res.reason === 'already') QuestModal.showToast('这条卷轴已经领取过了');
+          if (res.reason === 'already') QuestModal.showToast('这张补给卡已经领取过了');
           return;
         }
         state = res.state;
         persist();
         QuestSfx.play('claim', state.settings.muted);
-        QuestModal.showToast(`+${res.xp} XP · 卷轴已收入`);
+        QuestModal.showToast(`+${res.xp} XP · 已领取`);
         showNewlyAchievements(res.newly);
         renderAll();
       });
-    } else if (currentTab === 'ach') {
-      QuestAchievements.renderWall(state, $('#panel-ach'));
-    } else if (currentTab === 'resources') {
-      QuestResources.renderLibrary($('#panel-resources'), { embedded: true });
-    } else if (currentTab === 'settings') {
-      QuestSettings.renderSettings(state, $('#panel-settings'), {
+    } else if (sec === 'me') {
+      const root = $('#panel-me');
+      root.innerHTML = `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>
+        <section class="block" id="me-ach-wrap"><div id="me-ach"></div></section>
+        <section class="block" id="me-settings-wrap"><div id="me-settings"></div></section>`;
+      QuestAchievements.renderWall(state, $('#me-ach'));
+      QuestSettings.renderSettings(state, $('#me-settings'), {
         onToggle(key, value) {
           state = {
             ...state,
@@ -194,23 +180,9 @@
           renderAll();
         },
         onGotoResources() {
-          currentTab = 'resources';
-          try { location.hash = 'resources'; } catch (_) {}
-          renderAll();
+          go('#lib');
         },
-        onGotoWar(station) {
-          currentTab = 'war';
-          const n = globalThis.QuestWarRoom
-            ? QuestWarRoom.normalizeStation(station)
-            : (station === 2 || station === 3 || station === 4 || station === 5 ? station : 1);
-          if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(n);
-          try {
-            location.hash = globalThis.QuestWarRoom
-              ? QuestWarRoom.hashForStation(n)
-              : 'war';
-          } catch (_) {}
-          renderAll();
-        },
+        onGotoWar(station) { go(QuestWarRoom.hashForStation(QuestWarRoom.normalizeStation(station))); },
         onExportSave() {
           const blob = new Blob([JSON.stringify(state, null, 2)], {
             type: 'application/json',
@@ -252,12 +224,25 @@
             }
             persist();
             currentChapter = 'ch-prologue';
-            currentTab = 'home';
+            
             QuestModal.showToast('存档已重置');
             renderAll();
           });
         },
       });
+    }
+    renderShell(crumb);
+    N.fixLinks(document.getElementById('app'));
+    const changed = renderAll._last !== route.hash;
+    renderAll._last = route.hash;
+    if (!changed) return;
+    if (route.section !== 'home' || !route.param) {
+      window.scrollTo(0, 0);
+    } else {
+      setTimeout(() => {
+        const el = document.getElementById(route.param);
+        if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth' });
+      }, 30);
     }
   }
 
@@ -268,9 +253,9 @@
       // 回滚 checkbox
       if (el) el.checked = !checked;
       if (res.reason === 'no-energy') {
-        QuestModal.showToast('体力不足：明日再来，或去设置关闭体力系统');
+        QuestModal.showToast('体力不足：明日再来，或在「我的进度」关闭体力系统');
       } else if (res.reason === 'locked') {
-        QuestModal.showToast('该岛尚未解锁');
+        QuestModal.showToast('该章节尚未解锁');
       }
       return;
     }
@@ -291,133 +276,36 @@
       QuestModal.showBossVictory(res.chapter, state.settings.reduceMotion, () => {
         renderAll();
       });
-      // 仍刷新 HUD
-      renderHUD();
       return;
     }
 
     renderAll();
   }
 
-  function applyHashTabFromValue(h) {
-    const raw = (h || '').replace(/^#/, '');
-    if (/^home-/.test(raw || '')) {
-      currentTab = 'home';
-      setTimeout(() => {
-        const el = document.getElementById(raw);
-        if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth' });
-      }, 30);
-      return;
+  function onHash() {
+    const raw = (location.hash || '').replace(/^#/, '');
+    const canon = N.canonical(raw);
+    if (canon !== raw) {
+      try { history.replaceState(null, '', '#' + canon); } catch (_) {}
     }
-    const warMap = {
-      'war-s2': 2,
-      'war-s3': 3,
-      'war-m': 4,
-      'war-x': 5,
-      war: 1,
-      'war-s1': 1,
-    };
-    if (Object.prototype.hasOwnProperty.call(warMap, raw)) {
-      currentTab = 'war';
-      if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(warMap[raw]);
-      return;
-    }
-    const allowed = [
-      'home',
-      'map',
-      'war',
-      'quest',
-      'ship',
-      'ach',
-      'resources',
-      'settings',
-    ];
-    if (allowed.indexOf(raw) >= 0) {
-      currentTab = raw;
-      return;
-    }
-    if (!raw) currentTab = 'home';
-  }
-
-  function tabFromHash() {
-    const h = (location.hash || '').replace(/^#/, '');
-    if (
-      h === 'war-s2' ||
-      h === 'war-s3' ||
-      h === 'war-m' ||
-      h === 'war-x' ||
-      h === 'war-s1' ||
-      h === 'war'
-    )
-      return 'war';
-    const allowed = [
-      'home',
-      'map',
-      'war',
-      'quest',
-      'ship',
-      'ach',
-      'resources',
-      'settings',
-    ];
-    return allowed.indexOf(h) >= 0 ? h : null;
-  }
-
-  function applyHashTab() {
-    applyHashTabFromValue((location.hash || '').replace(/^#/, ''));
+    route = N.parse(canon);
   }
 
   function init() {
     let hadSave = false;
-    try {
-      hadSave = !!localStorage.getItem(QuestSave.SAVE_KEY);
-    } catch (_) {}
+    try { hadSave = !!localStorage.getItem(QuestSave.SAVE_KEY); } catch (_) {}
     state = QuestSave.loadSave();
-    if (
-      !hadSave &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) {
+    if (!hadSave && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       state.settings.reduceMotion = true;
     }
-
     state = QuestProgress.recomputeUnlocks(state);
     currentChapter = QuestProgress.getActiveChapterId(state);
-    applyHashTab();
-    try {
-      if (!(location.hash || '').replace(/^#/, '')) {
-        location.replace(location.pathname + location.search + '#home');
-      }
-    } catch (_) {}
-
-    document.querySelectorAll('.tab-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        currentTab = btn.getAttribute('data-tab');
-        if (currentTab === 'quest' && !currentChapter) {
-          currentChapter = QuestProgress.getActiveChapterId(state);
-        }
-        try {
-          if (currentTab === 'war' && globalThis.QuestWarRoom) {
-            location.hash = QuestWarRoom.hashForStation(QuestWarRoom.getActiveStation());
-          } else {
-            location.hash = currentTab;
-          }
-        } catch (_) {}
-        renderAll();
-      });
-    });
-
-    window.addEventListener('hashchange', () => {
-      applyHashTab();
-      renderAll();
-    });
-
+    onHash();
+    window.addEventListener('hashchange', () => { onHash(); renderAll(); });
     QuestModal.ensureRoots();
     renderAll();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();

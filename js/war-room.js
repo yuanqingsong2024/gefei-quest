@@ -162,65 +162,65 @@
   function metaForStation(station, state) {
     if (station === 2) {
       return {
-        title: '站二作战室',
-        sub: '固定 Day1–7 · 一词一岛 · 勾选与「任务」页同源 · <strong>无需选路径</strong>',
+        title: '站二 · 一词一站',
+        sub: '固定 Day1–7 · 一词一岛 · 勾选与「学习路线」同步 · <strong>无需选路径</strong>',
         starterHref: './starters/station-two/',
-        playbookHref: './docs/station-two-playbook.md',
+        playbookHref: '#guide-station-two-playbook',
         showStarter: true,
         locked: !stationTwoInteractive(state),
         lockBanner:
-          '站二日程可先浏览。勾选已灰锁：请先完成<strong>站一 Boss（呼名）</strong>，或在地图通关站一解锁本岛后再勾。',
+          '站二日程可先浏览。勾选已灰锁：请先完成<strong>站一 Boss（呼名）</strong>，或在学习路线通关站一解锁本岛后再勾。',
         foot: 'Boss 需有曝光向好迹象再勾。诚实声明：不保证收益。',
         chapterPrefer: 'ch-stage2',
       };
     }
     if (station === 3) {
       return {
-        title: '站三作战室',
-        sub: '固定 Day1–7 · 扩内页与内链 · 勾选与「任务」页同源 · <strong>无需选路径</strong>',
+        title: '站三 · 扩内页',
+        sub: '固定 Day1–7 · 扩内页与内链 · 勾选与「学习路线」同步 · <strong>无需选路径</strong>',
         starterHref: null,
-        playbookHref: './docs/station-three-playbook.md',
+        playbookHref: '#guide-station-three-playbook',
         showStarter: false,
         locked: !stationThreeInteractive(state),
         lockBanner:
-          '站三日程可先浏览。勾选已灰锁：请先完成<strong>站二 Boss（航道打通）</strong>，或在地图通关站二解锁本岛后再勾。',
+          '站三日程可先浏览。勾选已灰锁：请先完成<strong>站二 Boss（航道打通）</strong>，或在学习路线通关站二解锁本岛后再勾。',
         foot: '多页收录 + 点击趋势再勾 Boss。诚实声明：不保证收益。',
         chapterPrefer: 'ch-stage3',
       };
     }
     if (station === 4) {
       return {
-        title: '变现港作战室',
+        title: '变现 · 广告与联盟',
         sub: '固定 Day1–7 · 路径意识 · 过审非必须 · <strong>无需选路径</strong>',
         starterHref: null,
-        playbookHref: './docs/monetize-playbook.md',
+        playbookHref: '#guide-monetize-playbook',
         showStarter: false,
         locked: !monetizeInteractive(state),
         lockBanner:
-          '变现日程可先浏览。勾选已灰锁：请先完成<strong>站三 Boss（群岛连线）</strong>，或在地图通关站三解锁变现港后再勾。',
+          '变现日程可先浏览。勾选已灰锁：请先完成<strong>站三 Boss（群岛连线）</strong>，或在学习路线通关站三解锁变现港后再勾。',
         foot: '写出路径文档即可勾 Boss；申请成功非必须。诚实声明：不保证收益。',
         chapterPrefer: 'ch-monetize',
       };
     }
     if (station === 5) {
       return {
-        title: '放大航线作战室',
+        title: '放大 · 复制到多站',
         sub: '固定 Day1–7 · 复用船体 · 一词一船 · 反空壳 · <strong>无需选路径</strong>',
         starterHref: null,
-        playbookHref: './docs/scale-playbook.md',
+        playbookHref: '#guide-scale-playbook',
         showStarter: false,
         locked: !scaleInteractive(state),
         lockBanner:
-          '放大日程可先浏览。勾选已灰锁：请先完成<strong>变现港 Boss（升旗仪式）</strong>，或在地图通关变现港解锁放大航线后再勾。',
+          '放大日程可先浏览。勾选已灰锁：请先完成<strong>变现港 Boss（升旗仪式）</strong>，或在学习路线通关变现港解锁放大航线后再勾。',
         foot: '先跑通一站再谈量产；空壳站难申广告。诚实声明：不保证收益。',
         chapterPrefer: 'ch-scale',
       };
     }
     return {
-      title: '站一作战室',
-      sub: '固定 Day1–7 · 勾选与「任务」页同源存档 · <strong>无需选路径</strong>',
+      title: '站一 · 上线第一站',
+      sub: '固定 Day1–7 · 勾选与「学习路线」同步存档 · <strong>无需选路径</strong>',
       starterHref: './starters/station-one/',
-      playbookHref: './docs/station-one-playbook.md',
+      playbookHref: '#guide-station-one-playbook',
       showStarter: true,
       locked: false,
       lockBanner: '',
@@ -231,12 +231,15 @@
 
   function tabBtn(station, label, ok) {
     const active = activeStation === station;
-    const lock = ok ? '' : '<span class="war-lock-badge" title="需前置 Boss">🔒</span>';
+    const NV = global.QuestNav;
+    const st = NV ? NV.STATIONS.find((x) => x.n === station) : null;
+    const ico = NV && st ? NV.icon(st.icon) : '';
+    const lock = ok ? '' : `<span class="war-lock-badge" title="需先通关上一站">${NV ? NV.icon('lock') : '🔒'}</span>`;
     return `<button type="button" class="war-station-btn ${
       active ? 'active' : ''
     }" role="tab" data-war-station="${station}" aria-selected="${
       active ? 'true' : 'false'
-    }">${label} ${lock}</button>`;
+    }">${ico}<span>${label}</span> ${lock}</button>`;
   }
 
   /**
@@ -266,13 +269,11 @@
     });
 
     const starterBtn = meta.showStarter
-      ? `<a class="btn btn-primary btn-sm" href="${meta.starterHref}" target="_blank" rel="noopener noreferrer">打开 Starter</a>`
+      ? `<a class="btn btn-primary btn-sm" href="${meta.starterHref}" target="_blank" rel="noopener noreferrer">打开单页模板 ↗</a>`
       : '';
 
     root.innerHTML = `
       <div class="panel-head">
-        <h2>作战室</h2>
-        <p class="panel-sub">站一上线 · 站二一词 · 站三扩页 · 变现路径 · 放大复用 · 无路径分支</p>
         <div class="war-station-tabs" role="tablist" aria-label="作战站切换">
           ${tabBtn(1, '站一', true)}
           ${tabBtn(2, '站二', s2ok)}
@@ -280,13 +281,13 @@
           ${tabBtn(4, '变现', mok)}
           ${tabBtn(5, '放大', xok)}
         </div>
-        <h3 class="war-station-title">${meta.title}</h3>
+        <h2 class="war-station-title">${meta.title}</h2>
         <p class="panel-sub">${meta.sub}</p>
         <div class="war-toolbar">
           <span class="war-progress" aria-live="polite">主线进度 ${mainDone}/${mainTotal}</span>
           ${starterBtn}
-          <a class="btn ${meta.showStarter ? 'btn-sm' : 'btn-primary btn-sm'}" href="${meta.playbookHref}" target="_blank" rel="noopener noreferrer">作战手册</a>
-          <button type="button" class="btn btn-sm" id="war-goto-quest">打开任务板</button>
+          <a class="btn ${meta.showStarter ? 'btn-sm' : 'btn-primary btn-sm'}" href="${meta.playbookHref}">阅读本站手册</a>
+          <button type="button" class="btn btn-sm" id="war-goto-quest">在学习路线查看</button>
         </div>
       </div>
       ${

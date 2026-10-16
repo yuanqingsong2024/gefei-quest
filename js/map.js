@@ -7,8 +7,8 @@
 
     root.innerHTML = `
       <div class="panel-head">
-        <h2>搜索之海 · 岛屿地图</h2>
-        <p class="panel-sub">勾选 = 你承认线下这步做完了。通关 Boss 解锁下一座岛。</p>
+        <h2>六个章节，依次解锁</h2>
+        <p class="panel-sub">点开一章查看任务清单。勾选 = 线下这步真的做完了；完成本章 Boss 任务解锁下一章。</p>
       </div>
       <div class="map-scroll" role="list">
         ${chapters
@@ -16,7 +16,7 @@
             const st = P.chapterStatus(ch.id, state);
             const lockHint =
               st === 'locked'
-                ? '需先通关上一岛 Boss'
+                ? '需先完成上一章'
                 : st === 'cleared'
                   ? '已通关'
                   : '可出击';
@@ -25,14 +25,14 @@
               data-chapter="${ch.id}" data-status="${st}"
               aria-label="${ch.name}，${lockHint}">
               <span class="island-lock" aria-hidden="true">${
-                st === 'locked' ? '🔒' : st === 'cleared' ? '✅' : '⚔️'
+                global.QuestNav ? global.QuestNav.icon(st === 'locked' ? 'lock' : st === 'cleared' ? 'trophy' : 'target') : ''
               }</span>
-              <span class="island-emoji" aria-hidden="true">${ch.emoji}</span>
-              <span class="island-name">${ch.name}</span>
+              <span class="island-emoji" aria-hidden="true">${global.QuestNav ? global.QuestNav.icon(ch.icon) : ch.emoji}</span><span class="island-step">第 ${i + 1} 章</span>
+              <span class="island-name">${ch.name}</span><span class="island-nick">${ch.nick || ''}</span>
               <span class="island-status-text">${
                 st === 'locked' ? '锁定' : st === 'cleared' ? '已通关' : '进行中'
               }</span>
-              ${i < chapters.length - 1 ? '<span class="island-path" aria-hidden="true">→</span>' : ''}
+              
             </button>`;
           })
           .join('')}
@@ -49,7 +49,7 @@
           const prev = chapters.find((c) => c.next === id);
           tip.textContent = `「${ch.name}」未解锁。请先击败「${
             prev ? prev.name : '上一岛'
-          }」的 Boss。`;
+          }」的 Boss 任务。`;
           return;
         }
         tip.textContent = '';

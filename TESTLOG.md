@@ -80,3 +80,11 @@
 - `/` → `#home` 落地页，body.is-home，HUD/Tab 隐藏 ✅；`#war` / `#war-s2` 显示 HUD+Tab ✅；`#home-faq` 回首页并滚动 ✅
 - 390 宽无横向溢出（scrollWidth=390）✅；`resources.html#xianyu` 深链 ✅；页面 JS 错误 0
 - 截图：/workspace/gefei-quest-shots/{home-desktop,home-mobile,war-desktop,resources-desktop}.png
+
+## 2026-10-16 · Phase 8 信息架构
+- `tools/site-check.js`（Chrome headless，1280×860）：20 个路由 + 9 份手册页 + 13 份开发文档页全部命中正确面板 ✅
+- 旧 hash 10 个（#map #quest #quests #ship #ach #settings #resources #war-s1 #home-faq 空）→ 新路由 ✅；resources.html / #tools / #xianyu → index.html#lib(-x) ✅
+- 链接检查：78 个唯一链接，原始 .md 链接 0，失效 0；控制台错误 0
+- 390×844：home/lib/path/war/guide/me scrollWidth=390 ✅
+- file:// 打开 #guide-scale-playbook 正常渲染（guides-data.js 兜底）✅；作战室勾选 q-p-01 写入 gefei-quest-save-v1 并在 #me 统计同步 ✅
+- 截图：/workspace/gefei-quest-shots/p8-{home,path,war,lib,guide,weekly,me,mobile-home,mobile-lib}.png

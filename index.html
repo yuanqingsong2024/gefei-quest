@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>出海小站练站营</title>
-    <meta name="description" content="本地关卡式出海 SEO 练站打卡：首页总目录 · 站一→站二→站三 · 资源库与作战室。" />
+    <meta name="description" content="本地关卡式出海 SEO 练站打卡：学习路线 · 实战作战室 · 资源库 · 手册与模板。" />
     <meta name="theme-color" content="#0b1220" />
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -19,55 +19,33 @@
     <link rel="stylesheet" href="css/ui.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main">跳到正文</a>
     <div class="page-bg" aria-hidden="true"></div>
     <header class="site-nav" id="site-nav">
       <div class="site-nav-inner">
-        <a class="brand" href="#home"><img src="assets/icon-192.png" alt="" width="36" height="36" /><span>出海小站练站营</span></a>
-        <nav class="site-links" aria-label="站点导航">
-          <a href="#home" data-nav="home">首页</a>
-          <a href="#war" data-nav="start">开始练站</a>
-          <a href="#war" data-nav="war">作战室</a>
-          <a href="resources.html">资源库</a>
-          <a href="#home-guides" data-nav="guides">手册</a>
-          <a href="#home-faq" data-nav="faq">关于</a>
+        <a class="brand" href="#home"><img src="assets/icon-192.png" alt="" width="34" height="34" /><span>出海小站练站营</span></a>
+        <nav class="site-links" aria-label="主导航">
+          <a href="#home">首页</a><a href="#path">学习路线</a><a href="#war">实战作战室</a><a href="#lib">资源库</a><a href="#guides">手册与模板</a><a href="#weekly">每周补给</a><a href="#me">我的进度</a>
         </nav>
       </div>
     </header>
     <div id="app">
-      <header class="game-header">
-        <h1>出海小站练站营</h1>
-        <p class="tagline">搜索之海 · 建站冒险 · 勾选=线下做完</p>
-      </header>
-
-      <div id="hud" class="hud" aria-label="状态栏"></div>
-
-      <nav class="tabs" role="tablist" aria-label="主导航">
-        <button type="button" class="tab-btn active" role="tab" data-tab="home" aria-selected="true">首页</button>
-        <button type="button" class="tab-btn" role="tab" data-tab="map" aria-selected="false">地图</button>
-        <button type="button" class="tab-btn" role="tab" data-tab="war" aria-selected="false">作战室</button>
-        <button type="button" class="tab-btn" role="tab" data-tab="quest" aria-selected="false">任务</button>
-        <button type="button" class="tab-btn" role="tab" data-tab="ship" aria-selected="false">商船</button>
-        <button type="button" class="tab-btn" role="tab" data-tab="ach" aria-selected="false">成就</button>
-        <button type="button" class="tab-btn" role="tab" data-tab="resources" aria-selected="false">资源库</button>
-        <button type="button" class="tab-btn" role="tab" data-tab="settings" aria-selected="false">设置</button>
-      </nav>
-
-      <main>
-        <section id="panel-home" class="tab-panel" role="tabpanel"></section>
-        <section id="panel-map" class="tab-panel" role="tabpanel" hidden></section>
-        <section id="panel-war" class="tab-panel" role="tabpanel" hidden></section>
-        <section id="panel-quest" class="tab-panel" role="tabpanel" hidden></section>
-        <section id="panel-ship" class="tab-panel" role="tabpanel" hidden></section>
-        <section id="panel-ach" class="tab-panel" role="tabpanel" hidden></section>
-        <section id="panel-resources" class="tab-panel" role="tabpanel" hidden></section>
-        <section id="panel-settings" class="tab-panel" role="tabpanel" hidden></section>
+      <header class="section-head" id="section-head" hidden></header>
+      <main id="main" class="view">
+        <section id="panel-home" class="tab-panel"></section>
+        <section id="panel-path" class="tab-panel" hidden></section>
+        <section id="panel-war" class="tab-panel" hidden></section>
+        <section id="panel-lib" class="tab-panel" hidden></section>
+        <section id="panel-guides" class="tab-panel" hidden></section>
+        <section id="panel-weekly" class="tab-panel" hidden></section>
+        <section id="panel-me" class="tab-panel" hidden></section>
       </main>
-
-      <p class="footer-note app-only">
-        游戏不能替你建站。收入案例≠保证。进度仅存本机浏览器。
-      </p>
+      <footer class="site-footer" id="site-footer"></footer>
     </div>
+    <noscript><p style="padding:2rem;color:#fff">本站需要启用 JavaScript。</p></noscript>
 
+    <script src="js/icons.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/save.js"></script>
     <script src="js/data.js"></script>
     <script src="js/progress.js"></script>
@@ -77,6 +55,8 @@
     <script src="js/weekly.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/resources.js"></script>
+    <script src="js/guides-data.js"></script>
+    <script src="js/guides.js"></script>
     <script src="js/home.js"></script>
     <script src="js/war-room.js"></script>
     <script src="js/map.js"></script>

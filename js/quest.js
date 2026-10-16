@@ -30,8 +30,7 @@
 
     root.innerHTML = `
       <div class="panel-head">
-        <button type="button" class="btn btn-ghost btn-sm" id="back-map">← 返回地图</button>
-        <h2>${ch.emoji} ${ch.name}</h2>
+                <h2 class="with-ico"><span class="card-ico">${global.QuestNav ? global.QuestNav.icon(ch.icon) : ch.emoji}</span>${ch.name}<small class="nick">${ch.nick || ''}</small></h2>
         <p class="panel-sub">${ch.blurb} · 状态：${
           status === 'cleared' ? '已通关' : status === 'active' ? '进行中' : '锁定'
         }</p>

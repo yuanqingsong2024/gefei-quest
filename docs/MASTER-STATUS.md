@@ -83,3 +83,6 @@
 
 ## Phase 7 · 整站美化（2026-10-16）
 - T88–T95 全部完成：网站式落地页首页、图标/背景/favicon/manifest/og:image、整站玻璃卡片与吸顶导航、resources.html 统一头尾。方案：`docs/PHASE7-DESIGN.md`
+
+## Phase 8 · 信息架构重整（2026-10-16）
+- T96–T105 全部完成。七个栏目（首页 / 学习路线 / 实战作战室 / 资源库 / 手册与模板 / 每周补给 / 我的进度）名称统一来自 `js/nav.js`；SVG 图标集 `js/icons.js`；文档站内渲染（`js/guides.js` + `js/guides-data.js`）；`resources.html` 改为跳转；用户界面原始 .md 链接 0。方案：`docs/PHASE8-IA.md`

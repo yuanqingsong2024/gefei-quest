@@ -16,7 +16,7 @@
         <p class="peer-line">${esc(c.blurb)}</p>
         <p class="peer-steal"><span class="tag">怎么试</span> ${esc(c.how)}</p>
         <p class="peer-caveat">注意：${esc(c.caveat)}</p>
-        ${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">打开</a>` : ''}
+        ${c.url ? `<a class="card-link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">查看详情 →</a>` : ''}
       </article>`;
   }
 
@@ -28,7 +28,7 @@
         <p class="peer-line">${esc(p.oneLiner)}</p>
         <p class="peer-steal"><span class="tag">可偷</span> ${esc(p.steal)}</p>
         <p class="peer-caveat">注意：${esc(p.caveat)}</p>
-        <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">打开原文</a>
+        <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">打开原文 ↗</a>
       </article>`;
   }
 
@@ -42,55 +42,19 @@
     const cats = global.QuestData.TRY_CHANNEL_CATEGORIES || [];
     const channels = global.QuestData.TRY_CHANNELS || [];
     const peers = global.QuestData.PEER_METHODS || [];
-    const docs = [
-      { title: 'MASTER 状态总览', url: './docs/MASTER-STATUS.md' },
-      { title: '站一作战手册', url: './docs/station-one-playbook.md' },
-      { title: '站二作战手册', url: './docs/station-two-playbook.md' },
-      { title: '站三作战手册', url: './docs/station-three-playbook.md' },
-      { title: '变现港作战手册', url: './docs/monetize-playbook.md' },
-      { title: '放大航线作战手册', url: './docs/scale-playbook.md' },
-      { title: 'Phase 2 路线图', url: './docs/PHASE2-ROADMAP.md' },
-      { title: 'Phase 3 路线图', url: './docs/PHASE3-ROADMAP.md' },
-      { title: 'Phase 4 路线图', url: './docs/PHASE4-ROADMAP.md' },
-      { title: 'Phase 5 路线图', url: './docs/PHASE5-ROADMAP.md' },
-      { title: '资源库扩容配方', url: './docs/resource-expansion.md' },
-      { title: '可试渠道 · 羊毛与工具笔记', url: './docs/channels-and-tips.md' },
-      { title: '同路人方法调研笔记', url: './docs/peer-methods.md' },
-      { title: '周更模板', url: './docs/weekly-template.md' },
-    ];
 
+    const NV = global.QuestNav;
+    const ico = (id) => {
+      const c = NV ? NV.LIB_CATS.find((x) => x.id === id) : null;
+      return NV ? NV.icon(c ? c.icon : 'toolbox') : '';
+    };
     const filterChips = [
-      { id: 'all', label: '全部', emoji: '📚' },
-      ...cats.map((c) => ({ id: c.id, label: c.name, emoji: c.emoji })),
-      { id: 'peers', label: '同路人方法', emoji: '🤝' },
-      { id: 'docs', label: '文档笔记', emoji: '📄' },
+      { id: 'all', label: '全部' },
+      ...cats.map((c) => ({ id: c.id, label: c.name })),
+      { id: 'peers', label: '同路人方法' },
     ];
 
     root.innerHTML = `
-      <div class="panel-head">
-        <h2>资源库</h2>
-        <p class="panel-sub">免费工具 · 托管 · 变现 · 可试路径 · 闲鱼非实物 · 技巧 · 同路人 · 文档。公开摘要，额度与规则会变；收入≠保证。</p>
-        <div class="war-toolbar res-station-bar">
-          <a class="btn btn-primary btn-sm" href="./index.html#war">站一</a>
-          <a class="btn btn-sm" href="./index.html#war-s2">站二</a>
-          <a class="btn btn-sm" href="./index.html#war-s3">站三</a>
-          <a class="btn btn-sm" href="./index.html#war-m">变现</a>
-          <a class="btn btn-sm" href="./index.html#war-x">放大</a>
-          <a class="btn btn-sm" href="./starters/station-one/" target="_blank" rel="noopener noreferrer">站一 Starter</a>
-          <a class="btn btn-sm" href="./starters/station-two/" target="_blank" rel="noopener noreferrer">站二 Starter</a>
-          <a class="btn btn-sm" href="./docs/station-one-playbook.md" target="_blank" rel="noopener noreferrer">站一手册</a>
-          <a class="btn btn-sm" href="./docs/station-two-playbook.md" target="_blank" rel="noopener noreferrer">站二手册</a>
-          <a class="btn btn-sm" href="./docs/station-three-playbook.md" target="_blank" rel="noopener noreferrer">站三手册</a>
-          <a class="btn btn-sm" href="./docs/monetize-playbook.md" target="_blank" rel="noopener noreferrer">变现手册</a>
-          <a class="btn btn-sm" href="./docs/scale-playbook.md" target="_blank" rel="noopener noreferrer">放大手册</a>
-        </div>
-        ${
-          embedded
-            ? ''
-            : `<p class="res-back"><a href="./index.html#home">← 返回首页</a></p>`
-        }
-      </div>
-
       <div class="res-search-row">
         <label class="res-search-label" for="res-search">搜索</label>
         <input type="search" id="res-search" class="res-search" placeholder="关键词：如 闲鱼、GSC、AdSense…" autocomplete="off" />
@@ -102,7 +66,7 @@
             (f, i) => `
           <button type="button" class="res-filter-btn${i === 0 ? ' active' : ''}" role="tab"
             data-filter="${esc(f.id)}" aria-selected="${i === 0 ? 'true' : 'false'}">
-            ${f.emoji} ${esc(f.label)}
+            ${ico(f.id)}<span>${esc(f.label)}</span>
           </button>`
           )
           .join('')}
@@ -117,35 +81,21 @@
             if (!items.length) return '';
             return `
             <section class="res-section channel-cat" data-section="${esc(cat.id)}">
-              <h3 class="channel-cat-title">${cat.emoji} ${esc(cat.name)} <span class="res-sec-n">(${items.length})</span></h3>
+              <h3 class="channel-cat-title"><span class="card-ico">${ico(cat.id)}</span>${esc(cat.name)} <span class="res-sec-n">(${items.length})</span></h3>
               <div class="peer-grid">${items.map(renderChannelCard).join('')}</div>
             </section>`;
           })
           .join('')}
 
         <section class="res-section channel-cat" data-section="peers">
-          <h3 class="channel-cat-title">🤝 同路人方法 <span class="res-sec-n">(${peers.length})</span></h3>
+          <h3 class="channel-cat-title"><span class="card-ico">${ico('peers')}</span>同路人方法 <span class="res-sec-n">(${peers.length})</span></h3>
           <p class="panel-sub peers-intro">公开博主 / 官方框架摘要（非付费社群课）。</p>
           <div class="peer-grid">${peers.map(renderPeerCard).join('')}</div>
         </section>
 
-        <section class="res-section channel-cat" data-section="docs">
-          <h3 class="channel-cat-title">📄 文档笔记 <span class="res-sec-n">(${docs.length})</span></h3>
-          <ul class="resource-list res-doc-list">
-            ${docs
-              .map(
-                (d) =>
-                  `<li data-hay="${esc(d.title.toLowerCase())}"><a href="${esc(d.url)}" target="_blank" rel="noopener noreferrer">${esc(d.title)}</a></li>`
-              )
-              .join('')}
-          </ul>
-        </section>
       </div>
 
-      <p class="hint res-foot">
-        ${embedded ? '<a href="./resources.html" target="_blank" rel="noopener noreferrer">独立页面打开资源库</a> · ' : ''}
-        设置里仍保留「可试渠道 / 同路人」摘要面板。
-      </p>`;
+      <p class="hint res-foot">公开摘要，额度与规则以官网为准；收入≠保证。完整笔记见「手册与模板 › <a href="#guide-channels-and-tips">渠道与羊毛笔记</a>」。</p>`;
 
     const sectionsRoot = root.querySelector('#res-sections');
     const countEl = root.querySelector('#res-count');
@@ -204,9 +154,8 @@
       btn.addEventListener('click', () => {
         currentFilter = btn.getAttribute('data-filter');
         try {
-          if (!embedded) {
-            location.hash = currentFilter === 'all' ? '' : currentFilter;
-          }
+          history.replaceState(null, '', currentFilter === 'all' ? '#lib' : '#lib-' + currentFilter);
+          if (opts && opts.onFilter) opts.onFilter(currentFilter);
         } catch (_) {}
         apply();
       });
@@ -215,7 +164,8 @@
       currentQ = searchInput.value || '';
       apply();
     });
-    if (!embedded) {
+    if (opts && opts.filter && filterChips.some((f) => f.id === opts.filter)) currentFilter = opts.filter;
+    if (false) {
       filterFromHash();
       window.addEventListener('hashchange', () => {
         filterFromHash();

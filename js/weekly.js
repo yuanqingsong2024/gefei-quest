@@ -7,8 +7,8 @@
 
     root.innerHTML = `
       <div class="panel-head">
-        <h2>⛵ 周一港口商船</h2>
-        <p class="panel-sub">情报卷轴：已读可领 XP（每条仅一次）。含「同类方案」摘要。周更只追加数据，不碰你的存档。</p>
+        <h2>本周补给卡</h2>
+        <p class="panel-sub">读完一张卡可领一次 XP。每周一追加新卡，不会影响你的存档。</p>
       </div>
       <div class="ship-list">
         ${
@@ -20,7 +20,7 @@
                     .map((t) => `<span class="tag">${t}</span>`)
                     .join('');
                   const link = w.url
-                    ? `<a href="${w.url}" target="_blank" rel="noopener noreferrer">阅读原文</a>`
+                    ? `<a href="${w.url}" target="_blank" rel="noopener noreferrer">阅读详情 →</a>`
                     : '';
                   return `
               <article class="ship-card ${got ? 'claimed' : ''}">
@@ -34,7 +34,7 @@
                   ${link}
                   <button type="button" class="btn btn-gold btn-sm"
                     data-claim="${w.id}" ${got ? 'disabled' : ''}>
-                    ${got ? '已收入图鉴' : `收入图鉴 · +${w.xp || 5} XP`}
+                    ${got ? '已领取' : `领取 +${w.xp || 5} XP`}
                   </button>
                 </div>
               </article>`;
