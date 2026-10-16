@@ -760,7 +760,7 @@
 
 ### T75 · 部署 GitHub Pages
 
-- [ ] 进行中
+- [x] 已完成（Pages status=built · commit 3a8171f）
 - **目标：** commit + push main；确认 Pages  
 - **涉及文件：** 仓库全部变更  
 - **验收：** 线上 `#war-s3`、`#war-m`、手册、PHASE4 文档可访问  
@@ -768,7 +768,7 @@
 
 ### T76 · Phase4 收尾自测
 
-- [ ] 进行中
+- [x] 已完成
 - **目标：** TESTLOG Phase4 节  
 - **涉及文件：** `TESTLOG.md`  
 - **验收：** 关键项或已知问题写明  

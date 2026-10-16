@@ -22,9 +22,9 @@
 - **站二 Starter**：[`starters/station-two/`](./starters/station-two/)（一词着陆 → GH/CF Pages）
 - **站二手册**：[`docs/station-two-playbook.md`](./docs/station-two-playbook.md)
 
-## Phase 4（进行中）
+## Phase 4（已完成）
 
-[`docs/PHASE4-ROADMAP.md`](./docs/PHASE4-ROADMAP.md) · [`docs/PHASE4-DESIGN.md`](./docs/PHASE4-DESIGN.md) · `TASKS.md` **T69+**
+[`docs/PHASE4-ROADMAP.md`](./docs/PHASE4-ROADMAP.md) · [`docs/PHASE4-DESIGN.md`](./docs/PHASE4-DESIGN.md) · `TASKS.md` T69–T76
 
 - **作战室四站**：站一 | 站二 | 站三 | 变现（`#war-s3` / `#war-m`）
 - **灰锁**：站三 ← 站二 Boss；变现 ← 站三 Boss

@@ -53,4 +53,4 @@
 - [x] 手册文件存在：station-three-playbook / monetize-playbook
 - [x] 资源库/设置含站三与变现入口
 - [x] node --check data/war-room/app/settings/resources 无语法错
-- [ ] Pages 线上 built（T75）· 待 push 后勾
+- [x] Pages 线上 built（T75）· status=built · commit 3a8171f
