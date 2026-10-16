@@ -1015,3 +1015,15 @@
 | Phase 12 | T130–T136 | 7 |
 
 - 2026-10-16：Phase 12 · 每日赚钱榜（#war-rank、publish-rank.js、rank.json 历史）。
+
+## Phase 13 · AI 设置与 AI 助手（见 docs/PHASE13-AI.md）
+- [x] T137 方案定稿 PHASE13-AI.md + 任务表
+- [x] T138 #me-ai 页：模式切换、预设、表单、警告、忘记 Key（独立存储 gefei-quest-ai-v1）
+- [x] T139 AI 客户端：流式 SSE、错误分类、测试连接、markdown 渲染与净化、合规 system prompt
+- [x] T140 三处 AI 按钮（选词 / 赚钱榜 / 实操助手）+ Grok 模式提示
+- [x] T141 搜索、页脚入口，更新日志 + daily.json
+- [x] T142 假 OpenAI 服务 + site-check 用例、390px、截图、push
+
+| Phase 13 | T137–T142 | 6 |
+
+- 2026-10-17：Phase 13 · AI 设置（Grok Bot / 自定义 OpenAI 兼容）+ 三个 AI 按钮。

@@ -182,6 +182,12 @@
       });
     } else if (sec === 'me') {
       const root = $('#panel-me');
+      if (route.view === 'ai') {
+        crumb = 'AI 设置';
+        root.innerHTML = subTabs(N.ME_TABS, 'ai') + '<div id="ai-body"></div>';
+        QuestAI.renderSettings($('#ai-body'));
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+      }
       if (route.view === 'stats' || route.view === 'changelog') {
         const cl = route.view === 'changelog';
         crumb = cl ? '更新日志' : '学习统计';

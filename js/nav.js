@@ -14,7 +14,7 @@
     { id: 'lib', label: '资源库', icon: 'toolbox', hash: '#lib', sub: '工具 · 托管 · 变现 · 闲鱼', desc: '免费工具、托管域名、变现渠道、可试路径、闲鱼非实物与同路人方法，可筛选可搜索。' },
     { id: 'guides', label: '手册与模板', icon: 'book', hash: '#guides', sub: '5 份手册 · 2 个模板 · 笔记', desc: '每个阶段的作战手册、可直接部署的单页模板，以及渠道笔记。' },
     { id: 'weekly', label: '每周补给', icon: 'calendar', hash: '#weekly', sub: '每周一更新的知识卡', desc: '每周几张短卡片：方法、提醒和本周可试的小动作，领取得 XP。' },
-    { id: 'me', label: '我的进度', icon: 'user', hash: '#me', sub: '统计 · 成就 · 站点台账 · 更新日志', desc: '等级、XP、学习统计与打卡热力图、成就墙、我的站点台账、更新日志，以及存档导出导入和偏好设置。' },
+    { id: 'me', label: '我的进度', icon: 'user', hash: '#me', sub: '统计 · 站点台账 · 更新日志 · AI 设置', desc: '等级、XP、学习统计与打卡热力图、成就墙、我的站点台账、更新日志、AI 设置，以及存档导出导入和偏好设置。' },
   ];
   var DEV_SECTION = { id: 'dev', label: '开发者文档', icon: 'code', hash: '#dev', sub: '路线图 · 任务 · 测试记录', desc: '项目开发过程文档，供维护者查阅。' };
 
@@ -34,6 +34,7 @@
     { id: 'stats', label: '学习统计', icon: 'chart', hash: '#me-stats' },
     { id: 'sites', label: '我的站点台账', icon: 'ledger', hash: '#me-sites' },
     { id: 'changelog', label: '更新日志', icon: 'bulb', hash: '#changelog' },
+    { id: 'ai', label: 'AI 设置', icon: 'sparkle', hash: '#me-ai' },
   ];
 
   var STATIONS = [
@@ -74,6 +75,7 @@
   ];
   var DEV_DOCS = [
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
+    { id: 'PHASE13-AI', title: 'Phase 13 · AI 设置与助手' },
     { id: 'PHASE12-RANK', title: 'Phase 12 · 每日赚钱榜' },
     { id: 'PHASE11-POLISH', title: 'Phase 11 · 网站质感打磨' },
     { id: 'PHASE10-STATS', title: 'Phase 10 · 学习统计与更新日志' },
@@ -97,7 +99,7 @@
     '': 'home', map: 'path', quest: 'path-quests', quests: 'path-quests', ship: 'weekly',
     ach: 'me', settings: 'me', resources: 'lib', 'war-s1': 'war', guide: 'guides', docs: 'guides',
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
-    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog',
+    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -120,6 +122,7 @@
     if (h === 'war-keywords') return { section: 'war', view: 'keywords', hash: h };
     if (h === 'war-rank') return { section: 'war', view: 'rank', hash: h };
     if (h === 'me-sites') return { section: 'me', view: 'sites', hash: h };
+    if (h === 'me-ai') return { section: 'me', view: 'ai', hash: h };
     if (h === 'me-stats') return { section: 'me', view: 'stats', hash: h };
     if (h === 'changelog') return { section: 'me', view: 'changelog', hash: h };
     if (st[h]) return { section: 'war', view: 'war', param: st[h], hash: h };

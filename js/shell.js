@@ -51,6 +51,7 @@
     var catIcon = {}; Nv.LIB_CATS.forEach(function (c) { catIcon[c.id] = c.icon; });
     (D.TRY_CHANNELS || []).forEach(function (c) { add('资源', c.name, c.blurb, '#lib-' + c.cat, [c.how, c.caveat].join(' '), catIcon[c.cat] || 'toolbox'); });
     (D.PEER_METHODS || []).forEach(function (p) { add('资源', p.name, p.oneLiner, '#lib-peers', [p.steal, p.caveat].join(' '), 'users'); });
+    add('页面', 'AI 设置', '我的进度 · Grok Bot / 自定义 OpenAI 兼容接口', '#me-ai', 'ai api key deepseek openai 通义 kimi 智谱 openrouter 模型 赚钱榜雷达 赚钱项目实施官', 'sparkle');
     if (global.QuestRank) global.QuestRank.latestItems().forEach(function (it) { add('赚钱榜', 'No.' + it.rank + ' ' + it.name, it.type + ' · ' + it.why, '#war-rank', [it.fit, it.risk, (it.tags || []).join(' '), it.cost].join(' '), 'trophy'); });
     var MD = global.QUEST_GUIDES_MD || {};
     Nv.GUIDES.forEach(function (g) { add('手册', g.title, g.desc, g.href || '#guide-' + g.id, g.href ? '' : heads(MD[g.id]), g.icon); });

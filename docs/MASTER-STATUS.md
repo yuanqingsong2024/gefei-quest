@@ -105,3 +105,7 @@
 - `#war-rank`（js/rank.js），数据 data/rank.json + data/rank-history/ + js/rank-data.js（内嵌，file:// 可用）。
 - 存档追加 rankFav / rankPlan；「我的实操计划」显示在赚钱榜与站一实操助手页。
 - 发布：`node tools/publish-rank.js file.json --check-urls` → git push（见 README）。
+
+## Phase 13 · AI 设置与助手（T137–T142 ✅）
+- `#me-ai`（js/ai.js）：Grok Bot 默认模式 / 自定义 OpenAI 兼容（7 个预设）；配置存 `gefei-quest-ai-v1`，不进存档导出。
+- AI 按钮：选词练习板、每日赚钱榜、站一实操助手（SSE 流式、markdown 净化、合规 system prompt）。测试用 tools/fake-openai.js。

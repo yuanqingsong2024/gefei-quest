@@ -2,12 +2,12 @@
 const { chromium } = require(process.env.PW || 'playwright-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-stats','changelog','dev'];
+const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev'];
 const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
   const p = await b.newPage({ viewport: { width: 1280, height: 860 } });
-  const errors = []; p.on('pageerror', e => errors.push('pageerror ' + e.message)); p.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+  const errors = []; p.on('pageerror', e => errors.push('pageerror ' + e.message)); p.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|ERR_CONNECTION_REFUSED/.test(m.text())) errors.push(m.text()); });
   const hrefs = new Set(); let fail = 0;
   const visit = async (h) => { await p.goto(BASE + 'index.html#' + h); await p.waitForTimeout(150); };
   const guides = await (async () => { await visit('guides'); return p.$$eval('a[href^="#guide-"]', as => [...new Set(as.map(a => a.getAttribute('href').slice(1)))]); })();
@@ -202,7 +202,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T12(await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).rankPlan[0].done === true), 'plan item done persisted');
   await visit('home');
   T12(await p.evaluate(() => !!document.querySelector('#home-rank-card') && !!document.querySelector('.site-footer a[href="#war-rank"]')), 'home card + footer link');
-  await p.keyboard.press('Control+k'); await p.keyboard.type('Prolific'); await p.waitForTimeout(150);
+  await p.keyboard.press('Control+k'); await p.keyboard.type(await p.evaluate(() => QuestRank.latestItems()[0].name.slice(0, 6))); await p.waitForTimeout(150);
   T12(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#war-rank')), 'search index includes rank items'); await p.keyboard.press('Escape');
   for (const u of ['data/rank.json', 'data/rank-history/index.json']) { const r = await p.request.get(BASE + u); const j = r.status() === 200 ? await r.json() : null; T12(!!j && (u.endsWith('index.json') ? j.dates.length >= 1 : j.items.length === 10), u + ' served'); }
   const dj12 = await (await p.request.get(BASE + 'daily.json')).json(); T12(dj12.rank && dj12.rank.top3.length === 3, 'daily.json has rank top3');
@@ -214,6 +214,56 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     const w = await m12.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile war-rank scrollWidth ' + w); if (w > 390) fail++;
     await m12.screenshot({ path: `${SHOTS}/p12-mobile-rank.png`, fullPage: false });
   }
+
+  // ---------- Phase 13 ----------
+  let f13 = 0; const T13 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P13 ' + m); if (!c) f13++; };
+  const fake = require('./fake-openai.js').start(8766); const FAKE = 'http://127.0.0.1:8766/v1';
+  await p.goto(BASE + 'index.html#me-ai'); await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(200);
+  T13(await p.evaluate(() => !!document.querySelector('#ai-grok') && /赚钱榜雷达/.test(document.body.textContent) && /赚钱项目实施官/.test(document.body.textContent)), 'default Grok Bot mode explains both agents');
+  // grok mode hint on keyword board
+  await visit('war-keywords'); await p.fill('#kw-kw', 'pdf merge for mac'); await p.click('#kw-save'); await p.waitForTimeout(150);
+  await p.click('.kw-item [data-ai-kw]'); await p.waitForTimeout(100);
+  T13(await p.evaluate(() => !!document.querySelector('.kw-item .ai-hint a[href="#me-ai"]')), 'Grok mode: AI button shows hint linking to settings');
+  await visit('me-ai'); await p.check('[name=ai-mode][value=custom]'); await p.waitForTimeout(100);
+  T13(await p.evaluate(() => document.querySelector('#ai-key').type === 'password' && /不会写入进度存档/.test(document.querySelector('.ai-warn').textContent)), 'custom form: password field + warning');
+  await p.selectOption('#ai-provider', 'dashscope');
+  T13(await p.inputValue('#ai-base') === 'https://dashscope.aliyuncs.com/compatible-mode/v1' && await p.inputValue('#ai-model') === 'qwen-plus', 'provider preset fills base URL + model');
+  await p.selectOption('#ai-provider', 'custom'); await p.fill('#ai-base', FAKE); await p.fill('#ai-model', 'fake-model');
+  await p.fill('#ai-key', 'bad'); await p.click('#ai-test'); await p.waitForSelector('#ai-test-out .ai-error, #ai-test-out .ai-ok');
+  T13(/401/.test(await p.textContent('#ai-test-out')) && /Key/.test(await p.textContent('#ai-test-out')), 'test: 401 explained');
+  await p.fill('#ai-key', 'good'); await p.fill('#ai-model', 'missing'); await p.click('#ai-test'); await p.waitForFunction(() => !/正在测试/.test(document.querySelector('#ai-test-out').textContent));
+  T13(/404/.test(await p.textContent('#ai-test-out')) && /模型/.test(await p.textContent('#ai-test-out')), 'test: 404 explained');
+  await p.fill('#ai-base', 'http://127.0.0.1:9/v1'); await p.fill('#ai-model', 'fake-model'); await p.click('#ai-test'); await p.waitForFunction(() => !/正在测试/.test(document.querySelector('#ai-test-out').textContent), null, { timeout: 15000 });
+  T13(/CORS/.test(await p.textContent('#ai-test-out')), 'test: network/CORS explained');
+  await p.fill('#ai-base', FAKE); await p.click('#ai-test'); await p.waitForFunction(() => !/正在测试/.test(document.querySelector('#ai-test-out').textContent));
+  T13(/连接成功/.test(await p.textContent('#ai-test-out')), 'test: success');
+  await p.click('#ai-save'); await p.waitForTimeout(80);
+  const store = await p.evaluate(() => ({ ai: JSON.parse(localStorage.getItem('gefei-quest-ai-v1')), save: localStorage.getItem('gefei-quest-save-v1') || '' }));
+  T13(store.ai.apiKey === 'good' && store.ai.mode === 'custom' && !/"apiKey"|gefei-quest-ai|Bearer/.test(store.save) && !store.save.includes('"good"'), 'key stored only in gefei-quest-ai-v1, not in save');
+  if (SHOTS) { await p.reload(); await p.waitForTimeout(300); await p.screenshot({ path: `${SHOTS}/p13-ai-settings.png`, fullPage: true }); }
+  // keyword AI streaming
+  await visit('war-keywords'); await p.click('.kw-item [data-ai-kw]');
+  await p.waitForFunction(() => /完成/.test((document.querySelector('.kw-item .ai-status') || {}).textContent || ''), null, { timeout: 10000 });
+  const kwOut = await p.evaluate(() => { const b = document.querySelector('.kw-item .ai-body'); return { h: !!b.querySelector('h2,h3,h4'), strong: !!b.querySelector('strong'), li: b.querySelectorAll('li').length, script: !!b.querySelector('script'), js: [...b.querySelectorAll('a')].some(a => /^javascript/i.test(a.getAttribute('href') || '')), txt: b.textContent }; });
+  T13(kwOut.h && kwOut.strong && kwOut.li >= 2 && !kwOut.script && !kwOut.js && /测试回复/.test(kwOut.txt), 'AI 分析这个词: streamed markdown, sanitized');
+  T13(fake.last.body.stream === true && /合法/.test(fake.last.body.messages[0].content) && /不承诺|绝不承诺/.test(fake.last.body.messages[0].content) && /pdf merge for mac/.test(fake.last.body.messages[1].content), 'request: stream + legality/no-income system prompt + Chinese prompt');
+  if (SHOTS) { await p.evaluate(() => document.querySelector('.kw-item').scrollIntoView()); await p.screenshot({ path: `${SHOTS}/p13-ai-keyword.png` }); }
+  await visit('war-rank'); await p.waitForTimeout(150); await p.click('.rank-card[data-rank="1"] [data-ai-rank]');
+  await p.waitForFunction(() => /完成/.test((document.querySelector('.rank-card .ai-status') || {}).textContent || ''), null, { timeout: 10000 });
+  T13(/每日赚钱榜/.test(fake.last.body.messages[1].content) && await p.evaluate(() => !!document.querySelector('.rank-card[data-rank="1"] .ai-body li')), 'rank card AI 点评 streamed');
+  await visit('war-kit'); await p.fill('#kit-keyword', 'pdf merge for mac'); await p.waitForTimeout(100); await p.click('[data-ai-kit]');
+  await p.waitForFunction(() => /完成/.test((document.querySelector('.ai-kit .ai-status') || {}).textContent || ''), null, { timeout: 10000 });
+  T13(/title/.test(fake.last.body.messages[1].content) && /60/.test(fake.last.body.messages[1].content), '实操助手 AI 生成 title/描述');
+  await visit('me-ai'); await p.click('#ai-forget'); await p.waitForTimeout(80);
+  T13(await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-ai-v1')).apiKey === '' && document.querySelector('#ai-key').value === ''), 'forget key clears it');
+  await p.keyboard.press('Control+k'); await p.keyboard.type('DeepSeek'); await p.waitForTimeout(150);
+  T13(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#me-ai')), 'search finds AI 设置'); await p.keyboard.press('Escape');
+  T13(await p.evaluate(() => !!document.querySelector('.site-footer a[href="#me-ai"]')), 'footer link');
+  const m13 = await b.newPage({ viewport: { width: 390, height: 844 } }); await m13.goto(BASE + 'index.html#me-ai'); await m13.waitForTimeout(300);
+  const w13 = await m13.evaluate(() => document.documentElement.scrollWidth); T13(w13 <= 390, 'mobile me-ai scrollWidth ' + w13);
+  await m13.goto(BASE + 'index.html#war-keywords'); await m13.waitForTimeout(300); const w13b = await m13.evaluate(() => document.documentElement.scrollWidth); T13(w13b <= 390, 'mobile war-keywords scrollWidth ' + w13b);
+  fake.close();
+  console.log('P13 functional fails=' + f13); fail += f13;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

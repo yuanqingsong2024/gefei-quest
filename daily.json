@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-16T15:53:57.556Z",
-  "latestId": 12,
-  "latestDate": "2026-10-16",
+  "generatedAt": "2026-10-16T16:15:44.458Z",
+  "latestId": 13,
+  "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 13,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "AI 设置 + 三个 AI 助手按钮",
+      "items": [
+        "新增「AI 设置」：默认 Grok Bot 模式（赚钱榜雷达 / 赚钱项目实施官在后台工作，无需配置）",
+        "可选自定义 OpenAI 兼容接口：OpenAI、DeepSeek、通义、Kimi、智谱、OpenRouter",
+        "API Key 单独保存，不进存档导出，可一键忘记",
+        "选词练习板、每日赚钱榜、站一实操助手新增 AI 按钮（流式输出，只给合法建议，不承诺收益）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-ai"
+    },
     {
       "id": 12,
       "date": "2026-10-16",

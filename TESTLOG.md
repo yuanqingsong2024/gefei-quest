@@ -108,3 +108,7 @@
 ## Phase 12 · 每日赚钱榜（2026-10-16）
 - site-check：26 路由（+#war-rank）+ 9 手册 + 17 开发文档，0 失败 · broken 0 · consoleErrors 0；P12 用例 13/13（10 卡片+免责、Tab/面包屑、类型筛选、收藏+只看收藏、加入实操计划、实操助手页显示与勾选、首页卡片/页脚、搜索索引、rank.json/index.json/daily.json）✅
 - 种子榜单 10 条 source_url 均返回 200（publish-rank.js --check-urls）✅；390px 无横向滚动 ✅
+
+## Phase 13 · AI 设置（2026-10-17）
+- site-check：27 路由（+#me-ai）+ 9 手册 + 18 开发文档，0 失败 · consoleErrors 0；P13 用例 19/19：Grok 默认说明两 agent、Grok 模式按钮提示、password + 警告、预设填充、测试连接 401/404/网络 CORS/成功、Key 只在 gefei-quest-ai-v1、三个按钮流式 markdown（script/javascript: 链接被净化）、system prompt 合规与不承诺收益、忘记 Key、搜索、页脚、390px ✅
+- 假服务：tools/fake-openai.js（端口 8766）。
