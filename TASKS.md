@@ -944,3 +944,15 @@
 | Phase 7 | T88–T95 | 8 |
 
 - 2026-10-16：Phase 7 · 整站美化 + 落地页首页。
+
+## Phase 8 · 信息架构重整（见 docs/PHASE8-IA.md）
+- [x] T96 方案定稿 PHASE8-IA.md + 任务表
+- [ ] T97 js/nav.js SITE_NAV 唯一名称表 + 路由解析 + 旧 hash 兼容
+- [ ] T98 js/icons.js SVG 图标集，覆盖区块/站点/分类/手册
+- [ ] T99 统一壳：顶栏、区块头带（面包屑）、页脚；去旧 Tab 栏
+- [ ] T100 学习路线（地图/任务清单子页）、我的进度（成就+统计+存档+设置）合并视图
+- [ ] T101 手册与模板页 + 文档渲染器 + guides-data.js 打包（file:// 可用）
+- [ ] T102 全站链接改写：0 个用户可见 .md 链接；resources.html 重定向
+- [ ] T103 各视图美化（地图/任务/作战室/资源库/补给/进度/手册）+ 改名
+- [ ] T104 测试：链接检查、旧 hash、控制台 0 错、file://、390px、截图
+- [ ] T105 README / MASTER-STATUS / TESTLOG + push + Pages 确认
