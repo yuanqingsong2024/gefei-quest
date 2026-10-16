@@ -989,3 +989,14 @@
 | Phase 10 | T115–T122 | 8 |
 
 - 2026-10-16：Phase 10 · 学习统计（#me-stats）/ 今日任务卡片 / 更新日志（#changelog）+ daily.json。
+
+## Phase 11 · 网站质感打磨（见 docs/PHASE11-POLISH.md）
+- [x] T123 方案定稿 PHASE11-POLISH.md + 任务表
+- [ ] T124 顶栏吸顶收缩、页脚站点地图/关于/版本、面包屑补全
+- [ ] T125 图标家族重画 + 渐变徽章；Logo / favicon / manifest 重做
+- [ ] T126 页面淡入、骨架占位、底部 Tab 栏、回到顶部、空状态插画
+- [ ] T127 全站搜索（/ 与 Ctrl+K）
+- [ ] T128 字号/间距/阴影/焦点统一 + reduced-motion
+- [ ] T129 更新日志 + daily.json、测试、截图、push
+
+| Phase 11 | T123–T129 | 7 |
