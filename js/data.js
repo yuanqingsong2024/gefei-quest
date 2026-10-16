@@ -1001,6 +1001,25 @@
       caveat: '一词一岛；勿同时堆五个主词。',
       url: './starters/station-two/',
     },
+
+    {
+      id: 'ch-station-three-playbook',
+      cat: 'path',
+      name: '站三作战手册 · 扩内页',
+      blurb: '固定 Day1–7：规划内页 → 上线 → 内链 → sitemap → 合法分发。',
+      how: '打开 docs/station-three-playbook.md → 回作战室 #war-s3 勾选。',
+      caveat: '需先完成站二 Boss；无厚 Starter。',
+      url: './docs/station-three-playbook.md',
+    },
+    {
+      id: 'ch-monetize-playbook',
+      cat: 'monetize',
+      name: '变现港手册 · AdSense/信任页',
+      blurb: '港口法令 → 三选一 → 甲板自检 → 信任页/门槛/闲鱼支线 → 升旗路径文档。',
+      how: '打开 docs/monetize-playbook.md → 回作战室 #war-m 勾选。过审非必须。',
+      caveat: '空站勿申；规则以官网为准；收入≠保证。',
+      url: './docs/monetize-playbook.md',
+    },
     {
       id: 'ch-gsc',
       cat: 'tools',
@@ -1390,6 +1409,26 @@
       url: './docs/station-two-playbook.md',
     },
     {
+      title: '站三作战室（主站 Tab · 站三）',
+      url: './index.html#war-s3',
+    },
+    {
+      title: '站三作战手册',
+      url: './docs/station-three-playbook.md',
+    },
+    {
+      title: '变现港作战室（主站 Tab · 变现）',
+      url: './index.html#war-m',
+    },
+    {
+      title: '变现港作战手册',
+      url: './docs/monetize-playbook.md',
+    },
+    {
+      title: 'Phase 4 路线图',
+      url: './docs/PHASE4-ROADMAP.md',
+    },
+    {
       title: 'Phase 2 路线图',
       url: './docs/PHASE2-ROADMAP.md',
     },
@@ -1537,6 +1576,105 @@
     },
   ];
 
+
+  /** 站三作战室 · 固定 Day1–7（Phase 4 · 灰锁至站二 Boss） */
+  const STATION_THREE_DAYS = [
+    {
+      day: 1,
+      title: '绘制群岛海图',
+      tip: '规划 3+ 长尾内页；围绕主站能力，勿跑偏。今天只写清单。',
+      questIds: ['q-s3-01'],
+    },
+    {
+      day: 2,
+      title: '填海造岛',
+      tip: '上线至少 3 个内页；各页独立 title 与唯一 h1。',
+      questIds: ['q-s3-02'],
+    },
+    {
+      day: 3,
+      title: '架起群岛桥梁',
+      tip: '首页链出内页；内页锚文本自然指回主词。',
+      questIds: ['q-s3-03'],
+    },
+    {
+      day: 4,
+      title: '更新航海图',
+      tip: 'sitemap 含新页并提交 GSC。',
+      questIds: ['q-s3-04'],
+    },
+    {
+      day: 5,
+      title: '继续抛缆',
+      tip: '合法导航/社区补充发现路径；记下渠道。',
+      questIds: ['q-s3-05'],
+    },
+    {
+      day: 6,
+      title: '巩固与质检',
+      tip: '不乱开新主题；可选单页质量门槛自检。',
+      questIds: [],
+      optionalQuestIds: ['q-s3-s1'],
+    },
+    {
+      day: 7,
+      title: '群岛连线',
+      tip: 'site: 多页可见且 GSC 有点击趋势再勾 Boss。',
+      questIds: ['q-s3-boss'],
+      optionalQuestIds: ['q-s3-s1'],
+    },
+  ];
+
+  /** 变现港作战室 · 固定 Day1–7（Phase 4 · 灰锁至站三 Boss） */
+  const MONETIZE_DAYS = [
+    {
+      day: 1,
+      title: '阅读港口法令',
+      tip: '读 AdSense 资格与页面准备要点；空站不可申。',
+      questIds: ['q-m-01'],
+    },
+    {
+      day: 2,
+      title: '三选一旗帜',
+      tip: '只定第一版：只练收录 / 先接 AdSense / 极简付费。',
+      questIds: ['q-m-02'],
+    },
+    {
+      day: 3,
+      title: '清理甲板',
+      tip: '原创、导航、广告干扰自检勾完。',
+      questIds: ['q-m-03'],
+    },
+    {
+      day: 4,
+      title: '信任页预习',
+      tip: '巩固日：About / Contact / Privacy 草稿即可。',
+      questIds: [],
+      optionalQuestIds: ['q-m-s2'],
+    },
+    {
+      day: 5,
+      title: '门槛与联盟',
+      tip: '巩固日：对照公开门槛圈下一跳；联盟只做自检。',
+      questIds: [],
+      optionalQuestIds: ['q-m-s3', 'q-m-s4'],
+    },
+    {
+      day: 6,
+      title: '收款与闲鱼草稿',
+      tip: '巩固日：收款预习或闲鱼非实物草稿；禁区自检。',
+      questIds: [],
+      optionalQuestIds: ['q-m-s1', 'q-m-s5', 'q-m-s6'],
+    },
+    {
+      day: 7,
+      title: '升旗仪式',
+      tip: '写出变现路径与下一步；申请成功非必须。',
+      questIds: ['q-m-boss'],
+      optionalQuestIds: ['q-m-s1', 'q-m-s2', 'q-m-s3', 'q-m-s4', 'q-m-s5', 'q-m-s6'],
+    },
+  ];
+
   function getChapter(id) {
     return CHAPTERS.find((c) => c.id === id) || null;
   }
@@ -1560,6 +1698,8 @@
     RESOURCES,
     STATION_ONE_DAYS,
     STATION_TWO_DAYS,
+    STATION_THREE_DAYS,
+    MONETIZE_DAYS,
     getChapter,
     getQuestsByChapter,
     getQuest,

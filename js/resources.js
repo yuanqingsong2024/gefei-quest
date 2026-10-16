@@ -45,8 +45,11 @@
     const docs = [
       { title: '站一作战手册', url: './docs/station-one-playbook.md' },
       { title: '站二作战手册', url: './docs/station-two-playbook.md' },
+      { title: '站三作战手册', url: './docs/station-three-playbook.md' },
+      { title: '变现港作战手册', url: './docs/monetize-playbook.md' },
       { title: 'Phase 2 路线图', url: './docs/PHASE2-ROADMAP.md' },
       { title: 'Phase 3 路线图', url: './docs/PHASE3-ROADMAP.md' },
+      { title: 'Phase 4 路线图', url: './docs/PHASE4-ROADMAP.md' },
       { title: '资源库扩容配方', url: './docs/resource-expansion.md' },
       { title: '可试渠道 · 羊毛与工具笔记', url: './docs/channels-and-tips.md' },
       { title: '同路人方法调研笔记', url: './docs/peer-methods.md' },
@@ -65,12 +68,16 @@
         <h2>资源库</h2>
         <p class="panel-sub">免费工具 · 托管 · 变现 · 可试路径 · 闲鱼非实物 · 技巧 · 同路人 · 文档。公开摘要，额度与规则会变；收入≠保证。</p>
         <div class="war-toolbar res-station-bar">
-          <a class="btn btn-primary btn-sm" href="./index.html#war">站一作战室</a>
-          <a class="btn btn-sm" href="./index.html#war-s2">站二作战室</a>
+          <a class="btn btn-primary btn-sm" href="./index.html#war">站一</a>
+          <a class="btn btn-sm" href="./index.html#war-s2">站二</a>
+          <a class="btn btn-sm" href="./index.html#war-s3">站三</a>
+          <a class="btn btn-sm" href="./index.html#war-m">变现</a>
           <a class="btn btn-sm" href="./starters/station-one/" target="_blank" rel="noopener noreferrer">站一 Starter</a>
           <a class="btn btn-sm" href="./starters/station-two/" target="_blank" rel="noopener noreferrer">站二 Starter</a>
           <a class="btn btn-sm" href="./docs/station-one-playbook.md" target="_blank" rel="noopener noreferrer">站一手册</a>
           <a class="btn btn-sm" href="./docs/station-two-playbook.md" target="_blank" rel="noopener noreferrer">站二手册</a>
+          <a class="btn btn-sm" href="./docs/station-three-playbook.md" target="_blank" rel="noopener noreferrer">站三手册</a>
+          <a class="btn btn-sm" href="./docs/monetize-playbook.md" target="_blank" rel="noopener noreferrer">变现手册</a>
         </div>
         ${
           embedded

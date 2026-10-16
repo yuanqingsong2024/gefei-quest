@@ -1,6 +1,6 @@
-/** 作战室 · 站一 / 站二 · 固定 Day1–7 */
+/** 作战室 · 站一 / 站二 / 站三 / 变现 · 固定 Day1–7 */
 (function (global) {
-  let activeStation = 1; // 1 | 2
+  let activeStation = 1; // 1 | 2 | 3 | 4（4=变现）
 
   function esc(s) {
     return String(s == null ? '' : s)
@@ -8,6 +8,12 @@
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
+  }
+
+  function normalizeStation(n) {
+    const v = Number(n);
+    if (v === 2 || v === 3 || v === 4) return v;
+    return 1;
   }
 
   function chapterUnlocked(state, chapterId) {
@@ -23,10 +29,19 @@
     return isDone(state, 'q-s1-boss') || chapterUnlocked(state, 'ch-stage2');
   }
 
+  /** 站三勾选解锁：站二 Boss 已勾 或 站三岛已开 */
+  function stationThreeInteractive(state) {
+    return isDone(state, 'q-s2-boss') || chapterUnlocked(state, 'ch-stage3');
+  }
+
+  /** 变现勾选解锁：站三 Boss 已勾 或 变现港已开 */
+  function monetizeInteractive(state) {
+    return isDone(state, 'q-s3-boss') || chapterUnlocked(state, 'ch-monetize');
+  }
+
   function dayProgress(state, day) {
     const ids = day.questIds || [];
     if (ids.length === 0) {
-      // 巩固日：无强制主线，不挡「当前推进」
       return { done: 0, total: 0, complete: true, soft: true };
     }
     const done = ids.filter((id) => isDone(state, id)).length;
@@ -114,11 +129,93 @@
   }
 
   function setActiveStation(n) {
-    activeStation = n === 2 ? 2 : 1;
+    activeStation = normalizeStation(n);
   }
 
   function getActiveStation() {
     return activeStation;
+  }
+
+  function hashForStation(n) {
+    const s = normalizeStation(n);
+    if (s === 2) return 'war-s2';
+    if (s === 3) return 'war-s3';
+    if (s === 4) return 'war-m';
+    return 'war';
+  }
+
+  function daysForStation(station) {
+    const QD = global.QuestData;
+    if (station === 2) return QD.STATION_TWO_DAYS || [];
+    if (station === 3) return QD.STATION_THREE_DAYS || [];
+    if (station === 4) return QD.MONETIZE_DAYS || [];
+    return QD.STATION_ONE_DAYS || [];
+  }
+
+  function metaForStation(station, state) {
+    if (station === 2) {
+      return {
+        title: '站二作战室',
+        sub: '固定 Day1–7 · 一词一岛 · 勾选与「任务」页同源 · <strong>无需选路径</strong>',
+        starterHref: './starters/station-two/',
+        playbookHref: './docs/station-two-playbook.md',
+        showStarter: true,
+        locked: !stationTwoInteractive(state),
+        lockBanner:
+          '站二日程可先浏览。勾选已灰锁：请先完成<strong>站一 Boss（呼名）</strong>，或在地图通关站一解锁本岛后再勾。',
+        foot: 'Boss 需有曝光向好迹象再勾。诚实声明：不保证收益。',
+        chapterPrefer: 'ch-stage2',
+      };
+    }
+    if (station === 3) {
+      return {
+        title: '站三作战室',
+        sub: '固定 Day1–7 · 扩内页与内链 · 勾选与「任务」页同源 · <strong>无需选路径</strong>',
+        starterHref: null,
+        playbookHref: './docs/station-three-playbook.md',
+        showStarter: false,
+        locked: !stationThreeInteractive(state),
+        lockBanner:
+          '站三日程可先浏览。勾选已灰锁：请先完成<strong>站二 Boss（航道打通）</strong>，或在地图通关站二解锁本岛后再勾。',
+        foot: '多页收录 + 点击趋势再勾 Boss。诚实声明：不保证收益。',
+        chapterPrefer: 'ch-stage3',
+      };
+    }
+    if (station === 4) {
+      return {
+        title: '变现港作战室',
+        sub: '固定 Day1–7 · 路径意识 · 过审非必须 · <strong>无需选路径</strong>',
+        starterHref: null,
+        playbookHref: './docs/monetize-playbook.md',
+        showStarter: false,
+        locked: !monetizeInteractive(state),
+        lockBanner:
+          '变现日程可先浏览。勾选已灰锁：请先完成<strong>站三 Boss（群岛连线）</strong>，或在地图通关站三解锁变现港后再勾。',
+        foot: '写出路径文档即可勾 Boss；申请成功非必须。诚实声明：不保证收益。',
+        chapterPrefer: 'ch-monetize',
+      };
+    }
+    return {
+      title: '站一作战室',
+      sub: '固定 Day1–7 · 勾选与「任务」页同源存档 · <strong>无需选路径</strong>',
+      starterHref: './starters/station-one/',
+      playbookHref: './docs/station-one-playbook.md',
+      showStarter: true,
+      locked: false,
+      lockBanner: '',
+      foot: '收录慢时 Day7 Boss 可延后勾选。诚实声明：不保证收益。',
+      chapterPrefer: 'ch-stage1',
+    };
+  }
+
+  function tabBtn(station, label, ok) {
+    const active = activeStation === station;
+    const lock = ok ? '' : '<span class="war-lock-badge" title="需前置 Boss">🔒</span>';
+    return `<button type="button" class="war-station-btn ${
+      active ? 'active' : ''
+    }" role="tab" data-war-station="${station}" aria-selected="${
+      active ? 'true' : 'false'
+    }">${label} ${lock}</button>`;
   }
 
   /**
@@ -128,12 +225,14 @@
    */
   function renderWarRoom(state, root, handlers) {
     if (!root) return;
-    const s1 = global.QuestData.STATION_ONE_DAYS || [];
-    const s2 = global.QuestData.STATION_TWO_DAYS || [];
-    const station = activeStation === 2 ? 2 : 1;
-    const days = station === 2 ? s2 : s1;
+    const station = normalizeStation(activeStation);
+    activeStation = station;
+    const days = daysForStation(station);
+    const meta = metaForStation(station, state);
+    const stationLocked = !!meta.locked;
     const s2ok = stationTwoInteractive(state);
-    const stationLocked = station === 2 && !s2ok;
+    const s3ok = stationThreeInteractive(state);
+    const mok = monetizeInteractive(state);
 
     let mainDone = 0;
     let mainTotal = 0;
@@ -144,60 +243,42 @@
       mainTotal += p.total;
     });
 
-    const starterHref =
-      station === 2 ? './starters/station-two/' : './starters/station-one/';
-    const playbookHref =
-      station === 2
-        ? './docs/station-two-playbook.md'
-        : './docs/station-one-playbook.md';
-    const title = station === 2 ? '站二作战室' : '站一作战室';
-    const sub =
-      station === 2
-        ? '固定 Day1–7 · 一词一岛 · 勾选与「任务」页同源 · <strong>无需选路径</strong>'
-        : '固定 Day1–7 · 勾选与「任务」页同源存档 · <strong>无需选路径</strong>';
+    const starterBtn = meta.showStarter
+      ? `<a class="btn btn-primary btn-sm" href="${meta.starterHref}" target="_blank" rel="noopener noreferrer">打开 Starter</a>`
+      : '';
 
     root.innerHTML = `
       <div class="panel-head">
         <h2>作战室</h2>
-        <p class="panel-sub">站一练上线收录 · 站二练一词承接 · 无路径分支</p>
+        <p class="panel-sub">站一上线 · 站二一词 · 站三扩页 · 变现路径 · 无路径分支</p>
         <div class="war-station-tabs" role="tablist" aria-label="作战站切换">
-          <button type="button" class="war-station-btn ${
-            station === 1 ? 'active' : ''
-          }" role="tab" data-war-station="1" aria-selected="${
-            station === 1 ? 'true' : 'false'
-          }">站一</button>
-          <button type="button" class="war-station-btn ${
-            station === 2 ? 'active' : ''
-          }" role="tab" data-war-station="2" aria-selected="${
-            station === 2 ? 'true' : 'false'
-          }">站二 ${s2ok ? '' : '<span class="war-lock-badge" title="需站一 Boss">🔒</span>'}</button>
+          ${tabBtn(1, '站一', true)}
+          ${tabBtn(2, '站二', s2ok)}
+          ${tabBtn(3, '站三', s3ok)}
+          ${tabBtn(4, '变现', mok)}
         </div>
-        <h3 class="war-station-title">${title}</h3>
-        <p class="panel-sub">${sub}</p>
+        <h3 class="war-station-title">${meta.title}</h3>
+        <p class="panel-sub">${meta.sub}</p>
         <div class="war-toolbar">
           <span class="war-progress" aria-live="polite">主线进度 ${mainDone}/${mainTotal}</span>
-          <a class="btn btn-primary btn-sm" href="${starterHref}" target="_blank" rel="noopener noreferrer">打开 Starter</a>
-          <a class="btn btn-sm" href="${playbookHref}" target="_blank" rel="noopener noreferrer">作战手册</a>
+          ${starterBtn}
+          <a class="btn ${meta.showStarter ? 'btn-sm' : 'btn-primary btn-sm'}" href="${meta.playbookHref}" target="_blank" rel="noopener noreferrer">作战手册</a>
           <button type="button" class="btn btn-sm" id="war-goto-quest">打开任务板</button>
         </div>
       </div>
       ${
         stationLocked
-          ? `<div class="war-lock-banner" role="status">站二日程可先浏览。勾选已灰锁：请先完成<strong>站一 Boss（呼名）</strong>，或在地图通关站一解锁本岛后再勾。</div>`
+          ? `<div class="war-lock-banner" role="status">${meta.lockBanner}</div>`
           : ''
       }
       <div class="war-days ${stationLocked ? 'war-station-locked' : ''}">
         ${renderDays(state, days, stationLocked)}
       </div>
-      <p class="hint war-foot">${
-        station === 2
-          ? 'Boss 需有曝光向好迹象再勾。诚实声明：不保证收益。'
-          : '收录慢时 Day7 Boss 可延后勾选。诚实声明：不保证收益。'
-      }</p>`;
+      <p class="hint war-foot">${meta.foot}</p>`;
 
     root.querySelectorAll('.war-station-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const n = Number(btn.getAttribute('data-war-station')) === 2 ? 2 : 1;
+        const n = normalizeStation(btn.getAttribute('data-war-station'));
         setActiveStation(n);
         if (handlers && handlers.onStationChange) {
           handlers.onStationChange(n);
@@ -226,7 +307,11 @@
     dayProgress,
     firstIncompleteDayIndex,
     stationTwoInteractive,
+    stationThreeInteractive,
+    monetizeInteractive,
     setActiveStation,
     getActiveStation,
+    hashForStation,
+    normalizeStation,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

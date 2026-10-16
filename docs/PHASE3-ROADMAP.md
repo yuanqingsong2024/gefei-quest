@@ -1,7 +1,7 @@
 # 出海小站练站营 · Phase 3 路线图
 
 > 日期：2026-10-16（Asia/Shanghai）  
-> 状态：执行中 · 默认决策已锁定 · **不再用选择器打断用户**  
+> 状态：**已完成** · 默认决策已锁定 · Phase 4 见 `PHASE4-ROADMAP.md`  
 > 线上：https://yuanqingsong2024.github.io/gefei-quest/  
 > 前置：Phase 2（T46–T60）已完成
 

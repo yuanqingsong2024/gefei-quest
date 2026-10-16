@@ -700,3 +700,90 @@
 | **合计** | **T61–T68** | **8** |
 
 - 2026-10-16：Phase 3 · 站二作战室 + Starter + 手册；见 `docs/PHASE3-ROADMAP.md`。
+
+
+---
+
+## Phase 4 · 站三 + 变现作战室（T69+）
+
+> 依据：`docs/PHASE4-ROADMAP.md`、`docs/PHASE4-DESIGN.md`  
+> 原则：按 ID 递增；**默认已锁，不向用户抛选择**  
+> 周更 Bot：本阶段 **不启用**
+
+### T69 · Phase 4 文档落地
+
+- [x] 已完成
+- **目标：** 写入 PHASE4 路线图/设计；TASKS Phase4 节；README 指针；站三/变现手册  
+- **涉及文件：** `docs/PHASE4-ROADMAP.md`、`docs/PHASE4-DESIGN.md`、`docs/station-three-playbook.md`、`docs/monetize-playbook.md`、`TASKS.md`、`README.md`  
+- **验收：** 新人能按路线图知四站 Tab、灰锁与 Day1–7  
+- **依赖：** Phase3 完成
+
+### T70 · STATION_THREE_DAYS + MONETIZE_DAYS
+
+- [x] 已完成
+- **目标：** 数据绑定 q-s3-* / q-m-*（含巩固日空主线）  
+- **涉及文件：** `js/data.js`  
+- **验收：** 各长度 7；导出在 QuestData  
+- **依赖：** T69
+
+### T71 · 作战室四站 UI + 灰锁 + 深链
+
+- [x] 已完成
+- **目标：** Tab 站一|站二|站三|变现；站三锁至站二 Boss；变现锁至站三 Boss；`#war-s3` `#war-m`  
+- **涉及文件：** `js/war-room.js`、`js/app.js`、`css/ui.css`  
+- **验收：** 切换写 hash；解锁后可勾且与任务板同源  
+- **依赖：** T70
+
+### T72 · 站三作战手册
+
+- [x] 已完成
+- **目标：** `docs/station-three-playbook.md` 可打印 Day1–7（无厚 Starter）  
+- **涉及文件：** `docs/station-three-playbook.md`  
+- **验收：** 与 STATION_THREE_DAYS 一致  
+- **依赖：** T70
+
+### T73 · 变现港作战手册
+
+- [x] 已完成
+- **目标：** `docs/monetize-playbook.md` 含信任页三件套 + AdSense 自检  
+- **涉及文件：** `docs/monetize-playbook.md`  
+- **验收：** 与 MONETIZE_DAYS 一致  
+- **依赖：** T70
+
+### T74 · 入口串联
+
+- [x] 已完成
+- **目标：** 资源库/设置/RESOURCES/TRY 链到站三/变现手册与深链  
+- **涉及文件：** `js/resources.js`、`js/settings.js`、`js/data.js`  
+- **验收：** 入口可点达  
+- **依赖：** T71, T72, T73
+
+### T75 · 部署 GitHub Pages
+
+- [ ] 进行中
+- **目标：** commit + push main；确认 Pages  
+- **涉及文件：** 仓库全部变更  
+- **验收：** 线上 `#war-s3`、`#war-m`、手册、PHASE4 文档可访问  
+- **依赖：** T74
+
+### T76 · Phase4 收尾自测
+
+- [ ] 进行中
+- **目标：** TESTLOG Phase4 节  
+- **涉及文件：** `TESTLOG.md`  
+- **验收：** 关键项或已知问题写明  
+- **依赖：** T75
+
+---
+
+## Phase 4 任务统计
+
+| 阶段 | 任务 ID | 条数 |
+|------|---------|------|
+| 文档 | T69 | 1 |
+| 数据 + UI | T70–T71 | 2 |
+| 手册 + 入口 | T72–T74 | 3 |
+| 部署 + 自测 | T75–T76 | 2 |
+| **合计** | **T69–T76** | **8** |
+
+- 2026-10-16：Phase 4 · 站三 + 变现作战室 + 手册；见 `docs/PHASE4-ROADMAP.md`。

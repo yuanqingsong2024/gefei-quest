@@ -51,15 +51,19 @@
       </div>
 
       <div class="res-lib-banner war-entry-banner">
-        <h3>⚔️ 作战室（站一 / 站二）</h3>
-        <p class="panel-sub">固定 Day1–7 + Starter；站二灰锁至站一 Boss。无需选路径。</p>
+        <h3>⚔️ 作战室（站一 / 站二 / 站三 / 变现）</h3>
+        <p class="panel-sub">固定 Day1–7；站三灰锁至站二 Boss，变现灰锁至站三 Boss。无需选路径。</p>
         <p class="res-lib-actions">
-          <button type="button" class="btn btn-primary btn-sm" id="set-goto-war">打开站一作战室</button>
-          <button type="button" class="btn btn-sm" id="set-goto-war-s2">打开站二作战室</button>
+          <button type="button" class="btn btn-primary btn-sm" id="set-goto-war">站一</button>
+          <button type="button" class="btn btn-sm" id="set-goto-war-s2">站二</button>
+          <button type="button" class="btn btn-sm" id="set-goto-war-s3">站三</button>
+          <button type="button" class="btn btn-sm" id="set-goto-war-m">变现</button>
           <a href="./starters/station-one/" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站一 Starter</a>
           <a href="./starters/station-two/" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站二 Starter</a>
           <a href="./docs/station-one-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站一手册</a>
           <a href="./docs/station-two-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站二手册</a>
+          <a href="./docs/station-three-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站三手册</a>
+          <a href="./docs/monetize-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">变现手册</a>
         </p>
       </div>
 
@@ -131,7 +135,7 @@
             )
             .join('')}
         </ul>
-        <p class="hint">版本 Phase 2 · 出海小站练站营 · 非收益承诺</p>
+        <p class="hint">版本 Phase 4 · 出海小站练站营 · 非收益承诺</p>
       </div>`;
 
     root.querySelector('#set-muted').addEventListener('change', (e) => {
@@ -157,6 +161,14 @@
     const gotoWar2 = root.querySelector('#set-goto-war-s2');
     if (gotoWar2 && handlers.onGotoWar) {
       gotoWar2.addEventListener('click', () => handlers.onGotoWar(2));
+    }
+    const gotoWar3 = root.querySelector('#set-goto-war-s3');
+    if (gotoWar3 && handlers.onGotoWar) {
+      gotoWar3.addEventListener('click', () => handlers.onGotoWar(3));
+    }
+    const gotoWarM = root.querySelector('#set-goto-war-m');
+    if (gotoWarM && handlers.onGotoWar) {
+      gotoWarM.addEventListener('click', () => handlers.onGotoWar(4));
     }
     const exp = root.querySelector('#set-export');
     if (exp && handlers.onExportSave) {

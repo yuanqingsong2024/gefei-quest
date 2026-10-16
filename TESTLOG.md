@@ -44,3 +44,13 @@
 - [x] 资源库/设置含站二入口
 - [x] node 加载 data/war-room/app 无语法错
 - [x] Pages 线上 built（T67）· status=built · commit 623de3a
+
+## Phase 4 自测（2026-10-16）
+
+- [x] `STATION_THREE_DAYS` / `MONETIZE_DAYS` 长度 7；巩固日 soft
+- [x] 站三锁至 `q-s2-boss`；变现锁至 `q-s3-boss`（node 逻辑）
+- [x] 深链 hash：`war-s3` / `war-m`（`hashForStation`）
+- [x] 手册文件存在：station-three-playbook / monetize-playbook
+- [x] 资源库/设置含站三与变现入口
+- [x] node --check data/war-room/app/settings/resources 无语法错
+- [ ] Pages 线上 built（T75）· 待 push 后勾
