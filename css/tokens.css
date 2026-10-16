@@ -1,0 +1,70 @@
+/* DESIGN-SPEC §10 · 高对比深色游戏 Token */
+:root {
+  --bg: #0f1419;
+  --panel: #1a2332;
+  --panel2: #243044;
+  --ink: #f1f5f9;
+  --muted: #94a3b8;
+  --line: #334155;
+  --gold: #fbbf24;
+  --gold-text: #fde68a;
+  --cyan: #7dd3fc;
+  --cyan-hot: #38bdf8;
+  --ok: #4ade80;
+  --danger: #f87171;
+  --boss: #ef4444;
+  --locked-opacity: 0.45;
+  --radius: 14px;
+  --font: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --tag-bg: #1e3a8a;
+  --tag-fg: #bfdbfe;
+  --focus: #fde68a;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--cyan-hot);
+  text-decoration: underline;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}

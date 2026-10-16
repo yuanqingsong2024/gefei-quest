@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>出海小站练站营 · 详细设计规格</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #1a2332;
+    --panel2: #243044;
+    --ink: #f1f5f9;
+    --muted: #94a3b8;
+    --line: #334155;
+    --gold: #fbbf24;
+    --gold-text: #fde68a;
+    --cyan: #7dd3fc;
+    --ok: #4ade80;
+    --danger: #f87171;
+    --radius: 14px;
+    --max: 900px;
+    --sans: "PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: var(--sans); color: var(--ink);
+    background: radial-gradient(1200px 600px at 20% -10%, #1e3a5f 0%, transparent 50%),
+                radial-gradient(900px 500px at 100% 0%, #312e81 0%, transparent 45%),
+                var(--bg);
+    line-height: 1.65; font-size: 16px;
+  }
+  a { color: var(--cyan); font-weight: 600; text-decoration: none; }
+  a:hover { color: #bae6fd; text-decoration: underline; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 24px 18px 80px; }
+  .hero {
+    border: 2px solid #475569; border-radius: 18px; padding: 28px 24px;
+    background: linear-gradient(160deg, #1e293b 0%, #0f172a 60%, #1e1b4b 100%);
+    box-shadow: 0 0 0 1px #0ea5e9 inset, 0 20px 50px rgba(0,0,0,.35);
+    margin-bottom: 18px;
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 1.55rem; color: #fef3c7; text-shadow: 0 2px 0 #92400e; }
+  .hero p { margin: 0; color: #e2e8f0; max-width: 70ch; }
+  .chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: .78rem; font-weight: 700; padding: 4px 10px; border-radius: 6px;
+    border: 1px solid #64748b; background: #0f172a; color: #fde68a;
+  }
+  .chip.blue { color: #7dd3fc; border-color: #0284c7; }
+  .chip.green { color: #86efac; border-color: #16a34a; }
+  nav.toc, section {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px 20px; margin-bottom: 14px;
+  }
+  nav.toc strong { color: var(--gold); }
+  nav.toc ol { margin: 8px 0 0; padding-left: 1.2rem; }
+  h2 {
+    margin: 0 0 12px; font-size: 1.12rem; color: #fde68a;
+    padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  h3 { margin: 16px 0 8px; font-size: 1.02rem; color: #7dd3fc; }
+  p, li { color: #e2e8f0; }
+  .muted { color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: .88rem; margin: 8px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #0f172a; color: #fde68a; }
+  td { background: #152033; color: #e2e8f0; }
+  code {
+    background: #020617; color: #fde68a; padding: 1px 6px; border-radius: 4px;
+    font-size: .88em; border: 1px solid #334155;
+  }
+  pre {
+    background: #020617; color: #e2e8f0; padding: 12px 14px; border-radius: 10px;
+    overflow: auto; font-size: .82rem; border: 1px solid #334155;
+  }
+  .callout {
+    border: 1px solid #0369a1; background: #0c4a6e;
+    padding: 12px 14px; border-radius: 10px; margin: 12px 0; color: #e0f2fe;
+  }
+  .callout.warn { border-color: #b45309; background: #78350f; color: #ffedd5; }
+  .callout.ok { border-color: #15803d; background: #14532d; color: #dcfce7; }
+  .tag {
+    display: inline-block; font-size: .7rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; margin-right: 4px;
+    background: #1e3a8a; color: #bfdbfe; border: 1px solid #3b82f6;
+  }
+  .tag.boss { background: #7f1d1d; color: #fecaca; border-color: #ef4444; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 24px; }
+  .md-link { font-size: .9rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <h1>🏝️ 出海小站练站营 · 详细设计规格</h1>
+  <p>本页为 <code>DESIGN-SPEC.md</code> 的高对比可读镜像。完整字段表与任务 JSON 以 Markdown 为准。<strong>游戏代码尚未实现。</strong></p>
+  <div class="chips">
+    <span class="chip">规格 · 开发前</span>
+    <span class="chip blue">载体 · 本地单页</span>
+    <span class="chip green">存档 · gefei-quest-save-v1</span>
+    <span class="chip">2026-10-16 上海</span>
+  </div>
+  <p class="md-link" style="margin-top:12px">源文件：<a href="./DESIGN-SPEC.md">DESIGN-SPEC.md</a> · 任务：<a href="./TASKS.md">TASKS.md</a></p>
+</header>
+
+<nav class="toc">
+  <strong>📋 目录</strong>
+  <ol>
+    <li><a href="#one">一句话 / 目标非目标</a></li>
+    <li><a href="#screens">画面清单</a></li>
+    <li><a href="#systems">游戏系统</a></li>
+    <li><a href="#quests">关卡任务大纲</a></li>
+    <li><a href="#save">存档与周更 Schema</a></li>
+    <li><a href="#visual">视觉 / 动效 / 技术</a></li>
+    <li><a href="#mvp">MVP 验收与后续</a></li>
+  </ol>
+</nav>
+
+<section id="one">
+  <h2>1. 一句话与目标</h2>
+  <p>像《塞尔达》小地图 + 《习惯 RPG》打卡：建站冒险者在搜索之海立灯塔；主线三岛 + 每周港口商船。勾选 = 线下实战记账。</p>
+  <h3>目标</h3>
+  <ul>
+    <li>公开方法拆成可勾选任务；站一→二→三递进</li>
+    <li>深色 HUD + 地图 + 任务板 + 成就 + 商船</li>
+    <li>localStorage；零部署；周更只追加数据</li>
+    <li>高对比：金/青/近白正文在深底可读</li>
+  </ul>
+  <h3>非目标（MVP）</h3>
+  <ul>
+    <li>无登录云同步排行榜；不代建站；无收益承诺</li>
+    <li>无抽卡；体力默认关闭；无不可跳过长过场</li>
+  </ul>
+</section>
+
+<section id="screens">
+  <h2>2. 画面清单</h2>
+  <table>
+    <thead><tr><th>代号</th><th>名称</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td><strong>A</strong></td><td>HUD + 地图</td><td>等级/XP/连击/成就；六岛横滑</td></tr>
+      <tr><td><strong>B</strong></td><td>任务面板</td><td>勾选结算；Boss 标签</td></tr>
+      <tr><td><strong>C</strong></td><td>港口商船</td><td>WEEKLY_UPDATES 已读 +5 XP</td></tr>
+      <tr><td><strong>D</strong></td><td>成就墙</td><td>≥8 徽章</td></tr>
+      <tr><td><strong>E</strong></td><td>设置</td><td>静音默认开；体力默认关；重置确认</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="systems">
+  <h2>3. 游戏系统摘要</h2>
+  <h3>XP 曲线（累计阈值）</h3>
+  <table>
+    <thead><tr><th>Lv</th><th>称号</th><th>累计 XP</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>营地学徒</td><td>0</td></tr>
+      <tr><td>2</td><td>灯塔学徒</td><td>50</td></tr>
+      <tr><td>3</td><td>新手船长</td><td>120</td></tr>
+      <tr><td>4</td><td>蓝海水手</td><td>220</td></tr>
+      <tr><td>5</td><td>收录猎手</td><td>350</td></tr>
+      <tr><td>6</td><td>内页制图师</td><td>500</td></tr>
+      <tr><td>7</td><td>港口商人</td><td>680</td></tr>
+      <tr><td>8</td><td>航线规划师</td><td>900</td></tr>
+      <tr><td>9</td><td>果园主理</td><td>1150</td></tr>
+      <tr><td>10</td><td>出海老兵</td><td>1450</td></tr>
+    </tbody>
+  </table>
+  <p class="muted">等级不锁内容。小任务 10–25；Boss 40–60；商船 +5。</p>
+  <h3>成就（节选）</h3>
+  <ul>
+    <li><code>ach-first-check</code> 第一次出击</li>
+    <li><code>ach-prologue-clear</code> 推开营地大门</li>
+    <li><code>ach-site-indexed</code> 灯塔被发现</li>
+    <li><code>ach-gsc-ready</code> 航会报到成功</li>
+    <li><code>ach-blue-sea</code> 航道打通</li>
+    <li><code>ach-archipelago</code> 群岛连线</li>
+    <li><code>ach-ship-4</code> 四季商船</li>
+    <li><code>ach-streak-7</code> 七日连航</li>
+    <li><code>ach-monetize-aware</code> 港口升旗</li>
+    <li><code>ach-scale-plan</code> 新航线蓝图</li>
+  </ul>
+</section>
+
+<section id="quests">
+  <h2>4. 关卡与 Boss（摘要）</h2>
+  <table>
+    <thead><tr><th>岛屿</th><th>Boss</th><th>演出</th></tr></thead>
+    <tbody>
+      <tr><td>🏕️ 序章</td><td>方向备忘（类型+主词）</td><td>推开营地大门</td></tr>
+      <tr><td>🏝️ 站一</td><td>品牌词能搜到站</td><td>灯塔点亮</td></tr>
+      <tr><td>🌊 站二</td><td>目标词曝光并向首页推进</td><td>航道打通</td></tr>
+      <tr><td>🗺️ 站三</td><td>多页收录+点击趋势</td><td>群岛连线</td></tr>
+      <tr><td>💰 变现港</td><td>变现路径选项（申请成功不强制）</td><td>港口升旗</td></tr>
+      <tr><td>🚢 放大</td><td>下一站可执行清单</td><td>新航线解锁</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">完整每任务的 id / title / action / tools / doneCriteria / xp / required / boss 见 Markdown §7。</div>
+  <p>示例（站一 Boss）：<span class="tag boss">BOSS</span> <strong>呼出你的名字</strong> · +50 XP · 谷歌品牌词或 <code>site:</code> 找到自己。</p>
+</section>
+
+<section id="save">
+  <h2>5. 存档与周更</h2>
+  <p>Key：<code>gefei-quest-save-v1</code></p>
+<pre>{
+  "version": 1,
+  "xp": 0,
+  "done": [],
+  "unlocked": ["ch-prologue"],
+  "cleared": [],
+  "streak": 0,
+  "lastCheckIn": null,
+  "achievements": [],
+  "weeklyClaimed": [],
+  "settings": { "muted": true, "energyEnabled": false, "reduceMotion": false },
+  "energy": { "date": null, "left": 5 },
+  "notes": {},
+  "updatedAt": "…"
+}</pre>
+  <p><code>WEEKLY_UPDATES[]</code>：<code>id, week, title, summary, url?, tags?, xp, addedAt</code>。Bot 只追加，不碰存档。</p>
+</section>
+
+<section id="visual">
+  <h2>6. 视觉 / 动效 / 技术</h2>
+  <ul>
+    <li>Token：<code>--bg #0f1419</code> · <code>--ink #f1f5f9</code> · <code>--gold #fbbf24</code> · <code>--cyan #7dd3fc</code></li>
+    <li>默认静音；过场 ≤1.5s 可跳过；零/最小 CDN；单页 localStorage</li>
+  </ul>
+</section>
+
+<section id="mvp">
+  <h2>7. MVP 验收（摘要）</h2>
+  <ul>
+    <li>A–E 五屏可用；序章～站三可玩；变现/放大可通关</li>
+    <li>XP/连击/解锁/成就/商船/设置达标；高对比可读</li>
+  </ul>
+  <div class="callout ok">开发按 <a href="./TASKS.md">TASKS.md</a> 从 T01 逐步进行。本轮<strong>未写游戏实现代码</strong>。</div>
+</section>
+
+<footer>
+  DESIGN-SPEC HTML 镜像 · <code>/workspace/gefei-quest/DESIGN-SPEC.html</code>
+</footer>
+</div>
+</body>
+</html>
