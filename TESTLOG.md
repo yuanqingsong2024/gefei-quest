@@ -64,3 +64,13 @@
 - [x] 资源库/设置含放大入口
 - [x] node --check data/war-room/app/settings/resources 无语法错
 - [x] Pages 线上 built（T82）· status=built · commit d169dfc
+
+## Phase 6 · 首页枢纽（2026-10-16）
+
+- [x] 默认打开 `#home`，见四组卡片：开始实战 / 资源与羊毛 / 模板与手册 / 进度与文档
+- [x] 卡片切 Tab：地图、作战室、任务、商船、成就、资源库、设置
+- [x] 作战室深链：`#war` / `#war-s2` / `#war-s3` / `#war-m` / `#war-x`
+- [x] 资源库 `#tools` / `#xianyu` 筛选；返回「← 首页」
+- [x] Starter / playbook / MASTER / Phase / TASKS 外链可开
+- [x] 移动端两列卡片可读
+- [x] Pages built（见部署 commit）

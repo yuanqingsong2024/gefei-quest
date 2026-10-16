@@ -3,7 +3,7 @@
  */
 (function () {
   let state = null;
-  let currentTab = 'map';
+  let currentTab = 'home';
   let currentChapter = 'ch-prologue';
 
   const $ = (sel) => document.querySelector(sel);
@@ -92,7 +92,30 @@
     renderHUD();
     renderTabs();
 
-    if (currentTab === 'map') {
+    if (currentTab === 'home') {
+      QuestHome.renderHome($('#panel-home'), {
+        onNavigate(action, target) {
+          if (action === 'tab') {
+            currentTab = target;
+            if (target === 'quest' && !currentChapter) {
+              currentChapter = QuestProgress.getActiveChapterId(state);
+            }
+            try {
+              location.hash = target;
+            } catch (_) {}
+            renderAll();
+            return;
+          }
+          if (action === 'hash') {
+            applyHashTabFromValue(target);
+            try {
+              location.hash = target;
+            } catch (_) {}
+            renderAll();
+          }
+        },
+      });
+    } else if (currentTab === 'map') {
       QuestMap.renderMap(state, $('#panel-map'), (chapterId) => {
         currentChapter = chapterId;
         currentTab = 'quest';
@@ -224,7 +247,7 @@
             }
             persist();
             currentChapter = 'ch-prologue';
-            currentTab = 'map';
+            currentTab = 'home';
             QuestModal.showToast('存档已重置');
             renderAll();
           });
@@ -271,6 +294,38 @@
     renderAll();
   }
 
+  function applyHashTabFromValue(h) {
+    const raw = (h || '').replace(/^#/, '');
+    const warMap = {
+      'war-s2': 2,
+      'war-s3': 3,
+      'war-m': 4,
+      'war-x': 5,
+      war: 1,
+      'war-s1': 1,
+    };
+    if (Object.prototype.hasOwnProperty.call(warMap, raw)) {
+      currentTab = 'war';
+      if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(warMap[raw]);
+      return;
+    }
+    const allowed = [
+      'home',
+      'map',
+      'war',
+      'quest',
+      'ship',
+      'ach',
+      'resources',
+      'settings',
+    ];
+    if (allowed.indexOf(raw) >= 0) {
+      currentTab = raw;
+      return;
+    }
+    if (!raw) currentTab = 'home';
+  }
+
   function tabFromHash() {
     const h = (location.hash || '').replace(/^#/, '');
     if (
@@ -282,27 +337,21 @@
       h === 'war'
     )
       return 'war';
-    const allowed = ['map', 'war', 'quest', 'ship', 'ach', 'resources', 'settings'];
+    const allowed = [
+      'home',
+      'map',
+      'war',
+      'quest',
+      'ship',
+      'ach',
+      'resources',
+      'settings',
+    ];
     return allowed.indexOf(h) >= 0 ? h : null;
   }
 
   function applyHashTab() {
-    const h = (location.hash || '').replace(/^#/, '');
-    const warMap = {
-      'war-s2': 2,
-      'war-s3': 3,
-      'war-m': 4,
-      'war-x': 5,
-      war: 1,
-      'war-s1': 1,
-    };
-    if (Object.prototype.hasOwnProperty.call(warMap, h)) {
-      currentTab = 'war';
-      if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(warMap[h]);
-      return;
-    }
-    const t = tabFromHash();
-    if (t) currentTab = t;
+    applyHashTabFromValue((location.hash || '').replace(/^#/, ''));
   }
 
   function init() {
@@ -321,6 +370,11 @@
     state = QuestProgress.recomputeUnlocks(state);
     currentChapter = QuestProgress.getActiveChapterId(state);
     applyHashTab();
+    try {
+      if (!(location.hash || '').replace(/^#/, '')) {
+        location.replace(location.pathname + location.search + '#home');
+      }
+    } catch (_) {}
 
     document.querySelectorAll('.tab-btn').forEach((btn) => {
       btn.addEventListener('click', () => {

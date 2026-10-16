@@ -874,3 +874,52 @@
 | **合计** | **T77–T83** | **7** |
 
 - 2026-10-16：Phase 5 · 放大作战室 + 手册；见 `docs/PHASE5-ROADMAP.md`。
+
+---
+
+## Phase 6 · 首页枢纽（内容目录）
+
+> 目标：默认打开即见清晰首页，卡片串联全部入口。深色游戏 UI。
+
+### T84 · 首页 Tab + home.js
+
+- [x] 已完成
+- **目标：** `index.html` 默认「首页」Tab；`js/home.js` 渲染分类卡片（实战 / 资源羊毛 / 模板手册 / 文档）
+- **涉及文件：** `index.html`、`js/home.js`、`js/app.js`、`css/ui.css`
+- **验收：** 无 hash 时进 `#home`；卡片可切 Tab / 深链作战室 / 打开文档
+- **依赖：** —
+
+### T85 · 资源库深链与返回首页
+
+- [x] 已完成
+- **目标：** `resources.html#tools` / `#xianyu` 自动筛选；返回链到 `#home`
+- **涉及文件：** `js/resources.js`、`resources.html`
+- **验收：** 深链打开即对应分类；首页卡片「闲鱼/羊毛」可用
+- **依赖：** T84
+
+### T86 · 文档与入口说明
+
+- [x] 已完成
+- **目标：** README / MASTER-STATUS 写明首页枢纽与线上入口
+- **涉及文件：** `README.md`、`docs/MASTER-STATUS.md`、`TASKS.md`
+- **验收：** 读者从 README 知默认首页
+- **依赖：** T84
+
+### T87 · 部署 GitHub Pages
+
+- [x] 已完成（部署后勾）
+- **目标：** commit + push main；确认 Pages built；`#home` 可访问
+- **涉及文件：** 仓库全部变更
+- **验收：** https://yuanqingsong2024.github.io/gefei-quest/#home
+- **依赖：** T84–T86
+
+## Phase 6 任务统计
+
+| 阶段 | 任务 ID | 条数 |
+|------|---------|------|
+| 首页 UI | T84–T85 | 2 |
+| 文档 | T86 | 1 |
+| 部署 | T87 | 1 |
+| **合计** | **T84–T87** | **4** |
+
+- 2026-10-16：Phase 6 · 首页枢纽；默认 `#home`。

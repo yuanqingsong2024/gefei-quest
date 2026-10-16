@@ -8,7 +8,7 @@
 
 ## 结论
 
-**开发任务清单已全部关闭。**
+**开发任务清单已关闭；Phase 6 首页枢纽已交付。**
 
 | 范围 | 任务 ID | 结果 |
 |------|---------|------|
@@ -17,7 +17,8 @@
 | Phase 3 站二作战室 | T61–T68 | 全部 `[x]` |
 | Phase 4 站三+变现 | T69–T76 | 全部 `[x]` |
 | Phase 5 放大 | T77–T83 | 全部 `[x]` |
-| **合计** | **T01–T83** | **开放 `- [ ]` = 0** |
+| Phase 6 首页枢纽 | T84–T87 | 全部 `[x]` |
+| **合计** | **T01–T87** | **开放 `- [ ]` = 0**（T58 取消不计开放） |
 
 ### 取消项
 
@@ -45,18 +46,21 @@
 
 ## 已交付能力（摘要）
 
+- **首页枢纽**（默认 `#home`）：分类卡片 → 地图 / 作战室五站 / 任务·商船·成就 / 资源库·羊毛·闲鱼 / Starter / 手册 / MASTER·Phase·TASKS / 设置
 - 轻 RPG 主线：序章 → 站一 → 站二 → 站三 → 变现港 → 放大（XP / 连击 / Boss / 成就 / 商船 / 设置）
 - 作战室五站 Tab + 灰锁 + `#war` / `#war-s2` / `#war-s3` / `#war-m` / `#war-x`
 - Starter：`starters/station-one/`、`starters/station-two/`
-- 手册：站一～放大 + 变现；资源库整页 + 搜索；存档 JSON 导出/导入
+- 手册：站一～放大 + 变现；资源库整页 + 搜索 + `#tools` / `#xianyu` 深链；存档 JSON 导出/导入
 - 渠道资料：免费工具 / 托管 / 变现 / 路径 / 闲鱼·非实物 / 同路人公开摘要
 
 ---
 
 ## 线上入口
 
+- 首页：https://yuanqingsong2024.github.io/gefei-quest/#home
 - 主站：https://yuanqingsong2024.github.io/gefei-quest/
 - 资源库：https://yuanqingsong2024.github.io/gefei-quest/resources.html
+- 闲鱼筛选：https://yuanqingsong2024.github.io/gefei-quest/resources.html#xianyu
 - 本文件：https://yuanqingsong2024.github.io/gefei-quest/docs/MASTER-STATUS.md
 - 任务清单：https://yuanqingsong2024.github.io/gefei-quest/TASKS.md
 
@@ -65,3 +69,14 @@
 ## 自测指针
 
 见仓库根目录 `TESTLOG.md`（Phase 2–5 节均已勾 Pages built）。
+
+---
+
+## Phase 6 · 首页枢纽（2026-10-16）
+
+| 项 | 说明 |
+|----|------|
+| 默认 Tab | `首页` / `#home` |
+| 模块 | `js/home.js` + `css/ui.css` 首页卡片样式 |
+| 入口 | 实战 · 资源羊毛 · 模板手册 · 进度文档 |
+| 任务 | T84–T87（见 `TASKS.md`） |

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>出海小站练站营</title>
-    <meta name="description" content="本地关卡式出海 SEO 练站打卡：站一→站二→站三，勾选即实战记账。" />
+    <meta name="description" content="本地关卡式出海 SEO 练站打卡：首页总目录 · 站一→站二→站三 · 资源库与作战室。" />
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/ui.css" />
   </head>
@@ -18,7 +18,8 @@
       <div id="hud" class="hud" aria-label="状态栏"></div>
 
       <nav class="tabs" role="tablist" aria-label="主导航">
-        <button type="button" class="tab-btn active" role="tab" data-tab="map" aria-selected="true">地图</button>
+        <button type="button" class="tab-btn active" role="tab" data-tab="home" aria-selected="true">首页</button>
+        <button type="button" class="tab-btn" role="tab" data-tab="map" aria-selected="false">地图</button>
         <button type="button" class="tab-btn" role="tab" data-tab="war" aria-selected="false">作战室</button>
         <button type="button" class="tab-btn" role="tab" data-tab="quest" aria-selected="false">任务</button>
         <button type="button" class="tab-btn" role="tab" data-tab="ship" aria-selected="false">商船</button>
@@ -28,7 +29,8 @@
       </nav>
 
       <main>
-        <section id="panel-map" class="tab-panel" role="tabpanel"></section>
+        <section id="panel-home" class="tab-panel" role="tabpanel"></section>
+        <section id="panel-map" class="tab-panel" role="tabpanel" hidden></section>
         <section id="panel-war" class="tab-panel" role="tabpanel" hidden></section>
         <section id="panel-quest" class="tab-panel" role="tabpanel" hidden></section>
         <section id="panel-ship" class="tab-panel" role="tabpanel" hidden></section>
@@ -51,6 +53,7 @@
     <script src="js/weekly.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/resources.js"></script>
+    <script src="js/home.js"></script>
     <script src="js/war-room.js"></script>
     <script src="js/map.js"></script>
     <script src="js/quest.js"></script>

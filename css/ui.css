@@ -1092,3 +1092,80 @@ a.btn:hover {
 .war-day-soft {
   border-style: dashed;
 }
+
+/* —— 首页枢纽 —— */
+.home-head {
+  margin-bottom: 4px;
+}
+.home-section {
+  margin: 18px 0 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.home-section:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+.home-section-head h3 {
+  margin: 0 0 4px;
+  color: var(--gold);
+  font-size: 1.08rem;
+}
+.home-section-blurb {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+.home-card {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  min-height: 108px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+  font: inherit;
+}
+a.home-card:hover,
+button.home-card:hover {
+  border-color: var(--cyan-hot);
+  color: var(--ink);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.home-card-emoji {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+.home-card-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--cyan);
+}
+.home-card-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+@media (max-width: 560px) {
+  .home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-card {
+    min-height: 96px;
+    padding: 10px 12px;
+  }
+}

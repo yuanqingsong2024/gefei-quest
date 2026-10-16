@@ -43,6 +43,7 @@
     const channels = global.QuestData.TRY_CHANNELS || [];
     const peers = global.QuestData.PEER_METHODS || [];
     const docs = [
+      { title: 'MASTER 状态总览', url: './docs/MASTER-STATUS.md' },
       { title: '站一作战手册', url: './docs/station-one-playbook.md' },
       { title: '站二作战手册', url: './docs/station-two-playbook.md' },
       { title: '站三作战手册', url: './docs/station-three-playbook.md' },
@@ -86,7 +87,7 @@
         ${
           embedded
             ? ''
-            : `<p class="res-back"><a href="./index.html">← 返回练站营</a></p>`
+            : `<p class="res-back"><a href="./index.html#home">← 返回首页</a></p>`
         }
       </div>
 
@@ -189,9 +190,24 @@
         : `当前：${label} · ${visible} 条`;
     }
 
+    function filterFromHash() {
+      const h = (location.hash || '').replace(/^#/, '');
+      if (!h) return;
+      const known = filterChips.map((f) => f.id);
+      // support #tools / #xianyu / #cat-tools
+      let id = h;
+      if (id.indexOf('cat-') === 0) id = id.slice(4);
+      if (known.indexOf(id) >= 0) currentFilter = id;
+    }
+
     buttons.forEach((btn) => {
       btn.addEventListener('click', () => {
         currentFilter = btn.getAttribute('data-filter');
+        try {
+          if (!embedded) {
+            location.hash = currentFilter === 'all' ? '' : currentFilter;
+          }
+        } catch (_) {}
         apply();
       });
     });
@@ -199,6 +215,13 @@
       currentQ = searchInput.value || '';
       apply();
     });
+    if (!embedded) {
+      filterFromHash();
+      window.addEventListener('hashchange', () => {
+        filterFromHash();
+        apply();
+      });
+    }
     apply();
   }
 
