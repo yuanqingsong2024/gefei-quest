@@ -37,6 +37,9 @@
     arrowLeft: '<path d="M19 12H5M11 6l-6 6 6 6"/>',
     arrowRight: '<path d="M5 12h14M13 6l6 6-6 6"/>',
     external: '<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v6H4V6h6"/>',
+    kit: '<path d="M4 7h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1z"/><path d="M9 7V5h6v2"/><path d="M8 12l2 2 4-4"/>',
+    tag: '<path d="M3 12V4h8l9 9-8 8z"/><circle cx="7.5" cy="8.5" r="1.5"/>',
+    ledger: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v18"/><path d="M11 8h6M11 12h6M11 16h4"/>',
     fire: '<path d="M12 21c4 0 7-3 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-3 3-5 5-5 8 0 4 3 7 7 7z"/>',
   };
   function svg(name, cls) {

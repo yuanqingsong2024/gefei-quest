@@ -10,17 +10,27 @@
   var SITE_NAV = [
     { id: 'home', label: '首页', icon: 'lighthouse', hash: '#home', sub: '出海建站 · SEO · 练习营', desc: '从挖词到多站的完整练习路线。' },
     { id: 'path', label: '学习路线', icon: 'map', hash: '#path', sub: '关卡地图 · 任务清单', desc: '按章节闯关：入门准备 → 站一 → 站二 → 站三 → 变现 → 放大，勾选即线下完成。' },
-    { id: 'war', label: '实战作战室', icon: 'target', hash: '#war', sub: '每站固定 Day1–7', desc: '五个阶段各一张 7 天清单，与学习路线共用同一份进度。' },
+    { id: 'war', label: '实战作战室', icon: 'target', hash: '#war', sub: '每站 Day1–7 · 实操助手 · 选词练习板', desc: '五个阶段各一张 7 天清单，加上站一实操助手和选词练习板，与学习路线共用同一份进度。' },
     { id: 'lib', label: '资源库', icon: 'toolbox', hash: '#lib', sub: '工具 · 托管 · 变现 · 闲鱼', desc: '免费工具、托管域名、变现渠道、可试路径、闲鱼非实物与同路人方法，可筛选可搜索。' },
     { id: 'guides', label: '手册与模板', icon: 'book', hash: '#guides', sub: '5 份手册 · 2 个模板 · 笔记', desc: '每个阶段的作战手册、可直接部署的单页模板，以及渠道笔记。' },
     { id: 'weekly', label: '每周补给', icon: 'calendar', hash: '#weekly', sub: '每周一更新的知识卡', desc: '每周几张短卡片：方法、提醒和本周可试的小动作，领取得 XP。' },
-    { id: 'me', label: '我的进度', icon: 'user', hash: '#me', sub: '成就 · 统计 · 存档 · 设置', desc: '等级、XP、连击、成就墙，以及存档导出导入和偏好设置。' },
+    { id: 'me', label: '我的进度', icon: 'user', hash: '#me', sub: '成就 · 站点台账 · 存档 · 设置', desc: '等级、XP、连击、成就墙、我的站点台账，以及存档导出导入和偏好设置。' },
   ];
   var DEV_SECTION = { id: 'dev', label: '开发者文档', icon: 'code', hash: '#dev', sub: '路线图 · 任务 · 测试记录', desc: '项目开发过程文档，供维护者查阅。' };
 
   var PATH_TABS = [
     { id: 'map', label: '关卡地图', icon: 'map', hash: '#path' },
     { id: 'quests', label: '任务清单', icon: 'list', hash: '#path-quests' },
+  ];
+
+  var WAR_TABS = [
+    { id: 'days', label: '作战日程', icon: 'calendar', hash: '#war' },
+    { id: 'kit', label: '站一实操助手', icon: 'kit', hash: '#war-kit' },
+    { id: 'keywords', label: '选词练习板', icon: 'tag', hash: '#war-keywords' },
+  ];
+  var ME_TABS = [
+    { id: 'overview', label: '概览', icon: 'user', hash: '#me' },
+    { id: 'sites', label: '我的站点台账', icon: 'ledger', hash: '#me-sites' },
   ];
 
   var STATIONS = [
@@ -61,6 +71,7 @@
   ];
   var DEV_DOCS = [
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
+    { id: 'PHASE9-TOOLS', title: 'Phase 9 · 实操工具' },
     { id: 'PHASE8-IA', title: 'Phase 8 · 信息架构' },
     { id: 'PHASE7-DESIGN', title: 'Phase 7 · 设计方案' },
     { id: 'PHASE5-ROADMAP', title: 'Phase 5 · 路线图' },
@@ -99,6 +110,9 @@
     if (h === 'path') return { section: 'path', view: 'map', hash: h };
     if (h === 'path-quests') return { section: 'path', view: 'quests', hash: h };
     var st = { war: 1, 'war-s2': 2, 'war-s3': 3, 'war-m': 4, 'war-x': 5 };
+    if (h === 'war-kit') return { section: 'war', view: 'kit', hash: h };
+    if (h === 'war-keywords') return { section: 'war', view: 'keywords', hash: h };
+    if (h === 'me-sites') return { section: 'me', view: 'sites', hash: h };
     if (st[h]) return { section: 'war', view: 'war', param: st[h], hash: h };
     if (h === 'lib') return { section: 'lib', view: 'lib', param: 'all', hash: h };
     if (h.indexOf('lib-') === 0) return { section: 'lib', view: 'lib', param: h.slice(4), hash: h };
@@ -175,7 +189,7 @@
   }
 
   global.QuestNav = {
-    SITE_NAME: SITE_NAME, SITE_NAV: SITE_NAV, DEV_SECTION: DEV_SECTION, PATH_TABS: PATH_TABS, STATIONS: STATIONS,
+    SITE_NAME: SITE_NAME, SITE_NAV: SITE_NAV, DEV_SECTION: DEV_SECTION, PATH_TABS: PATH_TABS, WAR_TABS: WAR_TABS, ME_TABS: ME_TABS, STATIONS: STATIONS,
     LIB_CATS: LIB_CATS, GUIDES: GUIDES, GUIDE_GROUPS: GUIDE_GROUPS, DEV_DOCS: DEV_DOCS, ALIASES: ALIASES,
     parse: parse, canonical: canonical, fixHref: fixHref, fixLinks: fixLinks, navById: navById, guideById: guideById,
     isDevId: isDevId, renderTopNav: renderTopNav, renderSectionHead: renderSectionHead, renderFooter: renderFooter,

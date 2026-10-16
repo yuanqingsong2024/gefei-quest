@@ -311,11 +311,19 @@
     ['rocket', '放大', '复制流程到多站', '#war-x'],
   ];
 
+  function sitesSnap(raw) {
+    var T = global.QuestTools, I = global.QuestIcons.svg; if (!T) return '';
+    raw = raw || {};
+    var S = T.summary(JSON.parse(JSON.stringify(raw)));
+    if (!S.count) return '<p class="snap-sites" id="home-sites-snap"><a href="#me-sites">' + I('ledger') + '站点台账</a>：还没有登记站点，站一上线后记一笔。</p>';
+    return '<p class="snap-sites" id="home-sites-snap"><a href="#me-sites">' + I('ledger') + '站点台账</a>：<b>' + S.count + '</b> 个站' +
+      (S.t ? ' · ' + esc(S.month) + ' 合计 曝光 <b>' + S.t.imp + '</b> · 点击 <b>' + S.t.clicks + '</b> · 收入 <b>$' + S.t.usd.toFixed(2) + '</b>' + (S.t.cny ? ' + <b>¥' + S.t.cny.toFixed(2) + '</b>' : '') : ' · 还没有月度记录') + '</p>';
+  }
   function snapshot() {
     var raw = null;
     try { raw = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || 'null'); } catch (_) {}
     if (!raw || typeof raw.xp !== 'number') {
-      return '<div class="snap-empty"><p>还没有进度。点「开始站一」勾下第一项，这里会显示你的等级、XP 与连击。</p></div>';
+      return '<div class="snap-empty"><p>还没有进度。点「开始站一」勾下第一项，这里会显示你的等级、XP 与连击。</p></div>' + sitesSnap(raw);
     }
     var P = global.QuestProgress, lv = 1, title = '', pct = 0;
     try {
@@ -327,7 +335,7 @@
       '<div class="snap-item"><b>' + esc(raw.xp) + '</b><span>XP</span></div>' +
       '<div class="snap-item"><b>' + esc(raw.streak || 0) + '</b><span>连击天数</span></div>' +
       '<div class="snap-item"><b>' + esc((raw.done || []).length) + '</b><span>已完成任务</span></div>' +
-      '</div>' + (pct ? '<div class="snap-bar"><i style="width:' + Math.min(100, pct) + '%"></i></div>' : '');
+      '</div>' + sitesSnap(raw) + (pct ? '<div class="snap-bar"><i style="width:' + Math.min(100, pct) + '%"></i></div>' : '');
   }
 
   function renderHome(root) {
@@ -347,6 +355,12 @@
       '<div class="feat-grid">' + sections.map(function (n) {
         return '<a class="feat-card" href="' + n.hash + '"><span class="card-ico card-ico-lg">' + I(n.icon) + '</span><b>' + n.label + '</b><small>' + n.sub + '</small><span>' + n.desc + '</span></a>';
       }).join('') + '</div></section>' +
+      '<section class="lp-sec" id="home-tools"><div class="sec-head"><span class="sec-kicker">TOOLS</span><h2>三个实操工具</h2><p>不只是看清单：帮你生成页面、记录选词、追踪每个站的数据。全部只存本机浏览器。</p></div>' +
+      '<div class="feat-grid">' +
+      '<a class="feat-card" href="#war-kit"><span class="card-ico card-ico-lg">' + I('kit') + '</span><b>站一实操助手</b><small>实战作战室</small><span>填主词和域名，实时检查 title / 描述 / h1，一键下载已填好的站一页面 + robots + sitemap，并附上线自查表。</span></a>' +
+      '<a class="feat-card" href="#war-keywords"><span class="card-ico card-ico-lg">' + I('tag') + '</span><b>选词练习板</b><small>实战作战室</small><span>记候选词和搜索结果前 10 观察，自动打分「适合练手 / 可以试 / 先换长尾」，一键设为站一主词。</span></a>' +
+      '<a class="feat-card" href="#me-sites"><span class="card-ico card-ico-lg">' + I('ledger') + '</span><b>我的站点台账</b><small>我的进度</small><span>登记每个站的域名、状态和变现方式，按月记曝光、点击、收入，自动画折线。</span></a>' +
+      '</div></section>' +
       '<section class="lp-sec" id="home-steps"><div class="sec-head"><span class="sec-kicker">ROADMAP</span><h2>五步路线</h2><p>从零到多站，按顺序推进，每步对应一个实战作战室。</p></div>' +
       '<ol class="steps">' + STEPS.map(function (s, k) {
         return '<li><a class="step" href="' + s[3] + '"><span class="step-no">' + (k + 1) + '</span><span class="card-ico">' + I(s[0]) + '</span><b>' + s[1] + '</b><span>' + s[2] + '</span></a></li>';

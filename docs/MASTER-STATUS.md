@@ -86,3 +86,6 @@
 
 ## Phase 8 · 信息架构重整（2026-10-16）
 - T96–T105 全部完成。七个栏目（首页 / 学习路线 / 实战作战室 / 资源库 / 手册与模板 / 每周补给 / 我的进度）名称统一来自 `js/nav.js`；SVG 图标集 `js/icons.js`；文档站内渲染（`js/guides.js` + `js/guides-data.js`）；`resources.html` 改为跳转；用户界面原始 .md 链接 0。方案：`docs/PHASE8-IA.md`
+
+## Phase 9 · 实操工具（2026-10-16）
+- T106–T114 全部完成。站一实操助手 `#war-kit`、选词练习板 `#war-keywords`、我的站点台账 `#me-sites`；存档追加 `kit` / `keywords` / `sites`（旧存档兼容）。测试：site-check 路由 23 + P9 功能用例 20/20，0 坏链、0 控制台错误、390px 无横向滚动。方案：`docs/PHASE9-TOOLS.md`

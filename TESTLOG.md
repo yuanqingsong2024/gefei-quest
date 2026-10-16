@@ -88,3 +88,9 @@
 - 390×844：home/lib/path/war/guide/me scrollWidth=390 ✅
 - file:// 打开 #guide-scale-playbook 正常渲染（guides-data.js 兜底）✅；作战室勾选 q-p-01 写入 gefei-quest-save-v1 并在 #me 统计同步 ✅
 - 截图：/workspace/gefei-quest-shots/p8-{home,path,war,lib,guide,weekly,me,mobile-home,mobile-lib}.png
+
+## 2026-10-16 · Phase 9 实操工具
+- `tools/site-check.js`（Chrome headless）：23 路由（新增 #war-kit / #war-keywords / #me-sites）+ 9 手册 + 14 开发文档，routeFails 0 · broken 0 · rawMd 0 · consoleErrors 0 ✅
+- P9 功能用例 20/20 ✅：旧存档（无 kit/keywords/sites）正常加载；选词增/改/删/星标；评分 70 适合练手 · 50 可以试 · 38/12 先换长尾；设为站一主词/站二目标词；快捷链编码；CSV；实操助手预览规则 4/4；index.html 填充且唯一 h1、无 YOURBRAND；sitemap 含域名；ZIP（PK 头，Python zipfile 校验通过）；自查表与表单刷新后保留；站点 + 3 个月记录 + SVG 折线；首页快照显示站点数和最近月合计。
+- file://：三个新页面 0 错误；390px：war-kit / war-keywords / me-sites scrollWidth 390 ✅
+- 截图：/workspace/gefei-quest-shots/p9-kit.png · p9-keywords.png · p9-sites.png · p9-mobile-keywords.png

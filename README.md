@@ -13,11 +13,11 @@
 |---|---|---|
 | 首页 | `#home` | 落地页：六个栏目、五步路线、资源分类、手册、FAQ |
 | 学习路线 | `#path`（关卡地图）· `#path-quests`（任务清单） | 六个章节依次解锁，勾选即线下完成 |
-| 实战作战室 | `#war` `#war-s2` `#war-s3` `#war-m` `#war-x` | 站一 / 站二 / 站三 / 变现 / 放大，每站 Day1–7 |
+| 实战作战室 | `#war` `#war-s2` `#war-s3` `#war-m` `#war-x` · `#war-kit` · `#war-keywords` | 站一 / 站二 / 站三 / 变现 / 放大，每站 Day1–7；站一实操助手；选词练习板 |
 | 资源库 | `#lib`、`#lib-tools` `#lib-hosting` `#lib-monetize` `#lib-paths` `#lib-xianyu` `#lib-tips` `#lib-peers` | 筛选 + 搜索 |
 | 手册与模板 | `#guides`、`#guide-<文档名>` | 5 份手册、2 个单页模板、笔记；文档在站内渲染成页面 |
 | 每周补给 | `#weekly` | 每周知识卡，领取 +XP |
-| 我的进度 | `#me` | 等级/统计、成就墙、偏好、导出/导入/重置存档 |
+| 我的进度 | `#me` · `#me-sites` | 等级/统计、成就墙、偏好、导出/导入/重置存档；我的站点台账 |
 | 开发者文档（页脚） | `#dev`、`#dev-<文档名>` | 路线图、任务表、测试记录 |
 
 旧链接永久兼容：`#map` `#quest` `#ship` `#ach` `#settings` `#resources` `#war-s1`、`resources.html#tools` 等自动跳到新路由。
@@ -25,6 +25,13 @@
 测试：`node tools/site-check.js http://localhost:8765/ [截图目录]`（路由 / 旧 hash / 链接检查 / 控制台错误）。
 
 周一知识补给 Bot：**未启用**（各 Phase 明确跳过；需你说「恢复周一补给」后再开）。
+
+## Phase 9 · 实操工具（`docs/PHASE9-TOOLS.md`）
+
+- **站一实操助手** `#war-kit`：填主词/介绍/域名/邮箱 → 实时预览 title/description/h1 与规则 → 下载 ZIP（index.html + robots.txt + sitemap.xml，零依赖自写 ZIP）→ 上线自查表（部分项同步勾任务 q-s1-02~05）。存 `save.kit`。
+- **选词练习板** `#war-keywords`：候选词 + SERP 观察，启发式评分（公式页内可见）、快捷链、排序筛选、星标、设为站一主词/站二目标词、CSV。存 `save.keywords`。
+- **我的站点台账** `#me-sites`：站点 + 月度曝光/点击/收入，汇总卡、SVG 折线、CSV；首页进度快照显示。存 `save.sites`。
+- 全部只存本机浏览器；旧存档自动补字段。
 
 ## 首页枢纽
 

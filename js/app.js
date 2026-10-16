@@ -95,7 +95,7 @@
       const quests = route.view === 'quests';
       crumb = quests ? '任务清单' : '';
       root.innerHTML = subTabs(N.PATH_TABS, quests ? 'quests' : 'map') +
-        (quests ? chapterChips() : '') + '<div id="path-body"></div>';
+        (quests ? chapterChips() : '') + `<p class="hint path-tools">动手工具：<a href="#war-keywords">${I('tag')}选词练习板</a> · <a href="#war-kit">${I('kit')}站一实操助手</a> · <a href="#me-sites">${I('ledger')}我的站点台账</a></p>` + '<div id="path-body"></div>';
       if (quests) {
         root.querySelectorAll('[data-ch]').forEach((b) => b.addEventListener('click', () => {
           const id = b.getAttribute('data-ch');
@@ -109,11 +109,18 @@
       } else {
         QuestMap.renderMap(state, $('#path-body'), (chapterId) => { currentChapter = chapterId; go('#path-quests'); });
       }
+    } else if (sec === 'war' && (route.view === 'kit' || route.view === 'keywords')) {
+      const root = $('#panel-war');
+      const kit = route.view === 'kit';
+      crumb = kit ? '站一实操助手' : '选词练习板';
+      root.innerHTML = subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>';
+      QuestTools[kit ? 'renderKit' : 'renderKeywords'](state, $('#tool-body'), toolCtx());
     } else if (sec === 'war') {
+      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'days') + '<div id="war-body"></div>';
       QuestWarRoom.setActiveStation(route.param || 1);
       const st = N.STATIONS.find((x) => x.n === (route.param || 1));
       crumb = st ? st.label : '';
-      QuestWarRoom.renderWarRoom(state, $('#panel-war'), {
+      QuestWarRoom.renderWarRoom(state, $('#war-body'), {
         onToggle(questId, checked, el) { handleToggle(questId, checked, el); },
         onGotoQuest(station) {
           const map = { 1: 'ch-stage1', 2: 'ch-stage2', 3: 'ch-stage3', 4: 'ch-monetize', 5: 'ch-scale' };
@@ -162,7 +169,13 @@
       });
     } else if (sec === 'me') {
       const root = $('#panel-me');
-      root.innerHTML = `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>
+      if (route.view === 'sites') {
+        crumb = '我的站点台账';
+        root.innerHTML = subTabs(N.ME_TABS, 'sites') + '<div id="sites-body"></div>';
+        QuestTools.renderSites(state, $('#sites-body'), toolCtx());
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+      }
+      root.innerHTML = subTabs(N.ME_TABS, 'overview') + `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>
         <section class="block" id="me-ach-wrap"><div id="me-ach"></div></section>
         <section class="block" id="me-settings-wrap"><div id="me-settings"></div></section>`;
       QuestAchievements.renderWall(state, $('#me-ach'));
@@ -208,6 +221,7 @@
             achievementDates: obj.achievementDates || {},
             notes: obj.notes || {},
           };
+          state = QuestTools.ensure(state);
           state = QuestProgress.recomputeUnlocks(state);
           persist();
           currentChapter = QuestProgress.getActiveChapterId(state);
@@ -217,7 +231,7 @@
         onReset() {
           QuestModal.confirmReset(() => {
             QuestSave.resetSave();
-            state = QuestSave.getDefaultSave();
+            state = QuestTools.ensure(QuestSave.getDefaultSave());
             // 尊重系统减少动态建议
             if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
               state.settings.reduceMotion = true;
@@ -244,6 +258,17 @@
         if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth' });
       }, 30);
     }
+  }
+
+  function scrollTopIfChanged() {
+    if (renderAll._last !== route.hash) { renderAll._last = route.hash; window.scrollTo(0, 0); }
+  }
+  function toolCtx() {
+    return {
+      save() { QuestSave.saveSave(state); },
+      rerender() { renderAll(); },
+      tickQuest(id, el) { handleToggle(id, true, null); },
+    };
   }
 
   function handleToggle(questId, checked, el) {
@@ -294,7 +319,7 @@
   function init() {
     let hadSave = false;
     try { hadSave = !!localStorage.getItem(QuestSave.SAVE_KEY); } catch (_) {}
-    state = QuestSave.loadSave();
+    state = QuestTools.ensure(QuestSave.loadSave());
     if (!hadSave && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       state.settings.reduceMotion = true;
     }

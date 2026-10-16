@@ -27,6 +27,9 @@
         left: 5,
       },
       notes: {},
+      kit: { keyword: '', intro: '', domain: '', email: '', checks: {} },
+      keywords: { items: [], s2Target: '', sort: 'score', filter: 'all' },
+      sites: { items: [] },
       updatedAt: new Date().toISOString(),
     };
   }
@@ -52,7 +55,7 @@
       }
       // 补齐缺字段
       const def = getDefaultSave();
-      return {
+      const merged = {
         ...def,
         ...parsed,
         settings: { ...def.settings, ...(parsed.settings || {}) },
@@ -60,6 +63,7 @@
         achievementDates: parsed.achievementDates || {},
         notes: parsed.notes || {},
       };
+      return global.QuestTools ? global.QuestTools.ensure(merged) : merged;
     } catch (e) {
       console.warn('[save] parse failed, using default', e);
       return getDefaultSave();
