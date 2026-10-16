@@ -54,3 +54,13 @@
 - [x] 资源库/设置含站三与变现入口
 - [x] node --check data/war-room/app/settings/resources 无语法错
 - [x] Pages 线上 built（T75）· status=built · commit 3a8171f
+
+## Phase 5 自测（2026-10-16）
+
+- [x] `SCALE_DAYS` 长度 7；Day4–6 soft（questIds 空）；绑定 `q-x-01` `q-x-02` `q-x-03` `q-x-boss`
+- [x] 放大锁至 `q-m-boss` 或 `ch-scale`（node 逻辑）
+- [x] 深链 hash：`war-x`（`hashForStation(5)`）
+- [x] 手册文件存在：`scale-playbook.md` / PHASE5-ROADMAP / PHASE5-DESIGN
+- [x] 资源库/设置含放大入口
+- [x] node --check data/war-room/app/settings/resources 无语法错
+- [ ] Pages 线上 built（T82）· push 后勾

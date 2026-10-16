@@ -104,7 +104,7 @@
           handleToggle(questId, checked, el);
         },
         onGotoQuest(station) {
-          const map = { 1: 'ch-stage1', 2: 'ch-stage2', 3: 'ch-stage3', 4: 'ch-monetize' };
+          const map = { 1: 'ch-stage1', 2: 'ch-stage2', 3: 'ch-stage3', 4: 'ch-monetize', 5: 'ch-scale' };
           const prefer = map[station] || 'ch-stage1';
           currentChapter = prefer;
           if ((state.unlocked || []).indexOf(prefer) < 0) {
@@ -174,7 +174,7 @@
           currentTab = 'war';
           const n = globalThis.QuestWarRoom
             ? QuestWarRoom.normalizeStation(station)
-            : (station === 2 || station === 3 || station === 4 ? station : 1);
+            : (station === 2 || station === 3 || station === 4 || station === 5 ? station : 1);
           if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(n);
           try {
             location.hash = globalThis.QuestWarRoom
@@ -277,6 +277,7 @@
       h === 'war-s2' ||
       h === 'war-s3' ||
       h === 'war-m' ||
+      h === 'war-x' ||
       h === 'war-s1' ||
       h === 'war'
     )
@@ -291,6 +292,7 @@
       'war-s2': 2,
       'war-s3': 3,
       'war-m': 4,
+      'war-x': 5,
       war: 1,
       'war-s1': 1,
     };

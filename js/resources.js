@@ -47,9 +47,11 @@
       { title: '站二作战手册', url: './docs/station-two-playbook.md' },
       { title: '站三作战手册', url: './docs/station-three-playbook.md' },
       { title: '变现港作战手册', url: './docs/monetize-playbook.md' },
+      { title: '放大航线作战手册', url: './docs/scale-playbook.md' },
       { title: 'Phase 2 路线图', url: './docs/PHASE2-ROADMAP.md' },
       { title: 'Phase 3 路线图', url: './docs/PHASE3-ROADMAP.md' },
       { title: 'Phase 4 路线图', url: './docs/PHASE4-ROADMAP.md' },
+      { title: 'Phase 5 路线图', url: './docs/PHASE5-ROADMAP.md' },
       { title: '资源库扩容配方', url: './docs/resource-expansion.md' },
       { title: '可试渠道 · 羊毛与工具笔记', url: './docs/channels-and-tips.md' },
       { title: '同路人方法调研笔记', url: './docs/peer-methods.md' },
@@ -72,12 +74,14 @@
           <a class="btn btn-sm" href="./index.html#war-s2">站二</a>
           <a class="btn btn-sm" href="./index.html#war-s3">站三</a>
           <a class="btn btn-sm" href="./index.html#war-m">变现</a>
+          <a class="btn btn-sm" href="./index.html#war-x">放大</a>
           <a class="btn btn-sm" href="./starters/station-one/" target="_blank" rel="noopener noreferrer">站一 Starter</a>
           <a class="btn btn-sm" href="./starters/station-two/" target="_blank" rel="noopener noreferrer">站二 Starter</a>
           <a class="btn btn-sm" href="./docs/station-one-playbook.md" target="_blank" rel="noopener noreferrer">站一手册</a>
           <a class="btn btn-sm" href="./docs/station-two-playbook.md" target="_blank" rel="noopener noreferrer">站二手册</a>
           <a class="btn btn-sm" href="./docs/station-three-playbook.md" target="_blank" rel="noopener noreferrer">站三手册</a>
           <a class="btn btn-sm" href="./docs/monetize-playbook.md" target="_blank" rel="noopener noreferrer">变现手册</a>
+          <a class="btn btn-sm" href="./docs/scale-playbook.md" target="_blank" rel="noopener noreferrer">放大手册</a>
         </div>
         ${
           embedded

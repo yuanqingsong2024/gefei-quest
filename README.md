@@ -31,6 +31,15 @@
 - **手册**（无厚 Starter）：[`docs/station-three-playbook.md`](./docs/station-three-playbook.md) · [`docs/monetize-playbook.md`](./docs/monetize-playbook.md)
 - **周一知识补给 Bot 例行**：仍暂停；**需你明确说「恢复周一补给」后再开**
 
+## Phase 5（已完成）
+
+[`docs/PHASE5-ROADMAP.md`](./docs/PHASE5-ROADMAP.md) · [`docs/PHASE5-DESIGN.md`](./docs/PHASE5-DESIGN.md) · `TASKS.md` T77–T83
+
+- **作战室五站**：站一 | 站二 | 站三 | 变现 | 放大（`#war-x`）
+- **灰锁**：放大 ← 变现港 Boss（`q-m-boss`）
+- **手册**（无厚 Starter）：[`docs/scale-playbook.md`](./docs/scale-playbook.md)
+- **周一知识补给 Bot 例行**：仍暂停；**需你明确说「恢复周一补给」后再开**
+
 ## 如何打开
 
 
@@ -51,7 +60,7 @@ python3 -m http.server 8765
 | Tab | 作用 |
 |-----|------|
 | **地图** | 六座岛：序章 → 站一 → 站二 → 站三 → 变现港 → 放大。点已解锁岛进任务。 |
-| **作战室** | 站一 / 站二 / 站三 / 变现固定 Day1–7；灰锁递进；勾选与任务板同源。 |
+| **作战室** | 站一 / 站二 / 站三 / 变现 / 放大固定 Day1–7；灰锁递进；勾选与任务板同源。 |
 | **任务** | 勾选完成；展开看「动作 / 工具 / 标准 / 坑」。Boss 通关解锁下一岛。 |
 | **商船** | 每周知识补给样例；「收入图鉴」领 +5 XP（每条一次）。 |
 | **成就** | 至少 10 枚徽章，解锁条件见卡片。 |
@@ -77,8 +86,9 @@ python3 -m http.server 8765
 - `docs/PHASE2-ROADMAP.md` — Phase 2 路线图
 - `docs/PHASE3-ROADMAP.md` — Phase 3 路线图
 - `docs/PHASE4-ROADMAP.md` — Phase 4 路线图
-- `docs/PHASE2-DESIGN.md` / `docs/PHASE3-DESIGN.md` / `docs/PHASE4-DESIGN.md` — 界面设计
-- `TASKS.md` — 开发任务清单（含 T46+ / T61+ / T69+）
+- `docs/PHASE5-ROADMAP.md` — Phase 5 路线图
+- `docs/PHASE2-DESIGN.md` / `docs/PHASE3-DESIGN.md` / `docs/PHASE4-DESIGN.md` / `docs/PHASE5-DESIGN.md` — 界面设计
+- `TASKS.md` — 开发任务清单（含 T46+ / T61+ / T69+ / T77+）
 - `TESTLOG.md` — 自测记录
 - 学习方案：`../gefei-seo-playbook.html`
 - 同路人调研：`docs/peer-methods.md`

@@ -1,6 +1,6 @@
-/** 作战室 · 站一 / 站二 / 站三 / 变现 · 固定 Day1–7 */
+/** 作战室 · 站一 / 站二 / 站三 / 变现 / 放大 · 固定 Day1–7 */
 (function (global) {
-  let activeStation = 1; // 1 | 2 | 3 | 4（4=变现）
+  let activeStation = 1; // 1 | 2 | 3 | 4 | 5（4=变现，5=放大）
 
   function esc(s) {
     return String(s == null ? '' : s)
@@ -12,7 +12,7 @@
 
   function normalizeStation(n) {
     const v = Number(n);
-    if (v === 2 || v === 3 || v === 4) return v;
+    if (v === 2 || v === 3 || v === 4 || v === 5) return v;
     return 1;
   }
 
@@ -37,6 +37,11 @@
   /** 变现勾选解锁：站三 Boss 已勾 或 变现港已开 */
   function monetizeInteractive(state) {
     return isDone(state, 'q-s3-boss') || chapterUnlocked(state, 'ch-monetize');
+  }
+
+  /** 放大勾选解锁：变现 Boss 已勾 或 放大航线已开 */
+  function scaleInteractive(state) {
+    return isDone(state, 'q-m-boss') || chapterUnlocked(state, 'ch-scale');
   }
 
   function dayProgress(state, day) {
@@ -141,6 +146,7 @@
     if (s === 2) return 'war-s2';
     if (s === 3) return 'war-s3';
     if (s === 4) return 'war-m';
+    if (s === 5) return 'war-x';
     return 'war';
   }
 
@@ -149,6 +155,7 @@
     if (station === 2) return QD.STATION_TWO_DAYS || [];
     if (station === 3) return QD.STATION_THREE_DAYS || [];
     if (station === 4) return QD.MONETIZE_DAYS || [];
+    if (station === 5) return QD.SCALE_DAYS || [];
     return QD.STATION_ONE_DAYS || [];
   }
 
@@ -195,6 +202,20 @@
         chapterPrefer: 'ch-monetize',
       };
     }
+    if (station === 5) {
+      return {
+        title: '放大航线作战室',
+        sub: '固定 Day1–7 · 复用船体 · 一词一船 · 反空壳 · <strong>无需选路径</strong>',
+        starterHref: null,
+        playbookHref: './docs/scale-playbook.md',
+        showStarter: false,
+        locked: !scaleInteractive(state),
+        lockBanner:
+          '放大日程可先浏览。勾选已灰锁：请先完成<strong>变现港 Boss（升旗仪式）</strong>，或在地图通关变现港解锁放大航线后再勾。',
+        foot: '先跑通一站再谈量产；空壳站难申广告。诚实声明：不保证收益。',
+        chapterPrefer: 'ch-scale',
+      };
+    }
     return {
       title: '站一作战室',
       sub: '固定 Day1–7 · 勾选与「任务」页同源存档 · <strong>无需选路径</strong>',
@@ -233,6 +254,7 @@
     const s2ok = stationTwoInteractive(state);
     const s3ok = stationThreeInteractive(state);
     const mok = monetizeInteractive(state);
+    const xok = scaleInteractive(state);
 
     let mainDone = 0;
     let mainTotal = 0;
@@ -250,12 +272,13 @@
     root.innerHTML = `
       <div class="panel-head">
         <h2>作战室</h2>
-        <p class="panel-sub">站一上线 · 站二一词 · 站三扩页 · 变现路径 · 无路径分支</p>
+        <p class="panel-sub">站一上线 · 站二一词 · 站三扩页 · 变现路径 · 放大复用 · 无路径分支</p>
         <div class="war-station-tabs" role="tablist" aria-label="作战站切换">
           ${tabBtn(1, '站一', true)}
           ${tabBtn(2, '站二', s2ok)}
           ${tabBtn(3, '站三', s3ok)}
           ${tabBtn(4, '变现', mok)}
+          ${tabBtn(5, '放大', xok)}
         </div>
         <h3 class="war-station-title">${meta.title}</h3>
         <p class="panel-sub">${meta.sub}</p>
@@ -309,6 +332,7 @@
     stationTwoInteractive,
     stationThreeInteractive,
     monetizeInteractive,
+    scaleInteractive,
     setActiveStation,
     getActiveStation,
     hashForStation,

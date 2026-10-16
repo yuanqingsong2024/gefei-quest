@@ -1021,6 +1021,15 @@
       url: './docs/monetize-playbook.md',
     },
     {
+      id: 'ch-scale-playbook',
+      cat: 'path',
+      name: '放大手册 · 复用船体与下一站',
+      blurb: '拆解模板 → 一词一船 → 反空壳 → 下一站 1–2 天上线清单。',
+      how: '打开 docs/scale-playbook.md → 回作战室 #war-x 勾选。先跑通一站再量产。',
+      caveat: '需先完成变现 Boss；无厚 Starter；空壳站难申广告。',
+      url: './docs/scale-playbook.md',
+    },
+    {
       id: 'ch-gsc',
       cat: 'tools',
       name: 'Google Search Console',
@@ -1425,6 +1434,18 @@
       url: './docs/monetize-playbook.md',
     },
     {
+      title: '放大作战室（主站 Tab · 放大）',
+      url: './index.html#war-x',
+    },
+    {
+      title: '放大航线作战手册',
+      url: './docs/scale-playbook.md',
+    },
+    {
+      title: 'Phase 5 路线图',
+      url: './docs/PHASE5-ROADMAP.md',
+    },
+    {
       title: 'Phase 4 路线图',
       url: './docs/PHASE4-ROADMAP.md',
     },
@@ -1675,6 +1696,53 @@
     },
   ];
 
+
+  /** 放大航线作战室 · 固定 Day1–7（Phase 5 · 灰锁至变现 Boss） */
+  const SCALE_DAYS = [
+    {
+      day: 1,
+      title: '拆解可复用船体',
+      tip: '复盘哪些页面/部署步骤可复制；先跑通一站再谈量产。',
+      questIds: ['q-x-01'],
+    },
+    {
+      day: 2,
+      title: '一词一船原则',
+      tip: '写死下一站主词；举全站之力只打这一个词。',
+      questIds: ['q-x-02'],
+    },
+    {
+      day: 3,
+      title: '反空壳誓言',
+      tip: '第一站未跑通前不铺大量空壳站；写下节奏约束。',
+      questIds: ['q-x-03'],
+    },
+    {
+      day: 4,
+      title: '巩固 · 模板要点细化',
+      tip: '巩固日：把 Day1 列表扩成复制时勾选表。',
+      questIds: [],
+    },
+    {
+      day: 5,
+      title: '巩固 · 节奏与禁区复盘',
+      tip: '巩固日：对照禁忌——不买链、不空站申广告。',
+      questIds: [],
+    },
+    {
+      day: 6,
+      title: '巩固 · 下一站资源盘点',
+      tip: '巩固日：从资源库勾出本站要用的免费档。',
+      questIds: [],
+    },
+    {
+      day: 7,
+      title: '新航线蓝图',
+      tip: '写出下一站 1–2 天可执行上线清单再勾 Boss。',
+      questIds: ['q-x-boss'],
+    },
+  ];
+
   function getChapter(id) {
     return CHAPTERS.find((c) => c.id === id) || null;
   }
@@ -1700,6 +1768,7 @@
     STATION_TWO_DAYS,
     STATION_THREE_DAYS,
     MONETIZE_DAYS,
+    SCALE_DAYS,
     getChapter,
     getQuestsByChapter,
     getQuest,

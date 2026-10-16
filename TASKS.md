@@ -787,3 +787,82 @@
 | **合计** | **T69–T76** | **8** |
 
 - 2026-10-16：Phase 4 · 站三 + 变现作战室 + 手册；见 `docs/PHASE4-ROADMAP.md`。
+
+
+---
+
+## Phase 5 · 放大作战室（T77+）
+
+> 依据：`docs/PHASE5-ROADMAP.md`、`docs/PHASE5-DESIGN.md`  
+> 原则：按 ID 递增；**默认已锁，不向用户抛选择**  
+> 周更 Bot：本阶段 **不启用**
+
+### T77 · Phase 5 文档落地
+
+- [x] 已完成
+- **目标：** 写入 PHASE5 路线图/设计；TASKS Phase5 节；README 指针；放大手册  
+- **涉及文件：** `docs/PHASE5-ROADMAP.md`、`docs/PHASE5-DESIGN.md`、`docs/scale-playbook.md`、`TASKS.md`、`README.md`  
+- **验收：** 新人能按路线图知五站 Tab、灰锁与 Day1–7  
+- **依赖：** Phase4 完成
+
+### T78 · SCALE_DAYS
+
+- [x] 已完成
+- **目标：** 数据绑定 q-x-*（含巩固日空主线）  
+- **涉及文件：** `js/data.js`  
+- **验收：** 长度 7；导出在 QuestData  
+- **依赖：** T77
+
+### T79 · 作战室五站 UI + 灰锁 + 深链
+
+- [x] 已完成
+- **目标：** Tab 站一|站二|站三|变现|放大；放大锁至变现 Boss；`#war-x`  
+- **涉及文件：** `js/war-room.js`、`js/app.js`、`css/ui.css`（若需）  
+- **验收：** 切换写 hash；解锁后可勾且与任务板同源  
+- **依赖：** T78
+
+### T80 · 放大作战手册
+
+- [x] 已完成
+- **目标：** `docs/scale-playbook.md` 可打印 Day1–7（无厚 Starter）  
+- **涉及文件：** `docs/scale-playbook.md`  
+- **验收：** 与 SCALE_DAYS 一致  
+- **依赖：** T78
+
+### T81 · 入口串联
+
+- [x] 已完成
+- **目标：** 资源库/设置/RESOURCES/TRY 链到放大手册与深链  
+- **涉及文件：** `js/resources.js`、`js/settings.js`、`js/data.js`  
+- **验收：** 入口可点达  
+- **依赖：** T79, T80
+
+### T82 · 部署 GitHub Pages
+
+- [ ] 进行中（push 后勾 Pages built）
+- **目标：** commit + push main；确认 Pages  
+- **涉及文件：** 仓库全部变更  
+- **验收：** 线上 `#war-x`、手册、PHASE5 文档可访问  
+- **依赖：** T81
+
+### T83 · Phase5 收尾自测
+
+- [ ] 进行中
+- **目标：** TESTLOG Phase5 节  
+- **涉及文件：** `TESTLOG.md`  
+- **验收：** 关键项或已知问题写明  
+- **依赖：** T82
+
+---
+
+## Phase 5 任务统计
+
+| 阶段 | 任务 ID | 条数 |
+|------|---------|------|
+| 文档 | T77 | 1 |
+| 数据 + UI | T78–T79 | 2 |
+| 手册 + 入口 | T80–T81 | 2 |
+| 部署 + 自测 | T82–T83 | 2 |
+| **合计** | **T77–T83** | **7** |
+
+- 2026-10-16：Phase 5 · 放大作战室 + 手册；见 `docs/PHASE5-ROADMAP.md`。
