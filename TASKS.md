@@ -460,3 +460,5 @@
 ## 变更记录
 
 - 2026-10-16：整合同路人公开方法 → `docs/peer-methods.md`；`WEEKLY_UPDATES` 追加「同类方案」；可选支线 + 设置页同路人卡片。存档 schema 未改。
+
+- 2026-10-16：可试渠道/羊毛整合 → `docs/channels-and-tips.md`；`TRY_CHANNELS` + 设置页分类卡片；商船「羊毛与渠道」；支线 q-s1-s3/s4、q-s2-s4、q-m-s3/s4。存档 schema 未改（仅追加 id）。

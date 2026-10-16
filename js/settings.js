@@ -38,6 +38,37 @@
           <button type="button" class="btn btn-danger btn-sm" id="set-reset">重置…</button>
         </div>
       </div>
+
+      <div class="channels-box">
+        <h3>可试渠道 / 羊毛与工具</h3>
+        <p class="panel-sub peers-intro">公开免费档、正规联盟与可试路径（合法羊毛）。额度会变；收入≠保证。完整笔记见下方链接。</p>
+        ${(global.QuestData.TRY_CHANNEL_CATEGORIES || [])
+          .map((cat) => {
+            const items = (global.QuestData.TRY_CHANNELS || []).filter((c) => c.cat === cat.id);
+            if (!items.length) return '';
+            return `
+            <div class="channel-cat">
+              <h4 class="channel-cat-title">${cat.emoji} ${cat.name}</h4>
+              <div class="peer-grid">
+                ${items
+                  .map(
+                    (c) => `
+                  <article class="peer-card channel-card">
+                    <h4>${c.name}</h4>
+                    <p class="peer-line">${c.blurb}</p>
+                    <p class="peer-steal"><span class="tag">怎么试</span> ${c.how}</p>
+                    <p class="peer-caveat">注意：${c.caveat}</p>
+                    ${c.url ? `<a href="${c.url}" target="_blank" rel="noopener noreferrer">打开</a>` : ''}
+                  </article>`
+                  )
+                  .join('')}
+              </div>
+            </div>`;
+          })
+          .join('')}
+        <p class="hint"><a href="./docs/channels-and-tips.md" target="_blank" rel="noopener noreferrer">完整渠道与技巧笔记</a></p>
+      </div>
+
       <div class="peers-box">
         <h3>同路人方法</h3>
         <p class="panel-sub peers-intro">公开博主 / 官方框架摘要（非付费社群课）。点开读原文；收入案例≠保证。</p>

@@ -749,3 +749,32 @@
   font-size: 0.85rem;
   font-weight: 600;
 }
+
+/* —— 可试渠道 / 羊毛 —— */
+.channels-box {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.channels-box > h3 {
+  margin: 0 0 6px;
+  color: var(--gold);
+}
+.channel-cat {
+  margin: 14px 0 8px;
+}
+.channel-cat-title {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: var(--cyan);
+  font-weight: 700;
+}
+.channel-card .tag {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--cyan);
+  border-radius: 4px;
+  padding: 0 6px;
+  margin-right: 4px;
+  font-size: 0.75rem;
+}
