@@ -975,3 +975,15 @@
 | Phase 9 | T106–T114 | 9 |
 
 - 2026-10-16：Phase 9 · 实操工具（站一实操助手 / 选词练习板 / 我的站点台账）。
+
+## Phase 10 · 学习统计与更新通知（见 docs/PHASE10-STATS.md）
+- [x] T115 方案定稿 PHASE10-STATS.md + 任务表
+- [ ] T116 存档追加 activity / doneDates / lastSeenChangelog（集中在 saveSave）
+- [ ] T117 学习统计页 #me-stats：热力图、连击、周柱状图、章节进度、工具汇总
+- [ ] T118 首页今日任务卡片（下一步任务 + 连击 + 打卡状态）
+- [ ] T119 更新日志 js/changelog.js + #changelog 页 + 红点
+- [ ] T120 daily.json 生成脚本 tools/build-daily.js + 发布
+- [ ] T121 测试扩展 site-check、390px、file://、截图
+- [ ] T122 README / MASTER-STATUS / TESTLOG + push + Pages 确认
+
+| Phase 10 | T115–T122 | 8 |
