@@ -9,7 +9,7 @@
 ## 存档（只追加字段，key 仍为 gefei-quest-save-v1）
 - `activity: { 'YYYY-MM-DD': count }`：每次有效存档（勾任务、领补给、工具保存）当天 +1。
 - `doneDates: { questId: 'YYYY-MM-DD' }`：任务首次出现在 `done` 时记日期；撤销时删除。旧存档已完成但无日期的任务不计入周图（周图注明）。
-- `lastSeenChangelog: 'YYYY-MM-DD'`：打开 #changelog 时更新。
+- `lastSeenChangelog: number`：已读过的最新更新日志序号（条目 `id` 递增，同一天可多条），打开 #changelog 时更新。
 - 记录集中在 `QuestSave.saveSave`，所有入口自动覆盖；quest id 不变。
 
 ## 连续天数

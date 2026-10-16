@@ -2,8 +2,8 @@
 const { chromium } = require(process.env.PW || 'playwright-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','dev'];
-const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
+const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-stats','changelog','dev'];
+const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
   const p = await b.newPage({ viewport: { width: 1280, height: 860 } });
@@ -105,6 +105,48 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await m9.goto(BASE + 'index.html#home'); await m9.evaluate(() => 0);
     for (const h of ['war-kit', 'war-keywords', 'me-sites']) { await m9.goto(BASE + 'index.html#' + h); await m9.waitForTimeout(300); const w = await m9.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile ' + h + ' scrollWidth ' + w); if (w > 390) fail++; }
     await s9('war-keywords', 'mobile-keywords', m9);
+  }
+
+  // ---------- Phase 10 ----------
+  let f10 = 0; const T10 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P10 ' + m); if (!c) f10++; };
+  await p.goto(BASE + 'index.html#home'); await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(200);
+  T10(await p.evaluate(() => document.querySelectorAll('#today-list li').length >= 2 && /今日任务/.test(document.querySelector('#home-today').textContent)), 'home 今日任务 card with 2-3 quests');
+  T10(await p.evaluate(() => !!document.querySelector('#today-changelog .red-dot') && !!document.querySelector('.site-links a[data-nav="me"] .red-dot')), 'red dot on home + top nav for unseen changelog');
+  await visit('changelog');
+  T10(await p.evaluate(() => document.querySelectorAll('.cl-item').length >= 5 && document.querySelectorAll('.cl-item.is-new').length >= 5), 'changelog lists entries marked NEW');
+  T10(await p.evaluate(() => !document.querySelector('.site-links a[data-nav="me"] .red-dot') && JSON.parse(localStorage.getItem('gefei-quest-save-v1')).lastSeenChangelog >= 10), 'visiting changelog clears red dot + saves lastSeenChangelog');
+  await visit('home');
+  T10(await p.evaluate(() => !document.querySelector('#today-changelog .red-dot')), 'home red dot gone after reading');
+  // old save without new fields stays compatible
+  await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); delete s.activity; delete s.doneDates; s.lastSeenChangelog = 3; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); });
+  await visit('me-stats'); await p.reload(); await p.waitForTimeout(200);
+  T10(await p.$eval('#st-cur', e => e.textContent) === '0 天', 'stats empty -> streak 0 (old save loads)');
+  await visit('path-quests');
+  await p.evaluate(() => { const c = document.querySelector('input[type=checkbox]:not(:checked):not(:disabled)'); if (c) c.click(); }); await p.waitForTimeout(400);
+  await p.evaluate(() => { const m = document.querySelector('.modal-root button, .boss-modal button'); if (m) m.click(); });
+  const sv = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')));
+  const td = await p.evaluate(() => QuestStats.ymd(new Date()));
+  T10(sv.activity && sv.activity[td] >= 1 && Object.values(sv.doneDates || {}).includes(td), 'quest completion records activity + doneDates');
+  // seed past activity for streak math
+  await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); const d = n => QuestStats.ymd(new Date(Date.now() - n * 864e5)); s.activity[d(1)] = 2; s.activity[d(2)] = 4; s.activity[d(10)] = 1; s.activity[d(11)] = 1; s.activity[d(12)] = 1; s.activity[d(13)] = 1; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); });
+  await visit('me-stats'); await p.reload(); await p.waitForTimeout(250);
+  const st = await p.evaluate(() => ({ cur: document.querySelector('#st-cur').textContent, long: document.querySelector('#st-long').textContent, today: !!document.querySelector('.heatmap rect.hm-today:not(.hm-0)'), cells: document.querySelectorAll('.heatmap rect').length, bars: [...document.querySelectorAll('.week-bars .bar-rect')].filter(r => +r.getAttribute('height') > 0).length, mods: document.querySelectorAll('.mod-row').length }));
+  console.log('      ', JSON.stringify(st));
+  T10(st.cur === '3 天' && st.long === '4 天', 'current streak 3 / longest 4');
+  T10(st.today && st.cells > 150, 'heatmap renders, today colored');
+  T10(st.bars >= 1 && st.mods === 6, 'weekly bars + 6 chapter rows');
+  T10(await p.evaluate(() => !!document.querySelector('a.stat-link[href="#war-keywords"]') && !!document.querySelector('a.stat-link[href="#me-sites"]')), 'tool summary links');
+  const dj = await p.request.get(BASE + 'daily.json'); const dd = dj.status() === 200 ? await dj.json() : {};
+  T10(dd.latestId >= 10 && Array.isArray(dd.entries) && dd.entries[0].title, 'daily.json served + valid');
+  console.log('P10 functional fails=' + f10); fail += f10;
+  if (SHOTS) {
+    const s10 = async (h, name, pg = p, full = true) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p10-${name}.png`, fullPage: full }); };
+    await s10('me-stats', 'stats'); await s10('changelog', 'changelog');
+    await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); s.lastSeenChangelog = 8; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); });
+    await p.goto(BASE + 'index.html#home'); await p.reload(); await p.waitForTimeout(400); await (await p.$('#home-today')).screenshot({ path: `${SHOTS}/p10-today.png` });
+    const m10 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+    for (const h of ['home', 'me-stats', 'changelog']) { await m10.goto(BASE + 'index.html#' + h); await m10.waitForTimeout(300); const w = await m10.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile ' + h + ' scrollWidth ' + w); if (w > 390) fail++; }
+    await s10('me-stats', 'mobile-stats', m10); await s10('home', 'mobile-home', m10, false);
   }
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {

@@ -89,3 +89,8 @@
 
 ## Phase 9 · 实操工具（2026-10-16）
 - T106–T114 全部完成。站一实操助手 `#war-kit`、选词练习板 `#war-keywords`、我的站点台账 `#me-sites`；存档追加 `kit` / `keywords` / `sites`（旧存档兼容）。测试：site-check 路由 23 + P9 功能用例 20/20，0 坏链、0 控制台错误、390px 无横向滚动。方案：`docs/PHASE9-TOOLS.md`
+
+## Phase 10 · 学习统计与更新日志（T115–T122 ✅）
+- 学习统计 `#me-stats`、今日任务（首页）、更新日志 `#changelog`（数据 js/changelog.js，红点按 save.lastSeenChangelog）。
+- 存档追加 activity / doneDates / lastSeenChangelog，记录集中在 QuestSave.saveSave。
+- `daily.json`：`node tools/build-daily.js` 由 changelog 生成，供每日提醒读取。新增更新日志条目后需重新生成。

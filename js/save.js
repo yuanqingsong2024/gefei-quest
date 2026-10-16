@@ -30,6 +30,9 @@
       kit: { keyword: '', intro: '', domain: '', email: '', checks: {} },
       keywords: { items: [], s2Target: '', sort: 'score', filter: 'all' },
       sites: { items: [] },
+      activity: {},
+      doneDates: {},
+      lastSeenChangelog: 0,
       updatedAt: new Date().toISOString(),
     };
   }
@@ -62,6 +65,9 @@
         energy: { ...def.energy, ...(parsed.energy || {}) },
         achievementDates: parsed.achievementDates || {},
         notes: parsed.notes || {},
+        activity: parsed.activity && typeof parsed.activity === 'object' ? parsed.activity : {},
+        doneDates: parsed.doneDates && typeof parsed.doneDates === 'object' ? parsed.doneDates : {},
+        lastSeenChangelog: typeof parsed.lastSeenChangelog === 'number' ? parsed.lastSeenChangelog : 0,
       };
       return global.QuestTools ? global.QuestTools.ensure(merged) : merged;
     } catch (e) {
@@ -71,6 +77,11 @@
   }
 
   function saveSave(state) {
+    if (global.QuestStats) {
+      let prev = null;
+      try { prev = JSON.parse(localStorage.getItem(SAVE_KEY) || 'null'); } catch (_) {}
+      global.QuestStats.record(state, global.QuestStats.signature(prev || getDefaultSave()));
+    }
     const next = {
       ...state,
       version: 1,

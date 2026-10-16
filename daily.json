@@ -1,0 +1,74 @@
+{
+  "site": "出海小站练站营",
+  "url": "https://yuanqingsong2024.github.io/gefei-quest/",
+  "schema": 1,
+  "generatedAt": "2026-10-16T15:10:27.353Z",
+  "latestId": 10,
+  "latestDate": "2026-10-16",
+  "links": {
+    "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
+    "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
+    "today": "https://yuanqingsong2024.github.io/gefei-quest/#home-today",
+    "quests": "https://yuanqingsong2024.github.io/gefei-quest/#path-quests"
+  },
+  "entries": [
+    {
+      "id": 10,
+      "date": "2026-10-16",
+      "tag": "新功能",
+      "title": "学习统计 + 今日任务 + 更新日志",
+      "items": [
+        "新增「学习统计」：打卡热力图、连续天数、每周完成任务柱状图、各章节进度、选词与站点汇总",
+        "首页新增「今日任务」卡片：自动推荐下一步 2–3 个任务",
+        "新增「更新日志」页，有新内容时显示红点",
+        "发布 daily.json，供每日提醒读取"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats"
+    },
+    {
+      "id": 9,
+      "date": "2026-10-16",
+      "tag": "新功能",
+      "title": "三个实操工具上线",
+      "items": [
+        "站一实操助手：填主词即生成页面 + robots + sitemap，ZIP 下载",
+        "选词练习板：候选词打分「适合练手 / 可以试 / 先换长尾」",
+        "我的站点台账：按月记曝光、点击、收入并画折线"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
+    },
+    {
+      "id": 8,
+      "date": "2026-10-16",
+      "tag": "改进",
+      "title": "全站整理：统一名称、导航与图标",
+      "items": [
+        "六个栏目名称全站统一",
+        "所有文档改为站内页面，不再跳 .md",
+        "旧链接自动跳转到新地址"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
+    {
+      "id": 7,
+      "date": "2026-10-16",
+      "tag": "改进",
+      "title": "首页改版 + 图标与背景",
+      "items": [
+        "新的落地页式首页",
+        "站点图标、背景图与高对比配色"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
+    {
+      "id": 6,
+      "date": "2026-10-16",
+      "tag": "内容",
+      "title": "资源库：羊毛 / 渠道 / 闲鱼非实物",
+      "items": [
+        "免费工具、托管域名、变现渠道、可试路径、闲鱼非实物、同路人方法六类可筛选"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#lib"
+    }
+  ]
+}

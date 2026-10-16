@@ -89,7 +89,8 @@
     let crumb = '';
     const sec = route.section;
     if (sec === 'home') {
-      QuestHome.renderHome($('#panel-home'));
+      QuestHome.renderHome($('#panel-home'), state);
+      $('#panel-home').querySelectorAll('[data-today-ch]').forEach((a) => a.addEventListener('click', () => { currentChapter = a.getAttribute('data-today-ch'); }));
     } else if (sec === 'path') {
       const root = $('#panel-path');
       const quests = route.view === 'quests';
@@ -169,6 +170,16 @@
       });
     } else if (sec === 'me') {
       const root = $('#panel-me');
+      if (route.view === 'stats' || route.view === 'changelog') {
+        const cl = route.view === 'changelog';
+        crumb = cl ? '更新日志' : '学习统计';
+        root.innerHTML = subTabs(N.ME_TABS, route.view) + '<div id="stats-body"></div>';
+        if (cl) {
+          QuestStats.renderChangelog(state, $('#stats-body'));
+          if ((state.lastSeenChangelog || 0) < QuestStats.latestId()) { state.lastSeenChangelog = QuestStats.latestId(); persist(); }
+        } else QuestStats.renderStats(state, $('#stats-body'));
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+      }
       if (route.view === 'sites') {
         crumb = '我的站点台账';
         root.innerHTML = subTabs(N.ME_TABS, 'sites') + '<div id="sites-body"></div>';

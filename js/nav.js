@@ -14,7 +14,7 @@
     { id: 'lib', label: '资源库', icon: 'toolbox', hash: '#lib', sub: '工具 · 托管 · 变现 · 闲鱼', desc: '免费工具、托管域名、变现渠道、可试路径、闲鱼非实物与同路人方法，可筛选可搜索。' },
     { id: 'guides', label: '手册与模板', icon: 'book', hash: '#guides', sub: '5 份手册 · 2 个模板 · 笔记', desc: '每个阶段的作战手册、可直接部署的单页模板，以及渠道笔记。' },
     { id: 'weekly', label: '每周补给', icon: 'calendar', hash: '#weekly', sub: '每周一更新的知识卡', desc: '每周几张短卡片：方法、提醒和本周可试的小动作，领取得 XP。' },
-    { id: 'me', label: '我的进度', icon: 'user', hash: '#me', sub: '成就 · 站点台账 · 存档 · 设置', desc: '等级、XP、连击、成就墙、我的站点台账，以及存档导出导入和偏好设置。' },
+    { id: 'me', label: '我的进度', icon: 'user', hash: '#me', sub: '统计 · 成就 · 站点台账 · 更新日志', desc: '等级、XP、学习统计与打卡热力图、成就墙、我的站点台账、更新日志，以及存档导出导入和偏好设置。' },
   ];
   var DEV_SECTION = { id: 'dev', label: '开发者文档', icon: 'code', hash: '#dev', sub: '路线图 · 任务 · 测试记录', desc: '项目开发过程文档，供维护者查阅。' };
 
@@ -30,7 +30,9 @@
   ];
   var ME_TABS = [
     { id: 'overview', label: '概览', icon: 'user', hash: '#me' },
+    { id: 'stats', label: '学习统计', icon: 'chart', hash: '#me-stats' },
     { id: 'sites', label: '我的站点台账', icon: 'ledger', hash: '#me-sites' },
+    { id: 'changelog', label: '更新日志', icon: 'bulb', hash: '#changelog' },
   ];
 
   var STATIONS = [
@@ -71,6 +73,7 @@
   ];
   var DEV_DOCS = [
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
+    { id: 'PHASE10-STATS', title: 'Phase 10 · 学习统计与更新日志' },
     { id: 'PHASE9-TOOLS', title: 'Phase 9 · 实操工具' },
     { id: 'PHASE8-IA', title: 'Phase 8 · 信息架构' },
     { id: 'PHASE7-DESIGN', title: 'Phase 7 · 设计方案' },
@@ -91,7 +94,7 @@
     '': 'home', map: 'path', quest: 'path-quests', quests: 'path-quests', ship: 'weekly',
     ach: 'me', settings: 'me', resources: 'lib', 'war-s1': 'war', guide: 'guides', docs: 'guides',
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
-    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib',
+    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -113,6 +116,8 @@
     if (h === 'war-kit') return { section: 'war', view: 'kit', hash: h };
     if (h === 'war-keywords') return { section: 'war', view: 'keywords', hash: h };
     if (h === 'me-sites') return { section: 'me', view: 'sites', hash: h };
+    if (h === 'me-stats') return { section: 'me', view: 'stats', hash: h };
+    if (h === 'changelog') return { section: 'me', view: 'changelog', hash: h };
     if (st[h]) return { section: 'war', view: 'war', param: st[h], hash: h };
     if (h === 'lib') return { section: 'lib', view: 'lib', param: 'all', hash: h };
     if (h.indexOf('lib-') === 0) return { section: 'lib', view: 'lib', param: h.slice(4), hash: h };
@@ -145,6 +150,9 @@
     });
   }
 
+  function unseenCount() {
+    try { var raw = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || 'null'); return global.QuestStats ? global.QuestStats.unseen(raw || {}) : 0; } catch (_) { return 0; }
+  }
   function renderTopNav(active) {
     var el = document.getElementById('site-nav');
     if (!el) return;
@@ -152,7 +160,7 @@
       '<a class="brand" href="#home"><img src="assets/icon-192.png" alt="" width="34" height="34" /><span>' + SITE_NAME + '</span></a>' +
       '<nav class="site-links" aria-label="主导航">' + SITE_NAV.map(function (n) {
         var on = n.id === active;
-        return '<a href="' + n.hash + '" data-nav="' + n.id + '"' + (on ? ' class="active" aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + n.label + '</span></a>';
+        return '<a href="' + n.hash + '" data-nav="' + n.id + '"' + (on ? ' class="active" aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + n.label + '</span>' + (n.id === 'me' && unseenCount() ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') + '</a>';
       }).join('') + '</nav></div>';
   }
 

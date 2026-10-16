@@ -137,3 +137,6 @@ python3 -m http.server 8765
 
 ## Phase 7 · 首页与视觉
 打开即网站式落地页（`#home`）：Hero、五步路线、功能卡、进度快照、资源入口、手册、FAQ。其余 hash（`#war`、`#map`…）进入游戏应用区。资源：`assets/`（图标、hero 背景）、`manifest.webmanifest`。
+
+## 更新日志与 daily.json
+新增更新：在 `js/changelog.js` 最前面加一条（id 递增），然后运行 `node tools/build-daily.js` 生成 `daily.json`，再运行 `python3 tools/build-guides.py`。

@@ -1589,3 +1589,55 @@ body.is-home .view { max-width: none; padding: 0; }
   .kw-score b { display: inline; }
   .kit-checks li { flex-direction: column; align-items: flex-start; }
 }
+
+/* ---------- Phase 10 · 学习统计 / 今日任务 / 更新日志 ---------- */
+.hm-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.hm-wrap-hm { direction: rtl; }
+.hm-wrap-hm > svg { direction: ltr; }
+.heatmap { width: 100%; min-width: 480px; max-width: 760px; height: auto; display: block; }
+.week-bars { width: 100%; max-width: 760px; height: auto; display: block; }
+.hm-txt { fill: var(--muted); font-size: 9px; }
+.heatmap rect, .hm-legend i { fill: #1e293b; background: #1e293b; stroke: #3b4a60; stroke-width: .5; }
+.heatmap .hm-1, .hm-legend .hm-1 { fill: #14532d; background: #14532d; }
+.heatmap .hm-2, .hm-legend .hm-2 { fill: #15803d; background: #15803d; }
+.heatmap .hm-3, .hm-legend .hm-3 { fill: #22c55e; background: #22c55e; }
+.heatmap .hm-4, .hm-legend .hm-4 { fill: #86efac; background: #86efac; }
+.heatmap .hm-today { stroke: var(--gold); stroke-width: 1.5; }
+.hm-legend { color: var(--muted); font-size: .85rem; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin: 8px 0 0; }
+.hm-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 1px solid #3b4a60; }
+.bar-rect { fill: var(--cyan-hot); }
+.bar-val { fill: var(--ink); font-size: 11px; font-weight: 700; }
+.bar-lbl { fill: var(--muted); font-size: 10px; }
+.bar-axis { stroke: var(--line); stroke-width: 1; }
+.block-title small { color: var(--muted); font-weight: 400; font-size: .8rem; margin-left: 6px; }
+.mod-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.mod-row { display: grid; grid-template-columns: auto minmax(90px, 160px) 1fr auto; align-items: center; gap: 10px; }
+.mod-row .bar { margin: 0; }
+.mod-num { color: var(--gold-text); font-variant-numeric: tabular-nums; font-weight: 700; }
+.stat-link { text-decoration: none; color: inherit; }
+.stat-link:hover { border-color: var(--cyan-hot); }
+.red-dot { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px; margin-left: 6px; border-radius: 9px; background: var(--boss); color: #fff; font-size: 11px; font-weight: 700; line-height: 1; }
+.nav-dot { min-width: 9px; width: 9px; height: 9px; padding: 0; margin-left: 2px; align-self: flex-start; }
+.today-card { padding: 20px 22px; border: 1px solid var(--line); border-radius: var(--radius); }
+.today-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.today-head h2 { margin: 4px 0 0; }
+.today-streak { display: flex; align-items: center; gap: 8px; }
+.today-streak b { font-size: 1.8rem; color: var(--gold-text); }
+.today-streak small { color: var(--muted); }
+.today-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.today-list a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel2); color: var(--ink); text-decoration: none; }
+.today-list a:hover { border-color: var(--cyan-hot); }
+.today-list a > span:nth-child(2) { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.today-list small { color: var(--muted); }
+.today-list em { font-style: normal; color: var(--gold-text); font-weight: 700; white-space: nowrap; }
+.today-foot { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 14px; }
+.today-latest { color: var(--muted); font-size: .85rem; }
+.cl-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 12px; }
+.cl-item { padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius); }
+.cl-item.is-new { border-color: var(--boss); }
+.cl-head { display: flex; gap: 10px; align-items: center; color: var(--muted); font-size: .85rem; }
+.cl-item h3 { margin: 8px 0 6px; }
+.cl-item h3 a { color: var(--ink); }
+.cl-item ul { margin: 0; padding-left: 20px; color: var(--ink); }
+.new-badge { background: var(--boss); color: #fff; border-radius: 6px; padding: 1px 6px; font-weight: 700; font-size: .72rem; }
+@media (max-width: 520px) { .mod-row { grid-template-columns: auto 1fr auto; } .mod-row .mod-num { grid-row: 1; grid-column: 3; } .mod-row .bar { grid-row: 2; grid-column: 1 / -1; } }

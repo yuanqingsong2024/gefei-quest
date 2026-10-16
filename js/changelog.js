@@ -1,0 +1,16 @@
+/** 更新日志数据：新条目加在最前，id 递增（红点按 save.lastSeenChangelog 比较）。
+ *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
+(function (global) {
+  global.QUEST_CHANGELOG = [
+    { id: 10, date: '2026-10-16', title: '学习统计 + 今日任务 + 更新日志', tag: '新功能', href: '#me-stats',
+      items: ['新增「学习统计」：打卡热力图、连续天数、每周完成任务柱状图、各章节进度、选词与站点汇总', '首页新增「今日任务」卡片：自动推荐下一步 2–3 个任务', '新增「更新日志」页，有新内容时显示红点', '发布 daily.json，供每日提醒读取'] },
+    { id: 9, date: '2026-10-16', title: '三个实操工具上线', tag: '新功能', href: '#war-kit',
+      items: ['站一实操助手：填主词即生成页面 + robots + sitemap，ZIP 下载', '选词练习板：候选词打分「适合练手 / 可以试 / 先换长尾」', '我的站点台账：按月记曝光、点击、收入并画折线'] },
+    { id: 8, date: '2026-10-16', title: '全站整理：统一名称、导航与图标', tag: '改进', href: '#home',
+      items: ['六个栏目名称全站统一', '所有文档改为站内页面，不再跳 .md', '旧链接自动跳转到新地址'] },
+    { id: 7, date: '2026-10-16', title: '首页改版 + 图标与背景', tag: '改进', href: '#home',
+      items: ['新的落地页式首页', '站点图标、背景图与高对比配色'] },
+    { id: 6, date: '2026-10-16', title: '资源库：羊毛 / 渠道 / 闲鱼非实物', tag: '内容', href: '#lib',
+      items: ['免费工具、托管域名、变现渠道、可试路径、闲鱼非实物、同路人方法六类可筛选'] },
+  ];
+})(typeof window !== 'undefined' ? window : globalThis);

@@ -338,7 +338,7 @@
       '</div>' + sitesSnap(raw) + (pct ? '<div class="snap-bar"><i style="width:' + Math.min(100, pct) + '%"></i></div>' : '');
   }
 
-  function renderHome(root) {
+  function renderHome(root, state) {
     if (!root) return;
     var N = global.QuestNav, I = N.icon;
     var sections = N.SITE_NAV.filter(function (n) { return n.id !== 'home'; });
@@ -350,7 +350,7 @@
       '<p class="hero-sub">挖词 → 上站 → SEO → 变现 → 放大<br />每一步都有清单、模板和资源，勾一项就是线下真做完一项。</p>' +
       '<div class="hero-cta"><a class="btn btn-primary" href="#war">' + I('target') + '开始站一</a><a class="btn btn-ghost" href="#lib">' + I('toolbox') + '逛资源库</a></div>' +
       '</div></section>' +
-      '<div class="home-wrap">' +
+      '<div class="home-wrap">' + (state && global.QuestStats ? global.QuestStats.todayCard(state) : '') +
       '<section class="lp-sec" id="home-sections"><div class="sec-head"><span class="sec-kicker">EXPLORE</span><h2>六个栏目</h2><p>全站只有这六个栏目，顶栏、页脚和这里名字完全一致。</p></div>' +
       '<div class="feat-grid">' + sections.map(function (n) {
         return '<a class="feat-card" href="' + n.hash + '"><span class="card-ico card-ico-lg">' + I(n.icon) + '</span><b>' + n.label + '</b><small>' + n.sub + '</small><span>' + n.desc + '</span></a>';
