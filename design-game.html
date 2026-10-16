@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>出海小站练站营 · 网页游戏向设计方案</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #1a2332;
+    --panel2: #243044;
+    --ink: #f1f5f9;
+    --muted: #94a3b8;
+    --line: #334155;
+    --gold: #fbbf24;
+    --hp: #34d399;
+    --mana: #60a5fa;
+    --danger: #f87171;
+    --accent: #38bdf8;
+    --ok: #4ade80;
+    --radius: 14px;
+    --max: 880px;
+    --sans: "PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: var(--sans); color: var(--ink);
+    background: radial-gradient(1200px 600px at 20% -10%, #1e3a5f 0%, transparent 50%),
+                radial-gradient(900px 500px at 100% 0%, #312e81 0%, transparent 45%),
+                var(--bg);
+    line-height: 1.65; font-size: 16px;
+  }
+  a { color: #7dd3fc; font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; color: #bae6fd; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 24px 18px 80px; }
+  .hero {
+    border: 2px solid #475569; border-radius: 18px; padding: 28px 24px;
+    background: linear-gradient(160deg, #1e293b 0%, #0f172a 60%, #1e1b4b 100%);
+    box-shadow: 0 0 0 1px #0ea5e9 inset, 0 20px 50px rgba(0,0,0,.35);
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    margin: 0 0 8px; font-size: 1.7rem; letter-spacing: .02em;
+    color: #fef3c7; text-shadow: 0 2px 0 #92400e;
+  }
+  .hero p { margin: 0; color: #e2e8f0; max-width: 64ch; }
+  .chips { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+    padding: 4px 10px; border-radius: 6px;
+    border: 1px solid #64748b; background: #0f172a; color: #fde68a;
+  }
+  .chip.blue { color: #7dd3fc; border-color: #0284c7; }
+  .chip.green { color: #86efac; border-color: #16a34a; }
+  nav.toc, section {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px 20px; margin-bottom: 14px;
+  }
+  nav.toc strong { color: var(--gold); }
+  nav.toc ol { margin: 8px 0 0; padding-left: 1.2rem; color: var(--ink); }
+  h2 {
+    margin: 0 0 12px; font-size: 1.15rem; color: #fde68a;
+    padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 8px;
+  }
+  h2 .lv {
+    font-size: .72rem; background: #854d0e; color: #fef3c7;
+    padding: 2px 8px; border-radius: 999px; border: 1px solid var(--gold);
+  }
+  h3 { margin: 16px 0 8px; font-size: 1.02rem; color: #7dd3fc; }
+  p, li { color: #e2e8f0; }
+  .muted { color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; margin: 8px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #0f172a; color: #fde68a; }
+  td { background: #152033; }
+  .callout {
+    border: 1px solid #0369a1; background: #0c4a6e;
+    padding: 12px 14px; border-radius: 10px; margin: 12px 0; color: #e0f2fe;
+  }
+  .callout.warn { border-color: #b45309; background: #78350f; color: #ffedd5; }
+  .callout.ok { border-color: #15803d; background: #14532d; color: #dcfce7; }
+  .mermaid {
+    background: #0b1220; border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 8px; margin: 10px 0; overflow-x: auto;
+  }
+  .grid { display: grid; gap: 10px; }
+  @media (min-width: 640px) { .grid.two { grid-template-columns: 1fr 1fr; } .grid.three { grid-template-columns: 1fr 1fr 1fr; } }
+  .card {
+    background: var(--panel2); border: 1px solid var(--line);
+    border-radius: 12px; padding: 12px 14px;
+  }
+  .card h4 { margin: 0 0 6px; color: var(--gold); font-size: .95rem; }
+  .card p { margin: 0; font-size: .9rem; color: #e2e8f0; }
+  .screen {
+    border: 2px dashed #475569; border-radius: 12px; padding: 14px;
+    background: #0b1220; margin: 10px 0;
+  }
+  .screen .title { color: var(--gold); font-weight: 700; margin-bottom: 8px; font-size: .85rem; letter-spacing: .06em; }
+  .hud {
+    display: grid; gap: 8px; grid-template-columns: 1fr;
+  }
+  @media (min-width: 560px) { .hud { grid-template-columns: 140px 1fr 1fr; } }
+  .avatar {
+    width: 100%; aspect-ratio: 1; border-radius: 12px;
+    background: linear-gradient(145deg, #312e81, #1e3a8a);
+    border: 2px solid #818cf8; display: flex; align-items: center; justify-content: center;
+    font-size: 2.2rem;
+  }
+  .bar {
+    height: 12px; border-radius: 6px; background: #020617; border: 1px solid #475569;
+    overflow: hidden; margin-top: 4px;
+  }
+  .bar > i { display: block; height: 100%; }
+  .bar.xp > i { width: 42%; background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar.energy > i { width: 70%; background: linear-gradient(90deg, #2563eb, #38bdf8); }
+  .map-row {
+    display: flex; gap: 8px; overflow-x: auto; padding: 8px 0; align-items: center;
+  }
+  .node {
+    flex: 0 0 auto; min-width: 88px; text-align: center; padding: 10px 8px;
+    border-radius: 12px; border: 2px solid #475569; background: #1e293b; font-size: .78rem;
+  }
+  .node.on { border-color: var(--gold); box-shadow: 0 0 12px rgba(251,191,36,.35); color: #fef3c7; }
+  .node.lock { opacity: .45; }
+  .node.clear { border-color: #22c55e; color: #86efac; }
+  .arrow { color: #64748b; font-weight: 700; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 24px; }
+  code { background: #020617; color: #fde68a; padding: 1px 6px; border-radius: 4px; font-size: .88em; border: 1px solid #334155; }
+  ul.quest { list-style: none; padding: 0; margin: 0; }
+  ul.quest li {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 8px 0; border-bottom: 1px dashed #334155;
+  }
+  ul.quest .box {
+    width: 18px; height: 18px; margin-top: 2px; border-radius: 4px;
+    border: 2px solid #38bdf8; background: #0f172a; flex-shrink: 0;
+  }
+  .tag {
+    display: inline-block; font-size: .7rem; font-weight: 700;
+    padding: 2px 7px; border-radius: 4px; margin-right: 4px;
+    background: #1e3a8a; color: #bfdbfe; border: 1px solid #3b82f6;
+  }
+  .tag.boss { background: #7f1d1d; color: #fecaca; border-color: #ef4444; }
+  .tag.side { background: #365314; color: #d9f99d; border-color: #84cc16; }
+  .tag.event { background: #5b21b6; color: #e9d5ff; border-color: #a78bfa; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>🏝️ 出海小站练站营 · 网页游戏向设计</h1>
+  <p>把学习方案做成「地图闯关小游戏」：你是建站冒险者，主线三座岛屿（站一/二/三），支线补给是每周限时事件。本文仍是<strong>设计稿</strong>，暂不开发。</p>
+  <div class="chips">
+    <span class="chip">类型 · 轻 RPG 闯关</span>
+    <span class="chip blue">载体 · 本地单页</span>
+    <span class="chip green">进度 · 本机存档</span>
+    <span class="chip">玩法 · 勾选 = 实战</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <strong>📋 任务日志 · 目录</strong>
+  <ol>
+    <li><a href="#fantasy">世界观与隐喻</a></li>
+    <li><a href="#screens">关键画面</a></li>
+    <li><a href="#loop">游戏循环</a></li>
+    <li><a href="#systems">系统（XP / 体力 / 成就）</a></li>
+    <li><a href="#world">世界地图与 Boss</a></li>
+    <li><a href="#questui">任务面板交互</a></li>
+    <li><a href="#events">每周事件补给</a></li>
+    <li><a href="#vfx">视听与动效（克制）</a></li>
+    <li><a href="#tech">技术落点</a></li>
+    <li><a href="#mvp">游戏版 MVP</a></li>
+  </ol>
+</nav>
+
+<section id="fantasy">
+  <h2><span class="lv">LORE</span> 1. 世界观与隐喻</h2>
+  <p>你扮演一名从国内出发的<strong>建站冒险者</strong>。目标不是打怪掉金币，而是在「搜索之海」里立起自己的灯塔站点，让谷歌的航船（爬虫）发现你，再把访客变成补给（广告/订阅）。</p>
+  <div class="grid three">
+    <div class="card">
+      <h4>🏝️ 岛屿 = 关卡</h4>
+      <p>序章营地 → 站一新手岛 → 站二蓝海岛 → 站三内页群岛 → 变现港 → 放大航线。</p>
+    </div>
+    <div class="card">
+      <h4>⚔️ 战斗 = 实战任务</h4>
+      <p>注册域名、上线页面、GSC 验证、外链、看数据——每完成一件，勾选一次「出击」。真动作在站外做，游戏里记账。</p>
+    </div>
+    <div class="card">
+      <h4>🎁 掉落 = 知识补给</h4>
+      <p>每周一刷新「限时事件」：新词技巧、官方文档变更、托管坑点。读完可领少量 XP。</p>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>一句话定位：</strong>像《塞尔达》小地图 + 《习惯 RPG》打卡，而不是重度数值网游。爽点来自「解锁下一座岛」和「真实站点有收录」。
+  </div>
+</section>
+
+<section id="screens">
+  <h2><span class="lv">UI</span> 2. 关键画面（线框感）</h2>
+
+  <div class="screen">
+    <div class="title">SCREEN A · 主界面 HUD + 地图</div>
+    <div class="hud">
+      <div>
+        <div class="avatar">🧭</div>
+        <div style="margin-top:8px;font-size:.85rem;color:#fde68a;font-weight:700;">冒险者 · Lv.2</div>
+      </div>
+      <div>
+        <div style="font-size:.8rem;color:#94a3b8;">经验 XP</div>
+        <div class="bar xp"><i></i></div>
+        <div style="font-size:.8rem;color:#94a3b8;margin-top:8px;">今日体力（可选）</div>
+        <div class="bar energy"><i></i></div>
+      </div>
+      <div style="font-size:.88rem;">
+        <div>📍 当前位置：<strong style="color:#fde68a;">站一 · 新手岛</strong></div>
+        <div style="margin-top:6px;">🔥 连击：3 天</div>
+        <div style="margin-top:6px;">🏆 成就：2 / 12</div>
+        <div style="margin-top:10px;color:#7dd3fc;">存档：本机浏览器</div>
+      </div>
+    </div>
+    <div class="map-row" style="margin-top:14px;">
+      <div class="node clear">🏕️<br>序章<br>已通关</div>
+      <span class="arrow">→</span>
+      <div class="node on">🏝️<br>站一<br>进行中</div>
+      <span class="arrow">→</span>
+      <div class="node lock">🌊<br>站二<br>未解锁</div>
+      <span class="arrow">→</span>
+      <div class="node lock">🗺️<br>站三<br>未解锁</div>
+      <span class="arrow">→</span>
+      <div class="node lock">💰<br>变现港<br>未解锁</div>
+      <span class="arrow">→</span>
+      <div class="node lock">🚢<br>放大<br>未解锁</div>
+    </div>
+  </div>
+
+  <div class="screen">
+    <div class="title">SCREEN B · 任务面板（当前岛）</div>
+    <p style="margin:0 0 8px;font-size:.9rem;"><span class="tag">主线</span> 站一 · 让谷歌叫出你的名字</p>
+    <ul class="quest">
+      <li><span class="box"></span><div><strong>买下你的第一块领地（域名）</strong><br><span class="muted">奖励 +15 XP · 完成标准：域名可解析到站点</span></div></li>
+      <li><span class="box"></span><div><strong>点亮灯塔（静态站上线）</strong><br><span class="muted">奖励 +25 XP · Cloudflare Pages / 纯静态均可</span></div></li>
+      <li><span class="box"></span><div><strong>向航会报到（GSC 验证）</strong><br><span class="muted">奖励 +20 XP</span></div></li>
+      <li><span class="box"></span><div><strong><span class="tag boss">BOSS</span> 品牌词搜索能找到你</strong><br><span class="muted">通关条件 · +50 XP · 解锁站二</span></div></li>
+    </ul>
+  </div>
+
+  <div class="screen">
+    <div class="title">SCREEN C · 每周限时事件</div>
+    <p style="margin:0;font-size:.9rem;"><span class="tag event">EVENT</span> 本周补给已刷新 · 剩余阅读奖励可领</p>
+    <div class="grid two" style="margin-top:10px;">
+      <div class="card"><h4>📜 新词侦察简报</h4><p>摘要 2～3 句 + 外链。勾「已读」+5 XP。</p></div>
+      <div class="card"><h4>🛡️ 官方补丁说明</h4><p>GSC / AdSense / 托管条款变更摘要。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="loop">
+  <h2><span class="lv">LOOP</span> 3. 游戏循环</h2>
+  <div class="mermaid">
+flowchart TD
+  A[打开存档 · 看 HUD] --> B[选当前岛屿]
+  B --> C[接取/查看任务]
+  C --> D[离开游戏去做真建站]
+  D --> E[回来勾选完成]
+  E --> F[结算 XP · 连击 · 成就]
+  F --> G{Boss 条件达成?}
+  G -->|否| B
+  G -->|是| H[过场动画 · 解锁下岛]
+  H --> B
+  I[周一事件刷新] -.-> C
+  </div>
+  <p class="muted">核心诚实点：游戏不能替你建站；勾选等于你承认「线下这步做完了」。可后续加「备注 URL」防自己骗自己，仍属可选。</p>
+</section>
+
+<section id="systems">
+  <h2><span class="lv">SYS</span> 4. 系统：XP · 体力 · 成就</h2>
+  <table>
+    <thead><tr><th>系统</th><th>作用</th><th>规则建议</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>XP / 等级</strong></td>
+        <td>成长感</td>
+        <td>小任务 10～25；Boss 40～60。等级只改称号与头像边框，不锁内容（防挫败）。</td>
+      </tr>
+      <tr>
+        <td><strong>连击 Streak</strong></td>
+        <td>养成节奏</td>
+        <td>当天任意勾选或领取事件奖励即 Continuity；断一天重置。可设「保护符」一周一次（可选）。</td>
+      </tr>
+      <tr>
+        <td><strong>体力（可选）</strong></td>
+        <td>防一次勾爆</td>
+        <td>每日自动回满 5 点；每勾 1 任务耗 1。若觉得烦，MVP 可关掉，只留 XP。</td>
+      </tr>
+      <tr>
+        <td><strong>成就徽章</strong></td>
+        <td>里程碑橱窗</td>
+        <td>例：第一次被 <code>site:</code> 收录、第一次有曝光、第一次外链、读完 4 周补给…</td>
+      </tr>
+      <tr>
+        <td><strong>库存（轻）</strong></td>
+        <td>收集欲</td>
+        <td>不设交易。收集「情报卷轴」（补给已读）、「工具图鉴」（用过 Cloudflare/GSC 等打卡）。</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="callout warn">
+    <strong>反沉迷数值：</strong>不要做付费抽卡、不要随机掉落决定进度。解锁只看主线 Boss 是否完成。
+  </div>
+</section>
+
+<section id="world">
+  <h2><span class="lv">MAP</span> 5. 世界地图与 Boss</h2>
+  <table>
+    <thead><tr><th>岛屿</th><th>氛围</th><th>Boss（通关条件）</th><th>胜利演出</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>🏕️ 序章营地</td>
+        <td>教学、定方向</td>
+        <td>写下「站类型 + 主词」备忘</td>
+        <td>推开营地大门</td>
+      </tr>
+      <tr>
+        <td>🏝️ 站一 · 新手岛</td>
+        <td>第一次上线</td>
+        <td>谷歌搜品牌词能找到你的站</td>
+        <td>灯塔点亮</td>
+      </tr>
+      <tr>
+        <td>🌊 站二 · 蓝海岛</td>
+        <td>低竞争词</td>
+        <td>目标词有 GSC 曝光，并向首页推进</td>
+        <td>航道打通</td>
+      </tr>
+      <tr>
+        <td>🗺️ 站三 · 内页群岛</td>
+        <td>扩页与内链</td>
+        <td>多页收录 + 点击趋势出现</td>
+        <td>群岛连成航线</td>
+      </tr>
+      <tr>
+        <td>💰 变现港</td>
+        <td>AdSense / 付费路径</td>
+        <td>弄清资格与自己的变现选项（申请成功不强制）</td>
+        <td>港口升起旗帜</td>
+      </tr>
+      <tr>
+        <td>🚢 放大航线</td>
+        <td>模板多站</td>
+        <td>写下下一站计划（先学不急量产）</td>
+        <td>新航线解锁（新局可开）</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>地图交互：点击岛屿进入任务板；未解锁显示锁与「差什么 Boss」提示；已通关可回看，不强制。</p>
+</section>
+
+<section id="questui">
+  <h2><span class="lv">QUEST</span> 6. 任务面板交互</h2>
+  <div class="grid two">
+    <div class="card">
+      <h4>任务卡字段</h4>
+      <p>标题（游戏化）· 真实动作说明 · 推荐工具 · 完成标准 · XP · 主线/支线/Boss 标签 · 常见坑。</p>
+    </div>
+    <div class="card">
+      <h4>勾选反馈</h4>
+      <p>短振动式闪动（CSS）+ XP 飘字 + 进度条跳动。Boss 完成：全屏短过场 1.5s（可跳过）。</p>
+    </div>
+    <div class="card">
+      <h4>防误触</h4>
+      <p>取消勾选可撤回 XP；重置存档需输入「重置」或二次确认。</p>
+    </div>
+    <div class="card">
+      <h4>诚实模式（可选）</h4>
+      <p>Boss 勾选前弹窗：粘贴站点 URL 或一句话证据（仅存本地）。</p>
+    </div>
+  </div>
+</section>
+
+<section id="events">
+  <h2><span class="lv">EVENT</span> 7. 每周事件补给（游戏化）</h2>
+  <ul>
+    <li>UI 名称：<strong>「周一港口商船」</strong>——到港刷新 1～3 个卷轴。</li>
+    <li>操作：阅读摘要 → 点「收入图鉴」→ +5 XP（每条仅一次）。</li>
+    <li>Grok Bot 职责：改 <code>WEEKLY_UPDATES</code> 数据；有更新时在聊天发摘要并附文件；无更新保持安静。</li>
+    <li>例行：每周一上午（已创建、目前暂停，开工后再开）。</li>
+  </ul>
+  <div class="mermaid">
+flowchart LR
+  Bot[Grok Bot 全网搜集] --> Data[写入 WEEKLY_UPDATES]
+  Data --> Ship[港口商船 UI]
+  Ship --> You[你领取已读奖励]
+  </div>
+</section>
+
+<section id="vfx">
+  <h2><span class="lv">FX</span> 8. 视听与动效（克制版）</h2>
+  <table>
+    <thead><tr><th>元素</th><th>建议</th><th>避免</th></tr></thead>
+    <tbody>
+      <tr><td>视觉风格</td><td>深色游戏 UI + 金/青高对比；图标可用 Emoji 或简单 SVG</td><td>刺眼霓虹、过密粒子</td></tr>
+      <tr><td>动效</td><td>解锁弹跳、XP 数字上浮、地图节点点亮</td><td>长过场无法跳过</td></tr>
+      <tr><td>音效</td><td>可选：勾选叮、通关短和弦；默认静音，需用户打开</td><td>自动循环 BGM 打扰</td></tr>
+      <tr><td>无障碍</td><td>对比度达标、减少动态选项、键盘可操作</td><td>仅靠颜色区分状态</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="tech">
+  <h2><span class="lv">TECH</span> 9. 技术落点（仍本地单页）</h2>
+  <ul>
+    <li>单文件或小目录：<code>index.html</code> + 可选 <code>assets/</code>（音效、svg）。</li>
+    <li>数据：<code>CHAPTERS</code> / <code>QUESTS</code> / <code>ACHIEVEMENTS</code> / <code>WEEKLY_UPDATES</code>。</li>
+    <li>存档：<code>localStorage['gefei-quest-save-v1']</code>。</li>
+    <li>零构建；尽量零 CDN，保证离线打卡。</li>
+    <li>与上一版设计的内容骨架兼容：关卡仍是哥飞公开方法，只是外壳更像游戏。</li>
+  </ul>
+</section>
+
+<section id="mvp">
+  <h2><span class="lv">MVP</span> 10. 游戏版 MVP（开工清单）</h2>
+  <ul>
+    <li>深色游戏 HUD + 横向岛屿地图 + 任务勾选结算</li>
+    <li>序章～站三可玩；变现港/放大可简化</li>
+    <li>Boss 通关解锁；XP + 连击 + 6 个成就起步</li>
+    <li>港口商船面板 + 2～3 条样例补给</li>
+    <li>静音默认；通关短庆贺可跳过</li>
+    <li>高对比可读（吸取上一版反馈）</li>
+  </ul>
+  <div class="callout ok">
+    <strong>你确认后我再开发。</strong>若还想更「游戏」一点，可加：角色三选一皮肤、岛屿简笔画背景、或去掉体力只留 XP。直接说偏好即可。
+  </div>
+</section>
+
+<footer>
+  网页游戏向设计稿 · 暂不开发 · <code>/workspace/gefei-quest/design-game.html</code>
+</footer>
+</div>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "dark",
+    securityLevel: "loose",
+    themeVariables: {
+      primaryColor: "#1e3a8a",
+      primaryTextColor: "#f1f5f9",
+      primaryBorderColor: "#38bdf8",
+      lineColor: "#94a3b8",
+      textColor: "#f1f5f9",
+      secondaryColor: "#1e293b",
+      tertiaryColor: "#14532d"
+    }
+  });
+</script>
+</body>
+</html>

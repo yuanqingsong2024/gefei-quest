@@ -698,3 +698,54 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* —— 同路人方法 —— */
+.peers-box {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.peers-box h3 {
+  margin: 0 0 6px;
+  color: var(--gold);
+}
+.peers-intro {
+  margin: 0 0 12px;
+}
+.peer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.peer-card {
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.peer-card h4 {
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+.peer-line {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 0.88rem;
+}
+.peer-steal {
+  margin: 0 0 6px;
+  color: var(--gold-text);
+  font-size: 0.82rem;
+}
+.peer-caveat {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.peer-card a {
+  color: var(--cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+}

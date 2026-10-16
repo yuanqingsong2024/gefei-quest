@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>出海小站练站营 · 产品设计方案</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<style>
+  :root {
+    --bg: #f4f6f9;
+    --card: #fff;
+    --ink: #0b1220;
+    --muted: #334155;
+    --line: #d8dee8;
+    --accent: #1d4ed8;
+    --soft: #e8f0fe;
+    --ok: #047857;
+    --warn: #b45309;
+    --radius: 12px;
+    --max: 820px;
+    --sans: "PingFang SC","Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--sans); color: var(--ink); background: var(--bg); line-height: 1.65; font-size: 16px; }
+  a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 24px 20px 72px; }
+  .hero {
+    background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+    color: #fff; border-radius: 16px; padding: 32px 28px; margin-bottom: 22px;
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 1.65rem; color: #fff; }
+  .hero p { margin: 0; color: #fff; max-width: 62ch; }
+  .chip {
+    display: inline-block; margin-top: 14px; margin-right: 6px;
+    padding: 4px 12px; border-radius: 999px; font-size: .82rem;
+    background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.45); color: #fff;
+  }
+  nav.toc, section {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 22px; margin-bottom: 16px;
+  }
+  nav.toc ol { margin: 8px 0 0; padding-left: 1.2rem; }
+  h2 { margin: 0 0 12px; font-size: 1.2rem; padding-bottom: 8px; border-bottom: 1px solid var(--line); color: var(--ink); }
+  h3 { margin: 16px 0 8px; font-size: 1.02rem; color: #1e3a8a; }
+  p, li { color: var(--ink); }
+  .muted { color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; margin: 8px 0; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #eef2f7; color: var(--ink); }
+  .callout {
+    border-left: 4px solid var(--accent); background: var(--soft);
+    padding: 12px 14px; border-radius: 0 8px 8px 0; margin: 12px 0; color: var(--ink);
+  }
+  .callout.warn { border-color: var(--warn); background: #fffbeb; }
+  .callout.ok { border-color: var(--ok); background: #ecfdf5; }
+  .mermaid {
+    background: #fff; border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 8px; margin: 10px 0; overflow-x: auto;
+  }
+  ul.check { list-style: none; padding: 0; }
+  ul.check li { padding: 6px 0 6px 26px; position: relative; border-bottom: 1px dashed var(--line); }
+  ul.check li::before {
+    content: ""; position: absolute; left: 0; top: 10px;
+    width: 14px; height: 14px; border: 2px solid var(--accent); border-radius: 3px; background: #fff;
+  }
+  .grid { display: grid; gap: 10px; }
+  @media (min-width: 640px) { .grid.two { grid-template-columns: 1fr 1fr; } }
+  .card {
+    background: #f8fafc; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px;
+  }
+  .card h4 { margin: 0 0 6px; color: #1e3a8a; }
+  .card p { margin: 0; font-size: .92rem; color: #1e293b; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 28px; }
+  code { background: #eef2f7; padding: 1px 6px; border-radius: 4px; font-size: .88em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>出海小站练站营 · 产品设计方案</h1>
+  <p>把哥飞公开方法「挖词 → 上站 → SEO → 变现 → 放大」做成关卡式学习 + 打卡实践；每周由 Grok Bot 补给新知。本文只定设计，暂不开发。</p>
+  <span class="chip">状态：设计稿</span>
+  <span class="chip">形态：本地单页（推荐第一版）</span>
+  <span class="chip">2026-10-16</span>
+</header>
+
+<nav class="toc">
+  <strong>目录</strong>
+  <ol>
+    <li><a href="#goal">目标与非目标</a></li>
+    <li><a href="#users">用户故事</a></li>
+    <li><a href="#loop">核心循环</a></li>
+    <li><a href="#map">关卡地图</a></li>
+    <li><a href="#ui">信息架构与界面</a></li>
+    <li><a href="#data">数据与进度</a></li>
+    <li><a href="#weekly">每周补给机制</a></li>
+    <li><a href="#mvp">MVP 范围</a></li>
+    <li><a href="#later">后续迭代</a></li>
+    <li><a href="#risks">风险与原则</a></li>
+  </ol>
+</nav>
+
+<section id="goal">
+  <h2>1. 目标与非目标</h2>
+  <h3>要达成</h3>
+  <ul>
+    <li>把抽象方法拆成<strong>可勾选的小任务</strong>，降低「不知道下一步」。</li>
+    <li>用<strong>站一 → 站二 → 站三</strong>递进，先跑通流程再追求流量。</li>
+    <li>每周有<strong>少量新知</strong>进站，形成学习节奏，而不是一次塞完。</li>
+    <li>第一版尽量<strong>零部署</strong>：下载 HTML，浏览器打开即可打卡。</li>
+  </ul>
+  <h3>不做（第一版）</h3>
+  <ul>
+    <li>不做账号登录、云端同步、排行榜社交。</li>
+    <li>不替你自动建站、注册域名、申请 AdSense。</li>
+    <li>不复刻哥飞付费社群生意；只用公开方法骨架 + 全网公开资料。</li>
+    <li>不做收益承诺或「几天赚多少」话术。</li>
+  </ul>
+</section>
+
+<section id="users">
+  <h2>2. 用户故事</h2>
+  <div class="grid two">
+    <div class="card">
+      <h4>作为学习者</h4>
+      <p>打开页面就能看到「当前关」和今日可做的 1～3 个任务；勾完有反馈，不会丢进度。</p>
+    </div>
+    <div class="card">
+      <h4>作为忙时的你</h4>
+      <p>周一看到「本周补给」两三条摘要即可；没空就跳过，不影响主线关卡。</p>
+    </div>
+    <div class="card">
+      <h4>作为 Grok Bot</h4>
+      <p>每周只改数据数组、必要时发聊天摘要；不碰你的打卡进度。</p>
+    </div>
+    <div class="card">
+      <h4>作为后续升级</h4>
+      <p>若以后要部署到公网，同一套关卡数据可迁到静态托管，进度仍可先放浏览器本地。</p>
+    </div>
+  </div>
+</section>
+
+<section id="loop">
+  <h2>3. 核心循环</h2>
+  <p class="muted">游戏感来自「短反馈」，不是复杂数值。</p>
+  <div class="mermaid">
+flowchart LR
+  A[看当前关任务] --> B[线下实践]
+  B --> C[勾选完成]
+  C --> D[加 XP / 连击]
+  D --> E{本关必做完成?}
+  E -->|否| A
+  E -->|是| F[解锁下一关]
+  F --> A
+  G[每周补给] -.-> A
+  </div>
+  <div class="callout">
+    <strong>反馈三件套：</strong>勾选即时勾上 + 轻微 XP 增长 + 通关时解锁下一章（可选轻提示音/横幅，不做花哨特效刷屏）。
+  </div>
+</section>
+
+<section id="map">
+  <h2>4. 关卡地图（主线）</h2>
+  <table>
+    <thead>
+      <tr><th>关卡</th><th>目标</th><th>必做示例</th><th>通关标准</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>序章 · 定方向</strong></td>
+        <td>选站类型 + 一站一词</td>
+        <td>写下站类型；写下本站主词；读完「不做什么」</td>
+        <td>方向备忘写好</td>
+      </tr>
+      <tr>
+        <td><strong>第1关 · 站一</strong></td>
+        <td>跑通全流程</td>
+        <td>域名/托管/上线；提交 GSC；品牌词能搜到</td>
+        <td>谷歌能搜到自己的站名</td>
+      </tr>
+      <tr>
+        <td><strong>第2关 · 站二</strong></td>
+        <td>低竞争有搜索量</td>
+        <td>用搜索+<code>intitle:</code>选词；做页；外链/发现；追排名</td>
+        <td>目标词有曝光，并朝首页推进</td>
+      </tr>
+      <tr>
+        <td><strong>第3关 · 站三</strong></td>
+        <td>更高搜索量 + 内页</td>
+        <td>扩长尾内页；内链回首页；持续看 GSC</td>
+        <td>多页有收录与点击趋势</td>
+      </tr>
+      <tr>
+        <td><strong>第4关 · 变现入门</strong></td>
+        <td>流量→变现意识</td>
+        <td>了解 AdSense 资格；准备合规页；建立看数习惯</td>
+        <td>知道门槛与自己的变现路径选项</td>
+      </tr>
+      <tr>
+        <td><strong>第5关 · 放大</strong></td>
+        <td>模板 / 多站思路</td>
+        <td>复盘模板可复用点；规划下一站选题（先学不急量产）</td>
+        <td>有下一站计划草案</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="muted">每关 3～6 个任务；可标 1 个「可选支线」（如提前读某篇公开文），不挡通关。</p>
+</section>
+
+<section id="ui">
+  <h2>5. 信息架构与界面</h2>
+  <h3>单页区块（自上而下）</h3>
+  <ol>
+    <li><strong>顶栏 HUD</strong>：当前关名、XP 条、连击天数、重置进度（需二次确认）。</li>
+    <li><strong>关卡地图</strong>：横滑或纵向列表；未解锁灰显；当前关高亮。</li>
+    <li><strong>任务板</strong>：当前关 checklist；展开可见「做什么 / 工具 / 完成标准 / 坑」。</li>
+    <li><strong>本周补给</strong>：最新 1～3 条置顶，历史可折叠。</li>
+    <li><strong>资料柜</strong>：链到已有 playbook / 公开文链接（只摘要，不整篇搬运）。</li>
+  </ol>
+  <h3>视觉原则</h3>
+  <ul>
+    <li>高对比：正文近黑 <code>#0b1220</code>，链接深蓝 <code>#1d4ed8</code> / <code>#1e3a8a</code>，避免浅蓝底浅字。</li>
+    <li>移动端优先；无障碍：勾选可键盘操作，焦点可见。</li>
+    <li>第一版尽量<strong>零 CDN</strong>，离线也能打卡（补给链接需联网打开外站）。</li>
+  </ul>
+</section>
+
+<section id="data">
+  <h2>6. 数据与进度</h2>
+  <div class="grid two">
+    <div class="card">
+      <h4>写死在文件里（我改）</h4>
+      <p><code>CHAPTERS</code> 关卡与任务文案；<code>WEEKLY_UPDATES</code> 每周补给条目。</p>
+    </div>
+    <div class="card">
+      <h4>存在浏览器里（你改）</h4>
+      <p><code>localStorage</code>：已完成任务 id、XP、连击、解锁进度。换设备会丢，属第一版取舍。</p>
+    </div>
+  </div>
+  <div class="callout warn">
+    <strong>边界：</strong>每周更新只允许追加/修剪 <code>WEEKLY_UPDATES</code>，禁止清空你的打卡进度字段。
+  </div>
+  <pre style="background:#0b1220;color:#e2e8f0;padding:12px 14px;border-radius:10px;overflow:auto;font-size:.85rem;">localStorage key: gefei-quest-progress-v1
+{
+  "done": ["q-1-1", "q-1-2"],
+  "xp": 120,
+  "streak": 3,
+  "lastCheckIn": "2026-10-16",
+  "unlocked": ["prologue", "stage1"]
+}</pre>
+</section>
+
+<section id="weekly">
+  <h2>7. 每周补给机制</h2>
+  <div class="mermaid">
+sequenceDiagram
+  participant Cron as 周一例行
+  participant Bot as Grok Bot
+  participant File as index.html
+  participant You as 你
+  Cron->>Bot: 触发「每周知识补给」
+  Bot->>Bot: 全网扫公开 SEO/出海新知
+  alt 有值得加的
+    Bot->>File: 追加 WEEKLY_UPDATES
+    Bot->>You: 聊天摘要 + 附更新文件
+  else 无增量
+    Bot-->>You: 保持安静
+  end
+  </div>
+  <ul>
+    <li><strong>节奏：</strong>每周一上午（上海时间）例行；无新料不打扰。</li>
+    <li><strong>体量：</strong>每次 1～3 条；每条标题 + 2～4 句摘要 + 可选链接。</li>
+    <li><strong>来源：</strong>谷歌官方文档更新、公开实操文、部署/广告合规要点；不贴大段原文。</li>
+    <li><strong>状态：</strong>例行已创建但<strong>已暂停</strong>，等你认可设计并开工后再开启。</li>
+  </ul>
+</section>
+
+<section id="mvp">
+  <h2>8. MVP 范围（一旦开工）</h2>
+  <ul class="check">
+    <li>单文件 <code>index.html</code>：HUD + 地图 + 任务勾选 + 补给面板</li>
+    <li>进度 localStorage 持久化 + 重置</li>
+    <li>序章～第3关内容可玩；第4～5关可先放简化任务</li>
+    <li>播种 2～3 条补给样例</li>
+    <li>简短 README：怎么打开、进度存在哪、怎么跟我说「我通关了」</li>
+    <li>开启每周一补给例行</li>
+  </ul>
+  <p class="muted">预估：一次集中开发即可出可用第一版（在现有 playbook 内容上改编）。</p>
+</section>
+
+<section id="later">
+  <h2>9. 后续迭代（不做进 MVP）</h2>
+  <table>
+    <thead><tr><th>版本</th><th>加什么</th><th>何时值得做</th></tr></thead>
+    <tbody>
+      <tr><td>v1.5</td><td>导出/导入进度 JSON；暗色模式</td><td>换设备或眼睛疲劳时</td></tr>
+      <tr><td>v2</td><td>静态托管（Cloudflare Pages）+ 同一套页面</td><td>你想手机随时打开固定网址</td></tr>
+      <tr><td>v2.5</td><td>可选「提交证据」备注框（URL/截图说明，仍本地）</td><td>想更认真复盘时</td></tr>
+      <tr><td>v3</td><td>多站并行进度 / 模板库</td><td>走出新手村之后</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="risks">
+  <h2>10. 风险与原则</h2>
+  <ul>
+    <li><strong>游戏化别过头：</strong>XP 只是反馈，通关标准对齐真实 SEO 结果（收录、曝光），避免「只点勾、不建站」。</li>
+    <li><strong>合规：</strong>AdSense、托管条款（如部分免费套餐非商用）在关卡文案里写清。</li>
+    <li><strong>版权：</strong>补给只摘要公开信息并附链接，不整页搬运。</li>
+    <li><strong>进度易丢：</strong>第一版依赖本机浏览器；重要节点可让你把完成情况跟我说一声做备份备忘。</li>
+  </ul>
+  <div class="callout ok">
+    <strong>建议决策：</strong>认可本设计后，再开工做「本地单页关卡打卡」MVP，并恢复周一补给例行。若要改关卡数量、去掉 XP、或改成先部署再打卡，直接说偏好即可。
+  </div>
+</section>
+
+<footer>
+  设计方案 · 暂不开发 · 文件 <code>/workspace/gefei-quest/design.html</code>
+</footer>
+</div>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: "base",
+    securityLevel: "loose",
+    themeVariables: {
+      primaryColor: "#eff6ff",
+      primaryTextColor: "#0b1220",
+      primaryBorderColor: "#1e3a8a",
+      lineColor: "#334155",
+      textColor: "#0b1220",
+      secondaryColor: "#f1f5f9",
+      tertiaryColor: "#ecfdf5"
+    }
+  });
+</script>
+</body>
+</html>

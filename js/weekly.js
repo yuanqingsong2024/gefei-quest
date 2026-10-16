@@ -8,7 +8,7 @@
     root.innerHTML = `
       <div class="panel-head">
         <h2>⛵ 周一港口商船</h2>
-        <p class="panel-sub">情报卷轴：已读可领 XP（每条仅一次）。周更只追加数据，不碰你的存档。</p>
+        <p class="panel-sub">情报卷轴：已读可领 XP（每条仅一次）。含「同类方案」摘要。周更只追加数据，不碰你的存档。</p>
       </div>
       <div class="ship-list">
         ${

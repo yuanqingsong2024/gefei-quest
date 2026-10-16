@@ -38,6 +38,25 @@
           <button type="button" class="btn btn-danger btn-sm" id="set-reset">重置…</button>
         </div>
       </div>
+      <div class="peers-box">
+        <h3>同路人方法</h3>
+        <p class="panel-sub peers-intro">公开博主 / 官方框架摘要（非付费社群课）。点开读原文；收入案例≠保证。</p>
+        <div class="peer-grid">
+          ${(global.QuestData.PEER_METHODS || [])
+            .map(
+              (p) => `
+            <article class="peer-card">
+              <h4>${p.name}</h4>
+              <p class="peer-line">${p.oneLiner}</p>
+              <p class="peer-steal"><span class="tag">可偷</span> ${p.steal}</p>
+              <p class="peer-caveat">注意：${p.caveat}</p>
+              <a href="${p.url}" target="_blank" rel="noopener noreferrer">打开原文</a>
+            </article>`
+            )
+            .join('')}
+        </div>
+        <p class="hint"><a href="./docs/peer-methods.md" target="_blank" rel="noopener noreferrer">完整调研笔记</a></p>
+      </div>
       <div class="resources-box">
         <h3>资料柜</h3>
         <ul class="resource-list">

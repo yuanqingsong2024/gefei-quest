@@ -218,6 +218,20 @@
       boss: false,
       side: true,
     },
+
+    {
+      id: 'q-s1-s2',
+      chapterId: 'ch-stage1',
+      title: '支线 · 每周看一眼统计',
+      action: '养成习惯：每周打开一次流量统计（GA4/Clarity 等），记下访问来源与是否有搜索入口。',
+      tools: 'GA4 / Clarity / 自建统计',
+      doneCriteria: '至少连续记录 1 周备注',
+      pitfalls: '同路人（小树/阿小信）强调可控动作：改站与交 sitemap，比盯着日收入更有用。',
+      xp: 10,
+      required: false,
+      boss: false,
+      side: true,
+    },
     // —— 站二 ——
     {
       id: 'q-s2-01',
@@ -310,6 +324,33 @@
       boss: false,
       side: true,
     },
+
+    {
+      id: 'q-s2-s2',
+      chapterId: 'ch-stage2',
+      title: '支线 · 竞品 SERP 嗅探',
+      action: '对目标词打开谷歌前 5–10 条：记下结果类型（工具/文章/目录）、页面标题模式、是否有明显弱站可超越点。',
+      tools: 'Google SERP / 可选 Similarweb·Ahrefs 免费档',
+      doneCriteria: '一页笔记：竞品类型 + 你能做得更好的 1 点',
+      pitfalls: '学结构与意图，不抄内容；虚荣大词可记但不必首战。',
+      xp: 10,
+      required: false,
+      boss: false,
+      side: true,
+    },
+    {
+      id: 'q-s2-s3',
+      chapterId: 'ch-stage2',
+      title: '支线 · 外链发现卫生',
+      action: '只走合法发现路径（导航/目录/社区自然提及）；列出「可做 / 绝不做」（买链、群发、伪装评论等）。',
+      tools: '记事本 + Moz/Google 外链卫生常识',
+      doneCriteria: '卫生清单写好',
+      pitfalls: '易得的廉价链权重通常也低；黑帽短期有效长期高风险。',
+      xp: 10,
+      required: false,
+      boss: false,
+      side: true,
+    },
     // —— 站三 ——
     {
       id: 'q-s3-01',
@@ -389,6 +430,20 @@
       boss: true,
       side: false,
     },
+
+    {
+      id: 'q-s3-s1',
+      chapterId: 'ch-stage3',
+      title: '支线 · 单页质量门槛',
+      action: '任选一内页做「人先」自检：三秒说清干什么、有独特信息、结构清晰、不是纯 AI 套话堆砌。',
+      tools: 'Google Search Essentials / Starter Guide 要点',
+      doneCriteria: '自检表勾完并改一版',
+      pitfalls: '程序化/模板页若无独特数据，放大期再碰；薄内容可能被低估。',
+      xp: 10,
+      required: false,
+      boss: false,
+      side: true,
+    },
     // —— 变现港 ——
     {
       id: 'q-m-01',
@@ -450,6 +505,20 @@
       tools: '公开文档',
       doneCriteria: '记下候选收款方式',
       pitfalls: '',
+      xp: 10,
+      required: false,
+      boss: false,
+      side: true,
+    },
+
+    {
+      id: 'q-m-s2',
+      chapterId: 'ch-monetize',
+      title: '支线 · 信任页三件套',
+      action: '补齐 About（你是谁/站干什么）、Contact（可用邮箱）、Privacy（含 Cookie/广告说明，可用生成器后改占位符）。',
+      tools: 'TermsFeed 等生成器 + 站点页脚导航',
+      doneCriteria: '三页可点且信息真实',
+      pitfalls: '公开经验称拒审常因「不像正经项目」；最终以 AdSense 官方政策为准。',
       xp: 10,
       required: false,
       boss: false,
@@ -607,6 +676,101 @@
       xp: 5,
       addedAt: '2026-10-13',
     },
+    {
+      id: 'w-2026-10-16-a',
+      week: '2026-W42',
+      title: '同类方案：内容为主 + 外链质量',
+      summary:
+        '同路人（子木等）常把精力拆成：内容解决真实搜索意图为主，外链看质量不看堆量，技术做爬取/速度/移动端基建。选题前先写清受众，避免蹭无关热词把主题做散。',
+      url: 'https://bysocket.com/seo-tips-2025/',
+      tags: ['同类方案', '内容', '外链'],
+      xp: 5,
+      addedAt: '2026-10-16',
+    },
+    {
+      id: 'w-2026-10-16-b',
+      week: '2026-W42',
+      title: '同类方案：AdSense 信任页三件套',
+      summary:
+        '公开拒审复盘常提到：About / Contact / Privacy 配齐、内容像正经项目、HTTPS+移动端可用。文章数量不是唯一标准；空站或假联系方式风险高。以 AdSense 官方帮助为准。',
+      url: 'https://developer.cloud.tencent.com/article/2684092',
+      tags: ['同类方案', 'AdSense', '合规'],
+      xp: 5,
+      addedAt: '2026-10-16',
+    },
+    {
+      id: 'w-2026-10-16-c',
+      week: '2026-W42',
+      title: '同类方案：Google / Ahrefs 三支柱',
+      summary:
+        '官方 Starter Guide 强调易抓取、对人有用、清晰标题与可爬链接。Ahrefs 面向创始人的拆法：Content → Links → Technical——先去掉索引障碍，再优先低难度、与产品相关的词，而不是虚荣大词。',
+      url: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide',
+      tags: ['同类方案', 'Google', '框架'],
+      xp: 5,
+      addedAt: '2026-10-16',
+    },
+    {
+      id: 'w-2026-10-16-d',
+      week: '2026-W42',
+      title: '同类方案：多引擎交图 + 公开复盘节奏',
+      summary:
+        '阿小信等实践：GSC/Bing 等站长平台提交 sitemap，把「改站+交图」当可控日常。小树出海用月报把 SEO/AdSense/收款里程碑记账——日入 $1 是心理锚点，不是商业终点。案例≠你的收入。',
+      url: 'https://www.sherotree.com/',
+      tags: ['同类方案', '习惯', '复盘'],
+      xp: 5,
+      addedAt: '2026-10-16',
+    },
+  ];
+
+  const PEER_METHODS = [
+    {
+      id: 'peer-zimu',
+      name: '子木',
+      oneLiner: '内容为主、外链看质、技术打底；先定受众再选题。',
+      steal: 'SERP 嗅探 · 长尾/蓝海/新词分档',
+      url: 'https://bysocket.com/seo-tips-2025/',
+      caveat: '比例是经验法则',
+    },
+    {
+      id: 'peer-axiaoxin',
+      name: '阿小信',
+      oneLiner: 'MVP 快上线，多站长交 sitemap，持续改站拿搜索流量。',
+      steal: '多引擎交图 · $1 里程碑心态',
+      url: 'https://blog.axiaoxin.com/post/new-adsense-1uaday/',
+      caveat: '收入个案；企业收款可后置',
+    },
+    {
+      id: 'peer-xiaoshu',
+      name: '小树出海',
+      oneLiner: '副业公开月报：产品、收款、SEO、AdSense 并行记账。',
+      steal: '月报复盘 · 领先指标（DR/点击）',
+      url: 'https://www.sherotree.com/',
+      caveat: '路径含插件/wiki，不必照搬',
+    },
+    {
+      id: 'peer-google',
+      name: 'Google Search Central',
+      oneLiner: 'Starter Guide：易抓取、对人有用、标题清晰、链接可爬。',
+      steal: 'Search Essentials · GSC 起步',
+      url: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide',
+      caveat: '权威底线，优先遵守',
+    },
+    {
+      id: 'peer-ahrefs',
+      name: 'Ahrefs · Founders SEO',
+      oneLiner: 'Content → Links → Technical；先修障碍，再做相关低难度词。',
+      steal: '竞品高流量页对照 · 业务相关度',
+      url: 'https://ahrefs.com/blog/seo-for-founders/',
+      caveat: '文中工具可换免费替代',
+    },
+    {
+      id: 'peer-moz',
+      name: 'Moz 新手速查',
+      oneLiner: '统计+站长工具 → 查索引 → 定词 → 搜索外观 → 内容/内链/外链卫生。',
+      steal: 'site: 检查 · 锚文本与导航',
+      url: 'https://moz.com/beginners-guide-to-seo/quick-start-guide',
+      caveat: '框架偏全，按清单勾',
+    },
   ];
 
   const RESOURCES = [
@@ -625,6 +789,22 @@
     {
       title: 'AdSense 帮助中心',
       url: 'https://support.google.com/adsense',
+    },
+    {
+      title: '同路人方法调研笔记',
+      url: './docs/peer-methods.md',
+    },
+    {
+      title: 'Google SEO Starter Guide',
+      url: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide',
+    },
+    {
+      title: 'Ahrefs · SEO for Founders',
+      url: 'https://ahrefs.com/blog/seo-for-founders/',
+    },
+    {
+      title: 'Moz · SEO Quick Start',
+      url: 'https://moz.com/beginners-guide-to-seo/quick-start-guide',
     },
   ];
 
@@ -645,6 +825,7 @@
     QUESTS,
     ACHIEVEMENTS,
     WEEKLY_UPDATES,
+    PEER_METHODS,
     RESOURCES,
     getChapter,
     getQuestsByChapter,
