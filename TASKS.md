@@ -1005,11 +1005,13 @@
 
 ## Phase 12 · 每日赚钱榜（见 docs/PHASE12-RANK.md）
 - [x] T130 方案定稿 PHASE12-RANK.md + 任务表
-- [ ] T131 数据结构 + 种子榜单（10 条，来源 URL 验证 200）
-- [ ] T132 tools/publish-rank.js（校验、历史、changelog、daily.json）+ README
-- [ ] T133 #war-rank 页：卡片、筛选、收藏、历史、免责声明
-- [ ] T134 加入实操计划（save.rankPlan）+ 实操助手页显示
-- [ ] T135 首页卡片、搜索索引、页脚入口
-- [ ] T136 测试、截图、push
+- [x] T131 数据结构 + 种子榜单（10 条，来源 URL 验证 200）
+- [x] T132 tools/publish-rank.js（校验、历史、changelog、daily.json）+ README
+- [x] T133 #war-rank 页：卡片、筛选、收藏、历史、免责声明
+- [x] T134 加入实操计划（save.rankPlan）+ 实操助手页显示
+- [x] T135 首页卡片、搜索索引、页脚入口
+- [x] T136 测试、截图、push
 
 | Phase 12 | T130–T136 | 7 |
+
+- 2026-10-16：Phase 12 · 每日赚钱榜（#war-rank、publish-rank.js、rank.json 历史）。

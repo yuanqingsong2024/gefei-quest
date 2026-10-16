@@ -22,7 +22,7 @@
     done.forEach(function (id) { if (!dd[id]) { dd[id] = t; changed = true; } });
     Object.keys(dd).forEach(function (id) { if (done.indexOf(id) < 0) delete dd[id]; });
     // 有效活动：新完成任务、工具/补给数据有变化
-    var sig = JSON.stringify([done.length, state.weeklyClaimed, state.kit, state.keywords && state.keywords.items, state.keywords && state.keywords.s2Target, state.sites]);
+    var sig = JSON.stringify([done.length, state.weeklyClaimed, state.kit, state.keywords && state.keywords.items, state.keywords && state.keywords.s2Target, state.sites, state.rankPlan]);
     if (prevRaw == null || sig !== prevRaw || changed) act[t] = (act[t] || 0) + 1;
     state.activity = act; state.doneDates = dd;
     if (typeof state.lastSeenChangelog !== 'number') state.lastSeenChangelog = 0;
@@ -30,7 +30,7 @@
   }
   function signature(state) {
     if (!state) return null;
-    return JSON.stringify([(state.done || []).length, state.weeklyClaimed, state.kit, state.keywords && state.keywords.items, state.keywords && state.keywords.s2Target, state.sites]);
+    return JSON.stringify([(state.done || []).length, state.weeklyClaimed, state.kit, state.keywords && state.keywords.items, state.keywords && state.keywords.s2Target, state.sites, state.rankPlan]);
   }
 
   /* ---------- 计算 ---------- */

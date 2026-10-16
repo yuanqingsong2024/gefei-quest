@@ -355,11 +355,12 @@
       '<div class="feat-grid">' + sections.map(function (n) {
         return '<a class="feat-card" href="' + n.hash + '"><span class="card-ico card-ico-lg">' + I(n.icon) + '</span><b>' + n.label + '</b><small>' + n.sub + '</small><span>' + n.desc + '</span></a>';
       }).join('') + '</div></section>' +
-      '<section class="lp-sec" id="home-tools"><div class="sec-head"><span class="sec-kicker">TOOLS</span><h2>三个实操工具</h2><p>不只是看清单：帮你生成页面、记录选词、追踪每个站的数据。全部只存本机浏览器。</p></div>' +
+      '<section class="lp-sec" id="home-tools"><div class="sec-head"><span class="sec-kicker">TOOLS</span><h2>四个实操工具</h2><p>不只是看清单：帮你生成页面、记录选词、追踪每个站的数据。全部只存本机浏览器。</p></div>' +
       '<div class="feat-grid">' +
       '<a class="feat-card" href="#war-kit"><span class="card-ico card-ico-lg">' + I('kit') + '</span><b>站一实操助手</b><small>实战作战室</small><span>填主词和域名，实时检查 title / 描述 / h1，一键下载已填好的站一页面 + robots + sitemap，并附上线自查表。</span></a>' +
       '<a class="feat-card" href="#war-keywords"><span class="card-ico card-ico-lg">' + I('tag') + '</span><b>选词练习板</b><small>实战作战室</small><span>记候选词和搜索结果前 10 观察，自动打分「适合练手 / 可以试 / 先换长尾」，一键设为站一主词。</span></a>' +
       '<a class="feat-card" href="#me-sites"><span class="card-ico card-ico-lg">' + I('ledger') + '</span><b>我的站点台账</b><small>我的进度</small><span>登记每个站的域名、状态和变现方式，按月记曝光、点击、收入，自动画折线。</span></a>' +
+      '<a class="feat-card" href="#war-rank" id="home-rank-card"><span class="card-ico card-ico-lg">' + I('trophy') + '</span><b>每日赚钱榜</b><small>实战作战室 · ' + esc((global.QUEST_RANK && global.QUEST_RANK.latest) || '待发布') + '</small><span>每天 10 个公开、合法的赚钱 / 薅羊毛渠道：成本、难度、适合谁、风险和官方来源，可收藏、可加入实操计划。不保证收益。</span></a>' +
       '</div></section>' +
       '<section class="lp-sec" id="home-steps"><div class="sec-head"><span class="sec-kicker">ROADMAP</span><h2>五步路线</h2><p>从零到多站，按顺序推进，每步对应一个实战作战室。</p></div>' +
       '<ol class="steps">' + STEPS.map(function (s, k) {

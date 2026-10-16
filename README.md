@@ -140,3 +140,14 @@ python3 -m http.server 8765
 
 ## 更新日志与 daily.json
 新增更新：在 `js/changelog.js` 最前面加一条（id 递增），然后运行 `node tools/build-daily.js` 生成 `daily.json`，再运行 `python3 tools/build-guides.py`。
+
+## 每日赚钱榜发布（给「赚钱榜雷达」agent）
+1. 准备一个 JSON 文件（格式见 `data/rank-sample.json`）：
+   `{ "date": "YYYY-MM-DD", "items": [ 10 × { rank, name, type, cost, difficulty(1–5), fit, why, steps[], risk, source_url(https), tags[] } ] }`
+   只收合法渠道；脚本会拒绝含盗版、账号买卖、游戏币点卡、代写、刷量的条目。
+2. 发布：`node tools/publish-rank.js /path/to/rank.json --check-urls`
+   - 校验结构，`--check-urls` 要求每个 source_url 返回 200
+   - 写 `data/rank.json`、`data/rank-history/<date>.json`、`data/rank-history/index.json`、`js/rank-data.js`（近 14 天内嵌，file:// 可用）
+   - 在 `js/changelog.js` 加/替换当天「每日赚钱榜」条目，重建 `daily.json`（含 `rank.top3`）
+   - 加 `--no-changelog` 可不写更新日志
+3. 推送：`git add -A && git commit -m "rank: YYYY-MM-DD" && git push`，约 1 分钟后 GitHub Pages 生效：`#war-rank`、`data/rank.json`、`daily.json`。

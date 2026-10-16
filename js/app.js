@@ -115,12 +115,17 @@
       } else {
         QuestMap.renderMap(state, $('#path-body'), (chapterId) => { currentChapter = chapterId; go('#path-quests'); });
       }
+    } else if (sec === 'war' && route.view === 'rank') {
+      crumb = '每日赚钱榜';
+      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'rank') + '<div id="tool-body"></div>';
+      QuestRank.renderRank(state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && (route.view === 'kit' || route.view === 'keywords')) {
       const root = $('#panel-war');
       const kit = route.view === 'kit';
       crumb = kit ? '站一实操助手' : '选词练习板';
-      root.innerHTML = subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>';
+      root.innerHTML = subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>' + (kit ? '<div id="kit-plan"></div>' : '');
       QuestTools[kit ? 'renderKit' : 'renderKeywords'](state, $('#tool-body'), toolCtx());
+      if (kit) { const kp = $('#kit-plan'); kp.innerHTML = QuestRank.planHtml(state); QuestRank.bindPlan(state, kp, toolCtx()); }
     } else if (sec === 'war') {
       $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'days') + '<div id="war-body"></div>';
       QuestWarRoom.setActiveStation(route.param || 1);
@@ -265,6 +270,8 @@
     }
     renderShell(crumb);
     N.fixLinks(document.getElementById('app'));
+    const at = document.querySelector('.tab-panel:not([hidden]) .sub-tab.active');
+    if (at && at.parentNode.scrollWidth > at.parentNode.clientWidth) at.parentNode.scrollLeft = at.getBoundingClientRect().left - at.parentNode.getBoundingClientRect().left + at.parentNode.scrollLeft - 16;
     const changed = renderAll._last !== route.hash;
     renderAll._last = route.hash;
     if (!changed) return;
@@ -337,7 +344,7 @@
   function init() {
     let hadSave = false;
     try { hadSave = !!localStorage.getItem(QuestSave.SAVE_KEY); } catch (_) {}
-    state = QuestTools.ensure(QuestSave.loadSave());
+    state = QuestRank.ensure(QuestTools.ensure(QuestSave.loadSave()));
     if (!hadSave && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       state.settings.reduceMotion = true;
     }

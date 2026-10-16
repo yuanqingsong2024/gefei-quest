@@ -2,7 +2,7 @@
 const { chromium } = require(process.env.PW || 'playwright-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-stats','changelog','dev'];
+const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-stats','changelog','dev'];
 const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
@@ -180,6 +180,40 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   for (const h of ['home', 'war', 'lib', 'me-stats', 'guide-station-one-playbook']) { await mm.goto(BASE + 'index.html#' + h); await mm.waitForTimeout(250); const w = await mm.evaluate(() => document.documentElement.scrollWidth); T11(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
   const r11 = await p.request.get(BASE + 'icons.html'); T11(r11.status() === 200, 'icons.html overview served');
   console.log('P11 functional fails=' + f11); fail += f11;
+
+  // ---------- Phase 12 ----------
+  let f12 = 0; const T12 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P12 ' + m); if (!c) f12++; };
+  await visit('war-rank'); await p.waitForTimeout(200);
+  T12(await p.evaluate(() => document.querySelectorAll('.rank-card').length === 10 && /不保证/.test(document.querySelector('.rank-disclaimer').textContent)), '10 cards + disclaimer');
+  T12(await p.evaluate(() => !!document.querySelector('.sub-tab.active[href="#war-rank"]') && /每日赚钱榜/.test(document.querySelector('.crumbs').textContent)), 'WAR_TABS tab + breadcrumb');
+  const t0 = await p.$eval('[data-rtype]:not([data-rtype="all"])', b => b.dataset.rtype);
+  await p.click(`[data-rtype="${t0}"]`); await p.waitForTimeout(100);
+  T12(await p.evaluate(t => { const c = [...document.querySelectorAll('.rank-card')]; return c.length > 0 && c.length < 10 && c.every(x => x.dataset.type === t); }, t0), 'type filter ' + t0);
+  await p.click('[data-rtype="all"]'); await p.waitForTimeout(80);
+  await p.click('.rank-card[data-rank="3"] .rank-fav'); await p.waitForTimeout(80);
+  await p.click('#rank-only-fav'); await p.waitForTimeout(80);
+  T12(await p.evaluate(() => document.querySelectorAll('.rank-card').length === 1 && JSON.parse(localStorage.getItem('gefei-quest-save-v1')).rankFav.length === 1), 'favorite + 只看收藏 persisted');
+  await p.click('#rank-only-fav'); await p.waitForTimeout(80);
+  await p.click('.rank-card[data-rank="1"] [data-plan-add]'); await p.waitForTimeout(100);
+  T12(await p.evaluate(() => document.querySelectorAll('#rank-plan .plan-item').length === 1 && document.querySelector('.rank-card[data-rank="1"] [data-plan-add]').disabled), 'plan it -> 实操计划');
+  await visit('war-kit');
+  T12(await p.evaluate(() => document.querySelectorAll('#kit-plan .plan-item').length === 1), 'plan shown on 实操助手 page');
+  await p.check('#kit-plan [data-plan-done="0"]'); await p.waitForTimeout(100);
+  T12(await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).rankPlan[0].done === true), 'plan item done persisted');
+  await visit('home');
+  T12(await p.evaluate(() => !!document.querySelector('#home-rank-card') && !!document.querySelector('.site-footer a[href="#war-rank"]')), 'home card + footer link');
+  await p.keyboard.press('Control+k'); await p.keyboard.type('Prolific'); await p.waitForTimeout(150);
+  T12(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#war-rank')), 'search index includes rank items'); await p.keyboard.press('Escape');
+  for (const u of ['data/rank.json', 'data/rank-history/index.json']) { const r = await p.request.get(BASE + u); const j = r.status() === 200 ? await r.json() : null; T12(!!j && (u.endsWith('index.json') ? j.dates.length >= 1 : j.items.length === 10), u + ' served'); }
+  const dj12 = await (await p.request.get(BASE + 'daily.json')).json(); T12(dj12.rank && dj12.rank.top3.length === 3, 'daily.json has rank top3');
+  console.log('P12 functional fails=' + f12); fail += f12;
+  if (SHOTS) {
+    await p.evaluate(() => localStorage.clear()); await p.goto(BASE + 'index.html#war-rank'); await p.reload(); await p.waitForTimeout(500); await p.screenshot({ path: `${SHOTS}/p12-rank.png`, fullPage: false });
+    const m12 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+    await m12.goto(BASE + 'index.html#war-rank'); await m12.waitForTimeout(500);
+    const w = await m12.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile war-rank scrollWidth ' + w); if (w > 390) fail++;
+    await m12.screenshot({ path: `${SHOTS}/p12-mobile-rank.png`, fullPage: false });
+  }
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

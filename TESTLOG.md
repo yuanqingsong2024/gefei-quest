@@ -104,3 +104,7 @@
 - site-check：25 路由 + 9 手册 + 16 开发文档，routeFails 0 · broken 0 · rawMd 0 · consoleErrors 0；P9/P10/P11 功能用例全部通过 ✅
 - P11：/ 与 Ctrl+K 打开搜索、分组结果、Enter 跳转、无结果插画、顶栏收缩、回到顶部、页脚版本、底部栏（390px 显示/桌面隐藏/跳转/搜索）、5 页 390px 无横向滚动 ✅
 - file:// 打开首页/作战室/搜索/文档页无报错 ✅
+
+## Phase 12 · 每日赚钱榜（2026-10-16）
+- site-check：26 路由（+#war-rank）+ 9 手册 + 17 开发文档，0 失败 · broken 0 · consoleErrors 0；P12 用例 13/13（10 卡片+免责、Tab/面包屑、类型筛选、收藏+只看收藏、加入实操计划、实操助手页显示与勾选、首页卡片/页脚、搜索索引、rank.json/index.json/daily.json）✅
+- 种子榜单 10 条 source_url 均返回 200（publish-rank.js --check-urls）✅；390px 无横向滚动 ✅

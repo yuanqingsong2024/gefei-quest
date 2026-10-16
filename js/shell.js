@@ -51,6 +51,7 @@
     var catIcon = {}; Nv.LIB_CATS.forEach(function (c) { catIcon[c.id] = c.icon; });
     (D.TRY_CHANNELS || []).forEach(function (c) { add('资源', c.name, c.blurb, '#lib-' + c.cat, [c.how, c.caveat].join(' '), catIcon[c.cat] || 'toolbox'); });
     (D.PEER_METHODS || []).forEach(function (p) { add('资源', p.name, p.oneLiner, '#lib-peers', [p.steal, p.caveat].join(' '), 'users'); });
+    if (global.QuestRank) global.QuestRank.latestItems().forEach(function (it) { add('赚钱榜', 'No.' + it.rank + ' ' + it.name, it.type + ' · ' + it.why, '#war-rank', [it.fit, it.risk, (it.tags || []).join(' '), it.cost].join(' '), 'trophy'); });
     var MD = global.QUEST_GUIDES_MD || {};
     Nv.GUIDES.forEach(function (g) { add('手册', g.title, g.desc, g.href || '#guide-' + g.id, g.href ? '' : heads(MD[g.id]), g.icon); });
     Nv.DEV_DOCS.forEach(function (d) { add('开发文档', d.title, '开发者文档', '#dev-' + d.id, heads(MD[d.id]), 'code'); });
@@ -112,7 +113,7 @@
     }
     var res = search(q);
     if (!res.length) { box.innerHTML = '<div class="empty-illo">' + global.QuestIcons.illo('search') + '<p><b>没有找到「' + esc(q) + '」</b><br>换个关键词，或少输入几个字试试。</p></div>'; return; }
-    var groups = {}, order = ['页面', '任务', '资源', '手册', '开发文档'];
+    var groups = {}, order = ['页面', '赚钱榜', '任务', '资源', '手册', '开发文档'];
     res.forEach(function (r) { (groups[r.type] = groups[r.type] || []).push(r); });
     var html = '';
     order.forEach(function (g) {

@@ -100,3 +100,8 @@
 - 新 Logo assets/logo.svg → icon-512/192、apple-touch-icon、favicon-32/48、favicon.ico、maskable；manifest 更新。
 - js/shell.js：顶栏收缩、回到顶部、≤640px 底部栏、全站搜索（/ · Ctrl/⌘+K）、页面淡入；文档页骨架占位；空状态插画。
 - 页脚：站点地图 / 关于本站 / 最近更新 / 版本号（v1.<最新更新日志 id>）。
+
+## Phase 12 · 每日赚钱榜（T130–T136 ✅）
+- `#war-rank`（js/rank.js），数据 data/rank.json + data/rank-history/ + js/rank-data.js（内嵌，file:// 可用）。
+- 存档追加 rankFav / rankPlan；「我的实操计划」显示在赚钱榜与站一实操助手页。
+- 发布：`node tools/publish-rank.js file.json --check-urls` → git push（见 README）。

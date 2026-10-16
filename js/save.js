@@ -33,6 +33,8 @@
       activity: {},
       doneDates: {},
       lastSeenChangelog: 0,
+      rankFav: [],
+      rankPlan: [],
       updatedAt: new Date().toISOString(),
     };
   }
@@ -67,6 +69,8 @@
         notes: parsed.notes || {},
         activity: parsed.activity && typeof parsed.activity === 'object' ? parsed.activity : {},
         doneDates: parsed.doneDates && typeof parsed.doneDates === 'object' ? parsed.doneDates : {},
+        rankFav: Array.isArray(parsed.rankFav) ? parsed.rankFav : [],
+        rankPlan: Array.isArray(parsed.rankPlan) ? parsed.rankPlan : [],
         lastSeenChangelog: typeof parsed.lastSeenChangelog === 'number' ? parsed.lastSeenChangelog : 0,
       };
       return global.QuestTools ? global.QuestTools.ensure(merged) : merged;

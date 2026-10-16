@@ -1784,3 +1784,49 @@ body.search-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .page-enter, .search-box, .sk { animation: none !important; } .to-top, .feat-card, .guide { transition: none !important; } }
 .reduce-motion .page-enter, .reduce-motion .search-box, .reduce-motion .sk { animation: none !important; }
 .reduce-motion .feat-card:hover, .reduce-motion .guide:hover, .reduce-motion .strip-item:hover, .reduce-motion .stat-link:hover { transform: none; }
+
+/* ================= Phase 12 · 每日赚钱榜 ================= */
+#home-tools .feat-grid { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1100px) { #home-tools .feat-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { #home-tools .feat-grid { grid-template-columns: 1fr; } }
+.rank-disclaimer { border: 2px solid #f59e0b; background: rgba(120,53,15,.45); color: #fef3c7; border-radius: 14px; padding: 14px 16px; margin: 0 0 var(--sp-5); line-height: 1.7; }
+.rank-disclaimer b { color: #fff; }
+.rank-bar { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: flex-end; margin-bottom: 8px; }
+.rank-bar .fld { min-width: 200px; }
+.rank-types { margin: 0; }
+.chip-fav .ico { color: var(--gold); }
+.rank-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 12px 0 var(--sp-6); }
+@media (max-width: 860px) { .rank-grid { grid-template-columns: 1fr; } }
+.rank-card { padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.rank-head { display: flex; gap: 12px; align-items: flex-start; }
+.rank-no { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; font-weight: 800; font-size: 1.25rem; color: #0b1220; background: #94a3b8; box-shadow: var(--sh-1); }
+.rank-no-1 { background: linear-gradient(145deg, #fde68a, #f59e0b); }
+.rank-no-2 { background: linear-gradient(145deg, #f1f5f9, #94a3b8); }
+.rank-no-3 { background: linear-gradient(145deg, #fdba74, #c2410c); color: #fff; }
+.rank-no-4 { background: #334155; color: #f1f5f9; }
+.rank-title { flex: 1; min-width: 0; }
+.rank-title h3 { margin: 0 0 6px; font-size: 1.08rem; color: #fff; }
+.rank-title p { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: #cbd5e1; font-size: var(--fs-sm); }
+.rank-cost { display: inline-flex; gap: 4px; align-items: center; }
+.rank-diff { display: inline-flex; gap: 3px; } .rank-diff i { width: 8px; height: 8px; border-radius: 50%; background: #334155; } .rank-diff i.on { background: var(--gold); }
+.rank-fav { flex: none; width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line); background: #0f172a; color: #94a3b8; cursor: pointer; display: grid; place-items: center; }
+.rank-fav.on { color: var(--gold); border-color: var(--gold); background: rgba(251,191,36,.14); }
+.rank-fav.on .ia { opacity: 1; }
+.rank-why { margin: 0; color: #e2e8f0; }
+.rank-meta { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: var(--fs-sm); }
+.rank-meta dt { color: var(--gold-text); font-weight: 700; } .rank-meta dd { margin: 0; color: #cbd5e1; }
+.rank-meta .rank-risk { color: #fecaca; }
+.rank-steps summary { cursor: pointer; color: var(--cyan); font-weight: 600; }
+.rank-steps ol { margin: 8px 0 0; padding-left: 20px; color: #e2e8f0; }
+.rank-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: center; margin-top: auto; }
+.rank-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.rank-tags .tag { font-size: var(--fs-xs); color: var(--tag-fg); background: var(--tag-bg); padding: 2px 8px; border-radius: 999px; }
+.plan-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.plan-item { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel2); }
+.plan-item small { grid-column: 1; color: #94a3b8; }
+.plan-item .plan-acts { grid-row: 1 / span 2; grid-column: 2; display: flex; gap: 6px; align-items: center; }
+.plan-item.done b { text-decoration: line-through; color: #94a3b8; }
+@media (max-width: 520px) { .plan-item { grid-template-columns: 1fr; } .plan-item .plan-acts { grid-row: auto; grid-column: 1; } }
+.rank-types { display: flex; flex-wrap: wrap; gap: 8px; }
+.rank-types .chip { white-space: nowrap; flex: none; writing-mode: horizontal-tb; }
+@media (max-width: 640px) { .rank-types { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; } .rank-bar .fld { min-width: 0; width: 100%; } }

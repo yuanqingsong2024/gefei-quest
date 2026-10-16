@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 12, date: '2026-10-16', title: '每日赚钱榜 · 2026-10-16', tag: '赚钱榜', href: '#war-rank', items: ["No.1 英文工具小站 + Google AdSense","No.2 亚马逊联盟（Amazon Associates）测评页","No.3 Gumroad 卖数字产品（模板/清单/小教程）"] },
     { id: 11, date: '2026-10-16', title: '网站质感升级：新图标、全站搜索、手机底部栏', tag: '改进', href: '#home',
       items: ['全新 Logo 与一整套渐变徽章图标', '全站搜索：按 / 或 Ctrl+K，可搜任务、资源、手册和文档', '手机端底部导航栏、回到顶部按钮', '顶栏滚动收缩、页面淡入、新页脚（站点地图 / 关于 / 版本号）'] },
     { id: 10, date: '2026-10-16', title: '学习统计 + 今日任务 + 更新日志', tag: '新功能', href: '#me-stats',

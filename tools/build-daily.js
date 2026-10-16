@@ -12,5 +12,7 @@ const out = {
   links: { stats: BASE + '#me-stats', changelog: BASE + '#changelog', today: BASE + '#home-today', quests: BASE + '#path-quests' },
   entries: log.slice(0, 10).map(e => ({ id: e.id, date: e.date, tag: e.tag, title: e.title, items: e.items, url: BASE + (e.href || '#changelog') })),
 };
+const rp = path.join(root, 'data/rank.json');
+if (fs.existsSync(rp)) { const r = JSON.parse(fs.readFileSync(rp, 'utf8')); out.rank = { date: r.date, url: BASE + '#war-rank', json: BASE + 'data/rank.json', top3: r.items.slice(0, 3).map(i => ({ rank: i.rank, name: i.name, type: i.type, source_url: i.source_url })) }; out.links.rank = BASE + '#war-rank'; }
 fs.writeFileSync(path.join(root, 'daily.json'), JSON.stringify(out, null, 2) + '\n');
 console.log('daily.json latestId=' + out.latestId + ' entries=' + out.entries.length);

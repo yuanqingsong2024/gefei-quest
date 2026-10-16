@@ -1,0 +1,93 @@
+/** Phase 12 · 每日赚钱榜 #war-rank
+ *  数据：js/rank-data.js（内嵌近 14 天，file:// 可用）→ 历史更早的日期再 fetch data/rank-history/<date>.json
+ *  存档追加：rankFav [name] · rankPlan [{name,type,date,steps,source_url,done}] */
+(function (global) {
+  var I = function (n) { return global.QuestIcons.svg(n); };
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  var view = { date: null, type: 'all', fav: false };
+  var cache = {};
+  function R() { return global.QUEST_RANK || { latest: null, dates: [], days: {} }; }
+  function ensure(state) {
+    if (!Array.isArray(state.rankFav)) state.rankFav = [];
+    if (!Array.isArray(state.rankPlan)) state.rankPlan = [];
+    return state;
+  }
+  function getDay(date, cb) {
+    var r = R();
+    if (r.days[date]) return cb(r.days[date]);
+    if (cache[date]) return cb(cache[date]);
+    if (!global.fetch) return cb(null);
+    fetch('data/rank-history/' + date + '.json').then(function (x) { return x.ok ? x.json() : null; }).then(function (d) { cache[date] = d; cb(d); }).catch(function () { cb(null); });
+  }
+  var DISCLAIMER = '<div class="rank-disclaimer" role="note">' + '<b>免责声明</b>：本榜单只是对公开、合法渠道的整理和排序，<b>不构成收益承诺，也不保证你能赚到钱</b>。可参与地区、审核标准、费率和规则随时会变，请以各平台官网为准；涉及个人信息与收款前，请先读官方条款。不收录盗版、账号买卖、游戏币点卡、代写、刷量等内容。</div>';
+  function stars(n) { var s = ''; for (var i = 1; i <= 5; i++) s += '<i class="' + (i <= n ? 'on' : '') + '"></i>'; return '<span class="rank-diff" aria-label="难度 ' + n + '/5">' + s + '</span>'; }
+
+  function planHtml(state) {
+    ensure(state);
+    var P = state.rankPlan;
+    return '<section class="block glass tool-card rank-plan" id="rank-plan"><h2 class="block-title">' + I('list') + '我的实操计划 <small>' + P.filter(function (p) { return p.done; }).length + '/' + P.length + ' 已完成</small></h2>' +
+      (P.length ? '<ul class="plan-list">' + P.map(function (p, i) {
+        return '<li class="plan-item' + (p.done ? ' done' : '') + '" data-plan="' + esc(p.name) + '"><label><input type="checkbox" data-plan-done="' + i + '"' + (p.done ? ' checked' : '') + ' /> <b>' + esc(p.name) + '</b></label>' +
+          '<small>' + esc(p.type) + ' · 加入于 ' + esc(p.date) + (p.steps && p.steps[0] ? ' · 第一步：' + esc(p.steps[0]) : '') + '</small>' +
+          '<span class="plan-acts">' + (p.source_url ? '<a class="btn btn-sm" href="' + esc(p.source_url) + '" target="_blank" rel="noopener noreferrer">官网 ↗</a>' : '') + '<button type="button" class="btn btn-sm btn-ghost" data-plan-del="' + i + '" aria-label="移出计划">移出</button></span></li>';
+      }).join('') + '</ul>' : '<p class="empty-hint">还没有计划。在「每日赚钱榜」里点「加入实操计划」，挑 1 个先试一周。</p>') +
+      '<p class="hint"><a href="#war-rank">' + I('trophy') + '去每日赚钱榜挑一个</a></p></section>';
+  }
+  function bindPlan(state, root, ctx) {
+    root.querySelectorAll('[data-plan-done]').forEach(function (c) { c.addEventListener('change', function () { state.rankPlan[+c.getAttribute('data-plan-done')].done = c.checked; ctx.save(); ctx.rerender(); }); });
+    root.querySelectorAll('[data-plan-del]').forEach(function (b) { b.addEventListener('click', function () { state.rankPlan.splice(+b.getAttribute('data-plan-del'), 1); ctx.save(); ctx.rerender(); }); });
+  }
+
+  function card(it, state) {
+    var fav = state.rankFav.indexOf(it.name) >= 0, planned = state.rankPlan.some(function (p) { return p.name === it.name; });
+    return '<article class="rank-card glass" data-rank="' + it.rank + '" data-type="' + esc(it.type) + '">' +
+      '<div class="rank-head"><span class="rank-no rank-no-' + Math.min(it.rank, 4) + '">' + it.rank + '</span><div class="rank-title"><h3>' + esc(it.name) + '</h3>' +
+      '<p><span class="pill">' + esc(it.type) + '</span> ' + stars(it.difficulty) + ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span></p></div>' +
+      '<button type="button" class="rank-fav' + (fav ? ' on' : '') + '" data-fav="' + esc(it.name) + '" aria-pressed="' + fav + '" aria-label="' + (fav ? '取消收藏' : '收藏') + '">' + I('star') + '</button></div>' +
+      '<p class="rank-why">' + esc(it.why) + '</p>' +
+      '<dl class="rank-meta"><dt>适合谁</dt><dd>' + esc(it.fit) + '</dd><dt>风险</dt><dd class="rank-risk">' + esc(it.risk) + '</dd></dl>' +
+      '<details class="rank-steps"><summary>怎么开始（' + it.steps.length + ' 步）</summary><ol>' + it.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol></details>' +
+      '<div class="rank-foot"><span class="rank-tags">' + (it.tags || []).map(function (t) { return '<span class="tag">#' + esc(t) + '</span>'; }).join('') + '</span>' +
+      '<span class="tool-actions"><a class="btn btn-sm" href="' + esc(it.source_url) + '" target="_blank" rel="noopener noreferrer">' + I('external') + '官方来源</a>' +
+      '<button type="button" class="btn btn-sm ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-plan-add="' + it.rank + '"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在计划中' : '加入实操计划') + '</button></span></div></article>';
+  }
+
+  function renderRank(state, root, ctx) {
+    ensure(state);
+    var r = R();
+    if (!r.latest) { root.innerHTML = DISCLAIMER + '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>榜单还没有发布</b><br>稍后再来看看。</p></div>'; return; }
+    var date = view.date && r.dates.indexOf(view.date) >= 0 ? view.date : r.latest;
+    root.innerHTML = '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
+    getDay(date, function (day) {
+      if (!day) { root.innerHTML = DISCLAIMER + '<div class="empty-illo">' + global.QuestIcons.illo('search') + '<p><b>这一天的榜单读取失败</b><br>换个日期试试。</p></div>'; return; }
+      var types = []; day.items.forEach(function (i) { if (types.indexOf(i.type) < 0) types.push(i.type); });
+      var list = day.items.filter(function (i) { return (view.type === 'all' || i.type === view.type) && (!view.fav || state.rankFav.indexOf(i.name) >= 0); });
+      root.innerHTML = DISCLAIMER +
+        '<section class="rank-bar"><div class="rank-date"><label class="fld"><span>' + I('calendar') + '榜单日期</span><select id="rank-date">' + r.dates.map(function (d) { return '<option value="' + d + '"' + (d === date ? ' selected' : '') + '>' + d + (d === r.latest ? '（最新）' : '') + '</option>'; }).join('') + '</select></label></div>' +
+        '<div class="chip-row rank-types" role="group" aria-label="按类型筛选"><button type="button" class="chip' + (view.type === 'all' ? ' active' : '') + '" data-rtype="all">全部 ' + day.items.length + '</button>' +
+        types.map(function (t) { var n = day.items.filter(function (i) { return i.type === t; }).length; return '<button type="button" class="chip' + (view.type === t ? ' active' : '') + '" data-rtype="' + esc(t) + '">' + esc(t) + ' ' + n + '</button>'; }).join('') +
+        '<button type="button" class="chip chip-fav' + (view.fav ? ' active' : '') + '" id="rank-only-fav" aria-pressed="' + view.fav + '">' + I('star') + '只看收藏 ' + state.rankFav.length + '</button></div></section>' +
+        '<p class="hint" id="rank-count">' + esc(day.date) + ' · 显示 ' + list.length + ' / ' + day.items.length + ' 条 · 每天更新一次</p>' +
+        (list.length ? '<div class="rank-grid">' + list.map(function (i) { return card(i, state); }).join('') + '</div>'
+          : '<div class="empty-illo">' + global.QuestIcons.illo('star') + '<p><b>' + (view.fav ? '还没有收藏' : '这个类型今天没有上榜') + '</b><br>' + (view.fav ? '点卡片右上角的星标收藏感兴趣的方案。' : '切回「全部」看看。') + '</p></div>') +
+        planHtml(state);
+      root.querySelector('#rank-date').addEventListener('change', function (e) { view.date = e.target.value; renderRank(state, root, ctx); });
+      root.querySelectorAll('[data-rtype]').forEach(function (b) { b.addEventListener('click', function () { view.type = b.getAttribute('data-rtype'); renderRank(state, root, ctx); }); });
+      root.querySelector('#rank-only-fav').addEventListener('click', function () { view.fav = !view.fav; renderRank(state, root, ctx); });
+      root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function () {
+        var n = b.getAttribute('data-fav'), k = state.rankFav.indexOf(n);
+        if (k >= 0) state.rankFav.splice(k, 1); else state.rankFav.push(n);
+        ctx.save(); renderRank(state, root, ctx);
+      }); });
+      root.querySelectorAll('[data-plan-add]').forEach(function (b) { b.addEventListener('click', function () {
+        var it = day.items.filter(function (i) { return i.rank === +b.getAttribute('data-plan-add'); })[0]; if (!it) return;
+        if (!state.rankPlan.some(function (p) { return p.name === it.name; })) state.rankPlan.push({ name: it.name, type: it.type, date: global.QuestStats ? global.QuestStats.ymd(new Date()) : day.date, steps: it.steps.slice(), source_url: it.source_url, done: false });
+        ctx.save(); if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name); renderRank(state, root, ctx);
+      }); });
+      bindPlan(state, root, { save: ctx.save, rerender: function () { renderRank(state, root, ctx); } });
+      if (global.QuestNav) global.QuestNav.fixLinks(root);
+    });
+  }
+  function latestItems() { var r = R(); return r.latest && r.days[r.latest] ? r.days[r.latest].items : []; }
+  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER };
+})(typeof window !== 'undefined' ? window : globalThis);
