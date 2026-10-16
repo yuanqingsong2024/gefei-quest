@@ -63,4 +63,4 @@
 - [x] 手册文件存在：`scale-playbook.md` / PHASE5-ROADMAP / PHASE5-DESIGN
 - [x] 资源库/设置含放大入口
 - [x] node --check data/war-room/app/settings/resources 无语法错
-- [ ] Pages 线上 built（T82）· push 后勾
+- [x] Pages 线上 built（T82）· status=built · commit d169dfc
