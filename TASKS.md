@@ -923,3 +923,24 @@
 | **合计** | **T84–T87** | **4** |
 
 - 2026-10-16：Phase 6 · 首页枢纽；默认 `#home`。
+
+---
+
+# Phase 7 · 整站美化 + 网站式首页
+
+方案：`docs/PHASE7-DESIGN.md`（默认已锁定）
+
+- [x] T88 方案定稿：PHASE7-DESIGN.md + 本任务表
+- [x] T89 图标/背景资源：assets/icon-*、favicon、hero-bg.jpg/webp、manifest
+- [x] T90 落地页首页：吸顶导航、Hero、五步、功能卡、进度快照、资源条、手册、FAQ、页脚
+- [x] T91 应用区切换：首页隐藏 HUD/Tab，其他路由显示；存档与 hash 不变
+- [x] T92 整站样式：字体比例、卡片玻璃、按钮、Tab 栏、区块标题、内页背景、reduced-motion
+- [x] T93 resources.html / starters 统一头尾与 favicon；og:image meta
+- [x] T94 本地截图测试 1280 / 390；TESTLOG
+- [x] T95 文档更新 + push + Pages 构建确认
+
+| 阶段 | 任务 | 条数 |
+|---|---|---|
+| Phase 7 | T88–T95 | 8 |
+
+- 2026-10-16：Phase 7 · 整站美化 + 落地页首页。
