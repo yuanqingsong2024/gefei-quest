@@ -125,6 +125,8 @@
       });
     } else if (currentTab === 'ach') {
       QuestAchievements.renderWall(state, $('#panel-ach'));
+    } else if (currentTab === 'resources') {
+      QuestResources.renderLibrary($('#panel-resources'), { embedded: true });
     } else if (currentTab === 'settings') {
       QuestSettings.renderSettings(state, $('#panel-settings'), {
         onToggle(key, value) {
@@ -137,6 +139,10 @@
           }
           persist();
           applyMotionClass();
+          renderAll();
+        },
+        onGotoResources() {
+          currentTab = 'resources';
           renderAll();
         },
         onReset() {

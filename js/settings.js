@@ -39,9 +39,19 @@
         </div>
       </div>
 
+
+      <div class="res-lib-banner">
+        <h3>📚 资源库</h3>
+        <p class="panel-sub">免费工具、托管、变现、可试路径、闲鱼·非实物、技巧、同路人与文档，分类筛选一站浏览。</p>
+        <p class="res-lib-actions">
+          <a href="./resources.html" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">打开独立资源库页</a>
+          <button type="button" class="btn btn-sm" id="set-goto-resources">在本页打开「资源库」页签</button>
+        </p>
+      </div>
+
       <div class="channels-box">
         <h3>可试渠道 / 羊毛与工具</h3>
-        <p class="panel-sub peers-intro">公开免费档、正规联盟、可试路径，以及单独一类「闲鱼·非实物」（数字品/技能服务）。额度与规则会变；收入≠保证。完整笔记见下方链接。</p>
+        <p class="panel-sub peers-intro">摘要面板（与「资源库」同源数据）。额度与规则会变；收入≠保证。完整分类筛选见上方资源库。</p>
         ${(global.QuestData.TRY_CHANNEL_CATEGORIES || [])
           .map((cat) => {
             const items = (global.QuestData.TRY_CHANNELS || []).filter((c) => c.cat === cat.id);

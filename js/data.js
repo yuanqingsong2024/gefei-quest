@@ -126,6 +126,19 @@
       boss: false,
       side: true,
     },
+    {
+      id: 'q-p-s2',
+      chapterId: 'ch-prologue',
+      title: '支线 · 逛一圈资源库',
+      action: '打开主导航「资源库」（或 resources.html），点一遍分类筛选：免费工具 / 托管 / 变现 / 路径 / 闲鱼·非实物 / 技巧。收藏 1 个本周准备试的入口。',
+      tools: '资源库页签 / resources.html',
+      doneCriteria: '已浏览 ≥3 个分类 + 记下 1 个本周入口',
+      pitfalls: '别一次开十个号；先主线定词上站。额度与规则以官网为准。',
+      xp: 5,
+      required: false,
+      boss: false,
+      side: true,
+    },
     // —— 站一 ——
     {
       id: 'q-s1-01',
@@ -571,7 +584,7 @@
       chapterId: 'ch-monetize',
       title: '支线 · 变现门槛地图',
       action: '对照公开门槛写一页：AdSense（无流量下限）→ Journey≈1k Tier1 → Raptive≈25k PV → Mediavine 年收入档。圈出你「下一跳」是哪一档。',
-      tools: '设置「可试渠道」/ docs/channels-and-tips.md',
+      tools: '资源库「变现渠道」/ 设置「可试渠道」/ docs/channels-and-tips.md',
       doneCriteria: '地图页写完 + 下一跳已圈',
       pitfalls: '门槛会变；以官网为准。别为冲门槛买假流量。',
       xp: 10,
@@ -598,7 +611,7 @@
       chapterId: 'ch-monetize',
       title: '支线 · 闲鱼非实物上架清单',
       action: '选 1 个你能交付的数字品或技能（原创模板 / PPT 美化 / 简历优化 / 翻译校对 / 出海答疑）。按清单写：标题、交付物、不接什么、报价分档、修改次数、交付时效、案例图计划。暂不发布也算完成草稿。',
-      tools: '设置「闲鱼·非实物」/ docs/channels-and-tips.md §F',
+      tools: '资源库「闲鱼·非实物」/ docs/channels-and-tips.md §F',
       doneCriteria: '清单 7 项写全（可未上架）',
       pitfalls: '禁：盗版课、破解软件、账号/游戏币、学术代写代考、保证过审。站内交易留凭证。',
       xp: 10,
@@ -894,7 +907,19 @@
       xp: 5,
       addedAt: '2026-10-16',
     },
-  ];
+  
+    {
+      id: 'w-2026-10-16-l',
+      week: '2026-W42',
+      title: '资源库上线：分类筛选一站浏览',
+      summary:
+        '主导航新增「资源库」页签，并有独立页 resources.html。可按：免费工具 / 托管与域名 / 变现 / 可试路径 / 闲鱼·非实物 / 技巧 / 同路人 / 文档 筛选。设置里仍保留摘要面板。',
+      url: './resources.html',
+      tags: ['资源库', '羊毛与渠道'],
+      xp: 5,
+      addedAt: '2026-10-16',
+    },
+];
 
   const PEER_METHODS = [
     {
@@ -1322,6 +1347,10 @@
   ];
 
   const RESOURCES = [
+    {
+      title: '资源库（分类筛选）',
+      url: './resources.html',
+    },
     {
       title: '哥飞公众号归档（免费文入口）',
       url: 'https://new.web.cafe/tutorial/ww4r3rsllv',

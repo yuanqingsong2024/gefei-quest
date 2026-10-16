@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>资源库 · 出海小站练站营</title>
+    <meta name="description" content="免费工具、托管、变现、可试路径、闲鱼非实物、同路人方法与文档笔记一站浏览。" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/ui.css" />
+  </head>
+  <body>
+    <div id="app" class="res-page">
+      <header class="game-header">
+        <h1>出海小站练站营 · 资源库</h1>
+        <p class="tagline">分类筛选 · 公开摘要 · 收入≠保证</p>
+      </header>
+      <main>
+        <section id="panel-resources" class="tab-panel res-standalone" role="region" aria-label="资源库"></section>
+      </main>
+      <p class="footer-note">
+        游戏不能替你建站。额度与规则以官网为准。进度仅存本机浏览器。
+      </p>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/resources.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        QuestResources.renderLibrary(document.getElementById('panel-resources'), {
+          embedded: false,
+        });
+      });
+    </script>
+  </body>
+</html>
