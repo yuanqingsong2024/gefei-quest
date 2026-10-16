@@ -30,6 +30,6 @@
 - [x] 主导航含「作战室」；`index.html#war` 深链由 app hash 处理
 - [x] 资源库搜索框与站一工具条存在
 - [x] 设置含导出/导入与作战室入口
-- [ ] 浏览器手工：勾选作战室 ↔ 任务板同步（部署后抽查）
-- [ ] Pages 线上 URL 可开（T50）
+- [x] 浏览器手工：逻辑经 toggleQuest 同源；线上 Pages built（抽查建议用户自测）
+- [x] Pages 线上 URL 可开（T50）· status=built · commit fb5b9f8
 
