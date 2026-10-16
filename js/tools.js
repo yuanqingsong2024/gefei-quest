@@ -194,7 +194,7 @@
       '<button type="button" class="btn btn-sm" id="kw-csv"' + (items.length ? '' : ' disabled') + '>' + I('download') + '导出 CSV</button></div></div>' +
       (K.s2Target ? '<p class="hint">站二目标词：<b>' + esc(K.s2Target) + '</b> · 站一主词：<b>' + esc(state.kit.keyword || '未设') + '</b></p>' : '') +
       (items.length ? (list.length ? '<ul class="kw-list">' + list.map(function (x) { return kwRow(x.k, x.s, state); }).join('') + '</ul>' : '<p class="empty-hint">当前筛选下没有词，换个筛选看看。</p>')
-        : '<div class="tool-empty">' + I('search') + '<p>还没有候选词。先从 Google Trends 或搜索联想找一个，比如 <b>pdf merge for mac</b>，看看搜索结果前 10 有几个大站，记下来。</p></div>') +
+        : '<div class="tool-empty">' + global.QuestIcons.illo('search') + '<p>还没有候选词。先从 Google Trends 或搜索联想找一个，比如 <b>pdf merge for mac</b>，看看搜索结果前 10 有几个大站，记下来。</p></div>') +
       '</section>' + PRIV + '</div>';
 
     var f = root.querySelector('#kw-form');
@@ -288,7 +288,7 @@
       '<div class="tool-actions fld-wide"><button type="submit" class="btn btn-primary btn-sm">' + (editing ? '保存修改' : '加入台账') + '</button>' + (editing ? '<button type="button" class="btn btn-sm" id="site-cancel">取消</button>' : '') +
       '<button type="button" class="btn btn-sm" id="site-csv"' + (items.length ? '' : ' disabled') + '>' + I('download') + '导出 CSV</button></div></form></section>' +
       (items.length ? items.map(function (s) { return siteCard(s, opts.log === s.id); }).join('') :
-        '<div class="tool-empty glass">' + I('globe') + '<p>还没有站点。站一上线后来登记：名称、域名、主词，然后每月记一次 GSC 的曝光和点击，例如「2026-11 · 曝光 120 · 点击 3」。</p></div>') +
+        '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>还没有站点。站一上线后来登记：名称、域名、主词，然后每月记一次 GSC 的曝光和点击，例如「2026-11 · 曝光 120 · 点击 3」。</p></div>') +
       '<p class="hint">数据靠你每月从 Search Console / 统计后台手动抄，本站不连接任何 API。</p>' + PRIV + '</div>';
 
     root.querySelector('#site-form').addEventListener('submit', function (ev) {

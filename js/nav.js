@@ -73,6 +73,7 @@
   ];
   var DEV_DOCS = [
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
+    { id: 'PHASE11-POLISH', title: 'Phase 11 · 网站质感打磨' },
     { id: 'PHASE10-STATS', title: 'Phase 10 · 学习统计与更新日志' },
     { id: 'PHASE9-TOOLS', title: 'Phase 9 · 实操工具' },
     { id: 'PHASE8-IA', title: 'Phase 8 · 信息架构' },
@@ -161,7 +162,8 @@
       '<nav class="site-links" aria-label="主导航">' + SITE_NAV.map(function (n) {
         var on = n.id === active;
         return '<a href="' + n.hash + '" data-nav="' + n.id + '"' + (on ? ' class="active" aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + n.label + '</span>' + (n.id === 'me' && unseenCount() ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') + '</a>';
-      }).join('') + '</nav></div>';
+      }).join('') + '</nav>' +
+      '<button type="button" class="nav-search" data-open-search aria-label="全站搜索（快捷键 / 或 Ctrl+K）" title="搜索（/ 或 Ctrl+K）">' + I('search') + '<span>搜索</span><kbd>/</kbd></button></div>';
   }
 
   /** 区块头带：图标 + 标题 + 一句说明 + 面包屑 */
@@ -178,17 +180,25 @@
       '<p class="sh-desc">' + n.desc + '</p></div></div></div>';
   }
 
+  function version() {
+    var log = global.QUEST_CHANGELOG || [], top = log[0];
+    return top ? { v: 'v1.' + top.id, date: top.date } : { v: 'v1', date: '' };
+  }
   function renderFooter() {
     var el = document.getElementById('site-footer');
     if (!el) return;
+    var V = version(), log = (global.QUEST_CHANGELOG || []).slice(0, 3);
     el.innerHTML = '<div class="foot-inner">' +
-      '<div class="foot-brand"><img src="assets/icon-192.png" alt="" width="40" height="40" /><div><b>' + SITE_NAME + '</b><span>公开方法学习 · 非官方 · 收入≠保证 · 进度仅存本机浏览器</span></div></div>' +
+      '<div class="foot-about"><div class="foot-brand"><img src="assets/icon-192.png" alt="" width="44" height="44" /><div><b>' + SITE_NAME + '</b><span>出海建站 · SEO · 练习营</span></div></div>' +
+      '<p class="foot-desc"><b>关于本站</b>：基于哥飞等公开分享整理的出海小站练习路线，按「挖词 → 上站 → SEO → 变现 → 放大」闯关。非官方，不含付费社群内容；收入数字不构成保证。进度只保存在你的浏览器里。</p>' +
+      '<p class="foot-ver"><span class="pill">' + V.v + '</span> 更新于 ' + esc(V.date) + ' · <a href="#changelog">更新日志</a> · <a href="daily.json" target="_blank" rel="noopener">daily.json</a></p></div>' +
       '<div class="foot-cols">' +
-      '<div><h4>栏目</h4>' + SITE_NAV.map(function (n) { return '<a href="' + n.hash + '">' + n.label + '</a>'; }).join('') + '</div>' +
+      '<div><h4>站点地图</h4>' + SITE_NAV.map(function (n) { return '<a href="' + n.hash + '">' + n.label + '</a>'; }).join('') + '</div>' +
+      '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a></div>' +
       '<div><h4>资源库</h4>' + LIB_CATS.map(function (c) { return '<a href="#lib-' + c.id + '">' + c.label + '</a>'; }).join('') + '</div>' +
-      '<div><h4>手册与模板</h4>' + GUIDES.slice(0, 7).map(function (g) { return '<a href="' + (g.href || '#guide-' + g.id) + '"' + (g.href ? ' target="_blank" rel="noopener"' : '') + '>' + g.title + '</a>'; }).join('') + '</div>' +
-      '<div><h4>项目</h4><a href="#dev">' + DEV_SECTION.label + '</a><a href="https://github.com/yuanqingsong2024/gefei-quest" target="_blank" rel="noopener">GitHub 仓库</a></div>' +
-      '</div><p class="foot-note">© 2026 ' + SITE_NAME + ' · 额度与规则以各平台官网为准</p></div>';
+      '<div><h4>我的</h4>' + ME_TABS.map(function (t) { return '<a href="' + t.hash + '">' + t.label + '</a>'; }).join('') + '<a href="#guides">手册与模板</a><a href="#dev">' + DEV_SECTION.label + '</a><a href="https://github.com/yuanqingsong2024/gefei-quest" target="_blank" rel="noopener">GitHub 仓库</a></div>' +
+      '<div class="foot-news"><h4>最近更新</h4>' + log.map(function (e) { return '<a href="#changelog"><small>' + esc(e.date) + '</small>' + esc(e.title) + '</a>'; }).join('') + '</div>' +
+      '</div><p class="foot-note">© 2026 ' + SITE_NAME + ' · 额度与规则以各平台官网为准 · 按 <kbd>/</kbd> 搜索全站</p></div>';
   }
 
   function titleFor(route, extra) {
@@ -201,6 +211,6 @@
     LIB_CATS: LIB_CATS, GUIDES: GUIDES, GUIDE_GROUPS: GUIDE_GROUPS, DEV_DOCS: DEV_DOCS, ALIASES: ALIASES,
     parse: parse, canonical: canonical, fixHref: fixHref, fixLinks: fixLinks, navById: navById, guideById: guideById,
     isDevId: isDevId, renderTopNav: renderTopNav, renderSectionHead: renderSectionHead, renderFooter: renderFooter,
-    titleFor: titleFor, icon: I, esc: esc,
+    titleFor: titleFor, icon: I, esc: esc, version: version,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

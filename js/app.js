@@ -82,6 +82,11 @@
       const el = document.getElementById('panel-' + id);
       if (el) el.hidden = id !== panel;
     });
+    if (window.QuestShell) {
+      QuestShell.renderBottomBar(route.section === 'dev' ? '' : route.section);
+      if (renderShell._last !== route.hash) QuestShell.fade('panel-' + panel);
+      renderShell._last = route.hash;
+    }
   }
 
   function renderAll() {
@@ -148,7 +153,9 @@
       const root = $('#panel-guides');
       if (route.view === 'doc') {
         crumb = QuestGuides.docTitle(route.param, sec === 'dev');
-        QuestGuides.renderDoc(root, route.param, sec === 'dev');
+        const want = route.hash, isDev = sec === 'dev', param = route.param;
+        root.innerHTML = '<div class="skeleton-doc" aria-busy="true" aria-label="加载中">' + '<i class="sk sk-title"></i>' + '<i class="sk"></i><i class="sk"></i><i class="sk sk-short"></i>'.repeat(3) + '</div>';
+        setTimeout(() => { if (route.hash !== want) return; QuestGuides.renderDoc(root, param, isDev); N.fixLinks(root); }, 16);
       } else if (sec === 'dev') {
         QuestGuides.renderDev(root);
       } else {

@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-16T15:10:27.353Z",
-  "latestId": 10,
+  "generatedAt": "2026-10-16T15:34:10.806Z",
+  "latestId": 11,
   "latestDate": "2026-10-16",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -12,6 +12,19 @@
     "quests": "https://yuanqingsong2024.github.io/gefei-quest/#path-quests"
   },
   "entries": [
+    {
+      "id": 11,
+      "date": "2026-10-16",
+      "tag": "改进",
+      "title": "网站质感升级：新图标、全站搜索、手机底部栏",
+      "items": [
+        "全新 Logo 与一整套渐变徽章图标",
+        "全站搜索：按 / 或 Ctrl+K，可搜任务、资源、手册和文档",
+        "手机端底部导航栏、回到顶部按钮",
+        "顶栏滚动收缩、页面淡入、新页脚（站点地图 / 关于 / 版本号）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 10,
       "date": "2026-10-16",

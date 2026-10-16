@@ -135,6 +135,10 @@
         currentFilter === 'all'
           ? '全部'
           : (filterChips.find((f) => f.id === currentFilter) || {}).label || currentFilter;
+      let emptyEl = root.querySelector('#lib-empty');
+      if (!emptyEl) { emptyEl = document.createElement('div'); emptyEl.id = 'lib-empty'; emptyEl.className = 'empty-illo'; countEl.parentNode.insertBefore(emptyEl, countEl.nextSibling); }
+      emptyEl.hidden = visible > 0;
+      emptyEl.innerHTML = visible > 0 ? '' : global.QuestIcons.illo('search') + '<p><b>没有匹配的资源</b><br>换个关键词，或切回「全部」分类；也可以按 <kbd>/</kbd> 搜索全站。</p>';
       countEl.textContent = q
         ? `当前：${label} · 搜索「${currentQ.trim()}」· ${visible} 条`
         : `当前：${label} · ${visible} 条`;

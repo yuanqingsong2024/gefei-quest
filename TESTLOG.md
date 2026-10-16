@@ -99,3 +99,8 @@
 - `tools/site-check.js`：25 路由（新增 #me-stats / #changelog）+ 9 手册 + 15 开发文档，routeFails 0 · broken 0 · rawMd 0 · consoleErrors 0 ✅
 - P10 功能用例 13/13：今日任务卡、红点出现/已读消失、旧存档兼容、勾任务记 activity/doneDates、连击 3/最长 4、热力图、周柱状图、章节进度、daily.json ✅
 - 390px：home / me-stats / changelog scrollWidth 390 ✅；file:// 打开三页无报错 ✅
+
+## Phase 11 · 网站质感打磨（2026-10-16）
+- site-check：25 路由 + 9 手册 + 16 开发文档，routeFails 0 · broken 0 · rawMd 0 · consoleErrors 0；P9/P10/P11 功能用例全部通过 ✅
+- P11：/ 与 Ctrl+K 打开搜索、分组结果、Enter 跳转、无结果插画、顶栏收缩、回到顶部、页脚版本、底部栏（390px 显示/桌面隐藏/跳转/搜索）、5 页 390px 无横向滚动 ✅
+- file:// 打开首页/作战室/搜索/文档页无报错 ✅

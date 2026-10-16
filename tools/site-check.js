@@ -148,6 +148,38 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     for (const h of ['home', 'me-stats', 'changelog']) { await m10.goto(BASE + 'index.html#' + h); await m10.waitForTimeout(300); const w = await m10.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile ' + h + ' scrollWidth ' + w); if (w > 390) fail++; }
     await s10('me-stats', 'mobile-stats', m10); await s10('home', 'mobile-home', m10, false);
   }
+
+  // ---------- Phase 11 ----------
+  let f11 = 0; const T11 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P11 ' + m); if (!c) f11++; };
+  await visit('war-keywords'); await p.keyboard.press('/'); await p.waitForTimeout(100);
+  T11(await p.evaluate(() => !document.getElementById('search-modal').hidden && document.activeElement.id === 'search-input'), '/ opens search + focuses input');
+  await p.keyboard.type('闲鱼'); await p.waitForTimeout(150);
+  const groups = await p.$$eval('.sr-group h4', hs => hs.map(h => h.textContent));
+  T11(groups.length >= 2 && (await p.$$('.sr-item')).length >= 3, 'search groups results: ' + groups.join(' | '));
+  await p.keyboard.press('Escape'); T11(await p.evaluate(() => document.getElementById('search-modal').hidden), 'Esc closes search');
+  await p.keyboard.press('Control+k'); await p.waitForTimeout(100); await p.keyboard.type('sitemap'); await p.waitForTimeout(150);
+  T11(await p.evaluate(() => [...document.querySelectorAll('.sr-group h4')].some(h => /手册|开发文档/.test(h.textContent))), 'Ctrl+K opens; guides/dev docs indexed');
+  await p.keyboard.press('Escape'); await p.keyboard.press('Control+k'); await p.keyboard.type('选词练习板'); await p.waitForTimeout(150); await p.keyboard.press('Enter'); await p.waitForTimeout(250);
+  T11(await p.evaluate(() => location.hash === '#war-keywords' && document.getElementById('search-modal').hidden), 'Enter navigates to top result');
+  await p.keyboard.press('Control+k'); await p.keyboard.type('zzqqxx'); await p.waitForTimeout(120);
+  T11(await p.evaluate(() => !!document.querySelector('#search-results .illo')), 'no-result empty illustration'); await p.keyboard.press('Escape');
+  await visit('home'); await p.evaluate(() => scrollTo(0, 1500)); await p.waitForTimeout(300);
+  T11(await p.evaluate(() => document.body.classList.contains('nav-condensed') && document.getElementById('to-top').classList.contains('show')), 'nav condenses + back-to-top shows on scroll');
+  await p.click('#to-top'); await p.waitForTimeout(900);
+  T11(await p.evaluate(() => scrollY < 50), 'back-to-top scrolls up');
+  T11(await p.evaluate(() => /v1\.\d+/.test(document.querySelector('.foot-ver').textContent) && !!document.querySelector('.site-footer a[href="#changelog"]') && /关于本站/.test(document.querySelector('.site-footer').textContent)), 'footer: version + changelog + about + sitemap');
+  T11(await p.evaluate(() => getComputedStyle(document.getElementById('bottom-bar')).display === 'none'), 'bottom bar hidden on desktop');
+  T11(await p.evaluate(() => document.querySelectorAll('.card-ico svg.ico[class*="tone-"]').length > 10), 'badges use tone family');
+  const mm = await b.newPage({ viewport: { width: 390, height: 844 } });
+  await mm.goto(BASE + 'index.html#war-kit'); await mm.waitForTimeout(300);
+  T11(await mm.evaluate(() => getComputedStyle(document.getElementById('bottom-bar')).display === 'grid' && document.querySelector('#bottom-bar a.active').dataset.bb === 'war'), 'mobile bottom bar visible, 作战室 active');
+  await mm.click('#bottom-bar a[data-bb="lib"]'); await mm.waitForTimeout(250);
+  T11(await mm.evaluate(() => location.hash === '#lib' && document.querySelector('#bottom-bar a.active').dataset.bb === 'lib'), 'bottom bar navigates');
+  await mm.click('#bottom-bar .bb-search'); await mm.waitForTimeout(100);
+  T11(await mm.evaluate(() => !document.getElementById('search-modal').hidden), 'mobile search button opens search');
+  for (const h of ['home', 'war', 'lib', 'me-stats', 'guide-station-one-playbook']) { await mm.goto(BASE + 'index.html#' + h); await mm.waitForTimeout(250); const w = await mm.evaluate(() => document.documentElement.scrollWidth); T11(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
+  const r11 = await p.request.get(BASE + 'icons.html'); T11(r11.status() === 200, 'icons.html overview served');
+  console.log('P11 functional fails=' + f11); fail += f11;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

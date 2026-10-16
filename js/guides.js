@@ -98,7 +98,7 @@
     var md = (global.QUEST_GUIDES_MD || {})[id];
     var back = isDev ? '#dev' : '#guides', backLabel = isDev ? Nv.DEV_SECTION.label : Nv.navById('guides').label;
     if (md == null) {
-      root.innerHTML = '<div class="empty-state">' + Nv.icon('file', 'ico-lg') + '<h3>没有找到这份文档</h3><p>链接可能已更新。</p><a class="btn btn-primary" href="' + back + '">返回' + backLabel + '</a></div>';
+      root.innerHTML = '<div class="empty-state">' + global.QuestIcons.illo('list') + '<h3>没有找到这份文档</h3><p>链接可能已更新。</p><a class="btn btn-primary" href="' + back + '">返回' + backLabel + '</a></div>';
       return;
     }
     var r = render(md);

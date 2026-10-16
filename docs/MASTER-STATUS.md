@@ -94,3 +94,9 @@
 - 学习统计 `#me-stats`、今日任务（首页）、更新日志 `#changelog`（数据 js/changelog.js，红点按 save.lastSeenChangelog）。
 - 存档追加 activity / doneDates / lastSeenChangelog，记录集中在 QuestSave.saveSave。
 - `daily.json`：`node tools/build-daily.js` 由 changelog 生成，供每日提醒读取。新增更新日志条目后需重新生成。
+
+## Phase 11 · 网站质感打磨（T123–T129 ✅）
+- js/icons.js 图标家族重画（线稿 + 强调面 + 6 色调渐变徽章，`badge()` / `illo()`），总览页 icons.html。
+- 新 Logo assets/logo.svg → icon-512/192、apple-touch-icon、favicon-32/48、favicon.ico、maskable；manifest 更新。
+- js/shell.js：顶栏收缩、回到顶部、≤640px 底部栏、全站搜索（/ · Ctrl/⌘+K）、页面淡入；文档页骨架占位；空状态插画。
+- 页脚：站点地图 / 关于本站 / 最近更新 / 版本号（v1.<最新更新日志 id>）。

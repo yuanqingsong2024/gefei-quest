@@ -40,7 +40,7 @@
               </article>`;
                 })
                 .join('')
-            : '<p class="empty">暂无补给，周一再来看看。</p>'
+            : '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>暂无补给</b><br>周一再来看看。</p></div>'
         }
       </div>`;
 
