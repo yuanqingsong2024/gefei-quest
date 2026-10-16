@@ -457,11 +457,19 @@
 
 本轮已从 **T01** 做到 **T45**（P0–P10）。
 
-**Phase 2：** T46–T60 已完成。
+**Phase 2：** T46–T60 已完成（T58 取消：file:// 无法可靠 fetch）。
 
-**Phase 3：** T61–T68 执行中（站二作战室）。
+**Phase 3：** T61–T68 已完成。
+
+**Phase 4：** T69–T76 已完成。
+
+**Phase 5：** T77–T83 已完成。
+
+**总状态：** T01–T83 全部关闭（含 1 项取消）；开放 `- [ ]` = **0**。详见 `docs/MASTER-STATUS.md`。
 
 ## 变更记录
+
+- 2026-10-16：MASTER 收尾 — 修正「Phase 3 执行中」过期状态；确认 T01–T83 全关；见 `docs/MASTER-STATUS.md`。
 
 - 2026-10-16：整合同路人公开方法 → `docs/peer-methods.md`；`WEEKLY_UPDATES` 追加「同类方案」；可选支线 + 设置页同路人卡片。存档 schema 未改。
 
