@@ -43,4 +43,4 @@
 - [x] `#war-s2` 深链切到站二
 - [x] 资源库/设置含站二入口
 - [x] node 加载 data/war-room/app 无语法错
-- [ ] Pages 线上 built（T67 push 后确认）
+- [x] Pages 线上 built（T67）· status=built · commit 623de3a
