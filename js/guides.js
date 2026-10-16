@@ -55,6 +55,7 @@
       }
       if (!l.trim()) { i++; continue; }
       var p = [];
+      if (!/^(#{1,4}\s|```|>)/.test(l)) { p.push(l.replace(/\s{2,}$/, '<br>')); i++; }
       while (i < L.length && L[i].trim() && !/^(#{1,4}\s|```|>|\s*([-*+]|\d+\.)\s+|\s*\|)/.test(L[i]) && !/^\s*-{3,}\s*$/.test(L[i])) p.push(L[i++].replace(/\s{2,}$/, '<br>'));
       out.push('<p>' + p.map(function (x) { return x.slice(-4) === '<br>' ? inline(x.slice(0, -4)) + '<br />' : inline(x); }).join(' ') + '</p>');
     }
