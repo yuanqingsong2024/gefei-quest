@@ -41,7 +41,7 @@
 
       <div class="channels-box">
         <h3>可试渠道 / 羊毛与工具</h3>
-        <p class="panel-sub peers-intro">公开免费档、正规联盟与可试路径（合法羊毛）。额度会变；收入≠保证。完整笔记见下方链接。</p>
+        <p class="panel-sub peers-intro">公开免费档、正规联盟、可试路径，以及单独一类「闲鱼·非实物」（数字品/技能服务）。额度与规则会变；收入≠保证。完整笔记见下方链接。</p>
         ${(global.QuestData.TRY_CHANNEL_CATEGORIES || [])
           .map((cat) => {
             const items = (global.QuestData.TRY_CHANNELS || []).filter((c) => c.cat === cat.id);
