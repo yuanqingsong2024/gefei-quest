@@ -112,3 +112,6 @@
 ## Phase 13 · AI 设置（2026-10-17）
 - site-check：27 路由（+#me-ai）+ 9 手册 + 18 开发文档，0 失败 · consoleErrors 0；P13 用例 19/19：Grok 默认说明两 agent、Grok 模式按钮提示、password + 警告、预设填充、测试连接 401/404/网络 CORS/成功、Key 只在 gefei-quest-ai-v1、三个按钮流式 markdown（script/javascript: 链接被净化）、system prompt 合规与不承诺收益、忘记 Key、搜索、页脚、390px ✅
 - 假服务：tools/fake-openai.js（端口 8766）。
+
+## Phase 14 · AI 服务商列表（2026-10-17）
+- site-check 0 失败 · consoleErrors 0；AI 用例 34/34：旧配置迁移、模板新建、401/404/CORS/成功、/models 获取、自定义头断言、Anthropic（x-api-key、/v1/messages、SSE）、Ollama（/api/tags、/api/chat NDJSON、无 Key）、复制/编辑/删除/单独测试、导出无 Key、导入 Key 为空、工具页切换器、三个按钮流式、忘记全部 Key、390px（列表+编辑器、选词、赚钱榜）✅

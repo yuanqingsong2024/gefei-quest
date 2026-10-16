@@ -215,53 +215,104 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await m12.screenshot({ path: `${SHOTS}/p12-mobile-rank.png`, fullPage: false });
   }
 
-  // ---------- Phase 13 ----------
+  // ---------- Phase 13–14 · AI ----------
   let f13 = 0; const T13 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P13 ' + m); if (!c) f13++; };
-  const fake = require('./fake-openai.js').start(8766); const FAKE = 'http://127.0.0.1:8766/v1';
-  await p.goto(BASE + 'index.html#me-ai'); await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(200);
+  const fake = require('./fake-openai.js').start(8766); const FAKE = 'http://127.0.0.1:8766/v1', FAKE_ROOT = 'http://127.0.0.1:8766';
+  const aiCfg = () => p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-ai-v1') || 'null'));
+  const waitOut = (sel) => p.waitForFunction(s => { const e = document.querySelector(s); return e && e.textContent.trim() && !/正在/.test(e.textContent); }, sel, { timeout: 15000 });
+  const waitDone = (sel) => p.waitForFunction(s => /完成|出错/.test((document.querySelector(s) || {}).textContent || ''), sel, { timeout: 15000 });
+  // migration from Phase 13 single config
+  await p.goto(BASE + 'index.html#me-ai'); await p.evaluate(() => { localStorage.clear(); localStorage.setItem('gefei-quest-ai-v1', JSON.stringify({ mode: 'custom', provider: 'deepseek', baseUrl: 'http://127.0.0.1:8766/v1', apiKey: 'good', model: 'fake-model', temperature: 0.5 })); }); await p.reload(); await p.waitForTimeout(200);
+  let cfg = await aiCfg();
+  T13(cfg.version === 2 && cfg.providers.length === 1 && cfg.providers[0].apiKey === 'good' && cfg.activeId === cfg.providers[0].id && cfg.baseUrl === FAKE && /迁移/.test(cfg.providers[0].name), 'P14 migrate single config -> providers[] (legacy fields kept)');
+  await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(200);
   T13(await p.evaluate(() => !!document.querySelector('#ai-grok') && /赚钱榜雷达/.test(document.body.textContent) && /赚钱项目实施官/.test(document.body.textContent)), 'default Grok Bot mode explains both agents');
-  // grok mode hint on keyword board
   await visit('war-keywords'); await p.fill('#kw-kw', 'pdf merge for mac'); await p.click('#kw-save'); await p.waitForTimeout(150);
   await p.click('.kw-item [data-ai-kw]'); await p.waitForTimeout(100);
   T13(await p.evaluate(() => !!document.querySelector('.kw-item .ai-hint a[href="#me-ai"]')), 'Grok mode: AI button shows hint linking to settings');
   await visit('me-ai'); await p.check('[name=ai-mode][value=custom]'); await p.waitForTimeout(100);
-  T13(await p.evaluate(() => document.querySelector('#ai-key').type === 'password' && /不会写入进度存档/.test(document.querySelector('.ai-warn').textContent)), 'custom form: password field + warning');
-  await p.selectOption('#ai-provider', 'dashscope');
-  T13(await p.inputValue('#ai-base') === 'https://dashscope.aliyuncs.com/compatible-mode/v1' && await p.inputValue('#ai-model') === 'qwen-plus', 'provider preset fills base URL + model');
-  await p.selectOption('#ai-provider', 'custom'); await p.fill('#ai-base', FAKE); await p.fill('#ai-model', 'fake-model');
-  await p.fill('#ai-key', 'bad'); await p.click('#ai-test'); await p.waitForSelector('#ai-test-out .ai-error, #ai-test-out .ai-ok');
+  T13(await p.evaluate(() => /不会写入进度存档/.test(document.querySelector('.ai-warn').textContent) && !!document.querySelector('#ai-custom .empty-illo')), 'custom mode: warning + empty provider list');
+  // template clone
+  await p.selectOption('#ai-template', 'dashscope'); await p.click('#ai-new'); await p.waitForTimeout(100);
+  T13(await p.inputValue('#ai-base') === 'https://dashscope.aliyuncs.com/compatible-mode/v1' && await p.inputValue('#ai-model') === 'qwen-plus' && await p.evaluate(() => document.querySelector('#ai-key').type === 'password'), 'template clone fills base/model, key is password');
+  await p.click('#ai-cancel'); await p.waitForTimeout(80);
+  // provider A: OpenAI-compatible with custom header
+  await p.selectOption('#ai-template', 'custom'); await p.click('#ai-new'); await p.waitForTimeout(100);
+  await p.fill('#ai-name', '本地假 OpenAI'); await p.fill('#ai-base', FAKE); await p.fill('#ai-model', 'fake-model');
+  await p.fill('#ai-key', 'bad'); await p.click('#ai-test'); await waitOut('#ai-test-out');
   T13(/401/.test(await p.textContent('#ai-test-out')) && /Key/.test(await p.textContent('#ai-test-out')), 'test: 401 explained');
-  await p.fill('#ai-key', 'good'); await p.fill('#ai-model', 'missing'); await p.click('#ai-test'); await p.waitForFunction(() => !/正在测试/.test(document.querySelector('#ai-test-out').textContent));
+  await p.fill('#ai-key', 'good'); await p.fill('#ai-model', 'missing'); await p.click('#ai-test'); await waitOut('#ai-test-out');
   T13(/404/.test(await p.textContent('#ai-test-out')) && /模型/.test(await p.textContent('#ai-test-out')), 'test: 404 explained');
-  await p.fill('#ai-base', 'http://127.0.0.1:9/v1'); await p.fill('#ai-model', 'fake-model'); await p.click('#ai-test'); await p.waitForFunction(() => !/正在测试/.test(document.querySelector('#ai-test-out').textContent), null, { timeout: 15000 });
+  await p.fill('#ai-base', 'http://127.0.0.1:9/v1'); await p.fill('#ai-model', 'fake-model'); await p.click('#ai-test'); await waitOut('#ai-test-out');
   T13(/CORS/.test(await p.textContent('#ai-test-out')), 'test: network/CORS explained');
-  await p.fill('#ai-base', FAKE); await p.click('#ai-test'); await p.waitForFunction(() => !/正在测试/.test(document.querySelector('#ai-test-out').textContent));
-  T13(/连接成功/.test(await p.textContent('#ai-test-out')), 'test: success');
-  await p.click('#ai-save'); await p.waitForTimeout(80);
-  const store = await p.evaluate(() => ({ ai: JSON.parse(localStorage.getItem('gefei-quest-ai-v1')), save: localStorage.getItem('gefei-quest-save-v1') || '' }));
-  T13(store.ai.apiKey === 'good' && store.ai.mode === 'custom' && !/"apiKey"|gefei-quest-ai|Bearer/.test(store.save) && !store.save.includes('"good"'), 'key stored only in gefei-quest-ai-v1, not in save');
-  if (SHOTS) { await p.reload(); await p.waitForTimeout(300); await p.screenshot({ path: `${SHOTS}/p13-ai-settings.png`, fullPage: true }); }
-  // keyword AI streaming
-  await visit('war-keywords'); await p.click('.kw-item [data-ai-kw]');
-  await p.waitForFunction(() => /完成/.test((document.querySelector('.kw-item .ai-status') || {}).textContent || ''), null, { timeout: 10000 });
+  await p.fill('#ai-base', FAKE); await p.fill('#ai-model', ''); await p.click('#ai-fetch'); await waitOut('#ai-test-out');
+  T13(/3 个模型/.test(await p.textContent('#ai-test-out')) && (await p.inputValue('#ai-models')).split('\n').length === 3 && await p.inputValue('#ai-model') === 'fake-model', 'P14 fetch models via /models');
+  await p.click('#ai-hdr-add'); await p.fill('.hdr-row .hdr-k', 'X-Quest-Test'); await p.fill('.hdr-row .hdr-v', 'hello-14');
+  await p.click('#ai-test'); await waitOut('#ai-test-out');
+  T13(/连接成功/.test(await p.textContent('#ai-test-out')) && fake.last.headers['x-quest-test'] === 'hello-14' && fake.last.headers.authorization === 'Bearer good', 'test success + custom header sent');
+  await p.click('#ai-save'); await p.waitForTimeout(100);
+  // provider B: Anthropic
+  await p.selectOption('#ai-template', 'anthropic'); await p.click('#ai-new'); await p.waitForTimeout(100);
+  await p.fill('#ai-name', '假 Anthropic'); await p.fill('#ai-base', FAKE_ROOT); await p.fill('#ai-key', 'good'); await p.fill('#ai-model', 'fake-claude');
+  await p.click('#ai-test'); await waitOut('#ai-test-out');
+  T13(/连接成功/.test(await p.textContent('#ai-test-out')) && fake.last.url === '/v1/messages' && fake.last.headers['x-api-key'] === 'good' && fake.last.headers['anthropic-version'] && !fake.last.headers.authorization, 'P14 anthropic format test (x-api-key, /v1/messages)');
+  await p.click('#ai-save'); await p.waitForTimeout(100);
+  // provider C: Ollama, no key
+  await p.selectOption('#ai-template', 'ollama'); await p.click('#ai-new'); await p.waitForTimeout(100);
+  await p.fill('#ai-name', '假 Ollama'); await p.fill('#ai-base', FAKE_ROOT); await p.fill('#ai-model', ''); await p.click('#ai-fetch'); await waitOut('#ai-test-out');
+  T13(fake.last.url === '/api/tags' && await p.inputValue('#ai-model') === 'qwen2.5:7b', 'P14 ollama fetch models via /api/tags');
+  await p.click('#ai-test'); await waitOut('#ai-test-out');
+  T13(/连接成功/.test(await p.textContent('#ai-test-out')) && fake.last.url === '/api/chat', 'P14 ollama test without key');
+  await p.click('#ai-save'); await p.waitForTimeout(100);
+  cfg = await aiCfg();
+  T13(cfg.providers.length === 3 && cfg.providers[0].name === '本地假 OpenAI' && cfg.activeId === cfg.providers[0].id && cfg.providers[0].headers[0].k === 'X-Quest-Test', 'P14 three providers saved, first active');
+  const saveStr = await p.evaluate(() => localStorage.getItem('gefei-quest-save-v1') || '');
+  T13(!/"apiKey"|X-Quest-Test|"good"/.test(saveStr), 'keys/providers never in gefei-quest-save-v1');
+  // duplicate / edit / delete
+  await p.click('.prov[data-prov="' + cfg.providers[1].id + '"] [data-pact="dup"]'); await p.waitForTimeout(80);
+  cfg = await aiCfg(); T13(cfg.providers.length === 4 && cfg.providers[2].name === '假 Anthropic 副本' && cfg.providers[2].id !== cfg.providers[1].id, 'P14 duplicate provider');
+  await p.click('.prov[data-prov="' + cfg.providers[2].id + '"] [data-pact="edit"]'); await p.waitForTimeout(80); await p.fill('#ai-name', '改名的 Claude'); await p.click('#ai-save'); await p.waitForTimeout(80);
+  cfg = await aiCfg(); T13(cfg.providers[2].name === '改名的 Claude' && cfg.providers.length === 4, 'P14 edit provider');
+  p.once('dialog', d => d.accept()); await p.click('.prov[data-prov="' + cfg.providers[2].id + '"] [data-pact="del"]'); await p.waitForTimeout(80);
+  cfg = await aiCfg(); T13(cfg.providers.length === 3, 'P14 delete provider');
+  await p.click('.prov[data-prov="' + cfg.providers[1].id + '"] [data-pact="test"]'); await p.waitForFunction(() => /连接成功|错误|无法/.test(document.querySelectorAll('.prov-test')[1].textContent), null, { timeout: 10000 });
+  T13(/连接成功/.test(await p.evaluate(() => document.querySelectorAll('.prov-test')[1].textContent)), 'P14 per-provider test button');
+  // export without keys / import
+  await p.click('#ai-export'); await p.waitForTimeout(80);
+  const exp = await p.evaluate(() => window.__lastAiExport);
+  T13(/X-Quest-Test/.test(exp) && !/apiKey|"good"/.test(exp) && JSON.parse(exp).providers.length === 3, 'P14 export JSON without keys');
+  await p.setInputFiles('#ai-import', { name: 'providers.json', mimeType: 'application/json', buffer: Buffer.from(exp) }); await p.waitForTimeout(200);
+  cfg = await aiCfg(); T13(cfg.providers.length === 6 && cfg.providers.slice(3).every(x => x.apiKey === '') && /已导入 3/.test(await p.textContent('#ai-io-out')), 'P14 import adds providers with empty keys');
+  if (SHOTS) { await p.reload(); await p.waitForTimeout(300); await p.screenshot({ path: `${SHOTS}/p14-ai-providers.png`, fullPage: true }); await p.screenshot({ path: `${SHOTS}/p13-ai-settings.png`, fullPage: true }); }
+  // keyword AI streaming via active OpenAI provider
+  await visit('war-keywords'); await p.waitForTimeout(100);
+  T13(await p.evaluate(() => document.querySelector('.ai-switch-bar select') && document.querySelectorAll('.ai-switch-bar option').length === 6), 'P14 provider switcher near AI buttons');
+  await p.click('.kw-item [data-ai-kw]'); await waitDone('.kw-item .ai-status');
   const kwOut = await p.evaluate(() => { const b = document.querySelector('.kw-item .ai-body'); return { h: !!b.querySelector('h2,h3,h4'), strong: !!b.querySelector('strong'), li: b.querySelectorAll('li').length, script: !!b.querySelector('script'), js: [...b.querySelectorAll('a')].some(a => /^javascript/i.test(a.getAttribute('href') || '')), txt: b.textContent }; });
   T13(kwOut.h && kwOut.strong && kwOut.li >= 2 && !kwOut.script && !kwOut.js && /测试回复/.test(kwOut.txt), 'AI 分析这个词: streamed markdown, sanitized');
-  T13(fake.last.body.stream === true && /合法/.test(fake.last.body.messages[0].content) && /不承诺|绝不承诺/.test(fake.last.body.messages[0].content) && /pdf merge for mac/.test(fake.last.body.messages[1].content), 'request: stream + legality/no-income system prompt + Chinese prompt');
+  T13(fake.last.body.stream === true && /合法/.test(fake.last.body.messages[0].content) && /承诺/.test(fake.last.body.messages[0].content) && /pdf merge for mac/.test(fake.last.body.messages[1].content) && fake.last.headers['x-quest-test'] === 'hello-14', 'request: stream + legality/no-income prompt + custom header');
   if (SHOTS) { await p.evaluate(() => document.querySelector('.kw-item').scrollIntoView()); await p.screenshot({ path: `${SHOTS}/p13-ai-keyword.png` }); }
-  await visit('war-rank'); await p.waitForTimeout(150); await p.click('.rank-card[data-rank="1"] [data-ai-rank]');
-  await p.waitForFunction(() => /完成/.test((document.querySelector('.rank-card .ai-status') || {}).textContent || ''), null, { timeout: 10000 });
-  T13(/每日赚钱榜/.test(fake.last.body.messages[1].content) && await p.evaluate(() => !!document.querySelector('.rank-card[data-rank="1"] .ai-body li')), 'rank card AI 点评 streamed');
-  await visit('war-kit'); await p.fill('#kit-keyword', 'pdf merge for mac'); await p.waitForTimeout(100); await p.click('[data-ai-kit]');
-  await p.waitForFunction(() => /完成/.test((document.querySelector('.ai-kit .ai-status') || {}).textContent || ''), null, { timeout: 10000 });
-  T13(/title/.test(fake.last.body.messages[1].content) && /60/.test(fake.last.body.messages[1].content), '实操助手 AI 生成 title/描述');
-  await visit('me-ai'); await p.click('#ai-forget'); await p.waitForTimeout(80);
-  T13(await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-ai-v1')).apiKey === '' && document.querySelector('#ai-key').value === ''), 'forget key clears it');
+  // switch to Anthropic via switcher, run rank card
+  cfg = await aiCfg(); await visit('war-rank'); await p.waitForTimeout(150);
+  await p.selectOption('.ai-switch-bar select', cfg.providers[1].id); await p.waitForTimeout(80);
+  T13((await aiCfg()).activeId === cfg.providers[1].id, 'P14 switcher changes active provider');
+  await p.click('.rank-card[data-rank="1"] [data-ai-rank]'); await waitDone('.rank-card .ai-status');
+  T13(fake.last.url === '/v1/messages' && fake.last.body.stream && /每日赚钱榜/.test(fake.last.body.messages[0].content) && /合法/.test(fake.last.body.system) && await p.evaluate(() => !!document.querySelector('.rank-card[data-rank="1"] .ai-body li')), 'P14 anthropic streaming on rank card');
+  // Ollama on kit
+  await p.selectOption('.ai-switch-bar select', cfg.providers[2].id); await visit('war-kit'); await p.fill('#kit-keyword', 'pdf merge for mac'); await p.waitForTimeout(100); await p.click('[data-ai-kit]');
+  await waitDone('.ai-kit .ai-status');
+  T13(fake.last.url === '/api/chat' && /title/.test(fake.last.body.messages[1].content) && await p.evaluate(() => /测试回复/.test(document.querySelector('.ai-kit .ai-body').textContent)), 'P14 ollama NDJSON streaming on 实操助手');
+  await visit('me-ai'); await p.click('#ai-forget-all'); await p.waitForTimeout(80);
+  T13(await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-ai-v1')).providers.every(x => !x.apiKey)), 'forget all keys');
   await p.keyboard.press('Control+k'); await p.keyboard.type('DeepSeek'); await p.waitForTimeout(150);
   T13(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#me-ai')), 'search finds AI 设置'); await p.keyboard.press('Escape');
   T13(await p.evaluate(() => !!document.querySelector('.site-footer a[href="#me-ai"]')), 'footer link');
-  const m13 = await b.newPage({ viewport: { width: 390, height: 844 } }); await m13.goto(BASE + 'index.html#me-ai'); await m13.waitForTimeout(300);
-  const w13 = await m13.evaluate(() => document.documentElement.scrollWidth); T13(w13 <= 390, 'mobile me-ai scrollWidth ' + w13);
-  await m13.goto(BASE + 'index.html#war-keywords'); await m13.waitForTimeout(300); const w13b = await m13.evaluate(() => document.documentElement.scrollWidth); T13(w13b <= 390, 'mobile war-keywords scrollWidth ' + w13b);
+  const m13 = await b.newPage({ viewport: { width: 390, height: 844 } }); await m13.goto(BASE + 'index.html#me-ai');
+  const cfgStr = JSON.stringify(await aiCfg());
+  await m13.evaluate(s => { const c = JSON.parse(s); c.mode = 'custom'; localStorage.setItem('gefei-quest-ai-v1', JSON.stringify(c)); }, cfgStr); await m13.reload(); await m13.waitForTimeout(300);
+  await m13.click('.prov [data-pact="edit"]'); await m13.waitForTimeout(150);
+  const w13 = await m13.evaluate(() => document.documentElement.scrollWidth); T13(w13 <= 390, 'mobile me-ai (list + editor) scrollWidth ' + w13);
+  for (const h of ['war-keywords', 'war-rank']) { await m13.goto(BASE + 'index.html#' + h); await m13.waitForTimeout(300); const w = await m13.evaluate(() => document.documentElement.scrollWidth); T13(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
   fake.close();
   console.log('P13 functional fails=' + f13); fail += f13;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);

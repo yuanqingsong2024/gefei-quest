@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-16T16:15:44.458Z",
-  "latestId": 13,
+  "generatedAt": "2026-10-16T16:28:42.339Z",
+  "latestId": 14,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 14,
+      "date": "2026-10-17",
+      "tag": "改进",
+      "title": "AI 设置升级：自管理服务商列表",
+      "items": [
+        "可添加任意数量的自定义服务商：名称、地址、模型列表、请求头、温度、最大 tokens",
+        "支持 OpenAI 兼容、Anthropic Messages、Ollama 本地三种格式，可一键获取模型列表",
+        "复制 / 编辑 / 删除 / 单独测试；工具页 AI 按钮旁可快速切换服务商",
+        "服务商配置可导入导出（导出不含 Key），旧配置自动迁移"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-ai"
+    },
     {
       "id": 13,
       "date": "2026-10-17",

@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 14, date: '2026-10-17', title: 'AI 设置升级：自管理服务商列表', tag: '改进', href: '#me-ai',
+      items: ['可添加任意数量的自定义服务商：名称、地址、模型列表、请求头、温度、最大 tokens', '支持 OpenAI 兼容、Anthropic Messages、Ollama 本地三种格式，可一键获取模型列表', '复制 / 编辑 / 删除 / 单独测试；工具页 AI 按钮旁可快速切换服务商', '服务商配置可导入导出（导出不含 Key），旧配置自动迁移'] },
     { id: 13, date: '2026-10-17', title: 'AI 设置 + 三个 AI 助手按钮', tag: '新功能', href: '#me-ai',
       items: ['新增「AI 设置」：默认 Grok Bot 模式（赚钱榜雷达 / 赚钱项目实施官在后台工作，无需配置）', '可选自定义 OpenAI 兼容接口：OpenAI、DeepSeek、通义、Kimi、智谱、OpenRouter', 'API Key 单独保存，不进存档导出，可一键忘记', '选词练习板、每日赚钱榜、站一实操助手新增 AI 按钮（流式输出，只给合法建议，不承诺收益）'] },
     { id: 12, date: '2026-10-16', title: '每日赚钱榜 · 2026-10-16', tag: '赚钱榜', href: '#war-rank', items: ["No.1 京东/淘宝双11官方口令每日领红包与国补","No.2 立减金卡包分诊+固定支出出口（支付宝还款立减等）","No.3 工行2610期“到店取号有礼”线上取号抽立减金/i豆"] },

@@ -109,3 +109,6 @@
 ## Phase 13 · AI 设置与助手（T137–T142 ✅）
 - `#me-ai`（js/ai.js）：Grok Bot 默认模式 / 自定义 OpenAI 兼容（7 个预设）；配置存 `gefei-quest-ai-v1`，不进存档导出。
 - AI 按钮：选词练习板、每日赚钱榜、站一实操助手（SSE 流式、markdown 净化、合规 system prompt）。测试用 tools/fake-openai.js。
+
+## Phase 14 · AI 服务商列表（T143–T148 ✅）
+- gefei-quest-ai-v1 v2：providers[] + activeId（旧单配置自动迁移，旧字段保留）；格式 openai / anthropic / ollama；自定义请求头；获取模型；导入导出不含 Key；工具页切换器。

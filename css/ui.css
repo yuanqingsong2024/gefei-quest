@@ -1862,3 +1862,34 @@ body.search-open { overflow: hidden; }
 .ai-foot { margin: 10px 0 0; color: #a5b4fc; font-size: var(--fs-xs); }
 .ai-hint p { margin: 0 0 6px; } .ai-hint b { color: #fff; }
 .kw-item .ai-out { margin-top: 10px; }
+
+/* ================= Phase 14 · AI 服务商列表 ================= */
+.ai-new { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 14px; }
+.ai-new .fld { min-width: 220px; flex: 1; max-width: 360px; }
+.prov-list { list-style: none; margin: 0 0 14px; padding: 0; display: grid; gap: 10px; }
+.prov { display: grid; grid-template-columns: 1fr auto; gap: 8px 14px; align-items: center; padding: 12px 14px; border: 2px solid var(--glass-line); }
+.prov.on { border-color: var(--gold); }
+.prov-main { display: flex; gap: 12px; align-items: flex-start; min-width: 0; }
+.prov-main > div { min-width: 0; display: flex; flex-direction: column; }
+.prov-main small { color: #cbd5e1; overflow-wrap: anywhere; }
+.prov-name { color: #fff; }
+.prov-radio input { width: 18px; height: 18px; accent-color: #fbbf24; margin-top: 3px; }
+.prov-test { grid-column: 1 / -1; }
+.prov-test:empty { display: none; }
+@media (max-width: 640px) { .prov { grid-template-columns: 1fr; } }
+.ai-io { margin-top: 6px; }
+.ai-io label.btn { cursor: pointer; }
+.ai-headers { margin: 14px 0; }
+.ai-headers h3 { font-size: var(--fs-md); margin: 0 0 8px; } .ai-headers h3 small { color: #94a3b8; font-weight: 400; }
+.hdr-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) auto; gap: 8px; margin-bottom: 8px; }
+.hdr-row input { min-width: 0; }
+.ai-editor textarea { width: 100%; box-sizing: border-box; font-family: ui-monospace, Menlo, monospace; }
+.ai-switch { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 6px 10px; border: 1px solid rgba(167,139,250,.6); border-radius: 10px; background: rgba(46,16,101,.45); color: #ede9fe; font-size: var(--fs-sm); max-width: 100%; box-sizing: border-box; }
+.ai-switch span { display: inline-flex; gap: 4px; align-items: center; }
+.ai-switch select { max-width: 100%; min-width: 0; background: #0f172a; color: #fff; border: 1px solid #475569; border-radius: 8px; padding: 4px 8px; font: inherit; }
+.ai-switch-link { color: #c4b5fd; }
+.ai-switch-bar { margin-bottom: 14px; }
+.ai-switch-inline { margin-left: 10px; }
+@media (max-width: 640px) { .ai-switch-inline { margin: 10px 0 0; } .ai-switch select { width: 100%; } }
+.ai-via { color: #a5b4fc; }
+.prov-main .pill { align-self: flex-start; margin: 2px 0; }
