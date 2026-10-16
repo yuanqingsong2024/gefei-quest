@@ -103,13 +103,21 @@
         onToggle(questId, checked, el) {
           handleToggle(questId, checked, el);
         },
-        onGotoQuest() {
-          currentChapter = 'ch-stage1';
-          if ((state.unlocked || []).indexOf('ch-stage1') < 0) {
+        onGotoQuest(station) {
+          const prefer = station === 2 ? 'ch-stage2' : 'ch-stage1';
+          currentChapter = prefer;
+          if ((state.unlocked || []).indexOf(prefer) < 0) {
             currentChapter = QuestProgress.getActiveChapterId(state);
           }
           currentTab = 'quest';
           location.hash = 'quest';
+          renderAll();
+        },
+        onStationChange(n) {
+          QuestWarRoom.setActiveStation(n);
+          try {
+            location.hash = n === 2 ? 'war-s2' : 'war';
+          } catch (_) {}
           renderAll();
         },
       });
@@ -161,9 +169,11 @@
           try { location.hash = 'resources'; } catch (_) {}
           renderAll();
         },
-        onGotoWar() {
+        onGotoWar(station) {
           currentTab = 'war';
-          try { location.hash = 'war'; } catch (_) {}
+          const n = station === 2 ? 2 : 1;
+          if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(n);
+          try { location.hash = n === 2 ? 'war-s2' : 'war'; } catch (_) {}
           renderAll();
         },
         onExportSave() {
@@ -256,11 +266,23 @@
 
   function tabFromHash() {
     const h = (location.hash || '').replace(/^#/, '');
+    if (h === 'war-s2' || h === 'war-s1' || h === 'war') return 'war';
     const allowed = ['map', 'war', 'quest', 'ship', 'ach', 'resources', 'settings'];
     return allowed.indexOf(h) >= 0 ? h : null;
   }
 
   function applyHashTab() {
+    const h = (location.hash || '').replace(/^#/, '');
+    if (h === 'war-s2') {
+      currentTab = 'war';
+      if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(2);
+      return;
+    }
+    if (h === 'war' || h === 'war-s1') {
+      currentTab = 'war';
+      if (globalThis.QuestWarRoom) QuestWarRoom.setActiveStation(1);
+      return;
+    }
     const t = tabFromHash();
     if (t) currentTab = t;
   }
@@ -289,7 +311,11 @@
           currentChapter = QuestProgress.getActiveChapterId(state);
         }
         try {
-          location.hash = currentTab;
+          if (currentTab === 'war' && globalThis.QuestWarRoom && QuestWarRoom.getActiveStation() === 2) {
+            location.hash = 'war-s2';
+          } else {
+            location.hash = currentTab;
+          }
         } catch (_) {}
         renderAll();
       });

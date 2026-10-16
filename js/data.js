@@ -993,6 +993,15 @@
       url: './starters/station-one/',
     },
     {
+      id: 'ch-station-two-starter',
+      cat: 'hosting',
+      name: '站二 Starter 一词着陆页',
+      blurb: 'gefei-quest 自带薄着陆页：替换 TARGET_KEYWORD，对应 q-s2-03 承接港。',
+      how: '打开 starters/station-two/ → 全局替换 → 部署 → 回作战室站二勾 q-s2-03。',
+      caveat: '一词一岛；勿同时堆五个主词。',
+      url: './starters/station-two/',
+    },
+    {
       id: 'ch-gsc',
       cat: 'tools',
       name: 'Google Search Console',
@@ -1369,8 +1378,24 @@
       url: './docs/station-one-playbook.md',
     },
     {
+      title: '站二作战室（主站 Tab · 站二）',
+      url: './index.html#war-s2',
+    },
+    {
+      title: '站二 Starter 模板',
+      url: './starters/station-two/',
+    },
+    {
+      title: '站二作战手册',
+      url: './docs/station-two-playbook.md',
+    },
+    {
       title: 'Phase 2 路线图',
       url: './docs/PHASE2-ROADMAP.md',
+    },
+    {
+      title: 'Phase 3 路线图',
+      url: './docs/PHASE3-ROADMAP.md',
     },
     {
       title: '资源库（分类筛选）',
@@ -1462,6 +1487,56 @@
     },
   ];
 
+  /** 站二作战室 · 固定 Day1–7（Phase 3 · 灰锁至站一 Boss） */
+  const STATION_TWO_DAYS = [
+    {
+      day: 1,
+      title: '蓝海侦察',
+      tip: '谷歌 + intitle: 判断竞争；新人优先新词/热点。今天只定候选，不换十次。',
+      questIds: ['q-s2-01'],
+      optionalQuestIds: ['q-s2-s1', 'q-s2-s2'],
+    },
+    {
+      day: 2,
+      title: '一词一岛',
+      tip: '主词进入域名或站名/主 title；举全站之力只打这一个词。',
+      questIds: ['q-s2-02'],
+    },
+    {
+      day: 3,
+      title: '承接港上线',
+      tip: '复制 starters/station-two/，替换 TARGET_KEYWORD；title 与唯一 h1 含主词。',
+      questIds: ['q-s2-03'],
+    },
+    {
+      day: 4,
+      title: '抛出缆绳',
+      tip: '合法导航/目录/社区自然提交；记下渠道。勿买链、勿群发。',
+      questIds: ['q-s2-04'],
+      optionalQuestIds: ['q-s2-s3'],
+    },
+    {
+      day: 5,
+      title: '每周观星',
+      tip: '打开 GSC 看曝光/点击/排名；改一处文案再观察。',
+      questIds: ['q-s2-05'],
+    },
+    {
+      day: 6,
+      title: '巩固观察窗',
+      tip: '不换主词；可再改 On-Page。可选 Ahrefs Free 验证自站。',
+      questIds: [],
+      optionalQuestIds: ['q-s2-s4'],
+    },
+    {
+      day: 7,
+      title: '航道打通',
+      tip: '有曝光且向好再勾 Boss；没数据别硬勾。支线可随后补。',
+      questIds: ['q-s2-boss'],
+      optionalQuestIds: ['q-s2-s1', 'q-s2-s2', 'q-s2-s3', 'q-s2-s4'],
+    },
+  ];
+
   function getChapter(id) {
     return CHAPTERS.find((c) => c.id === id) || null;
   }
@@ -1484,6 +1559,7 @@
     TRY_CHANNELS,
     RESOURCES,
     STATION_ONE_DAYS,
+    STATION_TWO_DAYS,
     getChapter,
     getQuestsByChapter,
     getQuest,

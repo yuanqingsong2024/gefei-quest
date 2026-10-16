@@ -1040,3 +1040,55 @@ a.btn:hover {
     color: #000;
   }
 }
+
+/* —— Phase 3 · 站二作战室子 Tab —— */
+.war-station-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 6px;
+}
+.war-station-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.war-station-btn.active {
+  border-color: var(--cyan-hot);
+  background: rgba(94, 177, 255, 0.15);
+  color: var(--cyan);
+  font-weight: 600;
+}
+.war-station-btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+.war-lock-badge {
+  margin-left: 4px;
+  font-size: 0.85em;
+}
+.war-station-title {
+  margin: 8px 0 0;
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+.war-lock-banner {
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #8a6d3b;
+  background: rgba(212, 168, 67, 0.12);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+.war-station-locked {
+  opacity: 0.92;
+}
+.war-day-soft {
+  border-style: dashed;
+}

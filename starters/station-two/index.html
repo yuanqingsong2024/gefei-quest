@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Replace TARGET_KEYWORD with your one demand keyword (not a vague brand) -->
+    <title>TARGET_KEYWORD — free guide & quick start</title>
+    <meta
+      name="description"
+      content="A focused landing page about TARGET_KEYWORD. Clear answer, short steps, and next actions."
+    />
+    <!-- Optional: Google Search Console HTML tag
+    <meta name="google-site-verification" content="PASTE_CODE_HERE" />
+    -->
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0f1419;
+        --card: #1a2332;
+        --ink: #e8eef7;
+        --muted: #9aa8bc;
+        --accent: #5eb1ff;
+        --line: #2a3a52;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #f6f8fb;
+          --card: #fff;
+          --ink: #142033;
+          --muted: #5a6a7e;
+          --accent: #0b6bcb;
+          --line: #d5deea;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.55;
+      }
+      header, main, footer {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 24px 20px;
+      }
+      header { padding-top: 48px; }
+      h1 {
+        margin: 0 0 8px;
+        font-size: 1.75rem;
+        letter-spacing: -0.02em;
+      }
+      .tag { color: var(--muted); margin: 0 0 24px; }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+      }
+      a { color: var(--accent); }
+      nav a { margin-right: 14px; text-decoration: none; }
+      nav a:hover { text-decoration: underline; }
+      footer {
+        color: var(--muted);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--line);
+        margin-top: 32px;
+      }
+      code { font-size: 0.9em; }
+      .cta {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      @media (prefers-color-scheme: light) {
+        .cta { color: #fff; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#how">How</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+      </nav>
+      <!-- Unique h1 must include TARGET_KEYWORD -->
+      <h1 id="home">TARGET_KEYWORD</h1>
+      <p class="tag">One keyword. One landing page. Rank for intent, not vanity.</p>
+    </header>
+
+    <main>
+      <section class="card" aria-labelledby="answer">
+        <h2 id="answer">What is TARGET_KEYWORD?</h2>
+        <p>
+          Replace this with a <strong>direct answer in 2–3 sentences</strong> for
+          people searching <code>TARGET_KEYWORD</code>. State who it is for and
+          the outcome they want.
+        </p>
+      </section>
+
+      <section class="card" id="how" aria-labelledby="how-h">
+        <h2 id="how-h">Quick start (3 steps)</h2>
+        <ol>
+          <li>Step one — the smallest action that creates value.</li>
+          <li>Step two — the common pitfall to avoid.</li>
+          <li>Step three — how to check it worked.</li>
+        </ol>
+        <a class="cta" href="#faq">Read FAQ</a>
+      </section>
+
+      <section class="card" id="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">FAQ</h2>
+        <p><strong>Is TARGET_KEYWORD free?</strong><br />Write an honest answer.</p>
+        <p><strong>Who should not use it?</strong><br />Write exclusions; builds trust.</p>
+        <p><strong>What next?</strong><br />Link to a related long-tail page later (station three).</p>
+      </section>
+
+      <section class="card" id="about" aria-labelledby="about-h">
+        <h2 id="about-h">About</h2>
+        <p>
+          Practice landing page from
+          <a href="https://yuanqingsong2024.github.io/gefei-quest/">gefei-quest</a>
+          station-two kit. Domain placeholder:
+          <code>yourkeyword.example</code>. No traffic or revenue promise.
+        </p>
+        <p>Contact: <code>you@yourkeyword.example</code> (replace).</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="y"></span> TARGET_KEYWORD · Practice landing · No revenue guarantee</p>
+    </footer>
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

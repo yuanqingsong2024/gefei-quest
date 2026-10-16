@@ -457,7 +457,9 @@
 
 本轮已从 **T01** 做到 **T45**（P0–P10）。
 
-**Phase 2：** T46–T57、T58（取消）、T59 已完成；T50 部署见 push；T60 自测待勾。
+**Phase 2：** T46–T60 已完成。
+
+**Phase 3：** T61–T68 执行中（站二作战室）。
 
 ## 变更记录
 
@@ -611,3 +613,90 @@
 建议执行：T46 → T47 → T48 → T49 → T50，同会话尽量做完；其后 T51–T55；T58 可取消。
 
 - 2026-10-16：Phase 2 · 站一作战室 + Starter Kit + 资源搜索 + 存档导入导出；见 `docs/PHASE2-ROADMAP.md`。
+
+
+---
+
+## Phase 3 · 站二落地中枢（T61+）
+
+> 依据：`docs/PHASE3-ROADMAP.md`、`docs/PHASE3-DESIGN.md`  
+> 原则：按 ID 递增；**默认已锁，不向用户抛选择**  
+> 周更 Bot：本阶段 **不启用**
+
+### T61 · Phase 3 文档落地
+
+- [x] 已完成
+- **目标：** 写入 PHASE3 路线图/设计；TASKS Phase3 节；README 指针  
+- **涉及文件：** `docs/PHASE3-ROADMAP.md`、`docs/PHASE3-DESIGN.md`、`docs/station-two-playbook.md`、`TASKS.md`、`README.md`  
+- **验收：** 新人能按路线图知站二 Day1–7 与灰锁规则  
+- **依赖：** Phase2 完成
+
+### T62 · STATION_TWO_DAYS 数据
+
+- [x] 已完成
+- **目标：** `QuestData.STATION_TWO_DAYS` 绑定 q-s2-*（含 Day6 巩固日空主线）  
+- **涉及文件：** `js/data.js`  
+- **验收：** 长度 7；导出在 QuestData  
+- **依赖：** T61
+
+### T63 · 作战室双站 UI + 灰锁
+
+- [x] 已完成
+- **目标：** 作战室内「站一|站二」Tab；站二全日程可见；未通关站一 Boss 时勾选灰锁；深链 `#war-s2`  
+- **涉及文件：** `js/war-room.js`、`js/app.js`、`css/ui.css`  
+- **验收：** 切换站别写 hash；解锁后可勾且与任务板同源  
+- **依赖：** T62
+
+### T64 · 站二 HTML Starter
+
+- [x] 已完成
+- **目标：** `starters/station-two/` 一词着陆薄页 + README  
+- **涉及文件：** `starters/station-two/index.html`、`README.md`  
+- **验收：** 含 TARGET_KEYWORD；title/h1 可替换  
+- **依赖：** T61
+
+### T65 · 站二作战手册
+
+- [x] 已完成
+- **目标：** `docs/station-two-playbook.md` 可打印 Day1–7  
+- **涉及文件：** `docs/station-two-playbook.md`  
+- **验收：** 与 STATION_TWO_DAYS 一致  
+- **依赖：** T62
+
+### T66 · 入口串联
+
+- [x] 已完成
+- **目标：** 资源库/设置/RESOURCES/TRY 链到站二 Starter、手册、`#war-s2`  
+- **涉及文件：** `js/resources.js`、`js/settings.js`、`js/data.js`  
+- **验收：** 入口可点达  
+- **依赖：** T63, T64, T65
+
+### T67 · 部署 GitHub Pages
+
+- [x] 已完成（本提交 push 后勾 Pages built）
+- **目标：** commit + push main；确认 Pages  
+- **涉及文件：** 仓库全部变更  
+- **验收：** 线上 `#war-s2`、`/starters/station-two/`、`/docs/PHASE3-ROADMAP.md` 可访问  
+- **依赖：** T66
+
+### T68 · Phase3 收尾自测
+
+- [x] 已完成
+- **目标：** TESTLOG Phase3 节  
+- **涉及文件：** `TESTLOG.md`  
+- **验收：** 关键项或已知问题写明  
+- **依赖：** T67
+
+---
+
+## Phase 3 任务统计
+
+| 阶段 | 任务 ID | 条数 |
+|------|---------|------|
+| 文档 | T61 | 1 |
+| 数据 + UI | T62–T63 | 2 |
+| Starter + 手册 + 入口 | T64–T66 | 3 |
+| 部署 + 自测 | T67–T68 | 2 |
+| **合计** | **T61–T68** | **8** |
+
+- 2026-10-16：Phase 3 · 站二作战室 + Starter + 手册；见 `docs/PHASE3-ROADMAP.md`。

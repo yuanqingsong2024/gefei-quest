@@ -8,14 +8,20 @@
 
 分类浏览免费工具、托管、变现、可试路径、闲鱼·非实物、技巧与同路人方法：打开 [`resources.html`](./resources.html)，或主界面「资源库」页签。
 
-## Phase 2（进行中）
+## Phase 2（已完成）
 
-完整开发方案与任务：[`docs/PHASE2-ROADMAP.md`](./docs/PHASE2-ROADMAP.md) · 界面补充 [`docs/PHASE2-DESIGN.md`](./docs/PHASE2-DESIGN.md) · 任务 `TASKS.md` **Phase 2 · T46+**。
+[`docs/PHASE2-ROADMAP.md`](./docs/PHASE2-ROADMAP.md) · [`docs/PHASE2-DESIGN.md`](./docs/PHASE2-DESIGN.md) · `TASKS.md` T46–T60
 
-- **站一作战室**：主站 Tab「作战室」（固定 Day1–7，不选路径）
-- **Starter 模板**：[`starters/station-one/`](./starters/station-one/)（英文单页 → GH/CF Pages）
-- **作战手册**：[`docs/station-one-playbook.md`](./docs/station-one-playbook.md)
-- **周一知识补给 Bot 例行**：仍暂停；**需你明确说「恢复周一补给」后再开**（本仓库不自动启用）
+- **站一作战室** + [`starters/station-one/`](./starters/station-one/) + [`docs/station-one-playbook.md`](./docs/station-one-playbook.md)
+
+## Phase 3（进行中）
+
+[`docs/PHASE3-ROADMAP.md`](./docs/PHASE3-ROADMAP.md) · [`docs/PHASE3-DESIGN.md`](./docs/PHASE3-DESIGN.md) · `TASKS.md` **T61+**
+
+- **作战室双站**：站一 | 站二（站二灰锁至站一 Boss；`#war-s2`）
+- **站二 Starter**：[`starters/station-two/`](./starters/station-two/)（一词着陆 → GH/CF Pages）
+- **站二手册**：[`docs/station-two-playbook.md`](./docs/station-two-playbook.md)
+- **周一知识补给 Bot 例行**：仍暂停；**需你明确说「恢复周一补给」后再开**
 
 ## 如何打开
 
@@ -37,7 +43,7 @@ python3 -m http.server 8765
 | Tab | 作用 |
 |-----|------|
 | **地图** | 六座岛：序章 → 站一 → 站二 → 站三 → 变现港 → 放大。点已解锁岛进任务。 |
-| **作战室** | 站一固定 Day1–7 清单；勾选与任务板同源。 |
+| **作战室** | 站一 / 站二固定 Day1–7；站二灰锁至站一 Boss；勾选与任务板同源。 |
 | **任务** | 勾选完成；展开看「动作 / 工具 / 标准 / 坑」。Boss 通关解锁下一岛。 |
 | **商船** | 每周知识补给样例；「收入图鉴」领 +5 XP（每条一次）。 |
 | **成就** | 至少 10 枚徽章，解锁条件见卡片。 |
@@ -61,8 +67,9 @@ python3 -m http.server 8765
 
 - `DESIGN-SPEC.md` — 详细设计规格
 - `docs/PHASE2-ROADMAP.md` — Phase 2 路线图
-- `docs/PHASE2-DESIGN.md` — Phase 2 界面设计
-- `TASKS.md` — 开发任务清单（含 T46+）
+- `docs/PHASE3-ROADMAP.md` — Phase 3 路线图
+- `docs/PHASE2-DESIGN.md` / `docs/PHASE3-DESIGN.md` — 界面设计
+- `TASKS.md` — 开发任务清单（含 T46+ / T61+）
 - `TESTLOG.md` — 自测记录
 - 学习方案：`../gefei-seo-playbook.html`
 - 同路人调研：`docs/peer-methods.md`

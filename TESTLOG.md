@@ -33,3 +33,14 @@
 - [x] 浏览器手工：逻辑经 toggleQuest 同源；线上 Pages built（抽查建议用户自测）
 - [x] Pages 线上 URL 可开（T50）· status=built · commit fb5b9f8
 
+
+
+## Phase 3 自测（2026-10-16）
+
+- [x] `STATION_TWO_DAYS` 长度 7；Day6 soft（questIds 空）
+- [x] `starters/station-two/index.html` 含 TARGET_KEYWORD
+- [x] 作战室站一/站二 Tab；未勾 q-s1-boss 时站二 input disabled
+- [x] `#war-s2` 深链切到站二
+- [x] 资源库/设置含站二入口
+- [x] node 加载 data/war-room/app 无语法错
+- [ ] Pages 线上 built（T67 push 后确认）

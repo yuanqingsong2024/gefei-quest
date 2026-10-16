@@ -51,12 +51,15 @@
       </div>
 
       <div class="res-lib-banner war-entry-banner">
-        <h3>⚔️ 站一作战室</h3>
-        <p class="panel-sub">固定 Day1–7 清单 + Starter 模板；无需选路径，按日推进即可。</p>
+        <h3>⚔️ 作战室（站一 / 站二）</h3>
+        <p class="panel-sub">固定 Day1–7 + Starter；站二灰锁至站一 Boss。无需选路径。</p>
         <p class="res-lib-actions">
-          <button type="button" class="btn btn-primary btn-sm" id="set-goto-war">打开作战室</button>
-          <a href="./starters/station-one/" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Starter 模板</a>
-          <a href="./docs/station-one-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">作战手册</a>
+          <button type="button" class="btn btn-primary btn-sm" id="set-goto-war">打开站一作战室</button>
+          <button type="button" class="btn btn-sm" id="set-goto-war-s2">打开站二作战室</button>
+          <a href="./starters/station-one/" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站一 Starter</a>
+          <a href="./starters/station-two/" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站二 Starter</a>
+          <a href="./docs/station-one-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站一手册</a>
+          <a href="./docs/station-two-playbook.md" class="btn btn-sm" target="_blank" rel="noopener noreferrer">站二手册</a>
         </p>
       </div>
 
@@ -149,7 +152,11 @@
     }
     const gotoWar = root.querySelector('#set-goto-war');
     if (gotoWar && handlers.onGotoWar) {
-      gotoWar.addEventListener('click', () => handlers.onGotoWar());
+      gotoWar.addEventListener('click', () => handlers.onGotoWar(1));
+    }
+    const gotoWar2 = root.querySelector('#set-goto-war-s2');
+    if (gotoWar2 && handlers.onGotoWar) {
+      gotoWar2.addEventListener('click', () => handlers.onGotoWar(2));
     }
     const exp = root.querySelector('#set-export');
     if (exp && handlers.onExportSave) {
