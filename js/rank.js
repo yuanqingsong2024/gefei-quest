@@ -25,7 +25,7 @@
   function planHtml(state) {
     ensure(state);
     var P = state.rankPlan;
-    return '<section class="block glass tool-card rank-plan" id="rank-plan"><h2 class="block-title">' + I('list') + '我的实操计划 <small>' + P.filter(function (p) { return p.done; }).length + '/' + P.length + ' 已完成</small></h2>' +
+    return '<section class="block glass tool-card rank-plan cx-fold" id="rank-plan"><h2 class="block-title">' + I('list') + '我的实操计划 <small>' + P.filter(function (p) { return p.done; }).length + '/' + P.length + ' 已完成</small></h2>' +
       (P.length ? '<ul class="plan-list">' + P.map(function (p, i) {
         return '<li class="plan-item' + (p.done ? ' done' : '') + '" data-plan="' + esc(p.name) + '"><label><input type="checkbox" data-plan-done="' + i + '"' + (p.done ? ' checked' : '') + ' /> <b>' + esc(p.name) + '</b></label>' +
           '<small>' + esc(p.type) + ' · 加入于 ' + esc(p.date) + (p.steps && p.steps[0] ? ' · 第一步：' + esc(p.steps[0]) : '') + '</small>' +

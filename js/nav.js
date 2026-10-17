@@ -83,6 +83,7 @@
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
     { id: 'PHASE17-SHARE', title: 'Phase 17 · 内容分发（免费）' },
     { id: 'PHASE18-DESIGN', title: 'Phase 18 · 紧凑页面 + Google 连接 + 工作台' },
+    { id: 'PHASE19-ROADMAP', title: 'Phase 19 · 路线图（免费优先）' },
     { id: 'PHASE16-WORKBENCH', title: 'Phase 16 · 实操工作台' },
     { id: 'PHASE15-PLATFORMS', title: 'Phase 15 · 平台变现（国内 + 海外）' },
     { id: 'PHASE14-AI-PROVIDERS', title: 'Phase 14 · AI 服务商列表' },

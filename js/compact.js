@@ -104,19 +104,54 @@
     bar.addEventListener('click', function (e) { var b = e.target.closest('[data-cx-all]'); if (!b) return; var open = b.getAttribute('data-cx-all') === '1'; if (open) art.querySelectorAll(':scope > .cx-docsec.' + OFF).forEach(reveal); art.querySelectorAll('.cx-docsec').forEach(function (s) { var body = s.querySelector(':scope > .cx-body'), t = s.querySelector('.cx-toggle'); if (body && body.classList.contains(OFF) === open && t) t.click(); }); });
   }
 
+  /** 一行截断 +「展开」（全文仍在 DOM）。innerSel 指定被截断的子元素；否则把原内容包进 .cx-clip */
+  function clipLine(el, innerSel) {
+    if (el.__cxClip) return;
+    var inner = innerSel ? el.querySelector(innerSel) : null;
+    if (innerSel && !inner) return;
+    el.__cxClip = 1;
+    if (!inner) {
+      inner = document.createElement('div'); inner.className = 'cx-clip';
+      while (el.firstChild) inner.appendChild(el.firstChild);
+      el.appendChild(inner);
+    } else inner.classList.add('cx-clip');
+    el.classList.add('cx-clip-host');
+    var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'cx-toggle';
+    function set(open) { el.classList.toggle('cx-open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); btn.textContent = open ? '收起' : '展开'; }
+    btn.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); set(!el.classList.contains('cx-open')); });
+    el.appendChild(btn); setShow(inner, function () { set(true); }); set(false);
+  }
+
   /* ---------- 规则 ---------- */
   var RULES = [
     ['.home-wrap, .tool-wrap, .pm-page, #wb-body .wb', tabs],
     ['.war-days > section.war-day:not(.war-day-today)', function (el) { collapse(el, { head: '.war-day-head', more: '展开', less: '收起' }); }],
     ['.rank-card', function (el) { collapse(el, { keep: 2, btnBelow: true }); }],
     ['.rank-grid', function (el) { paginate(el, '.rank-card', 6); }],
-    ['.ship-list', function (el) { paginate(el, '.ship-card', 6); }],
+    ['.rank-disclaimer', function (el) { clipLine(el); }],
+    ['.pm-note', function (el) { clipLine(el, ':scope > div'); }],
+    ['.ship-list', function (el) { paginate(el, '.ship-card', 4); }],
     ['.res-sections', function (el) { var secs = kids(el, '.res-section'); if (secs.length > 3) more(el, '.res-section', 3, '显示更多分类'); secs.forEach(function (s) { var g = s.querySelector('.peer-grid'); if (!g) return; if (secs.length > 1) more(g, null, 3, '显示本类更多'); else paginate(g, null, 6); }); }],
     ['.cl-list', function (el) { more(el, 'li', 5, '更多更新'); }],
     ['article.doc-body', docSections],
     ['.pm-card dl', function (el) { collapse(el, { keep: 4, btnOutside: true, more: '展开：分成规则 · 实操 · 红线 · 来源' }); }],
     ['.pm-cards', function (el) { paginate(el, '.pm-card', 6); }],
-    ['.wb-plats', function (el) { paginate(el, '.wb-plat', 8); }],
+    ['.wb-plat', function (el) {
+      if (el.__cx) return;
+      // 保留标题、状态徽章、免费路径；只折叠说明 <p> 和操作按钮
+      var ch = kids(el), keep = 0, i;
+      for (i = 0; i < ch.length; i++) {
+        if (ch[i].matches('header, .wb-st, .wb-free')) keep = i + 1;
+        else break;
+      }
+      collapse(el, { keep: keep || 1, btnBelow: true, more: '展开', less: '收起' });
+      var st = el.querySelector(':scope > .wb-st'), free = el.querySelector(':scope > .wb-free'), btn = el.querySelector(':scope > .cx-toggle');
+      if (!st || !btn) return;
+      var row = document.createElement('div'); row.className = 'wb-meta';
+      st.before(row); row.appendChild(st); if (free) row.appendChild(free); row.appendChild(btn);
+    }],
+    ['.wb-plats', function (el) { paginate(el, '.wb-plat', 6); }],
+    ['#me-ach', function (el) { collapse(el, { head: '.panel-head', more: '展开', less: '收起' }); }],
     ['.quest-list', function (el) { paginate(el, null, 10); }],
     ['.pm-guide', function (el) { collapse(el, { head: 'h3', more: '展开', less: '收起' }); }],
     ['.cx-fold', function (el) { collapse(el, { head: '.block-title', open: el.classList.contains('cx-fold-open'), more: '展开', less: '收起' }); }],

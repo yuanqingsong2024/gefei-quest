@@ -466,6 +466,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   console.log('P17 functional fails=' + f17); fail += f17;
   let f18 = 0; {
   // ===================== Phase 18 =====================
+  const fg = require('./fake-google.js').start(8768);
  const T18 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P18 ' + m); if (!c) f18++; };
   const vis = (pg, sel) => pg.evaluate(s => { const e = document.querySelector(s); return !!e && !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length); }, sel);
   // 紧凑：赚钱榜分页
@@ -509,9 +510,20 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T18(await p.evaluate(() => [...document.querySelectorAll('.cl-list > li')].filter(x => !x.classList.contains('cx-off')).length === 5 && !!document.querySelector('.cl-list + .cx-more-btn')), 'changelog: 5 latest + 更多更新');
   await visit('war'); await p.reload(); await p.waitForTimeout(200);
   T18(await p.evaluate(() => { const d = [...document.querySelectorAll('#panel-war section.war-day')]; return d.length >= 7 && d.filter(x => x.querySelector(':scope > .cx-body.cx-off')).length >= d.length - 1; }), 'war: non-today days collapsed');
-  // 高度
-  const H = {}; for (const r of ['home', 'lib', 'pm-cn', 'pm-cn-media', 'war-rank', 'me-accounts', 'weekly', 'changelog', 'work']) { await p.goto(BASE + 'index.html#' + r); await p.reload(); await p.waitForTimeout(300); H[r] = +(await p.evaluate(() => document.documentElement.scrollHeight / 860)).toFixed(2); }
-  T18(Object.values(H).every(v => v <= 3.0), 'heights ≤3 screens @1280 ' + JSON.stringify(H));
+  // 高度（与 page-heights 一致：1280×800，屏 = scrollHeight/800）
+  const H = {};
+  await p.setViewportSize({ width: 1280, height: 800 });
+  for (const r of ['home', 'lib', 'pm', 'pm-cn', 'pm-cn-media', 'war-kit', 'war-rank', 'me', 'me-accounts', 'weekly', 'changelog', 'work']) {
+    await p.goto(BASE + 'index.html#' + r); await p.reload(); await p.waitForTimeout(300);
+    H[r] = +(await p.evaluate(() => document.documentElement.scrollHeight / 800)).toFixed(2);
+  }
+  await p.setViewportSize({ width: 1280, height: 860 });
+  T18(Object.values(H).every(v => v <= 2.5), 'heights ≤2.5 screens @1280x800 ' + JSON.stringify(H));
+  await visit('me-accounts'); await p.reload(); await p.waitForTimeout(300);
+  T18(await p.evaluate(() => {
+    const cards = [...document.querySelectorAll('#panel-me .wb-plat')].filter(el => el.offsetParent !== null);
+    return cards.length > 0 && cards.every(el => { const st = el.querySelector('.wb-st'); return !!st && st.offsetParent !== null; });
+  }), 'accounts: every visible .wb-plat shows .wb-st');
 
   // Google 连接（GIS 桩 + fake-google 8768）
   const gUrl = 'http://localhost:8768';
@@ -587,6 +599,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await m13.goto(BASE + 'index.html#work'); await m13.reload(); await m13.waitForTimeout(300);
   if (SHOTS) await m13.screenshot({ path: `${SHOTS}/p18-work-mobile.png`, fullPage: true });
   await ctxG.close();
+  fg.close();
   }
   console.log('P18 functional fails=' + f18); fail += f18;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);

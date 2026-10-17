@@ -77,7 +77,7 @@
       return '<span class="wb-st">' + (p.cls === 'B' ? '需 Phase B 后端' : '计划中') + '</span>';
     };
     root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, '') +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('user') + '账号中心</h2><p class="hint">按官方接口能力分 4 类。只用官方 API 和官方导出文件，不爬虫、不模拟登录。Token 只存在这台浏览器的独立键里，不进存档导出，可一键忘记。</p>' +
+      '<section class="block glass tool-card cx-fold"><h2 class="block-title">' + I('user') + '账号中心</h2><p class="hint">按官方接口能力分 4 类。只用官方 API 和官方导出文件，不爬虫、不模拟登录。Token 只存在这台浏览器的独立键里，不进存档导出，可一键忘记。</p>' +
       '<div class="wb-legend">' + Object.keys(CLS).map(function (k) { return '<span class="wb-cls wb-cls-' + k + '">' + k + '</span>' + CLS[k]; }).join('') + '</div></section>' +
       '<section class="block glass tool-card" id="gh-connect" data-tab="GitHub 连接"><h2 class="block-title">' + I('code') + 'GitHub 连接</h2>' +
       '<p class="hint">在 GitHub「Settings → Developer settings → Fine-grained tokens」新建 Token：只选你要发布的仓库，权限 Contents、Pages、Administration 设为 Read and write（新建仓库需 Administration）。</p>' +

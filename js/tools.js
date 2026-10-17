@@ -99,7 +99,7 @@
     var s2 = state.keywords.s2Target;
     root.innerHTML = '<div class="tool-wrap">' +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('wrench') + '1 · 填你的站一信息</h2>' +
-      '<p class="hint">填一个英文主词就能生成整页；还没想好词？先去 <a href="#war-keywords">选词练习板</a> 记几个候选。</p>' +
+      '<details class="cx-details kit-hint"><summary>填写说明</summary><p class="hint">填一个英文主词就能生成整页；还没想好词？先去 <a href="#war-keywords">选词练习板</a> 记几个候选。</p></details>' +
       '<div class="form-grid">' +
       field('keyword', '主词 / 品牌名', 'pdf merge tool', kit.keyword) + field('domain', '域名', 'pdfmergetool.com', kit.domain) +
       field('intro', '一句话介绍（英文）', 'Merge PDF files online for free in seconds.', kit.intro, true) + field('email', '联系邮箱', 'hi@pdfmergetool.com', kit.email) +

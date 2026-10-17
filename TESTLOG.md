@@ -189,3 +189,10 @@
 | dev-TASKS | 37.52 | 2.16 | 57.12 | 8.21 |
 | work | — | 1.55 | — | 2.78 |
 | work-review | — | 2.11 | — | 3.14 |
+
+## Phase 19 · 计划 1 紧凑收尾 T178（2026-10-17，代码：Grok Build；评审：执行 agent）
+- 评审 2 轮：第 1 轮 9 页全部 ≤2.5，但账号中心平台卡把状态徽章 / 免费路径收进了「展开」→ 退回；第 2 轮修好并加断言
+- 1280×800（屏）前 → 后：home 2.69→2.09、war-kit 2.77→2.10、war-rank 2.58→1.95、lib 2.69→2.25、pm 2.77→1.57、pm-cn 2.78→1.99、weekly 2.58→1.75、me 2.54→1.88、me-accounts 2.85→2.10（data/page-heights-p19.json）
+- site-check：routes=36 dev=24 broken=0 consoleErrors=0，P9–P18 全部 0 fails；P18 高度阈值改为 2.5（12 个页面）；fake-google 由测试自启
+- 390px 与 file://（10 个页面）无横向滚动、无报错
+- 截图：p19-compact-home.png、p19-compact-me-accounts.png

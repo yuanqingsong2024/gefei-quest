@@ -130,6 +130,9 @@
 - 免费优先：放弃 X 付费 API 自动发帖（PHASE16 文档已标注）
 - js/share.js：#war-share 来源 → AI/模板 → 编辑/计数/复制 → 官方免费分享链接；存档追加字段 shares、shareDraft；数据分析时间线；账号中心免费路径
 
+## Phase 19 · 路线图执行（develop → main）
+- T178 紧凑收尾 ✅：9 个超标页面全部 ≤2.5 桌面屏
+
 ## Phase 18 · 紧凑页面 + Google 连接 + 工作台 + 复盘 ✅（2026-10-17）
 - js/compact.js：tabs / collapse / more / paginate / reveal + MutationObserver 规则；全站平均桌面高度 4.19 → 2.10 屏，内容与路由/锚点全部保留
 - js/google.js：GIS 令牌客户端（用户自己的 OAuth 客户端 ID，无密钥），只读拉取 GSC / GA4 / AdSense → 数据分析（via:'api'）+ 台账；令牌只存 sessionStorage；>6h 自动刷新

@@ -2064,3 +2064,84 @@ details.cx-details>:not(summary){margin:0 12px 12px}
   .foot-news a small{display:inline;margin-right:4px}
 }
 .pm-guide>h3{display:flex;align-items:center;gap:8px;cursor:pointer}
+/* Phase 19 · 一行展开（阅读须知 / 免责声明） */
+.cx-clip-host{display:flex!important;align-items:center;gap:8px}
+.cx-clip-host>.cx-clip{flex:1;min-width:0;display:-webkit-box!important;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.cx-clip-host.cx-open{align-items:flex-start}
+.cx-clip-host.cx-open>.cx-clip{display:block!important;-webkit-line-clamp:unset;overflow:visible}
+.cx-clip-host>.cx-toggle{margin:0;flex:none}
+/* 账号平台卡：状态 + 免费路径留在折叠外，与「展开」同一行；按钮是行内文字，不是通栏盒子 */
+.wb-plats>.wb-plat{min-width:0}
+.wb-meta{display:flex;align-items:center;gap:4px 8px;min-width:0}
+.wb-meta>.wb-st{flex:0 0 auto;max-width:calc(100% - 52px);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wb-meta>.wb-free{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;align-self:center;display:block}
+.wb-meta>.wb-free svg{display:inline-block;vertical-align:-2px}
+.wb-plat .cx-toggle{flex:none;width:auto;margin:0 0 0 auto;padding:0 2px;border:0;border-radius:0;background:none;font-size:.78rem;font-weight:700;line-height:1.4}
+.wb-plat.cx-open .cx-body p{display:block;-webkit-line-clamp:unset;overflow:visible}
+.pm-note.cx-clip-host{padding:8px 12px}
+.rank-disclaimer.cx-clip-host{margin-bottom:10px}
+/* Phase 19 · 桌面收紧（只减间距和行数，不删内容） */
+@media (min-width:961px){
+  .hero{min-height:0}
+  .hero-inner{padding:22px 24px 18px}
+  .hero-kicker{margin-bottom:8px}
+  .hero-title{margin-bottom:8px}
+  .hero-sub{margin-bottom:12px}
+  .home-wrap .lp-sec{padding-top:8px;padding-bottom:4px}
+  .sec-head{margin-bottom:10px}
+  .today-card{padding:12px 14px}
+  .today-head{margin-bottom:8px}
+  .today-list{gap:6px}
+  .today-list a{padding:6px 10px}
+  .today-foot{margin-top:8px}
+  .today-latest{flex:1 1 160px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .home-wrap .feat-card{padding:12px 14px;gap:4px}
+  .home-wrap .card-ico-lg{width:40px;height:40px}
+  .home-wrap .feat-card span:last-child{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .sh-inner{padding:8px 24px 10px}
+  .sh-ico{width:40px;height:40px;border-radius:12px}
+  .sh-ico .ico{width:22px;height:22px}
+  .crumbs{margin-bottom:4px}
+  .sh-desc{margin-top:2px}
+  .view{padding-top:12px}
+  .sub-tabs{margin-bottom:10px}
+  .block{margin-bottom:16px}
+  .tool-card{padding:12px 14px}
+  .tool-wrap{gap:12px}
+  .site-footer{margin-top:20px}
+  .site-footer .foot-inner{padding:10px 24px 8px;gap:8px}
+  .foot-cols{gap:4px 16px!important}
+  .foot-cols h4{margin:0 0 2px!important;font-size:.78rem}
+  .foot-cols a{display:inline!important;font-size:.78rem!important;line-height:1.45;padding:0!important;margin:0 8px 0 0!important}
+  .foot-note{padding-top:8px!important}
+  .kit-prev{grid-template-columns:168px 1fr;gap:4px 10px;align-items:start;margin:0}
+  .kit-prev dt{margin-top:0}
+  .kit-prev dd{padding:4px 8px}
+  .kit-rules{gap:2px}
+  .rank-card{padding:10px 12px;gap:6px}
+  .rank-why{-webkit-line-clamp:2}
+  .rank-grid{gap:10px}
+  .rank-no{width:34px;height:34px;font-size:1.05rem}
+  .peer-grid{gap:8px}
+  .peer-card{padding:8px 10px}
+  .peer-card h4{margin:0 0 2px}
+  .peer-line,.peer-caveat{margin:0 0 2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .channel-cat{margin:6px 0}
+  .channel-cat-title{margin:0 0 6px}
+  .pm-banner{padding:8px 12px;margin-bottom:8px}
+  .pm-cats{gap:8px}
+  .pm-cat{padding:8px 10px;gap:8px;align-items:center}
+  .pm-cat small,.pm-cat em{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;margin:2px 0}
+  .pm-page{gap:10px}
+  details.cx-details{margin:0 0 6px}
+  details.cx-details>summary{padding:6px 12px}
+  .ship-card{padding:10px 12px}
+  .ship-list{gap:8px}
+  .cl-item{padding:12px 14px}
+  .cl-list{gap:8px}
+  .cl-item h3{margin:4px 0}
+  .ach-card{padding:8px 8px}
+  .ach-grid{gap:8px}
+  .wb-plat{padding:8px 10px;gap:4px}
+  .panel-head{margin-bottom:8px}
+}
