@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T16:02:14.733Z",
-  "latestId": 32,
-  "latestDate": "2026-10-17",
+  "generatedAt": "2026-10-17T17:11:50.839Z",
+  "latestId": 33,
+  "latestDate": "2026-10-18",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 33,
+      "date": "2026-10-18",
+      "tag": "改进",
+      "title": "导航按 学习 / 实施 / 赚钱 重新整理，每页只在一个菜单里，新增面包屑；图标统一重绘",
+      "items": [
+        "导航按 学习 / 实施 / 赚钱 重新整理，每页只在一个菜单里，新增面包屑；图标统一重绘",
+        "顶栏、底部栏、页脚和网站地图用同一份菜单。子页面面包屑是「首页 / 分组 / 页面」",
+        "图标按同一套线稿重绘。学习、实施、赚钱的功能卡片改成浅蓝、青绿和金色的柔和色块"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 32,
       "date": "2026-10-17",
@@ -118,19 +130,6 @@
         "不承诺收入。导览只介绍站里已经有的功能"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#start"
-    },
-    {
-      "id": 23,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "可安装、可离线 + 备份提醒",
-      "items": [
-        "用 Chrome / Edge 打开时可「安装到桌面」；iPhone / iPad 用 Safari 的分享 → 添加到主屏幕。清单里增加工作台、选词练习板、每日赚钱榜三个快捷方式",
-        "页面、脚本和样式优先从网络读取，断网时用上次打开时缓存的副本。离线仍可打开工作台；顶栏会提示 AI、发布和数据拉取暂不可用",
-        "有勾选任务、站点、候选词或复盘，且超过 14 天没有导出时，工作台和我的进度顶部提醒备份。可导出 JSON、从备份恢复，或 14 天后再提醒",
-        "进度仍然只存在这个浏览器里，安装到桌面不会同步到其他设备"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me"
     }
   ],
   "rank": {

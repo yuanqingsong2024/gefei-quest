@@ -2,6 +2,11 @@
  *  存档追加字段：activity {date:count} · doneDates {questId:date} · lastSeenChangelog (number) */
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
+  function navI(hash, fallback) {
+    var Nv = global.QuestNav;
+    if (hash && Nv && Nv.iconName && Nv.iconName(hash)) return Nv.iconFor(hash);
+    return I(fallback || 'compass');
+  }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
@@ -116,14 +121,14 @@
       '<div class="stat"><span class="card-ico">' + I('list') + '</span><b>' + wkTotal + '</b><small>本周完成任务</small></div></div>' +
       '<p class="hint">' + (s.today ? '今天已打卡，保持住。' : '今天还没有记录：勾一个任务或在工具里保存一次，就算打卡。') + '</p></section>' +
       '<section class="block glass"><h2 class="block-title">' + I('calendar') + '打卡热力图 <small>近 26 周</small></h2>' + heatmap(state.activity) + '</section>' +
-      '<section class="block glass"><h2 class="block-title">' + I('chart') + '每周完成任务 <small>近 12 周</small></h2>' + bars(wk) +
+      '<section class="block glass"><h2 class="block-title">' + navI('#me-stats', 'bar-chart') + '每周完成任务 <small>近 12 周</small></h2>' + bars(wk) +
       (undated ? '<p class="hint">有 ' + undated + ' 个任务是在统计功能上线前完成的，没有日期，不计入柱状图。</p>' : '') + '</section>' +
-      '<section class="block glass cx-fold"><h2 class="block-title">' + I('map') + '各章节进度</h2><ul class="mod-list">' + chapters + '</ul></section>' +
+      '<section class="block glass cx-fold"><h2 class="block-title">' + navI('#path', 'map') + '各章节进度</h2><ul class="mod-list">' + chapters + '</ul></section>' +
       '<section class="block"><h2 class="block-title">' + I('toolbox') + '工具汇总</h2><div class="stat-grid">' +
-      '<a class="stat stat-link" href="#war-keywords"><span class="card-ico">' + I('tag') + '</span><b id="st-kw">' + kw.length + '</b><small>候选词 · 适合练手 ' + good + ' · 可以试 ' + mid + ' · 星标 ' + star + '</small></a>' +
-      '<a class="stat stat-link" href="#me-sites"><span class="card-ico">' + I('ledger') + '</span><b id="st-sites">' + S.count + '</b><small>站点 · ' + (S.t ? esc(S.month) + ' 点击 ' + S.t.clicks : '暂无月度记录') + '</small></a>' +
+      '<a class="stat stat-link" href="#war-keywords"><span class="card-ico">' + navI('#war-keywords', 'tag') + '</span><b id="st-kw">' + kw.length + '</b><small>候选词 · 适合练手 ' + good + ' · 可以试 ' + mid + ' · 星标 ' + star + '</small></a>' +
+      '<a class="stat stat-link" href="#me-sites"><span class="card-ico">' + navI('#me-sites', 'ledger') + '</span><b id="st-sites">' + S.count + '</b><small>站点 · ' + (S.t ? esc(S.month) + ' 点击 ' + S.t.clicks : '暂无月度记录') + '</small></a>' +
       '<a class="stat stat-link" href="#me-sites"><span class="card-ico">' + I('coin') + '</span><b>$' + totUsd.toFixed(2) + '</b><small>累计记录收入 · ' + allLogs + ' 条月记录 · 点击 ' + totClicks + '</small></a>' +
-      '<a class="stat stat-link" href="#war-kit"><span class="card-ico">' + I('kit') + '</span><b>' + Object.keys((state.kit && state.kit.checks) || {}).filter(function (k) { return state.kit.checks[k]; }).length + '</b><small>站一自查表已勾项</small></a>' +
+      '<a class="stat stat-link" href="#war-kit"><span class="card-ico">' + navI('#war-kit', 'wand') + '</span><b>' + Object.keys((state.kit && state.kit.checks) || {}).filter(function (k) { return state.kit.checks[k]; }).length + '</b><small>站一自查表已勾项</small></a>' +
       '</div></section>' +
       '<p class="tool-privacy">' + I('lock') + '统计全部由本机浏览器里的存档计算，不上传。</p>';
   }
@@ -145,9 +150,9 @@
       (qs.length ? '<ol class="today-list" id="today-list">' + qs.map(function (q) {
         var ch = D.getChapter(q.chapterId);
         return '<li><a href="#path-quests" data-today-ch="' + esc(q.chapterId) + '"><span class="card-ico">' + I(ch ? ch.icon : 'flag') + '</span><span><b>' + esc(q.title) + '</b><small>' + esc(ch ? ch.name : '') + ' · ' + esc(q.action).slice(0, 48) + (q.action.length > 48 ? '…' : '') + '</small></span><em>+' + q.xp + ' XP</em></a></li>';
-      }).join('') + '</ol>' : '<p class="hint">已解锁的任务都完成了，去作战室继续下一站。</p>') +
-      '<div class="today-foot"><a class="btn btn-sm" href="#me-stats">' + I('chart') + '学习统计</a>' +
-      '<a class="btn btn-sm cl-link" href="#changelog" id="today-changelog">' + I('bulb') + '更新日志' + (u ? '<span class="red-dot" aria-label="' + u + ' 条新更新">' + u + '</span>' : '') + '</a>' +
+      }).join('') + '</ol>' : '<p class="hint">已解锁的任务都完成了，去 7 天作战日程继续下一站。</p>') +
+      '<div class="today-foot"><a class="btn btn-sm" href="#me-stats">' + navI('#me-stats', 'bar-chart') + '学习统计</a>' +
+      '<a class="btn btn-sm cl-link" href="#changelog" id="today-changelog">' + navI('#changelog', 'history') + '更新日志' + (u ? '<span class="red-dot" aria-label="' + u + ' 条新更新">' + u + '</span>' : '') + '</a>' +
       (latest ? '<span class="today-latest">最新：' + esc(latest.date) + ' · ' + esc(latest.title) + '</span>' : '') + '</div></div></section>';
   }
 

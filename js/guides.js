@@ -105,7 +105,7 @@
     var g = Nv.guideById(id);
     var related = '';
     var st = Nv.STATIONS.filter(function (s) { return s.guide === id; })[0];
-    if (st) related = '<a class="btn btn-primary btn-sm" href="' + st.hash + '">' + Nv.icon('target') + '去' + st.label + '作战室勾选</a>';
+    if (st) related = '<a class="btn btn-primary btn-sm" href="' + st.hash + '">' + Nv.icon('calendar-check') + '去' + st.label + ' · 7 天作战日程</a>';
     root.innerHTML = '<div class="doc-layout">' +
       '<aside class="doc-aside"><a class="btn btn-sm doc-back" href="' + back + '">' + Nv.icon('arrowLeft') + '返回' + backLabel + '</a>' +
       (r.toc.length ? '<nav class="doc-toc" aria-label="目录"><h4>目录</h4>' + r.toc.map(function (t) { return '<a class="toc-l' + t.lv + '" href="#' + (isDev ? 'dev-' : 'guide-') + id + '" data-target="' + t.id + '">' + esc(t.t) + '</a>'; }).join('') + '</nav>' : '') +

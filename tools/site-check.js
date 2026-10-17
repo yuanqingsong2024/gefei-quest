@@ -11,7 +11,7 @@ function cx(pg) {
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
 const ROUTES = ['home','start','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish','war-share','sitemap'];
-const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq', 'guide-start':'start', onboarding:'start', newbie:'start' };
+const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq', 'guide-start':'start', onboarding:'start', newbie:'start', rank:'war-rank', ai:'me-ai', platforms:'pm', learn:'path', do:'war', practice:'war', earn:'war-rank', money:'war-rank', res:'lib' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
   const p = await b.newPage({ viewport: { width: 1280, height: 860 } }); cx(p);
@@ -188,10 +188,18 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T11(await p.evaluate(() => document.querySelectorAll('.card-ico svg.ico[class*="tone-"]').length > 10), 'badges use tone family');
   const mm = await b.newPage({ viewport: { width: 390, height: 844 } }); cx(mm);
   await mm.goto(BASE + 'index.html#war-kit'); await mm.waitForTimeout(300);
-  T11(await mm.evaluate(() => getComputedStyle(document.getElementById('bottom-bar')).display === 'grid' && document.querySelector('#bottom-bar a.active').dataset.bb === 'war'), 'mobile bottom bar visible, 作战室 active');
-  await mm.click('#bottom-bar a[data-bb="lib"]'); await mm.waitForTimeout(250);
-  T11(await mm.evaluate(() => location.hash === '#lib' && document.querySelector('#bottom-bar a.active').dataset.bb === 'lib'), 'bottom bar navigates');
-  await mm.click('#bottom-bar .bb-search'); await mm.waitForTimeout(100);
+  T11(await mm.evaluate(() => getComputedStyle(document.getElementById('bottom-bar')).display === 'grid' && document.querySelector('#bottom-bar a.active').dataset.bb === 'do'), 'mobile bottom bar visible, 实施 active');
+  await mm.click('#bottom-bar a[data-bb="learn"]'); await mm.waitForTimeout(250);
+  T11(await mm.evaluate(() => location.hash === '#path' && document.querySelector('#bottom-bar a.active').dataset.bb === 'learn'), 'bottom bar navigates');
+  const searchAt390 = await mm.evaluate(() => {
+    const b = document.querySelector('#site-nav .nav-search');
+    if (!b) return null;
+    const r = b.getBoundingClientRect();
+    const s = getComputedStyle(b);
+    return { disp: s.display, vis: s.visibility, w: r.width, h: r.height, left: r.left, right: r.right, top: r.top };
+  });
+  T11(!!searchAt390 && searchAt390.disp !== 'none' && searchAt390.vis !== 'hidden' && searchAt390.w > 20 && searchAt390.h > 20 && searchAt390.left >= -1 && searchAt390.right <= 391 && searchAt390.top >= -1, 'top search visible at 390 ' + JSON.stringify(searchAt390));
+  await mm.click('#site-nav .nav-search'); await mm.waitForTimeout(100);
   T11(await mm.evaluate(() => !document.getElementById('search-modal').hidden), 'mobile search button opens search');
   for (const h of ['home', 'war', 'lib', 'me-stats', 'guide-station-one-playbook']) { await mm.goto(BASE + 'index.html#' + h); await mm.waitForTimeout(250); const w = await mm.evaluate(() => document.documentElement.scrollWidth); T11(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
   const r11 = await p.request.get(BASE + 'icons.html'); T11(r11.status() === 200, 'icons.html overview served');
@@ -1175,10 +1183,10 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     const nav = await pg.evaluate(() => [...document.querySelectorAll('.site-links a')].map((a) => ({ t: (a.querySelector('span') || a).textContent.trim(), h: a.getAttribute('href'), on: a.classList.contains('active') })));
     T20a(nav[0] && nav[0].t === '首页' && nav[1] && nav[1].t === '新手引导' && nav[1].h === '#start' && nav[1].on, 'nav 2nd is 新手引导 ' + JSON.stringify(nav[1]));
     const foot = await pg.evaluate(() => ({
-      guide: [...document.querySelectorAll('#site-footer a')].some((a) => a.textContent.trim() === '新手引导' && a.getAttribute('href') === '#start'),
+      guides: [...document.querySelectorAll('#site-footer a')].filter((a) => a.textContent.trim() === '新手引导' && a.getAttribute('href') === '#start').length,
       tour: (document.querySelector('#foot-tour') || {}).textContent || '',
     }));
-    T20a(foot.guide && /新手导览/.test(foot.tour), 'footer 新手引导 + 新手导览 ' + JSON.stringify(foot));
+    T20a(foot.guides === 1 && /重播新手导览/.test(foot.tour), 'footer 新手引导 + 重播新手导览 ' + JSON.stringify(foot));
     const found = await pg.evaluate(() => {
       const a = QuestShell.search('新手引导').some((x) => x.href === '#start');
       const b = QuestShell.search('新手导览').some((x) => x.href === '#start');
@@ -1319,7 +1327,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       };
     });
     T20a(mob.sw <= 390, '390px #start scrollWidth ' + mob.sw);
-    T20a(mob.n === 6 && mob.labels.indexOf('新手引导') < 0 && mob.barScroll <= mob.barClient + 1 && mob.barRight <= 391 && mob.barLeft >= -1, 'bottom bar ' + JSON.stringify(mob));
+    T20a(mob.n === 6 && mob.labels.join(',') === '首页,新手,学习,实施,赚钱,我的' && mob.labels.indexOf('新手引导') < 0 && mob.barScroll <= mob.barClient + 1 && mob.barRight <= 391 && mob.barLeft >= -1, 'bottom bar ' + JSON.stringify(mob));
     await pg.evaluate(() => QuestTour.start());
     await pg.waitForSelector('#tour-card');
     await pg.click('#tour-next');
@@ -1432,7 +1440,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     }));
     T20b(!shape.grid && !shape.today && !shape.progress && !shape.task, 'no feature grid or today/progress cards ' + JSON.stringify(shape));
     T20b(!shape.cont, 'continue strip hidden for fresh save');
-    T20b(shape.howto.join(',') === '#start-learn,#start-do,#start-earn' && shape.faq >= 3, 'howto + faq ' + shape.howto.join(',') + ' faq=' + shape.faq);
+    T20b(shape.howto.join(',') === '#path,#war,#war-rank' && shape.faq >= 3, 'howto + faq ' + shape.howto.join(',') + ' faq=' + shape.faq);
     for (const h of ['#start-learn', '#start-do', '#start-earn']) {
       await pg.goto(BASE + 'index.html' + h, { waitUntil: 'domcontentloaded' });
       await pg.waitForTimeout(80);
@@ -1672,7 +1680,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await pg.waitForSelector('.nav-top');
     await pg.evaluate(() => { if (window.QuestTour) QuestTour.close(); });
     const tops = await pg.evaluate(() => [...document.querySelectorAll('.site-links > a.nav-top, .site-links > .nav-drop > a.nav-top')].map((a) => (a.querySelector('span') || a).textContent.trim()));
-    T21(tops.length <= 6 && tops.join(',') === '首页,新手引导,学习,实战,资源,我的', 'top nav ≤6 ' + tops.join(','));
+    T21(tops.length <= 6 && tops.join(',') === '首页,新手引导,学习,实施,赚钱,我的', 'top nav ≤6 ' + tops.join(','));
     const learnBtn = '.nav-drop[data-group="learn"] .nav-caret';
     await pg.click(learnBtn);
     await pg.waitForTimeout(40);
@@ -1728,7 +1736,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       const a = document.querySelector('a.nav-top.active');
       return a ? (a.querySelector('span') || a).textContent.trim() : '';
     });
-    T21(parentOn === '实战', 'active parent on #war-rank is ' + parentOn);
+    T21(parentOn === '赚钱', 'active parent on #war-rank is ' + parentOn);
     await pg.setViewportSize({ width: 1280, height: 800 });
     await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
     await pg.reload({ waitUntil: 'domcontentloaded' });
@@ -1787,6 +1795,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       const search = window.QuestShell.search('网站地图').some((x) => x.href === '#sitemap')
         && window.QuestShell.search('学习路线').some((x) => x.href === '#path')
         && window.QuestShell.search('每周补给').some((x) => x.href === '#weekly')
+        && window.QuestShell.search('7 天作战日程').some((x) => x.href === '#war')
         && window.QuestShell.search('实战作战室').some((x) => x.href === '#war');
       return { missing, onPage: location.hash, search };
     });
@@ -1803,7 +1812,9 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         && window.QuestShell.search('学习路线').some((x) => x.href === '#path')
         && window.QuestShell.search('每周补给').some((x) => x.href === '#weekly')
         && window.QuestShell.search('手册与模板').some((x) => x.href === '#guides')
-        && window.QuestShell.search('我的进度').some((x) => x.href === '#me');
+        && window.QuestShell.search('我的进度').some((x) => x.href === '#me')
+        && window.QuestShell.search('7 天作战日程').some((x) => x.href === '#war')
+        && window.QuestShell.search('实战作战室').some((x) => x.href === '#war');
       return { hash: location.hash, panel: !document.getElementById('panel-sitemap').hidden, missing, search, n: hrefs.size };
     });
     T21(site.hash === '#sitemap' && site.panel && site.missing.length === 0 && site.search, 'sitemap lists SITE_NAV + search ' + JSON.stringify({ missing: site.missing, search: site.search, n: site.n }));
@@ -2106,7 +2117,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         dismissed: !!(s && s.hints && s.hints.dismissed && s.hints.dismissed['me-accounts'] === true),
       };
     });
-    T23bc(beforeDismiss.hint && beforeDismiss.next && !afterDismiss.hint && afterDismiss.next === '#me-analytics' && afterDismiss.dismissed, 'dismiss keeps 下一步 ' + JSON.stringify({ beforeDismiss, afterDismiss }));
+    T23bc(beforeDismiss.hint && beforeDismiss.next && !afterDismiss.hint && afterDismiss.next === '#me-ai' && afterDismiss.dismissed, 'dismiss keeps 下一步 ' + JSON.stringify({ beforeDismiss, afterDismiss }));
     await pg.setViewportSize({ width: 390, height: 844 });
     for (const h of ['home', 'war-keywords']) {
       await pg.goto(BASE + 'index.html#' + h, { waitUntil: 'domcontentloaded' });
@@ -2326,6 +2337,283 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P24 functional fails=' + f24); fail += f24;
+
+  // ---------- Phase 25 · 导航整理 + 统一图标 ----------
+  let f25 = 0; {
+  const T25 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P25 ' + m); if (!c) f25++; };
+  const fs = require('fs');
+  const shot25 = '/workspace/gefei-quest-shots';
+  fs.mkdirSync(shot25, { recursive: true });
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  const pg = cx(await ctx.newPage());
+  const e25 = [];
+  pg.on('pageerror', (e) => { e25.push('pageerror ' + e.message); errors.push('p25 ' + e.message); });
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e25.push(m.text()); errors.push('p25 ' + m.text()); } });
+  const quiet = () => pg.evaluate(() => {
+    const t = document.getElementById('tour-root'); if (t) t.remove();
+    if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close();
+  });
+  try {
+    await pg.goto(BASE + 'index.html#sitemap', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(280);
+    await quiet();
+    const bag = await pg.evaluate(() => {
+      function take(sel) { return [...document.querySelectorAll(sel)].map((a) => a.getAttribute('href')).filter(Boolean); }
+      const menu = {};
+      document.querySelectorAll('.nav-menu a[href]').forEach((a) => {
+        const h = a.getAttribute('href');
+        menu[h] = (menu[h] || 0) + 1;
+      });
+      const flow = (window.QuestHints.FLOW || []).map((s) => s.id);
+      const main = (window.QuestNav.mainFlow ? QuestNav.mainFlow() : []).map((s) => s.id);
+      const sm = [...document.querySelectorAll('#panel-sitemap a[href]')].map((a) => a.getAttribute('href'));
+      return {
+        top: take('.site-links a.nav-top'),
+        menu: take('.nav-menu a'),
+        bottom: take('#bottom-bar a'),
+        foot: take('#site-footer a'),
+        map: sm,
+        dup: Object.keys(menu).filter((h) => menu[h] > 1),
+        smDup: sm.filter((h, i) => sm.indexOf(h) !== i),
+        flow, main,
+      };
+    });
+    const expectFlow = ['start', 'path', 'path-quests', 'war', 'war-keywords', 'war-kit', 'me-sites', 'war-publish', 'war-share', 'work', 'me-analytics', 'work-review', 'war-rank', 'pm'];
+    T25(bag.flow.join(',') === expectFlow.join(',') && bag.main.join(',') === bag.flow.join(','), 'FLOW equals menu order ' + bag.flow.join(','));
+    T25(bag.dup.length === 0, 'no route in two dropdowns ' + bag.dup.join(','));
+    T25(bag.smDup.length === 0, 'sitemap hrefs unique ' + bag.smDup.slice(0, 8).join(','));
+    const hrefs = [...new Set([].concat(bag.top, bag.menu, bag.bottom, bag.foot, bag.map))];
+    const linkBad = [];
+    for (const href of hrefs) {
+      if (!href || /^(https?:|mailto:)/.test(href)) continue;
+      if (href.charAt(0) !== '#') {
+        const r = await pg.request.get(BASE + href.replace(/^\.\//, ''));
+        if (r.status() !== 200) linkBad.push(href + ' ' + r.status());
+        continue;
+      }
+      await pg.goto(BASE + 'index.html' + href, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(120);
+      const info = await pg.evaluate((want) => {
+        const hash = location.hash.split('?')[0];
+        const canon = '#' + QuestNav.canonical(want.slice(1));
+        const panel = [...document.querySelectorAll('.tab-panel')].filter((x) => !x.hidden);
+        const empty = !!document.querySelector('.tab-panel:not([hidden]) .empty-state');
+        return { hash, canon, panel: panel.map((x) => x.id).join(','), empty, text: panel[0] ? panel[0].innerText.trim().length : 0 };
+      }, href);
+      if ((info.hash !== href && info.hash !== info.canon) || !info.panel || info.empty || info.text < 8) linkBad.push(href + ' ' + JSON.stringify(info));
+    }
+    T25(linkBad.length === 0, 'nav links resolve ' + linkBad.slice(0, 6).join(' | '));
+    const cases = [
+      ['home', '首页', '', '首页', '', '', '出海小站练站营'],
+      ['start', '新手引导', '', '新手', '新手引导', '首页/新手引导', '新手引导'],
+      ['path', '学习', '学习路线', '学习', '学习路线', '首页/学习/学习路线', '学习路线'],
+      ['path-quests', '学习', '任务清单', '学习', '任务清单', '首页/学习/任务清单', '任务清单'],
+      ['guides', '学习', '手册与模板', '学习', '手册与模板', '首页/学习/手册与模板', '手册与模板'],
+      ['guide-station-one-playbook', '学习', '手册与模板', '学习', '手册与模板', '首页/学习/手册与模板/', '手册与模板'],
+      ['lib', '学习', '资源库', '学习', '资源库', '首页/学习/资源库', '资源库'],
+      ['lib-tools', '学习', '资源库', '学习', '资源库', '首页/学习/资源库', '资源库'],
+      ['weekly', '学习', '每周补给', '学习', '每周补给', '首页/学习/每周补给', '每周补给'],
+      ['war', '实施', '7 天作战日程', '实施', '7 天作战日程', '首页/实施/7 天作战日程', '7 天作战日程'],
+      ['war-s2', '实施', '7 天作战日程', '实施', '7 天作战日程', '首页/实施/7 天作战日程', '7 天作战日程'],
+      ['war-s3', '实施', '7 天作战日程', '实施', '7 天作战日程', '首页/实施/7 天作战日程', '7 天作战日程'],
+      ['war-m', '实施', '7 天作战日程', '实施', '7 天作战日程', '首页/实施/7 天作战日程', '7 天作战日程'],
+      ['war-x', '实施', '7 天作战日程', '实施', '7 天作战日程', '首页/实施/7 天作战日程', '7 天作战日程'],
+      ['war-keywords', '实施', '选词练习板', '实施', '选词练习板', '首页/实施/选词练习板', '选词练习板'],
+      ['war-kit', '实施', '站一实操助手', '实施', '站一实操助手', '首页/实施/站一实操助手', '站一实操助手'],
+      ['me-sites', '实施', '我的站点台账', '实施', '我的站点台账', '首页/实施/我的站点台账', '我的站点台账'],
+      ['war-publish', '实施', '发布上线', '实施', '发布上线', '首页/实施/发布上线', '发布上线'],
+      ['war-share', '实施', '内容分发', '实施', '内容分发', '首页/实施/内容分发', '内容分发'],
+      ['work', '实施', '工作台', '实施', '工作台', '首页/实施/工作台', '工作台'],
+      ['me-analytics', '赚钱', '数据分析', '赚钱', '数据分析', '首页/赚钱/数据分析', '数据分析'],
+      ['work-review', '赚钱', '每周复盘', '赚钱', '每周复盘', '首页/赚钱/每周复盘', '每周复盘'],
+      ['war-rank', '赚钱', '每日赚钱榜', '赚钱', '每日赚钱榜', '首页/赚钱/每日赚钱榜', '每日赚钱榜'],
+      ['pm', '赚钱', '平台变现', '赚钱', '平台变现', '首页/赚钱/平台变现', '平台变现'],
+      ['pm-cn', '赚钱', '平台变现', '赚钱', '平台变现', '首页/赚钱/平台变现', '平台变现'],
+      ['pm-global', '赚钱', '平台变现', '赚钱', '平台变现', '首页/赚钱/平台变现', '平台变现'],
+      ['me', '我的', '我的进度', '我的', '我的进度', '首页/我的/我的进度', '我的进度'],
+      ['me-stats', '我的', '学习统计', '我的', '学习统计', '首页/我的/学习统计', '学习统计'],
+      ['me-accounts', '我的', '账号中心', '我的', '账号中心', '首页/我的/账号中心', '账号中心'],
+      ['me-ai', '我的', 'AI 设置', '我的', 'AI 设置', '首页/我的/AI 设置', 'AI 设置'],
+      ['changelog', '我的', '更新日志', '我的', '更新日志', '首页/我的/更新日志', '更新日志'],
+      ['sitemap', '', '', '', '网站地图', '首页/网站地图', '网站地图'],
+      ['dev', '', '', '', '开发者文档', '首页/开发者文档', '开发者文档'],
+    ];
+    const ownBad = [];
+    const uiBad = [];
+    for (const row of cases) {
+      const hash = row[0], parent = row[1], item = row[2], bottom = row[3], h1 = row[4], crumb = row[5], title = row[6];
+      if (hash !== 'sitemap' && hash !== 'dev') {
+        const owners = await pg.evaluate((h) => QuestNav.pagesOwning(h).map((p) => p.id), hash);
+        if (owners.length !== 1) ownBad.push(hash + ':' + owners.join('|'));
+      }
+      await pg.goto(BASE + 'index.html#' + hash, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(140);
+      await quiet();
+      const ui = await pg.evaluate(() => {
+        const p = document.querySelector('a.nav-top.active span');
+        const it = document.querySelector('.nav-menu a.active b');
+        const b = document.querySelector('#bottom-bar a.active span');
+        const titleEl = document.querySelector('h1.sh-title');
+        const hero = document.querySelector('h1.hero-title');
+        const crumbs = [...document.querySelectorAll('.crumbs > a, .crumbs > [aria-current]')].map((el) => el.textContent.trim());
+        return {
+          parent: p ? p.textContent.trim() : '',
+          item: it ? it.textContent.trim() : '',
+          bottom: b ? b.textContent.trim() : '',
+          h1: titleEl ? titleEl.textContent.trim() : (hero ? hero.textContent.trim() : ''),
+          crumbs: crumbs.join('/'),
+          title: document.title,
+          empty: !!document.querySelector('.tab-panel:not([hidden]) .empty-state'),
+        };
+      });
+      let crumbOk = crumb === '' || ui.crumbs === crumb;
+      if (hash === 'guide-station-one-playbook') crumbOk = ui.crumbs.indexOf('首页/学习/手册与模板/') === 0 && ui.crumbs.length > '首页/学习/手册与模板/'.length;
+      const titleOk = hash === 'home' ? ui.title === title : ui.title.indexOf(title) === 0;
+      const h1Ok = hash === 'home' ? ui.h1 === '做英文出海小站' : ui.h1 === h1;
+      if (ui.parent !== parent || ui.item !== item || ui.bottom !== bottom || !h1Ok || !crumbOk || !titleOk || ui.empty) {
+        uiBad.push('#' + hash + ' ' + JSON.stringify(ui));
+      }
+    }
+    T25(ownBad.length === 0, 'single owner ' + ownBad.join(','));
+    T25(uiBad.length === 0, 'active + crumb + h1 ' + uiBad.slice(0, 3).join(' || '));
+    const devHref = await pg.evaluate(() => {
+      const a = document.querySelector('#panel-sitemap a[href^="#dev-"]');
+      return a ? a.getAttribute('href') : '';
+    });
+    T25(!!devHref, 'sitemap lists a dev doc');
+    if (devHref) {
+      await pg.goto(BASE + 'index.html' + devHref, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(180);
+      const devUi = await pg.evaluate(() => {
+        const crumbs = [...document.querySelectorAll('.crumbs > a, .crumbs > [aria-current]')].map((el) => el.textContent.trim());
+        return { crumbs: crumbs.join('/'), n: crumbs.length, h1: ((document.querySelector('h1.sh-title') || {}).textContent || '').trim(), title: document.title };
+      });
+      T25(devUi.n === 3 && devUi.crumbs.indexOf('首页/开发者文档/') === 0 && devUi.h1 === '开发者文档' && devUi.title.indexOf('开发者文档') === 0, 'dev doc crumb ' + JSON.stringify(devUi));
+    }
+    const aliases = [['rank', '#war-rank'], ['resources', '#lib'], ['ai', '#me-ai'], ['settings', '#me'], ['map', '#path'], ['quests', '#path-quests'], ['stats', '#me-stats'], ['platforms', '#pm'], ['learn', '#path'], ['do', '#war'], ['practice', '#war'], ['earn', '#war-rank'], ['money', '#war-rank'], ['res', '#lib']];
+    const aliasBad = [];
+    for (const pair of aliases) {
+      await pg.goto(BASE + 'index.html#' + pair[0], { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(70);
+      const hash = await pg.evaluate(() => location.hash);
+      if (hash !== pair[1]) aliasBad.push(pair[0] + '->' + hash);
+    }
+    T25(aliasBad.length === 0, 'aliases ' + aliasBad.join(','));
+    await pg.setViewportSize({ width: 1280, height: 800 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    await quiet();
+    await pg.click('.nav-drop[data-group="learn"] .nav-caret');
+    await pg.waitForTimeout(80);
+    const iconTileReport = (sel) => {
+      function one(tile) {
+        const svg = tile.querySelector('svg');
+        if (!svg || !svg.getBBox) return { ok: false, why: 'no-svg', cls: String(tile.className).slice(0, 48) };
+        const bb = svg.getBBox();
+        const boxOk = bb.width > 4 && bb.x >= 1.9 && bb.y >= 1.9 && (bb.x + bb.width) <= 22.1 && (bb.y + bb.height) <= 22.1;
+        const a = svg.getBoundingClientRect();
+        const b = tile.getBoundingClientRect();
+        const inside = a.width > 8 && a.height > 8 && a.left >= b.left - 0.6 && a.right <= b.right + 0.6 && a.top >= b.top - 0.6 && a.bottom <= b.bottom + 0.6;
+        const dx = Math.abs((a.left + a.right) / 2 - (b.left + b.right) / 2);
+        const dy = Math.abs((a.top + a.bottom) / 2 - (b.top + b.bottom) / 2);
+        return { ok: !!(boxOk && inside && dx <= 2 && dy <= 2), dx: Math.round(dx * 10) / 10, dy: Math.round(dy * 10) / 10, cls: String(tile.className).slice(0, 48) };
+      }
+      const rows = [...document.querySelectorAll(sel)].filter((el) => {
+        if (el.closest('[hidden]')) return false;
+        const st = getComputedStyle(el);
+        if (st.display === 'none' || st.visibility === 'hidden') return false;
+        const r = el.getBoundingClientRect();
+        return r.width > 8 && r.height > 8;
+      }).map(one);
+      return { n: rows.length, ok: rows.length > 0 && rows.every((r) => r.ok), bad: rows.filter((r) => !r.ok).slice(0, 5) };
+    };
+    const iconFit = await pg.evaluate(iconTileReport, '.nav-drop.is-open .nav-ico');
+    T25(iconFit.n >= 5 && iconFit.ok, 'dropdown icons centered ' + JSON.stringify(iconFit));
+    await pg.screenshot({ path: shot25 + '/p25-nav-dropdown.png' });
+    await pg.keyboard.press('Escape');
+    const homeIco = await pg.evaluate(() => {
+      function one(tile) {
+        const svg = tile.querySelector('svg');
+        if (!svg || !svg.getBBox) return false;
+        const bb = svg.getBBox();
+        const boxOk = bb.width > 4 && bb.x >= 1.9 && bb.y >= 1.9 && (bb.x + bb.width) <= 22.1 && (bb.y + bb.height) <= 22.1;
+        const a = svg.getBoundingClientRect();
+        const b = tile.getBoundingClientRect();
+        const inside = a.width > 8 && a.height > 8 && a.left >= b.left - 0.6 && a.right <= b.right + 0.6 && a.top >= b.top - 0.6 && a.bottom <= b.bottom + 0.6;
+        const dx = Math.abs((a.left + a.right) / 2 - (b.left + b.right) / 2);
+        const dy = Math.abs((a.top + a.bottom) / 2 - (b.top + b.bottom) / 2);
+        return !!(boxOk && inside && dx <= 2 && dy <= 2);
+      }
+      const tiles = [...document.querySelectorAll('#home .home-step-ico, #home-howto .home-step-ico, #panel-home .card-ico, #panel-home .sh-ico')].filter((el) => {
+        if (el.closest('[hidden]')) return false;
+        const r = el.getBoundingClientRect();
+        return r.width > 8 && r.height > 8;
+      });
+      return { n: tiles.length, ok: tiles.every(one), hrefs: [...document.querySelectorAll('#home-howto a')].map((a) => a.getAttribute('href')) };
+    });
+    T25(homeIco.n === 3 && homeIco.ok && homeIco.hrefs.join(',') === '#path,#war,#war-rank', 'home card icons ' + JSON.stringify(homeIco));
+    await pg.locator('#home-howto').screenshot({ path: shot25 + '/p25-home-icons.png' });
+    await pg.goto(BASE + 'index.html#start', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(180);
+    await quiet();
+    const startIco = await pg.evaluate(iconTileReport, '#panel-start .card-ico, #panel-start .home-step-ico, .section-head .sh-ico');
+    T25(startIco.n >= 4 && startIco.ok, 'start icon tiles centered ' + JSON.stringify(startIco));
+    await pg.goto(BASE + 'index.html#war-keywords', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(180);
+    await quiet();
+    const sh = await pg.evaluate(() => {
+      const tile = document.querySelector('.sh-ico');
+      const svg = tile && tile.querySelector('svg');
+      if (!svg) return { ok: false };
+      const bb = svg.getBBox();
+      const a = svg.getBoundingClientRect();
+      const b = tile.getBoundingClientRect();
+      const dx = Math.abs((a.left + a.right) / 2 - (b.left + b.right) / 2);
+      const dy = Math.abs((a.top + a.bottom) / 2 - (b.top + b.bottom) / 2);
+      return {
+        ok: a.left >= b.left - 0.6 && a.right <= b.right + 0.6 && a.top >= b.top - 0.6 && a.bottom <= b.bottom + 0.6 && bb.x >= 1.9 && bb.y >= 1.9 && (bb.x + bb.width) <= 22.1 && (bb.y + bb.height) <= 22.1 && dx <= 2 && dy <= 2,
+        w: Math.round(b.width), h: Math.round(b.height), dx: Math.round(dx * 10) / 10, dy: Math.round(dy * 10) / 10,
+      };
+    });
+    T25(sh.ok && sh.w >= 44 && sh.w <= 52 && sh.h >= 44 && sh.h <= 52, 'section icon ' + JSON.stringify(sh));
+    const kwIco = await pg.evaluate(iconTileReport, '.sh-ico, #panel-war .card-ico, #panel-war .home-step-ico');
+    T25(kwIco.n >= 1 && kwIco.ok, 'keywords icon tiles centered ' + JSON.stringify(kwIco));
+    await pg.goto(BASE + 'index.html#me', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(180);
+    await quiet();
+    const meIco = await pg.evaluate(iconTileReport, '#panel-me .card-ico, .section-head .sh-ico');
+    T25(meIco.n >= 5 && meIco.ok, 'me icon tiles centered ' + JSON.stringify(meIco));
+    await pg.locator('.section-head').screenshot({ path: shot25 + '/p25-breadcrumb.png' });
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(250);
+    await quiet();
+    const mob = await pg.evaluate(() => {
+      const bar = document.getElementById('bottom-bar');
+      const labels = bar ? [...bar.querySelectorAll('a span')].map((s) => s.textContent.trim()) : [];
+      const b = document.querySelector('#site-nav .nav-search');
+      const r = b ? b.getBoundingClientRect() : null;
+      const s = b ? getComputedStyle(b) : null;
+      return { sw: document.documentElement.scrollWidth, labels: labels.join(','), search: !!(b && s.display !== 'none' && r.width > 20 && r.left >= -1 && r.right <= 391) };
+    });
+    T25(mob.sw <= 390 && mob.labels === '首页,新手,学习,实施,赚钱,我的' && mob.search, '390 bottom + search ' + JSON.stringify(mob));
+    await pg.screenshot({ path: shot25 + '/p25-mobile-390.png' });
+    await pg.setViewportSize({ width: 1280, height: 900 });
+    await pg.goto(BASE + 'icons.html', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    const sheet = await pg.evaluate(() => ({
+      n: document.querySelectorAll('#sheet code').length,
+      tints: [...document.querySelectorAll('#tints code, #tints span')].map((s) => s.textContent.trim()).filter(Boolean).join(','),
+    }));
+    T25(sheet.n >= 40 && sheet.tints.indexOf('学习') >= 0 && sheet.tints.indexOf('实施') >= 0 && sheet.tints.indexOf('赚钱') >= 0, 'icons sheet ' + JSON.stringify(sheet));
+    await pg.screenshot({ path: shot25 + '/p25-icons-sheet.png', fullPage: true });
+  } catch (e) {
+    T25(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T25(e25.length === 0, 'P25 console errors ' + e25.slice(0, 4).join(' | '));
+  await ctx.close();
+  }
+  console.log('P25 functional fails=' + f25); fail += f25;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

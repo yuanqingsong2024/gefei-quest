@@ -2,6 +2,11 @@
  *  不调用任何付费 API；每次复制/打开记入存档追加字段 shares。 */
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
+  function navI(hash, fallback) {
+    var Nv = global.QuestNav;
+    if (hash && Nv && Nv.iconName && Nv.iconName(hash)) return Nv.iconFor(hash);
+    return I(fallback || 'compass');
+  }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   var E = encodeURIComponent;
   /** 字数：X 规则里链接按 23 计，中日韩字符按 2 计 */
@@ -142,12 +147,12 @@
   function render(state, root, ctx) {
     ensure(state); var d = state.shareDraft, s = source(state), AI = global.QuestAI, aiOn = AI && AI.ready();
     var items = global.QuestRank ? global.QuestRank.latestItems() : [];
-    var srcTabs = [['kit', '实操助手站点', 'kit'], ['rank', '赚钱榜条目', 'trophy'], ['url', '已发布网址', 'globe'], ['text', '自由文本', 'file']];
+    var srcTabs = [['kit', '实操助手站点', '#war-kit', 'wand'], ['rank', '赚钱榜条目', '#war-rank', 'trophy'], ['url', '已发布网址', '', 'globe'], ['text', '自由文本', '', 'file']];
     var recent = state.shares.slice(-5).reverse();
     root.innerHTML = '<div class="tool-wrap wb sh">' + (global.QuestWorkbench ? global.QuestWorkbench.pipeline(state, 'share') : '') +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('rocket') + '内容分发：一份内容，多平台发帖</h2>' +
+      '<section class="block glass tool-card"><h2 class="block-title">' + navI('#war-share', 'send') + '内容分发：一份内容，多平台发帖</h2>' +
       '<p class="hint">全部免费：只用各平台官方的分享/发帖链接，在你自己登录的页面里由你确认发布；本站不代发、不调用付费 API。</p>' +
-      '<div class="sh-src" role="tablist">' + srcTabs.map(function (t) { return '<button type="button" role="tab" class="chip' + (d.src === t[0] ? ' on' : '') + '" data-src="' + t[0] + '" aria-selected="' + (d.src === t[0]) + '">' + I(t[2]) + t[1] + '</button>'; }).join('') + '</div>' +
+      '<div class="sh-src" role="tablist">' + srcTabs.map(function (t) { return '<button type="button" role="tab" class="chip' + (d.src === t[0] ? ' on' : '') + '" data-src="' + t[0] + '" aria-selected="' + (d.src === t[0]) + '">' + navI(t[2], t[3]) + t[1] + '</button>'; }).join('') + '</div>' +
       '<div class="form-grid sh-src-form">' +
       (d.src === 'kit' ? (s ? '<p class="hint fld-wide">来自 <a href="#war-kit">站一实操助手</a>：<b>' + esc(s.title) + '</b>' + (s.templateName ? ' · 模板：' + esc(s.templateName) : '') + (s.url ? ' · ' + esc(s.url) : ' · 还没有网址（<a href="#war-publish">先发布</a> 或在实操助手填域名）') + '</p>' : '<div class="tool-empty fld-wide"><p>还没有可分发的内容。下一步：先到站一实操助手填主词和一句话介绍。</p><a class="btn btn-primary btn-sm" href="#war-kit">去填实操助手</a></div>') : '') +
       (d.src === 'rank' ? '<label class="fld fld-wide"><span>赚钱榜条目（' + esc(global.QUEST_RANK && global.QUEST_RANK.latest || '') + '）</span><select id="sh-rank">' + items.map(function (it) { return '<option value="' + it.rank + '"' + (+d.rank === it.rank ? ' selected' : '') + '>No.' + it.rank + ' ' + esc(it.name) + '</option>'; }).join('') + '</select></label>' : '') +
@@ -207,10 +212,10 @@
 
   /* ---------- 数据分析时间线 ---------- */
   function timeline(state) {
-    ensure(state); var sh = state.shares; if (!sh.length) return '<section class="block glass tool-card" id="share-timeline"><h2 class="block-title">' + I('rocket') + '分发时间线</h2><div class="tool-empty"><p>还没有分发记录。下一步：到内容分发生成文案，再用官方链接自己去发。</p><a class="btn btn-primary btn-sm" href="#war-share">去内容分发</a></div></section>';
+    ensure(state); var sh = state.shares; if (!sh.length) return '<section class="block glass tool-card" id="share-timeline"><h2 class="block-title">' + navI('#war-share', 'send') + '分发时间线</h2><div class="tool-empty"><p>还没有分发记录。下一步：到内容分发生成文案，再用官方链接自己去发。</p><a class="btn btn-primary btn-sm" href="#war-share">去内容分发</a></div></section>';
     var byP = {}, byDay = {}; sh.forEach(function (r) { byP[r.platformName] = (byP[r.platformName] || 0) + 1; var k = r.at.slice(0, 10); (byDay[k] = byDay[k] || []).push(r); });
     var max = Math.max.apply(null, Object.keys(byP).map(function (k) { return byP[k]; }));
-    return '<section class="block glass tool-card" id="share-timeline"><h2 class="block-title">' + I('rocket') + '分发时间线（' + sh.length + ' 次）</h2>' +
+    return '<section class="block glass tool-card" id="share-timeline"><h2 class="block-title">' + navI('#war-share', 'send') + '分发时间线（' + sh.length + ' 次）</h2>' +
       '<div class="sh-bars">' + Object.keys(byP).sort(function (a, b) { return byP[b] - byP[a]; }).map(function (k) { return '<div class="sh-bar"><span>' + esc(k) + '</span><i style="width:' + Math.max(6, byP[k] / max * 100) + '%"></i><b>' + byP[k] + '</b></div>'; }).join('') + '</div>' +
       '<ol class="sh-tl">' + Object.keys(byDay).sort().reverse().slice(0, 14).map(function (day) { return '<li><b>' + day + '</b><ul>' + byDay[day].slice().reverse().map(function (r) { return '<li>' + esc(r.at.slice(11, 16)) + ' · ' + esc(r.platformName) + ' · ' + (r.action === 'open' ? '打开发帖页' : '复制') + ' · ' + esc(r.title) + (r.url ? ' · <a href="' + esc(r.url) + '" target="_blank" rel="noopener">链接</a>' : '') + '</li>'; }).join('') + '</ul></li>'; }).join('') + '</ol>' +
       '<p class="hint">记录的是你在本站点击「复制 / 打开发帖页」的动作，是否真正发出以你在平台上的确认为准。</p></section>';

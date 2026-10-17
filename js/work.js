@@ -1,6 +1,7 @@
 /** Phase 18 · 工作台 #work（每个站点的下一步）+ 每周复盘 #work-review（存档追加字段 reviews） */
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
+  function navI(hash) { return (global.QuestNav && QuestNav.iconFor) ? QuestNav.iconFor(hash) : I('compass'); }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function hostOf(u) { return String(u || '').replace(/^https?:\/\//i, '').replace(/[\/?#].*$/, '').toLowerCase(); }
   var DAY = 86400000;
@@ -56,7 +57,7 @@
     }).join('');
     var gnx = [{ ok: sites.length > 0, t: '先在「我的站点台账」登记你的第一个站（名称、域名、主词），工作台就会按站点给出下一步。', h: '#me-sites', b: '去登记站点' }].filter(function (x) { return !x.ok; })[0];
     root.innerHTML = '<div class="tool-wrap wb wk">' + pipe +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('target') + '工作台 <span class="pill">' + sites.length + ' 个站</span></h2>' +
+      '<section class="block glass tool-card"><h2 class="block-title">' + navI('#work') + '工作台 <span class="pill">' + sites.length + ' 个站</span></h2>' +
       '<p class="hint">选词 → 实操助手 → 发布 → 分发 → 数据 → 复盘。每个站只显示「下一步」，做完自动打勾；数据来自 Google 自动拉取、CSV 导入或台账手记，不编造数字。</p>' +
       '<div class="wk-week"><span>本周（' + wk + ' 起）</span><span>分发 <b>' + weekShares + '</b> 次</span><span>复盘 ' + (rv ? '<b class="ok">已写</b>' : '<a href="#work-review">未写 →</a>') + '</span>' + (G ? '<span>Google：' + (G.token() ? '已授权 · 上次拉取 ' + esc(G.ago(G.cfg().google.lastPull)) : '<a href="#me-accounts">未连接</a>') + '</span>' : '') + '</div></section>' +
       (G ? G.bar() : '') +
@@ -89,7 +90,7 @@
     var isCur = ws === ymd(weekStart()), F = isCur ? facts(state) : (r.facts || []);
     var past = state.reviews.slice().sort(function (a, b) { return a.week < b.week ? 1 : -1; });
     root.innerHTML = '<div class="tool-wrap wb rv">' + global.QuestWorkbench.pipeline(state, 'review') +
-      '<section class="block glass tool-card" id="rv-form-wrap"><h2 class="block-title">' + I('bulb') + '每周复盘 <span class="pill">' + ws + ' 起</span>' + (r.at ? '<span class="wb-st ok">已保存</span>' : '') + '</h2>' +
+      '<section class="block glass tool-card" id="rv-form-wrap"><h2 class="block-title">' + navI('#work-review') + '每周复盘 <span class="pill">' + ws + ' 起</span>' + (r.at ? '<span class="wb-st ok">已保存</span>' : '') + '</h2>' +
       '<p class="hint">每周花 10 分钟：先看自动事实，再写判断和下周 3 件事。只记真实发生的事，收入与规则以官方后台为准。</p>' +
       '<h3 class="wb-h">自动事实（本周一起）</h3><ul class="rv-facts" id="rv-facts">' + F.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
       ((!state.sites.items.length && !state.shares.length && !state.publish.some(function (p) { return p.ok && !p.dry; }) && !state.imports.length && !state.reviews.length)

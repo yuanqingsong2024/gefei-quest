@@ -142,6 +142,18 @@
       .map((t) => `<a href="${t.hash}" class="sub-tab${t.id === activeId ? ' active' : ''}"${t.id === activeId ? ' aria-current="page"' : ''}>${I(t.icon)}<span>${t.label}</span></a>`)
       .join('')}</nav>`;
   }
+  function groupTabs(forRoute) {
+    if (!N.locate) return '';
+    const loc = N.locate((forRoute || route).hash);
+    if (!loc.group || !loc.group.children || !loc.page) return '';
+    const items = loc.group.children.map((c) => ({ id: c.id, label: c.label, icon: c.icon, hash: c.hash }));
+    return subTabs(items, loc.page.id);
+  }
+  function ensureGroupTabs(root) {
+    if (!root || root.querySelector(':scope > nav.sub-tabs')) return;
+    const html = groupTabs(route);
+    if (html) root.insertAdjacentHTML('afterbegin', html);
+  }
 
   function chapterChips() {
     return `<div class="chip-row" role="tablist" aria-label="章节">${QuestData.CHAPTERS.map((ch) => {
@@ -180,8 +192,8 @@
       const root = $('#panel-path');
       const quests = route.view === 'quests';
       crumb = quests ? '任务清单' : '';
-      root.innerHTML = subTabs(N.PATH_TABS, quests ? 'quests' : 'map') +
-        (quests ? chapterChips() : '') + `<p class="hint path-tools">动手工具：<a href="#war-keywords">${I('tag')}选词练习板</a> · <a href="#war-kit">${I('kit')}站一实操助手</a> · <a href="#me-sites">${I('ledger')}我的站点台账</a></p>` + '<div id="path-body"></div>';
+      root.innerHTML = groupTabs(route) +
+        (quests ? chapterChips() : '') + `<p class="hint path-tools">动手工具：<a href="#war-keywords">${N.iconFor('#war-keywords')}选词练习板</a> · <a href="#war-kit">${N.iconFor('#war-kit')}站一实操助手</a> · <a href="#me-sites">${N.iconFor('#me-sites')}我的站点台账</a></p>` + '<div id="path-body"></div>';
       if (quests) {
         root.querySelectorAll('[data-ch]').forEach((b) => b.addEventListener('click', () => {
           const id = b.getAttribute('data-ch');
@@ -197,32 +209,32 @@
       }
     } else if (sec === 'war' && route.view === 'rank') {
       crumb = '每日赚钱榜';
-      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'rank') + '<div id="tool-body"></div>';
+      $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';
       QuestRank.renderRank(state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && (route.view === 'work' || route.view === 'review')) {
       const wk = route.view === 'work';
       crumb = wk ? '工作台' : '每周复盘';
-      $('#panel-war').innerHTML = (wk ? backupBar() : '') + subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>';
+      $('#panel-war').innerHTML = (wk ? backupBar() : '') + groupTabs(route) + '<div id="tool-body"></div>';
       QuestWork[wk ? 'renderWork' : 'renderReview'](state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && route.view === 'share') {
       crumb = '内容分发';
-      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'share') + '<div id="tool-body"></div>';
+      $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';
       QuestShare.render(state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && route.view === 'publish') {
       crumb = '发布上线';
-      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'publish') + '<div id="tool-body"></div>';
+      $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';
       QuestWorkbench.renderPublish(state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && (route.view === 'kit' || route.view === 'keywords')) {
       const root = $('#panel-war');
       const kit = route.view === 'kit';
       crumb = kit ? '站一实操助手' : '选词练习板';
-      root.innerHTML = subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>' + (kit ? '<div id="kit-plan"></div>' : '');
+      root.innerHTML = groupTabs(route) + '<div id="tool-body"></div>' + (kit ? '<div id="kit-plan"></div>' : '');
       QuestTools[kit ? 'renderKit' : 'renderKeywords'](state, $('#tool-body'), toolCtx());
       $('#tool-body').insertAdjacentHTML('afterbegin', QuestWorkbench.pipeline(state, route.view));
       $('#tool-body').addEventListener('input', () => setTimeout(() => { const pn = $('#tool-body .wb-pipe'); if (pn) pn.outerHTML = QuestWorkbench.pipeline(state, route.view); }, 60));
       if (kit) { const kp = $('#kit-plan'); kp.innerHTML = QuestRank.planHtml(state); QuestRank.bindPlan(state, kp, toolCtx()); }
     } else if (sec === 'war') {
-      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'days') + '<div id="war-body"></div>';
+      $('#panel-war').innerHTML = groupTabs(route) + '<div id="war-body"></div>';
       QuestWarRoom.setActiveStation(route.param || 1);
       const st = N.STATIONS.find((x) => x.n === (route.param || 1));
       crumb = st ? st.label : '';
@@ -239,6 +251,7 @@
     } else if (sec === 'lib' && route.view === 'pm') {
       crumb = QuestPlatforms.titleOf(route.param);
       QuestPlatforms.render($('#panel-lib'), route.param);
+      ensureGroupTabs($('#panel-lib'));
     } else if (sec === 'lib') {
       const c = N.LIB_CATS.find((x) => x.id === route.param);
       crumb = c ? c.label : '';
@@ -253,17 +266,19 @@
         },
       });
       if (window.QUEST_PLATFORMS && !$('#pm-banner')) $('#panel-lib').insertAdjacentHTML('afterbegin', '<a id="pm-banner" class="pm-banner" href="#pm">' + QuestIcons.svg('coin') + '<span><b>平台变现 · 国内 + 海外</b><small>' + window.QUEST_PLATFORMS.PLATFORMS.length + ' 个平台的变现方式、门槛、分成规则与官方来源 · 新手怎么选</small></span>' + QuestIcons.svg('arrowRight') + '</a>');
+      ensureGroupTabs($('#panel-lib'));
     } else if (sec === 'guides' || sec === 'dev') {
       const root = $('#panel-guides');
       if (route.view === 'doc') {
         crumb = QuestGuides.docTitle(route.param, sec === 'dev');
         const want = route.hash, isDev = sec === 'dev', param = route.param;
         root.innerHTML = '<div class="skeleton-doc" aria-busy="true" aria-label="加载中">' + '<i class="sk sk-title"></i>' + '<i class="sk"></i><i class="sk"></i><i class="sk sk-short"></i>'.repeat(3) + '</div>';
-        setTimeout(() => { if (route.hash !== want) return; QuestGuides.renderDoc(root, param, isDev); N.fixLinks(root); }, 16);
+        setTimeout(() => { if (route.hash !== want) return; QuestGuides.renderDoc(root, param, isDev); N.fixLinks(root); if (!isDev) ensureGroupTabs(root); }, 16);
       } else if (sec === 'dev') {
         QuestGuides.renderDev(root);
       } else {
         QuestGuides.renderGuides(root);
+        ensureGroupTabs(root);
       }
     } else if (sec === 'weekly') {
       QuestWeekly.renderShip(state, $('#panel-weekly'), (id) => {
@@ -279,25 +294,26 @@
         showNewlyAchievements(res.newly);
         renderAll();
       });
+      ensureGroupTabs($('#panel-weekly'));
     } else if (sec === 'me') {
       const root = $('#panel-me');
       if (route.view === 'accounts' || route.view === 'analytics') {
         const acc = route.view === 'accounts';
         crumb = acc ? '账号中心' : '数据分析';
-        root.innerHTML = subTabs(N.ME_TABS, route.view) + '<div id="wb-body"></div>';
+        root.innerHTML = groupTabs(route) + '<div id="wb-body"></div>';
         QuestWorkbench[acc ? 'renderAccounts' : 'renderAnalytics'](state, $('#wb-body'), toolCtx());
         renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); afterRoute(); return;
       }
       if (route.view === 'ai') {
         crumb = 'AI 设置';
-        root.innerHTML = subTabs(N.ME_TABS, 'ai') + '<div id="ai-body"></div>';
+        root.innerHTML = groupTabs(route) + '<div id="ai-body"></div>';
         QuestAI.renderSettings($('#ai-body'));
         renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); afterRoute(); return;
       }
       if (route.view === 'stats' || route.view === 'changelog') {
         const cl = route.view === 'changelog';
         crumb = cl ? '更新日志' : '学习统计';
-        root.innerHTML = subTabs(N.ME_TABS, route.view) + '<div id="stats-body"></div>';
+        root.innerHTML = groupTabs(route) + '<div id="stats-body"></div>';
         if (cl) {
           QuestStats.renderChangelog(state, $('#stats-body'));
           if ((state.lastSeenChangelog || 0) < QuestStats.latestId()) { state.lastSeenChangelog = QuestStats.latestId(); persist(); }
@@ -306,12 +322,12 @@
       }
       if (route.view === 'sites') {
         crumb = '我的站点台账';
-        root.innerHTML = subTabs(N.ME_TABS, 'sites') + '<div id="sites-body"></div>';
+        root.innerHTML = groupTabs(route) + '<div id="sites-body"></div>';
         QuestTools.renderSites(state, $('#sites-body'), toolCtx());
         $('#sites-body').insertAdjacentHTML('afterbegin', QuestWorkbench.pipeline(state, 'sites'));
         renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); afterRoute(); return;
       }
-      root.innerHTML = backupBar() + subTabs(N.ME_TABS, 'overview') + `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>
+      root.innerHTML = backupBar() + groupTabs(route) + `<section class="block"><h2 class="block-title">${N.iconFor('#me')}概览</h2>${statsHtml()}</section>
         <section class="block" id="me-ach-wrap"><div id="me-ach"></div></section>
         <section class="block" id="me-settings-wrap"><div id="me-settings"></div></section>`;
       QuestAchievements.renderWall(state, $('#me-ach'));

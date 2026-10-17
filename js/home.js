@@ -1,5 +1,15 @@
 /** 首页 · 白话说明：这是什么、怎么用、今日赚钱榜、为什么做、常见问题 */
 (function (global) {
+  function pageSvg(hash, fallback) {
+    var Nv = global.QuestNav;
+    if (hash && Nv && Nv.iconName && Nv.iconName(hash)) return Nv.icon(Nv.iconName(hash));
+    return global.QuestIcons ? QuestIcons.svg(fallback || 'compass') : '';
+  }
+  function groupSvg(id, fallback) {
+    var nav = global.QuestNav && QuestNav.SITE_NAV, i, name = fallback || 'compass';
+    if (nav) for (i = 0; i < nav.length; i++) if (nav[i].id === id && nav[i].icon) name = nav[i].icon;
+    return global.QuestIcons ? QuestIcons.svg(name) : '';
+  }
   function esc(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;')
@@ -344,16 +354,22 @@
     ['和哥飞是什么关系？', '非官方。这里按公开分享的方法做学习整理，方便新手按步骤做英文出海小站。'],
   ];
   var ROUTE_LABEL = {
-    work: '工作台', 'work-review': '每周复盘', war: '作战日程', 'war-s2': '站二作战室', 'war-s3': '站三作战室', 'war-m': '变现作战室', 'war-x': '放大作战室',
+    work: '工作台', 'work-review': '每周复盘', war: '7 天作战日程', 'war-s2': '7 天作战日程', 'war-s3': '7 天作战日程', 'war-m': '7 天作战日程', 'war-x': '7 天作战日程',
     'war-kit': '站一实操助手', 'war-keywords': '选词练习板', 'war-rank': '每日赚钱榜', 'war-publish': '发布上线', 'war-share': '内容分发',
     path: '学习路线', 'path-quests': '任务清单', lib: '资源库', pm: '平台变现', me: '我的进度', 'me-accounts': '账号中心', 'me-analytics': '数据分析',
     'me-ai': 'AI 设置', 'me-sites': '站点台账', 'me-stats': '学习统计', start: '新手引导', guides: '手册与模板', weekly: '每周补给', changelog: '更新日志',
   };
   function routeLabel(h) {
+    try {
+      if (global.QuestNav && QuestNav.locate) {
+        var loc = QuestNav.locate(h);
+        if (loc.page && loc.page.label) return loc.page.label;
+      }
+    } catch (_) {}
     if (ROUTE_LABEL[h]) return ROUTE_LABEL[h];
     if (h.indexOf('lib-') === 0) return '资源库';
     if (h.indexOf('pm-') === 0) return '平台变现';
-    if (h.indexOf('guide-') === 0) return '手册';
+    if (h.indexOf('guide-') === 0) return '手册与模板';
     return '上次打开的页面';
   }
   function continueNext(state) {
@@ -386,11 +402,11 @@
   }
 
   function sitesSnap(raw) {
-    var T = global.QuestTools, I = global.QuestIcons.svg; if (!T) return '';
+    var T = global.QuestTools; if (!T) return '';
     raw = raw || {};
     var S = T.summary(JSON.parse(JSON.stringify(raw)));
-    if (!S.count) return '<p class="snap-sites" id="home-sites-snap"><a href="#me-sites">' + I('ledger') + '站点台账</a>：还没有登记站点，站一上线后记一笔。</p>';
-    return '<p class="snap-sites" id="home-sites-snap"><a href="#me-sites">' + I('ledger') + '站点台账</a>：<b>' + S.count + '</b> 个站' +
+    if (!S.count) return '<p class="snap-sites" id="home-sites-snap"><a href="#me-sites">' + pageSvg('#me-sites', 'ledger') + '站点台账</a>：还没有登记站点，站一上线后记一笔。</p>';
+    return '<p class="snap-sites" id="home-sites-snap"><a href="#me-sites">' + pageSvg('#me-sites', 'ledger') + '站点台账</a>：<b>' + S.count + '</b> 个站' +
       (S.t ? ' · ' + esc(S.month) + ' 合计 曝光 <b>' + S.t.imp + '</b> · 点击 <b>' + S.t.clicks + '</b> · 收入 <b>$' + S.t.usd.toFixed(2) + '</b>' + (S.t.cny ? ' + <b>¥' + S.t.cny.toFixed(2) + '</b>' : '') : ' · 还没有月度记录') + '</p>';
   }
   function snapshot() {
@@ -535,9 +551,9 @@
       }).join('') + '</ol>'
       : '<p class="home-rank-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     var howto = [
-      ['#start-learn', 'map', '① 学', '先看学习路线，知道每一步在做什么。'],
-      ['#start-do', 'build', '② 做', '按实施步骤选词、做页面、再发布。'],
-      ['#start-earn', 'coin', '③ 赚', '看每日赚钱榜，挑一条先试一周。'],
+      ['#path', groupSvg('learn', 'book-open'), 'tint-learn', '① 学', '先看学习路线，知道每一步在做什么。'],
+      ['#war', groupSvg('do', 'tools'), 'tint-do', '② 做', '按实施步骤选词、做页面、再发布。'],
+      ['#war-rank', groupSvg('earn', 'coin'), 'tint-earn', '③ 赚', '看每日赚钱榜，挑一条先试一周。'],
     ];
     var flow = [['#start-learn', '学习'], ['#start-do', '实施'], ['#start-earn', '赚钱']];
     var top3 = items.slice(0, 3);
@@ -558,8 +574,8 @@
       '<ol class="hero-steps" aria-label="学习、实施、赚钱">' + flow.map(function (s) {
         return '<li><a href="' + s[0] + '">' + s[1] + '</a></li>';
       }).join('') + '</ol>' +
-      '<div class="hero-cta"><a class="btn btn-primary" id="home-cta" href="' + esc(step.href) + '" data-tour="cta">' + I('flag') + esc(step.btn) + '</a>' +
-      '<a class="btn btn-ghost" href="#home-rank">' + I('trophy') + '直接看今日赚钱榜</a></div>' +
+      '<div class="hero-cta"><a class="btn btn-primary" id="home-cta" href="' + esc(step.href) + '" data-tour="cta">' + pageSvg(step.href, 'flag') + esc(step.btn) + '</a>' +
+      '<a class="btn btn-ghost" href="#home-rank">' + pageSvg('#war-rank', 'trophy') + '直接看今日赚钱榜</a></div>' +
       '</div>' +
       '<aside class="hero-top3" id="hero-top3" aria-label="今日赚钱榜 Top 3">' +
       '<div class="hero-top3-head"><h2>今日赚钱榜 Top 3</h2>' +
@@ -570,10 +586,10 @@
       (next ? '<aside class="home-continue" id="home-continue"><div class="home-inner"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></div></aside>' : '') +
       '<section class="home-band band-a" id="home-howto" data-tour="howto"><div class="home-inner"><div class="sec-head"><h2>' + I('flag') + '这个网站怎么用</h2></div>' +
       '<ol class="home-howto">' + howto.map(function (s) {
-        return '<li><a href="' + s[0] + '"><span class="home-step-ico" aria-hidden="true">' + I(s[1]) + '</span><b>' + s[2] + '</b><span>' + esc(s[3]) + '</span></a></li>';
+        return '<li><a href="' + s[0] + '"><span class="home-step-ico ' + s[2] + '" aria-hidden="true">' + s[1] + '</span><b>' + s[3] + '</b><span>' + esc(s[4]) + '</span></a></li>';
       }).join('') + '</ol></div></section>' +
       '<section class="home-band band-b" id="home-rank" data-tour="rank" aria-label="今日赚钱榜"><div class="home-inner">' +
-      '<div class="home-rank-head"><div><h2>' + I('trophy') + '今日赚钱榜</h2>' +
+      '<div class="home-rank-head"><div><h2>' + pageSvg('#war-rank', 'trophy') + '今日赚钱榜</h2>' +
       '<p>' + (date ? '<time id="home-rank-date" datetime="' + esc(date) + '">' + esc(date) + '</time> · ' : '') + '每日更新 · 不保证收益</p></div>' +
       '<a class="btn btn-primary" href="#war-rank">查看完整榜单</a></div>' +
       rankBody + '</div></section>' +

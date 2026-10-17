@@ -3,7 +3,7 @@
  *  每个图标 = 线稿 + 一块淡色强调面（<g class="ia">，fill currentColor 22%），保证同一家族的体量感一致。
  *  badge(name)：渐变圆角底 + 图标；色调由 TONE 决定（gold / cyan / green / violet / rose / slate）。 */
 (function (global) {
-  function A(d) { return '<g class="ia" fill="currentColor" stroke="none" opacity=".22">' + d + '</g>'; }
+  function A(d) { return '<g class="ia" fill="currentColor" stroke="none" opacity=".15">' + d + '</g>'; }
   var P = {
     lighthouse: A('<path d="M10.2 9h3.6l1 11H9.2z"/>') + '<path d="M9 21l1.2-12h3.6L15 21"/><path d="M9.2 9h5.6"/><path d="M10.4 9l.6-4h2l.6 4"/><path d="M12 3v2"/><path d="M4 6.5l3.5 1M20 6.5l-3.5 1"/><path d="M5 21h14"/>',
     map: A('<path d="M9 4l6 2v14l-6-2z"/>') + '<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/>',
@@ -47,8 +47,25 @@
     ledger: A('<rect x="4" y="3" width="4" height="18" rx="1"/>') + '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v18"/><path d="M11 8h6M11 12h6M11 16h4"/>',
     fire: A('<path d="M12 21c-2.5 0-4-1.8-4-4 0-2 1.5-3 2.5-5 .5 1.5 1.5 2 2 2.5.5-1 1-2.5.5-4 2 1.5 3 3.5 3 6.5 0 2.2-1.5 4-4 4z"/>') + '<path d="M12 21c4 0 7-3 7-7 0-4-3-6-4-10-2 2-3 4-3 6-1-1-2-2-2-4-3 3-5 5-5 8 0 4 3 7 7 7z"/>',
     sparkle: A('<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/>') + '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16v4M17 18h4"/>',
-    home: A('<path d="M9.5 21v-6h5v6z"/>') + '<path d="M3 11l9-7 9 7"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/>',
+    home: A('<path d="M9.5 20.5v-5.5h5v5.5z"/>') + '<path d="M4 11.5L12 4.5l8 7"/><path d="M6 10.2V20.5h12V10.2"/><path d="M9.5 20.5v-5.5h5v5.5"/>',
     close: '<path d="M6 6l12 12M18 6L6 18"/>',
+    'book-open': A('<path d="M12 6.2c-1.6-1.2-4-1.7-7.2-1.2v13.2c3.2-.5 5.6.1 7.2 1.3z"/>') + '<path d="M12 6.2c-1.6-1.2-4-1.7-7.2-1.2v13.2c3.2-.5 5.6.1 7.2 1.3 1.6-1.2 4-1.8 7.2-1.3V5c-3.2-.5-5.6.1-7.2 1.2z"/><path d="M12 6.2v13.3"/>',
+    tools: A('<path d="M14.2 4.8a2.3 2.3 0 0 1 2.6 3.4L9.2 15.8a1.6 1.6 0 0 1-2.3-2.3l7.6-7.6a2.3 2.3 0 0 1-.3-1.1z"/>') + '<path d="M14.6 5.2a2.2 2.2 0 0 1 2.2 3.1L8.8 16.3a1.5 1.5 0 1 1-2.1-2.1l8-8a2.2 2.2 0 0 1-.1-1z"/><path d="M6.2 6.2l2.4 2.4M5.2 8.2l8.6 8.6M16.2 16.6l2.2 2.2"/>',
+    checklist: A('<rect x="5" y="3.5" width="14" height="17" rx="2"/>') + '<rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8 8.2l1.2 1.2 2.1-2.2M8 13l1.2 1.2 2.1-2.2M13 8.5h4M13 13.2h4"/>',
+    'file-text': A('<path d="M14 3.5V8h4.5z"/>') + '<path d="M7 3.5h7l4.5 4.5V20.5H7z"/><path d="M14 3.5V8h4.5M10 12.2h6M10 15.8h4"/>',
+    archive: A('<rect x="4" y="4" width="16" height="4.2" rx="1.2"/>') + '<path d="M5 8.2V19.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.2"/><rect x="4" y="4" width="16" height="4.2" rx="1.2"/><path d="M10 12.5h4"/>',
+    'calendar-check': A('<rect x="4" y="5.5" width="16" height="14.5" rx="2"/>') + '<rect x="4" y="5.5" width="16" height="14.5" rx="2"/><path d="M4 10h16M8 3.5v3.2M16 3.5v3.2M8.6 15.2l2 2 4.2-4.4"/>',
+    wand: A('<path d="M14.2 5.2l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1z"/>') + '<path d="M5 19.2L13.2 11"/><path d="M14.2 5.2l1 2.2 2.2 1-2.2 1-1 2.2-1-2.2-2.2-1 2.2-1z"/><path d="M17.2 14.5v2M16.2 15.5h2M18.2 4.2v1.6"/>',
+    send: A('<path d="M5 12.2L19 5.5l-5.2 13.2-2.2-5.6z"/>') + '<path d="M5 12.2L19 5.5l-5.2 13.2-2.2-5.6z"/><path d="M11.6 13.1L19 5.5"/>',
+    dashboard: A('<rect x="4" y="4" width="7" height="7" rx="1.4"/>') + '<rect x="4" y="4" width="7" height="7" rx="1.4"/><rect x="13" y="4" width="7" height="4.2" rx="1.4"/><rect x="13" y="10.2" width="7" height="9.8" rx="1.4"/><rect x="4" y="13" width="7" height="7" rx="1.4"/>',
+    'chart-line': A('<path d="M5 16.5l3.2-3.6 2.8 2.2 5-5.6"/>') + '<path d="M4.5 5.5v14h15"/><path d="M7 16l3.2-3.6 2.8 2.2L18 8.2"/><path d="M15.2 8.2H18v2.6"/>',
+    'clipboard-check': A('<rect x="6.5" y="5" width="11" height="15" rx="1.6"/>') + '<rect x="6.5" y="5" width="11" height="15" rx="1.6"/><path d="M9.2 4.2h5.6v2.4H9.2zM9 13.2l1.8 1.8 3.6-3.8"/>',
+    wallet: A('<rect x="3.5" y="7" width="17" height="12" rx="2"/>') + '<rect x="3.5" y="7" width="17" height="12" rx="2"/><path d="M3.5 11h17"/><circle cx="16.2" cy="14.6" r="1.1"/><path d="M7.5 7V5.6h8.2"/>',
+    gauge: A('<path d="M5.2 16.8a6.8 6.8 0 1 1 13.6 0"/>') + '<path d="M5.2 16.8a6.8 6.8 0 1 1 13.6 0"/><path d="M12 16.8l3.6-3.4"/><circle cx="12" cy="16.8" r="1.1"/>',
+    'bar-chart': A('<path d="M7 19V12.2h0z"/>') + '<path d="M4.5 19.2h15"/><path d="M7 19.2V12M12 19.2V7.5M17 19.2V10.2"/>',
+    key: A('<circle cx="8.2" cy="12" r="3.1"/>') + '<circle cx="8.2" cy="12" r="3.1"/><path d="M11.1 12H20M16.6 12v2.6M19.2 12v1.8"/>',
+    history: A('<path d="M12 7.5V12l2.4 1.8z"/>') + '<path d="M5.2 12a6.8 6.8 0 1 0 1.8-4.6"/><path d="M5 6.2V9.2H8"/><path d="M12 8v4l2.6 1.8"/>',
+    sitemap: A('<rect x="9" y="3.5" width="6" height="4" rx="1"/>') + '<rect x="9" y="3.5" width="6" height="4" rx="1"/><rect x="3.5" y="16.2" width="6" height="4" rx="1"/><rect x="14.5" y="16.2" width="6" height="4" rx="1"/><path d="M12 7.5v3.2M12 10.7H6.5V16.2M12 10.7h5.5V16.2"/>',
   };
   var TONE = {
     lighthouse: 'gold', map: 'cyan', list: 'cyan', target: 'rose', toolbox: 'green', book: 'violet', calendar: 'cyan', user: 'gold', trophy: 'gold',
@@ -56,6 +73,9 @@
     coin: 'gold', route: 'violet', fish: 'cyan', bulb: 'gold', users: 'violet', file: 'slate', template: 'violet', ship: 'cyan', compass: 'gold',
     search: 'cyan', build: 'green', star: 'gold', gear: 'slate', download: 'green', lock: 'slate', kit: 'green', tag: 'rose', ledger: 'violet', fire: 'rose',
     sparkle: 'gold', home: 'gold',
+    'book-open': 'cyan', tools: 'green', checklist: 'cyan', 'file-text': 'violet', archive: 'green', 'calendar-check': 'cyan',
+    wand: 'green', send: 'cyan', dashboard: 'slate', 'chart-line': 'green', 'clipboard-check': 'gold', wallet: 'gold',
+    gauge: 'gold', 'bar-chart': 'cyan', key: 'slate', history: 'violet', sitemap: 'cyan',
   };
   function svg(name, cls) {
     var d = P[name] || P.compass;

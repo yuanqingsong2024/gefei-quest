@@ -2,6 +2,11 @@
  *  数据仅存本机 localStorage（save.kit / save.keywords / save.sites，均为追加字段） */
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
+  function navI(hash, fallback) {
+    var Nv = global.QuestNav;
+    if (hash && Nv && Nv.iconName && Nv.iconName(hash)) return Nv.iconFor(hash);
+    return I(fallback || 'compass');
+  }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
   var PRIV = '<p class="tool-privacy">' + I('lock') + '所有内容只保存在当前浏览器，不会上传；换设备请在「我的进度」导出存档。</p>';
@@ -272,7 +277,7 @@
       '<section class="block glass tool-card" data-tab="3 · 下载 / 发布"><h2 class="block-title">' + I('download') + '3 · 下载我的站一页面</h2>' +
       '<p class="hint">当前模板：<b id="kit-tpl-name">' + esc(templateMeta(kit).name) + '</b>。生成 index.html（已填好 title / description / h1 / 联系邮箱 / canonical）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。</p>' +
       '<p class="kit-files" id="kit-dl-files"></p>' +
-      '<div class="tool-actions"><button type="button" class="btn btn-primary btn-sm" id="kit-dl">' + I('download') + '下载我的站一页面（ZIP）</button>' + '<a class="btn btn-sm" id="kit-publish" href="#war-publish">' + I('rocket') + '直接发布到 GitHub</a>' +
+      '<div class="tool-actions"><button type="button" class="btn btn-primary btn-sm" id="kit-dl">' + I('download') + '下载我的站一页面（ZIP）</button>' + '<a class="btn btn-sm" id="kit-publish" href="#war-publish">' + navI('#war-publish', 'rocket') + '直接发布到 GitHub</a>' +
       '<button type="button" class="btn btn-sm" data-dl="index.html">只下 index.html</button><button type="button" class="btn btn-sm" data-dl="robots.txt">robots.txt</button><button type="button" class="btn btn-sm" data-dl="sitemap.xml">sitemap.xml</button></div></section>' +
       '<section class="block glass tool-card" data-tab="4 · 上线自查表"><h2 class="block-title">' + I('list') + '4 · 上线自查表 <small class="tool-count" id="kit-count"></small></h2>' +
       '<p class="hint">标 ⇄ 的项与学习路线任务等价，勾上会同步勾对应任务。</p><ul class="kit-checks">' +
@@ -488,11 +493,11 @@
     var e = editing || { name: '', domain: '', kw: state.kit.keyword || '', station: '站一', launch: '', status: '筹备', host: '', money: '' };
     var totalClicks = 0, totalUsd = 0; items.forEach(function (s) { (s.logs || []).forEach(function (l) { totalClicks += +l.clicks || 0; totalUsd += cny(l); }); });
     root.innerHTML = '<div class="tool-wrap">' +
-      '<div class="stat-grid site-sum"><div class="stat"><span class="card-ico">' + I('globe') + '</span><b id="sites-count">' + items.length + '</b><small>站点数</small></div>' +
+      '<div class="stat-grid site-sum"><div class="stat"><span class="card-ico">' + navI('#me-sites', 'ledger') + '</span><b id="sites-count">' + items.length + '</b><small>站点数</small></div>' +
       '<div class="stat"><span class="card-ico">' + I('flag') + '</span><b>' + items.filter(function (s) { return s.status !== '筹备' && s.status !== '暂停'; }).length + '</b><small>已上线及以上</small></div>' +
       '<div class="stat"><span class="card-ico">' + I('chart') + '</span><b>' + (S.t ? S.t.clicks : 0) + '</b><small>' + (S.month || '最近月') + ' 点击</small></div>' +
       '<div class="stat"><span class="card-ico">' + I('coin') + '</span><b>$' + totalUsd.toFixed(2) + '</b><small>累计收入（折合 USD）· 累计点击 ' + totalClicks + '</small></div></div>' +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('globe') + (editing ? '编辑站点' : '登记一个站点') + '</h2><form id="site-form" class="form-grid" autocomplete="off">' +
+      '<section class="block glass tool-card"><h2 class="block-title">' + navI('#me-sites', 'ledger') + (editing ? '编辑站点' : '登记一个站点') + '</h2><form id="site-form" class="form-grid" autocomplete="off">' +
       sf('name', '名称', '我的 PDF 小站', e.name, 'required') + sf('domain', '域名', 'pdfmergetool.com', e.domain) + sf('kw', '主词', 'pdf merge tool', e.kw) +
       '<label class="fld"><span>对应站</span><select id="site-station">' + optList(STATIONS, e.station) + '</select></label>' +
       '<label class="fld"><span>上线日</span><input type="date" id="site-launch" value="' + esc(e.launch) + '" /></label>' +

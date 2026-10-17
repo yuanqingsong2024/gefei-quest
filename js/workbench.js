@@ -3,6 +3,7 @@
 (function (global) {
   var KEY = 'gefei-quest-accounts-v1';
   var I = function (n) { return global.QuestIcons.svg(n); };
+  function navI(hash) { return (global.QuestNav && QuestNav.iconFor) ? QuestNav.iconFor(hash) : I('compass'); }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   function uid() { return 'i' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
   function toast(t) { if (global.QuestModal) global.QuestModal.showToast(t); }
@@ -52,16 +53,16 @@
     ensure(state);
     var kw = state.keywords && state.keywords.items || [], kit = state.kit || {}, sites = state.sites && state.sites.items || [];
     var steps = [
-      ['keywords', '选词', 'tag', '#war-keywords', kw.length > 0 || !!kit.keyword],
-      ['kit', '实操助手', 'kit', '#war-kit', !!(kit.keyword && kit.intro)],
-      ['publish', '发布上线', 'rocket', '#war-publish', state.publish.some(function (p) { return p.ok && !p.dry; })],
-      ['share', '内容分发', 'external', '#war-share', Array.isArray(state.shares) && state.shares.length > 0],
-      ['analytics', '数据', 'chart', '#me-analytics', state.imports.length > 0 || sites.some(function (s) { return (s.logs || []).length > 0; })],
-      ['review', '复盘', 'bulb', '#work-review', Array.isArray(state.reviews) && state.reviews.length > 0],
+      ['keywords', '选词', '#war-keywords', kw.length > 0 || !!kit.keyword],
+      ['kit', '实操助手', '#war-kit', !!(kit.keyword && kit.intro)],
+      ['publish', '发布上线', '#war-publish', state.publish.some(function (p) { return p.ok && !p.dry; })],
+      ['share', '内容分发', '#war-share', Array.isArray(state.shares) && state.shares.length > 0],
+      ['analytics', '数据', '#me-analytics', state.imports.length > 0 || sites.some(function (s) { return (s.logs || []).length > 0; })],
+      ['review', '复盘', '#work-review', Array.isArray(state.reviews) && state.reviews.length > 0],
     ];
     if (active === 'sites') active = 'analytics';
-    return '<nav class="wb-pipe" aria-label="实操流水线"><a class="wb-pipe-home" href="#work" title="工作台">' + I('target') + '<span>工作台</span></a>' + steps.map(function (s, i) {
-      return (i ? '<span class="wb-pipe-arrow" aria-hidden="true">→</span>' : '') + '<a href="' + s[3] + '" class="wb-step' + (s[4] ? ' done' : '') + (active === s[0] ? ' on' : '') + '" data-step="' + s[0] + '">' + I(s[2]) + '<span>' + s[1] + '</span>' + (s[4] ? '<i aria-label="已完成">✓</i>' : '') + '</a>';
+    return '<nav class="wb-pipe" aria-label="实操流水线"><a class="wb-pipe-home" href="#work" title="工作台">' + navI('#work') + '<span>工作台</span></a>' + steps.map(function (s, i) {
+      return (i ? '<span class="wb-pipe-arrow" aria-hidden="true">→</span>' : '') + '<a href="' + s[2] + '" class="wb-step' + (s[3] ? ' done' : '') + (active === s[0] ? ' on' : '') + '" data-step="' + s[0] + '">' + navI(s[2]) + '<span>' + s[1] + '</span>' + (s[3] ? '<i aria-label="已完成">✓</i>' : '') + '</a>';
     }).join('') + '</nav>';
   }
 
@@ -77,7 +78,7 @@
       return '<span class="wb-st">' + (p.cls === 'B' ? '需 Phase B 后端' : '计划中') + '</span>';
     };
     root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, '') +
-      '<section class="block glass tool-card cx-fold"><h2 class="block-title">' + I('user') + '账号中心</h2><p class="hint">按官方接口能力分 4 类。只用官方 API 和官方导出文件，不爬虫、不模拟登录。Token 只存在这台浏览器的独立键里，不进存档导出，可一键忘记。</p>' +
+      '<section class="block glass tool-card cx-fold"><h2 class="block-title">' + navI('#me-accounts') + '账号中心</h2><p class="hint">按官方接口能力分 4 类。只用官方 API 和官方导出文件，不爬虫、不模拟登录。Token 只存在这台浏览器的独立键里，不进存档导出，可一键忘记。</p>' +
       '<div class="wb-legend">' + Object.keys(CLS).map(function (k) { return '<span class="wb-cls wb-cls-' + k + '">' + k + '</span>' + CLS[k]; }).join('') + '</div></section>' +
       '<section class="block glass tool-card" id="gh-connect" data-tab="GitHub 连接"><h2 class="block-title">' + I('code') + 'GitHub 连接</h2>' +
       '<p class="hint">在 GitHub「Settings → Developer settings → Fine-grained tokens」新建 Token：只选你要发布的仓库，权限 Contents、Pages、Administration 设为 Read and write（新建仓库需 Administration）。</p>' +
@@ -180,7 +181,7 @@
     if (!g.repo && slug) g.repo = slug;
     var hist = state.publish.slice(-5).reverse();
     root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, 'publish') +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('rocket') + '发布上线：把实操助手生成的站点写进你的 GitHub 仓库</h2>' +
+      '<section class="block glass tool-card"><h2 class="block-title">' + navI('#war-publish') + '发布上线：把实操助手生成的站点写进你的 GitHub 仓库</h2>' +
       (!ready ? '<div class="tool-empty"><p>还不能发布。下一步：先到站一实操助手填主词和一句话介绍，生成页面后再来。</p><a class="btn btn-primary btn-sm" href="#war-kit">去填实操助手</a></div>' :
         '<p class="hint">将发布 ' + files.length + ' 个文件：' + files.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ') + '（来自主词「' + esc(kit.keyword) + '」）。模板：' + esc(tplLabel) + '</p>') +
       (!g.token ? '<div class="tool-empty"><p>' + I('lock') + '还没连接 GitHub。下一步：到账号中心填 Fine-grained Token。</p><a class="btn btn-primary btn-sm" href="#me-accounts">去账号中心</a></div>' : '<p class="hint">已连接：<b>' + esc(g.login || '（未校验）') + '</b> · <a href="#me-accounts">管理</a></p>') +
@@ -192,7 +193,7 @@
       '<label class="chk fld-wide"><input type="checkbox" id="pub-create"' + (g.createRepo ? ' checked' : '') + ' /> 仓库不存在时自动新建（公开仓库）</label>' +
       '<label class="chk fld-wide"><input type="checkbox" id="pub-pages"' + (g.enablePages ? ' checked' : '') + ' /> 开启 GitHub Pages（从该分支根目录）</label>' +
       '<div class="tool-actions fld-wide"><button type="button" class="btn btn-sm" id="pub-dry"' + (ready && g.token ? '' : ' disabled') + '>' + I('search') + '预览（不写入）</button>' +
-      '<button type="button" class="btn btn-primary btn-sm" id="pub-go" disabled>' + I('rocket') + '确认发布</button></div></form>' +
+      '<button type="button" class="btn btn-primary btn-sm" id="pub-go" disabled>' + navI('#war-publish') + '确认发布</button></div></form>' +
       '<p class="hint">先预览：会列出每个文件是新建、更新还是不变，以及 Pages 状态。确认后才写入。写入使用 GitHub 官方 Contents API。</p>' +
       '<div id="pub-out" aria-live="polite"></div></section>' +
       (ready ? '<section class="block glass tool-card"><h2 class="block-title">' + I('file') + '页面预览</h2><iframe class="wb-preview" sandbox="allow-scripts allow-forms" title="index.html 预览" srcdoc="' + esc(files[0].text) + '"></iframe></section>' : '') +
@@ -231,7 +232,7 @@
         if (!s) { s = { id: uid(), logs: [], name: kit.keyword, domain: dom, kw: kit.keyword, station: '站一', launch: new Date().toISOString().slice(0, 10), status: '已上线', host: 'GitHub Pages', money: '' }; sites.push(s); }
         else { s.host = 'GitHub Pages'; if (!s.domain) s.domain = dom; if (s.status === '筹备') s.status = '已上线'; if (!s.launch) s.launch = new Date().toISOString().slice(0, 10); }
         ctx.save();
-        out.innerHTML = '<h3 class="wb-h">' + I('rocket') + '发布完成</h3>' + table(plan, false) + '<p>站点地址：<a id="pub-url" href="' + esc(plan.url) + '" target="_blank" rel="noopener">' + esc(plan.url) + '</a>（Pages 首次构建通常需要 1–2 分钟）。已写入 <a href="#me-sites">站点台账</a>。</p>';
+        out.innerHTML = '<h3 class="wb-h">' + navI('#war-publish') + '发布完成</h3>' + table(plan, false) + '<p>站点地址：<a id="pub-url" href="' + esc(plan.url) + '" target="_blank" rel="noopener">' + esc(plan.url) + '</a>（Pages 首次构建通常需要 1–2 分钟）。已写入 <a href="#me-sites">站点台账</a>。</p>';
         toast('已发布到 ' + x.owner + '/' + x.repo);
       }, function (e) { record(x, null, false, e.message); out.innerHTML = '<p class="ai-error" role="alert">' + I('lock') + esc(e.message) + '</p>'; });
     });
@@ -353,7 +354,7 @@
     var body = '';
     if (sel) {
       var S = summarize(sel), site = sites.filter(function (s) { return s.id === sel.siteId; })[0];
-      body = '<section class="block glass tool-card" id="an-view" data-kind="' + sel.kind + '"><h2 class="block-title">' + I('chart') + esc(sel.name) + ' <span class="pill">' + esc(KIND_LABEL[sel.kind]) + '</span> <span class="pill">' + esc(platName(sel.platform)) + '</span></h2>' +
+      body = '<section class="block glass tool-card" id="an-view" data-kind="' + sel.kind + '"><h2 class="block-title">' + navI('#me-analytics') + esc(sel.name) + ' <span class="pill">' + esc(KIND_LABEL[sel.kind]) + '</span> <span class="pill">' + esc(platName(sel.platform)) + '</span></h2>' +
         (S.range ? '<p class="hint">' + esc(S.range) + ' · ' + S.days + ' 天' + (site ? ' · 已关联站点「' + esc(site.name) + '」' : '') + '</p>' : '') +
         '<div class="stat-grid">' + Object.keys(S.totals).map(function (k) { return '<div class="stat"><b>' + fmt(S.totals[k]) + '</b><small>' + esc(k) + (S.range && k !== '点击率 %' && k !== '平均排名' ? ' 合计' : '') + '</small></div>'; }).join('') + '</div>' +
         (S.trend ? '<p class="wb-trend ' + (S.trend.pct > 0 ? 'up' : S.trend.pct < 0 ? 'down' : '') + '" id="an-trend">最近 ' + S.trend.n + ' 天「' + esc(S.trend.k) + '」' + fmt(S.trend.last) + '，前 ' + S.trend.n + ' 天 ' + fmt(S.trend.prev) + (S.trend.pct == null ? '' : '（' + (S.trend.pct > 0 ? '+' : '') + S.trend.pct + '%）') + '</p>' : '') +

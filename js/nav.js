@@ -6,66 +6,84 @@
   }
 
   var SITE_NAME = '出海小站练站营';
-  /** 页面条目。顶栏只露出 6 个；其余挂在 children 上，搜索索引会把 children 也收进去。 */
-  var PAGE = {
-    home: { id: 'home', label: '首页', icon: 'lighthouse', hash: '#home', sub: '出海建站 · SEO · 练习营', desc: '从挖词到多站的完整练习路线。' },
-    start: { id: 'start', label: '新手引导', icon: 'flag', hash: '#start', sub: '三条路线 · 7 天清单 · 新手导览', desc: '学习、实施、赚钱三条路线，前 7 天清单，以及可以重播的新手导览。' },
-    path: { id: 'path', label: '学习路线', icon: 'map', hash: '#path', section: 'path', sub: '关卡地图 · 任务清单', desc: '按章节闯关：入门准备 → 站一 → 站二 → 站三 → 变现 → 放大，勾选即线下完成。' },
-    quests: { id: 'path-quests', label: '任务清单', icon: 'list', hash: '#path-quests', section: 'path', sub: '按章节勾选', desc: '当前章节可以勾选的任务，勾选表示线下已经做完。' },
-    guides: { id: 'guides', label: '手册与模板', icon: 'book', hash: '#guides', section: 'guides', sub: '5 份手册 · 2 个模板 · 笔记', desc: '每个阶段的作战手册、可直接部署的单页模板，以及渠道笔记。' },
-    war: { id: 'war', label: '实战作战室', icon: 'target', hash: '#war', section: 'war', sub: '每站 Day1–7 · 实操助手 · 选词 · 赚钱榜', desc: '五个阶段各一张 7 天清单，加上站一实操助手、选词练习板和每日赚钱榜，与学习路线共用同一份进度。' },
-    work: { id: 'work', label: '工作台', icon: 'target', hash: '#work', section: 'war', sub: '每个站点的下一步', desc: '选词、实操助手、发布、分发、数据和复盘，看每个站点的下一步。' },
-    rank: { id: 'war-rank', label: '每日赚钱榜', icon: 'trophy', hash: '#war-rank', section: 'war', sub: '每天更新 · 不保证收益', desc: '公开渠道整理成的每日赚钱榜，每条带来源链接。' },
-    weekly: { id: 'weekly', label: '每周补给', icon: 'calendar', hash: '#weekly', section: 'weekly', sub: '每周一更新的知识卡', desc: '每周几张短卡片：方法、提醒和本周可试的小动作，领取得 XP。' },
-    kit: { id: 'war-kit', label: '站一实操助手', icon: 'kit', hash: '#war-kit', section: 'war', sub: '生成可上线的单页', desc: '填主词，生成页面、robots 和 sitemap。' },
-    keywords: { id: 'war-keywords', label: '选词练习板', icon: 'tag', hash: '#war-keywords', section: 'war', sub: '给候选词打分', desc: '给候选词打分，决定适不适合练手。' },
-    publish: { id: 'war-publish', label: '发布上线', icon: 'rocket', hash: '#war-publish', section: 'war', sub: '写进 GitHub 仓库', desc: '用细粒度 Token 把页面写进你的仓库并开启 Pages。' },
-    share: { id: 'war-share', label: '内容分发', icon: 'external', hash: '#war-share', section: 'war', sub: '各平台文案', desc: '生成各平台文案，由你自己去官方页面发布。' },
-    review: { id: 'work-review', label: '每周复盘', icon: 'bulb', hash: '#work-review', section: 'war', sub: '本周和下周 3 件事', desc: '写下本周做了什么、数据变化和下周要做的 3 件事。' },
-    lib: { id: 'lib', label: '资源库', icon: 'toolbox', hash: '#lib', section: 'lib', sub: '工具 · 托管 · 变现 · 闲鱼', desc: '免费工具、托管域名、变现渠道、可试路径、闲鱼非实物与同路人方法，可筛选可搜索。' },
-    pm: { id: 'pm', label: '平台变现', icon: 'coin', hash: '#pm', section: 'lib', sub: '国内 + 海外', desc: '各平台的变现方式、门槛、分成和来源。不承诺收益。' },
-    me: { id: 'me', label: '我的进度', icon: 'user', hash: '#me', section: 'me', sub: '统计 · 站点台账 · 更新日志 · AI 设置', desc: '等级、XP、学习统计与打卡热力图、成就墙、我的站点台账、更新日志、AI 设置，以及存档导出导入和偏好设置。' },
-    accounts: { id: 'me-accounts', label: '账号中心', icon: 'users', hash: '#me-accounts', section: 'me', sub: '官方 Token', desc: '只保存你自己的官方 Token，以及 Google 只读连接。' },
-    analytics: { id: 'me-analytics', label: '数据分析', icon: 'chart', hash: '#me-analytics', section: 'me', sub: '导入或拉取的数字', desc: '展示你导入或拉取的搜索与收入数据。' },
-    stats: { id: 'me-stats', label: '学习统计', icon: 'chart', hash: '#me-stats', section: 'me', sub: '打卡和连击', desc: '打卡热力图、连续天数和各章节进度。' },
-    ai: { id: 'me-ai', label: 'AI 设置', icon: 'sparkle', hash: '#me-ai', section: 'me', sub: '服务商与模板', desc: '选择 AI 服务商。不填也能用内置模板。' },
-  };
-  var SITEMAP = { id: 'sitemap', label: '网站地图', icon: 'map', hash: '#sitemap', sub: '全站页面一览', desc: '顶栏六个入口以外的全部页面。sitemap 站点地图' };
-  /** 顶栏 6 项。children 仍是完整页面列表，供搜索和下拉使用。 */
+  /** 顶栏、下拉、底部栏、页脚、网站地图、标题和 FLOW 都从这里生成。路由 hash 不改。 */
   var SITE_NAV = [
-    PAGE.home,
-    PAGE.start,
-    { id: 'learn', label: '学习', icon: 'map', hash: '#path', sub: '学习路线 · 任务清单 · 手册与模板', desc: '学习路线、任务清单、手册与模板。', children: [PAGE.path, PAGE.quests, PAGE.guides] },
-    { id: 'practice', label: '实战', icon: 'target', hash: '#war', sub: '作战室 · 工作台 · 赚钱榜 · 每周补给', desc: '实战作战室、工作台、每日赚钱榜、每周补给。', children: [PAGE.war, PAGE.work, PAGE.rank, PAGE.weekly, PAGE.kit, PAGE.keywords, PAGE.publish, PAGE.share, PAGE.review] },
-    { id: 'res', label: '资源', icon: 'toolbox', hash: '#lib', sub: '资源库 · 平台变现', desc: '资源库和平台变现。', children: [PAGE.lib, PAGE.pm] },
-    { id: 'mine', label: '我的', icon: 'user', hash: '#me', dataNav: 'me', sub: '进度 · 账号 · 数据', desc: '我的进度、账号中心、数据分析。', children: [PAGE.me, PAGE.accounts, PAGE.analytics, PAGE.stats, PAGE.ai] },
+    { id: 'home', label: '首页', short: '首页', icon: 'home', hash: '#home', owns: ['home', 'home-*'],
+      desc: '从挖词到多站的完整练习路线。' },
+    { id: 'start', label: '新手引导', short: '新手', icon: 'flag', hash: '#start', owns: ['start', 'start-*'],
+      desc: '学习、实施、赚钱三条路线，前 7 天清单，以及可以重播的新手导览。' },
+    { id: 'learn', label: '学习', short: '学习', icon: 'book-open', hash: '#path', tint: 'learn',
+      desc: '学习路线、任务清单、手册与模板、资源库。',
+      children: [
+        { id: 'path', label: '学习路线', icon: 'map', hash: '#path', owns: ['path'],
+          desc: '按章节看关卡地图，知道自己在哪一章。' },
+        { id: 'path-quests', label: '任务清单', icon: 'checklist', hash: '#path-quests', owns: ['path-quests'],
+          desc: '勾选当前章节里已经做完的任务。' },
+        { id: 'guides', label: '手册与模板', icon: 'file-text', hash: '#guides', owns: ['guides', 'guide-*'],
+          desc: '作战手册、单页模板和渠道笔记。' },
+        { id: 'lib', label: '资源库', icon: 'archive', hash: '#lib', owns: ['lib', 'lib-*'],
+          desc: '免费工具、托管、渠道和同路人方法。' },
+        { id: 'weekly', label: '每周补给', icon: 'calendar', hash: '#weekly', owns: ['weekly'],
+          desc: '每周几张短卡片，已暂停更新。' },
+      ] },
+    { id: 'do', label: '实施', short: '实施', icon: 'tools', hash: '#war', tint: 'do',
+      desc: '从 7 天日程做到发布、分发和工作台。',
+      children: [
+        { id: 'war', label: '7 天作战日程', icon: 'calendar-check', hash: '#war', owns: ['war', 'war-s2', 'war-s3', 'war-m', 'war-x'],
+          desc: '五个阶段各一张 7 天清单，勾选和任务清单同一份进度。' },
+        { id: 'war-keywords', label: '选词练习板', icon: 'tag', hash: '#war-keywords', owns: ['war-keywords'],
+          desc: '给候选词打分，决定适不适合练手。' },
+        { id: 'war-kit', label: '站一实操助手', icon: 'wand', hash: '#war-kit', owns: ['war-kit'],
+          desc: '填主词，生成可以上线的页面。' },
+        { id: 'me-sites', label: '我的站点台账', icon: 'ledger', hash: '#me-sites', owns: ['me-sites'],
+          desc: '记下站名、域名和主词，按月记数据。' },
+        { id: 'war-publish', label: '发布上线', icon: 'rocket', hash: '#war-publish', owns: ['war-publish'],
+          desc: '用细粒度 Token 把页面写进你的仓库。' },
+        { id: 'war-share', label: '内容分发', icon: 'send', hash: '#war-share', owns: ['war-share'],
+          desc: '生成各平台文案，由你自己去发布。' },
+        { id: 'work', label: '工作台', icon: 'dashboard', hash: '#work', owns: ['work'],
+          desc: '看每个站点现在该做的下一步。' },
+      ] },
+    { id: 'earn', label: '赚钱', short: '赚钱', icon: 'coin', hash: '#war-rank', tint: 'earn',
+      desc: '看数据、写复盘、选今天的一条。',
+      children: [
+        { id: 'me-analytics', label: '数据分析', icon: 'chart-line', hash: '#me-analytics', owns: ['me-analytics'],
+          desc: '只显示你导入或拉取的数字。' },
+        { id: 'work-review', label: '每周复盘', icon: 'clipboard-check', hash: '#work-review', owns: ['work-review'],
+          desc: '写下本周事实和下周 3 件事。' },
+        { id: 'war-rank', label: '每日赚钱榜', icon: 'trophy', hash: '#war-rank', owns: ['war-rank'],
+          desc: '公开渠道整理成的每日榜，不保证收益。' },
+        { id: 'pm', label: '平台变现', icon: 'wallet', hash: '#pm', owns: ['pm', 'pm-*'],
+          desc: '各平台的门槛和分成，以官网为准。' },
+      ] },
+    { id: 'mine', label: '我的', short: '我的', icon: 'user', hash: '#me', dataNav: 'me', tint: 'neutral',
+      desc: '进度、统计、账号和 AI 设置。',
+      children: [
+        { id: 'me', label: '我的进度', icon: 'gauge', hash: '#me', owns: ['me'],
+          desc: '等级、成就，以及本机备份。' },
+        { id: 'me-stats', label: '学习统计', icon: 'bar-chart', hash: '#me-stats', owns: ['me-stats'],
+          desc: '打卡热力图、连续天数和各章进度。' },
+        { id: 'me-accounts', label: '账号中心', icon: 'key', hash: '#me-accounts', owns: ['me-accounts'],
+          desc: '只保存你自己的官方 Token。' },
+        { id: 'me-ai', label: 'AI 设置', icon: 'sparkle', hash: '#me-ai', owns: ['me-ai'],
+          desc: '选择 AI 服务商；不填也能用内置模板。' },
+        { id: 'changelog', label: '更新日志', icon: 'history', hash: '#changelog', owns: ['changelog'],
+          desc: '这个网站最近改了什么。' },
+      ] },
   ];
-  var DEV_SECTION = { id: 'dev', label: '开发者文档', icon: 'code', hash: '#dev', sub: '路线图 · 任务 · 测试记录', desc: '项目开发过程文档，供维护者查阅。' };
-
-  var PATH_TABS = [
-    { id: 'map', label: '关卡地图', icon: 'map', hash: '#path' },
-    { id: 'quests', label: '任务清单', icon: 'list', hash: '#path-quests' },
-  ];
-
-  var WAR_TABS = [
-    { id: 'work', label: '工作台', icon: 'target', hash: '#work' },
-    { id: 'days', label: '作战日程', icon: 'calendar', hash: '#war' },
-    { id: 'kit', label: '站一实操助手', icon: 'kit', hash: '#war-kit' },
-    { id: 'keywords', label: '选词练习板', icon: 'tag', hash: '#war-keywords' },
-    { id: 'rank', label: '每日赚钱榜', icon: 'trophy', hash: '#war-rank' },
-    { id: 'publish', label: '发布上线', icon: 'rocket', hash: '#war-publish' },
-    { id: 'share', label: '内容分发', icon: 'external', hash: '#war-share' },
-    { id: 'review', label: '每周复盘', icon: 'bulb', hash: '#work-review' },
-  ];
-  var ME_TABS = [
-    { id: 'overview', label: '概览', icon: 'user', hash: '#me' },
-    { id: 'stats', label: '学习统计', icon: 'chart', hash: '#me-stats' },
-    { id: 'sites', label: '我的站点台账', icon: 'ledger', hash: '#me-sites' },
-    { id: 'analytics', label: '数据分析', icon: 'chart', hash: '#me-analytics' },
-    { id: 'accounts', label: '账号中心', icon: 'users', hash: '#me-accounts' },
-    { id: 'changelog', label: '更新日志', icon: 'bulb', hash: '#changelog' },
-    { id: 'ai', label: 'AI 设置', icon: 'sparkle', hash: '#me-ai' },
-  ];
+  var SITEMAP = { id: 'sitemap', label: '网站地图', icon: 'sitemap', hash: '#sitemap', desc: '顶栏六个入口以外的全部页面。sitemap 站点地图' };
+  var DEV_SECTION = { id: 'dev', label: '开发者文档', icon: 'code', hash: '#dev', desc: '项目开发过程文档，供维护者查阅。' };
+  /** 主线顺序。必须是 SITE_NAV 从上到下的子序列。 */
+  var FLOW_IDS = ['start', 'path', 'path-quests', 'war', 'war-keywords', 'war-kit', 'me-sites', 'war-publish', 'war-share', 'work', 'me-analytics', 'work-review', 'war-rank', 'pm'];
+  function tabsFrom(groupId) {
+    var g = null, i;
+    for (i = 0; i < SITE_NAV.length; i++) if (SITE_NAV[i].id === groupId) g = SITE_NAV[i];
+    return ((g && g.children) || []).map(function (c) { return { id: c.id, label: c.label, icon: c.icon, hash: c.hash }; });
+  }
+  var PATH_TABS = tabsFrom('learn');
+  var WAR_TABS = tabsFrom('do');
+  var EARN_TABS = tabsFrom('earn');
+  var ME_TABS = tabsFrom('mine');
 
   var STATIONS = [
     { n: 1, label: '站一', name: '站一 · 上线第一站', icon: 'island1', hash: '#war', guide: 'station-one-playbook' },
@@ -138,6 +156,7 @@
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
     xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', dashboard: 'work', 'war-work': 'work', review: 'work-review', 'weekly-review': 'work-review', 'me-review': 'work-review', fupan: 'work-review', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama', 'guide-start': 'start', onboarding: 'start', newbie: 'start',
     'home-today': 'work', 'home-progress': 'me', 'home-sections': 'start', 'home-tools': 'war', 'home-steps': 'start', 'home-res': 'pm', 'home-guides': 'guides',
+    learn: 'path', do: 'war', practice: 'war', earn: 'war-rank', money: 'war-rank', res: 'lib',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -153,10 +172,61 @@
     }
     return null;
   }
-  function owns(n, section, hash) {
-    if (!n || !section) return false;
-    if (n.id === section || n.section === section || n.hash === '#' + hash) return true;
-    return (n.children || []).some(function (c) { return owns(c, section, hash); });
+  function matchPat(pat, id) {
+    if (!pat) return false;
+    if (pat.charAt(pat.length - 1) === '*') {
+      var pre = pat.slice(0, -1);
+      return id.indexOf(pre) === 0 && id.length >= pre.length;
+    }
+    return pat === id;
+  }
+  function pageOwns(page, id) {
+    return !!page && (page.owns || []).some(function (p) { return matchPat(p, id); });
+  }
+  function hashId(raw) {
+    return canonical(String(raw || '').replace(/^#/, '').split('?')[0]);
+  }
+  function locate(raw) {
+    var id = hashId(raw);
+    var i, g, c;
+    for (i = 0; i < SITE_NAV.length; i++) {
+      g = SITE_NAV[i];
+      if (g.children) {
+        for (c = 0; c < g.children.length; c++) {
+          if (pageOwns(g.children[c], id)) return { group: g, page: g.children[c], id: id };
+        }
+      } else if (pageOwns(g, id)) return { group: g, page: g, id: id };
+    }
+    if (id === 'sitemap') return { group: null, page: SITEMAP, id: id };
+    if (id === 'dev' || id.indexOf('dev-') === 0) return { group: null, page: DEV_SECTION, id: id };
+    return { group: null, page: null, id: id };
+  }
+  function pagesOwning(raw) {
+    var id = hashId(raw);
+    var out = [];
+    SITE_NAV.forEach(function (g) {
+      if (g.children) g.children.forEach(function (c) { if (pageOwns(c, id)) out.push(c); });
+      else if (pageOwns(g, id)) out.push(g);
+    });
+    return out;
+  }
+  function mainFlow() {
+    var want = {};
+    FLOW_IDS.forEach(function (id) { want[id] = true; });
+    var out = [];
+    function walk(n) {
+      if (want[n.id]) out.push({ id: n.id, hash: n.hash, title: n.label });
+      (n.children || []).forEach(walk);
+    }
+    SITE_NAV.forEach(walk);
+    return out;
+  }
+  function nextInGroup(raw) {
+    var loc = locate(raw);
+    if (!loc.group || !loc.group.children || !loc.page) return null;
+    var kids = loc.group.children, i;
+    for (i = 0; i < kids.length; i++) if (kids[i].id === loc.page.id) return kids[i + 1] || null;
+    return null;
   }
 
   function canonical(raw) {
@@ -228,22 +298,23 @@
   function currentHash() {
     try { return String(location.hash || '').replace(/^#/, '').split('?')[0]; } catch (_) { return ''; }
   }
-  function topLink(n, active, hash, dot) {
-    var on = owns(n, active, hash) || n.id === active;
+  function hereLoc() { return locate(currentHash()); }
+  function topLink(n, loc, dot) {
+    var on = loc.group && loc.group.id === n.id;
     var attr = n.dataNav || n.id;
     return '<a class="nav-top' + (on ? ' active' : '') + '" href="' + n.hash + '" data-nav="' + attr + '"' + (on ? ' aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + esc(n.label) + '</span>' + (attr === 'me' && dot ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') + '</a>';
   }
-  function dropHtml(n, active, hash, dot) {
-    var on = owns(n, active, hash);
+  function dropHtml(n, loc, dot) {
+    var on = loc.group && loc.group.id === n.id;
     var attr = n.dataNav || n.id;
-    var childExact = (n.children || []).some(function (c) { return c.hash === '#' + hash; });
     var menuId = 'nav-menu-' + n.id;
+    var tint = n.tint ? ' tint-' + n.tint : '';
     return '<div class="nav-drop' + (on ? ' is-active' : '') + '" data-group="' + n.id + '">' +
-      '<a class="nav-top' + (on ? ' active' : '') + '" href="' + n.hash + '" data-nav="' + attr + '"' + (on && !childExact ? ' aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + esc(n.label) + '</span>' + (attr === 'me' && dot ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') + '</a>' +
+      '<a class="nav-top' + (on ? ' active' : '') + '" href="' + n.hash + '" data-nav="' + attr + '">' + I(n.icon) + '<span>' + esc(n.label) + '</span>' + (attr === 'me' && dot ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') + '</a>' +
       '<button type="button" class="nav-caret" aria-expanded="false" aria-haspopup="true" aria-controls="' + menuId + '" aria-label="' + esc(n.label) + '菜单"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>' +
       '<div class="nav-menu" id="' + menuId + '" role="menu" hidden>' + (n.children || []).map(function (c) {
-        var cur = c.hash === '#' + hash;
-        return '<a role="menuitem" href="' + c.hash + '"' + (cur ? ' class="active" aria-current="page"' : '') + '>' + I(c.icon) + '<span>' + esc(c.label) + '</span></a>';
+        var cur = loc.page && loc.page.id === c.id;
+        return '<a role="menuitem" href="' + c.hash + '"' + (cur ? ' class="active" aria-current="page"' : '') + '><span class="nav-ico' + tint + '">' + I(c.icon) + '</span><span class="nav-item-text"><b>' + esc(c.label) + '</b><small>' + esc(c.desc || '') + '</small></span></a>';
       }).join('') + '</div></div>';
   }
   function canHover() {
@@ -353,16 +424,16 @@
       });
     }
   }
-  function renderTopNav(active) {
+  function renderTopNav() {
     var el = document.getElementById('site-nav');
     if (!el) return;
     el.setAttribute('data-tour', 'nav');
-    var hash = currentHash();
+    var loc = hereLoc();
     var dot = unseenCount();
     el.innerHTML = '<div class="site-nav-inner">' +
       '<a class="brand" href="#home"><img src="assets/icon-192.png" alt="" width="34" height="34" /><span>' + SITE_NAME + '</span></a>' +
       '<nav class="site-links" aria-label="主导航">' + SITE_NAV.map(function (n) {
-        return n.children && n.children.length ? dropHtml(n, active, hash, dot) : topLink(n, active, hash, dot);
+        return n.children && n.children.length ? dropHtml(n, loc, dot) : topLink(n, loc, dot);
       }).join('') + '</nav>' +
       '<button type="button" class="nav-search" data-open-search aria-label="全站搜索（快捷键 / 或 Ctrl+K）" title="搜索（/ 或 Ctrl+K）">' + I('search') + '<span>搜索</span><kbd>/</kbd></button>' +
       '<span id="offline-pill" class="offline-pill" role="status">离线模式：AI / 发布 / 数据拉取暂不可用</span></div>';
@@ -370,18 +441,37 @@
     if (global.QuestShell && QuestShell.syncNavH) QuestShell.syncNavH();
   }
 
-  /** 区块头带：图标 + 标题 + 一句说明 + 面包屑 */
+  /** 区块头带：页面名（不是分组名）+ 面包屑 首页 / 分组 / 页面 */
   function renderSectionHead(route, extraCrumb) {
     var el = document.getElementById('section-head');
     if (!el) return;
-    if (route.section === 'home') { el.hidden = true; el.innerHTML = ''; return; }
+    if (!route || route.section === 'home') { el.hidden = true; el.innerHTML = ''; return; }
+    var loc = locate(route.hash);
+    var page = loc.page;
+    if (!page) { el.hidden = true; el.innerHTML = ''; return; }
     el.hidden = false;
-    var n = navById(route.section);
-    var crumbs = '<a href="#home">首页</a><span aria-hidden="true">/</span>' +
-      (extraCrumb ? '<a href="' + n.hash + '">' + n.label + '</a><span aria-hidden="true">/</span><span aria-current="page">' + esc(extraCrumb) + '</span>' : '<span aria-current="page">' + n.label + '</span>');
-    el.innerHTML = '<div class="sh-inner"><nav class="crumbs" aria-label="面包屑">' + crumbs + '</nav>' +
-      '<div class="sh-row"><span class="sh-ico">' + I(n.icon) + '</span><div><h1 class="sh-title">' + n.label + '<small>' + n.sub + '</small></h1>' +
-      '<p class="sh-desc">' + n.desc + '</p></div></div></div>';
+    var group = loc.group;
+    var docExtra = route.view === 'doc' ? extraCrumb : '';
+    var bits = ['<a href="#home">首页</a>'];
+    function sep() { return '<span aria-hidden="true">/</span>'; }
+    function cur(text) { return '<span aria-current="page">' + esc(text) + '</span>'; }
+    function link(href, text) { return '<a href="' + href + '">' + esc(text) + '</a>'; }
+    if (route.section === 'dev') {
+      if (docExtra) bits.push(sep(), link('#dev', DEV_SECTION.label), sep(), cur(docExtra));
+      else bits.push(sep(), cur(DEV_SECTION.label));
+    } else if (group && group.children) {
+      bits.push(sep(), link(group.hash, group.label));
+      if (docExtra) bits.push(sep(), link(page.hash, page.label), sep(), cur(docExtra));
+      else bits.push(sep(), cur(page.label));
+    } else if (docExtra) {
+      bits.push(sep(), link(page.hash, page.label), sep(), cur(docExtra));
+    } else {
+      bits.push(sep(), cur(page.label));
+    }
+    var tint = (group && group.tint) || 'neutral';
+    el.innerHTML = '<div class="sh-inner"><nav class="crumbs" aria-label="面包屑">' + bits.join('') + '</nav>' +
+      '<div class="sh-row"><span class="sh-ico tint-' + tint + '">' + I(page.icon) + '</span><div><h1 class="sh-title">' + esc(page.label) + '</h1>' +
+      '<p class="sh-desc">' + esc(page.desc || '') + '</p></div></div></div>';
   }
 
   function version() {
@@ -392,33 +482,48 @@
   function footA(href, label, extra) {
     return '<a href="' + href + '"' + (extra || '') + extAttr(href) + '>' + esc(label) + '</a>';
   }
-  function navPageLinks() {
-    var out = [];
-    SITE_NAV.forEach(function (n) {
-      out.push({ href: n.hash, label: n.label });
-      (n.children || []).forEach(function (c) { out.push({ href: c.hash, label: c.label }); });
-    });
-    out.push({ href: '#start', label: '新手导览' });
-    out.push({ href: '#sitemap', label: '网站地图' });
-    return out;
+  function subsOf(page) {
+    if (page.id === 'war') return STATIONS.filter(function (s) { return s.hash !== page.hash; }).map(function (s) { return { href: s.hash, label: s.name }; });
+    if (page.id === 'lib') return LIB_CATS.map(function (c) { return { href: '#lib-' + c.id, label: c.label }; });
+    if (page.id === 'pm') return [{ href: '#pm-cn', label: '国内' }, { href: '#pm-global', label: '海外' }];
+    if (page.id === 'guides') return GUIDES.map(function (g) { return { href: g.href || ('#guide-' + g.id), label: g.title }; });
+    return [];
   }
   function sitemapGroups() {
-    var log = (global.QUEST_CHANGELOG || []).slice(0, 3);
-    return [
-      { title: '主要页面', links: navPageLinks() },
-      { title: '实战与工具', links: STATIONS.map(function (s) { return { href: s.hash, label: s.label + '作战室' }; }).concat([
-        { href: '#war-kit', label: '站一实操助手' }, { href: '#war-keywords', label: '选词练习板' }, { href: '#war-rank', label: '每日赚钱榜' },
-        { href: '#war-publish', label: '发布上线' }, { href: '#war-share', label: '内容分发' }, { href: '#work', label: '工作台' }, { href: '#work-review', label: '每周复盘' },
-      ]) },
-      { title: '资源库', links: LIB_CATS.map(function (c) { return { href: '#lib-' + c.id, label: c.label }; }).concat([
-        { href: '#pm', label: '平台变现' }, { href: '#pm-cn', label: '平台变现 · 国内' }, { href: '#pm-global', label: '平台变现 · 海外' },
-      ]) },
-      { title: '我的', links: ME_TABS.map(function (t) { return { href: t.hash, label: t.label }; }).concat([
-        { href: '#guides', label: '手册与模板' }, { href: '#dev', label: DEV_SECTION.label },
-        { href: 'https://github.com/yuanqingsong2024/gefei-quest', label: 'GitHub 仓库' },
-      ]) },
-      { title: '最近更新', links: log.map(function (e) { return { href: '#changelog', label: e.date + ' ' + e.title }; }) },
-    ];
+    var seen = {};
+    function fresh(links) {
+      var out = [];
+      links.forEach(function (l) {
+        if (!l || !l.href || seen[l.href]) return;
+        seen[l.href] = 1;
+        var kids = (l.children || []).filter(function (c) {
+          if (!c || !c.href || seen[c.href]) return false;
+          seen[c.href] = 1;
+          return true;
+        });
+        out.push({ href: l.href, label: l.label, children: kids });
+      });
+      return out;
+    }
+    var groups = [];
+    var tops = SITE_NAV.filter(function (g) { return !g.children; }).map(function (g) { return { href: g.hash, label: g.label }; });
+    groups.push({ title: '开始', links: fresh(tops) });
+    SITE_NAV.forEach(function (g) {
+      if (!g.children) return;
+      groups.push({ title: g.label, links: fresh(g.children.map(function (c) {
+        return { href: c.hash, label: c.label, children: subsOf(c) };
+      })) });
+    });
+    groups.push({ title: '其他', links: fresh([
+      { href: '#sitemap', label: SITEMAP.label },
+      { href: '#dev', label: DEV_SECTION.label, children: DEV_DOCS.map(function (d) { return { href: '#dev-' + d.id, label: d.title }; }) },
+      { href: 'https://github.com/yuanqingsong2024/gefei-quest', label: 'GitHub 仓库' },
+    ]) });
+    return groups;
+  }
+  function footChildren(id) {
+    var g = navById(id);
+    return ((g && g.children) || []).map(function (c) { return footA(c.hash, c.label); }).join('');
   }
   function renderFooter() {
     var el = document.getElementById('site-footer');
@@ -428,33 +533,49 @@
       '<div class="foot-about"><div class="foot-brand"><img src="assets/icon-192.png" alt="" width="44" height="44" /><div><b>' + SITE_NAME + '</b><span>出海建站 · SEO · 练习营</span></div></div>' +
       '<p class="foot-desc"><b>关于本站</b>：跟着公开的方法做英文出海小站，并把靠谱渠道收成每天更新的赚钱榜。非官方，不含付费社群内容。不承诺收益。进度只保存在你的浏览器里。</p></div>' +
       '<div class="foot-cols">' +
-      '<div><h4>开始</h4>' + footA('#home', '首页') + footA('#start', '新手引导') + footA('#start', '新手导览', ' id="foot-tour" data-tour="replay"') + footA('#path', '学习路线') + footA('#sitemap', '网站地图') + '</div>' +
-      '<div><h4>实战</h4>' + footA('#war', '实战作战室') + footA('#work', '工作台') + footA('#war-rank', '每日赚钱榜') + footA('#war-publish', '发布上线') + footA('#war-share', '内容分发') + '</div>' +
-      '<div><h4>资源</h4>' + footA('#lib', '资源库') + footA('#pm', '平台变现') + footA('#guides', '手册与模板') + footA('#weekly', '每周补给') + '</div>' +
-      '<div><h4>我的</h4>' + footA('#me', '我的进度') + footA('#me-accounts', '账号中心') + footA('#me-analytics', '数据分析') + footA('#me-ai', 'AI 设置') + footA('#changelog', '更新日志') + '</div>' +
+      '<div><h4>开始</h4>' + footA('#home', '首页') + footA('#start', '新手引导') +
+      '<button type="button" id="foot-tour" data-tour="replay" title="再看一遍首页聚光灯导览">重播新手导览</button><small class="foot-replay-note">再看一遍首页聚光灯导览</small>' +
+      footA('#sitemap', '网站地图') + footA('#dev', DEV_SECTION.label) + '</div>' +
+      '<div><h4>学习</h4>' + footChildren('learn') + '</div>' +
+      '<div><h4>实施</h4>' + footChildren('do') + '</div>' +
+      '<div><h4>赚钱</h4>' + footChildren('earn') + '</div>' +
+      '<div><h4>我的</h4>' + footChildren('mine') + '</div>' +
       '</div><p class="foot-note">© 2026 ' + SITE_NAME + ' · 不承诺收益 · 数据以官方为准 · <span class="foot-ver"><span class="pill">' + V.v + '</span></span> · <a href="#changelog">更新日志</a> · <a href="daily.json" target="_blank" rel="noopener">daily.json</a> <button type="button" class="btn btn-sm" data-pwa-install hidden>安装到桌面</button><span class="pwa-ios-hint" hidden>Safari 分享 → 添加到主屏幕</span></p></div>';
   }
   function renderSitemap(root) {
     if (!root) return;
     var groups = sitemapGroups();
-    root.innerHTML = '<div class="sitemap-page"><p class="sitemap-lead">顶栏只放六个入口。下面是全部页面，和原来页脚里的链接一样。</p><div class="sitemap-grid">' +
+    function li(l) {
+      return '<li><a href="' + l.href + '"' + extAttr(l.href) + '>' + esc(l.label) + '</a>' +
+        (l.children && l.children.length ? '<ul>' + l.children.map(li).join('') + '</ul>' : '') + '</li>';
+    }
+    root.innerHTML = '<div class="sitemap-page"><p class="sitemap-lead">顶栏六个入口。下面按学习、实施、赚钱和我的列出全部页面，每个链接只出现一次。</p><div class="sitemap-grid">' +
       groups.map(function (g) {
-        return '<section><h2>' + esc(g.title) + '</h2><ul>' + g.links.map(function (l) {
-          return '<li><a href="' + l.href + '"' + extAttr(l.href) + '>' + esc(l.label) + '</a></li>';
-        }).join('') + '</ul></section>';
+        return '<section><h2>' + esc(g.title) + '</h2><ul>' + g.links.map(li).join('') + '</ul></section>';
       }).join('') + '</div></div>';
   }
 
   function titleFor(route, extra) {
-    var n = navById(route.section);
-    document.title = (route.section === 'home' ? SITE_NAME : (extra ? extra + ' · ' : '') + n.label + ' · ' + SITE_NAME);
+    if (!route || route.section === 'home') { document.title = SITE_NAME; return; }
+    var loc = locate(route.hash);
+    var page = loc.page;
+    if (!page) { document.title = SITE_NAME; return; }
+    document.title = (route.view === 'doc' && extra ? page.label + ' · ' + extra : page.label) + ' · ' + SITE_NAME;
   }
 
+  /** 按 hash 取 SITE_NAV 页面图标名（子页面优先于分组）。找不到返回空串。 */
+  function iconName(raw) {
+    var loc = locate(raw);
+    return (loc.page && loc.page.icon) || '';
+  }
+  function iconFor(raw) { return I(iconName(raw) || 'compass'); }
+
   global.QuestNav = {
-    SITE_NAME: SITE_NAME, SITE_NAV: SITE_NAV, SITEMAP: SITEMAP, DEV_SECTION: DEV_SECTION, PATH_TABS: PATH_TABS, WAR_TABS: WAR_TABS, ME_TABS: ME_TABS, STATIONS: STATIONS,
+    SITE_NAME: SITE_NAME, SITE_NAV: SITE_NAV, SITEMAP: SITEMAP, DEV_SECTION: DEV_SECTION, PATH_TABS: PATH_TABS, WAR_TABS: WAR_TABS, EARN_TABS: EARN_TABS, ME_TABS: ME_TABS, STATIONS: STATIONS,
     LIB_CATS: LIB_CATS, GUIDES: GUIDES, GUIDE_GROUPS: GUIDE_GROUPS, DEV_DOCS: DEV_DOCS, ALIASES: ALIASES,
     parse: parse, canonical: canonical, fixHref: fixHref, fixLinks: fixLinks, navById: navById, guideById: guideById,
+    locate: locate, pagesOwning: pagesOwning, pageOwns: pageOwns, mainFlow: mainFlow, nextInGroup: nextInGroup,
     isDevId: isDevId, renderTopNav: renderTopNav, renderSectionHead: renderSectionHead, renderFooter: renderFooter,
-    renderSitemap: renderSitemap, titleFor: titleFor, icon: I, esc: esc, version: version,
+    renderSitemap: renderSitemap, titleFor: titleFor, icon: I, iconName: iconName, iconFor: iconFor, esc: esc, version: version,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

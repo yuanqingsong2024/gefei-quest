@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>图标家族 · 出海小站练站营</title>
 <link rel="icon" href="favicon.ico"><link rel="stylesheet" href="css/tokens.css"><link rel="stylesheet" href="css/ui.css">
-<style>body{padding:32px;max-width:1160px;margin:0 auto}.cell{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-line)}.cell code{color:#cbd5e1;font-size:.8rem}.logos{display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;margin:16px 0 32px}.logos figure{margin:0;text-align:center;color:#cbd5e1;font-size:.8rem}.lines{display:flex;flex-wrap:wrap;gap:18px;color:#e2e8f0;margin:0 0 28px}.lines .ico{width:28px;height:28px}</style></head>
-<body><h1>图标家族 <small style="color:#94a3b8;font-size:1rem">24 网格 · stroke 1.75 · 淡色强调面 · 6 色调渐变徽章</small></h1>
+<style>
+body{padding:32px;max-width:1160px;margin:0 auto}
+.cell{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 8px;border-radius:14px;background:var(--glass);border:1px solid var(--glass-line)}
+.cell code{color:#cbd5e1;font-size:.8rem}
+.logos{display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;margin:16px 0 32px}
+.logos figure{margin:0;text-align:center;color:#cbd5e1;font-size:.8rem}
+.lines{display:flex;flex-wrap:wrap;gap:18px;color:#e2e8f0;margin:0 0 28px}
+.lines .ico{width:28px;height:28px}
+.sheet{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px}
+.tints{display:flex;flex-wrap:wrap;gap:18px;margin:12px 0 28px}
+.tint-sample{display:flex;flex-direction:column;align-items:center;gap:8px;color:#f8fafc}
+.tint-sample .home-step-ico{width:48px;height:48px}
+.tint-sample .home-step-ico .ico{width:26px;height:26px}
+</style></head>
+<body><h1>图标家族 <small style="color:#94a3b8;font-size:1rem">24 网格 · stroke 1.75 · 圆角 · 2px 安全边 · 分组色块</small></h1>
+<h2>分组色块</h2>
+<div class="tints" id="tints"></div>
 <h2>Logo / favicon</h2><div class="logos"><figure><img src="assets/icon-512.png" width="160" height="160" alt=""><figcaption>icon-512</figcaption></figure><figure><img src="assets/icon-192.png" width="96" height="96" alt=""><figcaption>icon-192</figcaption></figure><figure><img src="assets/apple-touch-icon.png" width="72" height="72" alt=""><figcaption>apple-touch</figcaption></figure><figure><img src="assets/favicon-32.png" width="32" height="32" alt=""><figcaption>favicon-32</figcaption></figure><figure><img src="assets/icon-maskable-512.png" width="96" height="96" alt="" style="border-radius:50%"><figcaption>maskable</figcaption></figure></div>
 <h2>线稿</h2><div class="lines" id="lines"></div>
-<h2>徽章</h2><div class="icon-sheet" id="sheet"></div>
+<h2>全部图标</h2><div class="sheet" id="sheet"></div>
 <script src="js/icons.js"></script><script>
-var Q=window.QuestIcons;document.getElementById('sheet').innerHTML=Q.names.map(function(n){return '<div class="cell">'+Q.badge(n,'lg')+'<code>'+n+'</code></div>'}).join('');
+var Q=window.QuestIcons;
+var groups=[['学习','book-open','tint-learn'],['实施','tools','tint-do'],['赚钱','coin','tint-earn']];
+document.getElementById('tints').innerHTML=groups.map(function(g){
+  return '<div class="tint-sample"><span class="home-step-ico '+g[2]+'">'+Q.svg(g[1])+'</span><span>'+g[0]+'</span><code>'+g[1]+'</code></div>';
+}).join('');
+document.getElementById('sheet').innerHTML=Q.names.map(function(n){return '<div class="cell">'+Q.badge(n,'lg')+'<code>'+n+'</code></div>'}).join('');
 document.getElementById('lines').innerHTML=Q.names.map(function(n){return Q.svg(n)}).join('');
 </script></body></html>

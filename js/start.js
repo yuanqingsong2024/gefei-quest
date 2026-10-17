@@ -4,10 +4,20 @@
     return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
   function I(n) { return global.QuestIcons ? global.QuestIcons.svg(n) : ''; }
+  function navI(hash, fallback) {
+    var Nv = global.QuestNav;
+    if (hash && Nv && Nv.iconName && Nv.iconName(hash)) return Nv.icon(Nv.iconName(hash));
+    return I(fallback || 'compass');
+  }
+  function groupI(id, fallback) {
+    var nav = global.QuestNav && QuestNav.SITE_NAV, i;
+    if (nav) for (i = 0; i < nav.length; i++) if (nav[i].id === id && nav[i].icon) return I(nav[i].icon);
+    return I(fallback || 'compass');
+  }
 
   var TRACKS = [
     {
-      id: 'learn', no: '①', name: '学习', icon: 'map', blurb: '先把地图和任务走通',
+      id: 'learn', no: '①', name: '学习', icon: 'book-open', blurb: '先把地图和任务走通',
       img: 'assets/start/learn.webp', alt: '学习路线的关卡地图页面顶部',
       steps: [
         { t: '看六章顺序，确认自己现在在哪一章。', links: [['#path', '打开关卡地图']] },
@@ -18,7 +28,7 @@
       ],
     },
     {
-      id: 'do', no: '②', name: '实施', icon: 'target', blurb: '从一个词做到复盘',
+      id: 'do', no: '②', name: '实施', icon: 'tools', blurb: '从一个词做到复盘',
       img: 'assets/start/do.webp', alt: '工作台页面顶部，显示已登记站点的下一步',
       steps: [
         { t: '记下候选词。页内「关键词灵感」可查免费联想词并加入候选。', links: [['#war-keywords', '打开选词']] },
@@ -80,12 +90,12 @@
       '<div class="start-page" id="start-page">' +
       '<div class="start-top"><div><p class="start-lead">三条路线，选一条先走 7 天</p>' +
       '<p id="start-progress">前 7 天已完成 <b id="start-done">' + n + '</b> / 7</p></div>' +
-      '<button type="button" class="btn btn-primary" id="start-tour">' + I('flag') + '重新播放导览</button></div>' +
+      '<button type="button" class="btn btn-primary" id="start-tour">' + navI('#start', 'flag') + '重新播放导览</button></div>' +
       '<div class="start-cards" id="start-tracks" role="tablist" aria-label="三条路线">' +
       TRACKS.map(function (tr) {
         var on = tr.id === activeId;
         return '<button type="button" class="start-card' + (on ? ' on' : '') + '" role="tab" id="start-tab-' + tr.id + '" data-track="' + tr.id + '" aria-selected="' + (on ? 'true' : 'false') + '" aria-controls="start-panel-' + tr.id + '"' + (on ? '' : ' tabindex="-1"') + '>' +
-          '<span class="card-ico">' + I(tr.icon) + '</span><span><b>' + tr.no + ' ' + esc(tr.name) + '</b><small>' + esc(tr.blurb) + '</small></span></button>';
+          '<span class="card-ico tint-' + tr.id + '">' + groupI(tr.id, tr.icon) + '</span><span><b>' + tr.no + ' ' + esc(tr.name) + '</b><small>' + esc(tr.blurb) + '</small></span></button>';
       }).join('') + '</div>' +
       TRACKS.map(function (tr) {
         return '<div class="start-panel" role="tabpanel" id="start-panel-' + tr.id + '" data-track="' + tr.id + '" aria-labelledby="start-tab-' + tr.id + '"' + (tr.id === activeId ? '' : ' hidden') + '>' +

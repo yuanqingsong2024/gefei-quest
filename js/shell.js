@@ -47,15 +47,16 @@
   }
   function reduced() { return doc.documentElement.classList.contains('reduce-motion') || (global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches); }
 
-  /* ---------- 底部 Tab 栏（≤640px 由 CSS 显示） ---------- */
-  var BOTTOM = [['home', '首页', 'home', '#home'], ['path', '路线', 'map', '#path'], ['war', '作战室', 'target', '#war'], ['lib', '资源库', 'toolbox', '#lib'], ['me', '我的', 'user', '#me']];
-  function renderBottomBar(active) {
+  /* ---------- 底部 Tab 栏（≤640px 由 CSS 显示）。6 项与顶栏同一组，搜索留在顶栏。 ---------- */
+  function renderBottomBar() {
     var el = doc.getElementById('bottom-bar');
     if (!el) { el = doc.createElement('nav'); el.id = 'bottom-bar'; el.className = 'bottom-bar'; el.setAttribute('aria-label', '底部导航'); doc.body.appendChild(el); }
-    el.innerHTML = BOTTOM.map(function (t) {
-      var on = t[0] === active;
-      return '<a href="' + t[3] + '" data-bb="' + t[0] + '"' + (on ? ' class="active" aria-current="page"' : '') + '>' + I(t[2]) + '<span>' + t[1] + '</span></a>';
-    }).join('') + '<button type="button" class="bb-search" data-open-search aria-label="搜索">' + I('search') + '<span>搜索</span></button>';
+    var Nv = N();
+    var loc = Nv.locate ? Nv.locate(String(location.hash || '').replace(/^#/, '')) : { group: null };
+    el.innerHTML = (Nv.SITE_NAV || []).map(function (n) {
+      var on = loc.group && loc.group.id === n.id;
+      return '<a href="' + n.hash + '" data-bb="' + n.id + '"' + (on ? ' class="active" aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + esc(n.short || n.label) + '</span></a>';
+    }).join('');
   }
 
   /* ---------- 页面淡入 ---------- */
@@ -69,30 +70,35 @@
   function build() {
     var D = global.QuestData, Nv = N(), out = [];
     function add(type, title, sub, href, hay, icon) { out.push({ type: type, title: title, sub: sub || '', href: href, icon: icon, hay: (title + ' ' + (sub || '') + ' ' + (hay || '')).toLowerCase() }); }
+    var HAY = {
+      start: '新手导览',
+      war: '实战作战室 作战室',
+      work: 'dashboard 下一步 流水线 进度 站点',
+      'work-review': '复盘 周报 review 总结 下周计划',
+      'me-accounts': 'google gsc ga4 adsense oauth 授权 自动拉取 search console analytics Google 连接',
+      'me-analytics': 'csv 导入 search console adsense 小红书 抖音 b站 数据 分析 数据导入中心',
+      'me-ai': 'ai api key deepseek openai 通义 kimi 智谱 openrouter 模型 赚钱榜雷达 赚钱项目实施官',
+      'war-share': '分享 分发 发帖 x 推特 微博 小红书 知乎 公众号 reddit linkedin pinterest facebook medium telegram whatsapp',
+      'war-publish': 'github pages 部署 发布 token pat',
+      'war-keywords': '灵感 联想 autocomplete trends datamuse wikipedia hn 关键词灵感',
+      pm: '平台变现 流量主 创作激励 分成 副业 新手怎么选',
+    };
     function addNav(n) {
-      add('页面', n.label, n.sub, n.hash, [n.desc, n.id, (n.children || []).map(function (c) { return c.label; }).join(' ')].join(' '), n.icon);
+      add('页面', n.label, n.desc || '', n.hash, [n.id, HAY[n.id] || ''].join(' '), n.icon);
       (n.children || []).forEach(addNav);
     }
     Nv.SITE_NAV.forEach(addNav);
-    if (Nv.SITEMAP) add('页面', Nv.SITEMAP.label, Nv.SITEMAP.sub, Nv.SITEMAP.hash, Nv.SITEMAP.desc, Nv.SITEMAP.icon);
-    [].concat(Nv.PATH_TABS, Nv.WAR_TABS, Nv.ME_TABS).forEach(function (t) { add('页面', t.label, '子页面', t.hash, '', t.icon); });
-    Nv.STATIONS.forEach(function (s) { add('页面', s.name, '实战作战室 · Day1–7', s.hash, '', s.icon); });
+    add('页面', '关键词灵感', '选词练习板里的免费联想词，勾选后加入候选', '#war-keywords', '灵感 联想', 'tag');
+    if (Nv.SITEMAP) add('页面', Nv.SITEMAP.label, Nv.SITEMAP.desc || '', Nv.SITEMAP.hash, 'sitemap 站点地图', Nv.SITEMAP.icon);
+    Nv.STATIONS.forEach(function (s) { add('页面', s.name, '7 天作战日程 · Day1–7', s.hash, s.hash === '#war' ? '实战作战室' : '', s.icon); });
     Nv.LIB_CATS.forEach(function (c) { add('页面', '资源库 · ' + c.label, '资源分类', '#lib-' + c.id, '', c.icon); });
     (D.QUESTS || []).forEach(function (q) { var ch = D.getChapter(q.chapterId); add('任务', q.title, (ch ? ch.name : '') + ' · ' + q.action, '#path-quests', [q.tools, q.doneCriteria, q.pitfalls, q.id].join(' '), ch ? ch.icon : 'list'); });
     var catIcon = {}; Nv.LIB_CATS.forEach(function (c) { catIcon[c.id] = c.icon; });
     (D.TRY_CHANNELS || []).forEach(function (c) { add('资源', c.name, c.blurb, '#lib-' + c.cat, [c.how, c.caveat].join(' '), catIcon[c.cat] || 'toolbox'); });
     (D.PEER_METHODS || []).forEach(function (p) { add('资源', p.name, p.oneLiner, '#lib-peers', [p.steal, p.caveat].join(' '), 'users'); });
-    add('页面', 'AI 设置', '我的进度 · Grok Bot / 自定义 OpenAI 兼容接口', '#me-ai', 'ai api key deepseek openai 通义 kimi 智谱 openrouter 模型 赚钱榜雷达 赚钱项目实施官', 'sparkle');
-    add('页面', '数据导入中心', '数据分析 · 导入 GSC / AdSense / 小红书 抖音 B站 CSV', '#me-analytics', 'csv 导入 search console adsense 小红书 抖音 b站 数据 分析', 'download');
-    add('页面', '工作台', '实战作战室 · 每个站点的下一步：选词→实操助手→发布→分发→数据→复盘，含近 28 天数据', '#work', '工作台 dashboard 下一步 流水线 进度 站点', 'target');
-    add('页面', '每周复盘', '实战作战室 · 每周复盘模板：自动事实 + 做了什么 / 数据变化 / 学到什么 / 下周 3 件事 / 风险，可复制 Markdown', '#work-review', '复盘 周报 review 总结 下周计划', 'bulb');
-    add('页面', 'Google 连接', '账号中心 · 用自己的 OAuth 客户端 ID 只读拉取 Search Console / GA4 / AdSense', '#me-accounts', 'google gsc ga4 adsense oauth 授权 自动拉取 search console analytics', 'search');
-    add('页面', '内容分发', '实战作战室 · 一份内容生成 X/微博/小红书/知乎/Reddit/LinkedIn 等版本，官方免费链接发帖', '#war-share', '分享 分发 发帖 x 推特 微博 小红书 知乎 公众号 reddit linkedin pinterest facebook medium telegram whatsapp', 'external');
-    add('页面', 'GitHub 一键发布', '发布上线 · Fine-grained Token 写入仓库并开启 Pages', '#war-publish', 'github pages 部署 发布 token pat', 'rocket');
-    add('页面', '关键词灵感', '选词练习板 · 免费联想词，勾选后加入候选词', '#war-keywords', '灵感 联想 autocomplete trends datamuse wikipedia hn', 'bulb');
     if (global.QUEST_PLATFORMS) {
       var PD = global.QUEST_PLATFORMS;
-      add('页面', '平台变现 · 国内 + 海外', '资源库 · ' + PD.PLATFORMS.length + ' 个平台的变现方式、门槛、分成与来源', '#pm', '平台变现 流量主 创作激励 分成 副业 新手怎么选', 'coin');
+      add('页面', '平台变现 · 国内 + 海外', PD.PLATFORMS.length + ' 个平台的变现方式、门槛、分成与来源', '#pm', '平台变现 流量主 创作激励 分成 副业 新手怎么选', 'wallet');
       PD.CATS.forEach(function (c) { add('页面', '平台变现 · ' + c.label, c.desc, '#pm-' + c.id, '', c.icon); });
       PD.PLATFORMS.forEach(function (p) { add('平台变现', p.name, p.ways, '#pm-' + p.cat + '/' + p.id, [p.gate, p.fit].join(' '), 'coin'); });
     }

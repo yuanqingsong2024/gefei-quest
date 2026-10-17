@@ -25,31 +25,10 @@
     'me-sites': { what: '记下站名、域名和主词。', go: '填写站点名称', focus: '#site-name', goal: '登记站名、域名和主词。' },
   };
 
-  /** 学习 → 实施 → 赚钱。id 都是 QuestNav.parse 能落到的现有路由。 */
-  var FLOW = [
-    { id: 'start', hash: '#start', title: '新手引导' },
-    { id: 'path', hash: '#path', title: '学习路线' },
-    { id: 'path-quests', hash: '#path-quests', title: '任务清单' },
-    { id: 'war-keywords', hash: '#war-keywords', title: '选词练习板' },
-    { id: 'war-kit', hash: '#war-kit', title: '站一实操助手' },
-    { id: 'me-sites', hash: '#me-sites', title: '我的站点台账' },
-    { id: 'war-publish', hash: '#war-publish', title: '发布上线' },
-    { id: 'war-share', hash: '#war-share', title: '内容分发' },
-    { id: 'work', hash: '#work', title: '工作台' },
-    { id: 'me-analytics', hash: '#me-analytics', title: '数据分析' },
-    { id: 'work-review', hash: '#work-review', title: '每周复盘' },
-    { id: 'war-rank', hash: '#war-rank', title: '每日赚钱榜' },
-    { id: 'pm', hash: '#pm', title: '平台变现' },
-  ];
-  /** 有提示条、但不在 FLOW 里的页面，跳进流程中的这一站。 */
-  var JUMP = {
-    war: 'war-keywords',
-    lib: 'pm',
-    me: 'me-sites',
-    'me-accounts': 'me-analytics',
-    'me-ai': 'war-keywords',
-    'me-stats': 'path-quests',
-  };
+  /** 与菜单顺序一致，由 SITE_NAV 生成。 */
+  var FLOW = global.QuestNav && QuestNav.mainFlow ? QuestNav.mainFlow() : [];
+  /** 分组里没有下一项时，跳进主线的这一站。 */
+  var JUMP = { weekly: 'war' };
 
   function keyFor(route) {
     var h = (route && route.hash) || '';
@@ -61,9 +40,10 @@
   function flowId(routeOrHash) {
     var h = typeof routeOrHash === 'string' ? routeOrHash : ((routeOrHash && routeOrHash.hash) || '');
     h = String(h).replace(/^#/, '');
-    if (h === 'war' || h === 'war-s2' || h === 'war-s3' || h === 'war-m' || h === 'war-x') return 'war';
-    if (h === 'lib' || h.indexOf('lib-') === 0) return 'lib';
-    if (h === 'pm' || h.indexOf('pm-') === 0) return 'pm';
+    if (global.QuestNav && QuestNav.locate) {
+      var loc = QuestNav.locate(h);
+      if (loc && loc.page && loc.page.id) return loc.page.id;
+    }
     return h;
   }
   function flowAt(id) {
@@ -75,6 +55,10 @@
     var id = flowId(routeOrHash);
     var i = flowAt(id);
     if (i >= 0) return i < FLOW.length - 1 ? FLOW[i + 1] : null;
+    if (global.QuestNav && QuestNav.nextInGroup) {
+      var sib = QuestNav.nextInGroup(id);
+      if (sib) return { id: sib.id, hash: sib.hash, title: sib.label };
+    }
     var jump = JUMP[id];
     if (!jump) return null;
     var j = flowAt(jump);
@@ -237,7 +221,7 @@
     return esc(spec.go);
   }
   function panelFor(route) {
-    var panelId = { home: 'panel-home', path: 'panel-path', war: 'panel-war', lib: 'panel-lib', me: 'panel-me', start: 'panel-start' }[route && route.section];
+    var panelId = { home: 'panel-home', path: 'panel-path', war: 'panel-war', lib: 'panel-lib', me: 'panel-me', start: 'panel-start', guides: 'panel-guides', weekly: 'panel-weekly' }[route && route.section];
     return panelId ? document.getElementById(panelId) : null;
   }
   function mount(route) {
