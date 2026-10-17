@@ -107,7 +107,7 @@
       '<section class="block glass tool-card"><h2 class="block-title">' + I('search') + '2 · 实时预览与规则</h2><div id="kit-preview" aria-live="polite"></div></section>' +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('download') + '3 · 下载我的站一页面</h2>' +
       '<p class="hint">生成 index.html（已填好 title / description / h1 / 联系邮箱 / canonical）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。</p>' +
-      '<div class="tool-actions"><button type="button" class="btn btn-primary btn-sm" id="kit-dl">' + I('download') + '下载我的站一页面（ZIP）</button>' +
+      '<div class="tool-actions"><button type="button" class="btn btn-primary btn-sm" id="kit-dl">' + I('download') + '下载我的站一页面（ZIP）</button>' + '<a class="btn btn-sm" id="kit-publish" href="#war-publish">' + I('rocket') + '直接发布到 GitHub</a>' +
       '<button type="button" class="btn btn-sm" data-dl="index.html">只下 index.html</button><button type="button" class="btn btn-sm" data-dl="robots.txt">robots.txt</button><button type="button" class="btn btn-sm" data-dl="sitemap.xml">sitemap.xml</button></div></section>' +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('list') + '4 · 上线自查表 <small class="tool-count">' + done + '/' + CHECKS.length + '</small></h2>' +
       '<p class="hint">标 ⇄ 的项与学习路线任务等价，勾上会同步勾对应任务。</p><ul class="kit-checks">' +
@@ -289,7 +289,7 @@
       '<button type="button" class="btn btn-sm" id="site-csv"' + (items.length ? '' : ' disabled') + '>' + I('download') + '导出 CSV</button></div></form></section>' +
       (items.length ? items.map(function (s) { return siteCard(s, opts.log === s.id); }).join('') :
         '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>还没有站点。站一上线后来登记：名称、域名、主词，然后每月记一次 GSC 的曝光和点击，例如「2026-11 · 曝光 120 · 点击 3」。</p></div>') +
-      '<p class="hint">数据靠你每月从 Search Console / 统计后台手动抄，本站不连接任何 API。</p>' + PRIV + '</div>';
+      '<p class="hint">可以手动记，也可以在 <a href="#me-analytics">数据分析</a> 导入 GSC / AdSense CSV 自动按月写入。</p>' + PRIV + '</div>';
 
     root.querySelector('#site-form').addEventListener('submit', function (ev) {
       ev.preventDefault();

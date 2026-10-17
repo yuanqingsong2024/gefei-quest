@@ -52,6 +52,8 @@
     (D.TRY_CHANNELS || []).forEach(function (c) { add('资源', c.name, c.blurb, '#lib-' + c.cat, [c.how, c.caveat].join(' '), catIcon[c.cat] || 'toolbox'); });
     (D.PEER_METHODS || []).forEach(function (p) { add('资源', p.name, p.oneLiner, '#lib-peers', [p.steal, p.caveat].join(' '), 'users'); });
     add('页面', 'AI 设置', '我的进度 · Grok Bot / 自定义 OpenAI 兼容接口', '#me-ai', 'ai api key deepseek openai 通义 kimi 智谱 openrouter 模型 赚钱榜雷达 赚钱项目实施官', 'sparkle');
+    add('页面', '数据导入中心', '数据分析 · 导入 GSC / AdSense / 小红书 抖音 B站 CSV', '#me-analytics', 'csv 导入 search console adsense 小红书 抖音 b站 数据 分析', 'download');
+    add('页面', 'GitHub 一键发布', '发布上线 · Fine-grained Token 写入仓库并开启 Pages', '#war-publish', 'github pages 部署 发布 token pat', 'rocket');
     if (global.QUEST_PLATFORMS) {
       var PD = global.QUEST_PLATFORMS;
       add('页面', '平台变现 · 国内 + 海外', '资源库 · ' + PD.PLATFORMS.length + ' 个平台的变现方式、门槛、分成与来源', '#pm', '平台变现 流量主 创作激励 分成 副业 新手怎么选', 'coin');

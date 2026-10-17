@@ -121,3 +121,9 @@
 - file:// 打开 #pm-cn-drama 正常（6 张卡片，链接状态徽章来自 js/platform-links.js）
 - 来源链接核实 tools/check-platform-links.js：61 个唯一来源，55 个 200；6 个被拦截/异常：bilibili opus 404（反爬，浏览器可开）、vcg.com 403、creators.facebook.com 400、help.medium.com 403、support.substack.com 403、support.patreon.com 403（均为机器访问拦截，页面已标注）
 - 截图：gefei-quest-shots/p15-cn-index.png、p15-cn-short-drama.png
+
+## Phase 16 · 实操工作台 Phase A（2026-10-17）
+- site-check：routes=35 dev=21 broken=0 consoleErrors=0；P9–P13、P15、P16 全部 0 fails
+- P16（31 项，假 GitHub API tools/fake-github.js:8767 + 假 AI :8766）：平台 A–D 列表；错误 Token → 401 提示；校验成功显示已连接；Token 只在 gefei-quest-accounts-v1、不进存档；实操助手流水线 + 发布按钮；发布页自动填仓库名 + iframe 预览；预览只发 GET 不写入；确认后新建仓库、写 3 个文件、开启 Pages、显示地址、写入台账 + 发布记录；再次预览全部「不变」；改内容后检测「更新」并带 sha 写入；GSC 日期 CSV → 图表 + 趋势 + 台账月记录；GSC 查询 CSV → 前列表 + 机会词；AdSense CSV → 台账 usd；通用小红书 CSV（1.2万 解析）；坏 CSV 友好报错；AI 分析走 AI 设置服务商；流水线 5 步全部完成；页脚、搜索；390px 三页无横向溢出
+- file:// 三个新页面正常
+- 截图：p16-accounts.png、p16-publish.png、p16-analytics.png

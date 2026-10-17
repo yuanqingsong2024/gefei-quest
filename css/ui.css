@@ -1934,3 +1934,28 @@ body.search-open { overflow: hidden; }
 .pm-banner{display:flex;align-items:center;gap:12px;padding:12px 16px;margin-bottom:14px;border:2px solid var(--gold);border-radius:var(--radius);background:#2a2410;color:var(--ink);text-decoration:none}
 .pm-banner svg{width:24px;height:24px;flex:none}.pm-banner span{flex:1}.pm-banner b{display:block;color:var(--gold-text)}.pm-banner small{color:var(--ink)}
 @media (max-width:640px){.pm-card dl{grid-template-columns:1fr}.pm-card dt{margin-top:6px}.pm-cats{grid-template-columns:1fr}}
+
+/* ===== Phase 16 · 实操工作台 ===== */
+.wb-pipe{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 14px;padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
+.wb-step{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.9rem}
+.wb-step svg{width:16px;height:16px}.wb-step i{font-style:normal;color:#111;background:var(--ok);border-radius:50%;width:16px;height:16px;display:inline-grid;place-items:center;font-size:.7rem}
+.wb-step.done{border-color:var(--ok)}.wb-step.on{background:var(--gold);color:#111;border-color:var(--gold);font-weight:700}
+.wb-pipe-arrow{color:var(--muted)}
+.wb-legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;color:var(--ink)}
+.wb-cls{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:6px;font-weight:800;margin-right:4px;color:#111}
+.wb-cls-A{background:var(--ok)}.wb-cls-B{background:var(--cyan)}.wb-cls-C{background:var(--gold)}.wb-cls-D{background:#cbd5e1}
+.wb-plats{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.wb-plat{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--panel2);color:var(--ink);display:flex;flex-direction:column;gap:6px}
+.wb-plat header{display:flex;align-items:center;gap:8px}.wb-plat header b{flex:1}.wb-plat p{margin:0;font-size:.88rem;line-height:1.55}.wb-plat .btn{align-self:flex-start}
+.wb-st{font-size:.8rem;color:var(--muted)}.wb-st.ok{color:var(--ok);font-weight:700}.wb-st.warn{color:var(--gold-text)}
+.wb-need li{margin:6px 0;color:var(--ink)}
+.wb-preview{width:100%;height:320px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.wb-plan,.wb-top{width:100%;border-collapse:collapse;color:var(--ink)}.wb-plan td,.wb-plan th,.wb-top td,.wb-top th{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.wb-act{padding:1px 8px;border-radius:6px;font-weight:700;color:#111}.wb-act-create{background:var(--ok)}.wb-act-update{background:var(--gold)}.wb-act-same{background:#cbd5e1}
+.wb-h{color:var(--cyan);margin:12px 0 6px;display:flex;gap:6px;align-items:center}
+.wb-hist,.wb-log,.wb-opp{margin:0;padding-left:1.2em;color:var(--ink)}.wb-hist a{color:var(--cyan);overflow-wrap:anywhere}
+.wb-chips{display:flex;flex-wrap:wrap;gap:6px}.wb-chips .chip{padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--ink);cursor:pointer}.wb-chips .chip.on{background:var(--gold);color:#111;font-weight:700}
+.wb-trend{font-weight:700;color:var(--ink)}.wb-trend.up{color:var(--ok)}.wb-trend.down{color:var(--danger)}
+.c-third{stroke:#c084fc;fill:none;stroke-width:2.5}circle.c-third{fill:#c084fc}.lg-third{background:#c084fc}
+.wb .chk{display:flex;gap:8px;align-items:center;color:var(--ink)}
+.wb textarea{width:100%}

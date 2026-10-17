@@ -2,7 +2,7 @@
 const { chromium } = require(process.env.PW || 'playwright-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video'];
+const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish'];
 const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
@@ -335,6 +335,71 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T15(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => /^#pm-cn-drama/.test(a.getAttribute('href')))), 'search finds 红果'); await p.keyboard.press('Escape');
   for (const h of ['pm', 'pm-cn-drama', 'pm-gl-video']) { await m13.goto(BASE + 'index.html#' + h); await m13.waitForTimeout(300); const w = await m13.evaluate(() => document.documentElement.scrollWidth); T15(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
   console.log('P15 functional fails=' + f15); fail += f15;
+  // ---- P16 实操工作台 ----
+  let f16 = 0; const T16 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P16 ' + m); if (!c) f16++; };
+  const gh = require('./fake-github.js').start(8767); const GH = 'http://127.0.0.1:8767';
+  const fake16 = require('./fake-openai.js').start(8766);
+  await visit('me-accounts');
+  T16(await p.evaluate(() => document.querySelectorAll('.wb-plat').length >= 17 && ['A', 'B', 'C', 'D'].every(k => document.querySelector('.wb-plat .wb-cls-' + k))), 'accounts: platform list with A–D classes');
+  await p.fill('#gh-token', 'wrong'); await p.fill('#gh-base', GH); await p.click('#gh-form button[type=submit]'); await p.waitForTimeout(400);
+  T16(/401/.test(await p.textContent('#gh-msg')), 'bad token → 401 message');
+  await p.fill('#gh-token', 'github_pat_test'); await p.fill('#gh-base', GH); await p.click('#gh-form button[type=submit]'); await p.waitForTimeout(400);
+  T16(/tester/.test(await p.textContent('#gh-msg')) && await p.evaluate(() => /已连接/.test(document.querySelector('[data-plat="github"]').textContent)), 'token verified → 已连接 tester');
+  T16(await p.evaluate(() => { const s = localStorage.getItem('gefei-quest-save-v1') || ''; return s.indexOf('github_pat_test') < 0 && /github_pat_test/.test(localStorage.getItem('gefei-quest-accounts-v1')); }), 'token stored in separate key, not in save');
+  await visit('war-kit'); await p.fill('#kit-keyword', 'pdf merge tool'); await p.fill('#kit-intro', 'Merge PDF files online for free.'); await p.waitForTimeout(250);
+  T16(await p.evaluate(() => !!document.querySelector('#kit-publish') && !!document.querySelector('#panel-war .wb-pipe [data-step="kit"].done')), 'kit: pipeline + 发布 button');
+  await p.click('#kit-publish'); await p.waitForTimeout(300);
+  T16(await p.evaluate(() => location.hash === '#war-publish' && document.querySelector('#pub-repo').value === 'pdf-merge-tool' && !!document.querySelector('.wb-preview')), 'publish page prefilled + preview iframe');
+  const callsBefore = gh.st.calls.length;
+  await p.click('#pub-dry'); await p.waitForTimeout(500);
+  T16(await p.evaluate(() => /将新建/.test(document.querySelector('#pub-out').textContent) && document.querySelectorAll('.wb-plan tr[data-action="create"]').length === 3), 'dry-run: new repo + 3 files to create');
+  T16(gh.st.calls.slice(callsBefore).every(c => c.method === 'GET') && !gh.repos['tester/pdf-merge-tool'], 'dry-run made no writes');
+  await p.click('#pub-go'); await p.waitForTimeout(800);
+  const R = gh.repos['tester/pdf-merge-tool'];
+  T16(R && /pdf merge tool/i.test(R.files['index.html'] || '') && R.files['robots.txt'] && R.files['sitemap.xml'] && R.pages, 'publish: repo created, 3 files written, Pages enabled');
+  T16(await p.evaluate(() => /tester\.github\.io\/pdf-merge-tool/.test(document.querySelector('#pub-url').href)), 'publish: site URL shown');
+  T16(await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); return s.sites.items.some(x => x.host === 'GitHub Pages' && /tester\.github\.io/.test(x.domain) && x.status === '已上线') && s.publish.some(x => x.ok && !x.dry); }), 'publish → 台账 site + publish record');
+  await p.click('#pub-dry'); await p.waitForTimeout(500);
+  T16(await p.evaluate(() => document.querySelectorAll('.wb-plan tr[data-action="same"]').length === 3 && /已开启/.test(document.querySelector('#pub-out').textContent)), 're-preview: all files 不变, Pages 已开启');
+  await visit('war-kit'); await p.fill('#kit-intro', 'Merge PDFs fast, free, in your browser.'); await p.waitForTimeout(150); await visit('war-publish'); await p.click('#pub-dry'); await p.waitForTimeout(500);
+  T16(await p.evaluate(() => document.querySelectorAll('.wb-plan tr[data-action="update"]').length >= 1), 'changed kit → update detected');
+  await p.click('#pub-go'); await p.waitForTimeout(600);
+  T16(/in your browser/.test(gh.repos['tester/pdf-merge-tool'].files['index.html']), 'update written with sha');
+  // 导入
+  await visit('me-analytics');
+  const siteId = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).sites.items.find(x => x.host === 'GitHub Pages').id);
+  const csv16 = ['\ufeffDate,Clicks,Impressions,CTR,Position']; for (let i = 1; i <= 30; i++) csv16.push(`2026-09-${String(i).padStart(2, '0')},${i % 5 + (i > 15 ? 3 : 0)},${100 + i * 4},${(2 + i / 10).toFixed(1)}%,${(20 - i / 3).toFixed(1)}`);
+  await p.selectOption('#imp-site', siteId);
+  await p.setInputFiles('#imp-file', { name: 'Dates.csv', mimeType: 'text/csv', buffer: Buffer.from(csv16.join('\n')) });
+  await p.click('#imp-form button[type=submit]'); await p.waitForTimeout(300);
+  T16(await p.evaluate(() => document.querySelector('#an-view').dataset.kind === 'gsc-dates' && !!document.querySelector('#an-view .wb-chart polyline') && !!document.querySelector('#an-trend')), 'GSC dates CSV → chart + trend');
+  T16(await p.evaluate(id => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); const l = s.sites.items.find(x => x.id === id).logs.find(x => x.month === '2026-09'); return l && l.clicks > 0 && l.imp > 3000; }, siteId), 'GSC → 台账 2026-09 month log');
+  await p.fill('#imp-text', '热门查询,点击次数,展示,点击率,排名\npdf merge,12,300,4%,6.2\nmerge pdf mac,0,140,0%,11.5\n"combine pdf, free",1,60,1.6%,14\n'); await p.click('#imp-form button[type=submit]'); await p.waitForTimeout(300);
+  T16(await p.evaluate(() => document.querySelector('#an-view').dataset.kind === 'gsc-queries' && document.querySelectorAll('.wb-top tbody tr').length === 3 && /merge pdf mac/.test(document.querySelector('.wb-opp').textContent)), 'GSC queries → top table + 机会词');
+  await p.selectOption('#imp-site', siteId); await p.fill('#imp-text', '日期,估算收入 (USD),网页浏览量,点击次数\n2026-09-01,1.20,300,2\n2026-09-02,0.80,280,1\n'); await p.click('#imp-form button[type=submit]'); await p.waitForTimeout(300);
+  T16(await p.evaluate(id => document.querySelector('#an-view').dataset.kind === 'adsense' && JSON.parse(localStorage.getItem('gefei-quest-save-v1')).sites.items.find(x => x.id === id).logs.find(x => x.month === '2026-09').usd === 2, siteId), 'AdSense CSV → 台账 usd 2.00');
+  await p.selectOption('#imp-kind', 'generic'); await p.selectOption('#imp-plat', 'xhs'); await p.selectOption('#imp-site', '');
+  await p.fill('#imp-text', '日期,观看量,点赞,涨粉\n2026/9/1,1.2万,30,5\n2026/9/2,8000,25,3\n'); await p.click('#imp-form button[type=submit]'); await p.waitForTimeout(300);
+  T16(await p.evaluate(() => document.querySelector('#an-view').dataset.kind === 'generic' && /小红书/.test(document.querySelector('#an-view').textContent) && /20,000/.test(document.querySelector('#an-view .stat-grid').textContent)), 'generic 小红书 CSV (万 parsed) → totals');
+  await p.fill('#imp-text', 'foo,bar\n1,2'); await p.click('#imp-form button[type=submit]'); await p.waitForTimeout(200);
+  T16(/导入失败/.test(await p.textContent('#imp-msg')), 'bad CSV → friendly error');
+  await p.click('#an-ai'); await p.waitForTimeout(1200);
+  T16(/数据分析师/.test(JSON.stringify(fake16.last && fake16.last.body || {})) && await p.evaluate(() => !!document.querySelector('#an-ai-out .ai-out')), 'AI 分析 uses AI settings provider');
+  await visit('me-analytics'); const done16 = await p.evaluate(() => [...document.querySelectorAll('#panel-me .wb-pipe .wb-step.done')].map(a => a.dataset.step).join(',')); T16(done16.split(',').length === 5, 'pipeline all 5 steps done (' + done16 + ')');
+  T16(await p.evaluate(() => ['#me-accounts', '#me-analytics', '#war-publish'].every(h => document.querySelector('.site-footer a[href="' + h + '"]'))), 'footer links');
+  await p.keyboard.press('Control+k'); await p.keyboard.type('导入'); await p.waitForTimeout(150);
+  T16(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#me-analytics')), 'search finds 数据导入'); await p.keyboard.press('Escape');
+  const st16 = await p.evaluate(() => localStorage.getItem('gefei-quest-save-v1'));
+  const acc16 = await p.evaluate(() => localStorage.getItem('gefei-quest-accounts-v1'));
+  await m13.evaluate(([s, a]) => { localStorage.setItem('gefei-quest-save-v1', s); localStorage.setItem('gefei-quest-accounts-v1', a); }, [st16, acc16]); await m13.reload(); await m13.waitForTimeout(300);
+  for (const h of ['me-accounts', 'war-publish', 'me-analytics']) { await m13.goto(BASE + 'index.html#' + h); await m13.waitForTimeout(350); const w = await m13.evaluate(() => document.documentElement.scrollWidth); T16(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
+  if (SHOTS) {
+    await m13.goto(BASE + 'index.html#me-accounts'); await m13.waitForTimeout(400); await m13.screenshot({ path: `${SHOTS}/p16-accounts.png`, fullPage: true });
+    await m13.goto(BASE + 'index.html#war-publish'); await m13.waitForTimeout(400); await m13.evaluate(() => document.querySelector('#pub-dry').click()); await m13.waitForTimeout(600); await m13.screenshot({ path: `${SHOTS}/p16-publish.png`, fullPage: true });
+    await m13.goto(BASE + 'index.html#me-analytics'); await m13.waitForTimeout(300); await m13.evaluate(() => document.querySelector('.wb-chips .chip').click()); await m13.waitForTimeout(300); await m13.screenshot({ path: `${SHOTS}/p16-analytics.png`, fullPage: true });
+  }
+  gh.close(); fake16.close();
+  console.log('P16 functional fails=' + f16); fail += f16;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

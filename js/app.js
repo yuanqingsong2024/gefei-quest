@@ -119,12 +119,18 @@
       crumb = '每日赚钱榜';
       $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'rank') + '<div id="tool-body"></div>';
       QuestRank.renderRank(state, $('#tool-body'), toolCtx());
+    } else if (sec === 'war' && route.view === 'publish') {
+      crumb = '发布上线';
+      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'publish') + '<div id="tool-body"></div>';
+      QuestWorkbench.renderPublish(state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && (route.view === 'kit' || route.view === 'keywords')) {
       const root = $('#panel-war');
       const kit = route.view === 'kit';
       crumb = kit ? '站一实操助手' : '选词练习板';
       root.innerHTML = subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>' + (kit ? '<div id="kit-plan"></div>' : '');
       QuestTools[kit ? 'renderKit' : 'renderKeywords'](state, $('#tool-body'), toolCtx());
+      $('#tool-body').insertAdjacentHTML('afterbegin', QuestWorkbench.pipeline(state, route.view));
+      $('#tool-body').addEventListener('input', () => setTimeout(() => { const pn = $('#tool-body .wb-pipe'); if (pn) pn.outerHTML = QuestWorkbench.pipeline(state, route.view); }, 60));
       if (kit) { const kp = $('#kit-plan'); kp.innerHTML = QuestRank.planHtml(state); QuestRank.bindPlan(state, kp, toolCtx()); }
     } else if (sec === 'war') {
       $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'days') + '<div id="war-body"></div>';
@@ -186,6 +192,13 @@
       });
     } else if (sec === 'me') {
       const root = $('#panel-me');
+      if (route.view === 'accounts' || route.view === 'analytics') {
+        const acc = route.view === 'accounts';
+        crumb = acc ? '账号中心' : '数据分析';
+        root.innerHTML = subTabs(N.ME_TABS, route.view) + '<div id="wb-body"></div>';
+        QuestWorkbench[acc ? 'renderAccounts' : 'renderAnalytics'](state, $('#wb-body'), toolCtx());
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+      }
       if (route.view === 'ai') {
         crumb = 'AI 设置';
         root.innerHTML = subTabs(N.ME_TABS, 'ai') + '<div id="ai-body"></div>';
@@ -206,6 +219,7 @@
         crumb = '我的站点台账';
         root.innerHTML = subTabs(N.ME_TABS, 'sites') + '<div id="sites-body"></div>';
         QuestTools.renderSites(state, $('#sites-body'), toolCtx());
+        $('#sites-body').insertAdjacentHTML('afterbegin', QuestWorkbench.pipeline(state, 'sites'));
         renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
       }
       root.innerHTML = subTabs(N.ME_TABS, 'overview') + `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>

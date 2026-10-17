@@ -118,3 +118,10 @@
 - 数据 js/platform-data.js；链接核实 tools/check-platform-links.js → data/platform-links.json + js/platform-links.js
 - 61 个来源，30 条带出处与日期的规则；其余写「官方未公开/以后台为准」
 - 任务 T149–T154 完成；site-check 0 fails
+
+## Phase 16 · 实操工作台 Phase A ✅（2026-10-17）
+- docs/PHASE16-WORKBENCH.md：17+ 平台可行性矩阵（A/B/C/D）+ 架构 + T155–T167
+- js/workbench.js：#me-accounts 账号中心、#war-publish GitHub 发布（预览/写入/Pages/台账）、#me-analytics 导入中心 + 分析 + AI；流水线条
+- worker/ Cloudflare Worker 代理模板（Phase B，用户自行部署）；tools/fake-github.js 测试桩
+- 存档追加字段：publish、imports；凭据独立键 gefei-quest-accounts-v1
+- 下一步：Phase B（需 Cloudflare 账号）、Phase C（需 Google Cloud OAuth Client ID）

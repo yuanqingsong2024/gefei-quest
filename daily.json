@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T00:42:06.115Z",
-  "latestId": 16,
+  "generatedAt": "2026-10-17T02:39:11.910Z",
+  "latestId": 17,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 17,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "实操工作台：账号中心、GitHub 一键发布、数据导入与分析",
+      "items": [
+        "账号中心：17 个平台按官方接口能力分 A 直接发布 / B 需后端 / C API 拉数据 / D 导入 CSV，并写明接入方法",
+        "GitHub 一键发布：用细粒度 Token 把实操助手生成的页面写进你的仓库并开启 Pages，先预览后写入，自动登记到站点台账",
+        "数据导入中心：GSC 效果导出、AdSense 报告、小红书/抖音/B站等后台 CSV，按月写入台账",
+        "数据分析：趋势图、机会词、AI 分析按钮；流水线 选词 → 实操助手 → 发布 → 台账 → 分析"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-accounts"
+    },
     {
       "id": 16,
       "date": "2026-10-17",
@@ -123,17 +136,6 @@
         "六个栏目名称全站统一",
         "所有文档改为站内页面，不再跳 .md",
         "旧链接自动跳转到新地址"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 7,
-      "date": "2026-10-16",
-      "tag": "改进",
-      "title": "首页改版 + 图标与背景",
-      "items": [
-        "新的落地页式首页",
-        "站点图标、背景图与高对比配色"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
