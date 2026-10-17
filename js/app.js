@@ -8,7 +8,7 @@
   const N = window.QuestNav;
   const I = N.icon;
   const $ = (sel) => document.querySelector(sel);
-  const PANELS = ['home', 'path', 'war', 'lib', 'guides', 'weekly', 'me', 'start'];
+  const PANELS = ['home', 'path', 'war', 'lib', 'guides', 'weekly', 'me', 'start', 'sitemap'];
 
   function persist() {
     state = QuestSave.saveSave(state);
@@ -350,6 +350,8 @@
           });
         },
       });
+    } else if (sec === 'sitemap') {
+      N.renderSitemap($('#panel-sitemap'));
     } else if (sec === 'start') {
       if (window.QuestStart) QuestStart.render($('#panel-start'), state);
     }

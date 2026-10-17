@@ -43,7 +43,12 @@
   function build() {
     var D = global.QuestData, Nv = N(), out = [];
     function add(type, title, sub, href, hay, icon) { out.push({ type: type, title: title, sub: sub || '', href: href, icon: icon, hay: (title + ' ' + (sub || '') + ' ' + (hay || '')).toLowerCase() }); }
-    Nv.SITE_NAV.forEach(function (n) { add('页面', n.label, n.sub, n.hash, n.desc, n.icon); });
+    function addNav(n) {
+      add('页面', n.label, n.sub, n.hash, [n.desc, n.id, (n.children || []).map(function (c) { return c.label; }).join(' ')].join(' '), n.icon);
+      (n.children || []).forEach(addNav);
+    }
+    Nv.SITE_NAV.forEach(addNav);
+    if (Nv.SITEMAP) add('页面', Nv.SITEMAP.label, Nv.SITEMAP.sub, Nv.SITEMAP.hash, Nv.SITEMAP.desc, Nv.SITEMAP.icon);
     [].concat(Nv.PATH_TABS, Nv.WAR_TABS, Nv.ME_TABS).forEach(function (t) { add('页面', t.label, '子页面', t.hash, '', t.icon); });
     Nv.STATIONS.forEach(function (s) { add('页面', s.name, '实战作战室 · Day1–7', s.hash, '', s.icon); });
     Nv.LIB_CATS.forEach(function (c) { add('页面', '资源库 · ' + c.label, '资源分类', '#lib-' + c.id, '', c.icon); });

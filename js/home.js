@@ -303,17 +303,12 @@
     );
   }
 
-  function costLabel(cost) {
-    var s = String(cost == null ? '' : cost).trim();
-    var first = (s.split(/[；;，,]/)[0] || '').trim();
-    if (!first || first === '0' || first === '0元' || first === '免费' || /^0(?!\d)/.test(first)) return '免费起步';
-    return first.length > 12 ? first.slice(0, 12) + '…' : first;
-  }
-  function diffDots(n) {
-    n = Math.max(0, Math.min(5, +n || 0));
-    var s = '';
-    for (var i = 1; i <= 5; i++) s += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
-    return '<span class="rank-diff" data-difficulty="' + n + '" aria-label="难度 ' + n + '/5">' + s + '</span>';
+  function deadlineOf(it) {
+    var blob = [it && it.name, it && it.summary, it && it.why].filter(Boolean).join(' ');
+    var end = blob.match(/(\d{1,2}月\d{1,2}日[^，。；\n]{0,12}截止)/);
+    if (end) return end[1];
+    var day = blob.match(/(\d{1,2}月\d{1,2}日)/);
+    return day ? day[1] : '';
   }
   function homeCounts() {
     var plats = (global.QUEST_PLATFORMS && global.QUEST_PLATFORMS.PLATFORMS) || [];
@@ -426,49 +421,46 @@
     var next = continueNext(state);
     var rankBody = items.length
       ? '<ol class="home-rank-list" id="home-rank-list">' + items.map(function (it) {
-        var cost = String(it.cost == null ? '' : it.cost);
-        var short = costLabel(cost);
-        return '<li><a class="home-rank-row" href="#war-rank" data-name="' + esc(it.name) + '" data-type="' + esc(it.type) + '" data-cost="' + esc(cost) + '" data-difficulty="' + esc(it.difficulty) + '">' +
+        var due = deadlineOf(it);
+        return '<li><a class="home-rank-row" href="#war-rank" data-name="' + esc(it.name) + '" data-type="' + esc(it.type) + '">' +
           '<span class="home-rank-no">' + esc(it.rank) + '</span>' +
-          '<span class="home-rank-name" title="' + esc(it.name) + '"><span class="home-rank-name-text">' + esc(it.name) + '</span>' +
-          '<span class="home-rank-cost-full" title="' + esc(cost) + '">' + esc(cost) + '</span></span>' +
+          '<span class="home-rank-name" title="' + esc(it.name) + '"><span class="home-rank-name-text">' + esc(it.name) + '</span></span>' +
           '<span class="home-rank-meta"><span class="pill">' + esc(it.type) + '</span>' +
-          '<span class="home-rank-cost" title="' + esc(cost) + '">' + esc(short) + '</span>' +
-          diffDots(it.difficulty) + '</span></a></li>';
+          (due ? '<span class="home-rank-deadline">' + esc(due) + '</span>' : '') +
+          '</span></a></li>';
       }).join('') + '</ol>'
       : '<p class="home-rank-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     var howto = [
-      ['#start-learn', '① 学', '先看学习路线，知道每一步在做什么。'],
-      ['#start-do', '② 做', '按实施步骤选词、做页面、再发布。'],
-      ['#start-earn', '③ 赚', '看每日赚钱榜，挑一条先试一周。'],
+      ['#start-learn', 'map', '① 学', '先看学习路线，知道每一步在做什么。'],
+      ['#start-do', 'build', '② 做', '按实施步骤选词、做页面、再发布。'],
+      ['#start-earn', 'coin', '③ 赚', '看每日赚钱榜，挑一条先试一周。'],
     ];
     root.innerHTML =
       '<section class="hero hero-home" aria-label="首页">' +
-      '<div class="hero-inner"><div class="hero-copy">' +
-      '<p class="hero-kicker">写给想做副业、做英文出海小站的新手</p>' +
-      '<h1 class="hero-title">跟着哥飞的方法做英文出海小站，并收集整理靠谱的赚钱和副业渠道</h1>' +
-      '<p class="hero-sub">这里每天更新赚钱榜。你能拿到一条按步骤走的学习路线、做站工具，还有每日赚钱榜。不承诺收入。</p>' +
+      '<div class="hero-inner home-inner">' +
+      '<h1 class="hero-title">跟着哥飞的方法，做英文出海小站</h1>' +
+      '<p class="hero-sub">学习路线、做站工具和每日赚钱榜都在这里。不承诺收入。</p>' +
       '<div class="hero-cta"><a class="btn btn-primary" href="#start" data-tour="cta">' + I('flag') + '我是新手，从这里开始</a>' +
       '<a class="btn btn-ghost" href="#home-rank">' + I('trophy') + '直接看今日赚钱榜</a></div>' +
-      '</div></div></section>' +
-      '<div class="home-wrap">' +
-      (next ? '<aside class="home-continue" id="home-continue"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></aside>' : '') +
-      '<section class="lp-sec" id="home-howto" data-tour="howto"><div class="sec-head"><h2>' + I('flag') + '这个网站怎么用</h2></div>' +
+      '</div></section>' +
+      (next ? '<aside class="home-continue" id="home-continue"><div class="home-inner"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></div></aside>' : '') +
+      '<section class="home-band band-a" id="home-howto" data-tour="howto"><div class="home-inner"><div class="sec-head"><h2>' + I('flag') + '这个网站怎么用</h2></div>' +
       '<ol class="home-howto">' + howto.map(function (s) {
-        return '<li><a href="' + s[0] + '"><b>' + s[1] + '</b><span>' + esc(s[2]) + '</span></a></li>';
-      }).join('') + '</ol></section>' +
-      '<section class="home-rank" id="home-rank" data-tour="rank" aria-label="今日赚钱榜">' +
+        return '<li><a href="' + s[0] + '"><span class="home-step-ico" aria-hidden="true">' + I(s[1]) + '</span><b>' + s[2] + '</b><span>' + esc(s[3]) + '</span></a></li>';
+      }).join('') + '</ol></div></section>' +
+      '<section class="home-band band-b" id="home-rank" data-tour="rank" aria-label="今日赚钱榜"><div class="home-inner">' +
       '<div class="home-rank-head"><div><h2>' + I('trophy') + '今日赚钱榜</h2>' +
       '<p>' + (date ? '<time id="home-rank-date" datetime="' + esc(date) + '">' + esc(date) + '</time> · ' : '') + '每日更新 · 不保证收益</p></div>' +
-      '<a class="btn btn-sm btn-primary" href="#war-rank">查看完整榜单</a></div>' +
-      rankBody + '</section>' +
-      '<section class="lp-sec" id="home-why"><div class="sec-head"><h2>为什么做这个网站</h2></div><div class="home-why">' +
+      '<a class="btn btn-primary" href="#war-rank">查看完整榜单</a></div>' +
+      rankBody + '</div></section>' +
+      '<section class="home-band band-a" id="home-split"><div class="home-inner home-pair">' +
+      '<section id="home-why"><div class="sec-head"><h2>' + I('bulb') + '为什么做这个网站</h2></div><div class="home-why">' +
       '<p>想做副业或英文出海小站时，新手常常不知道先做什么。这个站把公开的方法收成一条能跟着走的路线，并把靠谱渠道整理成每天更新的赚钱榜。</p>' +
       '<ul><li>不承诺收益。</li><li>榜单每条附来源链接，以官方为准。</li><li>进度只存在你自己的浏览器。</li></ul></div></section>' +
-      '<section class="lp-sec" id="home-faq"><div class="sec-head"><h2>常见问题</h2></div><div class="faq">' +
+      '<section id="home-faq"><div class="sec-head"><h2>' + I('list') + '常见问题</h2></div><div class="faq">' +
       HOME_FAQ.map(function (qa) {
         return '<details><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>';
-      }).join('') + '</div></section></div>';
+      }).join('') + '</div></section></div></section>';
   }
 
   global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS };

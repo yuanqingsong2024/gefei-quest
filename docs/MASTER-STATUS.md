@@ -136,6 +136,7 @@
 - T180 关键词灵感 ✅：`#war-keywords` 页内标签「关键词灵感」（js/ideas.js）。浏览器直连 Datamuse / Wikipedia opensearch / HN Algolia；Google 字母扩展、Trends、Reddit、Product Hunt 只开链接。勾选后写入 `keywords.items`。存档只追加 `ideas`（lastSeed + history，最多 20 条）。测试根地址 `gefei-quest-ideas-cfg`
 - T182 新手引导 ✅：`#start` 三条路线 + 前 7 天清单（`js/start.js`）。首次访问 `#home` 聚光灯导览（`js/tour.js`），可跳过、可从新手引导页或页脚重播。存档只追加 `onboarding`。空存档 `#start` 桌面 1.50 屏。
 - T183 首页重做 ✅，T183b 改成更好懂的首页 ✅：Hero 说明这个站是跟着哥飞的方法做英文出海小站，并整理靠谱的赚钱和副业渠道；写给想做副业的新手；能拿到学习路线、做站工具和每日赚钱榜。「我是新手，从这里开始」进 `#start`，「直接看今日赚钱榜」滚到 `#home-rank`。有进度时一行「继续上次」。三步「学 / 做 / 赚」进入新手引导对应标签。今日赚钱榜 Top 10。不承诺收益。不再放功能卡和今日任务。`#home-today` 转到 `#work`，`#home-progress` 转到 `#me`，`#home-faq` 与 `#home-rank` 仍停在首页。工具页顶部一行提示，关掉后记在本机。空页面写明下一步。空存档 `#home` 桌面 1.91 屏。
+- T184 首页视觉整理 ✅：顶栏 6 项（首页 / 新手引导 / 学习 / 实战 / 资源 / 我的），其余页面进下拉，搜索仍索引 children。首页全宽分区，灯塔首屏两个按钮，今日赚钱榜两列且不显示成本与难度。页脚收成四列常用链接，全站链接在 `#sitemap`。
 
 ## Phase 18 · 紧凑页面 + Google 连接 + 工作台 + 复盘 ✅（2026-10-17）
 - js/compact.js：tabs / collapse / more / paginate / reveal + MutationObserver 规则；全站平均桌面高度 4.19 → 2.10 屏，内容与路由/锚点全部保留

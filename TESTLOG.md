@@ -238,3 +238,10 @@
 - 空存档 1280×800：`#home` 1.91 屏。390px `scrollWidth` 390，底部栏仍是 6 项。`tools/page-heights.js` → `/tmp/h.json`。
 - site-check：`TOTAL fails=0 consoleErrors=0`。P20b 覆盖两个 CTA、没有功能网格和今日任务、三步进新手引导标签、Top 10、新存档不显示继续条、有站点时显示「新手示例站 · 选词」、FAQ 折叠、桌面 1.91 屏、旧锚点、390 无横向滚动。P20c 覆盖列出的工具页提示条、关掉 `#work` 后刷新仍关闭、工作台 / 复盘 / 数据分析空状态按钮、导览 5 步走完。截图 `/tmp/sc-shots/p20-home.png`、`/tmp/sc-shots/p20-home-mobile.png`、`/tmp/sc-shots/p20-tour.png`、`/tmp/sc-shots/p20-start.png`。
 - 2026-10-17：首页赚钱榜成本列用 costLabel（`0；` / `0` / `0元` / `免费` 或「0」后非数字 →「免费起步」，否则第一分句最多 12 字）；title 为全文；≤600px 名称下显示完整成本（最多两行）。site-check `TOTAL fails=0 consoleErrors=0`；390px scrollWidth ≤390。
+
+## Phase 20 · 首页视觉整理 T184（2026-10-17，代码：Grok Build）
+- 顶栏 6 项：首页、新手引导、学习、实战、资源、我的。其余页面在对应下拉里（点击、Enter、方向键、Esc、点外面关闭）。子页面打开时父项高亮。搜索仍索引 children 与 `#sitemap`。底部栏不变。
+- 首页去掉整页外框，改成全宽分区。灯塔首屏（`assets/hero-bg.webp`）只留标题、一行副标题和两个按钮。三步大卡片进 `#start-learn` / `#start-do` / `#start-earn`。今日赚钱榜两列卡片：名次、名称、类型，有截止日期才标；首页不再显示成本和难度（`#war-rank` 仍显示）。「为什么做这个网站」与 FAQ 桌面并排。有进度时「继续上次」仍在首屏下面。
+- 页脚收成品牌说明 + 四列常用链接 + 一行版权。全部页面在 `#sitemap`。页脚「新手引导」和「新手导览」（`#foot-tour`）仍在。
+- 空存档 1280×800：`#home` 3.18 屏（首页不再卡 2.5 屏）。390px `scrollWidth` 390。
+- site-check：`TOTAL fails=0 consoleErrors=0`。P20b 断言首页榜单没有成本/难度，`#war-rank` 仍有。P21 覆盖顶栏下拉、全宽分区、首屏高度与字号、榜单列数、页脚与网站地图。截图 `/tmp/sc-shots/p21-home.png`、`/tmp/sc-shots/p21-home-mobile.png`。

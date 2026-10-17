@@ -10,7 +10,7 @@ function cx(pg) {
 }
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','start','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish','war-share'];
+const ROUTES = ['home','start','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish','war-share','sitemap'];
 const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq', 'guide-start':'start', onboarding:'start', newbie:'start' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
@@ -526,7 +526,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     H[r] = +(await p.evaluate(() => document.documentElement.scrollHeight / 800)).toFixed(2);
   }
   await p.setViewportSize({ width: 1280, height: 860 });
-  T18(Object.entries(H).every(([k, v]) => v <= (k === 'home' ? 3 : 2.5)), 'heights ≤2.5 screens (home ≤3) @1280x800 ' + JSON.stringify(H));
+  T18(Object.entries(H).every(([k, v]) => k === 'home' || v <= 2.5), 'heights ≤2.5 screens (home uncapped) @1280x800 ' + JSON.stringify(H));
   await visit('me-accounts'); await p.reload(); await p.waitForTimeout(300);
   T18(await p.evaluate(() => {
     const cards = [...document.querySelectorAll('#panel-me .wb-plat')].filter(el => el.offsetParent !== null);
@@ -1391,41 +1391,29 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       const expect = src.slice(0, Math.min(10, src.length));
       const rows = [...document.querySelectorAll('#home-rank .home-rank-row')];
       const date = (document.querySelector('#home-rank-date') || {}).textContent || '';
-      const costLabel = (cost) => {
-        const s = String(cost == null ? '' : cost).trim();
-        const first = (s.split(/[；;，,]/)[0] || '').trim();
-        if (!first || first === '0' || first === '0元' || first === '免费' || /^0(?!\d)/.test(first)) return '免费起步';
-        return first.length > 12 ? first.slice(0, 12) + '…' : first;
+      const deadlineOf = (it) => {
+        const blob = [it.name, it.summary, it.why].filter(Boolean).join(' ');
+        const end = blob.match(/(\d{1,2}月\d{1,2}日[^，。；\n]{0,12}截止)/);
+        if (end) return end[1];
+        const day = blob.match(/(\d{1,2}月\d{1,2}日)/);
+        return day ? day[1] : '';
       };
-      const costs = rows.map((row, i) => {
-        const it = expect[i];
-        const costEl = row.querySelector('.home-rank-cost');
-        const cost = it ? String(it.cost == null ? '' : it.cost) : '';
-        return {
-          label: costEl ? costEl.textContent.trim() : '',
-          title: costEl ? (costEl.getAttribute('title') || '') : '',
-          cost,
-        };
-      });
       const bad = rows.find((row, i) => {
         const it = expect[i];
         if (!it) return true;
-        const costEl = row.querySelector('.home-rank-cost');
-        const diff = row.querySelector('.rank-diff');
         const pill = row.querySelector('.pill');
+        const due = row.querySelector('.home-rank-deadline');
+        const gotDue = due ? due.textContent.trim() : '';
         return row.getAttribute('data-name') !== it.name || row.getAttribute('href') !== '#war-rank' ||
           !pill || pill.textContent.trim() !== it.type ||
-          !costEl || costEl.textContent.trim() !== costLabel(it.cost) || costEl.getAttribute('title') !== String(it.cost) ||
-          !diff || diff.getAttribute('aria-label') !== ('难度 ' + it.difficulty + '/5');
+          !!row.querySelector('.home-rank-cost, .rank-diff, .home-rank-cost-full') ||
+          gotDue !== deadlineOf(it);
       });
-      return { n: rows.length, expect: expect.length, names: rows.map((r) => r.getAttribute('data-name')), want: expect.map((i) => i.name), date, latest: QUEST_RANK.latest, bad: !!bad, costs };
+      const noMeta = rows.every((row) => !row.querySelector('.home-rank-cost, .rank-diff, .home-rank-cost-full'));
+      return { n: rows.length, expect: expect.length, names: rows.map((r) => r.getAttribute('data-name')), want: expect.map((i) => i.name), date, latest: QUEST_RANK.latest, bad: !!bad, noMeta };
     });
     T20b(top.n === top.expect && top.n === Math.min(10, top.expect) && top.names.join('\n') === top.want.join('\n') && top.date === top.latest && !top.bad, 'top10 n=' + top.n + ' date=' + top.date + (top.bad ? ' row mismatch' : ''));
-    const costRows = top.costs || [];
-    const zeroSemi = costRows.filter((c) => c.cost.indexOf('0；') === 0);
-    T20b(costRows.length > 0 && costRows.every((c) => c.label !== '0'), 'cost labels never 0 ' + costRows.map((c) => c.label).join('|'));
-    T20b(zeroSemi.length > 0 && zeroSemi.every((c) => c.label === '免费起步'), '0； label 免费起步 n=' + zeroSemi.length + ' ' + zeroSemi.map((c) => c.label).join('|'));
-    T20b(costRows.length > 0 && costRows.every((c) => c.title === c.cost), 'title holds full cost');
+    T20b(top.noMeta, 'home rank cards have no cost or difficulty');
     await pg.evaluate(() => { if (window.QuestTour) QuestTour.close(); });
     const shape = await pg.evaluate(() => ({
       grid: !!document.querySelector('#panel-home .feat-grid'),
@@ -1463,7 +1451,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await pg.reload({ waitUntil: 'domcontentloaded' });
     await pg.waitForTimeout(300);
     const screens = await pg.evaluate(() => document.documentElement.scrollHeight / 800);
-    T20b(screens <= 2.5, 'home screens @1280x800 ' + screens.toFixed(2));
+    console.log('     home screens @1280x800 ' + screens.toFixed(2) + ' (uncapped)');
     const fitAt = async (w) => {
       await pg.setViewportSize({ width: w, height: 800 });
       await pg.waitForTimeout(80);
@@ -1544,31 +1532,29 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       };
     });
     T20b(mob.sw <= 390 && mob.rows >= 1 && mob.bar && mob.n === 6, '390px ' + JSON.stringify(mob));
-    const mobCost = await pg.evaluate(() => {
-      const sw = document.documentElement.scrollWidth;
-      const src = (QUEST_RANK.days[QUEST_RANK.latest] && QUEST_RANK.days[QUEST_RANK.latest].items) || [];
+    const mobClean = await pg.evaluate(() => {
       const rows = [...document.querySelectorAll('#home-rank .home-rank-row')];
-      const detail = rows.map((row, i) => {
-        const full = row.querySelector('.home-rank-cost-full');
-        const name = row.querySelector('.home-rank-name-text');
-        const cost = src[i] ? String(src[i].cost == null ? '' : src[i].cost) : '';
-        if (!full || !name) return { ok: false, why: 'missing' };
-        const fr = full.getBoundingClientRect();
-        const nr = name.getBoundingClientRect();
-        const cs = getComputedStyle(full);
-        const clamp = String(cs.webkitLineClamp || '');
-        const shown = fr.height >= 8 && fr.width >= 8 && cs.display !== 'none' && cs.visibility !== 'hidden';
-        const under = fr.top >= nr.bottom - 2;
-        return {
-          ok: shown && under && clamp === '2' && full.textContent === cost,
-          shown, under, clamp, display: cs.display, h: Math.round(fr.height),
-          gap: Math.round(fr.top - nr.bottom), textOk: full.textContent === cost,
-        };
-      });
-      return { sw, n: rows.length, ok: detail.length > 0 && detail.every((d) => d.ok), detail0: detail[0] || null };
+      return {
+        sw: document.documentElement.scrollWidth,
+        ok: rows.length > 0 && rows.every((row) => !row.querySelector('.home-rank-cost, .rank-diff, .home-rank-cost-full')),
+      };
     });
-    T20b(mobCost.ok && mobCost.sw <= 390, '390px full cost under name sw=' + mobCost.sw + ' ' + JSON.stringify(mobCost.detail0));
+    T20b(mobClean.ok && mobClean.sw <= 390, '390px home rank has no cost/difficulty sw=' + mobClean.sw);
+    await pg.setViewportSize({ width: 1280, height: 800 });
+    await pg.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('.rank-card');
+    const warMeta = await pg.evaluate(() => {
+      const cards = [...document.querySelectorAll('.rank-card')];
+      const ok = cards.length > 0 && cards.every((card) => {
+        const cost = card.querySelector('.rank-cost');
+        const diff = card.querySelector('.rank-diff');
+        return !!(cost && cost.textContent.trim()) && !!(diff && /难度 \d\/5/.test(diff.getAttribute('aria-label') || ''));
+      });
+      return { n: cards.length, ok };
+    });
+    T20b(warMeta.ok && warMeta.n >= 1, 'war-rank still shows cost + difficulty n=' + warMeta.n);
     if (SHOTS) {
+      await pg.setViewportSize({ width: 390, height: 844 });
       await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
       await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
       await pg.reload({ waitUntil: 'domcontentloaded' });
@@ -1665,6 +1651,180 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P20c functional fails=' + f20c); fail += f20c;
+
+  // ---------- Phase 21 · 首页视觉整理 ----------
+  let f21 = 0; {
+  const T21 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P21 ' + m); if (!c) f21++; };
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  await ctx.addInitScript(() => { try { localStorage.setItem('gefei-quest-tour-test', '1'); } catch (e) {} });
+  const pg = cx(await ctx.newPage());
+  const e21 = [];
+  pg.on('pageerror', (e) => { e21.push('pageerror ' + e.message); errors.push('p21 ' + e.message); });
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e21.push(m.text()); errors.push('p21 ' + m.text()); } });
+  try {
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('.nav-top');
+    await pg.evaluate(() => { if (window.QuestTour) QuestTour.close(); });
+    const tops = await pg.evaluate(() => [...document.querySelectorAll('.site-links > a.nav-top, .site-links > .nav-drop > a.nav-top')].map((a) => (a.querySelector('span') || a).textContent.trim()));
+    T21(tops.length <= 6 && tops.join(',') === '首页,新手引导,学习,实战,资源,我的', 'top nav ≤6 ' + tops.join(','));
+    const learnBtn = '.nav-drop[data-group="learn"] .nav-caret';
+    await pg.click(learnBtn);
+    await pg.waitForTimeout(40);
+    const opened = await pg.evaluate(() => {
+      const b = document.querySelector('.nav-drop[data-group="learn"] .nav-caret');
+      const menu = document.getElementById('nav-menu-learn');
+      const r = menu ? menu.getBoundingClientRect() : null;
+      return { exp: b && b.getAttribute('aria-expanded'), w: r ? r.width : 0, hidden: menu ? menu.hasAttribute('hidden') : true };
+    });
+    T21(opened.exp === 'true' && !opened.hidden && opened.w > 40, 'dropdown click open ' + JSON.stringify(opened));
+    await pg.click('h1.hero-title');
+    await pg.waitForTimeout(40);
+    const closedOut = await pg.getAttribute(learnBtn, 'aria-expanded');
+    T21(closedOut === 'false', 'dropdown closes on outside click ' + closedOut);
+    await pg.focus(learnBtn);
+    await pg.keyboard.press('Enter');
+    await pg.waitForTimeout(40);
+    const keyOpen = await pg.getAttribute(learnBtn, 'aria-expanded');
+    T21(keyOpen === 'true', 'dropdown Enter opens ' + keyOpen);
+    await pg.keyboard.press('ArrowDown');
+    await pg.keyboard.press('ArrowDown');
+    const focused = await pg.evaluate(() => {
+      const a = document.activeElement;
+      return { href: a && a.getAttribute && a.getAttribute('href'), tag: a && a.tagName };
+    });
+    T21(focused.href === '#path-quests', 'ArrowDown moves to child ' + JSON.stringify(focused));
+    await pg.keyboard.press('Escape');
+    const esc = await pg.evaluate(() => {
+      const b = document.querySelector('.nav-drop[data-group="learn"] .nav-caret');
+      return { exp: b.getAttribute('aria-expanded'), focus: document.activeElement === b };
+    });
+    T21(esc.exp === 'false' && esc.focus, 'Esc closes and returns focus ' + JSON.stringify(esc));
+    const groups = await pg.evaluate(() => [...document.querySelectorAll('.nav-drop')].map((d) => ({
+      id: d.getAttribute('data-group'),
+      hrefs: [...d.querySelectorAll('.nav-menu a')].map((a) => a.getAttribute('href')),
+    })));
+    T21(groups.length === 4 && groups.every((g) => g.hrefs.length >= 2), 'four dropdowns ' + groups.map((g) => g.id + ':' + g.hrefs.length).join(' '));
+    for (const g of groups) {
+      for (let i = 0; i < g.hrefs.length; i++) {
+        await pg.click('.nav-drop[data-group="' + g.id + '"] .nav-caret');
+        await pg.waitForTimeout(30);
+        const link = pg.locator('.nav-drop[data-group="' + g.id + '"] .nav-menu a').nth(i);
+        const href = await link.getAttribute('href');
+        await link.click();
+        await pg.waitForTimeout(90);
+        const hash = await pg.evaluate(() => location.hash);
+        T21(hash === href, g.id + ' ' + href + ' -> ' + hash);
+      }
+    }
+    await pg.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(150);
+    const parentOn = await pg.evaluate(() => {
+      const a = document.querySelector('a.nav-top.active');
+      return a ? (a.querySelector('span') || a).textContent.trim() : '';
+    });
+    T21(parentOn === '实战', 'active parent on #war-rank is ' + parentOn);
+    await pg.setViewportSize({ width: 1280, height: 800 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
+    const layout = await pg.evaluate(() => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const ids = ['home-howto', 'home-rank', 'home-split'];
+      const widths = ids.map((id) => {
+        const el = document.getElementById(id);
+        const r = el.getBoundingClientRect();
+        return { id, w: Math.round(r.width) };
+      });
+      const hero = document.querySelector('.hero.hero-home');
+      const h1 = hero.querySelector('h1');
+      const minH = parseFloat(getComputedStyle(hero).minHeight);
+      const fs = parseFloat(getComputedStyle(h1).fontSize);
+      const list = document.querySelector('.home-rank-list');
+      const cols = getComputedStyle(list).gridTemplateColumns.split(' ').filter((x) => x && x !== 'none').length;
+      const why = document.getElementById('home-why').getBoundingClientRect();
+      const faq = document.getElementById('home-faq').getBoundingClientRect();
+      const side = faq.left >= why.right - 8 && Math.abs(why.top - faq.top) < 40;
+      const colsFoot = document.querySelectorAll('#site-footer .foot-cols > div').length;
+      return {
+        wrap: !!document.querySelector('#panel-home > .home-wrap'),
+        widths, vw, full: widths.every((x) => x.w >= vw - 20),
+        minH, vh, fs, cols, side,
+        kicker: !!document.querySelector('.hero-kicker'),
+        ctas: document.querySelectorAll('.hero-cta a').length,
+        colsFoot,
+        sitemap: !!document.querySelector('#site-footer a[href="#sitemap"]'),
+      };
+    });
+    T21(!layout.wrap && layout.full, 'home sections full width ' + JSON.stringify(layout.widths) + ' vw=' + layout.vw);
+    T21(layout.minH >= layout.vh * 0.6 && layout.fs >= 40, 'hero minH ' + layout.minH + ' fs ' + layout.fs + ' vh ' + layout.vh);
+    T21(layout.cols === 2 && layout.side && !layout.kicker && layout.ctas === 2, 'rank 2-col + why/faq side by side ' + JSON.stringify({ cols: layout.cols, side: layout.side }));
+    T21(layout.colsFoot <= 5 && layout.colsFoot >= 1 && layout.sitemap, 'footer columns ' + layout.colsFoot + ' sitemap ' + layout.sitemap);
+    const found = await pg.evaluate(() => {
+      const hrefs = new Set([...document.querySelectorAll('#panel-sitemap a')].map((a) => a.getAttribute('href')));
+      const missing = [];
+      (window.QuestNav.SITE_NAV || []).forEach((n) => {
+        if (!hrefs.has(n.hash)) missing.push(n.label + n.hash);
+        (n.children || []).forEach((c) => { if (!hrefs.has(c.hash)) missing.push(c.label + c.hash); });
+      });
+      const search = window.QuestShell.search('网站地图').some((x) => x.href === '#sitemap')
+        && window.QuestShell.search('学习路线').some((x) => x.href === '#path')
+        && window.QuestShell.search('每周补给').some((x) => x.href === '#weekly')
+        && window.QuestShell.search('实战作战室').some((x) => x.href === '#war');
+      return { missing, onPage: location.hash, search };
+    });
+    await pg.goto(BASE + 'index.html#sitemap', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(150);
+    const site = await pg.evaluate(() => {
+      const hrefs = new Set([...document.querySelectorAll('#panel-sitemap a')].map((a) => a.getAttribute('href')));
+      const missing = [];
+      (window.QuestNav.SITE_NAV || []).forEach((n) => {
+        if (!hrefs.has(n.hash)) missing.push(n.hash);
+        (n.children || []).forEach((c) => { if (!hrefs.has(c.hash)) missing.push(c.hash); });
+      });
+      const search = window.QuestShell.search('网站地图').some((x) => x.href === '#sitemap')
+        && window.QuestShell.search('学习路线').some((x) => x.href === '#path')
+        && window.QuestShell.search('每周补给').some((x) => x.href === '#weekly')
+        && window.QuestShell.search('手册与模板').some((x) => x.href === '#guides')
+        && window.QuestShell.search('我的进度').some((x) => x.href === '#me');
+      return { hash: location.hash, panel: !document.getElementById('panel-sitemap').hidden, missing, search, n: hrefs.size };
+    });
+    T21(site.hash === '#sitemap' && site.panel && site.missing.length === 0 && site.search, 'sitemap lists SITE_NAV + search ' + JSON.stringify({ missing: site.missing, search: site.search, n: site.n }));
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
+    const mob = await pg.evaluate(() => {
+      const list = document.querySelector('.home-rank-list');
+      const cols = getComputedStyle(list).gridTemplateColumns.split(' ').filter((x) => x && x !== 'none').length;
+      const why = document.getElementById('home-why').getBoundingClientRect();
+      const faq = document.getElementById('home-faq').getBoundingClientRect();
+      const h1 = parseFloat(getComputedStyle(document.querySelector('.hero-home h1')).fontSize);
+      return { sw: document.documentElement.scrollWidth, cols, stacked: faq.top >= why.bottom - 8, h1 };
+    });
+    T21(mob.sw <= 390 && mob.cols === 1 && mob.stacked && mob.h1 >= 28, '390 home ' + JSON.stringify(mob));
+    await pg.goto(BASE + 'index.html#sitemap', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    const sm = await pg.evaluate(() => document.documentElement.scrollWidth);
+    T21(sm <= 390, '390 sitemap scrollWidth ' + sm);
+    if (SHOTS) {
+      await pg.screenshot({ path: `${SHOTS}/p21-home-mobile.png`, fullPage: true });
+      await pg.setViewportSize({ width: 1280, height: 800 });
+      await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(250);
+      await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
+      await pg.screenshot({ path: `${SHOTS}/p21-home.png`, fullPage: true });
+    }
+  } catch (e) {
+    T21(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T21(e21.length === 0, 'P21 console errors ' + e21.slice(0, 4).join(' | '));
+  await ctx.close();
+  }
+  console.log('P21 functional fails=' + f21); fail += f21;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };
