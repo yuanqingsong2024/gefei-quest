@@ -118,7 +118,7 @@
       '<section class="block glass"><h2 class="block-title">' + I('calendar') + '打卡热力图 <small>近 26 周</small></h2>' + heatmap(state.activity) + '</section>' +
       '<section class="block glass"><h2 class="block-title">' + I('chart') + '每周完成任务 <small>近 12 周</small></h2>' + bars(wk) +
       (undated ? '<p class="hint">有 ' + undated + ' 个任务是在统计功能上线前完成的，没有日期，不计入柱状图。</p>' : '') + '</section>' +
-      '<section class="block glass"><h2 class="block-title">' + I('map') + '各章节进度</h2><ul class="mod-list">' + chapters + '</ul></section>' +
+      '<section class="block glass cx-fold"><h2 class="block-title">' + I('map') + '各章节进度</h2><ul class="mod-list">' + chapters + '</ul></section>' +
       '<section class="block"><h2 class="block-title">' + I('toolbox') + '工具汇总</h2><div class="stat-grid">' +
       '<a class="stat stat-link" href="#war-keywords"><span class="card-ico">' + I('tag') + '</span><b id="st-kw">' + kw.length + '</b><small>候选词 · 适合练手 ' + good + ' · 可以试 ' + mid + ' · 星标 ' + star + '</small></a>' +
       '<a class="stat stat-link" href="#me-sites"><span class="card-ico">' + I('ledger') + '</span><b id="st-sites">' + S.count + '</b><small>站点 · ' + (S.t ? esc(S.month) + ' 点击 ' + S.t.clicks : '暂无月度记录') + '</small></a>' +

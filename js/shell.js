@@ -53,6 +53,9 @@
     (D.PEER_METHODS || []).forEach(function (p) { add('资源', p.name, p.oneLiner, '#lib-peers', [p.steal, p.caveat].join(' '), 'users'); });
     add('页面', 'AI 设置', '我的进度 · Grok Bot / 自定义 OpenAI 兼容接口', '#me-ai', 'ai api key deepseek openai 通义 kimi 智谱 openrouter 模型 赚钱榜雷达 赚钱项目实施官', 'sparkle');
     add('页面', '数据导入中心', '数据分析 · 导入 GSC / AdSense / 小红书 抖音 B站 CSV', '#me-analytics', 'csv 导入 search console adsense 小红书 抖音 b站 数据 分析', 'download');
+    add('页面', '工作台', '实战作战室 · 每个站点的下一步：选词→实操助手→发布→分发→数据→复盘，含近 28 天数据', '#work', '工作台 dashboard 下一步 流水线 进度 站点', 'target');
+    add('页面', '每周复盘', '实战作战室 · 每周复盘模板：自动事实 + 做了什么 / 数据变化 / 学到什么 / 下周 3 件事 / 风险，可复制 Markdown', '#work-review', '复盘 周报 review 总结 下周计划', 'bulb');
+    add('页面', 'Google 连接', '账号中心 · 用自己的 OAuth 客户端 ID 只读拉取 Search Console / GA4 / AdSense', '#me-accounts', 'google gsc ga4 adsense oauth 授权 自动拉取 search console analytics', 'search');
     add('页面', '内容分发', '实战作战室 · 一份内容生成 X/微博/小红书/知乎/Reddit/LinkedIn 等版本，官方免费链接发帖', '#war-share', '分享 分发 发帖 x 推特 微博 小红书 知乎 公众号 reddit linkedin pinterest facebook medium telegram whatsapp', 'external');
     add('页面', 'GitHub 一键发布', '发布上线 · Fine-grained Token 写入仓库并开启 Pages', '#war-publish', 'github pages 部署 发布 token pat', 'rocket');
     if (global.QUEST_PLATFORMS) {

@@ -64,18 +64,19 @@
       h = tabs('pm') + '<div class="pm-hero"><h2>' + ico('coin') + '平台变现 · 国内 + 海外</h2><p>' + d.PLATFORMS.length + ' 个平台、' + d.CATS.length + ' 个分类，按同一格式整理：变现方式 / 门槛 / 分成规则 / 实操 / 适合谁 / 红线 / 来源。</p></div>' + disclaimer() + d.GROUPS.map(groupBlock).join('') + guide();
     } else if (id === 'cn' || id === 'global') {
       var g = d.GROUPS.find(function (x) { return x.id === id; });
-      h = tabs('pm-' + id) + disclaimer() + groupBlock(g) + d.CATS.filter(function (c) { return c.group === id; }).map(function (c) { return '<h3 class="pm-h"><a href="#pm-' + c.id + '">' + ico(c.icon) + esc(c.label) + '</a></h3>' + compare(inCat(c.id), id === 'global'); }).join('');
+      h = tabs('pm-' + id) + disclaimer() + groupBlock(g) + '<h3 class="pm-h">' + ico('ledger') + '各分类对比表</h3>' + d.CATS.filter(function (c) { return c.group === id; }).map(function (c, k) { return '<details class="cx-details pm-det"><summary>' + ico(c.icon) + esc(c.label) + ' <small>' + inCat(c.id).length + ' 个平台</small></summary><p class="pm-det-link"><a href="#pm-' + c.id + '">打开「' + esc(c.label) + '」分类页 →</a></p>' + compare(inCat(c.id), id === 'global') + '</details>'; }).join('');
     } else {
       var c = cat(id);
       if (!c) { el.innerHTML = tabs('') + '<p>没有这个分类。</p>'; return; }
       var ps = inCat(id);
       h = tabs('pm-' + c.group) + '<div class="pm-hero"><h2>' + ico(c.icon) + esc(c.label) + '</h2><p>' + esc(c.desc) + '</p></div>' + disclaimer() +
-        '<h3 class="pm-h">' + ico('ledger') + '对比表</h3>' + compare(ps, c.group === 'global') + '<h3 class="pm-h">' + ico('map') + '平台详情</h3>' + ps.map(card).join('') +
+        '<section class="pm-sec" data-tab="平台详情（' + ps.length + '）"><h3 class="pm-h">' + ico('map') + '平台详情</h3><div class="pm-cards">' + ps.map(card).join('') + '</div></section>' +
+        '<section class="pm-sec" data-tab="对比表"><h3 class="pm-h">' + ico('ledger') + '对比表</h3>' + compare(ps, c.group === 'global') + '</section>' +
         '<div class="pm-more">' + d.CATS.filter(function (x) { return x.group === c.group && x.id !== id; }).map(function (x) { return '<a class="chip" href="#pm-' + x.id + '">' + esc(x.label) + '</a>'; }).join('') + '</div>';
     }
     el.innerHTML = '<div class="pm-page">' + h + '</div>';
-    el.querySelectorAll('[data-pm-jump]').forEach(function (a) { a.addEventListener('click', function (e) { var t = el.querySelector('#pm-p-' + a.getAttribute('data-pm-jump')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
-    if (sub[1]) { var t = el.querySelector('#pm-p-' + sub[1]); if (t) setTimeout(function () { t.scrollIntoView({ block: 'start' }); }, 30); }
+    el.querySelectorAll('[data-pm-jump]').forEach(function (a) { a.addEventListener('click', function (e) { var t = el.querySelector('#pm-p-' + a.getAttribute('data-pm-jump')); if (t) { e.preventDefault(); if (global.QuestCompact) QuestCompact.reveal(t); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
+    if (sub[1]) { var t = el.querySelector('#pm-p-' + sub[1]); if (t) setTimeout(function () { if (global.QuestCompact) { QuestCompact.apply(el); QuestCompact.reveal(t); } t.scrollIntoView({ block: 'start' }); }, 30); }
   }
   function titleOf(param) { var id = (param || '').split('/')[0]; if (!id) return '平台变现'; if (id === 'cn') return '平台变现 · 国内'; if (id === 'global') return '平台变现 · 海外'; var c = cat(id); return c ? '平台变现 · ' + c.label : '平台变现'; }
   global.QuestPlatforms = { render: render, titleOf: titleOf, sourceCount: sourceCount, figureCount: figureCount };

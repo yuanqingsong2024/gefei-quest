@@ -129,3 +129,11 @@
 ## Phase 17 · 内容分发 ✅（2026-10-17）
 - 免费优先：放弃 X 付费 API 自动发帖（PHASE16 文档已标注）
 - js/share.js：#war-share 来源 → AI/模板 → 编辑/计数/复制 → 官方免费分享链接；存档追加字段 shares、shareDraft；数据分析时间线；账号中心免费路径
+
+## Phase 18 · 紧凑页面 + Google 连接 + 工作台 + 复盘 ✅（2026-10-17）
+- js/compact.js：tabs / collapse / more / paginate / reveal + MutationObserver 规则；全站平均桌面高度 4.19 → 2.10 屏，内容与路由/锚点全部保留
+- js/google.js：GIS 令牌客户端（用户自己的 OAuth 客户端 ID，无密钥），只读拉取 GSC / GA4 / AdSense → 数据分析（via:'api'）+ 台账；令牌只存 sessionStorage；>6h 自动刷新
+- js/work.js：#work 工作台（每站下一步 + 近 28 天）、#work-review 每周复盘（存档追加字段 reviews）；流水线改为 选词→实操助手→发布→分发→数据→复盘
+- 用户待办：在 Google Cloud 创建 OAuth Web 客户端 ID（来源 https://yuanqingsong2024.github.io），启用 4 个 API，粘贴到账号中心
+- 可选以后：Cloudflare Worker 代理（Phase B）
+

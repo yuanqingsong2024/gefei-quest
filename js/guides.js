@@ -116,6 +116,7 @@
       a.addEventListener('click', function (e) {
         e.preventDefault();
         var el = document.getElementById(a.getAttribute('data-target'));
+        if (el && global.QuestCompact) QuestCompact.reveal(el);
         if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth', block: 'start' });
       });
     });

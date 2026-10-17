@@ -1069,8 +1069,8 @@
 
 ## Phase 18 · 免费工作台收尾 + 紧凑页面（见 docs/PHASE18-DESIGN.md）
 - [x] T172 设计稿 + 页面高度基线（data/page-heights-before.json）
-- [ ] T173 紧凑组件 + 全站规则 + 紧凑页脚
-- [ ] T174 Google 连接（GIS token client）+ 拉取 + 自动刷新
-- [ ] T175 #work 工作台 + 6 步流水线
-- [ ] T176 #work-review 每周复盘
-- [ ] T177 测试、前后高度、截图、推送
+- [x] T173 紧凑组件 + 全站规则 + 紧凑页脚
+- [x] T174 Google 连接（GIS token client）+ 拉取 + 自动刷新
+- [x] T175 #work 工作台 + 6 步流水线
+- [x] T176 #work-review 每周复盘
+- [x] T177 测试、前后高度、截图、推送

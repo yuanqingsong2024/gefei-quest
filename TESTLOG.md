@@ -133,3 +133,59 @@
 - P17（36 项）：4 种来源（实操助手用已发布 Pages 地址）；Grok Bot 模式模板生成 14 个平台；X ≤280、小红书标题 ≤20 + 标签；X 计数（300/280 超限、中文×2 + 链接=23）；串推加条；14 个打开链接格式全部校验（X intent/post、微博 share.php、Reddit submit、LinkedIn share-offsite（不使用非官方 shareActive）、Facebook sharer、Pinterest pin/create/button、Telegram t.me/share/url、WhatsApp wa.me、小红书/知乎/公众号/头条/抖音/Medium 发布页）；shares 记录 14 次打开 + 1 次复制；数据分析时间线 + 平台柱；账号中心免费路径徽章、X 标为 D + 已分发；赚钱榜来源 + AI 生成（解析 x/xhs/weibo，其余模板补齐）；AI 提示含不承诺收益；URL 来源校验；页脚、流水线、搜索；390px
 - 链接格式人工核实（curl）：x.com/intent/post 200、reddit submit 200、pinterest 200、weibo share.php 200、t.me 200、linkedin/facebook/wa.me 302（登录跳转）、小红书/公众号/抖音/头条 200、知乎 302、medium 403（拦截机器访问）
 - 截图：gefei-quest-shots/p17-share.png
+
+## Phase 18 · 紧凑页面 + Google 连接 + 工作台 + 复盘（2026-10-17）
+- site-check：routes=36 dev=23 broken=0 consoleErrors=0；P9–P13、P15–P18 全部 0 fails（交互前用 `QuestCompact.revealSel` 模拟用户展开）
+- P18（44 项）：赚钱榜 6/页 + 卡片折叠 + 第 2 页 + 全部；资源库前 3 类 + 显示更多；平台分类页「平台详情 / 对比表」标签、卡片 6/页、dl 折叠、`#pm-cn-media/<id>` 深链接展开第 2 页卡片；国内总览分类表 details；手册分节折叠 + 目录点击展开；首页 7 个栏目标签 + `#home-faq` 深链接展开；更新日志前 5；作战室非今日 Day 折叠；9 个关键页 ≤3 屏
+- Google（GIS 桩 + 假 Google API tools/fake-google.js:8768）：客户端 ID 格式校验；initTokenClient 用用户客户端 ID + 3 个只读 scope；读取 GSC 2 / GA4 1 / AdSense 1；令牌只在 sessionStorage（不在 accounts 键、不在存档）；站点映射 gscProperty/ga4Property 追加；拉取 4 份 API 数据（GSC 按日期 / 查询、GA4、AdSense）并按月写入台账；重复拉取不重复；>6h 打开数据分析自动刷新；401 → 提示 + 清令牌；断开 → revoke + 清除
+- 工作台：每站 6 步 + 下一步（分发）+ 近 28 天 API 数据 + 环比；复盘：自动事实、保存到 save.reviews、复制 Markdown、保存后工作台复盘步打勾；#review 别名；搜索可找到工作台
+- 390px：work / work-review / me-accounts / pm-cn-media / war-rank / lib / home 无横向滚动
+- 截图：p18-work.png、p18-work-mobile.png、p18-compact-before-after-{lib,pm-cn-media,war-rank}.png
+
+### 页面高度（屏 = scrollHeight / 视口高；1280×800 与 390×844；空存档；tools/page-heights.js）
+前：data/page-heights-before.json；后：data/page-heights-after.json。40 个可比路由桌面平均 4.19 → 2.10 屏；31/40 ≤2.5，最高 2.85（账号中心）；dev-TASKS 37.5 → 7.0（123 个标题，按章节折叠 + 显示更多章节）。
+
+| 路由 | 前 1280 | 后 1280 | 前 390 | 后 390 |
+|---|---|---|---|---|
+| home | 5.96 | 2.69 | 10.44 | 4.85 |
+| path | 1.81 | 1.65 | 3.15 | 2.68 |
+| path-quests | 2.26 | 2.10 | 3.51 | 3.05 |
+| war | 3.65 | 2.37 | 5.23 | 3.43 |
+| war-s2 | 3.38 | 2.02 | 4.95 | 3.03 |
+| war-s3 | 3.30 | 2.02 | 4.73 | 3.05 |
+| war-m | 3.25 | 2.02 | 4.74 | 3.09 |
+| war-x | 3.08 | 2.02 | 4.62 | 3.12 |
+| war-kit | 3.64 | 2.77 | 5.73 | 3.95 |
+| war-keywords | 2.26 | 2.09 | 4.00 | 3.53 |
+| war-rank | 4.82 | 2.58 | 11.79 | 4.98 |
+| war-publish | 2.05 | 1.89 | 3.75 | 3.29 |
+| war-share | 2.04 | 1.88 | 3.54 | 3.07 |
+| lib | 7.08 | 2.69 | 16.30 | 5.23 |
+| lib-tools | 2.37 | 1.80 | 4.91 | 3.32 |
+| lib-hosting | 2.42 | 1.82 | 4.76 | 3.37 |
+| lib-monetize | 2.11 | 1.82 | 4.38 | 3.32 |
+| lib-paths | 2.08 | 1.37 | 4.38 | 2.38 |
+| lib-xianyu | 2.73 | 1.37 | 5.78 | 2.38 |
+| lib-tips | 2.06 | 1.37 | 4.35 | 2.38 |
+| lib-peers | 2.16 | 1.37 | 4.50 | 2.38 |
+| pm | 3.03 | 2.77 | 6.39 | 5.81 |
+| pm-cn | 6.57 | 2.78 | 9.84 | 4.93 |
+| pm-global | 2.99 | 1.71 | 5.07 | 2.94 |
+| pm-cn-media | 6.92 | 2.28 | 13.00 | 4.77 |
+| pm-cn-drama | 4.89 | 2.08 | 9.27 | 4.61 |
+| pm-gl-video | 3.89 | 1.96 | 7.47 | 3.49 |
+| guides | 1.97 | 1.80 | 3.91 | 3.44 |
+| guide-station-one-playbook | 4.01 | 2.08 | 6.72 | 3.57 |
+| guide-monetize-playbook | 4.11 | 2.12 | 6.52 | 3.79 |
+| weekly | 5.05 | 2.58 | 7.86 | 3.46 |
+| me | 2.70 | 2.54 | 5.68 | 5.21 |
+| me-stats | 2.88 | 2.37 | 4.46 | 3.52 |
+| me-sites | 2.10 | 1.94 | 4.37 | 3.90 |
+| me-analytics | 2.13 | 2.07 | 3.78 | 3.45 |
+| me-accounts | 4.03 | 2.85 | 8.94 | 5.23 |
+| me-ai | 1.72 | 1.55 | 3.25 | 2.78 |
+| changelog | 4.45 | 2.46 | 7.51 | 4.54 |
+| dev | 2.17 | 2.04 | 5.01 | 4.70 |
+| dev-TASKS | 37.52 | 2.16 | 57.12 | 8.21 |
+| work | — | 1.55 | — | 2.78 |
+| work-review | — | 2.11 | — | 3.14 |

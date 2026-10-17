@@ -1,12 +1,20 @@
 // Usage: node tools/site-check.js [baseUrl] [shotDir]  (needs playwright-core + Chrome)
 const { chromium } = require(process.env.PW || 'playwright-core');
+// Phase 18：紧凑组件会把内容收进标签/折叠/分页；交互前先像用户一样展开目标（QuestCompact.revealSel）
+function cx(pg) {
+  for (const k of ['click', 'fill', 'check', 'uncheck', 'selectOption', 'setInputFiles', 'type', 'focus', 'hover']) {
+    const o = pg[k].bind(pg);
+    pg[k] = async (sel, ...a) => { await pg.evaluate(s => { try { window.QuestCompact && QuestCompact.revealSel(s); } catch (_) {} }, sel).catch(() => {}); return o(sel, ...a); };
+  }
+  return pg;
+}
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
 const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish','war-share'];
 const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
-  const p = await b.newPage({ viewport: { width: 1280, height: 860 } });
+  const p = await b.newPage({ viewport: { width: 1280, height: 860 } }); cx(p);
   const errors = []; p.on('pageerror', e => errors.push('pageerror ' + e.message)); p.on('console', m => { if (m.type() === 'error' && !/Failed to load resource|ERR_CONNECTION_REFUSED/.test(m.text())) errors.push(m.text()); });
   const hrefs = new Set(); let fail = 0;
   const visit = async (h) => { await p.goto(BASE + 'index.html#' + h); await p.waitForTimeout(150); };
@@ -101,7 +109,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   if (SHOTS) {
     const s9 = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p9-${name}.png`, fullPage: true }); };
     await s9('war-kit', 'kit'); await s9('war-keywords', 'keywords'); await s9('me-sites', 'sites');
-    const m9 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+    const m9 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); cx(m9);
     await m9.goto(BASE + 'index.html#home'); await m9.evaluate(() => 0);
     for (const h of ['war-kit', 'war-keywords', 'me-sites']) { await m9.goto(BASE + 'index.html#' + h); await m9.waitForTimeout(300); const w = await m9.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile ' + h + ' scrollWidth ' + w); if (w > 390) fail++; }
     await s9('war-keywords', 'mobile-keywords', m9);
@@ -144,7 +152,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await s10('me-stats', 'stats'); await s10('changelog', 'changelog');
     await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); s.lastSeenChangelog = 8; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); });
     await p.goto(BASE + 'index.html#home'); await p.reload(); await p.waitForTimeout(400); await (await p.$('#home-today')).screenshot({ path: `${SHOTS}/p10-today.png` });
-    const m10 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+    const m10 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); cx(m10);
     for (const h of ['home', 'me-stats', 'changelog']) { await m10.goto(BASE + 'index.html#' + h); await m10.waitForTimeout(300); const w = await m10.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile ' + h + ' scrollWidth ' + w); if (w > 390) fail++; }
     await s10('me-stats', 'mobile-stats', m10); await s10('home', 'mobile-home', m10, false);
   }
@@ -170,7 +178,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T11(await p.evaluate(() => /v1\.\d+/.test(document.querySelector('.foot-ver').textContent) && !!document.querySelector('.site-footer a[href="#changelog"]') && /关于本站/.test(document.querySelector('.site-footer').textContent)), 'footer: version + changelog + about + sitemap');
   T11(await p.evaluate(() => getComputedStyle(document.getElementById('bottom-bar')).display === 'none'), 'bottom bar hidden on desktop');
   T11(await p.evaluate(() => document.querySelectorAll('.card-ico svg.ico[class*="tone-"]').length > 10), 'badges use tone family');
-  const mm = await b.newPage({ viewport: { width: 390, height: 844 } });
+  const mm = await b.newPage({ viewport: { width: 390, height: 844 } }); cx(mm);
   await mm.goto(BASE + 'index.html#war-kit'); await mm.waitForTimeout(300);
   T11(await mm.evaluate(() => getComputedStyle(document.getElementById('bottom-bar')).display === 'grid' && document.querySelector('#bottom-bar a.active').dataset.bb === 'war'), 'mobile bottom bar visible, 作战室 active');
   await mm.click('#bottom-bar a[data-bb="lib"]'); await mm.waitForTimeout(250);
@@ -209,7 +217,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   console.log('P12 functional fails=' + f12); fail += f12;
   if (SHOTS) {
     await p.evaluate(() => localStorage.clear()); await p.goto(BASE + 'index.html#war-rank'); await p.reload(); await p.waitForTimeout(500); await p.screenshot({ path: `${SHOTS}/p12-rank.png`, fullPage: false });
-    const m12 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+    const m12 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); cx(m12);
     await m12.goto(BASE + 'index.html#war-rank'); await m12.waitForTimeout(500);
     const w = await m12.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile war-rank scrollWidth ' + w); if (w > 390) fail++;
     await m12.screenshot({ path: `${SHOTS}/p12-mobile-rank.png`, fullPage: false });
@@ -307,7 +315,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await p.keyboard.press('Control+k'); await p.keyboard.type('DeepSeek'); await p.waitForTimeout(150);
   T13(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#me-ai')), 'search finds AI 设置'); await p.keyboard.press('Escape');
   T13(await p.evaluate(() => !!document.querySelector('.site-footer a[href="#me-ai"]')), 'footer link');
-  const m13 = await b.newPage({ viewport: { width: 390, height: 844 } }); await m13.goto(BASE + 'index.html#me-ai');
+  const m13 = await b.newPage({ viewport: { width: 390, height: 844 } }); cx(m13); await m13.goto(BASE + 'index.html#me-ai');
   const cfgStr = JSON.stringify(await aiCfg());
   await m13.evaluate(s => { const c = JSON.parse(s); c.mode = 'custom'; localStorage.setItem('gefei-quest-ai-v1', JSON.stringify(c)); }, cfgStr); await m13.reload(); await m13.waitForTimeout(300);
   await m13.click('.prov [data-pact="edit"]'); await m13.waitForTimeout(150);
@@ -385,7 +393,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T16(/导入失败/.test(await p.textContent('#imp-msg')), 'bad CSV → friendly error');
   await p.click('#an-ai'); await p.waitForTimeout(1200);
   T16(/数据分析师/.test(JSON.stringify(fake16.last && fake16.last.body || {})) && await p.evaluate(() => !!document.querySelector('#an-ai-out .ai-out')), 'AI 分析 uses AI settings provider');
-  await visit('me-analytics'); const done16 = await p.evaluate(() => [...document.querySelectorAll('#panel-me .wb-pipe .wb-step.done')].map(a => a.dataset.step).join(',')); T16(['keywords', 'kit', 'publish', 'sites', 'analytics'].every(k => done16.split(',').includes(k)), 'pipeline 5 core steps done (' + done16 + ')');
+  await visit('me-analytics'); const done16 = await p.evaluate(() => [...document.querySelectorAll('#panel-me .wb-pipe .wb-step.done')].map(a => a.dataset.step).join(',')); T16(['keywords', 'kit', 'publish', 'analytics'].every(k => done16.split(',').includes(k)), 'pipeline core steps done (' + done16 + ')');
   T16(await p.evaluate(() => ['#me-accounts', '#me-analytics', '#war-publish'].every(h => document.querySelector('.site-footer a[href="' + h + '"]'))), 'footer links');
   await p.keyboard.press('Control+k'); await p.keyboard.type('导入'); await p.waitForTimeout(150);
   T16(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#me-analytics')), 'search finds 数据导入'); await p.keyboard.press('Escape');
@@ -456,11 +464,136 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   if (SHOTS) await m13.screenshot({ path: `${SHOTS}/p17-share.png`, fullPage: true });
   fake17.close();
   console.log('P17 functional fails=' + f17); fail += f17;
+  let f18 = 0; {
+  // ===================== Phase 18 =====================
+ const T18 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P18 ' + m); if (!c) f18++; };
+  const vis = (pg, sel) => pg.evaluate(s => { const e = document.querySelector(s); return !!e && !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length); }, sel);
+  // 紧凑：赚钱榜分页
+  await visit('war-rank'); await p.reload(); await p.waitForTimeout(300);
+  const rk = await p.evaluate(() => { const g = document.querySelector('#panel-war .rank-grid'); const c = [...g.querySelectorAll(':scope > .rank-card')]; return { all: c.length, shown: c.filter(x => !x.classList.contains('cx-off')).length, pager: !!document.querySelector('#panel-war .cx-pager'), tog: document.querySelectorAll('#panel-war .rank-card .cx-toggle').length }; });
+  T18(rk.all > 6 && rk.shown === 6 && rk.pager && rk.tog === rk.all, 'rank: paginate 6/page + per-card collapse (' + rk.shown + '/' + rk.all + ')');
+  await p.click('#panel-war .cx-pager [data-pg="1"]'); await p.waitForTimeout(80);
+  T18(await p.evaluate(() => { const c = [...document.querySelectorAll('#panel-war .rank-grid > .rank-card')]; return c[0].classList.contains('cx-off') && !c[6].classList.contains('cx-off'); }), 'rank: page 2 shows cards 7+');
+  await p.click('#panel-war .cx-pager [data-pg="all"]'); await p.waitForTimeout(80);
+  T18(await p.evaluate(() => [...document.querySelectorAll('#panel-war .rank-grid > .rank-card')].every(x => !x.classList.contains('cx-off'))), 'rank: 全部 shows every card');
+  // 资源库：分类 显示更多
+  await visit('lib'); await p.reload(); await p.waitForTimeout(300);
+  const lb = await p.evaluate(() => { const s = [...document.querySelectorAll('#res-sections > .res-section')]; return { all: s.length, shown: s.filter(x => !x.classList.contains('cx-off')).length, btn: !!document.querySelector('#res-sections + .cx-more-btn') }; });
+  T18(lb.all >= 7 && lb.shown === 3 && lb.btn, 'lib: first 3 categories + 显示更多分类');
+  await p.click('#res-sections + .cx-more-btn'); await p.waitForTimeout(80);
+  T18(await p.evaluate(() => [...document.querySelectorAll('#res-sections > .res-section')].every(x => !x.classList.contains('cx-off'))), 'lib: 显示更多 reveals all categories (content preserved)');
+  // 平台变现分类：标签 + 分页 + 深链接展开
+  await visit('pm-cn-media'); await p.reload(); await p.waitForTimeout(300);
+  const pm = await p.evaluate(() => ({ tabs: [...document.querySelectorAll('#panel-lib .cx-tabs .cx-tab-btn')].map(b => b.textContent), cards: document.querySelectorAll('#panel-lib .pm-card').length, shown: [...document.querySelectorAll('#panel-lib .pm-card')].filter(x => !x.classList.contains('cx-off')).length, dl: document.querySelectorAll('#panel-lib .pm-card dl > .cx-body.cx-off').length, table: !!document.querySelector('#panel-lib .pm-table-wrap') }));
+  T18(pm.tabs.length === 2 && /平台详情/.test(pm.tabs[0]) && pm.tabs[1] === '对比表' && pm.table, 'pm category: tabs 平台详情 / 对比表 (' + pm.tabs.join('|') + ')');
+  T18(pm.cards >= 7 && pm.shown === 6 && pm.dl === pm.cards, 'pm category: cards paginated 6 + dl collapsed (' + pm.shown + '/' + pm.cards + ')');
+  const lastId = await p.evaluate(() => { const c = [...document.querySelectorAll('#panel-lib .pm-card')]; return c[c.length - 1].id.replace('pm-p-', ''); });
+  await p.goto(BASE + 'index.html#pm-cn-media/' + lastId); await p.reload(); await p.waitForTimeout(400);
+  T18(await vis(p, '#pm-p-' + lastId), 'pm deep link #pm-cn-media/' + lastId + ' reveals card on page 2');
+  await visit('pm-cn'); await p.reload(); await p.waitForTimeout(300);
+  T18(await p.evaluate(() => document.querySelectorAll('#panel-lib details.pm-det').length >= 8 && document.querySelectorAll('#panel-lib details.pm-det .pm-table-wrap').length >= 8), 'pm-cn: per-category tables in details (all kept)');
+  // 手册：分节折叠 + 目录跳转自动展开
+  await visit('guide-monetize-playbook'); await p.reload(); await p.waitForTimeout(400);
+  const dc = await p.evaluate(() => ({ secs: document.querySelectorAll('article.doc-body .cx-docsec').length, closed: document.querySelectorAll('article.doc-body .cx-docsec > .cx-body.cx-off').length, ids: [...document.querySelectorAll('.doc-toc a[data-target]')].map(a => a.getAttribute('data-target')) }));
+  T18(dc.secs >= 5 && dc.closed >= 3, 'doc: sections collapsible (' + dc.secs + ' secs, ' + dc.closed + ' closed)');
+  const tgt = dc.ids[dc.ids.length - 1];
+  await p.evaluate(t => document.querySelector('.doc-toc a[data-target="' + t + '"]').click(), tgt); await p.waitForTimeout(300);
+  T18(await p.evaluate(t => { const e = document.getElementById(t); return !!e && !e.closest('.cx-off'); }, tgt), 'doc: TOC click reveals collapsed section');
+  // 首页：标签；#home-faq 深链接
+  await visit('home'); await p.reload(); await p.waitForTimeout(300);
+  const hm = await p.evaluate(() => ({ tabs: document.querySelectorAll('.home-wrap .cx-tabs .cx-tab-btn').length, faqOff: [...document.querySelectorAll('.home-wrap > [data-tab]')].filter(x => !x.classList.contains('cx-off')).length === 1, today: !document.querySelector('#home-today').classList.contains('cx-off') }));
+  T18(hm.tabs === 7 && hm.faqOff && hm.today, 'home: 7 section tabs, 今日任务 always visible');
+  await p.goto(BASE + 'index.html#home-faq'); await p.reload(); await p.waitForTimeout(400);
+  T18(await p.evaluate(() => !document.querySelector('#home-faq').classList.contains('cx-off')), 'home: #home-faq anchor reveals its tab');
+  await visit('changelog'); await p.reload(); await p.waitForTimeout(200);
+  T18(await p.evaluate(() => [...document.querySelectorAll('.cl-list > li')].filter(x => !x.classList.contains('cx-off')).length === 5 && !!document.querySelector('.cl-list + .cx-more-btn')), 'changelog: 5 latest + 更多更新');
+  await visit('war'); await p.reload(); await p.waitForTimeout(200);
+  T18(await p.evaluate(() => { const d = [...document.querySelectorAll('#panel-war section.war-day')]; return d.length >= 7 && d.filter(x => x.querySelector(':scope > .cx-body.cx-off')).length >= d.length - 1; }), 'war: non-today days collapsed');
+  // 高度
+  const H = {}; for (const r of ['home', 'lib', 'pm-cn', 'pm-cn-media', 'war-rank', 'me-accounts', 'weekly', 'changelog', 'work']) { await p.goto(BASE + 'index.html#' + r); await p.reload(); await p.waitForTimeout(300); H[r] = +(await p.evaluate(() => document.documentElement.scrollHeight / 860)).toFixed(2); }
+  T18(Object.values(H).every(v => v <= 3.0), 'heights ≤3 screens @1280 ' + JSON.stringify(H));
+
+  // Google 连接（GIS 桩 + fake-google 8768）
+  const gUrl = 'http://localhost:8768';
+  const ctxG = await b.newContext({ viewport: { width: 1280, height: 860 } });
+  await ctxG.addInitScript(() => { window.__gis = []; window.google = { accounts: { oauth2: { initTokenClient(c) { window.__gis.push(c); return { requestAccessToken(o) { setTimeout(() => c.callback({ access_token: 'ya29.test', expires_in: 3599, scope: c.scope }), 20); } }; }, revoke(t, cb) { window.__gisRevoked = t; cb && cb(); } } } }; });
+  const g = cx(await ctxG.newPage()); g.on('pageerror', e => errors.push('g ' + e.message));
+  const base18 = JSON.parse(await p.evaluate(() => localStorage.getItem('gefei-quest-save-v1')));
+  base18.sites = { items: [{ id: 's18', name: 'Demo 站', domain: 'demo.example.com', kw: 'pdf merge', station: '1', launch: '2026-09-01', status: '已上线', host: 'GitHub Pages', money: 'AdSense', logs: [] }] };
+  base18.shares = []; base18.reviews = [];
+  await g.goto(BASE + 'index.html#me-accounts');
+  await g.evaluate(([s, u]) => { localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); localStorage.setItem('gefei-quest-accounts-v1', JSON.stringify({ google: { clientId: 'bad-id', apiBase: u } })); }, [base18, gUrl]);
+  await g.reload(); await g.waitForTimeout(300);
+  T18(await g.evaluate(() => !!document.querySelector('#g-connect') && /Google 连接/.test([...document.querySelectorAll('#panel-me .cx-tab-btn')].map(b => b.textContent).join())), 'accounts: Google 连接 tab present');
+  await g.click('#g-auth'); await g.waitForTimeout(150);
+  T18(/客户端 ID/.test(await g.textContent('#g-msg')), 'invalid client ID rejected before GIS');
+  await g.fill('#g-client', '1234567890-abc.apps.googleusercontent.com'); await g.click('#g-auth'); await g.waitForTimeout(600);
+  const g1 = await g.evaluate(() => ({ init: window.__gis[0] && { id: window.__gis[0].client_id, scope: window.__gis[0].scope }, msg: document.querySelector('#g-msg').textContent, gsc: document.querySelectorAll('.g-map select[data-map="gscProperty"] option').length, ads: document.querySelector('#g-ads').value, tok: sessionStorage.getItem('gefei-quest-google-token'), acc: localStorage.getItem('gefei-quest-accounts-v1') }));
+  T18(g1.init && g1.init.id === '1234567890-abc.apps.googleusercontent.com' && /webmasters\.readonly/.test(g1.init.scope) && /analytics\.readonly/.test(g1.init.scope) && /adsense\.readonly/.test(g1.init.scope), 'GIS initTokenClient with own client ID + 3 readonly scopes');
+  T18(/GSC 2 · GA4 1 · AdSense 1/.test(g1.msg) && g1.gsc === 3 && g1.ads === 'accounts/pub-0000000000000000', 'listProps: GSC/GA4/AdSense resources (' + g1.msg + ')');
+  T18(!!g1.tok && /ya29\.test/.test(g1.tok) && !/ya29/.test(g1.acc) && !/ya29/.test(await g.evaluate(() => localStorage.getItem('gefei-quest-save-v1'))), 'token only in sessionStorage (not accounts key, not save)');
+  await g.selectOption('.g-map tr[data-site="s18"] select[data-map="gscProperty"]', 'sc-domain:demo.example.com');
+  await g.selectOption('.g-map tr[data-site="s18"] select[data-map="ga4Property"]', 'properties/123456');
+  await g.selectOption('#g-ads-site', 's18');
+  await g.click('#g-pull'); await g.waitForTimeout(900);
+  const g2 = await g.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); const api = s.imports.filter(x => x.via === 'api'); const site = s.sites.items[0]; return { kinds: api.map(x => x.kind + ':' + x.platform).sort().join(','), site, msg: document.querySelector('#g-msg').textContent, n: api.length }; });
+  T18(g2.kinds === 'adsense:adsense,generic:ga4,gsc-dates:gsc,gsc-queries:gsc', 'pull: 4 API datasets (' + g2.kinds + ')');
+  T18(g2.site.gscProperty === 'sc-domain:demo.example.com' && g2.site.ga4Property === 'properties/123456' && g2.site.logs.length >= 2 && g2.site.logs.some(l => l.clicks > 0) && g2.site.logs.some(l => l.usd > 0), 'site mapping saved (additive) + 台账 monthly logs from API');
+  await g.click('#g-pull'); await g.waitForTimeout(900);
+  T18(await g.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).imports.filter(x => x.via === 'api').length) === 4, 're-pull replaces API datasets (no duplicates)');
+  // 自动刷新：上次拉取 > 6h
+  await g.evaluate(() => { const c = JSON.parse(localStorage.getItem('gefei-quest-accounts-v1')); c.google.lastPull = '2026-01-01T00:00:00Z'; localStorage.setItem('gefei-quest-accounts-v1', JSON.stringify(c)); });
+  await g.goto(BASE + 'index.html#me-analytics'); await g.waitForTimeout(1000);
+  const g3 = await g.evaluate(() => ({ lp: JSON.parse(localStorage.getItem('gefei-quest-accounts-v1')).google.lastPull, bar: !!document.querySelector('#g-bar'), sel: document.querySelector('#an-view') && document.querySelector('#an-view').dataset.kind }));
+  T18(g3.bar && g3.lp > '2026-02', 'analytics: auto-refresh on open when >6h (lastPull ' + g3.lp + ')');
+  await g.click('[data-ds]:first-child'); await g.waitForTimeout(100);
+  T18(await g.evaluate(() => [...document.querySelectorAll('[data-ds]')].some(b => /API · GSC 按日期/.test(b.textContent))), 'analytics: API datasets listed');
+  // 401 → 清令牌
+  await g.evaluate(() => { const t = JSON.parse(sessionStorage.getItem('gefei-quest-google-token')); t.access_token = 'bad'; sessionStorage.setItem('gefei-quest-google-token', JSON.stringify(t)); });
+  await g.goto(BASE + 'index.html#me-accounts'); await g.waitForTimeout(300); await g.click('#g-pull'); await g.waitForTimeout(700);
+  const e401 = await g.evaluate(() => document.querySelector('#g-msg').textContent + '|' + (sessionStorage.getItem('gefei-quest-google-token') || 'cleared'));
+  T18(/401/.test(e401) && /cleared$/.test(e401), '401 → error shown + token cleared');
+  await g.evaluate(() => { sessionStorage.setItem('gefei-quest-google-token', JSON.stringify({ access_token: 'ya29.test', exp: Date.now() + 3e6, scope: 'https://www.googleapis.com/auth/webmasters.readonly https://www.googleapis.com/auth/analytics.readonly https://www.googleapis.com/auth/adsense.readonly' })); });
+  // 工作台
+  await g.goto(BASE + 'index.html#me-accounts'); await g.reload(); await g.waitForTimeout(300); await g.click('#g-pull'); await g.waitForTimeout(800);
+  await g.goto(BASE + 'index.html#work'); await g.reload(); await g.waitForTimeout(500);
+  const w = await g.evaluate(() => { const c = document.querySelector('.wk-card[data-site="s18"]'); return c && { next: (c.querySelector('.wk-steps li.next') || {}).dataset, done: [...c.querySelectorAll('.wk-steps li.done')].map(x => x.dataset.step).join(','), kpi: c.querySelector('.wk-kpi') && c.querySelector('.wk-kpi').textContent, tab: !!document.querySelector('#panel-war .sub-tabs a[href="#work"].active, #panel-war a[href="#work"][aria-current]'), home: !!document.querySelector('#panel-war .wb-pipe-home'), steps: document.querySelectorAll('#panel-war .wb-pipe .wb-step').length }; });
+  T18(w && w.next && w.next.step === 'share' && /publish/.test(w.done) && /analytics/.test(w.done), '#work: per-site steps, next = 分发 (done ' + (w && w.done) + ')');
+  T18(w && /点击/.test(w.kpi) && /Google API/.test(w.kpi), '#work: 28-day KPIs from API data');
+  T18(w && w.steps === 6, '#work: 6-step pipeline 选词→实操助手→发布→分发→数据→复盘');
+  if (SHOTS) await g.screenshot({ path: `${SHOTS}/p18-work.png`, fullPage: true });
+  // 复盘
+  await g.goto(BASE + 'index.html#work-review'); await g.waitForTimeout(400);
+  T18(await g.evaluate(() => /分发 0 次/.test(document.querySelector('#rv-facts').textContent) && /Demo 站/.test(document.querySelector('#rv-facts').textContent)), 'review: auto facts (shares + per-site data)');
+  await g.fill('#rv-did', '站一上线'); await g.fill('#rv-data', '点击小幅上涨'); await g.fill('#rv-learned', '标题要含主词'); await g.fill('#rv-next-0', '发 3 个平台'); await g.fill('#rv-next-1', '补 2 篇内页'); await g.fill('#rv-next-2', '导出一次 GSC'); await g.fill('#rv-risk', '收录慢');
+  await g.click('#rv-save'); await g.waitForTimeout(200);
+  const rv = await g.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).reviews);
+  T18(rv.length === 1 && rv[0].next.length === 3 && rv[0].did === '站一上线' && /^\d{4}-\d\d-\d\d$/.test(rv[0].week) && rv[0].facts.length >= 3, 'review saved to save.reviews (additive)');
+  await g.click('#rv-copy'); await g.waitForTimeout(100);
+  T18(await g.evaluate(() => /# 每周复盘/.test(document.querySelector('.rv').parentElement.__md || '') && /## 下周 3 件事\n1\. 发 3 个平台/.test(document.querySelector('.rv').parentElement.__md)), 'review: copy as Markdown');
+  await g.goto(BASE + 'index.html#work'); await g.reload(); await g.waitForTimeout(400);
+  T18(await g.evaluate(() => !!document.querySelector('.wk-card .wk-steps li.done[data-step="review"]') && /已写/.test(document.querySelector('.wk-week').textContent)), '#work: review step done after save');
+  await g.goto(BASE + 'index.html#review'); await g.waitForTimeout(300);
+  T18(await g.evaluate(() => location.hash === '#work-review' || !!document.querySelector('#rv-form')), 'alias #review → #work-review');
+  await g.keyboard.press('Control+k'); await g.keyboard.type('工作台'); await g.waitForTimeout(150);
+  T18(await g.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#work')), 'search finds 工作台'); await g.keyboard.press('Escape');
+  // 断开
+  await g.goto(BASE + 'index.html#me-accounts'); await g.waitForTimeout(300); await g.click('#g-forget'); await g.waitForTimeout(150);
+  T18(await g.evaluate(() => !sessionStorage.getItem('gefei-quest-google-token') && window.__gisRevoked === 'ya29.test' && !JSON.parse(localStorage.getItem('gefei-quest-accounts-v1')).google.clientId), 'forget: token revoked + cleared');
+  // 390px
+  const sv18 = await g.evaluate(() => localStorage.getItem('gefei-quest-save-v1'));
+  await m13.evaluate(s => localStorage.setItem('gefei-quest-save-v1', s), sv18);
+  for (const r of ['work', 'work-review', 'me-accounts', 'pm-cn-media', 'war-rank', 'lib', 'home']) { await m13.goto(BASE + 'index.html#' + r); await m13.reload(); await m13.waitForTimeout(300); const ww = await m13.evaluate(() => document.documentElement.scrollWidth); T18(ww <= 390, 'mobile ' + r + ' scrollWidth ' + ww); }
+  await m13.goto(BASE + 'index.html#work'); await m13.reload(); await m13.waitForTimeout(300);
+  if (SHOTS) await m13.screenshot({ path: `${SHOTS}/p18-work-mobile.png`, fullPage: true });
+  await ctxG.close();
+  }
+  console.log('P18 functional fails=' + f18); fail += f18;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };
     await shot('home', 'home'); await shot('path', 'path'); await shot('war', 'war'); await shot('lib-xianyu', 'lib'); await shot('guide-station-one-playbook', 'guide'); await shot('weekly', 'weekly'); await shot('me', 'me');
-    const m = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+    const m = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); cx(m);
     for (const h of ['home', 'lib', 'path', 'war', 'guide-station-one-playbook', 'me']) { await m.goto(BASE + 'index.html#' + h); await m.waitForTimeout(300); const w = await m.evaluate(() => document.documentElement.scrollWidth); console.log('mobile', h, 'scrollWidth', w); }
     await shot('home', 'mobile-home', m); await shot('lib', 'mobile-lib', m);
   }

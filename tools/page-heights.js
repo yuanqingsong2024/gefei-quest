@@ -3,7 +3,7 @@
 const { chromium } = require(process.env.PW || 'playwright-core');
 const fs = require('fs');
 const BASE = process.argv[2] || 'http://localhost:8765/', OUT = process.argv[3];
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','war-publish','war-share','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','pm','pm-cn','pm-global','pm-cn-media','pm-cn-drama','pm-gl-video','guides','guide-station-one-playbook','guide-monetize-playbook','weekly','me','me-stats','me-sites','me-analytics','me-accounts','me-ai','changelog','dev','dev-TASKS','work','me-review'];
+const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','war-publish','war-share','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','pm','pm-cn','pm-global','pm-cn-media','pm-cn-drama','pm-gl-video','guides','guide-station-one-playbook','guide-monetize-playbook','weekly','me','me-stats','me-sites','me-analytics','me-accounts','me-ai','changelog','dev','dev-TASKS','work','work-review'];
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome' });
   const res = {};

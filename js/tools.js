@@ -104,12 +104,12 @@
       field('keyword', '主词 / 品牌名', 'pdf merge tool', kit.keyword) + field('domain', '域名', 'pdfmergetool.com', kit.domain) +
       field('intro', '一句话介绍（英文）', 'Merge PDF files online for free in seconds.', kit.intro, true) + field('email', '联系邮箱', 'hi@pdfmergetool.com', kit.email) +
       '</div>' + (s2 ? '<p class="hint">站二目标词（来自选词板）：<b>' + esc(s2) + '</b></p>' : '') + '</section>' +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('search') + '2 · 实时预览与规则</h2><div id="kit-preview" aria-live="polite"></div></section>' +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('download') + '3 · 下载我的站一页面</h2>' +
+      '<section class="block glass tool-card" data-tab="2 · 预览与规则"><h2 class="block-title">' + I('search') + '2 · 实时预览与规则</h2><div id="kit-preview" aria-live="polite"></div></section>' +
+      '<section class="block glass tool-card" data-tab="3 · 下载 / 发布"><h2 class="block-title">' + I('download') + '3 · 下载我的站一页面</h2>' +
       '<p class="hint">生成 index.html（已填好 title / description / h1 / 联系邮箱 / canonical）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。</p>' +
       '<div class="tool-actions"><button type="button" class="btn btn-primary btn-sm" id="kit-dl">' + I('download') + '下载我的站一页面（ZIP）</button>' + '<a class="btn btn-sm" id="kit-publish" href="#war-publish">' + I('rocket') + '直接发布到 GitHub</a>' +
       '<button type="button" class="btn btn-sm" data-dl="index.html">只下 index.html</button><button type="button" class="btn btn-sm" data-dl="robots.txt">robots.txt</button><button type="button" class="btn btn-sm" data-dl="sitemap.xml">sitemap.xml</button></div></section>' +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('list') + '4 · 上线自查表 <small class="tool-count">' + done + '/' + CHECKS.length + '</small></h2>' +
+      '<section class="block glass tool-card" data-tab="4 · 上线自查表"><h2 class="block-title">' + I('list') + '4 · 上线自查表 <small class="tool-count">' + done + '/' + CHECKS.length + '</small></h2>' +
       '<p class="hint">标 ⇄ 的项与学习路线任务等价，勾上会同步勾对应任务。</p><ul class="kit-checks">' +
       CHECKS.map(function (c) {
         return '<li><label><input type="checkbox" data-kc="' + c.id + '"' + (kit.checks[c.id] ? ' checked' : '') + ' /><span>' + c.t + (c.q ? ' <em title="与任务同步">⇄</em>' : '') + '</span></label><a href="#guide-station-one-playbook" data-anchor="' + c.g + '" class="kit-guide">看手册</a></li>';

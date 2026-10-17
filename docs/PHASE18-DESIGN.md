@@ -59,3 +59,8 @@ Cloudflare Worker 代理、Cloudflare Pages 发布、Pinterest API、任何付�
 - T175 #work 工作台 + 6 步流水线
 - T176 #work-review 每周复盘
 - T177 测试、前后高度记录、截图、推送
+
+## 完成情况（2026-10-17）
+- [x] T172–T177 全部完成。紧凑规则见 js/compact.js `RULES`；Google 连接 js/google.js；工作台与复盘 js/work.js；测试桩 tools/fake-google.js（8768）
+- 前后高度：data/page-heights-before.json / data/page-heights-after.json（明细见 TESTLOG.md）
+- 实现差异：首页把「今日任务」以外的 7 个栏目做成一组标签；平台分类页默认先看「平台详情」再切「对比表」；国内/海外总览的分类对比表默认全部收起（标题显示平台数）；超长文档（>20 个标题）按章节全部收起并只先显示 12 章

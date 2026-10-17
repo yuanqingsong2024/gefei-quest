@@ -24,12 +24,14 @@
   ];
 
   var WAR_TABS = [
+    { id: 'work', label: '工作台', icon: 'target', hash: '#work' },
     { id: 'days', label: '作战日程', icon: 'calendar', hash: '#war' },
     { id: 'kit', label: '站一实操助手', icon: 'kit', hash: '#war-kit' },
     { id: 'keywords', label: '选词练习板', icon: 'tag', hash: '#war-keywords' },
     { id: 'rank', label: '每日赚钱榜', icon: 'trophy', hash: '#war-rank' },
     { id: 'publish', label: '发布上线', icon: 'rocket', hash: '#war-publish' },
     { id: 'share', label: '内容分发', icon: 'external', hash: '#war-share' },
+    { id: 'review', label: '每周复盘', icon: 'bulb', hash: '#work-review' },
   ];
   var ME_TABS = [
     { id: 'overview', label: '概览', icon: 'user', hash: '#me' },
@@ -80,6 +82,7 @@
   var DEV_DOCS = [
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
     { id: 'PHASE17-SHARE', title: 'Phase 17 · 内容分发（免费）' },
+    { id: 'PHASE18-DESIGN', title: 'Phase 18 · 紧凑页面 + Google 连接 + 工作台' },
     { id: 'PHASE16-WORKBENCH', title: 'Phase 16 · 实操工作台' },
     { id: 'PHASE15-PLATFORMS', title: 'Phase 15 · 平台变现（国内 + 海外）' },
     { id: 'PHASE14-AI-PROVIDERS', title: 'Phase 14 · AI 服务商列表' },
@@ -107,7 +110,7 @@
     '': 'home', map: 'path', quest: 'path-quests', quests: 'path-quests', ship: 'weekly',
     ach: 'me', settings: 'me', resources: 'lib', 'war-s1': 'war', guide: 'guides', docs: 'guides',
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
-    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama',
+    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', dashboard: 'work', 'war-work': 'work', review: 'work-review', 'weekly-review': 'work-review', 'me-review': 'work-review', fupan: 'work-review', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -128,6 +131,8 @@
     var st = { war: 1, 'war-s2': 2, 'war-s3': 3, 'war-m': 4, 'war-x': 5 };
     if (h === 'war-kit') return { section: 'war', view: 'kit', hash: h };
     if (h === 'war-keywords') return { section: 'war', view: 'keywords', hash: h };
+    if (h === 'work') return { section: 'war', view: 'work', hash: h };
+    if (h === 'work-review') return { section: 'war', view: 'review', hash: h };
     if (h === 'war-share') return { section: 'war', view: 'share', hash: h };
     if (h === 'war-publish') return { section: 'war', view: 'publish', hash: h };
     if (h === 'me-accounts') return { section: 'me', view: 'accounts', hash: h };
@@ -214,7 +219,7 @@
       '<p class="foot-ver"><span class="pill">' + V.v + '</span> 更新于 ' + esc(V.date) + ' · <a href="#changelog">更新日志</a> · <a href="daily.json" target="_blank" rel="noopener">daily.json</a></p></div>' +
       '<div class="foot-cols">' +
       '<div><h4>站点地图</h4>' + SITE_NAV.map(function (n) { return '<a href="' + n.hash + '">' + n.label + '</a>'; }).join('') + '</div>' +
-      '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a><a href="#war-rank">每日赚钱榜</a><a href="#war-publish">发布上线</a><a href="#war-share">内容分发</a></div>' +
+      '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a><a href="#war-rank">每日赚钱榜</a><a href="#war-publish">发布上线</a><a href="#war-share">内容分发</a><a href="#work">工作台</a><a href="#work-review">每周复盘</a></div>' +
       '<div><h4>资源库</h4>' + LIB_CATS.map(function (c) { return '<a href="#lib-' + c.id + '">' + c.label + '</a>'; }).join('') + '<a href="#pm">平台变现</a><a href="#pm-cn">平台变现 · 国内</a><a href="#pm-global">平台变现 · 海外</a></div>' +
       '<div><h4>我的</h4>' + ME_TABS.map(function (t) { return '<a href="' + t.hash + '">' + t.label + '</a>'; }).join('') + '<a href="#guides">手册与模板</a><a href="#dev">' + DEV_SECTION.label + '</a><a href="https://github.com/yuanqingsong2024/gefei-quest" target="_blank" rel="noopener">GitHub 仓库</a></div>' +
       '<div class="foot-news"><h4>最近更新</h4>' + log.map(function (e) { return '<a href="#changelog"><small>' + esc(e.date) + '</small>' + esc(e.title) + '</a>'; }).join('') + '</div>' +

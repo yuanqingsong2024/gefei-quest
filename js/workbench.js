@@ -56,10 +56,11 @@
       ['kit', '实操助手', 'kit', '#war-kit', !!(kit.keyword && kit.intro)],
       ['publish', '发布上线', 'rocket', '#war-publish', state.publish.some(function (p) { return p.ok && !p.dry; })],
       ['share', '内容分发', 'external', '#war-share', Array.isArray(state.shares) && state.shares.length > 0],
-      ['sites', '站点台账', 'ledger', '#me-sites', sites.length > 0],
-      ['analytics', '数据分析', 'chart', '#me-analytics', state.imports.length > 0],
+      ['analytics', '数据', 'chart', '#me-analytics', state.imports.length > 0 || sites.some(function (s) { return (s.logs || []).length > 0; })],
+      ['review', '复盘', 'bulb', '#work-review', Array.isArray(state.reviews) && state.reviews.length > 0],
     ];
-    return '<nav class="wb-pipe" aria-label="实操流水线">' + steps.map(function (s, i) {
+    if (active === 'sites') active = 'analytics';
+    return '<nav class="wb-pipe" aria-label="实操流水线"><a class="wb-pipe-home" href="#work" title="工作台">' + I('target') + '<span>工作台</span></a>' + steps.map(function (s, i) {
       return (i ? '<span class="wb-pipe-arrow" aria-hidden="true">→</span>' : '') + '<a href="' + s[3] + '" class="wb-step' + (s[4] ? ' done' : '') + (active === s[0] ? ' on' : '') + '" data-step="' + s[0] + '">' + I(s[2]) + '<span>' + s[1] + '</span>' + (s[4] ? '<i aria-label="已完成">✓</i>' : '') + '</a>';
     }).join('') + '</nav>';
   }
@@ -68,6 +69,7 @@
   function renderAccounts(state, root, ctx) {
     var c = load(), gh = c.github;
     var status = function (p) {
+      if (global.QuestGoogle && (p.id === 'gsc' || p.id === 'ga4' || p.id === 'adsense')) { var api = (state.imports || []).filter(function (x) { return x.via === 'api' && x.platform === p.id; }).length; if (global.QuestGoogle.token()) return '<span class="wb-st ok">Google 已授权' + (api ? ' · API 数据 ' + api + ' 份' : '') + '</span>'; }
       if (p.id === 'github') return gh.token ? (gh.login ? '<span class="wb-st ok">已连接 · ' + esc(gh.login) + '</span>' : '<span class="wb-st warn">已填 Token，未校验</span>') : '<span class="wb-st">未连接</span>';
       var shn = (state.shares || []).filter(function (x) { return x.platform === p.id; }).length;
       if (shn) return '<span class="wb-st ok">已分发 ' + shn + ' 次</span>';
@@ -77,15 +79,16 @@
     root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, '') +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('user') + '账号中心</h2><p class="hint">按官方接口能力分 4 类。只用官方 API 和官方导出文件，不爬虫、不模拟登录。Token 只存在这台浏览器的独立键里，不进存档导出，可一键忘记。</p>' +
       '<div class="wb-legend">' + Object.keys(CLS).map(function (k) { return '<span class="wb-cls wb-cls-' + k + '">' + k + '</span>' + CLS[k]; }).join('') + '</div></section>' +
-      '<section class="block glass tool-card" id="gh-connect"><h2 class="block-title">' + I('code') + 'GitHub 连接</h2>' +
+      '<section class="block glass tool-card" id="gh-connect" data-tab="GitHub 连接"><h2 class="block-title">' + I('code') + 'GitHub 连接</h2>' +
       '<p class="hint">在 GitHub「Settings → Developer settings → Fine-grained tokens」新建 Token：只选你要发布的仓库，权限 Contents、Pages、Administration 设为 Read and write（新建仓库需 Administration）。</p>' +
       '<form id="gh-form" class="form-grid" autocomplete="off"><label class="fld fld-wide"><span>Fine-grained Token</span><input type="password" id="gh-token" placeholder="github_pat_…" value="' + esc(gh.token) + '" /></label>' +
       '<label class="fld fld-wide"><span>API 地址（高级，默认 api.github.com）</span><input id="gh-base" value="' + esc(gh.base) + '" /></label>' +
       '<div class="tool-actions fld-wide"><button type="submit" class="btn btn-primary btn-sm">' + I('lock') + '保存并校验</button><button type="button" class="btn btn-sm btn-danger" id="gh-forget">忘记 Token</button></div></form><p id="gh-msg" class="hint" role="status"></p></section>' +
+      (global.QuestGoogle ? global.QuestGoogle.section(state) : '') +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('globe') + '平台列表</h2><div class="wb-plats">' + PLATFORMS.map(function (p) {
         return '<article class="wb-plat" data-plat="' + p.id + '"><header><span class="card-ico">' + I(p.icon) + '</span><b>' + esc(p.name) + '</b><span class="wb-cls wb-cls-' + p.cls + '" title="' + CLS[p.cls] + '">' + p.cls + '</span></header>' + status(p) + (p.free ? '<a class="wb-free" href="#war-share">' + I('external') + FREE[p.free] + '</a>' : '') + '<p>' + esc(p.how) + '</p>' + (p.act ? '<a class="btn btn-sm" href="' + p.act + '">' + esc(p.actLabel) + '</a>' : '') + '</article>';
       }).join('') + '</div></section>' +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('gear') + 'Phase B / C 需要你准备</h2><ul class="wb-need"><li><b>Phase B</b>：一个 Cloudflare 账号（免费档），按仓库 <code>worker/README.md</code> 部署代理，把 Worker 地址填到这里；Pinterest API 需开发者审批（可选）。X 付费 API 已从计划移除，改用免费的内容分发。</li><li><b>Phase C</b>：一个 Google Cloud 项目 + OAuth 客户端 ID（Web 应用，授权 JavaScript 来源填本站地址），开启 Search Console / GA4 Data / AdSense Management API。</li></ul>' +
+      '<section class="block glass tool-card cx-fold"><h2 class="block-title">' + I('gear') + 'Phase B / C 需要你准备</h2><ul class="wb-need"><li><b>Phase B</b>：一个 Cloudflare 账号（免费档），按仓库 <code>worker/README.md</code> 部署代理，把 Worker 地址填到这里；Pinterest API 需开发者审批（可选）。X 付费 API 已从计划移除，改用免费的内容分发。</li><li><b>Phase C</b>：一个 Google Cloud 项目 + OAuth 客户端 ID（Web 应用，授权 JavaScript 来源填本站地址），开启 Search Console / GA4 Data / AdSense Management API。</li></ul>' +
       '<label class="fld"><span>Worker 地址（Phase B，可先留空）</span><input id="wk-url" placeholder="https://xxx.workers.dev" value="' + esc(c.worker.url) + '" /></label></section></div>';
     var msg = root.querySelector('#gh-msg');
     root.querySelector('#gh-form').addEventListener('submit', function (e) {
@@ -99,6 +102,7 @@
       }).catch(function (err) { msg.textContent = '校验失败：' + err.message; });
     });
     root.querySelector('#gh-forget').addEventListener('click', function () { var cc = load(); cc.github.token = ''; cc.github.login = ''; saveCfg(cc); renderAccounts(state, root, ctx); toast('已忘记 GitHub Token'); });
+    if (global.QuestGoogle) global.QuestGoogle.bind(state, root, ctx, function () { renderAccounts(state, root, ctx); });
     root.querySelector('#wk-url').addEventListener('change', function (e) { var cc = load(); cc.worker.url = e.target.value.trim(); saveCfg(cc); });
   }
 
@@ -356,7 +360,7 @@
           '<h3 class="wb-h">机会词（排名 8–20、曝光≥10）</h3>' + (S.opp.length ? '<ul class="wb-opp">' + S.opp.map(function (r) { return '<li><b>' + esc(r.q) + '</b> 曝光 ' + r.imp + ' · 排名 ' + r.pos + '</li>'; }).join('') + '</ul>' : '<p class="empty-hint">暂时没有。</p>') : '') +
         '<div class="tool-actions"><button type="button" class="btn btn-sm ai-btn" id="an-ai">' + I('sparkle') + 'AI 分析这份数据</button><button type="button" class="btn btn-sm btn-danger" id="an-del">删除这份数据</button></div><div id="an-ai-out"></div></section>';
     }
-    root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, 'analytics') +
+    root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, 'analytics') + (global.QuestGoogle ? global.QuestGoogle.bar() : '') +
       '<section class="block glass tool-card" id="import-center"><h2 class="block-title">' + I('download') + '数据导入中心</h2>' +
       '<p class="hint">支持：<b>GSC</b>「效果 → 导出 → CSV」（日期 / 查询 / 网页 表）、<b>AdSense</b>「报告 → 下载 CSV」、<b>通用平台 CSV</b>（小红书 / 抖音 / B 站 / 公众号等后台导出，需含日期列）。文件只在本机解析，不上传。</p>' +
       '<form id="imp-form" class="form-grid"><label class="fld"><span>类型</span><select id="imp-kind"><option value="auto">自动识别（GSC / AdSense）</option><option value="generic">通用平台 CSV</option></select></label>' +
@@ -387,7 +391,12 @@
         root.querySelector('#imp-msg').textContent = '已导入「' + KIND_LABEL[ds.kind] + '」' + ds.rows.length + ' 行' + (n ? '，并写入台账 ' + n + ' 个月' : '') + '。';
       }).catch(function (err) { msg.textContent = '导入失败：' + err.message; });
     });
-    root.querySelectorAll('[data-ds]').forEach(function (b) { b.addEventListener('click', function () { renderAnalytics(state, root, ctx, { sel: b.getAttribute('data-ds') }); }); });
+    root.querySelectorAll('[data-ds]').forEach(function (b) { b.addEventListener('click', function () { renderAnalytics(state, root, ctx, { sel: b.getAttribute('data-ds'), noAuto: 1 }); }); });
+    if (global.QuestGoogle) {
+      var again = function () { if (root.isConnected) renderAnalytics(state, root, ctx, { sel: opts.sel, noAuto: 1 }); };
+      global.QuestGoogle.bindBar(state, root, ctx, again);
+      if (!opts.noAuto && global.QuestGoogle.autoRefresh(state, ctx, again)) { var bm = root.querySelector('#g-bar-msg'); if (bm) bm.textContent = '自动刷新中…'; }
+    }
     var del = root.querySelector('#an-del'); if (del) del.addEventListener('click', function () { if (global.confirm && !global.confirm('删除这份导入数据？（台账里已写入的月度记录保留）')) return; ims.splice(ims.indexOf(sel), 1); ctx.save(); renderAnalytics(state, root, ctx); });
     var ai = root.querySelector('#an-ai'); if (ai) ai.addEventListener('click', function () { global.QuestAI.run(root.querySelector('#an-ai-out'), aiPrompt(sel, summarize(sel), sites.filter(function (s) { return s.id === sel.siteId; })[0]), 'AI 数据分析'); });
   }
