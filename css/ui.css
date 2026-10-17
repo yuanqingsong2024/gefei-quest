@@ -1548,6 +1548,21 @@ body.is-home .view { max-width: none; padding: 0; }
 .kit-checks input { width: 18px; height: 18px; accent-color: #fbbf24; flex: none; }
 .kit-checks em { color: #67e8f9; font-style: normal; }
 .kit-guide { white-space: nowrap; font-size: .85rem; }
+.kit-tpls { border: 0; margin: 8px 0 0; padding: 0; min-width: 0; min-inline-size: 0; max-width: 100%; width: 100%; }
+.kit-tpls legend { padding: 0; margin: 0 0 6px; font-size: .85rem; font-weight: 800; color: #f8fafc; }
+.kit-tpl-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; min-width: 0; }
+.kit-tpl { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding: 6px 8px; border-radius: 10px; border: 1px solid rgba(148,163,184,.55); background: rgba(2,6,23,.55); cursor: pointer; color: #f8fafc; }
+.kit-tpl.on, .kit-tpl:has(input:checked) { border-color: #fbbf24; box-shadow: inset 0 0 0 1px #fbbf24; background: rgba(251,191,36,.14); }
+.kit-tpl-top { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.kit-tpl input { width: 16px; height: 16px; min-width: 16px; margin: 0; accent-color: #fbbf24; flex: none; }
+.kit-tpl input:focus-visible { outline: 2px solid #67e8f9; outline-offset: 2px; }
+.kit-tpl .ico { width: 18px; height: 18px; flex: none; }
+.kit-tpl-name { font-weight: 800; font-size: .82rem; line-height: 1.25; min-width: 0; overflow-wrap: anywhere; }
+.kit-tpl-desc { color: #e2e8f0; font-size: .72rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.kit-frame { width: 100%; height: 96px; border: 1px solid rgba(148,163,184,.45); border-radius: 8px; background: #0f1419; margin: 8px 0; display: block; }
+.kit-files { margin: 6px 0 0; color: #e2e8f0; font-size: .82rem; }
+.kit-files code { margin-right: 6px; }
+#kit-tpl-row[hidden] { display: none !important; }
 .kw-formula { margin-top: 12px; color: #e2e8f0; } .kw-formula summary { cursor: pointer; color: #fbbf24; font-weight: 700; }
 .kw-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; align-items: center; margin-bottom: 10px; }
 .kw-bar .block-title { margin: 0; }
@@ -1588,6 +1603,7 @@ body.is-home .view { max-width: none; padding: 0; }
   .kw-main { grid-template-columns: auto 1fr; } .kw-score { grid-column: 1 / -1; display: flex; gap: 10px; align-items: center; justify-content: flex-start; }
   .kw-score b { display: inline; }
   .kit-checks li { flex-direction: column; align-items: flex-start; }
+  .kit-tpl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* ---------- Phase 10 · 学习统计 / 今日任务 / 更新日志 ---------- */
@@ -2118,6 +2134,10 @@ details.cx-details>:not(summary){margin:0 12px 12px}
   .kit-prev dt{margin-top:0}
   .kit-prev dd{padding:4px 8px}
   .kit-rules{gap:2px}
+  .kit-tpl{padding:5px 6px}
+  .kit-tpl-desc{-webkit-line-clamp:1}
+  .kit-frame{height:84px;margin:6px 0}
+  .kit-tpls{margin-top:6px}
   .rank-card{padding:10px 12px;gap:6px}
   .rank-why{-webkit-line-clamp:2}
   .rank-grid{gap:10px}

@@ -175,12 +175,14 @@
     ensure(state);
     var c = load(), g = c.github, T = global.QuestTools, kit = state.kit || {};
     var ready = !!(kit.keyword && kit.intro), files = ready ? T.files(kit) : [], slug = ready ? T.gen(kit).slug : '';
+    var tplMeta = (T.TEMPLATES || []).filter(function (t) { return t.id === (kit.template || 'basic'); })[0];
+    var tplLabel = tplMeta ? tplMeta.name : '单页介绍';
     if (!g.repo && slug) g.repo = slug;
     var hist = state.publish.slice(-5).reverse();
     root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, 'publish') +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('rocket') + '发布上线：把实操助手生成的站点写进你的 GitHub 仓库</h2>' +
       (!ready ? '<div class="tool-empty"><p>先到 <a href="#war-kit">站一实操助手</a> 填主词和一句话介绍，生成页面后再来发布。</p></div>' :
-        '<p class="hint">将发布 ' + files.length + ' 个文件：' + files.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ') + '（来自主词「' + esc(kit.keyword) + '」）。</p>') +
+        '<p class="hint">将发布 ' + files.length + ' 个文件：' + files.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ') + '（来自主词「' + esc(kit.keyword) + '」）。模板：' + esc(tplLabel) + '</p>') +
       (!g.token ? '<div class="tool-empty"><p>' + I('lock') + '还没连接 GitHub。到 <a href="#me-accounts">账号中心</a> 填 Fine-grained Token。</p></div>' : '<p class="hint">已连接：<b>' + esc(g.login || '（未校验）') + '</b> · <a href="#me-accounts">管理</a></p>') +
       '<form id="pub-form" class="form-grid" autocomplete="off">' +
       '<label class="fld"><span>仓库所有者</span><input id="pub-owner" value="' + esc(g.owner || g.login) + '" placeholder="你的 GitHub 用户名" /></label>' +
@@ -193,7 +195,7 @@
       '<button type="button" class="btn btn-primary btn-sm" id="pub-go" disabled>' + I('rocket') + '确认发布</button></div></form>' +
       '<p class="hint">先预览：会列出每个文件是新建、更新还是不变，以及 Pages 状态。确认后才写入。写入使用 GitHub 官方 Contents API。</p>' +
       '<div id="pub-out" aria-live="polite"></div></section>' +
-      (ready ? '<section class="block glass tool-card"><h2 class="block-title">' + I('file') + '页面预览</h2><iframe class="wb-preview" sandbox="" title="index.html 预览" srcdoc="' + esc(files[0].text) + '"></iframe></section>' : '') +
+      (ready ? '<section class="block glass tool-card"><h2 class="block-title">' + I('file') + '页面预览</h2><iframe class="wb-preview" sandbox="allow-scripts allow-forms" title="index.html 预览" srcdoc="' + esc(files[0].text) + '"></iframe></section>' : '') +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('list') + '发布记录</h2>' + (hist.length ? '<ul class="wb-hist">' + hist.map(function (h) { return '<li><b>' + (h.dry ? '预览' : h.ok ? '已发布' : '失败') + '</b> ' + esc(h.repo) + ' · ' + esc(h.at.slice(0, 16).replace('T', ' ')) + (h.url && !h.dry ? ' · <a href="' + esc(h.url) + '" target="_blank" rel="noopener">' + esc(h.url) + '</a>' : '') + (h.err ? ' · ' + esc(h.err) : '') + '</li>'; }).join('') + '</ul>' : '<p class="empty-hint">还没有发布记录。</p>') + '</section></div>';
     if (!ready || !g.token) return;
     var out = root.querySelector('#pub-out'), go = root.querySelector('#pub-go');
@@ -210,7 +212,7 @@
     function table(plan, dry) {
       var lab = { create: '新建', update: '更新', same: '不变' };
       return '<div class="tbl-wrap"><table class="wb-plan"><thead><tr><th>文件</th><th>操作</th><th>大小</th></tr></thead><tbody>' + plan.files.map(function (f) { return '<tr data-action="' + f.action + '"><td><code>' + esc(f.path) + '</code></td><td><span class="wb-act wb-act-' + f.action + '">' + lab[f.action] + (f.done ? ' ✓' : '') + '</span></td><td>' + f.bytes + ' B</td></tr>'; }).join('') + '</tbody></table></div>' +
-        '<p class="hint">仓库：' + (plan.repoExists ? '已存在' : dry ? '<b>将新建</b>' : '已新建') + ' · 分支 ' + esc(plan.branch) + ' · Pages：' + ({ exists: '已开启', enable: dry ? '将开启' : '开启中', enabled: '已开启' }[plan.pages] || '不处理') + ' · 预计地址 <code>' + esc(plan.url) + '</code></p>';
+        '<p class="hint">模板：' + esc(tplLabel) + ' · 仓库：' + (plan.repoExists ? '已存在' : dry ? '<b>将新建</b>' : '已新建') + ' · 分支 ' + esc(plan.branch) + ' · Pages：' + ({ exists: '已开启', enable: dry ? '将开启' : '开启中', enabled: '已开启' }[plan.pages] || '不处理') + ' · 预计地址 <code>' + esc(plan.url) + '</code></p>';
     }
     root.querySelector('#pub-dry').addEventListener('click', function () {
       var x = read(); if (!x.owner || !x.repo) { out.innerHTML = '<p class="ai-error">请填写仓库所有者和仓库名。</p>'; return; }

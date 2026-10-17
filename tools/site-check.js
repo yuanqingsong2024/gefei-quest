@@ -602,6 +602,104 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   fg.close();
   }
   console.log('P18 functional fails=' + f18); fail += f18;
+  let f19 = 0; {
+  const T19 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P19 ' + m); if (!c) f19++; };
+  const kitBase = { keyword: 'pdf merge tool', intro: 'Merge PDF files online for free.', domain: 'pdfmergetool.com', email: 'hi@pdfmergetool.com' };
+  const eq = await p.evaluate((base) => {
+    const a = QuestTools.files(base);
+    const b = QuestTools.files(Object.assign({ template: 'basic' }, base));
+    const c = QuestTools.files(Object.assign({ template: 'nope' }, base));
+    return a.length === 3 && a.every((f, i) => f.name === b[i].name && f.text === b[i].text && f.text === c[i].text) && QuestTools.TEMPLATES.length === 4;
+  }, kitBase);
+  T19(eq, 'default files() equals template:basic (and unknown id)');
+  await visit('war-kit'); await p.reload(); await p.waitForTimeout(300);
+  await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); if (s.kit) { delete s.kit.template; delete s.kit.templateDone; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); } });
+  await p.reload(); await p.waitForTimeout(300);
+  T19(await p.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+    const basic = document.querySelector('#kit-tpl-basic');
+    const extra = [...document.querySelectorAll('.kit-rules li')].some(li => /模板占位内容已替换/.test(li.textContent));
+    return !!basic && basic.checked && !extra && (s.kit.template == null || s.kit.template === 'basic');
+  }), 'missing kit.template defaults to 单页介绍');
+  const markerOk = (id, src) => {
+    if (id === 'tool') return src.includes('<form') && /replace with your tool/i.test(src);
+    if (id === 'compare') return src.includes('<table') && /<th[^>]*scope=/.test(src) && /check official site/.test(src);
+    return /aria-label="A.Z"/.test(src) && (src.match(/id="term-/g) || []).length === 8;
+  };
+  for (const id of ['tool', 'compare', 'glossary']) {
+    await visit('war-kit');
+    await p.click('#kit-tpl-' + id); await p.waitForTimeout(200);
+    const live = await p.evaluate((tid) => {
+      const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+      const files = QuestTools.files(s.kit);
+      const html = files[0].text;
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const g = QuestTools.gen(s.kit);
+      const h1s = [...doc.querySelectorAll('h1')];
+      const frame = document.querySelector('#kit-frame');
+      return {
+        saved: s.kit.template,
+        checked: document.querySelector('#kit-tpl-' + tid).checked,
+        src: frame ? frame.srcdoc : '',
+        names: files.map(f => f.name).join(','),
+        h1: h1s.length === 1 && h1s[0].textContent === g.h1 && g.h1 === s.kit.keyword.trim(),
+        title: doc.querySelector('title').textContent === g.title,
+        desc: doc.querySelector('meta[name="description"]').getAttribute('content') === g.desc,
+        can: doc.querySelector('link[rel="canonical"]').getAttribute('href') === 'https://' + g.domain + '/',
+        lang: doc.documentElement.lang === 'en',
+        locs: (files[2].text.match(/<loc>/g) || []).length,
+        robots: /Sitemap: https:\/\//.test(files[1].text) && files[1].text.indexOf(g.domain) > 0,
+        marks: !!(doc.querySelector('header') && doc.querySelector('nav') && doc.querySelector('main') && doc.querySelector('footer')),
+        filesUi: document.querySelector('#kit-files').textContent,
+      };
+    }, id);
+    T19(live.saved === id && live.checked, 'select ' + id + ' saves kit.template');
+    await p.reload(); await p.waitForTimeout(300);
+    const again = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).kit.template);
+    T19(again === id, 'reload keeps kit.template=' + id + ' (' + again + ')');
+    T19(markerOk(id, live.src), id + ' preview iframe has template markers');
+    T19(live.h1 && live.title && live.desc && live.can && live.lang && live.marks, id + ' one h1 + title + description + canonical');
+    T19(live.names === 'index.html,robots.txt,sitemap.xml' && live.locs === 1 && live.robots && /index\.html/.test(live.filesUi) && /robots\.txt/.test(live.filesUi) && /sitemap\.xml/.test(live.filesUi), id + ' files index/robots/sitemap (sitemap only /)');
+  }
+  await visit('war-kit');
+  await p.click('#kit-tpl-tool'); await p.waitForTimeout(150);
+  await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); s.kit.templateDone = false; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); });
+  await p.reload(); await p.waitForTimeout(300);
+  const ruleBefore = await p.evaluate(() => { const li = [...document.querySelectorAll('.kit-rules li')].find(el => /模板占位内容已替换/.test(el.textContent)); const cb = document.querySelector('#kit-tpl-done'); return { cls: li && li.className, on: !!(cb && cb.checked) }; });
+  T19(ruleBefore.cls === 'warn' && ruleBefore.on === false, 'extra rule warn before #kit-tpl-done');
+  await p.click('#kit-tpl-done'); await p.waitForTimeout(150);
+  const ruleOn = await p.evaluate(() => { const li = [...document.querySelectorAll('.kit-rules li')].find(el => /模板占位内容已替换/.test(el.textContent)); const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); return { cls: li && li.className, on: document.querySelector('#kit-tpl-done').checked, saved: s.kit.templateDone }; });
+  T19(ruleOn.cls === 'ok' && ruleOn.on === true && ruleOn.saved === true, 'extra rule ok after #kit-tpl-done');
+  await p.click('#kit-tpl-done'); await p.waitForTimeout(150);
+  T19(await p.evaluate(() => { const li = [...document.querySelectorAll('.kit-rules li')].find(el => /模板占位内容已替换/.test(el.textContent)); return li.className === 'warn' && JSON.parse(localStorage.getItem('gefei-quest-save-v1')).kit.templateDone === false; }), 'extra rule warn again when unchecked');
+  const gh19 = require('./fake-github.js').start(8767); const GH19 = 'http://127.0.0.1:8767';
+  try {
+  await p.evaluate((GH) => {
+    const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+    s.kit.template = 'tool';
+    if (!s.kit.keyword) s.kit.keyword = 'pdf merge tool';
+    if (!s.kit.intro) s.kit.intro = 'Merge PDF files online for free.';
+    localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s));
+    const c = JSON.parse(localStorage.getItem('gefei-quest-accounts-v1') || '{}');
+    c.github = Object.assign({ token: '', base: 'https://api.github.com', login: '', owner: '', repo: '', branch: 'main', dir: '', createRepo: true, enablePages: true }, c.github || {});
+    c.github.token = 'github_pat_test'; c.github.base = GH; c.github.login = 'tester'; c.github.owner = 'tester'; c.github.branch = 'main'; c.github.createRepo = true; c.github.enablePages = true;
+    localStorage.setItem('gefei-quest-accounts-v1', JSON.stringify(c));
+  }, GH19);
+  await visit('war-publish'); await p.waitForTimeout(350);
+  T19(/模板：在线工具站/.test(await p.locator('#panel-war').innerText()), 'publish plan summary shows 模板：在线工具站');
+  await p.click('#pub-dry'); await p.waitForTimeout(700);
+  const dry19 = await p.evaluate(() => ({ rows: document.querySelectorAll('#pub-out .wb-plan tr[data-action]').length, text: (document.querySelector('#pub-out') || {}).textContent || '' }));
+  T19(dry19.rows === 3 && /模板：在线工具站/.test(dry19.text), 'dry-run lists 3 files and template name (' + dry19.rows + ')');
+  } finally { gh19.close(); }
+  await p.setViewportSize({ width: 1280, height: 860 });
+  await visit('war-kit'); await p.click('#kit-tpl-compare'); await p.waitForTimeout(300);
+  T19(await p.evaluate(() => document.querySelector('#kit-tpl-compare').checked), 'compare template selected for screenshot');
+  if (SHOTS) await p.screenshot({ path: `${SHOTS}/p19-templates.png`, fullPage: true });
+  await m13.goto(BASE + 'index.html#war-kit'); await m13.reload(); await m13.waitForTimeout(350);
+  const w19 = await m13.evaluate(() => document.documentElement.scrollWidth);
+  T19(w19 <= 390, '390px #war-kit scrollWidth ' + w19);
+  }
+  console.log('P19 functional fails=' + f19); fail += f19;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

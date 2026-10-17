@@ -27,7 +27,7 @@
         left: 5,
       },
       notes: {},
-      kit: { keyword: '', intro: '', domain: '', email: '', checks: {} },
+      kit: { keyword: '', intro: '', domain: '', email: '', checks: {}, template: 'basic', templateDone: false },
       keywords: { items: [], s2Target: '', sort: 'score', filter: 'all' },
       sites: { items: [] },
       activity: {},

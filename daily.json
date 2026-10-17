@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T05:53:43.677Z",
-  "latestId": 20,
+  "generatedAt": "2026-10-17T06:16:38.025Z",
+  "latestId": 21,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 21,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "模板库：工具站 / 对比评测 / 术语表三种起步模板",
+      "items": [
+        "站一实操助手可选择步模板：单页介绍（与原来相同）、在线工具站、对比/评测页、术语表/词汇站",
+        "所选模板记在本机存档，实时预览、ZIP 下载和发布上线都按这个模板生成 index.html、robots.txt、sitemap.xml",
+        "发布页的计划里显示模板名，例如「模板：在线工具站」",
+        "工具站、对比页、术语表带可替换的占位内容；上线自查多一条「占位已替换」，勾选后才算通过"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
+    },
     {
       "id": 20,
       "date": "2026-10-17",
@@ -127,19 +140,6 @@
         "No.3 工行2610期“到店取号有礼”线上取号抽立减金/i豆"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 11,
-      "date": "2026-10-16",
-      "tag": "改进",
-      "title": "网站质感升级：新图标、全站搜索、手机底部栏",
-      "items": [
-        "全新 Logo 与一整套渐变徽章图标",
-        "全站搜索：按 / 或 Ctrl+K，可搜任务、资源、手册和文档",
-        "手机端底部导航栏、回到顶部按钮",
-        "顶栏滚动收缩、页面淡入、新页脚（站点地图 / 关于 / 版本号）"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

@@ -196,3 +196,10 @@
 - site-check：routes=36 dev=24 broken=0 consoleErrors=0，P9–P18 全部 0 fails；P18 高度阈值改为 2.5（12 个页面）；fake-google 由测试自启
 - 390px 与 file://（10 个页面）无横向滚动、无报错
 - 截图：p19-compact-home.png、p19-compact-me-accounts.png
+
+## Phase 19 · 计划 2 模板库 T179（2026-10-17，代码：Grok Build）
+- 站一实操助手起步模板：单页介绍（`basic`，缺省，index.html 与原来逐字节相同）、在线工具站、对比/评测页、术语表/词汇站。存档只追加 `kit.template`、`kit.templateDone`。
+- 预览、ZIP、单文件下载和发布上线都走 `QuestTools.files(kit)`。发布计划显示模板名（例如「模板：在线工具站」）。非 basic 的上线自查多一条「占位已替换」，勾 `#kit-tpl-done` 才算通过。
+- 空存档 1280×800：`#war-kit` 2.36 屏（`tools/page-heights.js`）。P18 高度用例里 war-kit 为 1.92（上线自查标签打开、预览区收起），12 页均 ≤2.5。
+- site-check：routes=36 guides=9 dev=24 rawMd=0 broken=0，P9–P19 全部 0 fails，`TOTAL fails=0 consoleErrors=0`。P19：缺省 basic、三种新模板刷新后仍记住、预览含 form/table/8 条术语、每页一个 h1 与 title/description/canonical、文件为 index.html + robots.txt + sitemap.xml（只含 `/`）、占位勾选来回切换、假 GitHub 预演 3 个文件并显示模板名、390px `#war-kit` scrollWidth 390。
+- 截图：`/tmp/sc-shots/p19-templates.png`（桌面 `#war-kit`，对比/评测页选中）

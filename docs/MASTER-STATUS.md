@@ -132,6 +132,7 @@
 
 ## Phase 19 · 路线图执行（develop → main）
 - T178 紧凑收尾 ✅：9 个超标页面全部 ≤2.5 桌面屏
+- T179 模板库 ✅：站一实操助手 `kit.template`（basic / tool / compare / glossary，缺省 basic）；预览、ZIP、发布按所选模板；非 basic 多一条占位自查（`kit.templateDone`）
 
 ## Phase 18 · 紧凑页面 + Google 连接 + 工作台 + 复盘 ✅（2026-10-17）
 - js/compact.js：tabs / collapse / more / paginate / reveal + MutationObserver 规则；全站平均桌面高度 4.19 → 2.10 屏，内容与路由/锚点全部保留

@@ -6,10 +6,32 @@
   function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
   var PRIV = '<p class="tool-privacy">' + I('lock') + '所有内容只保存在当前浏览器，不会上传；换设备请在「我的进度」导出存档。</p>';
 
+  /* ---------- 起步模板（存档只追加 kit.template / kit.templateDone） ---------- */
+  var TEMPLATES = [
+    { id: 'basic', name: '单页介绍', desc: '一页讲清是什么、怎么用、关于和隐私。', icon: 'file' },
+    { id: 'tool', name: '在线工具站', desc: '工具框、使用步骤和常见问题。', icon: 'wrench' },
+    { id: 'compare', name: '对比/评测页', desc: '对比表、优缺点和结论，以官网为准。', icon: 'list' },
+    { id: 'glossary', name: '术语表/词汇站', desc: 'A–Z 跳转和围绕主词的词条卡。', icon: 'book' },
+  ];
+  function templateId(kit) {
+    var id = kit && kit.template;
+    return id === 'basic' || id === 'tool' || id === 'compare' || id === 'glossary' ? id : 'basic';
+  }
+  function templateMeta(kit) {
+    var id = templateId(kit);
+    for (var i = 0; i < TEMPLATES.length; i++) if (TEMPLATES[i].id === id) return TEMPLATES[i];
+    return TEMPLATES[0];
+  }
+
   /* ---------- 存档默认值（旧存档缺字段时补齐） ---------- */
   function ensure(state) {
     var k = state.kit || {};
-    state.kit = { keyword: k.keyword || '', intro: k.intro || '', domain: k.domain || '', email: k.email || '', checks: k.checks || {} };
+    var checks = k.checks && typeof k.checks === 'object' ? k.checks : {};
+    var next = { keyword: k.keyword || '', intro: k.intro || '', domain: k.domain || '', email: k.email || '', checks: checks };
+    Object.keys(k).forEach(function (key) { if (!Object.prototype.hasOwnProperty.call(next, key)) next[key] = k[key]; });
+    next.template = templateId(k);
+    next.templateDone = !!k.templateDone;
+    state.kit = next;
     var w = state.keywords || {};
     state.keywords = { items: Array.isArray(w.items) ? w.items : [], s2Target: w.s2Target || '', sort: w.sort || 'score', filter: w.filter || 'all' };
     var s = state.sites || {};
@@ -34,12 +56,14 @@
   }
   function rules(g, kit) {
     var has = !!(kit.keyword || '').trim(), low = g.kw.toLowerCase();
-    return [
+    var list = [
       { ok: g.title.length <= 60 && g.title.toLowerCase().indexOf(low) >= 0 && has, t: 'title ≤60 字符且含主词（' + g.title.length + '/60）' },
       { ok: g.desc.length >= 120 && g.desc.length <= 160, t: 'description 120–160 字符（' + g.desc.length + '）' },
       { ok: has, t: '页面只有 1 个 h1，且就是主词' },
       { ok: !!cleanDomain(kit.domain), t: '已填写域名（用于 canonical / sitemap）' },
     ];
+    if (templateId(kit) !== 'basic') list.push({ ok: !!kit.templateDone, t: '模板占位内容已替换（tool/compare/glossary 里的 placeholder）' });
+    return list;
   }
   function pageHtml(g) {
     var y = new Date().getFullYear();
@@ -56,7 +80,141 @@
   }
   function robotsTxt(g) { return 'User-agent: *\nAllow: /\n\nSitemap: https://' + g.domain + '/sitemap.xml\n'; }
   function sitemapXml(g) { return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>https://' + g.domain + '/</loc><lastmod>' + new Date().toISOString().slice(0, 10) + '</lastmod></url>\n</urlset>\n'; }
-  function files(kit) { var g = gen(kit); return [{ name: 'index.html', text: pageHtml(g) }, { name: 'robots.txt', text: robotsTxt(g) }, { name: 'sitemap.xml', text: sitemapXml(g) }]; }
+  var BASE_STYLE = null;
+  function baseStyle() {
+    if (BASE_STYLE == null) {
+      var m = pageHtml({ kw: '', h1: '', intro: '', email: '', domain: 'x', title: 't', desc: 'd' }).match(/<style>([\s\S]*?)<\/style>/);
+      BASE_STYLE = m ? m[1] : '';
+    }
+    return BASE_STYLE;
+  }
+  var EXTRA_STYLE = 'h2{font-size:1.25rem;margin:0 0 8px}h3{font-size:1.05rem;margin:14px 0 6px}label{display:block;font-weight:700;margin:10px 0 4px}textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px}button{font:inherit;font-weight:700;background:transparent;color:var(--accent);border:2px solid var(--accent);border-radius:8px;padding:8px 14px;cursor:pointer}output{display:block;margin-top:12px;padding:12px;border:1px dashed var(--line);border-radius:8px;white-space:pre-wrap}table{width:100%;border-collapse:collapse;font-size:.92rem}th,td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}.tbl{overflow-x:auto}.note{border-left:3px solid var(--accent);padding:8px 12px;margin:16px 0}.az{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}.az a{display:inline-flex;min-width:2.2rem;min-height:2.2rem;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;text-decoration:none}ul,ol{margin:8px 0;padding-left:1.2rem}details{margin:8px 0;border-top:1px solid var(--line);padding-top:8px}summary{cursor:pointer;font-weight:700}@media (max-width:560px){header,main,footer{padding:20px 14px}table{font-size:.85rem}}';
+  function shell(g, nav, main, extraScript) {
+    var y = new Date().getFullYear();
+    return '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8" />\n<meta name="viewport" content="width=device-width, initial-scale=1" />\n' +
+      '<title>' + esc(g.title) + '</title>\n<meta name="description" content="' + esc(g.desc) + '" />\n' +
+      '<link rel="canonical" href="https://' + esc(g.domain) + '/" />\n<!-- Google Search Console: <meta name="google-site-verification" content="PASTE_CODE_HERE" /> -->\n' +
+      '<style>' + baseStyle() + EXTRA_STYLE + '</style>\n</head>\n<body>\n' +
+      '<header>\n<nav aria-label="Primary">' + nav + '</nav>\n<h1>' + esc(g.h1) + '</h1>\n<p class="tag">' + esc(g.intro) + '</p>\n</header>\n<main>\n' +
+      main +
+      '</main>\n<footer><p>&copy; ' + y + ' ' + esc(g.kw) + ' &middot; ' + esc(g.domain) + '</p></footer>\n' +
+      (extraScript || '') +
+      '<!-- Paste GA4 / Microsoft Clarity snippet here -->\n</body>\n</html>\n';
+  }
+  function aboutBlock(g) {
+    return '<section class="card" id="about"><h2>About</h2><p>' + esc(g.kw) + ' is a small independent site. Questions? Email <a href="mailto:' + esc(g.email) + '">' + esc(g.email) + '</a>.</p></section>\n';
+  }
+  function privacyBlock(g) {
+    return '<section class="card" id="privacy"><h2>Privacy</h2><p>This static page does not intentionally collect personal data. If analytics or ads are added later, this section will be updated. Contact: ' + esc(g.email) + '.</p></section>\n';
+  }
+  function toolScript() {
+    return '<script>\n' +
+      '(function(){\n' +
+      'var f=document.getElementById("tool-form");\n' +
+      'if(!f)return;\n' +
+      'f.addEventListener("submit",function(e){\n' +
+      'e.preventDefault();\n' +
+      'var text=document.getElementById("tool-text").value;\n' +
+      'var note=(document.getElementById("tool-note").value||"").trim();\n' +
+      'var words=text.trim()?text.trim().split(/\\s+/).length:0;\n' +
+      'var chars=Array.from(text).length;\n' +
+      'var msg=(note?note+": ":"")+words+" words, "+chars+" characters.\\nEcho: "+text;\n' +
+      'document.getElementById("tool-out").textContent=msg;\n' +
+      '});\n' +
+      '})();\n' +
+      '<' + '/script>\n';
+  }
+  function toolPage(g) {
+    var main = '<section class="card" id="tool"><h2>' + esc(g.kw) + ' tool</h2>' +
+      '<p><strong>Placeholder — replace with your tool.</strong> This sample counts words and characters in your browser. Swap this form and the script for the tool you actually ship.</p>' +
+      '<form id="tool-form" action="#tool-out">' +
+      '<label for="tool-text">Text</label><textarea id="tool-text" name="text" rows="5" placeholder="Paste text here"></textarea>' +
+      '<label for="tool-note">Label</label><input id="tool-note" name="note" type="text" placeholder="Optional label" />' +
+      '<button type="submit">Count words and characters</button>' +
+      '<output id="tool-out" name="result" for="tool-text">Waiting for input.</output>' +
+      '</form></section>\n' +
+      '<section class="card" id="how"><h2>How to use</h2><ol>' +
+      '<li>Replace the placeholder form with your own tool.</li>' +
+      '<li>Type or paste text, and add a label if you want one.</li>' +
+      '<li>Press the button and read the result in the output box.</li>' +
+      '</ol></section>\n' +
+      '<section class="card" id="faq"><h2>FAQ</h2>' +
+      '<details><summary>Is this the real tool?</summary><p>No. It is a placeholder — replace with your tool before you publish.</p></details>' +
+      '<details><summary>Does this page upload what I type?</summary><p>No. The sample script runs only in the browser and does not send the text anywhere.</p></details>' +
+      '</section>\n' +
+      aboutBlock(g) + privacyBlock(g);
+    return shell(g, '<a href="#tool">Tool</a><a href="#how">How to use</a><a href="#faq">FAQ</a><a href="#about">About</a><a href="#privacy">Privacy</a>', main, toolScript());
+  }
+  function comparePage(g) {
+    var opts = ['Option A — placeholder', 'Option B — placeholder', 'Option C — placeholder'];
+    var rows = [
+      ['Price', '\u2014', 'check official site', '\u2014'],
+      ['Best for', 'check official site', '\u2014', 'check official site'],
+      ['Main feature', '\u2014', 'check official site', '\u2014'],
+      ['Limits', 'check official site', '\u2014', '\u2014'],
+      ['Support', '\u2014', '\u2014', 'check official site'],
+    ];
+    var head = '<tr><th scope="col">Criteria</th>' + opts.map(function (n) { return '<th scope="col">' + esc(n) + '</th>'; }).join('') + '</tr>';
+    var body = rows.map(function (r) {
+      return '<tr><th scope="row">' + esc(r[0]) + '</th>' + r.slice(1).map(function (c) { return '<td>' + esc(c) + '</td>'; }).join('') + '</tr>';
+    }).join('');
+    var pros = opts.map(function (n) {
+      return '<h3>' + esc(n) + '</h3><p>Pros</p><ul><li>placeholder \u2014 replace with a real advantage you checked</li></ul><p>Cons</p><ul><li>placeholder \u2014 replace with a real drawback you checked</li></ul>';
+    }).join('');
+    var date = new Date().toISOString().slice(0, 10);
+    var main = '<section class="card" id="compare"><h2>Compare options</h2><p>A placeholder comparison for <strong>' + esc(g.kw) + '</strong>. Replace every cell before you publish. Nothing here is a real price or score.</p>' +
+      '<div class="tbl"><table><caption>Placeholder comparison for ' + esc(g.kw) + '</caption><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div></section>\n' +
+      '<section class="card" id="pros"><h2>Pros and cons</h2>' + pros + '</section>\n' +
+      '<section class="card" id="verdict"><h2>Our verdict</h2><p>Placeholder verdict for ' + esc(g.kw) + '. Replace this with your own conclusion after you read each official site. This page does not assign a rank or a score.</p></section>\n' +
+      '<p class="note" id="disclaimer">Prices and features change \u2014 check each official site (last checked ' + date + ').</p>\n' +
+      aboutBlock(g) + privacyBlock(g);
+    return shell(g, '<a href="#compare">Compare</a><a href="#pros">Pros and cons</a><a href="#verdict">Verdict</a><a href="#about">About</a><a href="#privacy">Privacy</a>', main, '');
+  }
+  function glossaryPage(g) {
+    var specs = [
+      ['A', 'About', 'What ' + g.kw + ' refers to on this site. Placeholder \u2014 replace with your definition.'],
+      ['B', 'Basics', 'The basic idea of ' + g.kw + '. Placeholder \u2014 replace with a plain-language note.'],
+      ['C', 'Checklist', 'A starter checklist for ' + g.kw + '. Placeholder \u2014 replace with real steps.'],
+      ['D', 'Definition', 'A one-line definition of ' + g.kw + '. Placeholder \u2014 replace with wording you stand behind.'],
+      ['E', 'Example', 'An example of ' + g.kw + ' in use. Placeholder \u2014 replace with an example you can verify.'],
+      ['F', 'Features', 'A feature people look up next to ' + g.kw + '. Placeholder \u2014 replace with a feature you checked.'],
+      ['G', 'Getting started', 'Where a newcomer starts with ' + g.kw + '. Placeholder \u2014 replace with your first step.'],
+      ['H', 'How it is used', 'A common way people use ' + g.kw + '. Placeholder \u2014 replace with a real use.'],
+    ];
+    var terms = specs.map(function (s) {
+      return { letter: s[0], title: s[1] + ': ' + g.kw, id: 'term-' + slugify(s[1]) + '-' + g.slug, body: s[2] };
+    });
+    var seen = {}, links = [];
+    terms.forEach(function (t) {
+      if (seen[t.letter]) return;
+      seen[t.letter] = 1;
+      links.push('<a href="#' + t.id + '">' + t.letter + '</a>');
+    });
+    var cards = terms.map(function (t) {
+      return '<article class="card" id="' + t.id + '"><h2>' + esc(t.title) + '</h2><p>' + esc(t.body) + '</p></article>\n';
+    }).join('');
+    var main = '<section class="card" id="glossary"><h2>Glossary</h2><p>Placeholder terms built around <strong>' + esc(g.kw) + '</strong>. Replace each card with a definition you wrote.</p>' +
+      '<nav class="az" aria-label="A\u2013Z">' + links.join('') + '</nav></section>\n' +
+      cards +
+      '<section class="card" id="how"><h2>How to use this glossary</h2><ol>' +
+      '<li>Jump with the A\u2013Z links. Only letters that have a card are listed.</li>' +
+      '<li>Open a card and replace the placeholder text.</li>' +
+      '<li>Keep one term per card so the letter links stay accurate.</li>' +
+      '</ol></section>\n' +
+      aboutBlock(g) + privacyBlock(g);
+    return shell(g, '<a href="#glossary">Glossary</a><a href="#how">How to use</a><a href="#about">About</a><a href="#privacy">Privacy</a>', main, '');
+  }
+  function pageFor(kit, g) {
+    var id = templateId(kit);
+    if (id === 'tool') return toolPage(g);
+    if (id === 'compare') return comparePage(g);
+    if (id === 'glossary') return glossaryPage(g);
+    return pageHtml(g);
+  }
+  function files(kit) {
+    var g = gen(kit);
+    return [{ name: 'index.html', text: pageFor(kit, g) }, { name: 'robots.txt', text: robotsTxt(g) }, { name: 'sitemap.xml', text: sitemapXml(g) }];
+  }
 
   /* 零依赖 ZIP（store 模式） */
   var CRC = (function () { var t = [], c, n, k; for (n = 0; n < 256; n++) { c = n; for (k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
@@ -92,40 +250,80 @@
     { id: 'trust', t: '信任页：About / Privacy / 联系邮箱', g: 'h-替换清单-starter' },
   ];
 
+  function tplPicker(cur) {
+    return '<fieldset class="kit-tpls"><legend>起步模板</legend><div class="kit-tpl-grid">' + TEMPLATES.map(function (t) {
+      var on = cur === t.id;
+      return '<label class="kit-tpl' + (on ? ' on' : '') + '"><span class="kit-tpl-top"><input type="radio" name="kit-template" id="kit-tpl-' + t.id + '" value="' + t.id + '"' + (on ? ' checked' : '') + ' />' + I(t.icon) + '<span class="kit-tpl-name">' + esc(t.name) + '</span></span><span class="kit-tpl-desc">' + esc(t.desc) + '</span></label>';
+    }).join('') + '</div></fieldset>';
+  }
   function renderKit(state, root, ctx) {
     ensure(state);
     var kit = state.kit;
-    var done = CHECKS.filter(function (c) { return kit.checks[c.id]; }).length;
     var s2 = state.keywords.s2Target;
+    var cur = templateId(kit);
     root.innerHTML = '<div class="tool-wrap">' +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('wrench') + '1 · 填你的站一信息</h2>' +
       '<details class="cx-details kit-hint"><summary>填写说明</summary><p class="hint">填一个英文主词就能生成整页；还没想好词？先去 <a href="#war-keywords">选词练习板</a> 记几个候选。</p></details>' +
       '<div class="form-grid">' +
       field('keyword', '主词 / 品牌名', 'pdf merge tool', kit.keyword) + field('domain', '域名', 'pdfmergetool.com', kit.domain) +
       field('intro', '一句话介绍（英文）', 'Merge PDF files online for free in seconds.', kit.intro, true) + field('email', '联系邮箱', 'hi@pdfmergetool.com', kit.email) +
-      '</div>' + (s2 ? '<p class="hint">站二目标词（来自选词板）：<b>' + esc(s2) + '</b></p>' : '') + '</section>' +
+      '</div>' + tplPicker(cur) + (s2 ? '<p class="hint">站二目标词（来自选词板）：<b>' + esc(s2) + '</b></p>' : '') + '</section>' +
       '<section class="block glass tool-card" data-tab="2 · 预览与规则"><h2 class="block-title">' + I('search') + '2 · 实时预览与规则</h2><div id="kit-preview" aria-live="polite"></div></section>' +
       '<section class="block glass tool-card" data-tab="3 · 下载 / 发布"><h2 class="block-title">' + I('download') + '3 · 下载我的站一页面</h2>' +
-      '<p class="hint">生成 index.html（已填好 title / description / h1 / 联系邮箱 / canonical）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。</p>' +
+      '<p class="hint">当前模板：<b id="kit-tpl-name">' + esc(templateMeta(kit).name) + '</b>。生成 index.html（已填好 title / description / h1 / 联系邮箱 / canonical）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。</p>' +
+      '<p class="kit-files" id="kit-dl-files"></p>' +
       '<div class="tool-actions"><button type="button" class="btn btn-primary btn-sm" id="kit-dl">' + I('download') + '下载我的站一页面（ZIP）</button>' + '<a class="btn btn-sm" id="kit-publish" href="#war-publish">' + I('rocket') + '直接发布到 GitHub</a>' +
       '<button type="button" class="btn btn-sm" data-dl="index.html">只下 index.html</button><button type="button" class="btn btn-sm" data-dl="robots.txt">robots.txt</button><button type="button" class="btn btn-sm" data-dl="sitemap.xml">sitemap.xml</button></div></section>' +
-      '<section class="block glass tool-card" data-tab="4 · 上线自查表"><h2 class="block-title">' + I('list') + '4 · 上线自查表 <small class="tool-count">' + done + '/' + CHECKS.length + '</small></h2>' +
+      '<section class="block glass tool-card" data-tab="4 · 上线自查表"><h2 class="block-title">' + I('list') + '4 · 上线自查表 <small class="tool-count" id="kit-count"></small></h2>' +
       '<p class="hint">标 ⇄ 的项与学习路线任务等价，勾上会同步勾对应任务。</p><ul class="kit-checks">' +
       CHECKS.map(function (c) {
         return '<li><label><input type="checkbox" data-kc="' + c.id + '"' + (kit.checks[c.id] ? ' checked' : '') + ' /><span>' + c.t + (c.q ? ' <em title="与任务同步">⇄</em>' : '') + '</span></label><a href="#guide-station-one-playbook" data-anchor="' + c.g + '" class="kit-guide">看手册</a></li>';
-      }).join('') + '</ul></section>' + PRIV + '</div>';
+      }).join('') +
+      '<li id="kit-tpl-row"' + (cur === 'basic' ? ' hidden' : '') + '><label><input type="checkbox" id="kit-tpl-done"' + (kit.templateDone ? ' checked' : '') + ' /><span>模板占位内容已替换（tool/compare/glossary 里的 placeholder）</span></label></li>' +
+      '</ul></section>' + PRIV + '</div>';
+    function syncChrome() {
+      var extra = templateId(kit) !== 'basic';
+      var row = root.querySelector('#kit-tpl-row');
+      if (row) row.hidden = !extra;
+      var nameEl = root.querySelector('#kit-tpl-name');
+      if (nameEl) nameEl.textContent = templateMeta(kit).name;
+      var doneN = CHECKS.filter(function (c) { return kit.checks[c.id]; }).length + (extra && kit.templateDone ? 1 : 0);
+      var cnt = root.querySelector('#kit-count');
+      if (cnt) cnt.textContent = doneN + '/' + (CHECKS.length + (extra ? 1 : 0));
+    }
     function preview() {
-      var g = gen(kit), r = rules(g, kit);
-      root.querySelector('#kit-preview').innerHTML = '<dl class="kit-prev">' +
+      var g = gen(kit), r = rules(g, kit), list = files(kit);
+      var box = root.querySelector('#kit-preview');
+      box.innerHTML = '<dl class="kit-prev">' +
         '<dt>&lt;title&gt; <small>' + g.title.length + '/60</small></dt><dd id="kit-title">' + esc(g.title) + '</dd>' +
         '<dt>meta description <small>' + g.desc.length + ' · 建议 120–160</small></dt><dd id="kit-desc">' + esc(g.desc) + '</dd>' +
         '<dt>h1</dt><dd id="kit-h1">' + esc(g.h1) + '</dd><dt>slug / 网址</dt><dd>https://' + esc(g.domain) + '/ <small>（内页可用 /' + esc(g.slug) + '/）</small></dd></dl>' +
-        '<ul class="kit-rules">' + r.map(function (x) { return '<li class="' + (x.ok ? 'ok' : 'warn') + '">' + (x.ok ? '✓ ' : '! ') + esc(x.t) + '</li>'; }).join('') + '</ul>';
+        '<iframe id="kit-frame" class="kit-frame" sandbox="allow-scripts allow-forms" title="生成页面预览"></iframe>' +
+        '<ul class="kit-rules">' + r.map(function (x) { return '<li class="' + (x.ok ? 'ok' : 'warn') + '">' + (x.ok ? '✓ ' : '! ') + esc(x.t) + '</li>'; }).join('') + '</ul>' +
+        '<p class="kit-files" id="kit-files">文件：' + list.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ') + '</p>';
+      box.querySelector('#kit-frame').srcdoc = list[0].text;
+      var dl = root.querySelector('#kit-dl-files');
+      if (dl) dl.innerHTML = '文件：' + list.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ');
+      syncChrome();
     }
     preview();
     root.querySelectorAll('[data-kit]').forEach(function (inp) {
       inp.addEventListener('input', function () { kit[inp.getAttribute('data-kit')] = inp.value; ctx.save(); preview(); });
     });
+    root.querySelectorAll('input[name="kit-template"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        if (!r.checked) return;
+        kit.template = r.value;
+        ctx.save();
+        root.querySelectorAll('.kit-tpl').forEach(function (lab) {
+          var inp = lab.querySelector('input');
+          lab.classList.toggle('on', !!(inp && inp.checked));
+        });
+        preview();
+      });
+    });
+    var tplDone = root.querySelector('#kit-tpl-done');
+    if (tplDone) tplDone.addEventListener('change', function () { kit.templateDone = tplDone.checked; ctx.save(); preview(); });
     root.querySelector('#kit-dl').addEventListener('click', function () { download('station-one-' + gen(kit).slug + '.zip', makeZip(files(kit))); global.QuestModal && QuestModal.showToast('已生成 ZIP，解压后部署即可'); });
     root.querySelectorAll('[data-dl]').forEach(function (b) {
       b.addEventListener('click', function () { var f = files(kit).filter(function (x) { return x.name === b.getAttribute('data-dl'); })[0]; download(f.name, new Blob([f.text], { type: 'text/plain' })); });
@@ -346,5 +544,5 @@
       '<label class="fld"><span>备注</span><input name="note" placeholder="例：收录 3 页" /></label><button type="submit" class="btn btn-sm btn-primary">记一笔</button></form></section>';
   }
 
-  global.QuestTools = { ensure: ensure, renderKit: renderKit, renderKeywords: renderKeywords, renderSites: renderSites, score: score, label: label, gen: gen, files: files, makeZip: makeZip, summary: summary, FORMULA: FORMULA };
+  global.QuestTools = { ensure: ensure, renderKit: renderKit, renderKeywords: renderKeywords, renderSites: renderSites, score: score, label: label, gen: gen, files: files, makeZip: makeZip, summary: summary, FORMULA: FORMULA, TEMPLATES: TEMPLATES };
 })(typeof window !== 'undefined' ? window : globalThis);
