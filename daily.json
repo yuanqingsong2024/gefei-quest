@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T11:47:46.148Z",
-  "latestId": 26,
+  "generatedAt": "2026-10-17T12:06:11.069Z",
+  "latestId": 27,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 27,
+      "date": "2026-10-17",
+      "tag": "改进",
+      "title": "首页赚钱榜：成本一栏更好懂",
+      "items": [
+        "今日赚钱榜的成本不再只显示分号前的「0」。开头是 0、0元或免费时显示「免费起步」，否则显示第一句，最多 12 个字",
+        "悬停仍能看到完整成本。屏幕宽度不超过 600px 时，名称下面多一行完整成本，最多两行"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-rank"
+    },
     {
       "id": 26,
       "date": "2026-10-17",
@@ -129,19 +140,6 @@
         "分发记录进入数据分析时间线；账号中心显示每个平台的免费路径"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-share"
-    },
-    {
-      "id": 17,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "实操工作台：账号中心、GitHub 一键发布、数据导入与分析",
-      "items": [
-        "账号中心：17 个平台按官方接口能力分 A 直接发布 / B 需后端 / C API 拉数据 / D 导入 CSV，并写明接入方法",
-        "GitHub 一键发布：用细粒度 Token 把实操助手生成的页面写进你的仓库并开启 Pages，先预览后写入，自动登记到站点台账",
-        "数据导入中心：GSC 效果导出、AdSense 报告、小红书/抖音/B站等后台 CSV，按月写入台账",
-        "数据分析：趋势图、机会词、AI 分析按钮；流水线 选词 → 实操助手 → 发布 → 台账 → 分析"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-accounts"
     }
   ],
   "rank": {

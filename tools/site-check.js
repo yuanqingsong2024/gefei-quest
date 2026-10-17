@@ -1391,7 +1391,22 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       const expect = src.slice(0, Math.min(10, src.length));
       const rows = [...document.querySelectorAll('#home-rank .home-rank-row')];
       const date = (document.querySelector('#home-rank-date') || {}).textContent || '';
-      const clause = (cost) => { const s = String(cost == null ? '' : cost).trim(); const first = (s.split(/[；;。]/)[0] || '').trim(); return first || s; };
+      const costLabel = (cost) => {
+        const s = String(cost == null ? '' : cost).trim();
+        const first = (s.split(/[；;，,]/)[0] || '').trim();
+        if (!first || first === '0' || first === '0元' || first === '免费' || /^0(?!\d)/.test(first)) return '免费起步';
+        return first.length > 12 ? first.slice(0, 12) + '…' : first;
+      };
+      const costs = rows.map((row, i) => {
+        const it = expect[i];
+        const costEl = row.querySelector('.home-rank-cost');
+        const cost = it ? String(it.cost == null ? '' : it.cost) : '';
+        return {
+          label: costEl ? costEl.textContent.trim() : '',
+          title: costEl ? (costEl.getAttribute('title') || '') : '',
+          cost,
+        };
+      });
       const bad = rows.find((row, i) => {
         const it = expect[i];
         if (!it) return true;
@@ -1400,12 +1415,17 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         const pill = row.querySelector('.pill');
         return row.getAttribute('data-name') !== it.name || row.getAttribute('href') !== '#war-rank' ||
           !pill || pill.textContent.trim() !== it.type ||
-          !costEl || costEl.textContent.trim() !== clause(it.cost) || costEl.getAttribute('title') !== String(it.cost) ||
+          !costEl || costEl.textContent.trim() !== costLabel(it.cost) || costEl.getAttribute('title') !== String(it.cost) ||
           !diff || diff.getAttribute('aria-label') !== ('难度 ' + it.difficulty + '/5');
       });
-      return { n: rows.length, expect: expect.length, names: rows.map((r) => r.getAttribute('data-name')), want: expect.map((i) => i.name), date, latest: QUEST_RANK.latest, bad: !!bad };
+      return { n: rows.length, expect: expect.length, names: rows.map((r) => r.getAttribute('data-name')), want: expect.map((i) => i.name), date, latest: QUEST_RANK.latest, bad: !!bad, costs };
     });
     T20b(top.n === top.expect && top.n === Math.min(10, top.expect) && top.names.join('\n') === top.want.join('\n') && top.date === top.latest && !top.bad, 'top10 n=' + top.n + ' date=' + top.date + (top.bad ? ' row mismatch' : ''));
+    const costRows = top.costs || [];
+    const zeroSemi = costRows.filter((c) => c.cost.indexOf('0；') === 0);
+    T20b(costRows.length > 0 && costRows.every((c) => c.label !== '0'), 'cost labels never 0 ' + costRows.map((c) => c.label).join('|'));
+    T20b(zeroSemi.length > 0 && zeroSemi.every((c) => c.label === '免费起步'), '0； label 免费起步 n=' + zeroSemi.length + ' ' + zeroSemi.map((c) => c.label).join('|'));
+    T20b(costRows.length > 0 && costRows.every((c) => c.title === c.cost), 'title holds full cost');
     await pg.evaluate(() => { if (window.QuestTour) QuestTour.close(); });
     const shape = await pg.evaluate(() => ({
       grid: !!document.querySelector('#panel-home .feat-grid'),
@@ -1524,6 +1544,30 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       };
     });
     T20b(mob.sw <= 390 && mob.rows >= 1 && mob.bar && mob.n === 6, '390px ' + JSON.stringify(mob));
+    const mobCost = await pg.evaluate(() => {
+      const sw = document.documentElement.scrollWidth;
+      const src = (QUEST_RANK.days[QUEST_RANK.latest] && QUEST_RANK.days[QUEST_RANK.latest].items) || [];
+      const rows = [...document.querySelectorAll('#home-rank .home-rank-row')];
+      const detail = rows.map((row, i) => {
+        const full = row.querySelector('.home-rank-cost-full');
+        const name = row.querySelector('.home-rank-name-text');
+        const cost = src[i] ? String(src[i].cost == null ? '' : src[i].cost) : '';
+        if (!full || !name) return { ok: false, why: 'missing' };
+        const fr = full.getBoundingClientRect();
+        const nr = name.getBoundingClientRect();
+        const cs = getComputedStyle(full);
+        const clamp = String(cs.webkitLineClamp || '');
+        const shown = fr.height >= 8 && fr.width >= 8 && cs.display !== 'none' && cs.visibility !== 'hidden';
+        const under = fr.top >= nr.bottom - 2;
+        return {
+          ok: shown && under && clamp === '2' && full.textContent === cost,
+          shown, under, clamp, display: cs.display, h: Math.round(fr.height),
+          gap: Math.round(fr.top - nr.bottom), textOk: full.textContent === cost,
+        };
+      });
+      return { sw, n: rows.length, ok: detail.length > 0 && detail.every((d) => d.ok), detail0: detail[0] || null };
+    });
+    T20b(mobCost.ok && mobCost.sw <= 390, '390px full cost under name sw=' + mobCost.sw + ' ' + JSON.stringify(mobCost.detail0));
     if (SHOTS) {
       await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
       await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });

@@ -237,3 +237,4 @@
 - 导览改成首页 5 步：顶栏「新手引导」、主按钮、怎么用、今日赚钱榜、页脚重播。打卡仍在 `#path-quests` 和 `#me-stats`。
 - 空存档 1280×800：`#home` 1.91 屏。390px `scrollWidth` 390，底部栏仍是 6 项。`tools/page-heights.js` → `/tmp/h.json`。
 - site-check：`TOTAL fails=0 consoleErrors=0`。P20b 覆盖两个 CTA、没有功能网格和今日任务、三步进新手引导标签、Top 10、新存档不显示继续条、有站点时显示「新手示例站 · 选词」、FAQ 折叠、桌面 1.91 屏、旧锚点、390 无横向滚动。P20c 覆盖列出的工具页提示条、关掉 `#work` 后刷新仍关闭、工作台 / 复盘 / 数据分析空状态按钮、导览 5 步走完。截图 `/tmp/sc-shots/p20-home.png`、`/tmp/sc-shots/p20-home-mobile.png`、`/tmp/sc-shots/p20-tour.png`、`/tmp/sc-shots/p20-start.png`。
+- 2026-10-17：首页赚钱榜成本列用 costLabel（`0；` / `0` / `0元` / `免费` 或「0」后非数字 →「免费起步」，否则第一分句最多 12 字）；title 为全文；≤600px 名称下显示完整成本（最多两行）。site-check `TOTAL fails=0 consoleErrors=0`；390px scrollWidth ≤390。

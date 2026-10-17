@@ -303,10 +303,11 @@
     );
   }
 
-  function costClause(cost) {
+  function costLabel(cost) {
     var s = String(cost == null ? '' : cost).trim();
-    var first = (s.split(/[；;。]/)[0] || '').trim();
-    return first || s;
+    var first = (s.split(/[；;，,]/)[0] || '').trim();
+    if (!first || first === '0' || first === '0元' || first === '免费' || /^0(?!\d)/.test(first)) return '免费起步';
+    return first.length > 12 ? first.slice(0, 12) + '…' : first;
   }
   function diffDots(n) {
     n = Math.max(0, Math.min(5, +n || 0));
@@ -426,10 +427,11 @@
     var rankBody = items.length
       ? '<ol class="home-rank-list" id="home-rank-list">' + items.map(function (it) {
         var cost = String(it.cost == null ? '' : it.cost);
-        var short = costClause(cost);
+        var short = costLabel(cost);
         return '<li><a class="home-rank-row" href="#war-rank" data-name="' + esc(it.name) + '" data-type="' + esc(it.type) + '" data-cost="' + esc(cost) + '" data-difficulty="' + esc(it.difficulty) + '">' +
           '<span class="home-rank-no">' + esc(it.rank) + '</span>' +
-          '<span class="home-rank-name" title="' + esc(it.name) + '">' + esc(it.name) + '</span>' +
+          '<span class="home-rank-name" title="' + esc(it.name) + '"><span class="home-rank-name-text">' + esc(it.name) + '</span>' +
+          '<span class="home-rank-cost-full" title="' + esc(cost) + '">' + esc(cost) + '</span></span>' +
           '<span class="home-rank-meta"><span class="pill">' + esc(it.type) + '</span>' +
           '<span class="home-rank-cost" title="' + esc(cost) + '">' + esc(short) + '</span>' +
           diffDots(it.difficulty) + '</span></a></li>';

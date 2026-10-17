@@ -2337,9 +2337,11 @@ html.is-offline .offline-pill {
 .home-rank-row:hover { background: rgba(251, 191, 36, .1); text-decoration: none; color: #fff; }
 .home-rank-no { width: 1.7rem; height: 1.7rem; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: .85rem; color: #111; background: #fbbf24; }
 .home-rank-list li:nth-child(n + 4) .home-rank-no { background: #334155; color: #f8fafc; }
-.home-rank-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 650; }
+.home-rank-name { min-width: 0; overflow: hidden; font-weight: 650; }
+.home-rank-name-text { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .home-rank-meta { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .home-rank-cost { max-width: 16rem; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #e2e8f0; font-size: .82rem; }
+.home-rank-cost-full { display: none; }
 .home-rank-empty { margin: 4px 0 8px; color: #f8fafc; }
 .home-rank-empty a { color: #7dd3fc; font-weight: 700; }
 .home-tracks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; min-width: 0; }
@@ -2397,6 +2399,22 @@ html.is-offline .offline-pill {
   .home-rank-name { grid-column: 2; grid-row: 1; }
   .home-rank-meta { grid-column: 2; grid-row: 2; flex-wrap: wrap; gap: 4px 8px; }
   .home-rank-cost { max-width: 100%; }
+}
+@media (max-width: 600px) {
+  .home-rank-cost-full {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    max-width: 100%;
+    margin-top: 1px;
+    color: var(--muted);
+    font-size: .72rem;
+    font-weight: 400;
+    line-height: 1.35;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 }
 @media (max-width: 640px) {
   .hero-home .hero-cta .btn { padding: 10px 12px; }
