@@ -2,7 +2,7 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T00:39:41.440Z",
+  "generatedAt": "2026-10-17T00:42:06.115Z",
   "latestId": 16,
   "latestDate": "2026-10-17",
   "links": {
@@ -24,6 +24,19 @@
         "No.3 中国移动10月话费流量活动（今天周六游戏中心可抽话费券）"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
+    {
+      "id": 15,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "平台变现：国内 + 海外 50 个平台",
+      "items": [
+        "资源库新增「平台变现」：国内 10 类（含微博、短剧）+ 海外 3 类（YouTube、TikTok、X、Medium、Substack、Patreon 等）",
+        "每个平台：变现方式、门槛、分成规则、实操步骤、适合谁、违规红线、来源链接",
+        "所有数字标注来源与日期，查不到写「官方未公开/以后台为准」；链接自动核实状态",
+        "每类有对比表，总览页有「新手怎么选」；不承诺收益，只列合法渠道"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#pm"
     },
     {
       "id": 14,
@@ -123,40 +136,30 @@
         "站点图标、背景图与高对比配色"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 6,
-      "date": "2026-10-16",
-      "tag": "内容",
-      "title": "资源库：羊毛 / 渠道 / 闲鱼非实物",
-      "items": [
-        "免费工具、托管域名、变现渠道、可试路径、闲鱼非实物、同路人方法六类可筛选"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#lib"
     }
   ],
   "rank": {
-    "date": "2026-10-16",
+    "date": "2026-10-17",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "京东/淘宝双11官方口令每日领红包与国补",
+        "name": "双11京东/淘宝官方口令领券，10月20日20:00开卖前先备好",
         "type": "羊毛",
-        "source_url": "https://feng.ifeng.com/c/8xEwUVo4A26"
+        "source_url": "https://finance.sina.com.cn/roll/2026-10-08/doc-iniuphnz4345209.shtml"
       },
       {
         "rank": 2,
-        "name": "立减金卡包分诊+固定支出出口（支付宝还款立减等）",
+        "name": "银行App话费与云闪付支付立减（10月17日合集）",
         "type": "羊毛",
-        "source_url": "https://post.smzdm.com/p/al38ee5p/"
+        "source_url": "https://v.jiujiuxb.com/item/873421.html"
       },
       {
         "rank": 3,
-        "name": "工行2610期“到店取号有礼”线上取号抽立减金/i豆",
+        "name": "中国移动10月话费流量活动（今天周六游戏中心可抽话费券）",
         "type": "羊毛",
-        "source_url": "https://diqile.com/post/221.html"
+        "source_url": "https://www.91hym.cn/life/804.html"
       }
     ]
   }

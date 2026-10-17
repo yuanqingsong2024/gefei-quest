@@ -369,7 +369,7 @@
       '<section class="lp-sec" id="home-res"><div class="sec-head"><span class="sec-kicker">RESOURCES</span><h2>资源库分类</h2><p>官方免费档与公开渠道摘要，额度以官网为准。</p></div>' +
       '<div class="strip">' + N.LIB_CATS.map(function (c) {
         return '<a class="strip-item" href="#lib-' + c.id + '"><span class="card-ico">' + I(c.icon) + '</span>' + c.label + '</a>';
-      }).join('') + '</div></section>' +
+      }).join('') + '<a class="strip-item" href="#pm" id="home-pm"><span class="card-ico">' + I('coin') + '</span>平台变现（国内+海外）</a></div></section>' +
       '<section class="lp-sec" id="home-guides"><div class="sec-head"><span class="sec-kicker">GUIDES</span><h2>手册与模板</h2></div>' +
       '<div class="guide-grid">' + N.GUIDES.filter(function (g) { return g.group !== 'note'; }).map(function (g) {
         return '<a class="guide" href="' + (g.href || '#guide-' + g.id) + '"' + (g.href ? ' target="_blank" rel="noopener noreferrer"' : '') + '><span class="card-ico">' + I(g.icon) + '</span>' + esc(g.title) + '</a>';

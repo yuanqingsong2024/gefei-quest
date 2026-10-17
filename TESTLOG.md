@@ -115,3 +115,9 @@
 
 ## Phase 14 · AI 服务商列表（2026-10-17）
 - site-check 0 失败 · consoleErrors 0；AI 用例 34/34：旧配置迁移、模板新建、401/404/CORS/成功、/models 获取、自定义头断言、Anthropic（x-api-key、/v1/messages、SSE）、Ollama（/api/tags、/api/chat NDJSON、无 Key）、复制/编辑/删除/单独测试、导出无 Key、导入 Key 为空、工具页切换器、三个按钮流式、忘记全部 Key、390px（列表+编辑器、选词、赚钱榜）✅
+
+## Phase 15 · 平台变现（2026-10-17）
+- site-check：routes=32 guides=9 dev=20 broken=0 consoleErrors=0；P9–P13、P15 全部 0 fails（P15 共 25 项：13 个分类页对比表=卡片数、字段完整、每条规则有来源或「官方未公开/以后台为准」、海外有大陆可用性+收款方式、#cn-short-drama 别名、资源库横幅、页脚、搜索「红果」、390px 无横向溢出）
+- file:// 打开 #pm-cn-drama 正常（6 张卡片，链接状态徽章来自 js/platform-links.js）
+- 来源链接核实 tools/check-platform-links.js：61 个唯一来源，55 个 200；6 个被拦截/异常：bilibili opus 404（反爬，浏览器可开）、vcg.com 403、creators.facebook.com 400、help.medium.com 403、support.substack.com 403、support.patreon.com 403（均为机器访问拦截，页面已标注）
+- 截图：gefei-quest-shots/p15-cn-index.png、p15-cn-short-drama.png

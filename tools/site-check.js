@@ -2,7 +2,7 @@
 const { chromium } = require(process.env.PW || 'playwright-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev'];
+const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video'];
 const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
@@ -315,6 +315,26 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   for (const h of ['war-keywords', 'war-rank']) { await m13.goto(BASE + 'index.html#' + h); await m13.waitForTimeout(300); const w = await m13.evaluate(() => document.documentElement.scrollWidth); T13(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
   fake.close();
   console.log('P13 functional fails=' + f13); fail += f13;
+  // ---- P15 平台变现 ----
+  let f15 = 0; const T15 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P15 ' + m); if (!c) f15++; };
+  await visit('pm');
+  const pm = await p.evaluate(() => ({ cats: document.querySelectorAll('.pm-cat').length, guide: !!document.querySelector('.pm-guide table'), note: /官方未公开\/以后台为准/.test(document.querySelector('.pm-note').textContent), groups: document.querySelectorAll('.pm-group').length }));
+  T15(pm.cats === 13 && pm.groups === 2, 'index: 2 groups / 13 categories (' + pm.cats + ')');
+  T15(pm.guide && pm.note, 'index: 新手怎么选 + 来源须知');
+  const D15 = await p.evaluate(() => window.QUEST_PLATFORMS);
+  T15(D15.PLATFORMS.every(x => x.ways && x.gate && x.steps.length && x.fit && x.risk && x.src.length && x.up && x.rules.length), 'every platform has all fields (' + D15.PLATFORMS.length + ')');
+  T15(D15.PLATFORMS.every(x => x.rules.every(r => r[1] || /官方未公开\/以后台为准/.test(r[0]))), 'every rule has a source or NA marker');
+  T15(D15.PLATFORMS.filter(x => x.cat.indexOf('gl-') === 0).every(x => x.access && x.payout), 'overseas platforms have 大陆可用性 + 收款方式');
+  T15(['微博', '红果', 'YouTube', 'TikTok', 'X（', 'Medium', 'Substack', 'Patreon', 'Twitch', 'Pinterest', 'Instagram'].every(n => D15.PLATFORMS.some(x => x.name.indexOf(n) >= 0)), 'required platforms present');
+  for (const c of D15.CATS) { await visit('pm-' + c.id); const r = await p.evaluate(() => ({ t: document.querySelectorAll('.pm-compare tbody tr').length, c: document.querySelectorAll('.pm-card').length })); T15(r.t > 0 && r.t === r.c, 'category ' + c.id + ' table rows=cards=' + r.c); }
+  await visit('cn-short-drama'); T15(await p.evaluate(() => document.querySelectorAll('.pm-card').length === 6 && location.hash.indexOf('drama') > 0), 'alias #cn-short-drama → 短剧');
+  T15(await p.evaluate(() => document.querySelectorAll('.pm-link').length > 0 && !!window.QUEST_PLATFORM_LINKS.total), 'link status badges');
+  await visit('lib'); T15(await p.evaluate(() => !!document.querySelector('#pm-banner')), 'lib banner');
+  T15(await p.evaluate(() => !!document.querySelector('.site-footer a[href="#pm"]')), 'footer link');
+  await p.keyboard.press('Control+k'); await p.keyboard.type('红果'); await p.waitForTimeout(150);
+  T15(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => /^#pm-cn-drama/.test(a.getAttribute('href')))), 'search finds 红果'); await p.keyboard.press('Escape');
+  for (const h of ['pm', 'pm-cn-drama', 'pm-gl-video']) { await m13.goto(BASE + 'index.html#' + h); await m13.waitForTimeout(300); const w = await m13.evaluate(() => document.documentElement.scrollWidth); T15(w <= 390, 'mobile ' + h + ' scrollWidth ' + w); }
+  console.log('P15 functional fails=' + f15); fail += f15;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

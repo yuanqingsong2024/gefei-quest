@@ -112,3 +112,9 @@
 
 ## Phase 14 · AI 服务商列表（T143–T148 ✅）
 - gefei-quest-ai-v1 v2：providers[] + activeId（旧单配置自动迁移，旧字段保留）；格式 openai / anthropic / ollama；自定义请求头；获取模型；导入导出不含 Key；工具页切换器。
+
+## Phase 15 · 平台变现 ✅（2026-10-17）
+- 资源库新栏目 `#pm`（国内/海外两组，13 分类，50 个平台），分类页 `#pm-<分类>`，别名 `#cn`、`#cn-short-drama`、`#cn-*`/`#gl-*`
+- 数据 js/platform-data.js；链接核实 tools/check-platform-links.js → data/platform-links.json + js/platform-links.js
+- 61 个来源，30 条带出处与日期的规则；其余写「官方未公开/以后台为准」
+- 任务 T149–T154 完成；site-check 0 fails

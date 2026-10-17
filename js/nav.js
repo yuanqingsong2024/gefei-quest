@@ -75,6 +75,8 @@
   ];
   var DEV_DOCS = [
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
+    { id: 'PHASE15-PLATFORMS', title: 'Phase 15 · 平台变现（国内 + 海外）' },
+    { id: 'PHASE14-AI-PROVIDERS', title: 'Phase 14 · AI 服务商列表' },
     { id: 'PHASE13-AI', title: 'Phase 13 · AI 设置与助手' },
     { id: 'PHASE12-RANK', title: 'Phase 12 · 每日赚钱榜' },
     { id: 'PHASE11-POLISH', title: 'Phase 11 · 网站质感打磨' },
@@ -99,7 +101,7 @@
     '': 'home', map: 'path', quest: 'path-quests', quests: 'path-quests', ship: 'weekly',
     ach: 'me', settings: 'me', resources: 'lib', 'war-s1': 'war', guide: 'guides', docs: 'guides',
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
-    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog',
+    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -126,6 +128,8 @@
     if (h === 'me-stats') return { section: 'me', view: 'stats', hash: h };
     if (h === 'changelog') return { section: 'me', view: 'changelog', hash: h };
     if (st[h]) return { section: 'war', view: 'war', param: st[h], hash: h };
+    if (h === 'pm' || h.indexOf('pm-') === 0) return { section: 'lib', view: 'pm', param: h === 'pm' ? '' : h.slice(3), hash: h };
+    if (/^(cn|gl)-[a-z]/.test(h)) return { section: 'lib', view: 'pm', param: h, hash: 'pm-' + h };
     if (h === 'lib') return { section: 'lib', view: 'lib', param: 'all', hash: h };
     if (h.indexOf('lib-') === 0) return { section: 'lib', view: 'lib', param: h.slice(4), hash: h };
     if (h === 'guides') return { section: 'guides', view: 'guides', hash: h };
@@ -201,7 +205,7 @@
       '<div class="foot-cols">' +
       '<div><h4>站点地图</h4>' + SITE_NAV.map(function (n) { return '<a href="' + n.hash + '">' + n.label + '</a>'; }).join('') + '</div>' +
       '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a><a href="#war-rank">每日赚钱榜</a></div>' +
-      '<div><h4>资源库</h4>' + LIB_CATS.map(function (c) { return '<a href="#lib-' + c.id + '">' + c.label + '</a>'; }).join('') + '</div>' +
+      '<div><h4>资源库</h4>' + LIB_CATS.map(function (c) { return '<a href="#lib-' + c.id + '">' + c.label + '</a>'; }).join('') + '<a href="#pm">平台变现</a><a href="#pm-cn">平台变现 · 国内</a><a href="#pm-global">平台变现 · 海外</a></div>' +
       '<div><h4>我的</h4>' + ME_TABS.map(function (t) { return '<a href="' + t.hash + '">' + t.label + '</a>'; }).join('') + '<a href="#guides">手册与模板</a><a href="#dev">' + DEV_SECTION.label + '</a><a href="https://github.com/yuanqingsong2024/gefei-quest" target="_blank" rel="noopener">GitHub 仓库</a></div>' +
       '<div class="foot-news"><h4>最近更新</h4>' + log.map(function (e) { return '<a href="#changelog"><small>' + esc(e.date) + '</small>' + esc(e.title) + '</a>'; }).join('') + '</div>' +
       '</div><p class="foot-note">© 2026 ' + SITE_NAME + ' · 额度与规则以各平台官网为准 · 按 <kbd>/</kbd> 搜索全站</p></div>';

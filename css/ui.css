@@ -1893,3 +1893,44 @@ body.search-open { overflow: hidden; }
 @media (max-width: 640px) { .ai-switch-inline { margin: 10px 0 0; } .ai-switch select { width: 100%; } }
 .ai-via { color: #a5b4fc; }
 .prov-main .pill { align-self: flex-start; margin: 2px 0; }
+
+/* ===== Phase 15 · 平台变现 ===== */
+.pm-page{display:flex;flex-direction:column;gap:16px;min-width:0}
+.pm-page svg{width:20px;height:20px;flex:none;vertical-align:-4px}
+.pm-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.pm-tabs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--panel)}
+.pm-tabs a.on{background:var(--gold);color:#111;border-color:var(--gold);font-weight:700}
+.pm-hero h2{margin:0 0 6px;display:flex;align-items:center;gap:8px;color:var(--gold-text)}
+.pm-hero p{margin:0;color:var(--ink)}
+.pm-note{display:flex;gap:10px;padding:12px 14px;border:1px solid var(--gold);border-radius:var(--radius);background:#2a2410;color:var(--ink);line-height:1.6}
+.pm-group h3,.pm-guide h3,.pm-h{display:flex;align-items:center;gap:8px;margin:8px 0;color:var(--cyan)}
+.pm-h a{color:inherit;text-decoration:none;display:flex;gap:8px;align-items:center}
+.pm-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.pm-cat{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);color:var(--ink);text-decoration:none}
+.pm-cat:hover,.pm-cat:focus-visible{border-color:var(--gold)}
+.pm-cat b{display:block;font-size:1.05rem}.pm-cat small{display:block;color:var(--muted);margin:4px 0}.pm-cat em{font-style:normal;font-size:.85rem;color:var(--cyan)}
+.pm-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+.pm-table{width:100%;border-collapse:collapse;font-size:.9rem;color:var(--ink)}
+.pm-table th,.pm-table td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.pm-table th{background:var(--panel2);color:var(--gold-text);white-space:nowrap}
+.pm-compare{min-width:760px}
+.pm-table a{color:var(--cyan)}
+.pm-src{color:var(--muted);font-size:.8rem}
+.pm-na{color:#fdba74;font-weight:600}
+.pm-lv{color:var(--gold);letter-spacing:1px;white-space:nowrap}.pm-lv i{color:#475569;font-style:normal}
+.pm-card{padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);scroll-margin-top:90px}
+.pm-card header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px}
+.pm-card h3{margin:0;color:var(--gold-text)}
+.pm-up{margin-left:auto;font-size:.8rem;color:var(--muted)}
+.pm-card dl{margin:0;display:grid;grid-template-columns:120px 1fr;gap:6px 12px}
+.pm-card dt{color:var(--cyan);font-weight:700}
+.pm-card dd{margin:0;color:var(--ink);line-height:1.6;min-width:0;overflow-wrap:anywhere}
+.pm-card ul,.pm-card ol{margin:0;padding-left:1.2em}
+.pm-risk{color:#fecaca!important}
+.pm-link{display:inline-block;font-size:.75rem;padding:1px 6px;border-radius:6px;margin-left:4px}
+.pm-link.ok{background:#14532d;color:#bbf7d0}.pm-link.warn{background:#7c2d12;color:#fed7aa}.pm-link.unk{background:#334155;color:#e2e8f0}
+.pm-more{display:flex;gap:8px;flex-wrap:wrap}
+.pm-more .chip{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none}
+.pm-banner{display:flex;align-items:center;gap:12px;padding:12px 16px;margin-bottom:14px;border:2px solid var(--gold);border-radius:var(--radius);background:#2a2410;color:var(--ink);text-decoration:none}
+.pm-banner svg{width:24px;height:24px;flex:none}.pm-banner span{flex:1}.pm-banner b{display:block;color:var(--gold-text)}.pm-banner small{color:var(--ink)}
+@media (max-width:640px){.pm-card dl{grid-template-columns:1fr}.pm-card dt{margin-top:6px}.pm-cats{grid-template-columns:1fr}}
