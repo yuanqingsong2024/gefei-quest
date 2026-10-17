@@ -1039,3 +1039,13 @@
 | Phase 14 | T143–T148 | 6 |
 
 - 2026-10-17：Phase 14 · AI 服务商列表（OpenAI / Anthropic / Ollama、导入导出、切换器）。
+
+## Phase 15 · 平台变现（见 docs/PHASE15-PLATFORMS.md）
+- [x] T149 方案定稿 + 任务表（范围：国内 + 海外）
+- [ ] T150 资料核实：官方规则/权威报道，数字标来源与日期
+- [ ] T151 数据 js/platform-data.js（国内 10 类 + 海外 3 类）
+- [ ] T152 #pm 总览 + 分类页（对比表、平台卡、新手怎么选）
+- [ ] T153 入口：资源库横幅、首页卡片、页脚、搜索、更新日志 + daily.json
+- [ ] T154 来源链接核实脚本 + site-check、390px、截图、push
+
+| Phase 15 | T149–T154 | 6 |
