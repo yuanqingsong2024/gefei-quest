@@ -44,6 +44,8 @@
       achievementDates: obj.achievementDates || {},
       notes: obj.notes || {},
       onboarding: QuestSave.mergeOnboarding(obj.onboarding),
+      hints: QuestSave.mergeHints(obj.hints),
+      lastRoute: typeof obj.lastRoute === 'string' ? obj.lastRoute : '',
     };
     state = QuestTools.ensure(state);
     state = QuestProgress.recomputeUnlocks(state);
@@ -370,7 +372,24 @@
     afterRoute();
   }
 
+  function rememberRoute() {
+    var h = route && route.hash;
+    if (!h || h === 'home' || h.indexOf('home-') === 0) return;
+    if (state.lastRoute === h) return;
+    state.lastRoute = h;
+    try {
+      var raw = localStorage.getItem(QuestSave.SAVE_KEY);
+      if (!raw) return;
+      var obj = JSON.parse(raw);
+      if (!obj || obj.version !== 1 || obj.lastRoute === h) return;
+      obj.lastRoute = h;
+      localStorage.setItem(QuestSave.SAVE_KEY, JSON.stringify(obj));
+    } catch (_) {}
+  }
+
   function afterRoute() {
+    rememberRoute();
+    if (window.QuestHints) QuestHints.mount(route);
     if (window.QuestTour) QuestTour.afterRender(route);
   }
 

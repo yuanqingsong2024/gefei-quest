@@ -25,13 +25,13 @@
   function planHtml(state) {
     ensure(state);
     var P = state.rankPlan;
-    return '<section class="block glass tool-card rank-plan cx-fold" id="rank-plan"><h2 class="block-title">' + I('list') + '我的实操计划 <small>' + P.filter(function (p) { return p.done; }).length + '/' + P.length + ' 已完成</small></h2>' +
+    return '<section class="block glass tool-card rank-plan cx-fold' + (P.length ? '' : ' cx-fold-open') + '" id="rank-plan"><h2 class="block-title">' + I('list') + '我的实操计划 <small>' + P.filter(function (p) { return p.done; }).length + '/' + P.length + ' 已完成</small></h2>' +
       (P.length ? '<ul class="plan-list">' + P.map(function (p, i) {
         return '<li class="plan-item' + (p.done ? ' done' : '') + '" data-plan="' + esc(p.name) + '"><label><input type="checkbox" data-plan-done="' + i + '"' + (p.done ? ' checked' : '') + ' /> <b>' + esc(p.name) + '</b></label>' +
           '<small>' + esc(p.type) + ' · 加入于 ' + esc(p.date) + (p.steps && p.steps[0] ? ' · 第一步：' + esc(p.steps[0]) : '') + '</small>' +
           '<span class="plan-acts">' + (p.source_url ? '<a class="btn btn-sm" href="' + esc(p.source_url) + '" target="_blank" rel="noopener noreferrer">官网 ↗</a>' : '') + '<button type="button" class="btn btn-sm btn-ghost" data-plan-del="' + i + '" aria-label="移出计划">移出</button></span></li>';
-      }).join('') + '</ul>' : '<p class="empty-hint">还没有计划。在「每日赚钱榜」里点「加入实操计划」，挑 1 个先试一周。</p>') +
-      '<p class="hint"><a href="#war-rank">' + I('trophy') + '去每日赚钱榜挑一个</a></p></section>';
+      }).join('') + '</ul>' : '<div class="tool-empty"><p>还没有计划。下一步：到每日赚钱榜挑 1 条，点「加入实操计划」，先试一周。</p><a class="btn btn-primary btn-sm" href="#war-rank">去每日赚钱榜</a></div>') +
+      '</section>';
   }
   function bindPlan(state, root, ctx) {
     root.querySelectorAll('[data-plan-done]').forEach(function (c) { c.addEventListener('change', function () { state.rankPlan[+c.getAttribute('data-plan-done')].done = c.checked; ctx.save(); ctx.rerender(); }); });

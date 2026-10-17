@@ -2307,7 +2307,7 @@ html.is-offline .offline-pill {
 }
 
 /* Phase 20 · 首页产品页 */
-#home-today, #home-faq, #home-progress, #home-sections, #home-tools, #home-steps, #home-res, #home-guides, #home-rank-card { scroll-margin-top: 72px; }
+#home-howto, #home-rank, #home-why, #home-faq, #home-continue { scroll-margin-top: 72px; }
 .hero.hero-home { min-height: 0; align-items: center; }
 .hero-home .hero-inner {
   display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .9fr);
@@ -2404,4 +2404,73 @@ html.is-offline .offline-pill {
   .home-stats { gap: 6px; }
   .home-stat { padding: 6px 4px; }
   .home-stat b { font-size: 1.05rem; }
+}
+
+/* T183b · 白话首页 + 每页一行提示 */
+.tab-panel { min-width: 0; }
+.hero-home .hero-inner { display: block; max-width: 1160px; padding: 8px 24px 2px; }
+.hero-home .hero-kicker { margin: 0 0 4px; color: #fde68a; }
+.hero-home .hero-title { font-size: clamp(1.2rem, 2vw, 1.55rem); line-height: 1.28; max-width: 22em; margin: 0 0 6px; color: #fff; }
+.hero-home .hero-sub { margin: 0 0 8px; max-width: 40em; color: #f8fafc; font-size: .95rem; }
+.hero-home .hero-cta { display: flex; flex-wrap: wrap; gap: 8px; }
+.home-wrap .lp-sec { padding-top: 10px; padding-bottom: 2px; }
+.home-wrap .sec-head { margin-bottom: 6px; }
+.home-wrap .sec-head h2 { display: flex; align-items: center; gap: 6px; color: #fff; }
+.home-wrap .sec-head h2 .ico { width: 18px; height: 18px; color: #fbbf24; }
+.home-continue {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin: 8px 0 2px; padding: 6px 10px; min-width: 0;
+  background: #0b1c33; color: #f8fafc; border: 1px solid #fde68a; border-radius: 10px;
+}
+.home-continue p { margin: 0; flex: 1 1 220px; min-width: 0; color: #f8fafc; }
+.home-continue b { color: #fde68a; }
+.home-howto { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.home-howto a {
+  display: block; min-width: 0; padding: 8px 10px; border-radius: 12px; text-decoration: none;
+  background: #0b1c33; color: #f8fafc; border: 1px solid rgba(251, 191, 36, .55);
+}
+.home-howto a:hover { color: #fff; text-decoration: none; }
+.home-howto b { display: block; color: #fde68a; margin-bottom: 2px; }
+.home-howto span { display: block; color: #f8fafc; font-size: .9rem; line-height: 1.4; }
+.home-why { color: #f8fafc; }
+.home-why p { margin: 0 0 6px; color: #f8fafc; line-height: 1.45; }
+.home-why ul { margin: 0; padding-left: 1.2em; color: #fde68a; }
+.home-why li { margin: 0; }
+#home-faq .faq summary { color: #f8fafc; }
+#home-faq .faq p { color: #f8fafc; }
+.home-rank { margin-top: 8px; }
+.page-hint {
+  display: flex; align-items: center; gap: 8px 10px; box-sizing: border-box;
+  margin: 0 0 8px; padding: 5px 10px; min-width: 0; max-width: 100%;
+  background: #0b1c33; color: #f8fafc; border: 1px solid #7dd3fc; border-radius: 10px;
+  font-size: 13.5px; line-height: 1.35;
+}
+.page-hint p { margin: 0; flex: 1 1 auto; min-width: 0; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.page-hint b { color: #fff; }
+.page-hint a, .page-hint-go { color: #7dd3fc; font-weight: 800; }
+.page-hint-go { background: none; border: 0; padding: 0; font: inherit; font-weight: 800; text-decoration: underline; cursor: pointer; }
+.page-hint-step { color: #fde68a; font-weight: 700; }
+.page-hint-x {
+  flex: none; width: 28px; height: 28px; margin-left: auto; border-radius: 8px;
+  border: 1px solid #f8fafc; background: transparent; color: #f8fafc;
+  font: inherit; font-weight: 800; line-height: 1; cursor: pointer;
+}
+.page-hint a:focus-visible, .page-hint-go:focus-visible, .page-hint-x:focus-visible { outline: 3px solid #fde68a; outline-offset: 2px; }
+.tool-empty .btn { flex: none; }
+.rank-plan.cx-open .tool-empty, .rank-plan.cx-fold-open .tool-empty { padding: 8px 10px; }
+@media (min-width: 961px) {
+  .hero-home .hero-inner { padding: 6px 24px 0; }
+  .home-wrap .lp-sec { padding-top: 6px; padding-bottom: 0; }
+  .home-rank { padding-top: 8px; padding-bottom: 6px; }
+  #home-faq .faq details { margin-bottom: 2px; }
+  .page-hint { flex-wrap: nowrap; }
+}
+@media (max-width: 900px) {
+  .home-howto { grid-template-columns: 1fr; }
+  .hero-home .hero-inner { padding: 12px 16px 4px; }
+}
+@media (max-width: 520px) {
+  .page-hint { align-items: flex-start; flex-wrap: wrap; }
+  .page-hint p { white-space: normal; overflow: visible; text-overflow: clip; flex-basis: 100%; }
+  .page-hint-x { margin-left: 0; }
 }

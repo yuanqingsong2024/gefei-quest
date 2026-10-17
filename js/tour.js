@@ -3,12 +3,11 @@
  *  QuestTour.start() 可从 #start 与页脚重播。 */
 (function (global) {
   var STEPS = [
-    { sel: '[data-tour="nav"]', title: '顶栏导航', body: '从这里进各个栏目。新手引导、学习路线、实战作战室、资源库都在顶栏；手机上同样的入口在底部栏。' },
-    { sel: '[data-tour="cta"]', title: '首页主按钮', body: '「开始新手引导」打开学习、实施、赚钱三条路线。旁边的「进入工作台」直接去做事。' },
-    { sel: '[data-tour="rank"]', title: '赚钱榜 Top 10', body: '今日赚钱榜列出类型、成本和难度。点一条进入完整榜单。不保证收入。' },
-    { sel: '[data-tour="tracks"]', title: '三条路线', body: '学习、实施、赚钱。点一张卡片，进入新手引导里对应的那一条。' },
-    { sel: '[data-tour="work"]', title: '工作台', body: '「进入工作台」按每个站点显示下一步：选词、实操助手、发布、分发、数据、复盘。' },
-    { sel: '[data-tour="me"]', title: '我的进度与备份', body: '等级、XP 和连击只记在这台浏览器。到「我的进度」可以导出 JSON 备份，换浏览器再导入。' },
+    { sel: '[data-tour="nav"]', title: '顶栏「新手引导」', body: '从这里进入三条路线。手机上同样的入口在底部栏。' },
+    { sel: '[data-tour="cta"]', title: '我是新手，从这里开始', body: '点这个按钮，按学习、做站、赚钱一步步走。' },
+    { sel: '[data-tour="howto"]', title: '这个网站怎么用', body: '三步就够：① 学 ② 做 ③ 赚。每一步都进新手引导里对应的那一条。' },
+    { sel: '[data-tour="rank"]', title: '今日赚钱榜', body: '这里是今天的前 10 条：类型、成本和难度。点一条看完整榜单。不保证收入。' },
+    { sel: '#foot-tour', title: '每页提示，可以再看一遍', body: '工具页顶部有一行说明，告诉你这个页面是干什么的，可以点 × 关掉。想再看导览，点页脚「新手导览」。' },
   ];
   var DAY_KEYS = ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7'];
   var active = [];

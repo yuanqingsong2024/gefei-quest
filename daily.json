@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T10:43:06.116Z",
-  "latestId": 25,
+  "generatedAt": "2026-10-17T11:47:46.148Z",
+  "latestId": 26,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 26,
+      "date": "2026-10-17",
+      "tag": "改进",
+      "title": "首页更好懂：先说清楚网站是干什么的 + 每页提示",
+      "items": [
+        "首页改成白话说明：这个站是跟着哥飞的方法做英文出海小站，并整理靠谱的赚钱和副业渠道；写给想做副业的新手；你能拿到学习路线、做站工具和每日赚钱榜",
+        "有进度时显示一行「继续上次」。三步「学 / 做 / 赚」分别进入新手引导对应标签。不再在首页放功能卡和今日任务",
+        "工具页顶部多一行提示：这个页面是干什么的，以及第一步做什么。可以关掉，关掉后记在这台浏览器里",
+        "空页面写明下一步，并给出按钮。不承诺收益，不写假数字"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 25,
       "date": "2026-10-17",
@@ -129,18 +142,6 @@
         "数据分析：趋势图、机会词、AI 分析按钮；流水线 选词 → 实操助手 → 发布 → 台账 → 分析"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-accounts"
-    },
-    {
-      "id": 16,
-      "date": "2026-10-17",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-17",
-      "items": [
-        "No.1 双11京东/淘宝官方口令领券，10月20日20:00开卖前先备好",
-        "No.2 银行App话费与云闪付支付立减（10月17日合集）",
-        "No.3 中国移动10月话费流量活动（今天周六游戏中心可抽话费券）"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

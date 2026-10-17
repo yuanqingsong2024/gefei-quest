@@ -130,7 +130,7 @@
 
   function renderChangelog(state, root) {
     var seen = state.lastSeenChangelog || 0;
-    root.innerHTML = '<section class="block"><p class="hint">网站有新内容时会记在这里；顶栏「我的进度」和首页出现红点即表示有没看过的更新。机器可读版本：<a href="daily.json" target="_blank" rel="noopener">daily.json</a>。</p>' +
+    root.innerHTML = '<section class="block"><p class="hint">网站有新内容时会记在这里；顶栏「我的进度」出现红点即表示有没看过的更新。机器可读版本：<a href="daily.json" target="_blank" rel="noopener">daily.json</a>。</p>' +
       '<ol class="cl-list">' + log().map(function (e) {
         return '<li class="cl-item glass' + (e.id > seen ? ' is-new' : '') + '" data-cl="' + e.id + '"><div class="cl-head"><span class="pill">' + esc(e.tag) + '</span><time>' + esc(e.date) + '</time>' + (e.id > seen ? '<span class="new-badge">NEW</span>' : '') + '</div>' +
           '<h3>' + (e.href ? '<a href="' + esc(e.href) + '">' + esc(e.title) + '</a>' : esc(e.title)) + '</h3><ul>' + e.items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></li>';

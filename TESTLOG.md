@@ -228,3 +228,12 @@
 - 顶栏在 1024 与 1280 收紧字号和间距（1024 隐藏图标），「我的进度」不再被裁切。
 - 空存档 1280×800：`#home` 约 2.83 屏。390px `scrollWidth` 390，底部栏仍是 6 项。
 - site-check：P20b 覆盖两个 CTA、Top 10 顺序与类型/成本/难度、三项真实数字、路线和功能卡离开首页、旧锚点、FAQ 折叠、桌面 ≤3 屏、390 无横向滚动、1024/1280 顶栏、导览 6 步。截图 `/tmp/sc-shots/p20-home.png`、`/tmp/sc-shots/p20-home-mobile.png`。
+
+## Phase 20 · 计划 2b 首页更好懂 T183b（2026-10-17，代码：Grok Build）
+- 首页只留六块：白话 Hero（这个站是什么、写给谁、能拿到什么）、「这个网站怎么用」三步、「今日赚钱榜」Top 10、「为什么做这个网站」、FAQ、页脚。有进度时多一行「继续上次」。不再放功能卡、今日任务、我的进度。
+- 主按钮「我是新手，从这里开始」→ `#start`。次按钮「直接看今日赚钱榜」滚到 `#home-rank`。三步分别打开 `#start-learn`、`#start-do`、`#start-earn`。Top 10 与 `QUEST_RANK` 最新一天一致，条目和「查看完整榜单」进 `#war-rank`。
+- `#home-today` 转到 `#work`，`#home-progress` 转到 `#me`。`#home-faq`、`#home-rank` 留在首页。`#home-sections` / `#home-steps` → `#start`，`#home-tools` → `#war`，`#home-res` → `#pm`，`#home-guides` → `#guides`。
+- 新文件 `js/hints.js`：工具页顶部一行提示（这个页面是干什么的 + 第一步），可点 × 关掉，记在存档 `hints.dismissed`。空的工作台、复盘、数据分析、实操计划、选词、灵感、分发、发布、站点台账写明下一步并给出按钮。
+- 导览改成首页 5 步：顶栏「新手引导」、主按钮、怎么用、今日赚钱榜、页脚重播。打卡仍在 `#path-quests` 和 `#me-stats`。
+- 空存档 1280×800：`#home` 1.91 屏。390px `scrollWidth` 390，底部栏仍是 6 项。`tools/page-heights.js` → `/tmp/h.json`。
+- site-check：`TOTAL fails=0 consoleErrors=0`。P20b 覆盖两个 CTA、没有功能网格和今日任务、三步进新手引导标签、Top 10、新存档不显示继续条、有站点时显示「新手示例站 · 选词」、FAQ 折叠、桌面 1.91 屏、旧锚点、390 无横向滚动。P20c 覆盖列出的工具页提示条、关掉 `#work` 后刷新仍关闭、工作台 / 复盘 / 数据分析空状态按钮、导览 5 步走完。截图 `/tmp/sc-shots/p20-home.png`、`/tmp/sc-shots/p20-home-mobile.png`、`/tmp/sc-shots/p20-tour.png`、`/tmp/sc-shots/p20-start.png`。

@@ -53,7 +53,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   const OLD_SAVE = { version: 1, xp: 30, done: ['q-p-01'], unlocked: ['ch-prologue'], cleared: [], streak: 1, lastCheckIn: null, achievements: [], weeklyClaimed: [], settings: { muted: true, energyEnabled: false } };
   await p.goto(BASE + 'index.html#home'); await p.evaluate(s => localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)), OLD_SAVE);
   await p.reload(); await p.waitForTimeout(200);
-  T(await p.evaluate(() => !!document.querySelector('#home-tools') && /站点台账/.test(document.querySelector('#home-sites-snap').textContent)), 'old save (no kit/keywords/sites) loads; home tools + snapshot');
+  T(await p.evaluate(() => { const a = document.querySelector('.hero-cta a.btn-primary'); return !!a && a.getAttribute('href') === '#start' && !!document.querySelector('#home-continue'); }), 'old save (no kit/keywords/sites) loads; continue strip shown');
   await visit('war-keywords');
   T(await p.evaluate(() => !!document.querySelector('.tool-empty')), 'keywords empty state');
   const addKw = async (kw, vol, big, weak, intent) => { await p.fill('#kw-kw', kw); await p.selectOption('#kw-vol', vol); await p.selectOption('#kw-big', big); await p.selectOption('#kw-weak', weak); await p.selectOption('#kw-intent', intent); await p.click('#kw-save'); await p.waitForTimeout(80); };
@@ -100,9 +100,8 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T(await p.evaluate(() => document.querySelectorAll('.site-chart polyline').length === 2 && document.querySelectorAll('.site-chart circle').length === 6 && document.querySelectorAll('.site-logs tbody tr').length === 3), 'site + 3 month logs + SVG chart');
   await p.reload(); await p.waitForTimeout(200);
   T(await p.$eval('#sites-count', e => e.textContent) === '1', 'sites persist after reload');
-  await visit('home');
-  const snap = await p.$eval('#home-sites-snap', e => e.textContent); console.log('      ' + snap);
-  T(/1 个站/.test(snap) && /2026-10/.test(snap) && /点击 31/.test(snap), 'home snapshot sites + latest month');
+  const ledger = await p.$eval('#sites-body', e => e.textContent); console.log('      ' + ledger.replace(/\s+/g, ' ').slice(0, 160));
+  T(/2026-10/.test(ledger) && /31/.test(ledger), 'sites ledger shows latest month');
   await visit('me');
   T(await p.evaluate(() => !!document.querySelector('a[href="#me-sites"]')), 'me overview links to 站点台账');
   console.log('P9 functional fails=' + ft); fail += ft;
@@ -118,8 +117,8 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   // ---------- Phase 10 ----------
   let f10 = 0; const T10 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P10 ' + m); if (!c) f10++; };
   await p.goto(BASE + 'index.html#home'); await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(200);
-  T10(await p.evaluate(() => document.querySelectorAll('#today-list li').length >= 2 && /今日任务/.test(document.querySelector('#home-today').textContent)), 'home 今日任务 card with 2-3 quests');
-  T10(await p.evaluate(() => !!document.querySelector('#today-changelog .red-dot') && !!document.querySelector('.site-links a[data-nav="me"] .red-dot')), 'red dot on home + top nav for unseen changelog');
+  T10(await p.evaluate(() => !document.getElementById('home-today') && !/今日任务/.test(document.getElementById('panel-home').textContent)), 'home has no 今日任务 card');
+  T10(await p.evaluate(() => !!document.querySelector('.site-links a[data-nav="me"] .red-dot')), 'red dot on top nav for unseen changelog');
   await visit('changelog');
   T10(await p.evaluate(() => document.querySelectorAll('.cl-item').length >= 5 && document.querySelectorAll('.cl-item.is-new').length >= 5), 'changelog lists entries marked NEW');
   T10(await p.evaluate(() => !document.querySelector('.site-links a[data-nav="me"] .red-dot') && JSON.parse(localStorage.getItem('gefei-quest-save-v1')).lastSeenChangelog >= 10), 'visiting changelog clears red dot + saves lastSeenChangelog');
@@ -130,6 +129,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await visit('me-stats'); await p.reload(); await p.waitForTimeout(200);
   T10(await p.$eval('#st-cur', e => e.textContent) === '0 天', 'stats empty -> streak 0 (old save loads)');
   await visit('path-quests');
+  T10(await p.evaluate(() => document.querySelectorAll('#panel-path input[type=checkbox]').length >= 2), 'quest list still offers the next steps');
   await p.evaluate(() => { const c = document.querySelector('input[type=checkbox]:not(:checked):not(:disabled)'); if (c) c.click(); }); await p.waitForTimeout(400);
   await p.evaluate(() => { const m = document.querySelector('.modal-root button, .boss-modal button'); if (m) m.click(); });
   const sv = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')));
@@ -141,6 +141,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   const st = await p.evaluate(() => ({ cur: document.querySelector('#st-cur').textContent, long: document.querySelector('#st-long').textContent, today: !!document.querySelector('.heatmap rect.hm-today:not(.hm-0)'), cells: document.querySelectorAll('.heatmap rect').length, bars: [...document.querySelectorAll('.week-bars .bar-rect')].filter(r => +r.getAttribute('height') > 0).length, mods: document.querySelectorAll('.mod-row').length }));
   console.log('      ', JSON.stringify(st));
   T10(st.cur === '3 天' && st.long === '4 天', 'current streak 3 / longest 4');
+  T10(/今天已打卡/.test(await p.locator('#panel-me').innerText()), 'stats shows 今天已打卡');
   T10(st.today && st.cells > 150, 'heatmap renders, today colored');
   T10(st.bars >= 1 && st.mods === 6, 'weekly bars + 6 chapter rows');
   T10(await p.evaluate(() => !!document.querySelector('a.stat-link[href="#war-keywords"]') && !!document.querySelector('a.stat-link[href="#me-sites"]')), 'tool summary links');
@@ -151,7 +152,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     const s10 = async (h, name, pg = p, full = true) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p10-${name}.png`, fullPage: full }); };
     await s10('me-stats', 'stats'); await s10('changelog', 'changelog');
     await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); s.lastSeenChangelog = 8; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); });
-    await p.goto(BASE + 'index.html#home'); await p.reload(); await p.waitForTimeout(400); await (await p.$('#home-today')).screenshot({ path: `${SHOTS}/p10-today.png` });
+    await p.goto(BASE + 'index.html#path-quests'); await p.reload(); await p.waitForTimeout(400); await (await p.$('#panel-path')).screenshot({ path: `${SHOTS}/p10-today.png` });
     const m10 = await b.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 }); cx(m10);
     for (const h of ['home', 'me-stats', 'changelog']) { await m10.goto(BASE + 'index.html#' + h); await m10.waitForTimeout(300); const w = await m10.evaluate(() => document.documentElement.scrollWidth); console.log((w <= 390 ? 'ok   ' : 'FAIL ') + 'mobile ' + h + ' scrollWidth ' + w); if (w > 390) fail++; }
     await s10('me-stats', 'mobile-stats', m10); await s10('home', 'mobile-home', m10, false);
@@ -177,6 +178,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T11(await p.evaluate(() => scrollY < 50), 'back-to-top scrolls up');
   T11(await p.evaluate(() => /v1\.\d+/.test(document.querySelector('.foot-ver').textContent) && !!document.querySelector('.site-footer a[href="#changelog"]') && /关于本站/.test(document.querySelector('.site-footer').textContent)), 'footer: version + changelog + about + sitemap');
   T11(await p.evaluate(() => getComputedStyle(document.getElementById('bottom-bar')).display === 'none'), 'bottom bar hidden on desktop');
+  await visit('guides');
   T11(await p.evaluate(() => document.querySelectorAll('.card-ico svg.ico[class*="tone-"]').length > 10), 'badges use tone family');
   const mm = await b.newPage({ viewport: { width: 390, height: 844 } }); cx(mm);
   await mm.goto(BASE + 'index.html#war-kit'); await mm.waitForTimeout(300);
@@ -209,7 +211,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await p.check('#kit-plan [data-plan-done="0"]'); await p.waitForTimeout(100);
   T12(await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).rankPlan[0].done === true), 'plan item done persisted');
   await visit('home');
-  T12(await p.evaluate(() => !!document.querySelector('#home-rank-card') && !!document.querySelector('.site-footer a[href="#war-rank"]')), 'home card + footer link');
+  T12(await p.evaluate(() => !!document.querySelector('#home-rank') && !!document.querySelector('.site-footer a[href="#war-rank"]')), 'home card + footer link');
   await p.keyboard.press('Control+k'); await p.keyboard.type(await p.evaluate(() => QuestRank.latestItems()[0].name.slice(0, 6))); await p.waitForTimeout(150);
   T12(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#war-rank')), 'search index includes rank items'); await p.keyboard.press('Escape');
   for (const u of ['data/rank.json', 'data/rank-history/index.json']) { const r = await p.request.get(BASE + u); const j = r.status() === 200 ? await r.json() : null; T12(!!j && (u.endsWith('index.json') ? j.dates.length >= 1 : j.items.length === 10), u + ' served'); }
@@ -503,11 +505,13 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   // 首页：标签；#home-faq 深链接
   await visit('home'); await p.reload(); await p.waitForTimeout(300);
   const hm = await p.evaluate(() => ({
-    today: !!document.querySelector('#home-today') && !document.querySelector('#home-today').classList.contains('cx-off') && /今日任务/.test(document.querySelector('#home-today').textContent),
+    today: !!document.querySelector('#home-today'),
+    grid: !!document.querySelector('#panel-home .feat-grid'),
+    task: /今日任务/.test((document.querySelector('#panel-home') || {}).textContent || ''),
     faq: !!document.getElementById('home-faq'),
-    anchors: ['home-today', 'home-faq', 'home-progress', 'home-sections', 'home-tools', 'home-steps', 'home-res', 'home-guides'].every((id) => !!document.getElementById(id)),
+    rank: !!document.getElementById('home-rank'),
   }));
-  T18(hm.today && hm.faq && hm.anchors, 'home: anchors kept, 今日任务 visible');
+  T18(!hm.today && !hm.grid && !hm.task && hm.faq && hm.rank, 'home: no today card or feature grid; faq + rank kept');
   await p.goto(BASE + 'index.html#home-faq'); await p.reload(); await p.waitForTimeout(400);
   T18(await p.evaluate(() => !document.querySelector('#home-faq').classList.contains('cx-off')), 'home: #home-faq anchor reveals its tab');
   await visit('changelog'); await p.reload(); await p.waitForTimeout(200);
@@ -1381,11 +1385,11 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         sText: secondary ? secondary.textContent.replace(/\s+/g, '') : '',
       };
     });
-    T20b(hero.pHref === '#start' && hero.pText.indexOf('开始新手引导') >= 0 && hero.sHref === '#work' && hero.sText.indexOf('进入工作台') >= 0, 'hero CTAs ' + JSON.stringify(hero));
+    T20b(hero.pHref === '#start' && hero.pText.indexOf('我是新手') >= 0 && hero.sHref === '#home-rank' && hero.sText.indexOf('直接看今日赚钱榜') >= 0, 'hero CTAs ' + JSON.stringify(hero));
     const top = await pg.evaluate(() => {
       const src = (QUEST_RANK.days[QUEST_RANK.latest] && QUEST_RANK.days[QUEST_RANK.latest].items) || [];
       const expect = src.slice(0, Math.min(10, src.length));
-      const rows = [...document.querySelectorAll('#home-rank-card .home-rank-row')];
+      const rows = [...document.querySelectorAll('#home-rank .home-rank-row')];
       const date = (document.querySelector('#home-rank-date') || {}).textContent || '';
       const clause = (cost) => { const s = String(cost == null ? '' : cost).trim(); const first = (s.split(/[；;。]/)[0] || '').trim(); return first || s; };
       const bad = rows.find((row, i) => {
@@ -1402,51 +1406,29 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       return { n: rows.length, expect: expect.length, names: rows.map((r) => r.getAttribute('data-name')), want: expect.map((i) => i.name), date, latest: QUEST_RANK.latest, bad: !!bad };
     });
     T20b(top.n === top.expect && top.n === Math.min(10, top.expect) && top.names.join('\n') === top.want.join('\n') && top.date === top.latest && !top.bad, 'top10 n=' + top.n + ' date=' + top.date + (top.bad ? ' row mismatch' : ''));
-    const stats = await pg.evaluate(() => {
-      const num = (k) => +(document.querySelector('[data-stat="' + k + '"] b').textContent);
-      const items = (QUEST_RANK.days[QUEST_RANK.latest] && QUEST_RANK.days[QUEST_RANK.latest].items) || [];
-      return {
-        platforms: num('platforms'), rank: num('rank'), templates: num('templates'),
-        ep: QUEST_PLATFORMS.PLATFORMS.length, er: items.length, et: QuestTools.TEMPLATES.length,
-      };
-    });
-    T20b(stats.platforms === stats.ep && stats.rank === stats.er && stats.templates === stats.et, 'stats ' + JSON.stringify(stats));
     await pg.evaluate(() => { if (window.QuestTour) QuestTour.close(); });
-    const jump = await pg.evaluate(() => {
-      const tracks = [...document.querySelectorAll('#home-steps a[href]')].map((a) => a.getAttribute('href'));
-      const feats = [...document.querySelectorAll('#home-sections a[href]')].map((a) => a.getAttribute('href'));
-      return { tracks, feats };
-    });
-    T20b(jump.tracks.length === 3 && jump.feats.length >= 6, 'track/feature link counts ' + jump.tracks.length + '/' + jump.feats.length);
-    for (const h of jump.tracks.concat(jump.feats)) {
-      const key = h.replace(/^#/, '').split('?')[0];
-      const parsed = await pg.evaluate((k) => QuestNav.parse(k).section, key);
-      await pg.goto(BASE + 'index.html' + (h.charAt(0) === '#' ? h : '#' + h), { waitUntil: 'domcontentloaded' });
+    const shape = await pg.evaluate(() => ({
+      grid: !!document.querySelector('#panel-home .feat-grid'),
+      today: !!document.getElementById('home-today'),
+      progress: !!document.getElementById('home-progress'),
+      task: /今日任务/.test(document.getElementById('panel-home').textContent),
+      cont: !!document.getElementById('home-continue'),
+      howto: [...document.querySelectorAll('#home-howto a')].map((a) => a.getAttribute('href')),
+      faq: document.querySelectorAll('#home-faq details').length,
+    }));
+    T20b(!shape.grid && !shape.today && !shape.progress && !shape.task, 'no feature grid or today/progress cards ' + JSON.stringify(shape));
+    T20b(!shape.cont, 'continue strip hidden for fresh save');
+    T20b(shape.howto.join(',') === '#start-learn,#start-do,#start-earn' && shape.faq >= 3, 'howto + faq ' + shape.howto.join(',') + ' faq=' + shape.faq);
+    for (const h of ['#start-learn', '#start-do', '#start-earn']) {
+      await pg.goto(BASE + 'index.html' + h, { waitUntil: 'domcontentloaded' });
       await pg.waitForTimeout(80);
-      const landed = await pg.evaluate(() => QuestNav.parse(location.hash.replace(/^#/, '').split('?')[0]).section);
-      let tabOk = true;
-      if (/^#start-(learn|do|earn)$/.test(h)) {
-        const id = h.slice(7);
-        tabOk = await pg.evaluate((id) => {
-          const b = document.getElementById('start-tab-' + id);
-          const panel = document.getElementById('start-panel-' + id);
-          return !!(b && b.getAttribute('aria-selected') === 'true' && panel && !panel.hidden);
-        }, id);
-      }
-      T20b(parsed !== 'home' && landed !== 'home' && tabOk, h + ' -> ' + parsed + ' / ' + landed + (tabOk ? '' : ' tab closed'));
-    }
-    const anchorIds = ['home-today', 'home-faq', 'home-progress', 'home-sections', 'home-tools', 'home-steps', 'home-res', 'home-guides'];
-    for (const id of anchorIds) {
-      await pg.goto(BASE + 'index.html#' + id, { waitUntil: 'domcontentloaded' });
-      await pg.reload({ waitUntil: 'domcontentloaded' });
-      await pg.waitForTimeout(250);
-      const ok = await pg.evaluate((id) => {
-        const el = document.getElementById(id);
-        if (!el || !el.isConnected || el.classList.contains('cx-off') || el.closest('.cx-off')) return false;
-        const r = el.getBoundingClientRect();
-        return location.hash === '#' + id && r.width + r.height > 0 && r.top < window.innerHeight && r.bottom > 0;
+      const id = h.slice(7);
+      const tabOk = await pg.evaluate((id) => {
+        const b = document.getElementById('start-tab-' + id);
+        const panel = document.getElementById('start-panel-' + id);
+        return !!(b && b.getAttribute('aria-selected') === 'true' && panel && !panel.hidden);
       }, id);
-      T20b(ok, 'anchor #' + id);
+      T20b(tabOk, h + ' opens start tab');
     }
     await pg.goto(BASE + 'index.html#home-faq', { waitUntil: 'domcontentloaded' });
     await pg.waitForTimeout(200);
@@ -1461,7 +1443,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await pg.reload({ waitUntil: 'domcontentloaded' });
     await pg.waitForTimeout(300);
     const screens = await pg.evaluate(() => document.documentElement.scrollHeight / 800);
-    T20b(screens <= 3, 'home screens @1280x800 ' + screens.toFixed(2));
+    T20b(screens <= 2.5, 'home screens @1280x800 ' + screens.toFixed(2));
     const fitAt = async (w) => {
       await pg.setViewportSize({ width: w, height: 800 });
       await pg.waitForTimeout(80);
@@ -1484,27 +1466,48 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     T20b(fit1024.ok, 'nav 1024 ' + JSON.stringify(fit1024));
     const fit1280 = await fitAt(1280);
     T20b(fit1280.ok, 'nav 1280 ' + JSON.stringify(fit1280));
-    await pg.evaluate(() => { if (window.QuestTour && QuestTour.isOpen && QuestTour.isOpen()) QuestTour.close(); });
     await pg.evaluate(() => {
-      try {
-        const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || 'null');
-        if (s) { s.onboarding = Object.assign({}, s.onboarding, { tourDone: false }); localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); }
-      } catch (e) {}
+      QuestApp.update(function (s) {
+        return Object.assign({}, s, { sites: { items: [{ id: 's20b', name: '新手示例站', domain: '', kw: '', station: '站一', launch: '', status: '筹备', host: '', money: '', logs: [] }] } });
+      });
     });
     await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
     await pg.reload({ waitUntil: 'domcontentloaded' });
-    await pg.waitForSelector('#tour-root');
-    const titles = [];
-    for (let i = 0; i < 8; i++) {
-      if (!(await pg.$('#tour-root'))) break;
-      titles.push((await pg.locator('#tour-title').innerText()).trim());
-      const label = (await pg.locator('#tour-next').innerText()).trim();
-      await pg.click('#tour-next');
-      await pg.waitForTimeout(40);
-      if (/完成/.test(label)) break;
+    await pg.waitForTimeout(250);
+    const cont = await pg.evaluate(() => {
+      const el = document.getElementById('home-continue');
+      const a = el && el.querySelector('a');
+      return { text: el ? el.textContent.replace(/\s+/g, '') : '', href: a && a.getAttribute('href') };
+    });
+    T20b(/继续上次/.test(cont.text) && cont.text.indexOf('新手示例站') >= 0 && cont.text.indexOf('选词') >= 0 && cont.href === '#war-keywords', 'continue strip ' + JSON.stringify(cont));
+    const aliases = [
+      ['home-today', '#work'],
+      ['home-progress', '#me'],
+      ['home-sections', '#start'],
+      ['home-tools', '#war'],
+      ['home-steps', '#start'],
+      ['home-res', '#pm'],
+      ['home-guides', '#guides'],
+    ];
+    for (const pair of aliases) {
+      await pg.goto(BASE + 'index.html#' + pair[0], { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(120);
+      const hash = await pg.evaluate(() => location.hash);
+      T20b(hash === pair[1], '#' + pair[0] + ' -> ' + hash);
     }
-    const stepN = await pg.evaluate(() => (window.QuestTour && QuestTour.STEPS ? QuestTour.STEPS.length : 0));
-    T20b(titles.length === stepN && stepN >= 6 && !(await pg.$('#tour-root')), 'tour steps ' + titles.length + '/' + stepN + ' ' + titles.join(' > '));
+    await pg.goto(BASE + 'index.html#home-faq', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    const faqStay = await pg.evaluate(() => location.hash === '#home-faq' && !!document.getElementById('home-faq'));
+    T20b(faqStay, '#home-faq stays on home');
+    await pg.goto(BASE + 'index.html#home-rank', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    const rankStay = await pg.evaluate(() => {
+      const el = document.getElementById('home-rank');
+      if (!el) return false;
+      const r = el.getBoundingClientRect();
+      return location.hash === '#home-rank' && r.width + r.height > 0;
+    });
+    T20b(rankStay, '#home-rank stays on home');
     await pg.setViewportSize({ width: 390, height: 844 });
     await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
     await pg.reload({ waitUntil: 'domcontentloaded' });
@@ -1512,7 +1515,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     const mob = await pg.evaluate(() => {
       const bar = document.getElementById('bottom-bar');
       const br = bar ? bar.getBoundingClientRect() : null;
-      const rows = document.querySelectorAll('#home-rank-card .home-rank-row').length;
+      const rows = document.querySelectorAll('#home-rank .home-rank-row').length;
       return {
         sw: document.documentElement.scrollWidth,
         rows,
@@ -1522,10 +1525,15 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     });
     T20b(mob.sw <= 390 && mob.rows >= 1 && mob.bar && mob.n === 6, '390px ' + JSON.stringify(mob));
     if (SHOTS) {
+      await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
+      await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(300);
       await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
       await pg.screenshot({ path: `${SHOTS}/p20-home-mobile.png`, fullPage: true });
       await pg.setViewportSize({ width: 1280, height: 800 });
       await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
       await pg.waitForTimeout(300);
       await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
       await pg.screenshot({ path: `${SHOTS}/p20-home.png`, fullPage: true });
@@ -1537,6 +1545,82 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P20b functional fails=' + f20b); fail += f20b;
+
+  // ---------- Phase 20c · 每页提示 / 空状态 / 导览 ----------
+  let f20c = 0; {
+  const T20c = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P20c ' + m); if (!c) f20c++; };
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  await ctx.addInitScript(() => { try { localStorage.setItem('gefei-quest-tour-test', '1'); } catch (e) {} });
+  const pg = cx(await ctx.newPage());
+  const e20c = [];
+  pg.on('pageerror', (e) => { e20c.push('pageerror ' + e.message); errors.push('p20c ' + e.message); });
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e20c.push(m.text()); errors.push('p20c ' + m.text()); } });
+  try {
+    const hintRoutes = ['work', 'work-review', 'war', 'war-kit', 'war-keywords', 'war-rank', 'war-publish', 'war-share', 'path', 'path-quests', 'lib', 'pm', 'me', 'me-accounts', 'me-analytics', 'me-ai'];
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    for (const h of hintRoutes) {
+      await pg.goto(BASE + 'index.html#' + h, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(160);
+      const info = await pg.evaluate(() => {
+        const bar = document.querySelector('.page-hint');
+        if (!bar) return { ok: false, why: 'missing' };
+        const t = bar.textContent.replace(/\s+/g, '');
+        return {
+          ok: t.indexOf('这个页面是干什么的') >= 0 && t.indexOf('第一步') >= 0 && !!bar.querySelector('a[href="#start"]') && !!bar.querySelector('.page-hint-x'),
+          t: t.slice(0, 90),
+        };
+      });
+      T20c(info.ok, '#' + h + ' hint ' + (info.t || info.why || ''));
+    }
+    await pg.goto(BASE + 'index.html#work', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('.page-hint-x');
+    await pg.locator('.page-hint-x').click();
+    await pg.waitForTimeout(120);
+    T20c(await pg.evaluate(() => !document.querySelector('.page-hint')), '× removes the #work hint');
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(250);
+    const kept = await pg.evaluate(() => {
+      const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || 'null');
+      return { noBar: !document.querySelector('.page-hint'), dismissed: !!(s && s.hints && s.hints.dismissed && s.hints.dismissed.work === true) };
+    });
+    T20c(kept.noBar && kept.dismissed, 'dismiss persists after reload ' + JSON.stringify(kept));
+    await pg.goto(BASE + 'index.html#path', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(160);
+    T20c(await pg.evaluate(() => !!document.querySelector('.page-hint[data-hint="path"]')), '#path hint still shown');
+    await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
+    for (const h of ['work', 'work-review', 'me-analytics']) {
+      await pg.goto(BASE + 'index.html#' + h, { waitUntil: 'domcontentloaded' });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(220);
+      const empty = await pg.evaluate(() => [...document.querySelectorAll('.tool-empty')].some((b) => !!b.querySelector('a.btn[href], button.btn')));
+      T20c(empty, '#' + h + ' empty-state button');
+    }
+    await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#tour-root');
+    const stepN = await pg.evaluate(() => (window.QuestTour && QuestTour.STEPS ? QuestTour.STEPS.length : 0));
+    T20c(stepN >= 5, 'tour steps on home ' + stepN);
+    const titles = [];
+    for (let i = 0; i < stepN; i++) {
+      const open = await pg.evaluate(() => !!document.getElementById('tour-root'));
+      if (!open) break;
+      titles.push((await pg.locator('#tour-title').innerText()).trim());
+      await pg.locator('#tour-next').click();
+      await pg.waitForTimeout(140);
+    }
+    const closed = await pg.evaluate(() => !document.getElementById('tour-root'));
+    T20c(closed && titles.length === stepN && new Set(titles).size === stepN, 'tour walk ' + titles.join(' | '));
+  } catch (e) {
+    T20c(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
+  }
+  T20c(e20c.length === 0, 'P20c console errors ' + e20c.slice(0, 4).join(' | '));
+  await ctx.close();
+  }
+  console.log('P20c functional fails=' + f20c); fail += f20c;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

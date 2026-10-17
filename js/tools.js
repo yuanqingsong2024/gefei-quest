@@ -397,7 +397,7 @@
       '<button type="button" class="btn btn-sm" id="kw-csv"' + (items.length ? '' : ' disabled') + '>' + I('download') + '导出 CSV</button></div></div>' +
       (K.s2Target ? '<p class="hint">站二目标词：<b>' + esc(K.s2Target) + '</b> · 站一主词：<b>' + esc(state.kit.keyword || '未设') + '</b></p>' : '') +
       (items.length ? (list.length ? '<ul class="kw-list">' + list.map(function (x) { return kwRow(x.k, x.s, state); }).join('') + '</ul>' : '<p class="empty-hint">当前筛选下没有词，换个筛选看看。</p>')
-        : '<div class="tool-empty">' + global.QuestIcons.illo('search') + '<p>还没有候选词。先从 Google Trends 或搜索联想找一个，比如 <b>pdf merge for mac</b>，看看搜索结果前 10 有几个大站，记下来。也可以打开「关键词灵感」勾选免费联想词。</p></div>') +
+        : '<div class="tool-empty">' + global.QuestIcons.illo('search') + '<p>还没有候选词。下一步：在上面输入一个英文词，例如 pdf merge for mac，看搜索结果前 10 有几个大站。也可以打开「关键词灵感」勾选免费联想词。</p><button type="button" class="btn btn-primary btn-sm" id="kw-focus">去记一个候选词</button><button type="button" class="btn btn-sm" id="kw-goto-ideas">打开关键词灵感</button></div>') +
       '</section>' + PRIV + '</div></div>';
 
     var f = root.querySelector('#kw-form');
@@ -426,6 +426,15 @@
       });
     });
     if (global.QuestIdeas) global.QuestIdeas.mount(state, root, ctx);
+    var kwFocus = root.querySelector('#kw-focus');
+    if (kwFocus) kwFocus.addEventListener('click', function () { var el = root.querySelector('#kw-kw'); if (el) { el.scrollIntoView({ block: 'center' }); el.focus(); } });
+    var kwIdeas = root.querySelector('#kw-goto-ideas');
+    if (kwIdeas) kwIdeas.addEventListener('click', function () {
+      var panel = root.querySelector('#idea-panel');
+      if (panel && panel.__cxShow) panel.__cxShow();
+      var seed = root.querySelector('#idea-seed');
+      if (seed) { seed.scrollIntoView({ block: 'center' }); seed.focus(); }
+    });
   }
   function kwRow(k, s, state) {
     var L = label(s), q = encodeURIComponent(k.kw);
@@ -492,9 +501,11 @@
       '<div class="tool-actions fld-wide"><button type="submit" class="btn btn-primary btn-sm">' + (editing ? '保存修改' : '加入台账') + '</button>' + (editing ? '<button type="button" class="btn btn-sm" id="site-cancel">取消</button>' : '') +
       '<button type="button" class="btn btn-sm" id="site-csv"' + (items.length ? '' : ' disabled') + '>' + I('download') + '导出 CSV</button></div></form></section>' +
       (items.length ? items.map(function (s) { return siteCard(s, opts.log === s.id); }).join('') :
-        '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>还没有站点。站一上线后来登记：名称、域名、主词，然后每月记一次 GSC 的曝光和点击，例如「2026-11 · 曝光 120 · 点击 3」。</p></div>') +
+        '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>还没有站点。下一步：在上面填写名称、域名和主词，再点「加入台账」。上线后每月记一次曝光和点击。</p><button type="button" class="btn btn-primary btn-sm" id="sites-empty-go">去填写站点名称</button></div>') +
       '<p class="hint">可以手动记，也可以在 <a href="#me-analytics">数据分析</a> 导入 GSC / AdSense CSV 自动按月写入。</p>' + PRIV + '</div>';
 
+    var sitesGo = root.querySelector('#sites-empty-go');
+    if (sitesGo) sitesGo.addEventListener('click', function () { var el = root.querySelector('#site-name'); if (el) { el.scrollIntoView({ block: 'center' }); el.focus(); } });
     root.querySelector('#site-form').addEventListener('submit', function (ev) {
       ev.preventDefault();
       var g = function (k) { return root.querySelector('#site-' + k).value.trim(); };

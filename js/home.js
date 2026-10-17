@@ -1,4 +1,4 @@
-/** 首页 · 产品页：今日赚钱榜 Top 10、三条路线、功能入口 */
+/** 首页 · 白话说明：这是什么、怎么用、今日赚钱榜、为什么做、常见问题 */
 (function (global) {
   function esc(s) {
     return String(s == null ? '' : s)
@@ -340,29 +340,54 @@
     return list.slice(0, Math.min(10, list.length));
   }
 
-  var HOME_TRACKS = [
-    { id: 'learn', hash: '#start-learn', icon: 'map', name: '学习', lines: ['按章节看关卡地图和任务清单', '资源库、平台变现和作战手册都在这条路上', '只勾你已经在线下做完的任务'] },
-    { id: 'do', hash: '#start-do', icon: 'target', name: '实施', lines: ['选词练习板里可以打开关键词灵感', '实操助手选模板，再发布和分发', '数据分析、Google 连接和每周复盘'] },
-    { id: 'earn', hash: '#start-earn', icon: 'coin', name: '赚钱', lines: ['看每日赚钱榜的类型、成本和难度', '把一条加进实操计划，先试一周', '榜单卡片上的 AI 按钮在 AI 设置里切换'] },
-  ];
-  var HOME_FEATS = [
-    { href: '#war', icon: 'calendar', title: '作战日程', desc: '五个阶段各一张 Day 1–7 清单，和任务清单共用勾选。' },
-    { href: '#war-kit', icon: 'kit', title: '实操助手', desc: '四种起步模板，填主词后预览并下载页面。' },
-    { href: '#war-keywords', icon: 'tag', title: '选词', desc: '给候选词打分，关键词灵感可以加入候选。' },
-    { href: '#war-publish', icon: 'rocket', title: '发布上线', desc: '先预演，再写入 GitHub Pages，并登记到站点台账。' },
-    { href: '#war-share', icon: 'external', title: '内容分发', desc: '生成各平台文案，用官方免费链接自己去发。' },
-    { href: '#me-analytics', icon: 'chart', title: '数据分析', desc: '导入 CSV，或到账号中心用 Google 只读拉取。' },
-    { href: '#pm', icon: 'coin', title: '平台变现', desc: '国内和海外平台的门槛、分成和来源，以官网为准。', id: 'home-res' },
-    { href: '#me-ai', icon: 'sparkle', title: 'AI 助手', desc: '选词、赚钱榜和实操助手上的 AI 按钮，服务商在 AI 设置。' },
-  ];
   var HOME_FAQ = [
-    ['进度存在哪里？', '只存在你当前浏览器的 localStorage，不上传服务器。换设备请在「我的进度」导出 / 导入 JSON。'],
-    ['能保证赚钱吗？', '不保证。赚钱榜和平台页只整理公开、合法的渠道，额度与规则会变，以各平台官网为准。'],
-    ['和哥飞是什么关系？', '非官方。这里是基于公开分享的方法学习整理，不含付费社群内容。'],
-    ['学习路线和实战作战室有什么区别？', '同一份进度的两种看法：学习路线按章节列全部任务；作战室把每站压成 Day 1–7 日程。任一处勾选，另一处同步。'],
-    ['今日赚钱榜的数字从哪来？', '来自站内已发布的每日榜单（类型、成本、难度和来源）。首页只显示最新一天的前 10 条，完整内容和免责声明在每日赚钱榜。'],
-    ['新手引导可以再看一次吗？', '可以。打开「新手引导」点「重新播放导览」，或用页脚的「新手导览」。前 7 天清单的勾选记在本机存档里。'],
+    ['怎么开始？', '点「我是新手，从这里开始」，按学习、做站、赚钱三步走。也可以先看今日赚钱榜，挑一条试一周。'],
+    ['数据存在哪？', '进度只存在你自己的浏览器里，不上传。换电脑或换浏览器之前，到「我的进度」导出 JSON，再到新浏览器导入。'],
+    ['要不要付费？', '不用付费。这个网站免费使用，不卖课，也不含付费社群里的内容。'],
+    ['能保证赚钱吗？', '不承诺收益。赚钱榜和平台页只整理公开、合法的渠道，规则和额度会变，以各平台官网为准。'],
+    ['和哥飞是什么关系？', '非官方。这里按公开分享的方法做学习整理，方便新手按步骤做英文出海小站。'],
   ];
+  var ROUTE_LABEL = {
+    work: '工作台', 'work-review': '每周复盘', war: '作战日程', 'war-s2': '站二作战室', 'war-s3': '站三作战室', 'war-m': '变现作战室', 'war-x': '放大作战室',
+    'war-kit': '站一实操助手', 'war-keywords': '选词练习板', 'war-rank': '每日赚钱榜', 'war-publish': '发布上线', 'war-share': '内容分发',
+    path: '学习路线', 'path-quests': '任务清单', lib: '资源库', pm: '平台变现', me: '我的进度', 'me-accounts': '账号中心', 'me-analytics': '数据分析',
+    'me-ai': 'AI 设置', 'me-sites': '站点台账', 'me-stats': '学习统计', start: '新手引导', guides: '手册与模板', weekly: '每周补给', changelog: '更新日志',
+  };
+  function routeLabel(h) {
+    if (ROUTE_LABEL[h]) return ROUTE_LABEL[h];
+    if (h.indexOf('lib-') === 0) return '资源库';
+    if (h.indexOf('pm-') === 0) return '平台变现';
+    if (h.indexOf('guide-') === 0) return '手册';
+    return '上次打开的页面';
+  }
+  function continueNext(state) {
+    state = state || {};
+    var done = Array.isArray(state.done) ? state.done : [];
+    var sites = state.sites && Array.isArray(state.sites.items) ? state.sites.items : [];
+    var plan = Array.isArray(state.rankPlan) ? state.rankPlan : [];
+    if (!done.length && !sites.length && !plan.length) return null;
+    if (sites.length && global.QuestWork && typeof QuestWork.siteSteps === 'function') {
+      if (!Array.isArray(state.publish)) state.publish = [];
+      if (!Array.isArray(state.imports)) state.imports = [];
+      if (!Array.isArray(state.shares)) state.shares = [];
+      if (!Array.isArray(state.reviews)) state.reviews = [];
+      var i, steps, nx;
+      for (i = 0; i < sites.length; i++) {
+        steps = QuestWork.siteSteps(state, sites[i]) || [];
+        nx = steps.filter(function (x) { return !x.done; })[0];
+        if (nx) return { text: (sites[i].name || '未命名站点') + ' · ' + nx.label, href: nx.href || '#work', btn: '继续' };
+      }
+      return { text: (sites[0].name || '站点') + ' · 打开工作台接着看', href: '#work', btn: '继续' };
+    }
+    var undone = plan.filter(function (p) { return p && !p.done; })[0];
+    if (undone) return { text: '实操计划 · ' + (undone.name || '下一条'), href: '#war-rank', btn: '继续' };
+    if (plan.length) return { text: '实操计划里的条目都勾过了', href: '#war-rank', btn: '继续' };
+    var last = typeof state.lastRoute === 'string' ? state.lastRoute : '';
+    if (last && last !== 'home' && last.indexOf('home-') !== 0) return { text: routeLabel(last), href: '#' + last, btn: '继续' };
+    var q = global.QuestStats && QuestStats.nextQuests ? QuestStats.nextQuests(state, 1)[0] : null;
+    if (q) return { text: q.title, href: '#path-quests', btn: '继续' };
+    return { text: '任务清单', href: '#path-quests', btn: '继续' };
+  }
 
   function sitesSnap(raw) {
     var T = global.QuestTools, I = global.QuestIcons.svg; if (!T) return '';
@@ -393,19 +418,11 @@
 
   function renderHome(root, state) {
     if (!root) return;
-    var N = global.QuestNav, I = N.icon;
-    var C = homeCounts();
+    var I = global.QuestNav.icon;
     var rank = global.QUEST_RANK || {};
     var items = latestRankItems();
     var date = rank.latest || '';
-    var stats = [
-      ['platforms', C.platforms, '收录平台'],
-      ['rank', C.rank, '今日榜'],
-      ['days', C.days, '累计天数'],
-      ['templates', C.templates, '起步模板'],
-      ['guides', C.guides, '作战手册'],
-      ['changelog', C.changelog, '更新日志'],
-    ];
+    var next = continueNext(state);
     var rankBody = items.length
       ? '<ol class="home-rank-list" id="home-rank-list">' + items.map(function (it) {
         var cost = String(it.cost == null ? '' : it.cost);
@@ -418,38 +435,34 @@
           diffDots(it.difficulty) + '</span></a></li>';
       }).join('') + '</ol>'
       : '<p class="home-rank-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
+    var howto = [
+      ['#start-learn', '① 学', '先看学习路线，知道每一步在做什么。'],
+      ['#start-do', '② 做', '按实施步骤选词、做页面、再发布。'],
+      ['#start-earn', '③ 赚', '看每日赚钱榜，挑一条先试一周。'],
+    ];
     root.innerHTML =
       '<section class="hero hero-home" aria-label="首页">' +
-      '<div class="hero-inner">' +
-      '<div class="hero-copy">' +
-      '<p class="hero-kicker">出海建站 · SEO · 练习营</p>' +
-      '<h1 class="hero-title">把出海小站当成一场闯关：每天一份赚钱榜、一套实操工具、一条清晰路线</h1>' +
-      '<p class="hero-sub">从选词、上线到收录和变现，每一步都有清单和模板。进度只存在这台浏览器。不承诺收入。</p>' +
-      '<div class="hero-cta"><a class="btn btn-primary" href="#start" data-tour="cta">' + I('flag') + '开始新手引导</a><a class="btn btn-ghost" href="#work" data-tour="work">' + I('target') + '进入工作台</a></div>' +
-      '</div>' +
-      '<ul class="home-stats" aria-label="站内真实数据">' + stats.map(function (s) {
-        return '<li class="home-stat" data-stat="' + s[0] + '"><b>' + esc(s[1]) + '</b><span>' + s[2] + '</span></li>';
-      }).join('') + '</ul></div></section>' +
+      '<div class="hero-inner"><div class="hero-copy">' +
+      '<p class="hero-kicker">写给想做副业、做英文出海小站的新手</p>' +
+      '<h1 class="hero-title">跟着哥飞的方法做英文出海小站，并收集整理靠谱的赚钱和副业渠道</h1>' +
+      '<p class="hero-sub">这里每天更新赚钱榜。你能拿到一条按步骤走的学习路线、做站工具，还有每日赚钱榜。不承诺收入。</p>' +
+      '<div class="hero-cta"><a class="btn btn-primary" href="#start" data-tour="cta">' + I('flag') + '我是新手，从这里开始</a>' +
+      '<a class="btn btn-ghost" href="#home-rank">' + I('trophy') + '直接看今日赚钱榜</a></div>' +
+      '</div></div></section>' +
       '<div class="home-wrap">' +
-      '<section class="home-rank" id="home-rank-card" data-tour="rank" aria-label="今日赚钱榜">' +
+      (next ? '<aside class="home-continue" id="home-continue"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></aside>' : '') +
+      '<section class="lp-sec" id="home-howto" data-tour="howto"><div class="sec-head"><h2>' + I('flag') + '这个网站怎么用</h2></div>' +
+      '<ol class="home-howto">' + howto.map(function (s) {
+        return '<li><a href="' + s[0] + '"><b>' + s[1] + '</b><span>' + esc(s[2]) + '</span></a></li>';
+      }).join('') + '</ol></section>' +
+      '<section class="home-rank" id="home-rank" data-tour="rank" aria-label="今日赚钱榜">' +
       '<div class="home-rank-head"><div><h2>' + I('trophy') + '今日赚钱榜</h2>' +
       '<p>' + (date ? '<time id="home-rank-date" datetime="' + esc(date) + '">' + esc(date) + '</time> · ' : '') + '每日更新 · 不保证收益</p></div>' +
       '<a class="btn btn-sm btn-primary" href="#war-rank">查看完整榜单</a></div>' +
       rankBody + '</section>' +
-      '<section class="lp-sec" id="home-steps" data-tour="tracks"><div class="sec-head"><h2>三条路线</h2><p>选一条，进入新手引导里对应的标签。</p></div>' +
-      '<div class="home-tracks">' + HOME_TRACKS.map(function (tr) {
-        return '<a class="home-track" href="' + tr.hash + '"><span class="card-ico">' + I(tr.icon) + '</span><b>' + esc(tr.name) + '</b><ul>' +
-          tr.lines.map(function (line) { return '<li>' + esc(line) + '</li>'; }).join('') +
-          '</ul><span class="home-track-go">进入' + esc(tr.name) + '</span></a>';
-      }).join('') + '</div></section>' +
-      '<section class="lp-sec" id="home-sections"><div class="sec-head"><h2>可以做的事</h2><p>这些都是站里已经有的页面。</p></div>' +
-      '<div id="home-tools"><div class="feat-grid">' + HOME_FEATS.map(function (f) {
-        return '<a class="feat-card" href="' + f.href + '"' + (f.id ? ' id="' + f.id + '"' : '') + '><span class="card-ico">' + I(f.icon) + '</span><b>' + esc(f.title) + '</b><span>' + esc(f.desc) + '</span></a>';
-      }).join('') + '</div></div>' +
-      '<p class="home-guides-line" id="home-guides"><a href="#guides">' + I('book') + '手册与模板</a></p></section>' +
-      '<div class="home-split">' + (state && global.QuestStats ? global.QuestStats.todayCard(state) : '<section class="lp-sec" id="home-today"></section>') +
-      '<section class="lp-sec" id="home-progress" data-tour="me"><div class="sec-head"><h2>我的进度</h2></div><div class="glass snap">' + snapshot() +
-      '<div class="snap-links"><a class="btn btn-sm" href="#path">' + I('map') + '学习路线</a><a class="btn btn-sm" href="#me">' + I('user') + '我的进度</a></div></div></section></div>' +
+      '<section class="lp-sec" id="home-why"><div class="sec-head"><h2>为什么做这个网站</h2></div><div class="home-why">' +
+      '<p>想做副业或英文出海小站时，新手常常不知道先做什么。这个站把公开的方法收成一条能跟着走的路线，并把靠谱渠道整理成每天更新的赚钱榜。</p>' +
+      '<ul><li>不承诺收益。</li><li>榜单每条附来源链接，以官方为准。</li><li>进度只存在你自己的浏览器。</li></ul></div></section>' +
       '<section class="lp-sec" id="home-faq"><div class="sec-head"><h2>常见问题</h2></div><div class="faq">' +
       HOME_FAQ.map(function (qa) {
         return '<details><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>';

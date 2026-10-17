@@ -183,8 +183,8 @@
     var col = mem.cols[key] || { state: 'idle' };
     if (col.state === 'loading') return '<p class="idea-status">正在获取…</p>';
     if (col.state === 'error') return '<p class="idea-status idea-err">' + ERR + '</p>';
-    if (col.state === 'idle') return '<p class="idea-status">点「找灵感」后显示在这里。</p>';
-    if (col.state === 'empty' || !col.items || !col.items.length) return '<p class="idea-status">没有找到相关结果。</p>';
+    if (col.state === 'idle') return '<p class="idea-status">下一步：在上面输入英文种子词，再点「找灵感」。</p><button type="button" class="btn btn-sm idea-retry">去输入种子词</button>';
+    if (col.state === 'empty' || !col.items || !col.items.length) return '<p class="idea-status">没有找到相关结果。下一步：换一个更具体的英文种子词再试。</p><button type="button" class="btn btn-sm idea-retry">换个种子词再试</button>';
     if (key === 'hn') {
       return col.items.map(function (h) {
         var id = h.objectID == null ? '' : String(h.objectID);
@@ -371,7 +371,8 @@
         return;
       }
       if (e.target.closest('[data-idea-goto]')) { goBoard(); return; }
-      if (e.target.closest('#idea-add')) { addChecked(state, root, ctx, sec); }
+      if (e.target.closest('#idea-add')) { addChecked(state, root, ctx, sec); return; }
+      if (e.target.closest('.idea-retry')) { var seed = sec.querySelector('#idea-seed'); if (seed) { seed.focus(); seed.select && seed.select(); } }
     });
   }
   function mount(state, root, ctx) {

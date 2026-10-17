@@ -38,6 +38,8 @@
       lastBackupAt: null,
       backupSnoozeUntil: null,
       onboarding: { tourDone: false, tourSeenAt: null, days: {} },
+      hints: { dismissed: {} },
+      lastRoute: '',
       updatedAt: new Date().toISOString(),
     };
   }
@@ -52,6 +54,13 @@
       tourSeenAt: ob && typeof ob.tourSeenAt === 'string' ? ob.tourSeenAt : null,
       days: days,
     };
+  }
+
+  function mergeHints(h) {
+    var src = h && h.dismissed && typeof h.dismissed === 'object' ? h.dismissed : {};
+    var dismissed = {};
+    Object.keys(src).forEach(function (k) { if (src[k] === true) dismissed[k] = true; });
+    return { dismissed: dismissed };
   }
 
   function isValidSave(obj) {
@@ -88,6 +97,8 @@
         rankPlan: Array.isArray(parsed.rankPlan) ? parsed.rankPlan : [],
         lastSeenChangelog: typeof parsed.lastSeenChangelog === 'number' ? parsed.lastSeenChangelog : 0,
         onboarding: mergeOnboarding(parsed.onboarding),
+        hints: mergeHints(parsed.hints),
+        lastRoute: typeof parsed.lastRoute === 'string' ? parsed.lastRoute : '',
       };
       return global.QuestTools ? global.QuestTools.ensure(merged) : merged;
     } catch (e) {
@@ -124,5 +135,6 @@
     resetSave,
     isValidSave,
     mergeOnboarding,
+    mergeHints,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

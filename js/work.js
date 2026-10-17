@@ -92,6 +92,8 @@
       '<section class="block glass tool-card" id="rv-form-wrap"><h2 class="block-title">' + I('bulb') + '每周复盘 <span class="pill">' + ws + ' 起</span>' + (r.at ? '<span class="wb-st ok">已保存</span>' : '') + '</h2>' +
       '<p class="hint">每周花 10 分钟：先看自动事实，再写判断和下周 3 件事。只记真实发生的事，收入与规则以官方后台为准。</p>' +
       '<h3 class="wb-h">自动事实（本周一起）</h3><ul class="rv-facts" id="rv-facts">' + F.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+      ((!state.sites.items.length && !state.shares.length && !state.publish.some(function (p) { return p.ok && !p.dry; }) && !state.imports.length && !state.reviews.length)
+        ? '<div class="tool-empty" id="rv-empty"><p>还没有可复盘的记录。下一步：先登记一个站点，做完一两件事后再来写本周复盘。</p><a class="btn btn-primary btn-sm" href="#me-sites">去登记站点</a></div>' : '') +
       '<form id="rv-form" class="form-grid">' + FIELDS.slice(0, 3).map(function (f) { return '<label class="fld fld-wide"><span>' + f[1] + '</span><textarea id="rv-' + f[0] + '" rows="2" placeholder="' + esc(f[2]) + '">' + esc(r[f[0]] || '') + '</textarea></label>'; }).join('') +
       '<fieldset class="fld fld-wide"><legend>下周 3 件事</legend>' + [0, 1, 2].map(function (i) { return '<input id="rv-next-' + i + '" placeholder="' + (i + 1) + '. 可执行、能打勾的一件事" value="' + esc((r.next || [])[i] || '') + '" />'; }).join('') + '</fieldset>' +
       '<label class="fld fld-wide"><span>' + FIELDS[3][1] + '</span><textarea id="rv-risk" rows="2" placeholder="' + esc(FIELDS[3][2]) + '">' + esc(r.risk || '') + '</textarea></label>' +

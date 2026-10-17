@@ -181,9 +181,9 @@
     var hist = state.publish.slice(-5).reverse();
     root.innerHTML = '<div class="tool-wrap wb">' + pipeline(state, 'publish') +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('rocket') + '发布上线：把实操助手生成的站点写进你的 GitHub 仓库</h2>' +
-      (!ready ? '<div class="tool-empty"><p>先到 <a href="#war-kit">站一实操助手</a> 填主词和一句话介绍，生成页面后再来发布。</p></div>' :
+      (!ready ? '<div class="tool-empty"><p>还不能发布。下一步：先到站一实操助手填主词和一句话介绍，生成页面后再来。</p><a class="btn btn-primary btn-sm" href="#war-kit">去填实操助手</a></div>' :
         '<p class="hint">将发布 ' + files.length + ' 个文件：' + files.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ') + '（来自主词「' + esc(kit.keyword) + '」）。模板：' + esc(tplLabel) + '</p>') +
-      (!g.token ? '<div class="tool-empty"><p>' + I('lock') + '还没连接 GitHub。到 <a href="#me-accounts">账号中心</a> 填 Fine-grained Token。</p></div>' : '<p class="hint">已连接：<b>' + esc(g.login || '（未校验）') + '</b> · <a href="#me-accounts">管理</a></p>') +
+      (!g.token ? '<div class="tool-empty"><p>' + I('lock') + '还没连接 GitHub。下一步：到账号中心填 Fine-grained Token。</p><a class="btn btn-primary btn-sm" href="#me-accounts">去账号中心</a></div>' : '<p class="hint">已连接：<b>' + esc(g.login || '（未校验）') + '</b> · <a href="#me-accounts">管理</a></p>') +
       '<form id="pub-form" class="form-grid" autocomplete="off">' +
       '<label class="fld"><span>仓库所有者</span><input id="pub-owner" value="' + esc(g.owner || g.login) + '" placeholder="你的 GitHub 用户名" /></label>' +
       '<label class="fld"><span>仓库名</span><input id="pub-repo" value="' + esc(g.repo) + '" placeholder="pdf-merge-tool" /></label>' +
@@ -372,8 +372,10 @@
       '<label class="fld fld-wide"><span>或粘贴 CSV 文本</span><textarea id="imp-text" rows="3" placeholder="Date,Clicks,Impressions,CTR,Position&#10;2026-09-01,3,120,2.5%,14.2"></textarea></label>' +
       '<div class="tool-actions fld-wide"><button type="submit" class="btn btn-primary btn-sm">' + I('download') + '导入</button></div></form><p id="imp-msg" class="hint" role="status"></p></section>' +
       (ims.length ? '<section class="block glass tool-card"><h2 class="block-title">' + I('list') + '已导入（' + ims.length + '）</h2><div class="wb-chips">' + ims.map(function (x) { return '<button type="button" class="chip' + (sel && x.id === sel.id ? ' on' : '') + '" data-ds="' + x.id + '">' + esc(x.name) + ' · ' + x.rows.length + ' 行</button>'; }).join('') + '</div></section>' + body
-        : '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>还没有导入数据。站点上线一两周后，从 GSC 导出一次「效果」CSV 导入，就能看到趋势和机会词。</p></div>') + (global.QuestShare ? global.QuestShare.timeline(state) : '') + '</div>';
+        : '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>' + (sites.length ? '还没有导入数据。下一步：从 GSC 导出一次「效果」CSV，在上面选好文件后点导入。' : '还没有导入数据。下一步：先登记一个站点，上线一两周后再从 GSC 导出「效果」CSV 导入。') + '</p>' + (sites.length ? '<button type="button" class="btn btn-primary btn-sm" id="an-empty-go">去导入 CSV</button>' : '<a class="btn btn-primary btn-sm" href="#me-sites">去登记站点</a>') + '</div>') + (global.QuestShare ? global.QuestShare.timeline(state) : '') + '</div>';
 
+    var emptyGo = root.querySelector('#an-empty-go');
+    if (emptyGo) emptyGo.addEventListener('click', function () { var f = root.querySelector('#imp-file'); if (f) { try { f.scrollIntoView({ block: 'center' }); } catch (_) {} f.click(); } });
     var msg = root.querySelector('#imp-msg');
     root.querySelector('#imp-form').addEventListener('submit', function (e) {
       e.preventDefault();

@@ -149,7 +149,7 @@
       '<p class="hint">全部免费：只用各平台官方的分享/发帖链接，在你自己登录的页面里由你确认发布；本站不代发、不调用付费 API。</p>' +
       '<div class="sh-src" role="tablist">' + srcTabs.map(function (t) { return '<button type="button" role="tab" class="chip' + (d.src === t[0] ? ' on' : '') + '" data-src="' + t[0] + '" aria-selected="' + (d.src === t[0]) + '">' + I(t[2]) + t[1] + '</button>'; }).join('') + '</div>' +
       '<div class="form-grid sh-src-form">' +
-      (d.src === 'kit' ? (s ? '<p class="hint fld-wide">来自 <a href="#war-kit">站一实操助手</a>：<b>' + esc(s.title) + '</b>' + (s.templateName ? ' · 模板：' + esc(s.templateName) : '') + (s.url ? ' · ' + esc(s.url) : ' · 还没有网址（<a href="#war-publish">先发布</a> 或在实操助手填域名）') + '</p>' : '<p class="hint fld-wide">先到 <a href="#war-kit">站一实操助手</a> 填主词和介绍。</p>') : '') +
+      (d.src === 'kit' ? (s ? '<p class="hint fld-wide">来自 <a href="#war-kit">站一实操助手</a>：<b>' + esc(s.title) + '</b>' + (s.templateName ? ' · 模板：' + esc(s.templateName) : '') + (s.url ? ' · ' + esc(s.url) : ' · 还没有网址（<a href="#war-publish">先发布</a> 或在实操助手填域名）') + '</p>' : '<div class="tool-empty fld-wide"><p>还没有可分发的内容。下一步：先到站一实操助手填主词和一句话介绍。</p><a class="btn btn-primary btn-sm" href="#war-kit">去填实操助手</a></div>') : '') +
       (d.src === 'rank' ? '<label class="fld fld-wide"><span>赚钱榜条目（' + esc(global.QUEST_RANK && global.QUEST_RANK.latest || '') + '）</span><select id="sh-rank">' + items.map(function (it) { return '<option value="' + it.rank + '"' + (+d.rank === it.rank ? ' selected' : '') + '>No.' + it.rank + ' ' + esc(it.name) + '</option>'; }).join('') + '</select></label>' : '') +
       (d.src === 'url' ? '<label class="fld"><span>网址</span><input id="sh-url" type="url" placeholder="https://you.github.io/site/" value="' + esc(d.url) + '" /></label><label class="fld"><span>标题</span><input id="sh-title" value="' + esc(d.title) + '" /></label><label class="fld fld-wide"><span>一句话介绍</span><textarea id="sh-text" rows="2">' + esc(d.text) + '</textarea></label>' : '') +
       (d.src === 'text' ? '<label class="fld fld-wide"><span>要分享的内容</span><textarea id="sh-text" rows="4" placeholder="写下你想分享的内容，第一行会作为标题">' + esc(d.text) + '</textarea></label><label class="fld"><span>链接（可空）</span><input id="sh-url" type="url" value="' + esc(d.url) + '" /></label>' : '') +
@@ -207,7 +207,7 @@
 
   /* ---------- 数据分析时间线 ---------- */
   function timeline(state) {
-    ensure(state); var sh = state.shares; if (!sh.length) return '<section class="block glass tool-card" id="share-timeline"><h2 class="block-title">' + I('rocket') + '分发时间线</h2><p class="empty-hint">还没有分发记录。到 <a href="#war-share">内容分发</a> 生成并发帖。</p></section>';
+    ensure(state); var sh = state.shares; if (!sh.length) return '<section class="block glass tool-card" id="share-timeline"><h2 class="block-title">' + I('rocket') + '分发时间线</h2><div class="tool-empty"><p>还没有分发记录。下一步：到内容分发生成文案，再用官方链接自己去发。</p><a class="btn btn-primary btn-sm" href="#war-share">去内容分发</a></div></section>';
     var byP = {}, byDay = {}; sh.forEach(function (r) { byP[r.platformName] = (byP[r.platformName] || 0) + 1; var k = r.at.slice(0, 10); (byDay[k] = byDay[k] || []).push(r); });
     var max = Math.max.apply(null, Object.keys(byP).map(function (k) { return byP[k]; }));
     return '<section class="block glass tool-card" id="share-timeline"><h2 class="block-title">' + I('rocket') + '分发时间线（' + sh.length + ' 次）</h2>' +
