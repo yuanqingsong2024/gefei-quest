@@ -502,8 +502,12 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T18(await p.evaluate(t => { const e = document.getElementById(t); return !!e && !e.closest('.cx-off'); }, tgt), 'doc: TOC click reveals collapsed section');
   // 首页：标签；#home-faq 深链接
   await visit('home'); await p.reload(); await p.waitForTimeout(300);
-  const hm = await p.evaluate(() => ({ tabs: document.querySelectorAll('.home-wrap .cx-tabs .cx-tab-btn').length, faqOff: [...document.querySelectorAll('.home-wrap > [data-tab]')].filter(x => !x.classList.contains('cx-off')).length === 1, today: !document.querySelector('#home-today').classList.contains('cx-off') }));
-  T18(hm.tabs === 7 && hm.faqOff && hm.today, 'home: 7 section tabs, 今日任务 always visible');
+  const hm = await p.evaluate(() => ({
+    today: !!document.querySelector('#home-today') && !document.querySelector('#home-today').classList.contains('cx-off') && /今日任务/.test(document.querySelector('#home-today').textContent),
+    faq: !!document.getElementById('home-faq'),
+    anchors: ['home-today', 'home-faq', 'home-progress', 'home-sections', 'home-tools', 'home-steps', 'home-res', 'home-guides'].every((id) => !!document.getElementById(id)),
+  }));
+  T18(hm.today && hm.faq && hm.anchors, 'home: anchors kept, 今日任务 visible');
   await p.goto(BASE + 'index.html#home-faq'); await p.reload(); await p.waitForTimeout(400);
   T18(await p.evaluate(() => !document.querySelector('#home-faq').classList.contains('cx-off')), 'home: #home-faq anchor reveals its tab');
   await visit('changelog'); await p.reload(); await p.waitForTimeout(200);
@@ -518,7 +522,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     H[r] = +(await p.evaluate(() => document.documentElement.scrollHeight / 800)).toFixed(2);
   }
   await p.setViewportSize({ width: 1280, height: 860 });
-  T18(Object.values(H).every(v => v <= 2.5), 'heights ≤2.5 screens @1280x800 ' + JSON.stringify(H));
+  T18(Object.entries(H).every(([k, v]) => v <= (k === 'home' ? 3 : 2.5)), 'heights ≤2.5 screens (home ≤3) @1280x800 ' + JSON.stringify(H));
   await visit('me-accounts'); await p.reload(); await p.waitForTimeout(300);
   T18(await p.evaluate(() => {
     const cards = [...document.querySelectorAll('#panel-me .wb-plat')].filter(el => el.offsetParent !== null);
@@ -1353,6 +1357,186 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P20a functional fails=' + f20a); fail += f20a;
+
+  // ---------- Phase 20b · 首页重做 ----------
+  let f20b = 0; {
+  const T20b = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P20b ' + m); if (!c) f20b++; };
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  await ctx.addInitScript(() => { try { localStorage.setItem('gefei-quest-tour-test', '1'); } catch (e) {} });
+  const pg = cx(await ctx.newPage());
+  const e20b = [];
+  pg.on('pageerror', (e) => { e20b.push('pageerror ' + e.message); errors.push('p20b ' + e.message); });
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e20b.push(m.text()); errors.push('p20b ' + m.text()); } });
+  try {
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#home-rank-list');
+    await pg.waitForSelector('#tour-root');
+    const hero = await pg.evaluate(() => {
+      const primary = document.querySelector('.hero-cta a.btn-primary');
+      const secondary = document.querySelector('.hero-cta a.btn-ghost, .hero-cta a.btn-secondary');
+      return {
+        pHref: primary && primary.getAttribute('href'),
+        pText: primary ? primary.textContent.replace(/\s+/g, '') : '',
+        sHref: secondary && secondary.getAttribute('href'),
+        sText: secondary ? secondary.textContent.replace(/\s+/g, '') : '',
+      };
+    });
+    T20b(hero.pHref === '#start' && hero.pText.indexOf('开始新手引导') >= 0 && hero.sHref === '#work' && hero.sText.indexOf('进入工作台') >= 0, 'hero CTAs ' + JSON.stringify(hero));
+    const top = await pg.evaluate(() => {
+      const src = (QUEST_RANK.days[QUEST_RANK.latest] && QUEST_RANK.days[QUEST_RANK.latest].items) || [];
+      const expect = src.slice(0, Math.min(10, src.length));
+      const rows = [...document.querySelectorAll('#home-rank-card .home-rank-row')];
+      const date = (document.querySelector('#home-rank-date') || {}).textContent || '';
+      const clause = (cost) => { const s = String(cost == null ? '' : cost).trim(); const first = (s.split(/[；;。]/)[0] || '').trim(); return first || s; };
+      const bad = rows.find((row, i) => {
+        const it = expect[i];
+        if (!it) return true;
+        const costEl = row.querySelector('.home-rank-cost');
+        const diff = row.querySelector('.rank-diff');
+        const pill = row.querySelector('.pill');
+        return row.getAttribute('data-name') !== it.name || row.getAttribute('href') !== '#war-rank' ||
+          !pill || pill.textContent.trim() !== it.type ||
+          !costEl || costEl.textContent.trim() !== clause(it.cost) || costEl.getAttribute('title') !== String(it.cost) ||
+          !diff || diff.getAttribute('aria-label') !== ('难度 ' + it.difficulty + '/5');
+      });
+      return { n: rows.length, expect: expect.length, names: rows.map((r) => r.getAttribute('data-name')), want: expect.map((i) => i.name), date, latest: QUEST_RANK.latest, bad: !!bad };
+    });
+    T20b(top.n === top.expect && top.n === Math.min(10, top.expect) && top.names.join('\n') === top.want.join('\n') && top.date === top.latest && !top.bad, 'top10 n=' + top.n + ' date=' + top.date + (top.bad ? ' row mismatch' : ''));
+    const stats = await pg.evaluate(() => {
+      const num = (k) => +(document.querySelector('[data-stat="' + k + '"] b').textContent);
+      const items = (QUEST_RANK.days[QUEST_RANK.latest] && QUEST_RANK.days[QUEST_RANK.latest].items) || [];
+      return {
+        platforms: num('platforms'), rank: num('rank'), templates: num('templates'),
+        ep: QUEST_PLATFORMS.PLATFORMS.length, er: items.length, et: QuestTools.TEMPLATES.length,
+      };
+    });
+    T20b(stats.platforms === stats.ep && stats.rank === stats.er && stats.templates === stats.et, 'stats ' + JSON.stringify(stats));
+    await pg.evaluate(() => { if (window.QuestTour) QuestTour.close(); });
+    const jump = await pg.evaluate(() => {
+      const tracks = [...document.querySelectorAll('#home-steps a[href]')].map((a) => a.getAttribute('href'));
+      const feats = [...document.querySelectorAll('#home-sections a[href]')].map((a) => a.getAttribute('href'));
+      return { tracks, feats };
+    });
+    T20b(jump.tracks.length === 3 && jump.feats.length >= 6, 'track/feature link counts ' + jump.tracks.length + '/' + jump.feats.length);
+    for (const h of jump.tracks.concat(jump.feats)) {
+      const key = h.replace(/^#/, '').split('?')[0];
+      const parsed = await pg.evaluate((k) => QuestNav.parse(k).section, key);
+      await pg.goto(BASE + 'index.html' + (h.charAt(0) === '#' ? h : '#' + h), { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(80);
+      const landed = await pg.evaluate(() => QuestNav.parse(location.hash.replace(/^#/, '').split('?')[0]).section);
+      let tabOk = true;
+      if (/^#start-(learn|do|earn)$/.test(h)) {
+        const id = h.slice(7);
+        tabOk = await pg.evaluate((id) => {
+          const b = document.getElementById('start-tab-' + id);
+          const panel = document.getElementById('start-panel-' + id);
+          return !!(b && b.getAttribute('aria-selected') === 'true' && panel && !panel.hidden);
+        }, id);
+      }
+      T20b(parsed !== 'home' && landed !== 'home' && tabOk, h + ' -> ' + parsed + ' / ' + landed + (tabOk ? '' : ' tab closed'));
+    }
+    const anchorIds = ['home-today', 'home-faq', 'home-progress', 'home-sections', 'home-tools', 'home-steps', 'home-res', 'home-guides'];
+    for (const id of anchorIds) {
+      await pg.goto(BASE + 'index.html#' + id, { waitUntil: 'domcontentloaded' });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(250);
+      const ok = await pg.evaluate((id) => {
+        const el = document.getElementById(id);
+        if (!el || !el.isConnected || el.classList.contains('cx-off') || el.closest('.cx-off')) return false;
+        const r = el.getBoundingClientRect();
+        return location.hash === '#' + id && r.width + r.height > 0 && r.top < window.innerHeight && r.bottom > 0;
+      }, id);
+      T20b(ok, 'anchor #' + id);
+    }
+    await pg.goto(BASE + 'index.html#home-faq', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    await pg.evaluate(() => { if (window.QuestTour && QuestTour.isOpen && QuestTour.isOpen()) QuestTour.close(); });
+    const faqBefore = await pg.evaluate(() => document.querySelector('#home-faq details').open);
+    // locator.click 不走 cx()：cx 的 revealSel 会先把祖先 <details> 设为 open，随后这次点击再把它关掉，前后都是 false。
+    await pg.locator('#home-faq details summary').first().click();
+    const faqAfter = await pg.evaluate(() => document.querySelector('#home-faq details').open);
+    T20b(faqBefore !== faqAfter, 'FAQ toggles ' + faqBefore + ' -> ' + faqAfter);
+    await pg.setViewportSize({ width: 1280, height: 800 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(300);
+    const screens = await pg.evaluate(() => document.documentElement.scrollHeight / 800);
+    T20b(screens <= 3, 'home screens @1280x800 ' + screens.toFixed(2));
+    const fitAt = async (w) => {
+      await pg.setViewportSize({ width: w, height: 800 });
+      await pg.waitForTimeout(80);
+      return pg.evaluate(() => {
+        const inner = document.querySelector('.site-nav-inner');
+        const links = document.querySelector('.site-links');
+        const last = links && links.querySelector('a:last-of-type');
+        if (!inner || !links || !last) return { ok: false, why: 'missing' };
+        const ir = inner.getBoundingClientRect();
+        const lr = links.getBoundingClientRect();
+        const ar = last.getBoundingClientRect();
+        return {
+          ok: ar.right <= lr.right + 1 && ar.right <= ir.right + 1 && ar.left >= lr.left - 1 && ar.width > 20,
+          lastRight: Math.round(ar.right), linksRight: Math.round(lr.right), innerRight: Math.round(ir.right),
+          text: last.textContent.replace(/\s+/g, ''),
+        };
+      });
+    };
+    const fit1024 = await fitAt(1024);
+    T20b(fit1024.ok, 'nav 1024 ' + JSON.stringify(fit1024));
+    const fit1280 = await fitAt(1280);
+    T20b(fit1280.ok, 'nav 1280 ' + JSON.stringify(fit1280));
+    await pg.evaluate(() => { if (window.QuestTour && QuestTour.isOpen && QuestTour.isOpen()) QuestTour.close(); });
+    await pg.evaluate(() => {
+      try {
+        const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || 'null');
+        if (s) { s.onboarding = Object.assign({}, s.onboarding, { tourDone: false }); localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); }
+      } catch (e) {}
+    });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#tour-root');
+    const titles = [];
+    for (let i = 0; i < 8; i++) {
+      if (!(await pg.$('#tour-root'))) break;
+      titles.push((await pg.locator('#tour-title').innerText()).trim());
+      const label = (await pg.locator('#tour-next').innerText()).trim();
+      await pg.click('#tour-next');
+      await pg.waitForTimeout(40);
+      if (/完成/.test(label)) break;
+    }
+    const stepN = await pg.evaluate(() => (window.QuestTour && QuestTour.STEPS ? QuestTour.STEPS.length : 0));
+    T20b(titles.length === stepN && stepN >= 6 && !(await pg.$('#tour-root')), 'tour steps ' + titles.length + '/' + stepN + ' ' + titles.join(' > '));
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(300);
+    const mob = await pg.evaluate(() => {
+      const bar = document.getElementById('bottom-bar');
+      const br = bar ? bar.getBoundingClientRect() : null;
+      const rows = document.querySelectorAll('#home-rank-card .home-rank-row').length;
+      return {
+        sw: document.documentElement.scrollWidth,
+        rows,
+        bar: !!(bar && br && br.height > 20 && br.bottom <= window.innerHeight + 2 && br.left >= -1 && br.right <= document.documentElement.clientWidth + 1),
+        n: bar ? bar.querySelectorAll('a, button').length : 0,
+      };
+    });
+    T20b(mob.sw <= 390 && mob.rows >= 1 && mob.bar && mob.n === 6, '390px ' + JSON.stringify(mob));
+    if (SHOTS) {
+      await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
+      await pg.screenshot({ path: `${SHOTS}/p20-home-mobile.png`, fullPage: true });
+      await pg.setViewportSize({ width: 1280, height: 800 });
+      await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(300);
+      await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
+      await pg.screenshot({ path: `${SHOTS}/p20-home.png`, fullPage: true });
+    }
+  } catch (e) {
+    T20b(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
+  }
+  T20b(e20b.length === 0, 'P20b console errors ' + e20b.slice(0, 4).join(' | '));
+  await ctx.close();
+  }
+  console.log('P20b functional fails=' + f20b); fail += f20b;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

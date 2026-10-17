@@ -129,7 +129,8 @@
   function parse(raw) {
     var h = canonical(raw);
     if (/^home(-|$)/.test(h)) return { section: 'home', view: 'home', param: h === 'home' ? '' : h, hash: h };
-    if (h === 'start') return { section: 'start', view: 'start', hash: 'start' };
+    var startTrack = /^start(?:-(learn|do|earn))?$/.exec(h);
+    if (startTrack) return { section: 'start', view: 'start', param: startTrack[1] || '', hash: h };
     if (h === 'path') return { section: 'path', view: 'map', hash: h };
     if (h === 'path-quests') return { section: 'path', view: 'quests', hash: h };
     var st = { war: 1, 'war-s2': 2, 'war-s3': 3, 'war-m': 4, 'war-x': 5 };
@@ -225,7 +226,7 @@
       '<p class="foot-ver"><span class="pill">' + V.v + '</span> 更新于 ' + esc(V.date) + ' · <a href="#changelog">更新日志</a> · <a href="daily.json" target="_blank" rel="noopener">daily.json</a></p></div>' +
       '<div class="foot-cols">' +
       '<div><h4>站点地图</h4>' + SITE_NAV.map(function (n) { return '<a href="' + n.hash + '">' + n.label + '</a>'; }).join('') + '<a href="#start" id="foot-tour">新手导览</a></div>' +
-      '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a><a href="#war-rank">每日赚钱榜</a><a href="#war-publish">发布上线</a><a href="#war-share">内容分发</a><a href="#work" data-tour="work">工作台</a><a href="#work-review">每周复盘</a></div>' +
+      '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a><a href="#war-rank">每日赚钱榜</a><a href="#war-publish">发布上线</a><a href="#war-share">内容分发</a><a href="#work">工作台</a><a href="#work-review">每周复盘</a></div>' +
       '<div><h4>资源库</h4>' + LIB_CATS.map(function (c) { return '<a href="#lib-' + c.id + '">' + c.label + '</a>'; }).join('') + '<a href="#pm">平台变现</a><a href="#pm-cn">平台变现 · 国内</a><a href="#pm-global">平台变现 · 海外</a></div>' +
       '<div><h4>我的</h4>' + ME_TABS.map(function (t) { return '<a href="' + t.hash + '">' + t.label + '</a>'; }).join('') + '<a href="#guides">手册与模板</a><a href="#dev">' + DEV_SECTION.label + '</a><a href="https://github.com/yuanqingsong2024/gefei-quest" target="_blank" rel="noopener">GitHub 仓库</a></div>' +
       '<div class="foot-news"><h4>最近更新</h4>' + log.map(function (e) { return '<a href="#changelog"><small>' + esc(e.date) + '</small>' + esc(e.title) + '</a>'; }).join('') + '</div>' +

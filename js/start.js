@@ -65,23 +65,30 @@
     return links.map(function (l) { return '<a class="btn btn-sm" href="' + l[0] + '">' + esc(l[1]) + '</a>'; }).join('');
   }
 
+  function trackFromLocation() {
+    var h = '';
+    try { h = (location.hash || '').replace(/^#/, '').split('?')[0]; } catch (_) { h = ''; }
+    if (h === 'start-learn' || h === 'start-do' || h === 'start-earn') return h.slice(6);
+    return 'learn';
+  }
   function render(root, state) {
     if (!root) return;
     var ob = obOf(state);
     var n = doneCount(ob.days);
+    var activeId = trackFromLocation();
     root.innerHTML =
       '<div class="start-page" id="start-page">' +
       '<div class="start-top"><div><p class="start-lead">三条路线，选一条先走 7 天</p>' +
       '<p id="start-progress">前 7 天已完成 <b id="start-done">' + n + '</b> / 7</p></div>' +
       '<button type="button" class="btn btn-primary" id="start-tour">' + I('flag') + '重新播放导览</button></div>' +
       '<div class="start-cards" id="start-tracks" role="tablist" aria-label="三条路线">' +
-      TRACKS.map(function (tr, i) {
-        var on = i === 0;
+      TRACKS.map(function (tr) {
+        var on = tr.id === activeId;
         return '<button type="button" class="start-card' + (on ? ' on' : '') + '" role="tab" id="start-tab-' + tr.id + '" data-track="' + tr.id + '" aria-selected="' + (on ? 'true' : 'false') + '" aria-controls="start-panel-' + tr.id + '"' + (on ? '' : ' tabindex="-1"') + '>' +
           '<span class="card-ico">' + I(tr.icon) + '</span><span><b>' + tr.no + ' ' + esc(tr.name) + '</b><small>' + esc(tr.blurb) + '</small></span></button>';
       }).join('') + '</div>' +
-      TRACKS.map(function (tr, i) {
-        return '<div class="start-panel" role="tabpanel" id="start-panel-' + tr.id + '" data-track="' + tr.id + '" aria-labelledby="start-tab-' + tr.id + '"' + (i ? ' hidden' : '') + '>' +
+      TRACKS.map(function (tr) {
+        return '<div class="start-panel" role="tabpanel" id="start-panel-' + tr.id + '" data-track="' + tr.id + '" aria-labelledby="start-tab-' + tr.id + '"' + (tr.id === activeId ? '' : ' hidden') + '>' +
           '<div class="start-body"><img class="start-shot" id="start-img-' + tr.id + '" src="' + tr.img + '" width="640" height="400" alt="' + esc(tr.alt) + '" loading="lazy" />' +
           '<ol class="start-steps">' + tr.steps.map(function (s) {
             return '<li><span>' + esc(s.t) + '</span> ' + linksHtml(s.links) + '</li>';

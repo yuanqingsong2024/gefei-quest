@@ -1,4 +1,4 @@
-/** 首页枢纽 · 分类入口卡片 */
+/** 首页 · 产品页：今日赚钱榜 Top 10、三条路线、功能入口 */
 (function (global) {
   function esc(s) {
     return String(s == null ? '' : s)
@@ -303,12 +303,65 @@
     );
   }
 
-  var STEPS = [
-    ['search', '挖词', '找一个低竞争英文需求词', '#war'],
-    ['build', '上站', '单页上线 · HTTPS · 统计', '#war'],
-    ['chart', 'SEO', 'GSC 收录 · 内容与内链', '#war-s3'],
-    ['coin', '变现', 'AdSense / 联盟门槛', '#war-m'],
-    ['rocket', '放大', '复制流程到多站', '#war-x'],
+  function costClause(cost) {
+    var s = String(cost == null ? '' : cost).trim();
+    var first = (s.split(/[；;。]/)[0] || '').trim();
+    return first || s;
+  }
+  function diffDots(n) {
+    n = Math.max(0, Math.min(5, +n || 0));
+    var s = '';
+    for (var i = 1; i <= 5; i++) s += '<i class="' + (i <= n ? 'on' : '') + '"></i>';
+    return '<span class="rank-diff" data-difficulty="' + n + '" aria-label="难度 ' + n + '/5">' + s + '</span>';
+  }
+  function homeCounts() {
+    var plats = (global.QUEST_PLATFORMS && global.QUEST_PLATFORMS.PLATFORMS) || [];
+    var rank = global.QUEST_RANK || {};
+    var dayItems = (rank.latest && rank.days && rank.days[rank.latest] && rank.days[rank.latest].items) || [];
+    var guides = ((global.QuestNav && global.QuestNav.GUIDES) || []).filter(function (g) { return g.group === 'playbook'; });
+    return {
+      platforms: plats.length,
+      rank: dayItems.length,
+      days: (rank.dates || []).length,
+      templates: (global.QuestTools && global.QuestTools.TEMPLATES || []).length,
+      guides: guides.length,
+      changelog: (global.QUEST_CHANGELOG || []).length,
+    };
+  }
+  function latestRankItems() {
+    var list = [];
+    try {
+      if (global.QuestRank && typeof QuestRank.latestItems === 'function') list = QuestRank.latestItems() || [];
+    } catch (_) {}
+    if (!list.length) {
+      var rank = global.QUEST_RANK || {};
+      if (rank.latest && rank.days && rank.days[rank.latest]) list = rank.days[rank.latest].items || [];
+    }
+    return list.slice(0, Math.min(10, list.length));
+  }
+
+  var HOME_TRACKS = [
+    { id: 'learn', hash: '#start-learn', icon: 'map', name: '学习', lines: ['按章节看关卡地图和任务清单', '资源库、平台变现和作战手册都在这条路上', '只勾你已经在线下做完的任务'] },
+    { id: 'do', hash: '#start-do', icon: 'target', name: '实施', lines: ['选词练习板里可以打开关键词灵感', '实操助手选模板，再发布和分发', '数据分析、Google 连接和每周复盘'] },
+    { id: 'earn', hash: '#start-earn', icon: 'coin', name: '赚钱', lines: ['看每日赚钱榜的类型、成本和难度', '把一条加进实操计划，先试一周', '榜单卡片上的 AI 按钮在 AI 设置里切换'] },
+  ];
+  var HOME_FEATS = [
+    { href: '#war', icon: 'calendar', title: '作战日程', desc: '五个阶段各一张 Day 1–7 清单，和任务清单共用勾选。' },
+    { href: '#war-kit', icon: 'kit', title: '实操助手', desc: '四种起步模板，填主词后预览并下载页面。' },
+    { href: '#war-keywords', icon: 'tag', title: '选词', desc: '给候选词打分，关键词灵感可以加入候选。' },
+    { href: '#war-publish', icon: 'rocket', title: '发布上线', desc: '先预演，再写入 GitHub Pages，并登记到站点台账。' },
+    { href: '#war-share', icon: 'external', title: '内容分发', desc: '生成各平台文案，用官方免费链接自己去发。' },
+    { href: '#me-analytics', icon: 'chart', title: '数据分析', desc: '导入 CSV，或到账号中心用 Google 只读拉取。' },
+    { href: '#pm', icon: 'coin', title: '平台变现', desc: '国内和海外平台的门槛、分成和来源，以官网为准。', id: 'home-res' },
+    { href: '#me-ai', icon: 'sparkle', title: 'AI 助手', desc: '选词、赚钱榜和实操助手上的 AI 按钮，服务商在 AI 设置。' },
+  ];
+  var HOME_FAQ = [
+    ['进度存在哪里？', '只存在你当前浏览器的 localStorage，不上传服务器。换设备请在「我的进度」导出 / 导入 JSON。'],
+    ['能保证赚钱吗？', '不保证。赚钱榜和平台页只整理公开、合法的渠道，额度与规则会变，以各平台官网为准。'],
+    ['和哥飞是什么关系？', '非官方。这里是基于公开分享的方法学习整理，不含付费社群内容。'],
+    ['学习路线和实战作战室有什么区别？', '同一份进度的两种看法：学习路线按章节列全部任务；作战室把每站压成 Day 1–7 日程。任一处勾选，另一处同步。'],
+    ['今日赚钱榜的数字从哪来？', '来自站内已发布的每日榜单（类型、成本、难度和来源）。首页只显示最新一天的前 10 条，完整内容和免责声明在每日赚钱榜。'],
+    ['新手引导可以再看一次吗？', '可以。打开「新手引导」点「重新播放导览」，或用页脚的「新手导览」。前 7 天清单的勾选记在本机存档里。'],
   ];
 
   function sitesSnap(raw) {
@@ -341,48 +394,66 @@
   function renderHome(root, state) {
     if (!root) return;
     var N = global.QuestNav, I = N.icon;
-    var sections = N.SITE_NAV.filter(function (n) { return n.id !== 'home' && n.id !== 'start'; });
+    var C = homeCounts();
+    var rank = global.QUEST_RANK || {};
+    var items = latestRankItems();
+    var date = rank.latest || '';
+    var stats = [
+      ['platforms', C.platforms, '收录平台'],
+      ['rank', C.rank, '今日榜'],
+      ['days', C.days, '累计天数'],
+      ['templates', C.templates, '起步模板'],
+      ['guides', C.guides, '作战手册'],
+      ['changelog', C.changelog, '更新日志'],
+    ];
+    var rankBody = items.length
+      ? '<ol class="home-rank-list" id="home-rank-list">' + items.map(function (it) {
+        var cost = String(it.cost == null ? '' : it.cost);
+        var short = costClause(cost);
+        return '<li><a class="home-rank-row" href="#war-rank" data-name="' + esc(it.name) + '" data-type="' + esc(it.type) + '" data-cost="' + esc(cost) + '" data-difficulty="' + esc(it.difficulty) + '">' +
+          '<span class="home-rank-no">' + esc(it.rank) + '</span>' +
+          '<span class="home-rank-name" title="' + esc(it.name) + '">' + esc(it.name) + '</span>' +
+          '<span class="home-rank-meta"><span class="pill">' + esc(it.type) + '</span>' +
+          '<span class="home-rank-cost" title="' + esc(cost) + '">' + esc(short) + '</span>' +
+          diffDots(it.difficulty) + '</span></a></li>';
+      }).join('') + '</ol>'
+      : '<p class="home-rank-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     root.innerHTML =
-      '<section class="hero" aria-label="首页">' +
+      '<section class="hero hero-home" aria-label="首页">' +
       '<div class="hero-inner">' +
+      '<div class="hero-copy">' +
       '<p class="hero-kicker">出海建站 · SEO · 练习营</p>' +
-      '<h1 class="hero-title">把出海小站，<br />当成一场闯关冒险</h1>' +
-      '<p class="hero-sub">挖词 → 上站 → SEO → 变现 → 放大<br />每一步都有清单、模板和资源，勾一项就是线下真做完一项。</p>' +
-      '<div class="hero-cta"><a class="btn btn-primary" href="#war" data-tour="cta">' + I('target') + '开始站一</a><a class="btn btn-ghost" href="#lib">' + I('toolbox') + '逛资源库</a></div>' +
-      '</div></section>' +
-      '<div class="home-wrap">' + (state && global.QuestStats ? global.QuestStats.todayCard(state) : '') +
-      '<section class="lp-sec" id="home-sections" data-tab="六个栏目"><div class="sec-head"><span class="sec-kicker">EXPLORE</span><h2>六个栏目</h2><p>全站只有这六个栏目，顶栏、页脚和这里名字完全一致。</p></div>' +
-      '<div class="feat-grid">' + sections.map(function (n) {
-        return '<a class="feat-card" href="' + n.hash + '"><span class="card-ico card-ico-lg">' + I(n.icon) + '</span><b>' + n.label + '</b><small>' + n.sub + '</small><span>' + n.desc + '</span></a>';
+      '<h1 class="hero-title">把出海小站当成一场闯关：每天一份赚钱榜、一套实操工具、一条清晰路线</h1>' +
+      '<p class="hero-sub">从选词、上线到收录和变现，每一步都有清单和模板。进度只存在这台浏览器。不承诺收入。</p>' +
+      '<div class="hero-cta"><a class="btn btn-primary" href="#start" data-tour="cta">' + I('flag') + '开始新手引导</a><a class="btn btn-ghost" href="#work" data-tour="work">' + I('target') + '进入工作台</a></div>' +
+      '</div>' +
+      '<ul class="home-stats" aria-label="站内真实数据">' + stats.map(function (s) {
+        return '<li class="home-stat" data-stat="' + s[0] + '"><b>' + esc(s[1]) + '</b><span>' + s[2] + '</span></li>';
+      }).join('') + '</ul></div></section>' +
+      '<div class="home-wrap">' +
+      '<section class="home-rank" id="home-rank-card" data-tour="rank" aria-label="今日赚钱榜">' +
+      '<div class="home-rank-head"><div><h2>' + I('trophy') + '今日赚钱榜</h2>' +
+      '<p>' + (date ? '<time id="home-rank-date" datetime="' + esc(date) + '">' + esc(date) + '</time> · ' : '') + '每日更新 · 不保证收益</p></div>' +
+      '<a class="btn btn-sm btn-primary" href="#war-rank">查看完整榜单</a></div>' +
+      rankBody + '</section>' +
+      '<section class="lp-sec" id="home-steps" data-tour="tracks"><div class="sec-head"><h2>三条路线</h2><p>选一条，进入新手引导里对应的标签。</p></div>' +
+      '<div class="home-tracks">' + HOME_TRACKS.map(function (tr) {
+        return '<a class="home-track" href="' + tr.hash + '"><span class="card-ico">' + I(tr.icon) + '</span><b>' + esc(tr.name) + '</b><ul>' +
+          tr.lines.map(function (line) { return '<li>' + esc(line) + '</li>'; }).join('') +
+          '</ul><span class="home-track-go">进入' + esc(tr.name) + '</span></a>';
       }).join('') + '</div></section>' +
-      '<section class="lp-sec" id="home-tools" data-tab="实操工具"><div class="sec-head"><span class="sec-kicker">TOOLS</span><h2>四个实操工具</h2><p>不只是看清单：帮你生成页面、记录选词、追踪每个站的数据。全部只存本机浏览器。</p></div>' +
-      '<div class="feat-grid">' +
-      '<a class="feat-card" href="#war-kit"><span class="card-ico card-ico-lg">' + I('kit') + '</span><b>站一实操助手</b><small>实战作战室</small><span>填主词和域名，实时检查 title / 描述 / h1，一键下载已填好的站一页面 + robots + sitemap，并附上线自查表。</span></a>' +
-      '<a class="feat-card" href="#war-keywords"><span class="card-ico card-ico-lg">' + I('tag') + '</span><b>选词练习板</b><small>实战作战室</small><span>记候选词和搜索结果前 10 观察，自动打分「适合练手 / 可以试 / 先换长尾」，一键设为站一主词。</span></a>' +
-      '<a class="feat-card" href="#me-sites"><span class="card-ico card-ico-lg">' + I('ledger') + '</span><b>我的站点台账</b><small>我的进度</small><span>登记每个站的域名、状态和变现方式，按月记曝光、点击、收入，自动画折线。</span></a>' +
-      '<a class="feat-card" href="#war-rank" id="home-rank-card" data-tour="rank"><span class="card-ico card-ico-lg">' + I('trophy') + '</span><b>每日赚钱榜</b><small>实战作战室 · ' + esc((global.QUEST_RANK && global.QUEST_RANK.latest) || '待发布') + '</small><span>每天 10 个公开、合法的赚钱 / 薅羊毛渠道：成本、难度、适合谁、风险和官方来源，可收藏、可加入实操计划。不保证收益。</span></a>' +
-      '</div></section>' +
-      '<section class="lp-sec" id="home-steps" data-tab="五步路线" data-tour="tracks"><div class="sec-head"><span class="sec-kicker">ROADMAP</span><h2>五步路线</h2><p>从零到多站，按顺序推进，每步对应一个实战作战室。</p></div>' +
-      '<ol class="steps">' + STEPS.map(function (s, k) {
-        return '<li><a class="step" href="' + s[3] + '"><span class="step-no">' + (k + 1) + '</span><span class="card-ico">' + I(s[0]) + '</span><b>' + s[1] + '</b><span>' + s[2] + '</span></a></li>';
-      }).join('') + '</ol></section>' +
-      '<section class="lp-sec" id="home-res" data-tab="资源库"><div class="sec-head"><span class="sec-kicker">RESOURCES</span><h2>资源库分类</h2><p>官方免费档与公开渠道摘要，额度以官网为准。</p></div>' +
-      '<div class="strip">' + N.LIB_CATS.map(function (c) {
-        return '<a class="strip-item" href="#lib-' + c.id + '"><span class="card-ico">' + I(c.icon) + '</span>' + c.label + '</a>';
-      }).join('') + '<a class="strip-item" href="#pm" id="home-pm"><span class="card-ico">' + I('coin') + '</span>平台变现（国内+海外）</a></div></section>' +
-      '<section class="lp-sec" id="home-guides" data-tab="手册与模板"><div class="sec-head"><span class="sec-kicker">GUIDES</span><h2>手册与模板</h2></div>' +
-      '<div class="guide-grid">' + N.GUIDES.filter(function (g) { return g.group !== 'note'; }).map(function (g) {
-        return '<a class="guide" href="' + (g.href || '#guide-' + g.id) + '"' + (g.href ? ' target="_blank" rel="noopener noreferrer"' : '') + '><span class="card-ico">' + I(g.icon) + '</span>' + esc(g.title) + '</a>';
-      }).join('') + '<a class="guide guide-more" href="#guides">' + I('book') + '全部手册与笔记</a></div></section>' +
-      '<section class="lp-sec" id="home-progress" data-tab="我的进度" data-tour="me"><div class="sec-head"><span class="sec-kicker">PROGRESS</span><h2>我的进度</h2></div><div class="glass snap">' + snapshot() +
-      '<div class="snap-links"><a class="btn btn-sm" href="#path">' + I('map') + '学习路线</a><a class="btn btn-sm" href="#me">' + I('user') + '我的进度</a></div></div></section>' +
-      '<section class="lp-sec" id="home-faq" data-tab="常见问题"><div class="sec-head"><span class="sec-kicker">FAQ</span><h2>常见问题</h2></div>' +
-      '<div class="faq">' +
-      '<details open><summary>进度存在哪里？</summary><p>只存在你当前浏览器的 localStorage，不上传服务器。换设备请在「我的进度」导出 / 导入 JSON。</p></details>' +
-      '<details><summary>能保证赚钱吗？</summary><p>不保证。站内收入数字均为公开案例，额度与规则会变，以各平台官网为准。</p></details>' +
-      '<details><summary>和哥飞是什么关系？</summary><p>非官方。这里是基于公开分享的方法学习整理，不含付费社群内容。</p></details>' +
-      '<details><summary>学习路线和实战作战室有什么区别？</summary><p>同一份进度的两种看法：学习路线按章节列全部任务；作战室把每站压成 Day1–7 日程。任一处勾选，另一处同步。</p></details>' +
-      '</div></section></div>';
+      '<section class="lp-sec" id="home-sections"><div class="sec-head"><h2>可以做的事</h2><p>这些都是站里已经有的页面。</p></div>' +
+      '<div id="home-tools"><div class="feat-grid">' + HOME_FEATS.map(function (f) {
+        return '<a class="feat-card" href="' + f.href + '"' + (f.id ? ' id="' + f.id + '"' : '') + '><span class="card-ico">' + I(f.icon) + '</span><b>' + esc(f.title) + '</b><span>' + esc(f.desc) + '</span></a>';
+      }).join('') + '</div></div>' +
+      '<p class="home-guides-line" id="home-guides"><a href="#guides">' + I('book') + '手册与模板</a></p></section>' +
+      '<div class="home-split">' + (state && global.QuestStats ? global.QuestStats.todayCard(state) : '<section class="lp-sec" id="home-today"></section>') +
+      '<section class="lp-sec" id="home-progress" data-tour="me"><div class="sec-head"><h2>我的进度</h2></div><div class="glass snap">' + snapshot() +
+      '<div class="snap-links"><a class="btn btn-sm" href="#path">' + I('map') + '学习路线</a><a class="btn btn-sm" href="#me">' + I('user') + '我的进度</a></div></div></section></div>' +
+      '<section class="lp-sec" id="home-faq"><div class="sec-head"><h2>常见问题</h2></div><div class="faq">' +
+      HOME_FAQ.map(function (qa) {
+        return '<details><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>';
+      }).join('') + '</div></section></div>';
   }
 
   global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS };

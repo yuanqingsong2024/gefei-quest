@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T09:54:06.437Z",
-  "latestId": 24,
+  "generatedAt": "2026-10-17T10:43:06.116Z",
+  "latestId": 25,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 25,
+      "date": "2026-10-17",
+      "tag": "改进",
+      "title": "首页重做：今日赚钱榜 Top 10 + 三条路线",
+      "items": [
+        "首页改成产品页：一句价值主张、「开始新手引导」和「进入工作台」，旁边是站内真实数字（平台数、今日榜条数、累计天数、起步模板、手册、更新日志）",
+        "今日赚钱榜紧跟首屏，列出最新一天的前 10 条：类型、成本、难度。点一条进入完整榜单。不保证收益",
+        "学习、实施、赚钱三条路线进入新手引导对应标签；功能卡链到作战日程、实操助手、选词、发布、分发、数据分析、平台变现和 AI 设置",
+        "今日任务和我的进度收成一行两卡。不展示用户数，不写评价，不承诺收入"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 24,
       "date": "2026-10-17",
@@ -128,19 +141,6 @@
         "No.3 中国移动10月话费流量活动（今天周六游戏中心可抽话费券）"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 15,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "平台变现：国内 + 海外 50 个平台",
-      "items": [
-        "资源库新增「平台变现」：国内 10 类（含微博、短剧）+ 海外 3 类（YouTube、TikTok、X、Medium、Substack、Patreon 等）",
-        "每个平台：变现方式、门槛、分成规则、实操步骤、适合谁、违规红线、来源链接",
-        "所有数字标注来源与日期，查不到写「官方未公开/以后台为准」；链接自动核实状态",
-        "每类有对比表，总览页有「新手怎么选」；不承诺收益，只列合法渠道"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#pm"
     }
   ],
   "rank": {

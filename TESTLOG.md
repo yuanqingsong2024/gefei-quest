@@ -219,3 +219,12 @@
 - 空存档 1280×800：`#start` 1.50 屏（390×844 为 3.40 屏）。`tools/page-heights.js` → `/tmp/h.json`。
 - 首页布局未改（T183）。只加了导览用的 `data-tour` 锚点。
 - site-check：`TOTAL fails=0 consoleErrors=0`。P20a 覆盖导航、三条路线与编号步骤、深链、截图 naturalWidth、7 天勾选刷新后仍在、导览自动打开 / 上一步下一步 / Esc / 不再显示与完成 / 重播 / 缺目标跳过、390px 无横向滚动且气泡在视口内、file://。截图 `/tmp/sc-shots/p20-start.png`、`/tmp/sc-shots/p20-tour.png`。
+
+## Phase 20 · 计划 2 首页重做 T183（2026-10-17，代码：Grok Build）
+- 首页改为产品页：价值主张 +「开始新手引导」`#start` +「进入工作台」`#work`，右侧为站内真实数字（平台 50、今日榜条数、累计天数、起步模板 4、作战手册 5、更新日志条数）。
+- 今日赚钱榜紧跟首屏：最新日期、每日更新、最多 10 条（序号、名称、类型、成本第一分句、难度点），条目链到 `#war-rank`。无数据时有空态。
+- 学习 / 实施 / 赚钱链到 `#start-learn` `#start-do` `#start-earn`（打开新手引导对应标签）。8 张功能卡链到已有页面。今日任务与我的进度并排，勾选入口和站点台账快照仍在。FAQ 6 条可折叠。
+- 旧锚点 `#home-today` `#home-faq` `#home-progress` `#home-sections` `#home-tools` `#home-steps` `#home-res` `#home-guides` 仍滚到对应块。导览目标改到主按钮、Top 10、三条路线、工作台按钮、我的进度。
+- 顶栏在 1024 与 1280 收紧字号和间距（1024 隐藏图标），「我的进度」不再被裁切。
+- 空存档 1280×800：`#home` 约 2.83 屏。390px `scrollWidth` 390，底部栏仍是 6 项。
+- site-check：P20b 覆盖两个 CTA、Top 10 顺序与类型/成本/难度、三项真实数字、路线和功能卡离开首页、旧锚点、FAQ 折叠、桌面 ≤3 屏、390 无横向滚动、1024/1280 顶栏、导览 6 步。截图 `/tmp/sc-shots/p20-home.png`、`/tmp/sc-shots/p20-home-mobile.png`。

@@ -134,7 +134,8 @@
 - T178 紧凑收尾 ✅：9 个超标页面全部 ≤2.5 桌面屏
 - T179 模板库 ✅：站一实操助手 `kit.template`（basic / tool / compare / glossary，缺省 basic）；预览、ZIP、发布按所选模板；非 basic 多一条占位自查（`kit.templateDone`）
 - T180 关键词灵感 ✅：`#war-keywords` 页内标签「关键词灵感」（js/ideas.js）。浏览器直连 Datamuse / Wikipedia opensearch / HN Algolia；Google 字母扩展、Trends、Reddit、Product Hunt 只开链接。勾选后写入 `keywords.items`。存档只追加 `ideas`（lastSeed + history，最多 20 条）。测试根地址 `gefei-quest-ideas-cfg`
-- T182 新手引导 ✅：`#start` 三条路线 + 前 7 天清单（`js/start.js`）。首次访问 `#home` 聚光灯导览（`js/tour.js`），可跳过、可从新手引导页或页脚重播。存档只追加 `onboarding`。首页重做仍是 T183。空存档 `#start` 桌面 1.50 屏。
+- T182 新手引导 ✅：`#start` 三条路线 + 前 7 天清单（`js/start.js`）。首次访问 `#home` 聚光灯导览（`js/tour.js`），可跳过、可从新手引导页或页脚重播。存档只追加 `onboarding`。空存档 `#start` 桌面 1.50 屏。
+- T183 首页重做 ✅：产品页顺序为 Hero（开始新手引导 / 进入工作台 + 站内真实数字）→ 今日赚钱榜 Top 10 → 三条路线 → 功能卡 → 今日任务与我的进度 → FAQ。旧锚点 `#home-today` `#home-faq` `#home-progress` `#home-sections` `#home-tools` `#home-steps` `#home-res` `#home-guides` 仍可滚到。不写用户数、评价或收入承诺。空存档 `#home` 桌面约 2.83 屏。
 
 ## Phase 18 · 紧凑页面 + Google 连接 + 工作台 + 复盘 ✅（2026-10-17）
 - js/compact.js：tabs / collapse / more / paginate / reveal + MutationObserver 规则；全站平均桌面高度 4.19 → 2.10 屏，内容与路由/锚点全部保留
