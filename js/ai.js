@@ -99,9 +99,10 @@
     var p = opts.provider || active();
     if (!p) return Promise.reject(new Error('还没有可用的服务商，请先在 AI 设置里添加。'));
     var stream = opts.stream !== false, temp = Math.max(0, Math.min(2, +p.temperature || 0)), maxT = opts.maxTokens || p.maxTokens || 1024, body;
-    if (p.format === 'anthropic') body = { model: p.model, system: SYSTEM, messages: messages, max_tokens: maxT, temperature: Math.min(1, temp), stream: stream };
-    else if (p.format === 'ollama') body = { model: p.model, messages: [{ role: 'system', content: SYSTEM }].concat(messages), stream: stream, options: { temperature: temp, num_predict: maxT } };
-    else { body = { model: p.model, messages: [{ role: 'system', content: SYSTEM }].concat(messages), temperature: temp, stream: stream }; if (opts.maxTokens || p.maxTokens) body.max_tokens = maxT; }
+    var sys = (typeof opts.system === 'string' && opts.system) ? opts.system : SYSTEM;
+    if (p.format === 'anthropic') body = { model: p.model, system: sys, messages: messages, max_tokens: maxT, temperature: Math.min(1, temp), stream: stream };
+    else if (p.format === 'ollama') body = { model: p.model, messages: [{ role: 'system', content: sys }].concat(messages), stream: stream, options: { temperature: temp, num_predict: maxT } };
+    else { body = { model: p.model, messages: [{ role: 'system', content: sys }].concat(messages), temperature: temp, stream: stream }; if (opts.maxTokens || p.maxTokens) body.max_tokens = maxT; }
     var ctrl = global.AbortController ? new AbortController() : null;
     function pick(j) {
       if (p.format === 'anthropic') { if (j.type === 'content_block_delta' && j.delta) return j.delta.text || ''; if (Array.isArray(j.content)) return j.content.map(function (c) { return c.text || ''; }).join(''); return ''; }

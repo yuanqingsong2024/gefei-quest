@@ -463,5 +463,5 @@
       }).join('') + '</div></section></div></section>';
   }
 
-  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS };
+  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ };
 })(typeof window !== 'undefined' ? window : globalThis);

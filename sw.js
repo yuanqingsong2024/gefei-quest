@@ -52,6 +52,7 @@ const PRECACHE = [
   './js/tour.js',
   './js/hints.js',
   './js/app.js',
+  './js/assistant.js',
   './assets/icon-192.png',
   './assets/icon-512.png',
   './assets/logo.svg',

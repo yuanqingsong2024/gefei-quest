@@ -1835,6 +1835,123 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P21 functional fails=' + f21); fail += f21;
+
+  // ---------- Phase 23A · 问 AI ----------
+  let f23 = 0; {
+  const T23 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P23A ' + m); if (!c) f23++; };
+  const fake23 = require('./fake-openai.js').start(8766);
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  const pg = cx(await ctx.newPage());
+  const e23 = [];
+  pg.on('pageerror', (e) => { e23.push('pageerror ' + e.message); errors.push('p23a ' + e.message); });
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e23.push(m.text()); errors.push('p23a ' + m.text()); } });
+  const hit = (a, c) => !!(a && c && a.w > 0 && a.h > 0 && c.w > 0 && c.h > 0 && a.x < c.r - 0.5 && a.r > c.x + 0.5 && a.y < c.btm - 0.5 && a.b > c.y + 0.5);
+  const boxes = () => pg.evaluate(() => {
+    function box(el) {
+      if (!el) return null;
+      const b = el.getBoundingClientRect();
+      return { x: b.left, y: b.top, r: b.right, btm: b.bottom, w: b.width, h: b.height };
+    }
+    return {
+      fab: box(document.getElementById('qa-fab')),
+      top: box(document.getElementById('to-top')),
+      bar: box(document.getElementById('bottom-bar')),
+      sw: document.documentElement.scrollWidth,
+      vw: window.innerWidth,
+    };
+  });
+  try {
+    for (const h of ['home', 'war-keywords', 'pm', 'me']) {
+      await pg.goto(BASE + 'index.html#' + h, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(180);
+      await pg.click('#qa-fab');
+      const opened = await pg.evaluate(() => {
+        const panel = document.getElementById('qa-panel');
+        return !!(panel && !panel.hidden && panel.getAttribute('role') === 'dialog' && panel.getAttribute('aria-label') && document.activeElement && document.activeElement.id === 'qa-input' && document.getElementById('qa-fab').getAttribute('aria-expanded') === 'true');
+      });
+      T23(opened, '#' + h + ' FAB opens dialog and focuses input');
+      await pg.keyboard.press('Escape');
+      const esc = await pg.evaluate(() => {
+        const panel = document.getElementById('qa-panel');
+        return !!(panel && panel.hidden && document.activeElement && document.activeElement.id === 'qa-fab');
+      });
+      T23(esc, '#' + h + ' Esc closes and focus returns to FAB');
+      await pg.click('#qa-fab');
+      await pg.click('#qa-panel .qa-close');
+      const closed = await pg.evaluate(() => {
+        const panel = document.getElementById('qa-panel');
+        return !!(panel && panel.hidden && document.activeElement && document.activeElement.id === 'qa-fab');
+      });
+      T23(closed, '#' + h + ' close button closes and focus returns to FAB');
+    }
+    await pg.goto(BASE + 'index.html#war-keywords', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(180);
+    const chips = await pg.evaluate(() => [...document.querySelectorAll('#qa-panel .qa-chips button')].map((b) => b.textContent));
+    T23(chips.indexOf('怎么判断一个词值不值得做？') >= 0 && chips.length >= 2 && chips.length <= 4, '#war-keywords chips ' + JSON.stringify(chips));
+    const off = await pg.evaluate(async () => {
+      const hits = QuestAssistant.search('怎么判断一个词值不值得做');
+      await QuestAssistant.ask('怎么判断一个词值不值得做');
+      const panel = document.getElementById('qa-panel');
+      const label = panel.textContent.indexOf('站内资料检索（未连接 AI）') >= 0;
+      const links = [...panel.querySelectorAll('a')].map((a) => a.getAttribute('href') || '').filter((h) => h.charAt(0) === '#');
+      const none = QuestAssistant.search('zzqqxxnomatch');
+      return { n: hits.length, href: hits[0] && hits[0].href, label, links, none: none.length, ready: QuestAI.ready() };
+    });
+    T23(!off.ready && off.n >= 1 && typeof off.href === 'string' && off.href.charAt(0) === '#' && off.label && off.links.some((h) => h.charAt(0) === '#') && off.none === 0, 'offline ask ' + JSON.stringify(off));
+    await pg.click('#qa-panel .qa-clear');
+    const cleared = await pg.evaluate(() => {
+      const raw = sessionStorage.getItem('gefei-quest-chat-v1');
+      let arr = null;
+      try { arr = raw ? JSON.parse(raw) : []; } catch (e) { arr = null; }
+      return { raw, n: Array.isArray(arr) ? arr.length : -1, msgs: document.querySelectorAll('#qa-panel .qa-msg').length };
+    });
+    T23(cleared.n === 0 && cleared.msgs === 0, '清空对话 empties sessionStorage ' + JSON.stringify(cleared));
+    await pg.evaluate(() => {
+      localStorage.setItem('gefei-quest-ai-v1', JSON.stringify({
+        mode: 'custom', version: 2, activeId: 'fake1',
+        providers: [{ id: 'fake1', name: 'Fake', format: 'openai', baseUrl: 'http://127.0.0.1:8766/v1', apiKey: 'good', model: 'fake-model', models: ['fake-model'], headers: [], temperature: 0.2, maxTokens: 256 }],
+      }));
+    });
+    await pg.evaluate(async () => { await QuestAssistant.ask('请说明选词'); });
+    const streamed = await pg.evaluate(() => {
+      const panel = document.getElementById('qa-panel');
+      return {
+        text: /测试回复/.test(panel.textContent) && /不保证收益/.test(panel.textContent),
+        script: !!panel.querySelector('script'),
+        js: [...panel.querySelectorAll('a')].some((a) => /^javascript:/i.test(a.getAttribute('href') || '')),
+      };
+    });
+    const sys = (fake23.log || []).map((x) => x && x.body).filter(Boolean).pop();
+    const sysMsg = sys && sys.messages && sys.messages[0];
+    const hist = sys && sys.messages ? sys.messages.filter((m) => m.role !== 'system') : [];
+    T23(streamed.text && !streamed.script && !streamed.js && sysMsg && sysMsg.role === 'system' && /当前路由：#war-keywords/.test(sysMsg.content) && hist.length >= 1 && hist.length <= 10, 'custom stream ' + JSON.stringify({ streamed, sys: !!(sysMsg && /当前路由/.test(sysMsg.content || '')), hist: hist.length }));
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(250);
+    await pg.evaluate(() => QuestAssistant.close());
+    const lay = await boxes();
+    T23(lay.vw === 390 && lay.sw <= 390 && lay.fab && lay.fab.h > 30 && lay.top && lay.top.h > 30 && lay.bar && lay.bar.h > 40 && !hit(lay.fab, lay.top) && !hit(lay.fab, lay.bar), '390 FAB clear of to-top and bottom bar ' + JSON.stringify(lay));
+    await pg.evaluate(() => scrollTo(0, 1600));
+    await pg.waitForTimeout(250);
+    const layShow = await boxes();
+    const topShown = await pg.evaluate(() => document.getElementById('to-top').classList.contains('show'));
+    T23(topShown && layShow.sw <= 390 && layShow.fab && layShow.top && layShow.top.h > 30 && layShow.bar && layShow.bar.h > 40 && !hit(layShow.fab, layShow.top) && !hit(layShow.fab, layShow.bar), '390 FAB clear when to-top shown ' + JSON.stringify(layShow));
+    await pg.click('#qa-fab');
+    const sheet = await pg.evaluate(() => {
+      const panel = document.getElementById('qa-panel');
+      const r = panel.getBoundingClientRect();
+      return { sw: document.documentElement.scrollWidth, modal: panel.getAttribute('aria-modal'), w: Math.round(r.width), h: Math.round(r.height), top: Math.round(r.top) };
+    });
+    T23(sheet.sw <= 390 && sheet.modal === 'true' && sheet.w <= 390 && sheet.top <= 1, '390 sheet ' + JSON.stringify(sheet));
+    await pg.keyboard.press('Escape');
+  } catch (e) {
+    T23(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T23(e23.length === 0, 'P23A console errors ' + e23.slice(0, 4).join(' | '));
+  try { fake23.close(); } catch (_) {}
+  await ctx.close();
+  }
+  console.log('P23A functional fails=' + f23); fail += f23;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

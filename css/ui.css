@@ -2705,4 +2705,165 @@ section,
 @media print {
   .site-nav { position: static; box-shadow: none; }
   body { padding-top: 0; }
+  .qa-fab, .qa-panel { display: none !important; }
+}
+
+/* Phase 21 · 全站「问 AI」。z-index 低于弹层/toast/导览，高于正文。
+   浮动按钮叠在「回到顶部」之上：桌面 to-top 底 22px、高 46px；
+   ≤640px to-top 底 76px、高 42px（未展开时还会下移，更高的是展开位置）。 */
+.qa-fab {
+  --qa-gap: 12px;
+  position: fixed;
+  z-index: 64;
+  right: 18px;
+  bottom: calc(22px + 46px + var(--qa-gap));
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: calc(100vw - 28px);
+  min-height: 46px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  background: #fbbf24;
+  color: #1a1205;
+  font: inherit;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+}
+.qa-fab .ico { width: 18px; height: 18px; }
+.qa-fab:hover { background: #fde68a; color: #1a1205; }
+.qa-panel {
+  position: fixed;
+  z-index: 85;
+  top: var(--nav-h, 56px);
+  right: 0;
+  bottom: 0;
+  width: 380px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #0f172a;
+  color: #f8fafc;
+  border-left: 2px solid #fbbf24;
+  box-shadow: -12px 0 40px rgba(0, 0, 0, .5);
+}
+.qa-panel[hidden] { display: none !important; }
+.qa-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #475569;
+}
+.qa-head h2 { margin: 0; font-size: 1.05rem; color: #fde68a; }
+.qa-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid #fde68a;
+  background: #1e293b;
+  color: #fff;
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.qa-close:hover { background: #334155; color: #fff; }
+.qa-sub {
+  margin: 0;
+  padding: 8px 14px 0;
+  color: #e2e8f0;
+  font-size: .85rem;
+  line-height: 1.45;
+}
+.qa-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 132px;
+  overflow: auto;
+  padding: 10px 14px;
+  border-bottom: 1px solid #334155;
+}
+.qa-chips .chip { max-width: 100%; white-space: normal; text-align: left; }
+.qa-log {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.qa-empty { margin: 0; color: #e2e8f0; }
+.qa-msg {
+  border-radius: 12px;
+  padding: 10px 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+}
+.qa-user {
+  align-self: flex-end;
+  background: #1e3a5f;
+  color: #fff;
+  border: 1px solid #7dd3fc;
+}
+.qa-bot {
+  align-self: stretch;
+  background: #111827;
+  color: #f8fafc;
+  border: 1px solid #64748b;
+}
+.qa-body, .qa-body p, .qa-body li { color: #f8fafc; }
+.qa-body.md h2, .qa-body.md h3, .qa-body.md h4 { color: #fde68a; font-size: 1rem; margin: 8px 0 6px; }
+.qa-body.md p { margin: 0 0 8px; }
+.qa-body.md a { color: #7dd3fc; font-weight: 700; }
+.qa-body.md strong { color: #fde68a; }
+.qa-body.md code { color: #fde68a; }
+.qa-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  border-top: 1px solid #475569;
+}
+.qa-input {
+  width: 100%;
+  background: #0b1220;
+  color: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
+.qa-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.qa-actions .btn { border-color: #cbd5e1; color: #fff; background: #1e293b; }
+.qa-actions .btn-primary {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1a1205;
+  border-color: #fde68a;
+}
+@media (max-width: 640px) {
+  .qa-fab {
+    right: 14px;
+    bottom: calc(76px + 42px + var(--qa-gap) + env(safe-area-inset-bottom));
+    min-height: 42px;
+  }
+  .qa-panel {
+    top: 0;
+    left: 0;
+    width: auto;
+    border-left: 0;
+  }
+  body.qa-open { overflow: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qa-fab, .qa-panel { transition: none !important; }
 }
