@@ -127,3 +127,9 @@
 - P16（31 项，假 GitHub API tools/fake-github.js:8767 + 假 AI :8766）：平台 A–D 列表；错误 Token → 401 提示；校验成功显示已连接；Token 只在 gefei-quest-accounts-v1、不进存档；实操助手流水线 + 发布按钮；发布页自动填仓库名 + iframe 预览；预览只发 GET 不写入；确认后新建仓库、写 3 个文件、开启 Pages、显示地址、写入台账 + 发布记录；再次预览全部「不变」；改内容后检测「更新」并带 sha 写入；GSC 日期 CSV → 图表 + 趋势 + 台账月记录；GSC 查询 CSV → 前列表 + 机会词；AdSense CSV → 台账 usd；通用小红书 CSV（1.2万 解析）；坏 CSV 友好报错；AI 分析走 AI 设置服务商；流水线 5 步全部完成；页脚、搜索；390px 三页无横向溢出
 - file:// 三个新页面正常
 - 截图：p16-accounts.png、p16-publish.png、p16-analytics.png
+
+## Phase 17 · 内容分发（2026-10-17）
+- site-check：routes=36 dev=22 broken=0 consoleErrors=0；P9–P13、P15、P16、P17 全部 0 fails
+- P17（36 项）：4 种来源（实操助手用已发布 Pages 地址）；Grok Bot 模式模板生成 14 个平台；X ≤280、小红书标题 ≤20 + 标签；X 计数（300/280 超限、中文×2 + 链接=23）；串推加条；14 个打开链接格式全部校验（X intent/post、微博 share.php、Reddit submit、LinkedIn share-offsite（不使用非官方 shareActive）、Facebook sharer、Pinterest pin/create/button、Telegram t.me/share/url、WhatsApp wa.me、小红书/知乎/公众号/头条/抖音/Medium 发布页）；shares 记录 14 次打开 + 1 次复制；数据分析时间线 + 平台柱；账号中心免费路径徽章、X 标为 D + 已分发；赚钱榜来源 + AI 生成（解析 x/xhs/weibo，其余模板补齐）；AI 提示含不承诺收益；URL 来源校验；页脚、流水线、搜索；390px
+- 链接格式人工核实（curl）：x.com/intent/post 200、reddit submit 200、pinterest 200、weibo share.php 200、t.me 200、linkedin/facebook/wa.me 302（登录跳转）、小红书/公众号/抖音/头条 200、知乎 302、medium 403（拦截机器访问）
+- 截图：gefei-quest-shots/p17-share.png

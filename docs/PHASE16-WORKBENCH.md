@@ -14,7 +14,7 @@
 | Google Search Console | 无（只能提交 sitemap / URL 检查） | 有：Search Analytics API | OAuth 2.0（Google Cloud OAuth 客户端，scope webmasters.readonly） | 支持（Google API + GIS token client，纯前端可用，只需 Client ID） | 否（仅需用户自建 OAuth Client ID） | 免费；需 Google Cloud 项目 + 同意屏幕 | 只读自己验证过的站 | **C**（Phase C 前：D，CSV 导出） |
 | Google Analytics 4 | 无 | 有：GA4 Data API | OAuth 2.0（analytics.readonly） | 支持（同上） | 否 | 免费 | 同上 | **C** |
 | AdSense | 无 | 有：AdSense Management API v2（报表） | OAuth 2.0（adsense.readonly） | 支持（同上） | 否 | 免费 | 禁止任何点击/流量操纵 | **C**（Phase C 前：D，CSV 报告） |
-| X | 有：POST /2/tweets | 有（按次计费） | OAuth 2.0 PKCE / OAuth 1.0a | 不可靠（不建议浏览器直连，需保密 client secret） | 是 | **按次付费**：发帖 $0.015、带链接 $0.20、读 $0.005（第三方汇总 docs.x.com，2026-09）；无免费档 | 自动化规则、禁止刷量 | **B（付费）** |
+| X（**付费自动发帖已放弃**，2026-10-17 用户决定：免费优先；改用 Phase 17 内容分发的官方 intent 链接） | 有：POST /2/tweets | 有（按次计费） | OAuth 2.0 PKCE / OAuth 1.0a | 不可靠（不建议浏览器直连，需保密 client secret） | 是 | **按次付费**：发帖 $0.015、带链接 $0.20、读 $0.005（第三方汇总 docs.x.com，2026-09）；无免费档 | 自动化规则、禁止刷量 | ~~B（付费）~~ → **D（免费手动：intent 链接预填）** |
 | YouTube | 有：videos.insert（需 OAuth；未审核项目上传视频为私享） | 有：YouTube Analytics API | OAuth 2.0 | 支持（Google API） | 上传大文件建议后端；分析可纯前端 | 免费配额；上传公开需 API 审核 | 未经审核的 API 项目上传默认私享 | **C**（发布 B，需审核） |
 | Medium | 已停止：官方「不再发放新 integration token、不允许新集成」 | 无 | — | — | — | 不可用 | — | **D**（手动 / 官方导入网页） |
 | WordPress | 有：WordPress.com REST API；自托管 REST API + 应用密码 | 有 | OAuth2（.com）/ Application Password（自托管） | 自托管需站点开启 CORS；.com 隐式授权可前端 | 视站点而定 | 免费 | 应用密码只存本机 | **A/B**（自托管可 A） |
@@ -31,6 +31,8 @@
 主要来源（2026-10-17 查阅）：GitHub REST 文档 docs.github.com/rest；Cloudflare 社区「CORS blocking access to Cloudflare API」；Google APIs JS / GIS 文档；Medium Help Center「API/Importing」与 github.com/Medium/medium-api-docs；X 定价（outstand.so、postzen.dev 汇总 docs.x.com）；Pinterest developers「access tiers」；微信开发者文档「发布能力」（developers.weixin.qq.com/doc/subscription/guide/product/publish.html）；抖音开放平台「发布能力使用规范」「创建视频」；哔哩哔哩开放平台 openhome.bilibili.com/doc。
 
 **小结**：A 类 1 个（GitHub，WordPress 自托管视情况）；B 类需后端（Cloudflare Pages、X 付费、Pinterest 审批、企业号的公众号/抖音/B 站/微博）；C 类 4 个（GSC、GA4、AdSense、YouTube Analytics）都是 Google OAuth，纯前端 + 用户自建 Client ID 即可；其余国内平台对个人都是 D：用后台导出的 CSV 导入分析。
+
+> **2026-10-17 更新（免费优先）**：不使用任何付费 API。X 自动发帖从计划中移除；所有社交平台走 Phase 17「内容分发」的免费路径（官方分享/发帖链接预填，或复制后打开发布页，由你本人确认发布）。
 
 ## 2. 架构
 - 仍是静态站（GitHub Pages）。
@@ -50,7 +52,7 @@
 - Phase B（需要用户：Cloudflare 账号）
   - T162 Worker 模板部署指引 + 账号中心「后端地址」
   - T163 Cloudflare Pages Direct Upload 发布
-  - T164 X / Pinterest / WordPress.com 经 Worker 发布（X 需付费额度、Pinterest 需审批）
+  - T164 Pinterest / WordPress.com 经 Worker 发布（Pinterest 需审批）。~~X 付费 API 自动发帖~~：已移除（不使用付费 API），由 Phase 17 内容分发替代
 - Phase C（需要用户：Google Cloud 项目 + OAuth Client ID，已添加授权来源）
   - T165 GSC Search Analytics 自动拉取
   - T166 GA4 Data API、AdSense Management API 拉取

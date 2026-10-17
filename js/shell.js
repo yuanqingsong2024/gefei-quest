@@ -53,6 +53,7 @@
     (D.PEER_METHODS || []).forEach(function (p) { add('资源', p.name, p.oneLiner, '#lib-peers', [p.steal, p.caveat].join(' '), 'users'); });
     add('页面', 'AI 设置', '我的进度 · Grok Bot / 自定义 OpenAI 兼容接口', '#me-ai', 'ai api key deepseek openai 通义 kimi 智谱 openrouter 模型 赚钱榜雷达 赚钱项目实施官', 'sparkle');
     add('页面', '数据导入中心', '数据分析 · 导入 GSC / AdSense / 小红书 抖音 B站 CSV', '#me-analytics', 'csv 导入 search console adsense 小红书 抖音 b站 数据 分析', 'download');
+    add('页面', '内容分发', '实战作战室 · 一份内容生成 X/微博/小红书/知乎/Reddit/LinkedIn 等版本，官方免费链接发帖', '#war-share', '分享 分发 发帖 x 推特 微博 小红书 知乎 公众号 reddit linkedin pinterest facebook medium telegram whatsapp', 'external');
     add('页面', 'GitHub 一键发布', '发布上线 · Fine-grained Token 写入仓库并开启 Pages', '#war-publish', 'github pages 部署 发布 token pat', 'rocket');
     if (global.QUEST_PLATFORMS) {
       var PD = global.QUEST_PLATFORMS;

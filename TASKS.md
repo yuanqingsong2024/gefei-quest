@@ -1060,3 +1060,9 @@
 - [x] T161 测试、截图、推送
 - [ ] T162–T164 Phase B：Worker 后端（Cloudflare Pages / X / Pinterest / WordPress）
 - [ ] T165–T167 Phase C：Google OAuth 拉取（GSC / GA4 / AdSense / YouTube）
+
+## Phase 17 · 内容分发（见 docs/PHASE17-SHARE.md）
+- [x] T168 方案 + PHASE16 标注（放弃 X 付费 API）
+- [x] T169 #war-share 页面
+- [x] T170 shares 记录 + 时间线 + 账号中心免费路径
+- [x] T171 测试、截图、推送

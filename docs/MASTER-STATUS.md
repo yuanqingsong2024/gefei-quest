@@ -125,3 +125,7 @@
 - worker/ Cloudflare Worker 代理模板（Phase B，用户自行部署）；tools/fake-github.js 测试桩
 - 存档追加字段：publish、imports；凭据独立键 gefei-quest-accounts-v1
 - 下一步：Phase B（需 Cloudflare 账号）、Phase C（需 Google Cloud OAuth Client ID）
+
+## Phase 17 · 内容分发 ✅（2026-10-17）
+- 免费优先：放弃 X 付费 API 自动发帖（PHASE16 文档已标注）
+- js/share.js：#war-share 来源 → AI/模板 → 编辑/计数/复制 → 官方免费分享链接；存档追加字段 shares、shareDraft；数据分析时间线；账号中心免费路径

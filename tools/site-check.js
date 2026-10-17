@@ -2,7 +2,7 @@
 const { chromium } = require(process.env.PW || 'playwright-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish'];
+const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish','war-share'];
 const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
@@ -385,7 +385,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T16(/导入失败/.test(await p.textContent('#imp-msg')), 'bad CSV → friendly error');
   await p.click('#an-ai'); await p.waitForTimeout(1200);
   T16(/数据分析师/.test(JSON.stringify(fake16.last && fake16.last.body || {})) && await p.evaluate(() => !!document.querySelector('#an-ai-out .ai-out')), 'AI 分析 uses AI settings provider');
-  await visit('me-analytics'); const done16 = await p.evaluate(() => [...document.querySelectorAll('#panel-me .wb-pipe .wb-step.done')].map(a => a.dataset.step).join(',')); T16(done16.split(',').length === 5, 'pipeline all 5 steps done (' + done16 + ')');
+  await visit('me-analytics'); const done16 = await p.evaluate(() => [...document.querySelectorAll('#panel-me .wb-pipe .wb-step.done')].map(a => a.dataset.step).join(',')); T16(['keywords', 'kit', 'publish', 'sites', 'analytics'].every(k => done16.split(',').includes(k)), 'pipeline 5 core steps done (' + done16 + ')');
   T16(await p.evaluate(() => ['#me-accounts', '#me-analytics', '#war-publish'].every(h => document.querySelector('.site-footer a[href="' + h + '"]'))), 'footer links');
   await p.keyboard.press('Control+k'); await p.keyboard.type('导入'); await p.waitForTimeout(150);
   T16(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#me-analytics')), 'search finds 数据导入'); await p.keyboard.press('Escape');
@@ -400,6 +400,62 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   }
   gh.close(); fake16.close();
   console.log('P16 functional fails=' + f16); fail += f16;
+  // ---- P17 内容分发 ----
+  let f17 = 0; const T17 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P17 ' + m); if (!c) f17++; };
+  const fake17 = require('./fake-openai.js').start(8766);
+  await p.addInitScript(() => document.addEventListener('click', e => { const a = e.target.closest && e.target.closest('a[data-sh-open]'); if (a) { e.preventDefault(); window.__opened = (window.__opened || []).concat(a.href); } }, true));
+  const aiCfg17 = await p.evaluate(() => localStorage.getItem('gefei-quest-ai-v1'));
+  await p.evaluate(() => { const c = JSON.parse(localStorage.getItem('gefei-quest-ai-v1')); c.mode = 'grok'; localStorage.setItem('gefei-quest-ai-v1', JSON.stringify(c)); });
+  await p.goto(BASE + 'index.html#war-share'); await p.reload(); await p.waitForTimeout(300);
+  T17(await p.evaluate(() => document.querySelectorAll('[data-src]').length === 4 && /tester\.github\.io\/pdf-merge-tool/.test(document.querySelector('.sh-src-form').textContent)), 'sources (4) + kit uses published Pages URL');
+  T17(await p.evaluate(() => /模板/.test(document.querySelector('#sh-gen').textContent)), 'Grok Bot mode → template button');
+  await p.evaluate(() => document.querySelectorAll('.sh-plats input').forEach(c => { if (!c.checked) c.click(); }));
+  await p.click('#sh-gen'); await p.waitForTimeout(300);
+  const n17 = await p.evaluate(() => document.querySelectorAll('.sh-card').length);
+  T17(n17 === 14, 'template drafts for all 14 platforms (' + n17 + ')');
+  T17(await p.evaluate(() => { const S = QuestShare, d = JSON.parse(localStorage.getItem('gefei-quest-save-v1')).shareDraft.out; return d.x.parts.every(t => S.xLen(t) <= 280) && [...d.xhs.title].length <= 20 && d.xhs.tags.length > 0 && d.reddit.title && d.medium.body; }), 'X ≤280, 小红书 title ≤20 + tags, reddit/medium title+body');
+  await p.fill('.sh-card[data-plat="x"] textarea', 'a'.repeat(300)); await p.waitForTimeout(80);
+  T17(await p.evaluate(() => { const c = document.querySelector('.sh-card[data-plat="x"] .sh-count'); return c.classList.contains('over') && /300 \/ 280/.test(c.textContent); }), 'X counter 300/280 over-limit');
+  await p.fill('.sh-card[data-plat="x"] textarea', '中文测试 https://example.com/a/very/long/path/that/is/long'); await p.waitForTimeout(80);
+  T17(await p.evaluate(() => /^32 \/ 280/.test(document.querySelector('.sh-card[data-plat="x"] .sh-count').textContent)), 'X counter: CJK×2 + URL=23');
+  await p.click('.sh-card[data-plat="x"] [data-sh-add]'); await p.waitForTimeout(150);
+  T17(await p.evaluate(() => document.querySelectorAll('.sh-card[data-plat="x"] textarea').length === 2), 'add thread part');
+  await p.evaluate(() => { window.__opened = []; document.querySelectorAll('.sh-card [data-sh-open]').forEach(a => { if (!a.hasAttribute('data-i')) a.click(); }); });
+  const op = await p.evaluate(() => window.__opened);
+  const want = { x: /^https:\/\/x\.com\/intent\/post\?text=%E4%B8%AD%E6%96%87/, weibo: /^https:\/\/service\.weibo\.com\/share\/share\.php\?url=https%3A%2F%2Ftester\.github\.io.*&title=/, reddit: /^https:\/\/www\.reddit\.com\/submit\?url=https%3A%2F%2Ftester.*&title=/, linkedin: /^https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?url=https%3A%2F%2Ftester/, facebook: /^https:\/\/www\.facebook\.com\/sharer\/sharer\.php\?u=https%3A%2F%2Ftester/, pinterest: /^https:\/\/www\.pinterest\.com\/pin\/create\/button\/\?url=.*&description=/, telegram: /^https:\/\/t\.me\/share\/url\?url=https%3A%2F%2Ftester.*&text=/, whatsapp: /^https:\/\/wa\.me\/\?text=/, xhs: /^https:\/\/creator\.xiaohongshu\.com\/publish\/publish$/, zhihu: /^https:\/\/zhuanlan\.zhihu\.com\/write$/, wechat: /^https:\/\/mp\.weixin\.qq\.com\/$/, toutiao: /^https:\/\/mp\.toutiao\.com\//, douyin: /^https:\/\/creator\.douyin\.com\//, medium: /^https:\/\/medium\.com\/new-story$/ };
+  for (const k of Object.keys(want)) T17(op.some(u => want[k].test(u)), 'open URL ' + k);
+  T17(await p.evaluate(() => /share-offsite/.test([...document.querySelectorAll('[data-sh-open]')].map(a => a.href).join(' ')) && !/shareActive/.test([...document.querySelectorAll('[data-sh-open]')].map(a => a.href).join(' '))), 'LinkedIn uses official share-offsite only');
+  await p.click('.sh-card[data-plat="weibo"] [data-sh-copy]'); await p.waitForTimeout(150);
+  const sh17 = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).shares);
+  T17(sh17.length === 15 && sh17.filter(x => x.action === 'open').length === 14 && sh17.some(x => x.action === 'copy' && x.platform === 'weibo') && sh17.every(x => x.at && x.title), 'shares logged (14 open + 1 copy)');
+  await visit('me-analytics');
+  T17(await p.evaluate(() => { const t = document.querySelector('#share-timeline'); return t && /15 次/.test(t.textContent) && t.querySelectorAll('.sh-bar').length === 14; }), 'analytics: share timeline + per-platform bars');
+  await visit('me-accounts');
+  T17(await p.evaluate(() => document.querySelectorAll('.wb-free').length >= 12 && /已分发/.test(document.querySelector('.wb-plat[data-plat="x"]').textContent) && /放弃/.test(document.querySelector('.wb-plat[data-plat="x"]').textContent) && document.querySelector('.wb-plat[data-plat="x"] .wb-cls-D')), 'accounts: free-path badges, X marked D + 已分发');
+  // 赚钱榜来源 + AI
+  await p.evaluate(s => localStorage.setItem('gefei-quest-ai-v1', s), aiCfg17); await visit('war-share'); await p.reload(); await p.waitForTimeout(300);
+  await p.click('[data-src="rank"]'); await p.waitForTimeout(150);
+  T17(await p.evaluate(() => /用 AI 生成/.test(document.querySelector('#sh-gen').textContent) && document.querySelectorAll('#sh-rank option').length > 0), 'rank source + AI mode button');
+  await p.click('#sh-gen'); await p.waitForTimeout(800);
+  const ai17 = await p.evaluate(() => { const d = JSON.parse(localStorage.getItem('gefei-quest-save-v1')).shareDraft; return { xhs: d.out.xhs.title, x: d.out.x.parts.length, weibo: d.out.weibo.text, reddit: d.out.reddit.title, title: d.srcSnap.title, msg: document.querySelector('#sh-msg').textContent }; });
+  const rank1 = await p.evaluate(() => QuestRank.latestItems()[0].name);
+  T17(ai17.xhs === 'AI 小红书标题' && ai17.x === 2 && ai17.weibo === 'AI 微博正文' && !!ai17.reddit && ai17.title === rank1 && /模板补齐/.test(ai17.msg), 'AI drafts parsed + template fill-in');
+  T17(/平台ID/.test(JSON.stringify(fake17.last && fake17.last.body || {})) && /不承诺收益/.test(JSON.stringify(fake17.last.body)), 'AI prompt via AI settings, no-income-promise rule');
+  await p.click('[data-src="url"]'); await p.waitForTimeout(100); await p.fill('#sh-url', 'notaurl'); await p.waitForTimeout(50);
+  T17(await p.evaluate(() => document.querySelector('#sh-gen').disabled), 'invalid URL source disables generate');
+  await p.fill('#sh-url', 'https://example.com/'); await p.waitForTimeout(50);
+  T17(await p.evaluate(() => !document.querySelector('#sh-gen').disabled), 'valid URL enables generate');
+  T17(await p.evaluate(() => !!document.querySelector('.site-footer a[href="#war-share"]') && !!document.querySelector('.wb-pipe [data-step="share"].done')), 'footer link + pipeline share step');
+  await p.keyboard.press('Control+k'); await p.keyboard.type('分发'); await p.waitForTimeout(150);
+  T17(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#war-share')), 'search finds 内容分发'); await p.keyboard.press('Escape');
+  const st17 = await p.evaluate(() => localStorage.getItem('gefei-quest-save-v1'));
+  await m13.evaluate(([s, a]) => { localStorage.setItem('gefei-quest-save-v1', s); const c = JSON.parse(a); c.mode = 'grok'; localStorage.setItem('gefei-quest-ai-v1', JSON.stringify(c)); }, [st17, aiCfg17]);
+  await m13.goto(BASE + 'index.html#war-share'); await m13.reload(); await m13.waitForTimeout(300);
+  await m13.evaluate(() => document.querySelector('[data-src="kit"]').click()); await m13.waitForTimeout(150); await m13.evaluate(() => document.querySelector('#sh-gen').click()); await m13.waitForTimeout(300);
+  const w17 = await m13.evaluate(() => document.documentElement.scrollWidth); T17(w17 <= 390, 'mobile war-share scrollWidth ' + w17);
+  if (SHOTS) await m13.screenshot({ path: `${SHOTS}/p17-share.png`, fullPage: true });
+  fake17.close();
+  console.log('P17 functional fails=' + f17); fail += f17;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

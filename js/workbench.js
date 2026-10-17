@@ -8,6 +8,7 @@
   function toast(t) { if (global.QuestModal) global.QuestModal.showToast(t); }
 
   /* ---------- 平台矩阵（与 docs/PHASE16-WORKBENCH.md 一致） ---------- */
+  var FREE = { prefill: '免费：官方链接预填文字', url: '免费：预填链接 + 复制文字', copy: '免费：复制后打开发布页' };
   var CLS = { A: '浏览器直接发布', B: '需自建小后端', C: 'API 拉数据', D: '导入 CSV / 手动' };
   var PLATFORMS = [
     { id: 'github', name: 'GitHub / GitHub Pages', cls: 'A', icon: 'code', how: '用细粒度 Token（只授权一个仓库：Contents、Pages、Administration 读写）直接从浏览器写文件并开启 Pages。', act: '#war-publish', actLabel: '去发布' },
@@ -15,17 +16,20 @@
     { id: 'gsc', name: 'Google Search Console', cls: 'C', icon: 'search', how: '现在：在 GSC「效果」点「导出 → CSV」，导入下方导入中心。Phase C：用你自己的 Google Cloud OAuth Client ID 自动拉取。', act: '#me-analytics', actLabel: '导入 CSV' },
     { id: 'ga4', name: 'Google Analytics 4', cls: 'C', icon: 'chart', how: 'Phase C：GA4 Data API（OAuth 只读）。现在可导出 CSV 作为通用数据导入。', act: '#me-analytics', actLabel: '导入 CSV' },
     { id: 'adsense', name: 'Google AdSense', cls: 'C', icon: 'coin', how: '现在：报告页「下载 CSV」后导入。Phase C：AdSense Management API 只读拉取。', act: '#me-analytics', actLabel: '导入 CSV' },
-    { id: 'youtube', name: 'YouTube', cls: 'C', icon: 'rocket', how: 'Analytics API 可拉数据；视频上传需 API 审核（未审核项目上传为私享），暂不做。' },
+    { id: 'youtube', name: 'YouTube', cls: 'C', icon: 'rocket', how: 'Analytics API 可拉数据；视频上传需 API 审核（未审核项目上传为私享），暂不做。', free: 'copy' },
     { id: 'cloudflare', name: 'Cloudflare Pages', cls: 'B', icon: 'globe', how: 'Cloudflare API 不支持浏览器跨域，需要你部署仓库 worker/ 模板作为代理（Phase B）。' },
-    { id: 'x', name: 'X', cls: 'B', icon: 'sparkle', how: '发帖 API 按次付费且需保密密钥，需 Worker（Phase B）。' },
-    { id: 'pinterest', name: 'Pinterest', cls: 'B', icon: 'tag', how: '需申请开发者 Trial（Trial 创建的 Pin 仅自己可见）+ Worker 保存 secret（Phase B）。' },
-    { id: 'medium', name: 'Medium', cls: 'D', icon: 'book', how: '官方已不再发放新 API token，只能手动发布或用 Medium 的「导入网页」。' },
-    { id: 'wechat', name: '微信公众号', cls: 'D', icon: 'file', how: '2025-07 起个人主体与未认证账号被回收发布接口权限；在公众平台「数据分析」导出后导入通用 CSV。' },
-    { id: 'xhs', name: '小红书', cls: 'D', icon: 'star', how: '无个人发布/数据 API。在专业号数据中心导出或手抄，导入通用 CSV。', act: '#me-analytics', actLabel: '导入 CSV' },
-    { id: 'douyin', name: '抖音', cls: 'D', icon: 'fire', how: '发布能力仅对符合条件的企业应用开放。创作者中心数据可导出后导入通用 CSV。', act: '#me-analytics', actLabel: '导入 CSV' },
-    { id: 'bilibili', name: 'B 站', cls: 'D', icon: 'island3', how: '开放平台需开发者认证审核。创作中心数据导出后导入通用 CSV。', act: '#me-analytics', actLabel: '导入 CSV' },
-    { id: 'toutiao', name: '头条号', cls: 'D', icon: 'file', how: '个人无公开 API，导出/手抄后导入。' },
-    { id: 'weibo', name: '微博', cls: 'D', icon: 'users', how: '开放平台需应用审核；个人建议导出数据后导入。' },
+    { id: 'x', name: 'X', cls: 'D', icon: 'sparkle', how: 'API 发帖按次付费——已按你的决定放弃自动发帖。用内容分发页生成 ≤280 字/串推，官方 intent 链接预填后由你确认发布。', free: 'prefill' },
+    { id: 'reddit', name: 'Reddit', cls: 'D', icon: 'globe', how: '官方 submit 链接预填标题和网址，正文自动复制后粘贴。', free: 'url' },
+    { id: 'linkedin', name: 'LinkedIn', cls: 'D', icon: 'users', how: '官方 share-offsite 链接预填网址，文字自动复制后粘贴。', free: 'url' },
+    { id: 'facebook', name: 'Facebook', cls: 'D', icon: 'users', how: '官方 sharer 链接预填网址，文字自动复制后粘贴。', free: 'url' },
+    { id: 'pinterest', name: 'Pinterest', cls: 'B', icon: 'tag', how: 'API 需开发者审批（Phase B，可选）。免费路径：官方 Pin It 链接预填网址和描述。', free: 'prefill' },
+    { id: 'medium', name: 'Medium', cls: 'D', icon: 'book', how: '官方已不再发放新 API token，只能手动发布或用 Medium 的「导入网页」。', free: 'copy' },
+    { id: 'wechat', name: '微信公众号', cls: 'D', icon: 'file', how: '2025-07 起个人主体与未认证账号被回收发布接口权限；在公众平台「数据分析」导出后导入通用 CSV。', free: 'copy' },
+    { id: 'xhs', name: '小红书', cls: 'D', icon: 'star', how: '无个人发布/数据 API。在专业号数据中心导出或手抄，导入通用 CSV。', act: '#me-analytics', actLabel: '导入 CSV', free: 'copy' },
+    { id: 'douyin', name: '抖音', cls: 'D', icon: 'fire', how: '发布能力仅对符合条件的企业应用开放。创作者中心数据可导出后导入通用 CSV。', act: '#me-analytics', actLabel: '导入 CSV', free: 'copy' },
+    { id: 'bilibili', name: 'B 站', cls: 'D', icon: 'island3', how: '开放平台需开发者认证审核。创作中心数据导出后导入通用 CSV。', act: '#me-analytics', actLabel: '导入 CSV', free: 'copy' },
+    { id: 'toutiao', name: '头条号', cls: 'D', icon: 'file', how: '个人无公开 API，导出/手抄后导入。', free: 'copy' },
+    { id: 'weibo', name: '微博', cls: 'D', icon: 'users', how: '开放平台需应用审核；个人建议导出数据后导入。', free: 'prefill' },
     { id: 'xianyu', name: '闲鱼', cls: 'D', icon: 'fish', how: '无个人 API，订单收入可手动记入台账。' },
   ];
 
@@ -51,6 +55,7 @@
       ['keywords', '选词', 'tag', '#war-keywords', kw.length > 0 || !!kit.keyword],
       ['kit', '实操助手', 'kit', '#war-kit', !!(kit.keyword && kit.intro)],
       ['publish', '发布上线', 'rocket', '#war-publish', state.publish.some(function (p) { return p.ok && !p.dry; })],
+      ['share', '内容分发', 'external', '#war-share', Array.isArray(state.shares) && state.shares.length > 0],
       ['sites', '站点台账', 'ledger', '#me-sites', sites.length > 0],
       ['analytics', '数据分析', 'chart', '#me-analytics', state.imports.length > 0],
     ];
@@ -64,6 +69,8 @@
     var c = load(), gh = c.github;
     var status = function (p) {
       if (p.id === 'github') return gh.token ? (gh.login ? '<span class="wb-st ok">已连接 · ' + esc(gh.login) + '</span>' : '<span class="wb-st warn">已填 Token，未校验</span>') : '<span class="wb-st">未连接</span>';
+      var shn = (state.shares || []).filter(function (x) { return x.platform === p.id; }).length;
+      if (shn) return '<span class="wb-st ok">已分发 ' + shn + ' 次</span>';
       if (p.cls === 'D' || p.cls === 'C') { var n = (state.imports || []).filter(function (x) { return x.platform === p.id; }).length; return n ? '<span class="wb-st ok">已导入 ' + n + ' 份</span>' : '<span class="wb-st">未导入</span>'; }
       return '<span class="wb-st">' + (p.cls === 'B' ? '需 Phase B 后端' : '计划中') + '</span>';
     };
@@ -76,9 +83,9 @@
       '<label class="fld fld-wide"><span>API 地址（高级，默认 api.github.com）</span><input id="gh-base" value="' + esc(gh.base) + '" /></label>' +
       '<div class="tool-actions fld-wide"><button type="submit" class="btn btn-primary btn-sm">' + I('lock') + '保存并校验</button><button type="button" class="btn btn-sm btn-danger" id="gh-forget">忘记 Token</button></div></form><p id="gh-msg" class="hint" role="status"></p></section>' +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('globe') + '平台列表</h2><div class="wb-plats">' + PLATFORMS.map(function (p) {
-        return '<article class="wb-plat" data-plat="' + p.id + '"><header><span class="card-ico">' + I(p.icon) + '</span><b>' + esc(p.name) + '</b><span class="wb-cls wb-cls-' + p.cls + '" title="' + CLS[p.cls] + '">' + p.cls + '</span></header>' + status(p) + '<p>' + esc(p.how) + '</p>' + (p.act ? '<a class="btn btn-sm" href="' + p.act + '">' + esc(p.actLabel) + '</a>' : '') + '</article>';
+        return '<article class="wb-plat" data-plat="' + p.id + '"><header><span class="card-ico">' + I(p.icon) + '</span><b>' + esc(p.name) + '</b><span class="wb-cls wb-cls-' + p.cls + '" title="' + CLS[p.cls] + '">' + p.cls + '</span></header>' + status(p) + (p.free ? '<a class="wb-free" href="#war-share">' + I('external') + FREE[p.free] + '</a>' : '') + '<p>' + esc(p.how) + '</p>' + (p.act ? '<a class="btn btn-sm" href="' + p.act + '">' + esc(p.actLabel) + '</a>' : '') + '</article>';
       }).join('') + '</div></section>' +
-      '<section class="block glass tool-card"><h2 class="block-title">' + I('gear') + 'Phase B / C 需要你准备</h2><ul class="wb-need"><li><b>Phase B</b>：一个 Cloudflare 账号（免费档），按仓库 <code>worker/README.md</code> 部署代理，把 Worker 地址填到这里；X 需付费 API 额度，Pinterest 需开发者审批。</li><li><b>Phase C</b>：一个 Google Cloud 项目 + OAuth 客户端 ID（Web 应用，授权 JavaScript 来源填本站地址），开启 Search Console / GA4 Data / AdSense Management API。</li></ul>' +
+      '<section class="block glass tool-card"><h2 class="block-title">' + I('gear') + 'Phase B / C 需要你准备</h2><ul class="wb-need"><li><b>Phase B</b>：一个 Cloudflare 账号（免费档），按仓库 <code>worker/README.md</code> 部署代理，把 Worker 地址填到这里；Pinterest API 需开发者审批（可选）。X 付费 API 已从计划移除，改用免费的内容分发。</li><li><b>Phase C</b>：一个 Google Cloud 项目 + OAuth 客户端 ID（Web 应用，授权 JavaScript 来源填本站地址），开启 Search Console / GA4 Data / AdSense Management API。</li></ul>' +
       '<label class="fld"><span>Worker 地址（Phase B，可先留空）</span><input id="wk-url" placeholder="https://xxx.workers.dev" value="' + esc(c.worker.url) + '" /></label></section></div>';
     var msg = root.querySelector('#gh-msg');
     root.querySelector('#gh-form').addEventListener('submit', function (e) {
@@ -359,7 +366,7 @@
       '<label class="fld fld-wide"><span>或粘贴 CSV 文本</span><textarea id="imp-text" rows="3" placeholder="Date,Clicks,Impressions,CTR,Position&#10;2026-09-01,3,120,2.5%,14.2"></textarea></label>' +
       '<div class="tool-actions fld-wide"><button type="submit" class="btn btn-primary btn-sm">' + I('download') + '导入</button></div></form><p id="imp-msg" class="hint" role="status"></p></section>' +
       (ims.length ? '<section class="block glass tool-card"><h2 class="block-title">' + I('list') + '已导入（' + ims.length + '）</h2><div class="wb-chips">' + ims.map(function (x) { return '<button type="button" class="chip' + (sel && x.id === sel.id ? ' on' : '') + '" data-ds="' + x.id + '">' + esc(x.name) + ' · ' + x.rows.length + ' 行</button>'; }).join('') + '</div></section>' + body
-        : '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>还没有导入数据。站点上线一两周后，从 GSC 导出一次「效果」CSV 导入，就能看到趋势和机会词。</p></div>') + '</div>';
+        : '<div class="tool-empty glass">' + global.QuestIcons.illo('star') + '<p>还没有导入数据。站点上线一两周后，从 GSC 导出一次「效果」CSV 导入，就能看到趋势和机会词。</p></div>') + (global.QuestShare ? global.QuestShare.timeline(state) : '') + '</div>';
 
     var msg = root.querySelector('#imp-msg');
     root.querySelector('#imp-form').addEventListener('submit', function (e) {

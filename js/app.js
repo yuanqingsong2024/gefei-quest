@@ -119,6 +119,10 @@
       crumb = '每日赚钱榜';
       $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'rank') + '<div id="tool-body"></div>';
       QuestRank.renderRank(state, $('#tool-body'), toolCtx());
+    } else if (sec === 'war' && route.view === 'share') {
+      crumb = '内容分发';
+      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'share') + '<div id="tool-body"></div>';
+      QuestShare.render(state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && route.view === 'publish') {
       crumb = '发布上线';
       $('#panel-war').innerHTML = subTabs(N.WAR_TABS, 'publish') + '<div id="tool-body"></div>';

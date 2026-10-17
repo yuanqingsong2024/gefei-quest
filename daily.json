@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T02:39:11.910Z",
-  "latestId": 17,
+  "generatedAt": "2026-10-17T03:41:20.529Z",
+  "latestId": 18,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 18,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "内容分发：一份内容，14 个平台免费发帖",
+      "items": [
+        "新页面「内容分发」：从实操助手站点、赚钱榜条目、已发布网址或自由文本生成 X、微博、小红书、知乎、公众号、头条、抖音、Reddit、LinkedIn、Facebook、Pinterest、Medium、Telegram、WhatsApp 版本",
+        "有 AI 服务商时用 AI 改写，Grok Bot 模式用内置模板；每条可编辑、带字数计数（X 按 280 规则）、一键复制",
+        "只用官方免费分享/发帖链接打开你自己的发帖页；不能预填的平台自动复制后打开发布页；不调用任何付费 API",
+        "分发记录进入数据分析时间线；账号中心显示每个平台的免费路径"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-share"
+    },
     {
       "id": 17,
       "date": "2026-10-17",
@@ -126,18 +139,6 @@
         "我的站点台账：按月记曝光、点击、收入并画折线"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
-    },
-    {
-      "id": 8,
-      "date": "2026-10-16",
-      "tag": "改进",
-      "title": "全站整理：统一名称、导航与图标",
-      "items": [
-        "六个栏目名称全站统一",
-        "所有文档改为站内页面，不再跳 .md",
-        "旧链接自动跳转到新地址"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

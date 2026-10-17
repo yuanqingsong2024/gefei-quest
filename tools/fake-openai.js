@@ -3,6 +3,8 @@
 // Anthropic: POST /v1/messages (x-api-key good + anthropic-version), SSE content_block_delta
 // Ollama: POST /api/chat (NDJSON stream), GET /api/tags — no key needed
 const http = require('http');
+const SHARE = '=== x ===\nAI tweet about the tool https://example.com\n---\nsecond tweet\n=== xhs ===\n标题：AI 小红书标题\n正文：AI 正文内容\n标签：工具,效率\n=== weibo ===\nAI 微博正文';
+const NS = (user, def) => /平台ID/.test(user) ? SHARE : def;
 const REPLY = (user) => '## 搜索意图\n这是**测试回复**，主题：' + user.slice(0, 20) + '\n\n- 第一步\n- 第二步\n\n<script>alert(1)</script> [坏链接](javascript:alert(1))\n\n不保证收益。';
 function start(port) {
   const srv = http.createServer((req, res) => {
@@ -26,20 +28,20 @@ function start(port) {
         if (req.headers.authorization !== 'Bearer good') return send(401, { error: { message: 'Incorrect API key provided' } });
         if (j.model === 'missing') return send(404, { error: { message: 'The model does not exist' } });
         const user = j.messages[j.messages.length - 1].content;
-        if (!j.stream) return send(200, { choices: [{ message: { role: 'assistant', content: '成功' } }] });
+        if (!j.stream) return send(200, { choices: [{ message: { role: 'assistant', content: NS(user, '成功') } }] });
         return stream(chunks(REPLY(user)).map(c => 'data: ' + JSON.stringify({ choices: [{ delta: { content: c } }] }) + '\n\n').concat(['data: [DONE]\n\n']), 'text/event-stream');
       }
       if (req.url === '/v1/messages') {
         if (req.headers['x-api-key'] !== 'good' || !req.headers['anthropic-version']) return send(401, { type: 'error', error: { type: 'authentication_error', message: 'invalid x-api-key' } });
         if (!j.max_tokens || !j.system) return send(400, { type: 'error', error: { message: 'max_tokens and system required (test)' } });
         const user = j.messages[j.messages.length - 1].content;
-        if (!j.stream) return send(200, { type: 'message', content: [{ type: 'text', text: '成功' }] });
+        if (!j.stream) return send(200, { type: 'message', content: [{ type: 'text', text: NS(user, '成功') }] });
         const ev = (e, d) => 'event: ' + e + '\ndata: ' + JSON.stringify(d) + '\n\n';
         return stream([ev('message_start', { type: 'message_start' })].concat(chunks(REPLY(user)).map(c => ev('content_block_delta', { type: 'content_block_delta', index: 0, delta: { type: 'text_delta', text: c } })), [ev('message_stop', { type: 'message_stop' })]), 'text/event-stream');
       }
       if (req.url === '/api/chat') {
         const user = j.messages[j.messages.length - 1].content;
-        if (!j.stream) return send(200, { message: { role: 'assistant', content: '成功' }, done: true });
+        if (!j.stream) return send(200, { message: { role: 'assistant', content: NS(user, '成功') }, done: true });
         return stream(chunks(REPLY(user)).map(c => JSON.stringify({ message: { role: 'assistant', content: c }, done: false }) + '\n').concat([JSON.stringify({ done: true }) + '\n']), 'application/x-ndjson');
       }
       send(404, { error: { message: 'Not found' } });
