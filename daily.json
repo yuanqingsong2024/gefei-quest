@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T12:44:17.859Z",
-  "latestId": 28,
+  "generatedAt": "2026-10-17T13:00:50.812Z",
+  "latestId": 29,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 29,
+      "date": "2026-10-17",
+      "tag": "改进",
+      "title": "首页标题更简洁",
+      "items": [
+        "首页大标题改为「做英文出海小站」"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 28,
       "date": "2026-10-17",
@@ -126,19 +136,6 @@
         "我的进度成就墙默认收起；账号中心说明默认收起，平台卡保留状态和免费路径（说明与按钮默认收起），桌面每页 6 个"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 19,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "工作台 + 每周复盘 + Google 自动拉数据 + 全站紧凑排版",
-      "items": [
-        "新页面「工作台」#work：每个站点一张卡，按 选词 → 实操助手 → 发布 → 分发 → 数据 → 复盘 显示进度和「下一步」，附近 28 天点击 / 曝光",
-        "新页面「每周复盘」#work-review：自动汇总本周分发、发布、数据，填写做了什么 / 数据变化 / 学到什么 / 下周 3 件事 / 风险，可复制 Markdown、AI 复盘建议",
-        "账号中心新增「Google 连接」：用你自己的 OAuth 客户端 ID 弹窗授权，只读拉取 Search Console、GA4、AdSense，按站点映射，写入数据分析与站点台账；打开数据分析或工作台超过 6 小时自动刷新；令牌只存本标签页",
-        "全站紧凑排版：页内标签、可折叠分节、分页（赚钱榜、平台详情、账号平台列表）、「显示更多」（资源库、更新日志）；目录跳转和深链接会自动展开目标，内容和链接都保留"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#work"
     }
   ],
   "rank": {

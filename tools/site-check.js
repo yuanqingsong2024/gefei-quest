@@ -1741,6 +1741,10 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       const h1 = hero.querySelector('h1');
       const minH = parseFloat(getComputedStyle(hero).minHeight);
       const fs = parseFloat(getComputedStyle(h1).fontSize);
+      const lh = parseFloat(getComputedStyle(h1).lineHeight);
+      const h1h = h1.getBoundingClientRect().height;
+      const aria = [hero.getAttribute('aria-label') || ''].concat([...hero.querySelectorAll('[aria-label],[title],[alt]')].map((el) => (el.getAttribute('aria-label') || '') + ' ' + (el.getAttribute('title') || '') + ' ' + (el.getAttribute('alt') || ''))).join('\n');
+      const heroBlob = (hero.textContent || '') + '\n' + aria;
       const list = document.querySelector('.home-rank-list');
       const cols = getComputedStyle(list).gridTemplateColumns.split(' ').filter((x) => x && x !== 'none').length;
       const why = document.getElementById('home-why').getBoundingClientRect();
@@ -1753,12 +1757,17 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         minH, vh, fs, cols, side,
         kicker: !!document.querySelector('.hero-kicker'),
         ctas: document.querySelectorAll('.hero-cta a').length,
+        h1Text: (h1.textContent || '').trim(),
+        h1h, lh,
+        singleLine: h1h < lh * 1.6,
+        noGefei: heroBlob.indexOf('哥飞') < 0,
         colsFoot,
         sitemap: !!document.querySelector('#site-footer a[href="#sitemap"]'),
       };
     });
     T21(!layout.wrap && layout.full, 'home sections full width ' + JSON.stringify(layout.widths) + ' vw=' + layout.vw);
     T21(layout.minH >= layout.vh * 0.6 && layout.fs >= 40, 'hero minH ' + layout.minH + ' fs ' + layout.fs + ' vh ' + layout.vh);
+    T21(layout.vw === 1280 && layout.h1Text === '做英文出海小站' && layout.noGefei && layout.singleLine, 'hero h1 === 做英文出海小站, no 哥飞, single line @1280 h=' + layout.h1h + ' lh=' + layout.lh + ' ' + JSON.stringify({ text: layout.h1Text, noGefei: layout.noGefei }));
     T21(layout.cols === 2 && layout.side && !layout.kicker && layout.ctas === 2, 'rank 2-col + why/faq side by side ' + JSON.stringify({ cols: layout.cols, side: layout.side }));
     T21(layout.colsFoot <= 5 && layout.colsFoot >= 1 && layout.sitemap, 'footer columns ' + layout.colsFoot + ' sitemap ' + layout.sitemap);
     const found = await pg.evaluate(() => {
@@ -1817,6 +1826,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       await pg.waitForTimeout(250);
       await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
       await pg.screenshot({ path: `${SHOTS}/p21-home.png`, fullPage: true });
+      await pg.locator('.hero.hero-home').screenshot({ path: `${SHOTS}/p21-hero.png` });
     }
   } catch (e) {
     T21(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));

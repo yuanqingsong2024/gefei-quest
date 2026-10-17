@@ -438,7 +438,7 @@
     root.innerHTML =
       '<section class="hero hero-home" aria-label="首页">' +
       '<div class="hero-inner home-inner">' +
-      '<h1 class="hero-title">跟着哥飞的方法，做英文出海小站</h1>' +
+      '<h1 class="hero-title">做英文出海小站</h1>' +
       '<p class="hero-sub">学习路线、做站工具和每日赚钱榜都在这里。不承诺收入。</p>' +
       '<div class="hero-cta"><a class="btn btn-primary" href="#start" data-tour="cta">' + I('flag') + '我是新手，从这里开始</a>' +
       '<a class="btn btn-ghost" href="#home-rank">' + I('trophy') + '直接看今日赚钱榜</a></div>' +
