@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T13:29:56.950Z",
-  "latestId": 30,
+  "generatedAt": "2026-10-17T15:03:58.670Z",
+  "latestId": 31,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 31,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "问 AI、首页下一步、工具页目标",
+      "items": [
+        "新增「问 AI」助手：每个页面右下角都能提问。连了自定义服务商会流式回答；没连接时只检索站内资料，并标明「站内资料检索（未连接 AI）」",
+        "首页在首屏下面增加一张「下一步」卡片：按你的存档，在学习、实施、赚钱里只推荐一件事，一个按钮直达",
+        "各工具页写明这一页的目标；页面底部有「下一步 →」按钮，按学习、实施、赚钱的顺序进入下一页"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 30,
       "date": "2026-10-17",
@@ -120,19 +132,6 @@
         "接口失败或超过 8 秒时显示中文提示；最近用过的种子词记在本机存档"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
-    },
-    {
-      "id": 21,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "模板库：工具站 / 对比评测 / 术语表三种起步模板",
-      "items": [
-        "站一实操助手可选择步模板：单页介绍（与原来相同）、在线工具站、对比/评测页、术语表/词汇站",
-        "所选模板记在本机存档，实时预览、ZIP 下载和发布上线都按这个模板生成 index.html、robots.txt、sitemap.xml",
-        "发布页的计划里显示模板名，例如「模板：在线工具站」",
-        "工具站、对比页、术语表带可替换的占位内容；上线自查多一条「占位已替换」，勾选后才算通过"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
     }
   ],
   "rank": {

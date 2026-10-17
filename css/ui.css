@@ -2307,7 +2307,7 @@ html.is-offline .offline-pill {
 }
 
 /* Phase 20 · 首页产品页 */
-#home-howto, #home-rank, #home-why, #home-faq, #home-continue { scroll-margin-top: calc(var(--nav-h, 56px) + 12px); }
+#home-howto, #home-rank, #home-why, #home-faq, #home-continue, #home-next { scroll-margin-top: calc(var(--nav-h, 56px) + 12px); }
 .hero.hero-home { min-height: 0; align-items: center; }
 .hero-home .hero-inner {
   display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .9fr);
@@ -2463,11 +2463,28 @@ html.is-offline .offline-pill {
   background: #0b1c33; color: #f8fafc; border: 1px solid #7dd3fc; border-radius: 10px;
   font-size: 13.5px; line-height: 1.35;
 }
+.page-hint-main { flex: 1 1 auto; min-width: 0; }
 .page-hint p { margin: 0; flex: 1 1 auto; min-width: 0; color: #f8fafc; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .page-hint b { color: #fff; }
 .page-hint a, .page-hint-go { color: #7dd3fc; font-weight: 800; }
 .page-hint-go { background: none; border: 0; padding: 0; font: inherit; font-weight: 800; text-decoration: underline; cursor: pointer; }
 .page-hint-step { color: #fde68a; font-weight: 700; }
+.page-hint p.page-hint-goal {
+  margin-top: 2px; color: #fde68a; font-weight: 700;
+  white-space: normal; overflow: visible; text-overflow: clip;
+}
+.page-hint-prog {
+  display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none;
+  margin: 4px 0 0; padding: 0; min-width: 0; max-width: 100%;
+}
+.page-hint-prog li {
+  padding: 1px 8px; border-radius: 999px; border: 1px solid #94a3b8;
+  color: #f8fafc; font-size: 12px; font-weight: 700; line-height: 1.45;
+}
+.page-hint-prog li.done { border-color: #4ade80; color: #dcfce7; }
+.page-hint-prog li.current { border-color: #fde68a; background: #fde68a; color: #1a1205; }
+.flow-next { display: flex; margin: 8px 0 2px; min-width: 0; max-width: 100%; }
+.flow-next .btn { max-width: 100%; white-space: normal; }
 .page-hint-x {
   flex: none; width: 28px; height: 28px; margin-left: auto; border-radius: 8px;
   border: 1px solid #f8fafc; background: transparent; color: #f8fafc;
@@ -2489,6 +2506,7 @@ html.is-offline .offline-pill {
 }
 @media (max-width: 520px) {
   .page-hint { align-items: flex-start; flex-wrap: wrap; }
+  .page-hint-main { flex-basis: 100%; }
   .page-hint p { white-space: normal; overflow: visible; text-overflow: clip; flex-basis: 100%; }
   .page-hint-x { margin-left: 0; }
 }
@@ -2574,6 +2592,24 @@ body.is-home .hero.hero-home .hero-cta .btn { padding: 14px 22px; font-size: 1.0
 #home-continue .home-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-top: 10px; padding-bottom: 10px; }
 #home-continue p { margin: 0; flex: 1 1 220px; min-width: 0; color: #f8fafc; }
 #home-continue b { color: #fde68a; }
+#home-next {
+  display: block; margin: 0; padding: 0; min-width: 0;
+  background: #0b1c33; border-bottom: 1px solid #fde68a; color: #f8fafc;
+}
+#home-next .home-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-top: 12px; padding-bottom: 12px; }
+.home-next-stage {
+  flex: none; margin: 0; padding: 3px 10px; border-radius: 999px;
+  background: #fbbf24; color: #1a1205; font-weight: 800; font-size: .9rem; line-height: 1.3;
+}
+.home-next-copy { flex: 1 1 220px; min-width: 0; }
+.home-next-title, .home-next-why { margin: 0; overflow-wrap: anywhere; }
+.home-next-title { color: #fff; font-size: 1.05rem; line-height: 1.35; }
+.home-next-title b { color: #fff; }
+.home-next-why { color: #fde68a; font-size: .95rem; line-height: 1.4; }
+#home-next .btn { flex: none; max-width: 100%; white-space: normal; }
+@media (max-width: 640px) {
+  #home-next .btn { flex: 1 1 100%; justify-content: center; text-align: center; }
+}
 body.is-home .home-band .sec-head { margin-bottom: 22px; }
 body.is-home .home-band .sec-head h2 { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 1.7rem; color: #fff; }
 body.is-home .home-band .sec-head h2 .ico { width: 28px; height: 28px; color: #fbbf24; }
@@ -2699,7 +2735,7 @@ section,
 }
 .md h2, .md h3, .md h4, .md h5,
 .pm-card,
-#home-howto, #home-rank, #home-why, #home-faq, #home-continue {
+#home-howto, #home-rank, #home-why, #home-faq, #home-continue, #home-next {
   scroll-margin-top: calc(var(--nav-h) + 12px);
 }
 @media print {

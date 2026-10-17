@@ -1952,6 +1952,195 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P23A functional fails=' + f23); fail += f23;
+
+  // ---------- Phase 23BC · 首页下一步 + 工具页流程 ----------
+  let f23bc = 0; {
+  const T23bc = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P23BC ' + m); if (!c) f23bc++; };
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  const pg = cx(await ctx.newPage());
+  const e23bc = [];
+  pg.on('pageerror', (e) => { e23bc.push('pageerror ' + e.message); errors.push('p23bc ' + e.message); });
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e23bc.push(m.text()); errors.push('p23bc ' + m.text()); } });
+  const shotDir = '/workspace/gefei-quest-shots';
+  try {
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#home-next');
+    const emptyCard = await pg.evaluate(() => {
+      const card = document.getElementById('home-next');
+      const hero = document.querySelector('.hero.hero-home');
+      const a = card && card.querySelector('a.btn-primary');
+      const buttons = card ? card.querySelectorAll('a.btn, button.btn') : [];
+      return {
+        afterHero: !!(hero && hero.nextElementSibling === card),
+        beforeHowto: !!(card && card.nextElementSibling && (card.nextElementSibling.id === 'home-howto' || card.nextElementSibling.id === 'home-continue')),
+        stage: card ? (card.querySelector('.home-next-stage') || {}).textContent : '',
+        title: card ? (card.querySelector('.home-next-title') || {}).textContent : '',
+        why: card ? (card.querySelector('.home-next-why') || {}).textContent : '',
+        href: a && a.getAttribute('href'),
+        btn: a ? a.textContent.replace(/\s+/g, '') : '',
+        nBtn: buttons.length,
+        grid: !!document.querySelector('#panel-home .feat-grid'),
+        cont: !!document.getElementById('home-continue'),
+        fn: QuestHome.nextStep(QuestSave.getDefaultSave()),
+      };
+    });
+    T23bc(emptyCard.afterHero && emptyCard.stage === '学习' && emptyCard.href === '#start' && emptyCard.btn.indexOf('从『新手引导』开始') >= 0 && emptyCard.title.indexOf('从『新手引导』开始') >= 0 && emptyCard.why.length > 8 && emptyCard.nBtn === 1 && !emptyCard.grid && !emptyCard.cont && emptyCard.fn.href === '#start' && emptyCard.fn.stage === '学习', 'empty save next card #start ' + JSON.stringify(emptyCard));
+    const branched = await pg.evaluate(() => {
+      const base = QuestSave.getDefaultSave();
+      const kw = JSON.parse(JSON.stringify(base));
+      kw.keywords.items = [{ id: 'k1', at: 1, star: false, kw: 'pdf merge for mac', src: '手填', vol: '', big: '', weak: '', intent: 'tool', note: '' }];
+      const started = JSON.parse(JSON.stringify(base));
+      started.onboarding = { tourDone: true, tourSeenAt: null, days: { d1: true } };
+      const draft = JSON.parse(JSON.stringify(kw));
+      draft.sites = { items: [{ id: 's1', name: 'Demo', domain: 'demo.example', kw: 'pdf merge for mac', status: '筹备', logs: [] }] };
+      const live = JSON.parse(JSON.stringify(draft));
+      live.sites.items[0].status = '已上线';
+      const data = JSON.parse(JSON.stringify(live));
+      data.sites.items[0].logs = [{ month: '2026-09', clicks: 3, imp: 20, usd: 0 }];
+      const flow = QuestHints.FLOW.map((s) => {
+        const id = s.hash.replace(/^#/, '');
+        const r = QuestNav.parse(id);
+        const nxt = QuestHints.nextOf(s.id);
+        return { id, ok: r.hash === id, next: nxt ? nxt.hash : '', nextOk: !nxt || QuestNav.parse(nxt.hash.replace(/^#/, '')).hash === nxt.hash.replace(/^#/, '') };
+      });
+      return {
+        started: QuestHome.nextStep(started),
+        kw: QuestHome.nextStep(kw),
+        draft: QuestHome.nextStep(draft),
+        live: QuestHome.nextStep(live),
+        data: QuestHome.nextStep(data),
+        flow,
+        last: QuestHints.nextOf('pm'),
+      };
+    });
+    T23bc(branched.started.href === '#path-quests' && branched.started.stage === '学习' && /第一课/.test(branched.started.title), 'started, no lesson → #path-quests ' + branched.started.href + ' ' + branched.started.title);
+    T23bc(branched.kw.href === '#me-sites' && branched.kw.stage === '实施', 'keyword, no site → #me-sites ' + branched.kw.href);
+    T23bc(branched.draft.href === '#war-publish' && branched.draft.stage === '实施', 'site not published → #war-publish ' + branched.draft.href);
+    T23bc(branched.live.href === '#me-analytics' && branched.live.stage === '赚钱', 'published, no data → #me-analytics ' + branched.live.href);
+    T23bc(branched.data.href === '#work-review' && branched.data.stage === '赚钱', 'published with logs, no review → #work-review ' + branched.data.href);
+    T23bc(branched.flow.length >= 12 && branched.flow.every((s) => s.ok && s.nextOk) && branched.last == null, 'FLOW routes exist ' + branched.flow.filter((s) => !s.ok || !s.nextOk).map((s) => s.id).join(','));
+    await pg.evaluate(() => {
+      const s = QuestSave.getDefaultSave();
+      s.keywords.items = [{ id: 'k1', at: 1, star: false, kw: 'pdf merge for mac', src: '手填', vol: '', big: '', weak: '', intent: 'tool', note: '' }];
+      s.sites = { items: [] };
+      localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s));
+    });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#home-next');
+    const partial = await pg.evaluate(() => {
+      const card = document.getElementById('home-next');
+      const a = card && card.querySelector('a.btn-primary');
+      const save = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+      return {
+        href: a && a.getAttribute('href'),
+        stage: (card.querySelector('.home-next-stage') || {}).textContent,
+        nBtn: card.querySelectorAll('a.btn, button.btn').length,
+        kw: save.keywords.items.length,
+        kwText: save.keywords.items[0] && save.keywords.items[0].kw,
+        sites: save.sites.items.length,
+      };
+    });
+    T23bc(partial.href === '#me-sites' && partial.stage === '实施' && partial.nBtn === 1 && partial.kw === 1 && partial.kwText === 'pdf merge for mac' && partial.sites === 0, 'partial save card #me-sites ' + JSON.stringify(partial));
+    const pages = ['war-keywords', 'war-kit', 'me-sites', 'work'];
+    for (const h of pages) {
+      await pg.goto(BASE + 'index.html#' + h, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(220);
+      const info = await pg.evaluate(() => {
+        const panel = document.querySelector('.tab-panel:not([hidden])');
+        const btn = panel && panel.querySelector('.flow-next a');
+        const hint = panel && panel.querySelector('.page-hint');
+        const href = btn ? btn.getAttribute('href') : '';
+        const id = href.replace(/^#/, '');
+        const route = href ? QuestNav.parse(id) : null;
+        const hit = QuestHints.FLOW.filter((s) => s.hash === href)[0];
+        return {
+          text: btn ? btn.textContent.replace(/\s+/g, ' ').trim() : '',
+          href,
+          routeHash: route && route.hash,
+          goal: !!(hint && hint.textContent.indexOf('目标：') >= 0),
+          prog: hint ? hint.querySelectorAll('.page-hint-prog li').length : 0,
+          cur: hint ? hint.querySelectorAll('.page-hint-prog li.current, .page-hint-prog li.done').length : 0,
+          title: hit ? hit.title : '',
+        };
+      });
+      T23bc(info.goal && info.prog === 3 && info.cur >= 1 && info.href && info.routeHash === info.href.slice(1) && info.title && info.text.indexOf('下一步') >= 0 && info.text.indexOf('→') >= 0 && info.text.indexOf(info.title) >= 0, '#' + h + ' goal + 下一步 ' + JSON.stringify(info));
+      await pg.goto(BASE + 'index.html' + info.href, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(220);
+      const landed = await pg.evaluate((href) => {
+        const panel = document.querySelector('.tab-panel:not([hidden])');
+        return { hash: location.hash, text: panel ? panel.innerText.trim().length : 0 };
+      }, info.href);
+      T23bc(landed.hash === info.href && landed.text > 40, '#' + h + ' next renders ' + info.href + ' text=' + landed.text);
+    }
+    await pg.goto(BASE + 'index.html#me-accounts', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('.page-hint-x');
+    const beforeDismiss = await pg.evaluate(() => {
+      const panel = document.querySelector('.tab-panel:not([hidden])');
+      return { hint: !!panel.querySelector('.page-hint'), next: !!panel.querySelector('.flow-next a') };
+    });
+    await pg.locator('.tab-panel:not([hidden]) .page-hint-x').click();
+    await pg.waitForTimeout(120);
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(220);
+    const afterDismiss = await pg.evaluate(() => {
+      const panel = document.querySelector('.tab-panel:not([hidden])');
+      const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || 'null');
+      const btn = panel && panel.querySelector('.flow-next a');
+      return {
+        hint: !!(panel && panel.querySelector('.page-hint')),
+        next: btn ? btn.getAttribute('href') : '',
+        dismissed: !!(s && s.hints && s.hints.dismissed && s.hints.dismissed['me-accounts'] === true),
+      };
+    });
+    T23bc(beforeDismiss.hint && beforeDismiss.next && !afterDismiss.hint && afterDismiss.next === '#me-analytics' && afterDismiss.dismissed, 'dismiss keeps 下一步 ' + JSON.stringify({ beforeDismiss, afterDismiss }));
+    await pg.setViewportSize({ width: 390, height: 844 });
+    for (const h of ['home', 'war-keywords']) {
+      await pg.goto(BASE + 'index.html#' + h, { waitUntil: 'domcontentloaded' });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(250);
+      await pg.evaluate(() => {
+        const t = document.getElementById('tour-root');
+        if (t) t.remove();
+        if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close();
+      });
+      const lay = await pg.evaluate(() => ({ sw: document.documentElement.scrollWidth, vw: window.innerWidth }));
+      T23bc(lay.vw === 390 && lay.sw <= 390, '390 #' + h + ' no overflow ' + JSON.stringify(lay));
+    }
+    await pg.setViewportSize({ width: 1280, height: 800 });
+    await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#home-next');
+    await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
+    await pg.locator('#home-next').screenshot({ path: shotDir + '/p23-home-next.png' });
+    await pg.goto(BASE + 'index.html#war-keywords', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    await pg.evaluate(async () => { await QuestAssistant.ask('怎么判断一个词值不值得做'); });
+    await pg.waitForTimeout(200);
+    const offlineShot = await pg.evaluate(() => document.getElementById('qa-panel').textContent.indexOf('站内资料检索（未连接 AI）') >= 0);
+    T23bc(offlineShot, 'offline answer visible for screenshot');
+    await pg.locator('#qa-panel').screenshot({ path: shotDir + '/p23-assistant-offline.png' });
+    await pg.evaluate(() => QuestAssistant.close());
+    await pg.goto(BASE + 'index.html#war-keywords', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('.page-hint-goal');
+    await pg.screenshot({ path: shotDir + '/p23-tool-next.png', fullPage: true });
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    await pg.evaluate(async () => { await QuestAssistant.ask('这个页面是干什么的'); });
+    await pg.waitForTimeout(250);
+    await pg.screenshot({ path: shotDir + '/p23-assistant-390.png' });
+    await pg.keyboard.press('Escape');
+  } catch (e) {
+    T23bc(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T23bc(e23bc.length === 0, 'P23BC console errors ' + e23bc.slice(0, 4).join(' | '));
+  await ctx.close();
+  }
+  console.log('P23BC functional fails=' + f23bc); fail += f23bc;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

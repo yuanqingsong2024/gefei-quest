@@ -412,6 +412,119 @@
       '</div>' + sitesSnap(raw) + (pct ? '<div class="snap-bar"><i style="width:' + Math.min(100, pct) + '%"></i></div>' : '');
   }
 
+  function asArr(v) { return Array.isArray(v) ? v : []; }
+  function sitesOf(save) {
+    return save && save.sites && Array.isArray(save.sites.items) ? save.sites.items : [];
+  }
+  function hostOf(u) {
+    return String(u || '').replace(/^https?:\/\//i, '').replace(/[\/?#].*$/, '').toLowerCase();
+  }
+  function kwReady(save) {
+    var items = save && save.keywords && Array.isArray(save.keywords.items) ? save.keywords.items : [];
+    var i;
+    for (i = 0; i < items.length; i++) {
+      if (items[i] && String(items[i].kw || '').trim()) return true;
+    }
+    return !!(save && save.kit && String(save.kit.keyword || '').trim());
+  }
+  function isLiveStatus(status) {
+    return status === '已上线' || status === '已收录' || status === '有点击' || status === '有收入';
+  }
+  function isPublished(save) {
+    var sites = sitesOf(save);
+    var pub = asArr(save && save.publish);
+    var i, s, h;
+    for (i = 0; i < sites.length; i++) {
+      s = sites[i];
+      if (!s) continue;
+      if (isLiveStatus(s.status)) return true;
+      h = hostOf(s.domain);
+      if (h && pub.some(function (p) { return p && p.ok && !p.dry && hostOf(p.url) === h; })) return true;
+    }
+    return false;
+  }
+  function hasData(save) {
+    if (asArr(save && save.imports).length) return true;
+    return sitesOf(save).some(function (s) { return s && Array.isArray(s.logs) && s.logs.length > 0; });
+  }
+  function hasReview(save) {
+    return asArr(save && save.reviews).length > 0;
+  }
+  function visitorStarted(save) {
+    if (!save || typeof save !== 'object') return false;
+    if (asArr(save.done).length || kwReady(save) || sitesOf(save).length) return true;
+    if (save.xp > 0) return true;
+    if (asArr(save.rankPlan).length || asArr(save.rankFav).length) return true;
+    if (asArr(save.publish).length || asArr(save.imports).length || asArr(save.reviews).length || asArr(save.shares).length) return true;
+    if (asArr(save.weeklyClaimed).length || asArr(save.cleared).length) return true;
+    if (save.kit && String(save.kit.intro || '').trim()) return true;
+    var ob = save.onboarding || {};
+    if (ob.tourDone === true) return true;
+    if (typeof ob.tourSeenAt === 'string' && ob.tourSeenAt) return true;
+    var days = ob.days || {}, k;
+    for (k in days) { if (Object.prototype.hasOwnProperty.call(days, k) && days[k] === true) return true; }
+    if (typeof save.lastRoute === 'string' && save.lastRoute && save.lastRoute !== 'home' && save.lastRoute.indexOf('home-') !== 0) return true;
+    return false;
+  }
+  function oneStep(stage, title, why, href, btn) {
+    return { stage: stage, title: title, why: why, href: href, btn: btn };
+  }
+  function firstLesson(save) {
+    var title = '完成第一课';
+    var why = '引导已经开始。到任务清单完成入门第一课，只勾你确实做完的。';
+    var btn = '去完成第一课';
+    try {
+      var D = global.QuestData;
+      var done = asArr(save && save.done);
+      if (D && Array.isArray(D.QUESTS)) {
+        var q = null, i;
+        for (i = 0; i < D.QUESTS.length; i++) {
+          if (D.QUESTS[i] && !D.QUESTS[i].side && done.indexOf(D.QUESTS[i].id) < 0) { q = D.QUESTS[i]; break; }
+        }
+        if (q) {
+          title = '完成第一课「' + q.title + '」';
+          if (q.action) why = String(q.action).replace(/\s+/g, ' ').slice(0, 48);
+          btn = '去完成「' + q.title + '」';
+        }
+      }
+    } catch (e) {}
+    return oneStep('学习', title, why, '#path-quests', btn);
+  }
+
+  /** 学习 → 实施 → 赚钱里唯一的下一步。纯函数：只读 save，不改存档。 */
+  function nextStep(save) {
+    save = save || {};
+    if (!visitorStarted(save)) {
+      return oneStep('学习', '从『新手引导』开始', '先看学习、实施、赚钱三条路线，再决定今天做哪一件。', '#start', '从『新手引导』开始');
+    }
+    if (!asArr(save.done).length && !kwReady(save) && !sitesOf(save).length) return firstLesson(save);
+    if (!kwReady(save)) {
+      return oneStep('实施', '记一个候选词', '还没有候选词。在选词练习板比较几个英文词，决定值不值得做。', '#war-keywords', '去选词练习板');
+    }
+    if (!sitesOf(save).length) {
+      return oneStep('实施', '在「我的站点台账」登记站点', '已经有候选词。下一步写下站名、域名和主词。', '#me-sites', '去我的站点台账');
+    }
+    if (!isPublished(save)) {
+      return oneStep('实施', '把站点发布上线', '站点还没上线。用发布上线写进仓库，或在台账把状态改成「已上线」。', '#war-publish', '去发布上线');
+    }
+    if (!hasData(save)) {
+      return oneStep('赚钱', '看一次真实数据', '站点已上线，还没有导入或拉取的数字。到数据分析看你自己的数据。', '#me-analytics', '去数据分析');
+    }
+    if (!hasReview(save)) {
+      return oneStep('赚钱', '写本周复盘', '数据已经有了。花十分钟写下本周做了什么，以及下周 3 件事。', '#work-review', '去每周复盘');
+    }
+    return oneStep('赚钱', '看每日赚钱榜，挑一条试一周', '课、站、数据和复盘都有记录了。榜单不保证收益，挑一条加入实操计划即可。', '#war-rank', '去每日赚钱榜');
+  }
+  function nextCardHtml(step) {
+    if (!step) return '';
+    return '<aside class="home-next" id="home-next"><div class="home-inner">' +
+      '<span class="home-next-stage">' + esc(step.stage) + '</span>' +
+      '<div class="home-next-copy"><p class="home-next-title"><b>' + esc(step.title) + '</b></p>' +
+      '<p class="home-next-why">' + esc(step.why) + '</p></div>' +
+      '<a class="btn btn-primary" id="home-next-go" href="' + esc(step.href) + '">' + esc(step.btn) + '</a>' +
+      '</div></aside>';
+  }
+
   function renderHome(root, state) {
     if (!root) return;
     var I = global.QuestNav.icon;
@@ -419,6 +532,7 @@
     var items = latestRankItems();
     var date = rank.latest || '';
     var next = continueNext(state);
+    var step = nextStep(state);
     var rankBody = items.length
       ? '<ol class="home-rank-list" id="home-rank-list">' + items.map(function (it) {
         var due = deadlineOf(it);
@@ -443,6 +557,7 @@
       '<div class="hero-cta"><a class="btn btn-primary" href="#start" data-tour="cta">' + I('flag') + '我是新手，从这里开始</a>' +
       '<a class="btn btn-ghost" href="#home-rank">' + I('trophy') + '直接看今日赚钱榜</a></div>' +
       '</div></section>' +
+      nextCardHtml(step) +
       (next ? '<aside class="home-continue" id="home-continue"><div class="home-inner"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></div></aside>' : '') +
       '<section class="home-band band-a" id="home-howto" data-tour="howto"><div class="home-inner"><div class="sec-head"><h2>' + I('flag') + '这个网站怎么用</h2></div>' +
       '<ol class="home-howto">' + howto.map(function (s) {
@@ -463,5 +578,5 @@
       }).join('') + '</div></section></div></section>';
   }
 
-  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ };
+  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep };
 })(typeof window !== 'undefined' ? window : globalThis);
