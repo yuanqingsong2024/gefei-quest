@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T15:03:58.670Z",
-  "latestId": 31,
+  "generatedAt": "2026-10-17T16:02:14.733Z",
+  "latestId": 32,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 32,
+      "date": "2026-10-17",
+      "tag": "改进",
+      "title": "首页桌面版重排：两栏首屏、今日 Top 3 预览、下一步并入主按钮",
+      "items": [
+        "首页桌面版重排：两栏首屏、今日 Top 3 预览、下一步并入主按钮",
+        "首屏右边是今天赚钱榜的前 3 名，并标出榜单日期；「看完整 Top 10」滚到下面的完整榜",
+        "主按钮按你的进度变化。新访客是「我是新手，从这里开始」。单独的「下一步」横条已去掉，避免和主按钮重复"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 31,
       "date": "2026-10-17",
@@ -119,19 +131,6 @@
         "进度仍然只存在这个浏览器里，安装到桌面不会同步到其他设备"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#me"
-    },
-    {
-      "id": 22,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "关键词灵感：免费联想词来源一键加入选词",
-      "items": [
-        "选词练习板新增「关键词灵感」标签：输入英文种子词，并列显示 Datamuse 联想、Wikipedia 词条和 HN 讨论标题",
-        "勾选联想词或字母扩展后，一键加入候选词，回到选词练习板即可打分",
-        "Google 字母扩展、Trends、Reddit、Product Hunt 只提供复制和打开官方搜索链接，页面不抓取这些网站",
-        "接口失败或超过 8 秒时显示中文提示；最近用过的种子词记在本机存档"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
     }
   ],
   "rank": {

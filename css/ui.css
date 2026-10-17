@@ -2565,24 +2565,24 @@ body.is-home #panel-home {
   background: transparent; border: 0; border-radius: 0; padding: 0; box-shadow: none; min-height: 0;
 }
 body.is-home .hero.hero-home {
-  min-height: 70vh;
-  display: flex; align-items: center;
+  min-height: 0; height: auto;
+  display: block;
   background:
-    linear-gradient(180deg, rgba(6, 11, 22, .78), rgba(6, 11, 22, .86)),
-    url("../assets/hero-bg.webp") center/cover no-repeat;
+    linear-gradient(90deg, rgba(6, 11, 22, .84) 0%, rgba(6, 11, 22, .62) 48%, rgba(6, 11, 22, .5) 100%),
+    url("../assets/hero-bg.webp") center / cover no-repeat;
 }
-body.is-home .hero.hero-home .hero-inner { display: block; max-width: 1120px; padding: 48px 24px; }
+body.is-home .hero.hero-home .hero-inner { display: block; max-width: 1200px; width: 100%; margin: 0 auto; padding: 16px 24px; }
 body.is-home .hero.hero-home h1.hero-title {
-  font-size: 44px; line-height: 1.2; max-width: 14em; margin: 0 0 14px; color: #fff;
+  font-size: 28px; line-height: 1.2; max-width: none; margin: 0 0 8px; color: #fff;
   text-shadow: 0 2px 16px rgba(0, 0, 0, .55);
 }
 body.is-home .hero.hero-home .hero-sub {
-  margin: 0 0 22px; max-width: 40em; color: #f8fafc; font-size: 1.15rem; line-height: 1.45;
+  margin: 0 0 10px; max-width: 40em; color: #f8fafc; font-size: 1rem; line-height: 1.45; white-space: normal;
 }
-body.is-home .hero.hero-home .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-body.is-home .hero.hero-home .hero-cta .btn { padding: 14px 22px; font-size: 1.05rem; }
-.home-inner { max-width: 1120px; margin: 0 auto; padding: 0 24px; min-width: 0; }
-.home-band { padding: 96px 0; min-width: 0; }
+body.is-home .hero.hero-home .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; }
+body.is-home .hero.hero-home .hero-cta .btn { padding: 12px 18px; font-size: 1rem; }
+.home-inner { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px; min-width: 0; }
+.home-band { padding: 48px 0; min-width: 0; }
 .home-band.band-a { background: rgba(15, 23, 42, .78); }
 .home-band.band-b { background: rgba(2, 6, 23, .55); }
 #home-continue {
@@ -2672,7 +2672,7 @@ body.is-home .home-rank-row .pill { background: #155e75; color: #f0f9ff; border:
 .site-footer .foot-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .foot-note { overflow-wrap: anywhere; }
 @media (min-width: 800px) {
-  body.is-home .hero.hero-home .hero-sub { white-space: nowrap; }
+  body.is-home .hero.hero-home .hero-sub { white-space: normal; }
 }
 @media (max-width: 800px) {
   .home-pair { grid-template-columns: 1fr; }
@@ -2682,12 +2682,13 @@ body.is-home .home-rank-row .pill { background: #155e75; color: #f0f9ff; border:
   body.is-home .home-rank-list { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
-  body.is-home .hero.hero-home { min-height: auto; }
+  body.is-home .hero.hero-home { min-height: 0; height: auto; }
   body.is-home .hero.hero-home h1.hero-title { font-size: 28px; }
-  body.is-home .hero.hero-home .hero-inner { padding: 36px 16px 32px; }
+  body.is-home .hero.hero-home .hero-inner { padding: 16px 16px 14px; }
   body.is-home .hero.hero-home .hero-cta { flex-direction: column; align-items: stretch; }
   body.is-home .hero.hero-home .hero-cta .btn { width: 100%; justify-content: center; }
-  .home-band { padding: 48px 0; }
+  body.is-home .home-howto a { min-height: 0; padding: 14px 14px; }
+  .home-band { padding: 28px 0; }
   .home-inner { padding: 0 16px; }
   .site-footer .foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -2772,6 +2773,33 @@ section,
 }
 .qa-fab .ico { width: 18px; height: 18px; }
 .qa-fab:hover { background: #fde68a; color: #1a1205; }
+/* 右槽放不下「问 AI」胶囊（宽约 94px + 16px 空隙 + 16px 右边距）时改成 48px 圆钮。
+   首页 1024–1311 把容器左右留白加到 80px，圆钮落在槽里，不压卡片。 */
+@media (max-width: 1407px) {
+  .qa-fab {
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0;
+    gap: 0;
+    border-radius: 50%;
+    justify-content: center;
+  }
+  .qa-fab > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .qa-fab .ico { width: 22px; height: 22px; }
+}
 .qa-panel {
   position: fixed;
   z-index: 85;
@@ -2888,9 +2916,17 @@ section,
 }
 @media (max-width: 640px) {
   .qa-fab {
-    right: 14px;
+    right: 12px;
     bottom: calc(76px + 42px + var(--qa-gap) + env(safe-area-inset-bottom));
-    min-height: 42px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .42);
+    background: rgba(251, 191, 36, .9);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .28);
   }
   .qa-panel {
     top: 0;
@@ -2902,4 +2938,108 @@ section,
 }
 @media (prefers-reduced-motion: reduce) {
   .qa-fab, .qa-panel { transition: none !important; }
+}
+
+/* Phase 22 · 首页两栏首屏。容器与页脚同一宽度；卡片后压暗并模糊灯塔背景。 */
+.hero-grid { display: flex; flex-direction: column; gap: 12px; min-width: 0; width: 100%; }
+.hero-copy { min-width: 0; }
+.hero-steps {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0;
+  list-style: none; margin: 0 0 12px; padding: 0;
+}
+.hero-steps li { display: inline-flex; align-items: center; min-width: 0; }
+.hero-steps li:not(:last-child)::after { content: "→"; margin: 0 8px; color: #e2e8f0; font-weight: 700; }
+.hero-steps a { color: #fde68a; font-weight: 800; text-decoration: none; }
+.hero-steps a:hover { color: #fff; text-decoration: none; }
+.hero-top3 {
+  min-width: 0; max-width: 100%;
+  padding: 12px 14px; border-radius: 16px;
+  background: rgba(8, 14, 28, .72);
+  border: 1px solid rgba(251, 191, 36, .65);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.hero-top3-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0 0 8px; }
+.hero-top3-head h2 { margin: 0; flex: 1 1 auto; font-size: 1.05rem; color: #fff; }
+.hero-top3-date { color: #fde68a; font-weight: 800; font-size: .92rem; }
+.hero-top3-more { margin-left: auto; color: #7dd3fc; font-weight: 800; font-size: .92rem; }
+.hero-top3-more:hover { color: #fde68a; }
+.hero-top3-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.hero-top3-row {
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: center;
+  min-width: 0; padding: 6px 8px; border-radius: 10px; color: #f8fafc; text-decoration: none;
+  background: rgba(15, 23, 42, .5);
+}
+.hero-top3-row:hover { color: #fff; text-decoration: none; background: rgba(251, 191, 36, .12); }
+.hero-top3-no {
+  width: 1.6rem; height: 1.6rem; border-radius: 8px; display: grid; place-items: center;
+  font-weight: 800; font-size: .85rem; color: #1a1205; background: #fbbf24;
+}
+.hero-top3-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+.hero-top3-empty { margin: 0; color: #f8fafc; }
+.hero-top3-empty a { color: #7dd3fc; font-weight: 700; }
+body.is-home .home-inner,
+body.is-home .hero.hero-home .hero-inner,
+body.is-home .site-footer .foot-inner {
+  max-width: 1200px; width: 100%; margin-left: auto; margin-right: auto;
+  padding-left: 24px; padding-right: 24px; box-sizing: border-box;
+}
+body.is-home .site-footer { padding-bottom: 180px; }
+@media (min-width: 1024px) {
+  body.is-home .hero.hero-home {
+    height: auto;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+  }
+  body.is-home .hero.hero-home .hero-inner {
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  body.is-home .hero.hero-home h1.hero-title { font-size: clamp(44px, 3.6vw, 52px); line-height: 1.15; margin-bottom: 12px; }
+  body.is-home .hero.hero-home .hero-sub { font-size: 1.08rem; line-height: 1.5; margin-bottom: 14px; }
+  .hero-steps { margin-bottom: 16px; }
+  .hero-grid {
+    display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
+    gap: 20px 32px; align-items: center; width: 100%;
+  }
+  .hero-top3 { padding: 16px 16px 14px; }
+  .hero-top3-head { margin-bottom: 12px; }
+  .hero-top3-head h2 { font-size: 1.15rem; }
+  .hero-top3-list { gap: 8px; }
+  .hero-top3-row { padding: 10px 10px; min-height: 42px; }
+  body.is-home .hero.hero-home .hero-cta { flex-direction: row; align-items: center; }
+  body.is-home .hero.hero-home .hero-cta .btn { width: auto; padding: 14px 20px; }
+}
+/* 1024–1311 右槽只有 24px，48px 圆钮会压住卡片。左右各 80px，圆钮停在槽内，各区块仍对齐。 */
+@media (min-width: 1024px) and (max-width: 1311px) {
+  body.is-home .home-inner,
+  body.is-home .hero.hero-home .hero-inner,
+  body.is-home .site-footer .foot-inner {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .view,
+  .sh-inner,
+  body:not(.is-home) .site-footer .foot-inner {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+@media (max-width: 1023px) {
+  body.is-home .hero.hero-home { height: auto; min-height: 0; }
+  body.is-home .hero.hero-home .hero-inner { height: auto; display: block; }
+}
+@media (max-width: 640px) {
+  body.is-home .home-inner,
+  body.is-home .hero.hero-home .hero-inner,
+  body.is-home .site-footer .foot-inner { padding-left: 16px; padding-right: 16px; }
+  body.is-home .site-footer { padding-bottom: calc(140px + env(safe-area-inset-bottom)); }
+  .hero-top3 { padding: 10px 12px; }
+  .hero-top3-head h2 { font-size: 1rem; }
+  .hero-steps { margin-bottom: 10px; }
 }

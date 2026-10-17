@@ -495,7 +495,7 @@
   function nextStep(save) {
     save = save || {};
     if (!visitorStarted(save)) {
-      return oneStep('学习', '从『新手引导』开始', '先看学习、实施、赚钱三条路线，再决定今天做哪一件。', '#start', '从『新手引导』开始');
+      return oneStep('学习', '从『新手引导』开始', '先看学习、实施、赚钱三条路线，再决定今天做哪一件。', '#start', '我是新手，从这里开始');
     }
     if (!asArr(save.done).length && !kwReady(save) && !sitesOf(save).length) return firstLesson(save);
     if (!kwReady(save)) {
@@ -515,16 +515,6 @@
     }
     return oneStep('赚钱', '看每日赚钱榜，挑一条试一周', '课、站、数据和复盘都有记录了。榜单不保证收益，挑一条加入实操计划即可。', '#war-rank', '去每日赚钱榜');
   }
-  function nextCardHtml(step) {
-    if (!step) return '';
-    return '<aside class="home-next" id="home-next"><div class="home-inner">' +
-      '<span class="home-next-stage">' + esc(step.stage) + '</span>' +
-      '<div class="home-next-copy"><p class="home-next-title"><b>' + esc(step.title) + '</b></p>' +
-      '<p class="home-next-why">' + esc(step.why) + '</p></div>' +
-      '<a class="btn btn-primary" id="home-next-go" href="' + esc(step.href) + '">' + esc(step.btn) + '</a>' +
-      '</div></aside>';
-  }
-
   function renderHome(root, state) {
     if (!root) return;
     var I = global.QuestNav.icon;
@@ -549,15 +539,34 @@
       ['#start-do', 'build', '② 做', '按实施步骤选词、做页面、再发布。'],
       ['#start-earn', 'coin', '③ 赚', '看每日赚钱榜，挑一条先试一周。'],
     ];
+    var flow = [['#start-learn', '学习'], ['#start-do', '实施'], ['#start-earn', '赚钱']];
+    var top3 = items.slice(0, 3);
+    var top3Body = top3.length
+      ? '<ol class="hero-top3-list">' + top3.map(function (it) {
+        return '<li><a class="hero-top3-row" href="#war-rank" data-name="' + esc(it.name) + '" data-rank="' + esc(it.rank) + '">' +
+          '<span class="hero-top3-no">' + esc(it.rank) + '</span>' +
+          '<span class="hero-top3-name">' + esc(it.name) + '</span>' +
+          '<span class="pill">' + esc(it.type) + '</span></a></li>';
+      }).join('') + '</ol>'
+      : '<p class="hero-top3-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     root.innerHTML =
       '<section class="hero hero-home" aria-label="首页">' +
-      '<div class="hero-inner home-inner">' +
+      '<div class="hero-inner home-inner"><div class="hero-grid">' +
+      '<div class="hero-copy">' +
       '<h1 class="hero-title">做英文出海小站</h1>' +
       '<p class="hero-sub">学习路线、做站工具和每日赚钱榜都在这里。不承诺收入。</p>' +
-      '<div class="hero-cta"><a class="btn btn-primary" href="#start" data-tour="cta">' + I('flag') + '我是新手，从这里开始</a>' +
+      '<ol class="hero-steps" aria-label="学习、实施、赚钱">' + flow.map(function (s) {
+        return '<li><a href="' + s[0] + '">' + s[1] + '</a></li>';
+      }).join('') + '</ol>' +
+      '<div class="hero-cta"><a class="btn btn-primary" id="home-cta" href="' + esc(step.href) + '" data-tour="cta">' + I('flag') + esc(step.btn) + '</a>' +
       '<a class="btn btn-ghost" href="#home-rank">' + I('trophy') + '直接看今日赚钱榜</a></div>' +
-      '</div></section>' +
-      nextCardHtml(step) +
+      '</div>' +
+      '<aside class="hero-top3" id="hero-top3" aria-label="今日赚钱榜 Top 3">' +
+      '<div class="hero-top3-head"><h2>今日赚钱榜 Top 3</h2>' +
+      (date ? '<time class="hero-top3-date" datetime="' + esc(date) + '">' + esc(date) + '</time>' : '') +
+      '<a class="hero-top3-more" href="#home-rank">看完整 Top 10</a></div>' +
+      top3Body + '</aside>' +
+      '</div></div></section>' +
       (next ? '<aside class="home-continue" id="home-continue"><div class="home-inner"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></div></aside>' : '') +
       '<section class="home-band band-a" id="home-howto" data-tour="howto"><div class="home-inner"><div class="sec-head"><h2>' + I('flag') + '这个网站怎么用</h2></div>' +
       '<ol class="home-howto">' + howto.map(function (s) {
@@ -576,6 +585,15 @@
       HOME_FAQ.map(function (qa) {
         return '<details><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>';
       }).join('') + '</div></section></div></section>';
+    root.querySelectorAll('a[href="#home-rank"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if ((location.hash || '') !== '#home-rank') return;
+        var el = document.getElementById('home-rank');
+        if (!el) return;
+        if (global.QuestShell && typeof QuestShell.scrollToEl === 'function') QuestShell.scrollToEl(el, 'auto');
+        else el.scrollIntoView({ block: 'start' });
+      });
+    });
   }
 
   global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep };

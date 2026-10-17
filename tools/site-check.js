@@ -53,7 +53,13 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   const OLD_SAVE = { version: 1, xp: 30, done: ['q-p-01'], unlocked: ['ch-prologue'], cleared: [], streak: 1, lastCheckIn: null, achievements: [], weeklyClaimed: [], settings: { muted: true, energyEnabled: false } };
   await p.goto(BASE + 'index.html#home'); await p.evaluate(s => localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)), OLD_SAVE);
   await p.reload(); await p.waitForTimeout(200);
-  T(await p.evaluate(() => { const a = document.querySelector('.hero-cta a.btn-primary'); return !!a && a.getAttribute('href') === '#start' && !!document.querySelector('#home-continue'); }), 'old save (no kit/keywords/sites) loads; continue strip shown');
+  T(await p.evaluate(() => {
+    const a = document.querySelector('.hero-cta a.btn-primary');
+    const step = window.QuestHome.nextStep(window.QuestApp.get());
+    const hero = document.querySelector('.hero.hero-home');
+    const starts = hero ? [...hero.querySelectorAll('a,button')].filter((el) => (el.getAttribute('href') || '') === '#start') : [];
+    return !!a && a.getAttribute('href') === step.href && step.href !== '#start' && !!document.querySelector('#home-continue') && !document.getElementById('home-next') && starts.length <= 1;
+  }), 'old save (no kit/keywords/sites) loads; continue strip shown');
   await visit('war-keywords');
   T(await p.evaluate(() => !!document.querySelector('.tool-empty')), 'keywords empty state');
   const addKw = async (kw, vol, big, weak, intent) => { await p.fill('#kw-kw', kw); await p.selectOption('#kw-vol', vol); await p.selectOption('#kw-big', big); await p.selectOption('#kw-weak', weak); await p.selectOption('#kw-intent', intent); await p.click('#kw-save'); await p.waitForTimeout(80); };
@@ -1740,6 +1746,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       const hero = document.querySelector('.hero.hero-home');
       const h1 = hero.querySelector('h1');
       const minH = parseFloat(getComputedStyle(hero).minHeight);
+      const heroH = hero.getBoundingClientRect().height;
       const fs = parseFloat(getComputedStyle(h1).fontSize);
       const lh = parseFloat(getComputedStyle(h1).lineHeight);
       const h1h = h1.getBoundingClientRect().height;
@@ -1754,7 +1761,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       return {
         wrap: !!document.querySelector('#panel-home > .home-wrap'),
         widths, vw, full: widths.every((x) => x.w >= vw - 20),
-        minH, vh, fs, cols, side,
+        minH, heroH, vh, fs, cols, side,
         kicker: !!document.querySelector('.hero-kicker'),
         ctas: document.querySelectorAll('.hero-cta a').length,
         h1Text: (h1.textContent || '').trim(),
@@ -1766,7 +1773,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       };
     });
     T21(!layout.wrap && layout.full, 'home sections full width ' + JSON.stringify(layout.widths) + ' vw=' + layout.vw);
-    T21(layout.minH >= layout.vh * 0.6 && layout.fs >= 40, 'hero minH ' + layout.minH + ' fs ' + layout.fs + ' vh ' + layout.vh);
+    T21(layout.heroH >= 360 && layout.heroH <= 440 && layout.fs >= 44 && layout.fs <= 52, 'hero height ' + layout.heroH + ' fs ' + layout.fs + ' vh ' + layout.vh);
     T21(layout.vw === 1280 && layout.h1Text === '做英文出海小站' && layout.noGefei && layout.singleLine, 'hero h1 === 做英文出海小站, no 哥飞, single line @1280 h=' + layout.h1h + ' lh=' + layout.lh + ' ' + JSON.stringify({ text: layout.h1Text, noGefei: layout.noGefei }));
     T21(layout.cols === 2 && layout.side && !layout.kicker && layout.ctas === 2, 'rank 2-col + why/faq side by side ' + JSON.stringify({ cols: layout.cols, side: layout.side }));
     T21(layout.colsFoot <= 5 && layout.colsFoot >= 1 && layout.sitemap, 'footer columns ' + layout.colsFoot + ' sitemap ' + layout.sitemap);
@@ -1966,27 +1973,27 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
     await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
     await pg.reload({ waitUntil: 'domcontentloaded' });
-    await pg.waitForSelector('#home-next');
+    await pg.waitForSelector('.hero-cta a.btn-primary');
     const emptyCard = await pg.evaluate(() => {
-      const card = document.getElementById('home-next');
       const hero = document.querySelector('.hero.hero-home');
-      const a = card && card.querySelector('a.btn-primary');
-      const buttons = card ? card.querySelectorAll('a.btn, button.btn') : [];
+      const primary = document.querySelector('.hero-cta a.btn-primary');
+      const secondary = document.querySelector('.hero-cta a.btn-ghost, .hero-cta a.btn-secondary');
+      const starts = hero ? [...hero.querySelectorAll('a, button')].filter((el) => (el.getAttribute('href') || '') === '#start') : [];
+      const fn = QuestHome.nextStep(QuestSave.getDefaultSave());
       return {
-        afterHero: !!(hero && hero.nextElementSibling === card),
-        beforeHowto: !!(card && card.nextElementSibling && (card.nextElementSibling.id === 'home-howto' || card.nextElementSibling.id === 'home-continue')),
-        stage: card ? (card.querySelector('.home-next-stage') || {}).textContent : '',
-        title: card ? (card.querySelector('.home-next-title') || {}).textContent : '',
-        why: card ? (card.querySelector('.home-next-why') || {}).textContent : '',
-        href: a && a.getAttribute('href'),
-        btn: a ? a.textContent.replace(/\s+/g, '') : '',
-        nBtn: buttons.length,
+        noStrip: !document.getElementById('home-next'),
+        href: primary && primary.getAttribute('href'),
+        btn: primary ? primary.textContent.replace(/\s+/g, '') : '',
+        sHref: secondary && secondary.getAttribute('href'),
+        startN: starts.length,
         grid: !!document.querySelector('#panel-home .feat-grid'),
         cont: !!document.getElementById('home-continue'),
-        fn: QuestHome.nextStep(QuestSave.getDefaultSave()),
+        fnHref: fn.href,
+        fnBtn: (fn.btn || '').replace(/\s+/g, ''),
+        fnStage: fn.stage,
       };
     });
-    T23bc(emptyCard.afterHero && emptyCard.stage === '学习' && emptyCard.href === '#start' && emptyCard.btn.indexOf('从『新手引导』开始') >= 0 && emptyCard.title.indexOf('从『新手引导』开始') >= 0 && emptyCard.why.length > 8 && emptyCard.nBtn === 1 && !emptyCard.grid && !emptyCard.cont && emptyCard.fn.href === '#start' && emptyCard.fn.stage === '学习', 'empty save next card #start ' + JSON.stringify(emptyCard));
+    T23bc(emptyCard.noStrip && emptyCard.href === '#start' && emptyCard.href === emptyCard.fnHref && emptyCard.btn.indexOf('我是新手') >= 0 && emptyCard.btn.indexOf(emptyCard.fnBtn) >= 0 && emptyCard.fnStage === '学习' && emptyCard.startN === 1 && emptyCard.sHref === '#home-rank' && !emptyCard.grid && !emptyCard.cont, 'empty save CTA #start ' + JSON.stringify(emptyCard));
     const branched = await pg.evaluate(() => {
       const base = QuestSave.getDefaultSave();
       const kw = JSON.parse(JSON.stringify(base));
@@ -2029,21 +2036,25 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     });
     await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
     await pg.reload({ waitUntil: 'domcontentloaded' });
-    await pg.waitForSelector('#home-next');
+    await pg.waitForSelector('.hero-cta a.btn-primary');
     const partial = await pg.evaluate(() => {
-      const card = document.getElementById('home-next');
-      const a = card && card.querySelector('a.btn-primary');
+      const primary = document.querySelector('.hero-cta a.btn-primary');
+      const hero = document.querySelector('.hero.hero-home');
       const save = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+      const starts = hero ? [...hero.querySelectorAll('a, button')].filter((el) => (el.getAttribute('href') || '') === '#start') : [];
+      const fn = QuestHome.nextStep(save);
       return {
-        href: a && a.getAttribute('href'),
-        stage: (card.querySelector('.home-next-stage') || {}).textContent,
-        nBtn: card.querySelectorAll('a.btn, button.btn').length,
+        href: primary && primary.getAttribute('href'),
+        btn: primary ? primary.textContent.replace(/\s+/g, '') : '',
+        fnHref: fn.href,
+        noStrip: !document.getElementById('home-next'),
+        startN: starts.length,
         kw: save.keywords.items.length,
         kwText: save.keywords.items[0] && save.keywords.items[0].kw,
         sites: save.sites.items.length,
       };
     });
-    T23bc(partial.href === '#me-sites' && partial.stage === '实施' && partial.nBtn === 1 && partial.kw === 1 && partial.kwText === 'pdf merge for mac' && partial.sites === 0, 'partial save card #me-sites ' + JSON.stringify(partial));
+    T23bc(partial.href === '#me-sites' && partial.href === partial.fnHref && partial.noStrip && partial.startN === 0 && partial.kw === 1 && partial.kwText === 'pdf merge for mac' && partial.sites === 0, 'partial save CTA #me-sites ' + JSON.stringify(partial));
     const pages = ['war-keywords', 'war-kit', 'me-sites', 'work'];
     for (const h of pages) {
       await pg.goto(BASE + 'index.html#' + h, { waitUntil: 'domcontentloaded' });
@@ -2113,9 +2124,9 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
     await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
     await pg.reload({ waitUntil: 'domcontentloaded' });
-    await pg.waitForSelector('#home-next');
+    await pg.waitForSelector('.hero-cta a.btn-primary');
     await pg.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
-    await pg.locator('#home-next').screenshot({ path: shotDir + '/p23-home-next.png' });
+    await pg.locator('.hero.hero-home').screenshot({ path: shotDir + '/p23-home-next.png' });
     await pg.goto(BASE + 'index.html#war-keywords', { waitUntil: 'domcontentloaded' });
     await pg.waitForTimeout(200);
     await pg.evaluate(async () => { await QuestAssistant.ask('怎么判断一个词值不值得做'); });
@@ -2141,6 +2152,180 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P23BC functional fails=' + f23bc); fail += f23bc;
+
+  // ---------- Phase 24 · 首页桌面版重排 ----------
+  let f24 = 0; {
+  const T24 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P24 ' + m); if (!c) f24++; };
+  const fs = require('fs');
+  const shot24 = '/workspace/gefei-quest-shots';
+  fs.mkdirSync(shot24, { recursive: true });
+  const ctx = await b.newContext({ viewport: { width: 1366, height: 800 } });
+  const pg = cx(await ctx.newPage());
+  const e24 = [];
+  pg.on('pageerror', (e) => { e24.push('pageerror ' + e.message); errors.push('p24 ' + e.message); });
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e24.push(m.text()); errors.push('p24 ' + m.text()); } });
+  const quiet = () => pg.evaluate(() => {
+    const t = document.getElementById('tour-root'); if (t) t.remove();
+    if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close();
+  });
+  const measure = () => pg.evaluate(() => {
+    function edge(sel) {
+      const el = document.querySelector(sel);
+      if (!el) return null;
+      const r = el.getBoundingClientRect();
+      return { l: r.left, r: r.right, w: r.width };
+    }
+    const ids = {
+      hero: '.hero.hero-home .home-inner',
+      how: '#home-howto .home-inner',
+      rank: '#home-rank .home-inner',
+      split: '#home-split .home-inner',
+    };
+    const edges = {};
+    Object.keys(ids).forEach((k) => { edges[k] = edge(ids[k]); });
+    const hero = document.querySelector('.hero.hero-home');
+    const src = (window.QuestRank && QuestRank.latestItems ? QuestRank.latestItems() : ((QUEST_RANK.days[QUEST_RANK.latest] || {}).items || [])) || [];
+    const expect = src.slice(0, 3);
+    const rows = [...document.querySelectorAll('#hero-top3 .hero-top3-row')];
+    const dateEl = document.querySelector('#hero-top3 time');
+    const date = dateEl ? dateEl.textContent.trim() : '';
+    const copy = document.querySelector('.hero-copy');
+    const card = document.querySelector('.hero-top3');
+    const cr = copy ? copy.getBoundingClientRect() : null;
+    const tr = card ? card.getBoundingClientRect() : null;
+    return {
+      heroH: hero ? hero.getBoundingClientRect().height : 0,
+      sw: document.documentElement.scrollWidth,
+      vw: window.innerWidth,
+      edges,
+      n: rows.length,
+      names: rows.map((r) => r.getAttribute('data-name')),
+      ranks: rows.map((r) => r.getAttribute('data-rank')),
+      wantNames: expect.map((i) => i.name),
+      wantRanks: expect.map((i) => String(i.rank)),
+      date,
+      latest: (window.QUEST_RANK && QUEST_RANK.latest) || '',
+      stacked: !!(cr && tr && tr.top >= cr.bottom - 4),
+      sideBySide: !!(cr && tr && tr.left >= cr.right - 8),
+    };
+  });
+  const heroSlack = () => pg.evaluate(() => {
+    const hero = document.querySelector('.hero.hero-home').getBoundingClientRect();
+    const cols = [...document.querySelectorAll('.hero-copy, .hero-top3')].map((el) => el.getBoundingClientRect());
+    const tall = Math.max.apply(null, cols.map((r) => r.bottom));
+    const top = Math.min.apply(null, cols.map((r) => r.top));
+    const mid = cols.map((r) => Math.round((r.top + r.bottom) / 2));
+    return {
+      below: Math.round((hero.bottom - tall) * 10) / 10,
+      above: Math.round((top - hero.top) * 10) / 10,
+      heroH: Math.round(hero.height),
+      mids: mid,
+    };
+  });
+  const fabVsCards = async () => {
+    await pg.evaluate(() => {
+      const el = document.getElementById('home-howto');
+      const nav = document.getElementById('site-nav');
+      const navB = nav ? nav.getBoundingClientRect().height : 0;
+      const y = el.getBoundingClientRect().top + window.scrollY - navB - 8;
+      window.scrollTo(0, Math.max(0, y));
+    });
+    await pg.waitForTimeout(180);
+    return pg.evaluate(() => {
+      const fabEl = document.getElementById('qa-fab');
+      const fb = fabEl.getBoundingClientRect();
+      function hit(a, b) {
+        return a.width > 0 && a.height > 0 && b.width > 0 && b.height > 0 && a.left < b.right - 0.5 && a.right > b.left + 0.5 && a.top < b.bottom - 0.5 && a.bottom > b.top + 0.5;
+      }
+      const cards = [...document.querySelectorAll('.home-band .home-howto a, .home-band .home-rank-row, .home-band details')];
+      const bad = cards.filter((el) => hit(fb, el.getBoundingClientRect())).map((el) => (el.id || el.className || el.tagName).toString().slice(0, 60));
+      const how = document.getElementById('home-howto').getBoundingClientRect();
+      return {
+        n: bad.length,
+        bad: bad.slice(0, 6),
+        fab: { l: Math.round(fb.left), r: Math.round(fb.right), t: Math.round(fb.top), b: Math.round(fb.bottom), w: Math.round(fb.width), h: Math.round(fb.height) },
+        howTop: Math.round(how.top),
+        howVis: how.bottom > 80 && how.top < window.innerHeight - 40,
+      };
+    });
+  };
+  const edgesOk = (m) => {
+    const vals = ['hero', 'how', 'rank', 'split'].map((k) => m.edges[k]).filter(Boolean);
+    if (vals.length !== 4 || vals.some((e) => !(e.w > 0))) return false;
+    const ls = vals.map((e) => e.l);
+    const rs = vals.map((e) => e.r);
+    return Math.max(...ls) - Math.min(...ls) <= 2 && Math.max(...rs) - Math.min(...rs) <= 2;
+  };
+  try {
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.evaluate(() => localStorage.removeItem('gefei-quest-save-v1'));
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#hero-top3 .hero-top3-row');
+    await pg.waitForSelector('#home-rank-list');
+    await quiet();
+    const at1366 = await measure();
+    T24(at1366.vw === 1366 && at1366.heroH >= 360 && at1366.heroH <= 440, '1366 hero height ' + at1366.heroH);
+    T24(at1366.n === 3 && at1366.names.join('\n') === at1366.wantNames.join('\n') && at1366.ranks.join(',') === at1366.wantRanks.join(',') && at1366.date === at1366.latest && !!at1366.date, '1366 top3 matches rank date=' + at1366.date + ' ' + JSON.stringify({ names: at1366.names, want: at1366.wantNames }));
+    T24(edgesOk(at1366), '1366 edges ' + JSON.stringify(at1366.edges));
+    T24(at1366.sideBySide && !at1366.stacked, '1366 hero is two columns');
+    await pg.evaluate(() => window.scrollTo(0, 0));
+    const slack1366 = await heroSlack();
+    T24(slack1366.below <= 72, '1366 hero bottom pad ' + JSON.stringify(slack1366));
+    const cards1366 = await fabVsCards();
+    T24(cards1366.n === 0 && cards1366.howVis && cards1366.fab.w >= 40, '1366 FAB misses howto cards ' + JSON.stringify(cards1366));
+    await pg.evaluate(() => window.scrollTo(0, 0));
+    await pg.click('#hero-top3 .hero-top3-more');
+    await pg.waitForTimeout(900);
+    const scrolled = await pg.evaluate(() => {
+      const nav = document.getElementById('site-nav').getBoundingClientRect();
+      const el = document.getElementById('home-rank').getBoundingClientRect();
+      return { hash: location.hash, top: Math.round(el.top), nav: Math.round(nav.bottom), delta: el.top - nav.bottom };
+    });
+    T24(scrolled.hash === '#home-rank' && scrolled.delta >= -2 && scrolled.delta <= 36, 'top3 link scrolls under nav ' + JSON.stringify(scrolled));
+    await pg.evaluate(() => window.scrollTo(0, Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)));
+    await pg.waitForTimeout(250);
+    const fab = await pg.evaluate(() => {
+      const fabEl = document.getElementById('qa-fab');
+      const fb = fabEl.getBoundingClientRect();
+      function hit(a, b) {
+        return a.width > 0 && a.height > 0 && b.width > 0 && b.height > 0 && a.left < b.right - 0.5 && a.right > b.left + 0.5 && a.top < b.bottom - 0.5 && a.bottom > b.top + 0.5;
+      }
+      const cards = [...document.querySelectorAll('.hero-top3, .home-howto a, #home-rank .home-rank-row, #home-why, #home-faq details')];
+      const bad = cards.filter((el) => hit(fb, el.getBoundingClientRect())).map((el) => (el.id || el.className || el.tagName).toString().slice(0, 80));
+      return { n: bad.length, bad: bad.slice(0, 6), fabTop: Math.round(fb.top), fabH: Math.round(fb.height) };
+    });
+    T24(fab.n === 0 && fab.fabH > 30, '1366 FAB misses cards at bottom ' + JSON.stringify(fab));
+    await pg.evaluate(() => window.scrollTo(0, 0));
+    await pg.waitForTimeout(80);
+    await pg.screenshot({ path: shot24 + '/p24-home-1366.png', fullPage: false });
+    await pg.screenshot({ path: shot24 + '/p24-home-1366-full.png', fullPage: true });
+    await pg.setViewportSize({ width: 1024, height: 800 });
+    await pg.waitForTimeout(120);
+    await quiet();
+    const at1024 = await measure();
+    T24(at1024.vw === 1024 && at1024.heroH >= 360 && at1024.heroH <= 440, '1024 hero height ' + at1024.heroH);
+    T24(at1024.n === 3 && at1024.date === at1024.latest && at1024.names.join('\n') === at1024.wantNames.join('\n'), '1024 top3 ' + at1024.date);
+    T24(edgesOk(at1024), '1024 edges ' + JSON.stringify(at1024.edges));
+    T24(at1024.sideBySide, '1024 hero is two columns');
+    const cards1024 = await fabVsCards();
+    T24(cards1024.n === 0 && cards1024.howVis && cards1024.fab.w >= 40, '1024 FAB misses howto cards ' + JSON.stringify(cards1024));
+    await pg.evaluate(() => window.scrollTo(0, 0));
+    await pg.screenshot({ path: shot24 + '/p24-home-1024.png', fullPage: false });
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(250);
+    await quiet();
+    const mob = await measure();
+    T24(mob.vw === 390 && mob.sw <= 390 && mob.stacked && mob.n === 3, '390 no overflow stacked top3 ' + JSON.stringify({ sw: mob.sw, vw: mob.vw, stacked: mob.stacked, n: mob.n, heroH: mob.heroH }));
+    await pg.screenshot({ path: shot24 + '/p24-home-390.png', fullPage: false });
+  } catch (e) {
+    T24(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T24(e24.length === 0, 'P24 console errors ' + e24.slice(0, 4).join(' | '));
+  await ctx.close();
+  }
+  console.log('P24 functional fails=' + f24); fail += f24;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

@@ -472,6 +472,7 @@
     fab.setAttribute('aria-expanded', 'false');
     fab.setAttribute('aria-controls', 'qa-panel');
     fab.setAttribute('aria-label', '问 AI');
+    fab.setAttribute('title', '问 AI');
     fab.innerHTML = ico + '<span>问 AI</span>';
     panel = document.createElement('div');
     panel.id = 'qa-panel';
