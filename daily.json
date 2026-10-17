@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T07:14:58.407Z",
-  "latestId": 22,
+  "generatedAt": "2026-10-17T07:59:51.749Z",
+  "latestId": 23,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 23,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "可安装、可离线 + 备份提醒",
+      "items": [
+        "用 Chrome / Edge 打开时可「安装到桌面」；iPhone / iPad 用 Safari 的分享 → 添加到主屏幕。清单里增加工作台、选词练习板、每日赚钱榜三个快捷方式",
+        "页面、脚本和样式优先从网络读取，断网时用上次打开时缓存的副本。离线仍可打开工作台；顶栏会提示 AI、发布和数据拉取暂不可用",
+        "有勾选任务、站点、候选词或复盘，且超过 14 天没有导出时，工作台和我的进度顶部提醒备份。可导出 JSON、从备份恢复，或 14 天后再提醒",
+        "进度仍然只存在这个浏览器里，安装到桌面不会同步到其他设备"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me"
+    },
     {
       "id": 22,
       "date": "2026-10-17",
@@ -126,19 +139,6 @@
         "支持 OpenAI 兼容、Anthropic Messages、Ollama 本地三种格式，可一键获取模型列表",
         "复制 / 编辑 / 删除 / 单独测试；工具页 AI 按钮旁可快速切换服务商",
         "服务商配置可导入导出（导出不含 Key），旧配置自动迁移"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-ai"
-    },
-    {
-      "id": 13,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "AI 设置 + 三个 AI 助手按钮",
-      "items": [
-        "新增「AI 设置」：默认 Grok Bot 模式（赚钱榜雷达 / 赚钱项目实施官在后台工作，无需配置）",
-        "可选自定义 OpenAI 兼容接口：OpenAI、DeepSeek、通义、Kimi、智谱、OpenRouter",
-        "API Key 单独保存，不进存档导出，可一键忘记",
-        "选词练习板、每日赚钱榜、站一实操助手新增 AI 按钮（流式输出，只给合法建议，不承诺收益）"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-ai"
     }

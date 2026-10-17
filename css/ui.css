@@ -2199,3 +2199,42 @@ details.cx-details>:not(summary){margin:0 12px 12px}
 @media (max-width: 900px) {
   .idea-cols { grid-template-columns: 1fr; }
 }
+
+/* Phase 19 · PWA 离线 / 安装 / 备份提醒 */
+#pwa-install[hidden],
+[data-pwa-install][hidden],
+.pwa-ios-hint[hidden],
+#pwa-update[hidden],
+#quest-backup-import-file[hidden] { display: none !important; }
+.backup-reminder {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  margin: 0 0 10px; padding: 8px 12px; min-width: 0;
+  background: #0f172a; color: #f8fafc;
+  border: 1px solid #fde68a; border-radius: 12px;
+}
+.backup-reminder p {
+  margin: 0; flex: 1 1 220px; min-width: 0;
+  color: #f8fafc; font-size: .9rem; line-height: 1.45;
+}
+.backup-reminder .ico { width: 18px; height: 18px; color: #fde68a; vertical-align: -3px; margin-right: 6px; }
+.backup-actions { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
+.backup-actions .btn { max-width: 100%; }
+.offline-pill { display: none; }
+html.is-offline .site-nav-inner { flex-wrap: wrap; }
+html.is-offline .offline-pill {
+  display: flex; flex: 1 1 100%; align-items: center; justify-content: center;
+  margin: 2px 0 0; padding: 4px 10px; max-width: 100%;
+  border-radius: 999px; background: #7f1d1d; color: #fff;
+  border: 1px solid #fecaca; font-size: 12px; font-weight: 700;
+  line-height: 1.35; text-align: center;
+}
+.pwa-update {
+  position: fixed; z-index: 90; top: 10px; left: 50%; transform: translateX(-50%);
+  max-width: calc(100% - 24px);
+  padding: 8px 14px; border-radius: 999px; border: 2px solid #fff;
+  background: #fbbf24; color: #1a1205; font: inherit; font-weight: 800;
+  cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+.pwa-ios-hint { color: #fde68a; font-weight: 700; }
+.foot-note .btn, .foot-note .pwa-ios-hint { margin-left: 8px; vertical-align: middle; }
+.setting-row, .backup-reminder, .site-nav-inner, .foot-note { min-width: 0; }

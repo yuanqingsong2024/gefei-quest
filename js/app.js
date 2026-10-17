@@ -13,6 +13,82 @@
   function persist() {
     state = QuestSave.saveSave(state);
   }
+
+  function exportSave() {
+    state = { ...state, lastBackupAt: new Date().toISOString() };
+    persist();
+    const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'gefei-quest-save-v1.json';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    window.__lastDownload = { name: 'gefei-quest-save-v1.json', blob };
+    document.querySelectorAll('#backup-reminder').forEach((el) => el.remove());
+    if (window.QuestModal) QuestModal.showToast('存档已导出');
+  }
+
+  function importSave(obj) {
+    if (!QuestSave.isValidSave(obj)) {
+      QuestModal.showToast('导入失败：存档格式无效');
+      return;
+    }
+    const def = QuestSave.getDefaultSave();
+    state = {
+      ...def,
+      ...obj,
+      settings: { ...def.settings, ...(obj.settings || {}) },
+      energy: { ...def.energy, ...(obj.energy || {}) },
+      achievementDates: obj.achievementDates || {},
+      notes: obj.notes || {},
+    };
+    state = QuestTools.ensure(state);
+    state = QuestProgress.recomputeUnlocks(state);
+    persist();
+    currentChapter = QuestProgress.getActiveChapterId(state);
+    QuestModal.showToast('存档已导入');
+    renderAll();
+  }
+
+  function openImport() {
+    const existing = document.getElementById('set-import-file');
+    if (existing) { existing.click(); return; }
+    let input = document.getElementById('quest-backup-import-file');
+    if (!input) {
+      input = document.createElement('input');
+      input.type = 'file';
+      input.id = 'quest-backup-import-file';
+      input.accept = 'application/json,.json';
+      input.hidden = true;
+      document.body.appendChild(input);
+      input.addEventListener('change', () => {
+        const f = input.files && input.files[0];
+        if (!f) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try { importSave(JSON.parse(String(reader.result || ''))); }
+          catch (e) { if (window.QuestModal) QuestModal.showToast('导入失败：不是合法 JSON'); }
+          input.value = '';
+        };
+        reader.readAsText(f);
+      });
+    }
+    input.click();
+  }
+
+  function snoozeBackup() {
+    state = { ...state, backupSnoozeUntil: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString() };
+    persist();
+    document.querySelectorAll('#backup-reminder').forEach((el) => el.remove());
+  }
+
+  function backupBar() {
+    // #work 和 #me 各自渲染时会留下同 id 的条。先清掉隐藏面板里的旧条，保证全页只有一个。
+    document.querySelectorAll('#backup-reminder').forEach((el) => el.remove());
+    return window.QuestPWA ? QuestPWA.backupHtml(state) : '';
+  }
   function go(hash) {
     if (location.hash === hash) { route = N.parse(hash); renderAll(); return; }
     location.hash = hash;
@@ -87,6 +163,7 @@
       if (renderShell._last !== route.hash) QuestShell.fade('panel-' + panel);
       renderShell._last = route.hash;
     }
+    if (window.QuestPWA) QuestPWA.sync();
   }
 
   function renderAll() {
@@ -122,7 +199,7 @@
     } else if (sec === 'war' && (route.view === 'work' || route.view === 'review')) {
       const wk = route.view === 'work';
       crumb = wk ? '工作台' : '每周复盘';
-      $('#panel-war').innerHTML = subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>';
+      $('#panel-war').innerHTML = (wk ? backupBar() : '') + subTabs(N.WAR_TABS, route.view) + '<div id="tool-body"></div>';
       QuestWork[wk ? 'renderWork' : 'renderReview'](state, $('#tool-body'), toolCtx());
     } else if (sec === 'war' && route.view === 'share') {
       crumb = '内容分发';
@@ -231,7 +308,7 @@
         $('#sites-body').insertAdjacentHTML('afterbegin', QuestWorkbench.pipeline(state, 'sites'));
         renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
       }
-      root.innerHTML = subTabs(N.ME_TABS, 'overview') + `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>
+      root.innerHTML = backupBar() + subTabs(N.ME_TABS, 'overview') + `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>
         <section class="block" id="me-ach-wrap"><div id="me-ach"></div></section>
         <section class="block" id="me-settings-wrap"><div id="me-settings"></div></section>`;
       QuestAchievements.renderWall(state, $('#me-ach'));
@@ -252,38 +329,8 @@
           go('#lib');
         },
         onGotoWar(station) { go(QuestWarRoom.hashForStation(QuestWarRoom.normalizeStation(station))); },
-        onExportSave() {
-          const blob = new Blob([JSON.stringify(state, null, 2)], {
-            type: 'application/json',
-          });
-          const aEl = document.createElement('a');
-          aEl.href = URL.createObjectURL(blob);
-          aEl.download = 'gefei-quest-save-v1.json';
-          aEl.click();
-          setTimeout(() => URL.revokeObjectURL(aEl.href), 2000);
-          QuestModal.showToast('存档已导出');
-        },
-        onImportSave(obj) {
-          if (!QuestSave.isValidSave(obj)) {
-            QuestModal.showToast('导入失败：存档格式无效');
-            return;
-          }
-          const def = QuestSave.getDefaultSave();
-          state = {
-            ...def,
-            ...obj,
-            settings: { ...def.settings, ...(obj.settings || {}) },
-            energy: { ...def.energy, ...(obj.energy || {}) },
-            achievementDates: obj.achievementDates || {},
-            notes: obj.notes || {},
-          };
-          state = QuestTools.ensure(state);
-          state = QuestProgress.recomputeUnlocks(state);
-          persist();
-          currentChapter = QuestProgress.getActiveChapterId(state);
-          QuestModal.showToast('存档已导入');
-          renderAll();
-        },
+        onExportSave() { exportSave(); },
+        onImportSave(obj) { importSave(obj); },
         onReset() {
           QuestModal.confirmReset(() => {
             QuestSave.resetSave();
@@ -386,6 +433,7 @@
     onHash();
     window.addEventListener('hashchange', () => { onHash(); renderAll(); });
     QuestModal.ensureRoots();
+    if (window.QuestPWA) QuestPWA.bind({ exportSave: exportSave, openImport: openImport, snooze: snoozeBackup });
     renderAll();
   }
 

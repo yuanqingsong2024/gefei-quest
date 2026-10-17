@@ -910,6 +910,240 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   } finally { await ideaSrv.close(); }
   }
   console.log('P19b functional fails=' + f19b); fail += f19b;
+
+  // ---------- Phase 19c · PWA ----------
+  // 默认上下文不注册 SW（navigator.webdriver 且没有 gefei-quest-sw-test）。
+  // 网络优先已经避免旧 JS；再跳过注册，是因为 clients.claim() 会让后续 reload 走 SW，
+  // Playwright 的 page.route 看不到 SW 从缓存直接返回的响应。P19c 用新上下文并打开开关。
+  let f19c = 0; {
+  const T19c = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P19c ' + m); if (!c) f19c++; };
+  const path = require('path');
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 860 } });
+  await ctx.addInitScript(() => { try { localStorage.setItem('gefei-quest-sw-test', '1'); } catch (e) {} });
+  const pg = cx(await ctx.newPage());
+  const e19 = [];
+  pg.on('pageerror', (e) => e19.push('pageerror ' + e.message));
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) e19.push(m.text()); });
+  try {
+    await pg.goto(BASE + 'index.html#work', { waitUntil: 'domcontentloaded' });
+    await pg.waitForFunction(() => !!(navigator.serviceWorker && navigator.serviceWorker.controller), null, { timeout: 20000 });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForFunction(() => !!(navigator.serviceWorker && navigator.serviceWorker.controller), null, { timeout: 15000 });
+    const cached = await pg.evaluate(async () => {
+      const keys = await caches.keys();
+      const name = keys.find((k) => k.indexOf('gefei-quest-') === 0) || '';
+      const cache = name ? await caches.open(name) : null;
+      const urls = cache ? (await cache.keys()).map((r) => r.url) : [];
+      return { name, index: urls.some((u) => /\/index\.html(?:#.*)?$/.test(u)), app: urls.some((u) => /\/js\/app\.js(?:#.*)?$/.test(u)), n: urls.length };
+    });
+    T19c(cached.index && cached.app && /^gefei-quest-v\d+$/.test(cached.name), 'SW controlled, cache ' + cached.name + ' has index.html + js/app.js (' + cached.n + ')');
+    await ctx.setOffline(true);
+    await pg.goto(BASE + 'index.html#work', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(400);
+    const off = await pg.evaluate(() => {
+      const pill = document.querySelector('#offline-pill');
+      const cs = pill ? getComputedStyle(pill) : null;
+      const r = pill ? pill.getBoundingClientRect() : { width: 0, height: 0 };
+      return {
+        wk: !!document.querySelector('.wk'),
+        onLine: navigator.onLine,
+        pill: !!(pill && cs && cs.display !== 'none' && cs.visibility !== 'hidden' && r.width > 0 && r.height > 0 && /离线模式：AI \/ 发布 \/ 数据拉取暂不可用/.test(pill.textContent)),
+      };
+    });
+    T19c(off.wk && off.pill, 'offline reload #work renders .wk and offline pill ' + JSON.stringify(off));
+    await ctx.setOffline(false);
+    let jsonHits = 0;
+    let jsHits = 0;
+    const fs = require('fs');
+    const pwaSrc = fs.readFileSync(path.join(__dirname, '../js/pwa.js'), 'utf8');
+    await ctx.route('**/daily.json', (route) => {
+      jsonHits++;
+      route.fulfill({
+        status: 200,
+        contentType: 'application/json; charset=utf-8',
+        headers: { 'X-P19C': 'fresh', 'Cache-Control': 'no-store' },
+        body: JSON.stringify({ schema: 1, latestId: 424242, marker: 'p19c-fresh', entries: [] }),
+      });
+    });
+    await ctx.route('**/js/pwa.js*', (route) => {
+      jsHits++;
+      route.fulfill({
+        status: 200,
+        contentType: 'application/javascript; charset=utf-8',
+        headers: { 'Cache-Control': 'no-store' },
+        body: pwaSrc + '\nwindow.__P19C_JS_MARKER="fresh-js";\n',
+      });
+    });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(300);
+    const fresh = await pg.evaluate(async () => {
+      const r = await fetch('daily.json');
+      const j = await r.json();
+      return { marker: j.marker, header: r.headers.get('X-P19C'), js: window.__P19C_JS_MARKER || '', controlled: !!(navigator.serviceWorker && navigator.serviceWorker.controller) };
+    });
+    T19c(fresh.controlled && fresh.marker === 'p19c-fresh' && fresh.header === 'fresh' && jsonHits >= 1, 'controlled page receives new daily.json from network hits=' + jsonHits + ' ' + JSON.stringify(fresh));
+    T19c(fresh.js === 'fresh-js' && jsHits >= 1, 'controlled reload executes fresh js/pwa.js hits=' + jsHits + ' marker=' + fresh.js);
+    await ctx.unroute('**/daily.json');
+    await ctx.unroute('**/js/pwa.js*');
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    T19c(e19.length === 0, 'P19c http page console errors ' + e19.slice(0, 3).join(' | '));
+  } catch (e) {
+    T19c(false, 'SW block threw ' + e.message);
+    try { await ctx.setOffline(false); } catch (_) {}
+    try { await ctx.unroute('**/daily.json'); await ctx.unroute('**/js/pwa.js*'); } catch (_) {}
+  }
+  const fp = await b.newPage();
+  const ferr = [];
+  fp.on('pageerror', (e) => ferr.push(e.message));
+  fp.on('console', (m) => { if (m.type() === 'error') ferr.push(m.text()); });
+  try {
+    await fp.goto('file://' + path.resolve(__dirname, '../index.html'), { waitUntil: 'domcontentloaded' });
+    await fp.waitForTimeout(500);
+    const reg = await fp.evaluate(async () => {
+      let n = -1;
+      try { n = (await navigator.serviceWorker.getRegistrations()).length; } catch (e) { n = 0; }
+      return { attempted: window.__pwaRegisterAttempted === true, regs: n, proto: location.protocol };
+    });
+    T19c(ferr.length === 0 && !reg.attempted && reg.regs === 0 && reg.proto === 'file:', 'file:// no console errors and no SW register ' + JSON.stringify({ ferr: ferr.slice(0, 3), reg }));
+  } catch (e) {
+    T19c(false, 'file:// threw ' + e.message);
+  }
+  await fp.close();
+  try {
+    const mf = await (await ctx.request.get(BASE + 'manifest.webmanifest')).json();
+    const sc = mf.shortcuts || [];
+    const okId = mf.id === './' && sc.length === 3;
+    const want = [
+      ['工作台', './index.html#work'],
+      ['选词练习板', './index.html#war-keywords'],
+      ['每日赚钱榜', './index.html#war-rank'],
+    ];
+    const okSc = want.every(([name, url]) => sc.some((s) => s.name === name && s.url === url && (s.icons || []).some((i) => i.src === 'assets/icon-192.png')));
+    T19c(okId && okSc && mf.name === '出海小站练站营' && mf.start_url === './index.html#home' && mf.display === 'standalone', 'manifest id + 3 shortcuts, existing fields kept');
+  } catch (e) {
+    T19c(false, 'manifest ' + e.message);
+  }
+  const prog = { version: 1, xp: 10, done: ['q-p-01'], unlocked: ['ch-prologue'], cleared: [], streak: 1, lastCheckIn: null, achievements: [], weeklyClaimed: [], settings: { muted: true, energyEnabled: false, reduceMotion: false } };
+  const putSave = async (extra) => {
+    await pg.evaluate((s) => {
+      if (!s) localStorage.removeItem('gefei-quest-save-v1');
+      else localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s));
+    }, extra);
+    // 同文档只改 hash 不会重新执行脚本。loadSave 只在整页加载时读 localStorage，
+    // 所以写完存档必须 reload，否则内存里仍是上一次的空进度，备份条不会出现。
+    const doc = BASE + 'index.html';
+    if (pg.url().replace(/#.*$/, '') !== doc) await pg.goto(doc + '#work', { waitUntil: 'domcontentloaded' });
+    else {
+      await pg.evaluate(() => { location.hash = 'work'; });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
+    }
+    await pg.waitForTimeout(250);
+  };
+  try {
+    const logic = await pg.evaluate(() => {
+      const P = window.QuestPWA;
+      const empty = { done: [], sites: { items: [] }, keywords: { items: [] }, reviews: [] };
+      return {
+        done: P.due({ done: ['x'], sites: { items: [] }, keywords: { items: [] }, reviews: [] }),
+        sites: P.due(Object.assign({}, empty, { sites: { items: [{}] } })),
+        kw: P.due(Object.assign({}, empty, { keywords: { items: [{}] } })),
+        rv: P.due(Object.assign({}, empty, { reviews: [{}] })),
+        none: P.due(empty),
+        fresh: P.due({ done: ['x'], lastBackupAt: new Date().toISOString() }),
+        old: P.due({ done: ['x'], lastBackupAt: new Date(Date.now() - 15 * 86400000).toISOString() }),
+        snoozed: P.due({ done: ['x'], backupSnoozeUntil: new Date(Date.now() + 86400000).toISOString() }),
+      };
+    });
+    T19c(logic.done && logic.sites && logic.kw && logic.rv && !logic.none && !logic.fresh && logic.old && !logic.snoozed, 'backup due() progress / 14d / snooze ' + JSON.stringify(logic));
+    await putSave(prog);
+    const onWork = await pg.evaluate(() => {
+      const el = document.querySelector('#backup-reminder');
+      return { bar: !!(el && el.getAttribute('role') === 'status' && /只保存在这个浏览器/.test(el.textContent)), exp: !!document.querySelector('#backup-export'), imp: !!document.querySelector('#backup-import'), sn: !!document.querySelector('#backup-snooze') };
+    });
+    T19c(onWork.bar && onWork.exp && onWork.imp && onWork.sn, '#work backup bar visible ' + JSON.stringify(onWork));
+    await pg.goto(BASE + 'index.html#me', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(250);
+    T19c(await pg.evaluate(() => {
+      const panel = document.querySelector('#panel-me');
+      const el = panel && panel.querySelector('#backup-reminder');
+      const cs = el ? getComputedStyle(el) : null;
+      return !!(panel && !panel.hidden && el && el.getAttribute('role') === 'status' && cs && cs.display !== 'none' && document.querySelector('#me-settings #set-export'));
+    }), '#me backup bar visible next to settings export');
+    await pg.locator('#panel-me #backup-snooze').click();
+    await pg.waitForTimeout(100);
+    const snoozed = await pg.evaluate(() => {
+      const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+      const el = document.querySelector('#backup-reminder');
+      const days = s.backupSnoozeUntil ? (Date.parse(s.backupSnoozeUntil) - Date.now()) / 86400000 : -1;
+      const cs = el ? getComputedStyle(el) : null;
+      return { hidden: !el || el.hidden || (cs && cs.display === 'none'), days };
+    });
+    T19c(snoozed.hidden && snoozed.days > 13 && snoozed.days < 15, 'snooze hides bar and sets backupSnoozeUntil (' + snoozed.days.toFixed(2) + 'd)');
+    await putSave(prog);
+    T19c(await pg.evaluate(() => !!document.querySelector('#backup-reminder')), 'reset save without lastBackupAt shows bar again');
+    const [dl] = await Promise.all([
+      pg.waitForEvent('download', { timeout: 8000 }),
+      pg.click('#backup-export'),
+    ]);
+    T19c(dl.suggestedFilename() === 'gefei-quest-save-v1.json', 'backup export download ' + dl.suggestedFilename());
+    await dl.path().catch(() => {});
+    const exported = await pg.evaluate(() => {
+      const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+      const el = document.querySelector('#backup-reminder');
+      const t = s.lastBackupAt ? Date.parse(s.lastBackupAt) : 0;
+      return { hidden: !el, recent: t > 0 && Math.abs(Date.now() - t) < 120000 };
+    });
+    T19c(exported.hidden && exported.recent, 'export sets lastBackupAt and hides bar ' + JSON.stringify(exported));
+    const nowSave = Object.assign({}, prog, { lastBackupAt: new Date().toISOString() });
+    await putSave(nowSave);
+    T19c(await pg.evaluate(() => !document.querySelector('#backup-reminder')), 'lastBackupAt = now → no bar on #work');
+    await pg.goto(BASE + 'index.html#me', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    T19c(await pg.evaluate(() => !document.querySelector('#backup-reminder')), 'lastBackupAt = now → no bar on #me');
+    await putSave(null);
+    T19c(await pg.evaluate(() => !document.querySelector('#backup-reminder')), 'empty save → no bar on #work');
+    await pg.goto(BASE + 'index.html#me', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    T19c(await pg.evaluate(() => !document.querySelector('#backup-reminder')), 'empty save → no bar on #me');
+    await pg.evaluate(() => {
+      window.__pwaPrompted = 0;
+      const ev = new Event('beforeinstallprompt', { cancelable: true });
+      ev.prompt = function () { window.__pwaPrompted++; return Promise.resolve(); };
+      ev.userChoice = Promise.resolve({ outcome: 'accepted', platform: 'web' });
+      window.dispatchEvent(ev);
+    });
+    const inst = await pg.evaluate(() => {
+      const el = document.getElementById('pwa-install');
+      if (!el) return { ok: false, reason: 'missing' };
+      const cs = getComputedStyle(el);
+      const r = el.getBoundingClientRect();
+      return { ok: !el.hidden && cs.display !== 'none' && r.width > 0 && r.height > 0 && /安装到桌面/.test(el.textContent), text: el.textContent, hidden: el.hidden, display: cs.display };
+    });
+    T19c(inst.ok, 'beforeinstallprompt shows #pwa-install ' + JSON.stringify(inst));
+    await pg.click('#pwa-install');
+    T19c(await pg.evaluate(() => window.__pwaPrompted === 1), 'click #pwa-install calls prompt()');
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.evaluate(() => {
+      localStorage.removeItem('gefei-quest-save-v1');
+      location.hash = 'me';
+    });
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(400);
+    const wMe = await pg.evaluate(() => document.documentElement.scrollWidth);
+    T19c(wMe <= 390, '390px #me scrollWidth ' + wMe);
+    await pg.setViewportSize({ width: 1280, height: 860 });
+    if (SHOTS) {
+      await putSave(prog);
+      await pg.waitForSelector('#backup-reminder');
+      await pg.screenshot({ path: `${SHOTS}/p19-pwa.png`, fullPage: false });
+    }
+  } catch (e) {
+    T19c(false, 'backup/install block threw ' + e.message);
+  }
+  await ctx.close();
+  }
+  console.log('P19c functional fails=' + f19c); fail += f19c;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

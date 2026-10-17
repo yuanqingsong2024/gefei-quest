@@ -107,6 +107,22 @@ python3 -m http.server 8765
 - `localStorage` 键名：`gefei-quest-save-v1`
 - 仅本机本浏览器；换设备/无痕/清缓存会丢
 - 重置：我的进度 → 重置存档 → 输入「重置」确认
+- 有进度且超过 14 天没导出时，工作台和我的进度会提醒备份（`lastBackupAt` / `backupSnoozeUntil`，只追加字段）
+
+## 离线与安装（Service Worker）
+
+根目录 `sw.js` 只在 `http:` / `https:` 注册（`file://` 双击打开不会注册，也不会报错）。
+
+缓存名是 `gefei-quest-v` + `sw.js` 顶部的 **`CACHE_VERSION`**（当前从 1 起）。**每次发布请把 `CACHE_VERSION` 加 1**，再部署。新的 Service Worker 安装后会删掉旧的 `gefei-quest-*` 缓存；页面上出现「有新版本，点此刷新」时，点一下才会 `skipWaiting` 并重新加载。
+
+策略（保证 GitHub Pages 的更新下次打开就能看到）：
+
+- 导航、`*.html`、`*.json`（含 `daily.json`、`data/*.json`）、`manifest.webmanifest`、同源 `*.js` / `*.css`：**网络优先**，失败才用缓存。因此即使还没点「刷新」，下一次加载也会拿到新脚本和数据。
+- 图片、字体：缓存优先。版本号加 1 后，这些资源会随新缓存重新预缓存。
+- 只缓存同源 **GET** 且 **status === 200** 的响应。跨域接口（GitHub、Google、AI、Datamuse、Wikipedia、HN）不进缓存。
+- 安装时预缓存用 `cache: 'reload'`，避开浏览器自己的 HTTP 缓存。
+
+自动化测试（Playwright 里 `navigator.webdriver` 为真）默认**不注册** Service Worker，避免它控制同一浏览器上下文里后面的请求。`tools/site-check.js` 的 P19c 会先写入 `localStorage['gefei-quest-sw-test']='1'` 再注册，单独验证离线和更新。
 
 ## 周更（知识补给）怎么更新
 

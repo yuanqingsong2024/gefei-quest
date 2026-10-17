@@ -1,1 +1,35 @@
-{"name":"出海小站练站营","short_name":"练站营","description":"挖词 → 上站 → SEO → 变现 → 放大：游戏化出海建站练习营","start_url":"./index.html#home","scope":"./","display":"standalone","background_color":"#0b1220","theme_color":"#0b1220","lang":"zh-CN","icons":[{"src":"assets/logo.svg","sizes":"any","type":"image/svg+xml"},{"src":"assets/icon-192.png","sizes":"192x192","type":"image/png"},{"src":"assets/icon-512.png","sizes":"512x512","type":"image/png"},{"src":"assets/icon-maskable-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}]}
+{
+  "name": "出海小站练站营",
+  "short_name": "练站营",
+  "description": "挖词 → 上站 → SEO → 变现 → 放大：游戏化出海建站练习营",
+  "id": "./",
+  "start_url": "./index.html#home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "lang": "zh-CN",
+  "icons": [
+    { "src": "assets/logo.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "工作台",
+      "url": "./index.html#work",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "选词练习板",
+      "url": "./index.html#war-keywords",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "每日赚钱榜",
+      "url": "./index.html#war-rank",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}

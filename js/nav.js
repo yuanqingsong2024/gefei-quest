@@ -189,7 +189,8 @@
         var on = n.id === active;
         return '<a href="' + n.hash + '" data-nav="' + n.id + '"' + (on ? ' class="active" aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + n.label + '</span>' + (n.id === 'me' && unseenCount() ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') + '</a>';
       }).join('') + '</nav>' +
-      '<button type="button" class="nav-search" data-open-search aria-label="全站搜索（快捷键 / 或 Ctrl+K）" title="搜索（/ 或 Ctrl+K）">' + I('search') + '<span>搜索</span><kbd>/</kbd></button></div>';
+      '<button type="button" class="nav-search" data-open-search aria-label="全站搜索（快捷键 / 或 Ctrl+K）" title="搜索（/ 或 Ctrl+K）">' + I('search') + '<span>搜索</span><kbd>/</kbd></button>' +
+      '<span id="offline-pill" class="offline-pill" role="status">离线模式：AI / 发布 / 数据拉取暂不可用</span></div>';
   }
 
   /** 区块头带：图标 + 标题 + 一句说明 + 面包屑 */
@@ -224,7 +225,7 @@
       '<div><h4>资源库</h4>' + LIB_CATS.map(function (c) { return '<a href="#lib-' + c.id + '">' + c.label + '</a>'; }).join('') + '<a href="#pm">平台变现</a><a href="#pm-cn">平台变现 · 国内</a><a href="#pm-global">平台变现 · 海外</a></div>' +
       '<div><h4>我的</h4>' + ME_TABS.map(function (t) { return '<a href="' + t.hash + '">' + t.label + '</a>'; }).join('') + '<a href="#guides">手册与模板</a><a href="#dev">' + DEV_SECTION.label + '</a><a href="https://github.com/yuanqingsong2024/gefei-quest" target="_blank" rel="noopener">GitHub 仓库</a></div>' +
       '<div class="foot-news"><h4>最近更新</h4>' + log.map(function (e) { return '<a href="#changelog"><small>' + esc(e.date) + '</small>' + esc(e.title) + '</a>'; }).join('') + '</div>' +
-      '</div><p class="foot-note">© 2026 ' + SITE_NAME + ' · 额度与规则以各平台官网为准 · 按 <kbd>/</kbd> 搜索全站</p></div>';
+      '</div><p class="foot-note">© 2026 ' + SITE_NAME + ' · 额度与规则以各平台官网为准 · 按 <kbd>/</kbd> 搜索全站 <button type="button" class="btn btn-sm" data-pwa-install hidden>安装到桌面</button><span class="pwa-ios-hint" hidden>Safari 分享 → 添加到主屏幕</span></p></div>';
   }
 
   function titleFor(route, extra) {

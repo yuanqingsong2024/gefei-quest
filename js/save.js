@@ -35,6 +35,8 @@
       lastSeenChangelog: 0,
       rankFav: [],
       rankPlan: [],
+      lastBackupAt: null,
+      backupSnoozeUntil: null,
       updatedAt: new Date().toISOString(),
     };
   }

@@ -41,6 +41,16 @@
             <input type="file" id="set-import-file" accept="application/json,.json" hidden />
           </span>
         </div>
+        <div class="setting-row" id="pwa-install-row">
+          <span>
+            <strong>安装到桌面</strong>
+            <small>安装后可从主屏幕打开。进度仍只在本机浏览器。</small>
+          </span>
+          <span class="setting-actions">
+            <button type="button" class="btn btn-sm" id="pwa-install" data-pwa-install hidden>安装到桌面</button>
+          </span>
+        </div>
+        <p class="hint pwa-ios-hint" hidden>Safari 分享 → 添加到主屏幕</p>
         <div class="setting-row setting-danger">
           <span>
             <strong>重置存档</strong>
