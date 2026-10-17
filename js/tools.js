@@ -337,7 +337,7 @@
       });
     });
     root.querySelectorAll('.kit-guide').forEach(function (a) {
-      a.addEventListener('click', function () { var id = a.getAttribute('data-anchor'); setTimeout(function () { var el = document.getElementById(id); if (el) el.scrollIntoView(); }, 120); });
+      a.addEventListener('click', function () { var id = a.getAttribute('data-anchor'); setTimeout(function () { var el = document.getElementById(id); if (!el) return; if (global.QuestShell && QuestShell.scrollToEl) QuestShell.scrollToEl(el, 'auto'); else el.scrollIntoView({ block: 'start' }); }, 120); });
     });
   }
   function field(key, label, ph, val, wide) {

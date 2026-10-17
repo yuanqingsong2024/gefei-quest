@@ -75,8 +75,13 @@
         '<div class="pm-more">' + d.CATS.filter(function (x) { return x.group === c.group && x.id !== id; }).map(function (x) { return '<a class="chip" href="#pm-' + x.id + '">' + esc(x.label) + '</a>'; }).join('') + '</div>';
     }
     el.innerHTML = '<div class="pm-page">' + h + '</div>';
-    el.querySelectorAll('[data-pm-jump]').forEach(function (a) { a.addEventListener('click', function (e) { var t = el.querySelector('#pm-p-' + a.getAttribute('data-pm-jump')); if (t) { e.preventDefault(); if (global.QuestCompact) QuestCompact.reveal(t); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
-    if (sub[1]) { var t = el.querySelector('#pm-p-' + sub[1]); if (t) setTimeout(function () { if (global.QuestCompact) { QuestCompact.apply(el); QuestCompact.reveal(t); } t.scrollIntoView({ block: 'start' }); }, 30); }
+    function scrollPastNav(t, behavior) {
+      if (!t) return;
+      if (global.QuestShell && QuestShell.scrollToEl) QuestShell.scrollToEl(t, behavior || 'auto');
+      else t.scrollIntoView({ behavior: behavior || 'auto', block: 'start' });
+    }
+    el.querySelectorAll('[data-pm-jump]').forEach(function (a) { a.addEventListener('click', function (e) { var t = el.querySelector('#pm-p-' + a.getAttribute('data-pm-jump')); if (t) { e.preventDefault(); if (global.QuestCompact) QuestCompact.reveal(t); scrollPastNav(t, 'smooth'); } }); });
+    if (sub[1]) { var t = el.querySelector('#pm-p-' + sub[1]); if (t) setTimeout(function () { if (global.QuestCompact) { QuestCompact.apply(el); QuestCompact.reveal(t); } scrollPastNav(t, 'auto'); }, 30); }
   }
   function titleOf(param) { var id = (param || '').split('/')[0]; if (!id) return '平台变现'; if (id === 'cn') return '平台变现 · 国内'; if (id === 'global') return '平台变现 · 海外'; var c = cat(id); return c ? '平台变现 · ' + c.label : '平台变现'; }
   global.QuestPlatforms = { render: render, titleOf: titleOf, sourceCount: sourceCount, figureCount: figureCount };

@@ -367,7 +367,9 @@
       } else {
         setTimeout(() => {
           const el = document.getElementById(route.param);
-          if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth' });
+          const behavior = document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth';
+          if (el && window.QuestShell && QuestShell.scrollToEl) QuestShell.scrollToEl(el, behavior);
+          else if (el) el.scrollIntoView({ behavior: behavior, block: 'start' });
         }, 30);
       }
     }

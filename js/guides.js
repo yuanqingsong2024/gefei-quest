@@ -117,7 +117,8 @@
         e.preventDefault();
         var el = document.getElementById(a.getAttribute('data-target'));
         if (el && global.QuestCompact) QuestCompact.reveal(el);
-        if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth', block: 'start' });
+        if (el && global.QuestShell && QuestShell.scrollToEl) QuestShell.scrollToEl(el, document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth');
+        else if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth', block: 'start' });
       });
     });
   }

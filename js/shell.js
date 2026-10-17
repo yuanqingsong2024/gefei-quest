@@ -5,10 +5,36 @@
   function I(n) { return global.QuestIcons.svg(n); }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
-  /* ---------- 顶栏收缩 + 回到顶部 ---------- */
+  /* ---------- 顶栏高度（fixed 后用 --nav-h 垫开正文）+ 收缩 + 回到顶部 ---------- */
+  function navHeight() {
+    var n = parseFloat(getComputedStyle(doc.documentElement).getPropertyValue('--nav-h'));
+    return n > 0 ? n : 0;
+  }
+  function syncNavH() {
+    var nav = doc.getElementById('site-nav');
+    if (!nav) return 0;
+    var h = nav.getBoundingClientRect().height;
+    if (!(h > 0)) return 0;
+    var next = Math.ceil(h) + 'px';
+    if (doc.documentElement.style.getPropertyValue('--nav-h') !== next) doc.documentElement.style.setProperty('--nav-h', next);
+    return Math.ceil(h);
+  }
+  function scrollToEl(el, behavior) {
+    if (!el || !el.getBoundingClientRect) return;
+    syncNavH();
+    var y = global.pageYOffset || doc.documentElement.scrollTop || 0;
+    var top = el.getBoundingClientRect().top + y - navHeight() - 12;
+    if (top < 0) top = 0;
+    try { global.scrollTo({ top: top, behavior: behavior || 'auto' }); }
+    catch (_) { global.scrollTo(0, top); }
+  }
   function onScroll() {
     var y = global.scrollY || doc.documentElement.scrollTop || 0;
-    doc.body.classList.toggle('nav-condensed', y > 24);
+    var condensed = y > 24;
+    if (doc.body.classList.contains('nav-condensed') !== condensed) {
+      doc.body.classList.toggle('nav-condensed', condensed);
+      syncNavH();
+    }
     var b = doc.getElementById('to-top'); if (b) b.classList.toggle('show', y > 600);
   }
   function mountToTop() {
@@ -147,6 +173,10 @@
 
   function init() {
     mountToTop();
+    var nav = doc.getElementById('site-nav');
+    if (nav && global.ResizeObserver) new ResizeObserver(function () { syncNavH(); }).observe(nav);
+    else global.addEventListener('resize', syncNavH);
+    syncNavH();
     global.addEventListener('scroll', onScroll, { passive: true }); onScroll();
     doc.addEventListener('keydown', function (e) {
       var t = e.target, typing = t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable);
@@ -159,5 +189,5 @@
   }
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
 
-  global.QuestShell = { renderBottomBar: renderBottomBar, fade: fade, openSearch: openSearch, closeSearch: closeSearch, search: search };
+  global.QuestShell = { renderBottomBar: renderBottomBar, fade: fade, openSearch: openSearch, closeSearch: closeSearch, search: search, scrollToEl: scrollToEl, syncNavH: syncNavH };
 })(typeof window !== 'undefined' ? window : globalThis);

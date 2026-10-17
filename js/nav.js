@@ -367,6 +367,7 @@
       '<button type="button" class="nav-search" data-open-search aria-label="全站搜索（快捷键 / 或 Ctrl+K）" title="搜索（/ 或 Ctrl+K）">' + I('search') + '<span>搜索</span><kbd>/</kbd></button>' +
       '<span id="offline-pill" class="offline-pill" role="status">离线模式：AI / 发布 / 数据拉取暂不可用</span></div>';
     bindNav(el);
+    if (global.QuestShell && QuestShell.syncNavH) QuestShell.syncNavH();
   }
 
   /** 区块头带：图标 + 标题 + 一句说明 + 面包屑 */

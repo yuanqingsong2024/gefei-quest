@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 30, date: '2026-10-17', title: '顶部导航固定在最上方，滚动时始终可见', tag: '改进', href: '#home',
+      items: ['顶部导航固定在最上方，滚动时始终可见'] },
     { id: 29, date: '2026-10-17', title: '首页标题更简洁', tag: '改进', href: '#home',
       items: ['首页大标题改为「做英文出海小站」'] },
     { id: 28, date: '2026-10-17', title: '首页视觉整理：导航更简洁、分区更清楚', tag: '改进', href: '#home',

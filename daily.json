@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T13:00:50.812Z",
-  "latestId": 29,
+  "generatedAt": "2026-10-17T13:29:56.950Z",
+  "latestId": 30,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 30,
+      "date": "2026-10-17",
+      "tag": "改进",
+      "title": "顶部导航固定在最上方，滚动时始终可见",
+      "items": [
+        "顶部导航固定在最上方，滚动时始终可见"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 29,
       "date": "2026-10-17",
@@ -123,19 +133,6 @@
         "工具站、对比页、术语表带可替换的占位内容；上线自查多一条「占位已替换」，勾选后才算通过"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
-    },
-    {
-      "id": 20,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "紧凑收尾：9 个页面压到 2.5 屏以内",
-      "items": [
-        "首页缩短首屏和今日任务；站一实操助手把填写说明、实操计划默认收起，预览区改成更紧的两列",
-        "每日赚钱榜免责声明收成一行，实操计划默认收起，榜单卡默认更短",
-        "资源库卡片和平台变现的阅读须知、分类卡收得更紧；每周补给改为每页 4 张",
-        "我的进度成就墙默认收起；账号中心说明默认收起，平台卡保留状态和免费路径（说明与按钮默认收起），桌面每页 6 个"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

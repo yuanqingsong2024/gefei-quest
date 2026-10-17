@@ -300,13 +300,14 @@
     root.querySelectorAll('[name=ai-mode]').forEach(function (r) { r.addEventListener('change', function () { var x = load(); x.mode = r.value; save(x); editing = null; rerender(); }); });
     if (c.mode !== 'custom') return;
     function io(cls, msg) { $('#ai-io-out').innerHTML = '<p class="' + cls + '">' + msg + '</p>'; }
-    $('#ai-new').addEventListener('click', function () { editing = 'new:' + $('#ai-template').value; rerender(); var e = $('#ai-editor'); if (e) { e.scrollIntoView({ block: 'start' }); $('#ai-name').focus(); } });
+    function scrollPastNav(e) { if (!e) return; if (global.QuestShell && QuestShell.scrollToEl) QuestShell.scrollToEl(e, 'auto'); else e.scrollIntoView({ block: 'start' }); }
+    $('#ai-new').addEventListener('click', function () { editing = 'new:' + $('#ai-template').value; rerender(); var e = $('#ai-editor'); if (e) { scrollPastNav(e); $('#ai-name').focus(); } });
     root.querySelectorAll('[name=ai-active]').forEach(function (r) { r.addEventListener('change', function () { var x = load(); x.activeId = r.value; save(x); rerender(); }); });
     root.querySelectorAll('.prov [data-pact]').forEach(function (b) {
       b.addEventListener('click', function () {
         var li = b.closest('.prov'), id = li.getAttribute('data-prov'), x = load(), p = x.providers.filter(function (q) { return q.id === id; })[0], act = b.getAttribute('data-pact');
         if (!p) return;
-        if (act === 'edit') { editing = id; rerender(); var e = $('#ai-editor'); if (e) e.scrollIntoView({ block: 'start' }); return; }
+        if (act === 'edit') { editing = id; rerender(); var e = $('#ai-editor'); scrollPastNav(e); return; }
         if (act === 'dup') { var d = normProvider(JSON.parse(JSON.stringify(p))); d.id = uid(); d.name = (p.name + ' 副本').slice(0, 60); x.providers.splice(x.providers.indexOf(p) + 1, 0, d); save(x); rerender(); return; }
         if (act === 'del') { if (global.confirm && !global.confirm('删除服务商「' + p.name + '」？其 Key 也会一并删除。')) return; x.providers.splice(x.providers.indexOf(p), 1); if (x.activeId === id) x.activeId = x.providers[0] ? x.providers[0].id : null; if (editing === id) editing = null; save(x); rerender(); return; }
         if (act === 'test') {

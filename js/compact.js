@@ -81,7 +81,14 @@
     nav.addEventListener('click', function (e) {
       var b = e.target.closest('[data-pg]'); if (!b || b.disabled) return; var v = b.getAttribute('data-pg');
       if (v === 'all') all = !all; else { all = false; cur = v === 'prev' ? cur - 1 : v === 'next' ? cur + 1 : +v; }
-      draw(); var top = items[all ? 0 : cur * size]; if (top && top.getBoundingClientRect().top < 0) top.scrollIntoView({ block: 'start' });
+      draw(); var top = items[all ? 0 : cur * size];
+      if (top) {
+        var nh = 0; try { nh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 0; } catch (_) {}
+        if (top.getBoundingClientRect().top < nh + 12) {
+          if (global.QuestShell && QuestShell.scrollToEl) QuestShell.scrollToEl(top, 'auto');
+          else top.scrollIntoView({ block: 'start' });
+        }
+      }
     });
     items.forEach(function (it, i) { setShow(it, function () { if (!all) { cur = Math.floor(i / size); draw(); } }); });
     if (el.matches('.rank-grid,.ship-list,.peer-grid,.wb-plats,.quest-list,.res-grid,.pm-cards')) el.after(nav); else last.after(nav);
