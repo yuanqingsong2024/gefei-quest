@@ -211,3 +211,11 @@
 - 测试桩 `tools/fake-ideas.js`（8769）。`gefei-quest-ideas-cfg.base` 可改 API 根。空存档 1280×800：`#war-keywords` 1.85 屏。390px 练习板与灵感标签 scrollWidth 均为 390。
 - site-check：`TOTAL fails=0 consoleErrors=0`。P19b：三列有结果、A–Z 31 条 Google URL、Trends/Reddit/Product Hunt 编码正确、加入 3 个且第二次不重复、练习板能看到、种子词 fail 时只有 Datamuse 报错、history 记下 pdf merge / added 3、搜索能找到「关键词灵感」。
 - 截图：`/tmp/sc-shots/p19-ideas.png`（桌面，种子词 pdf merge 搜完之后）
+
+## Phase 20 · 计划 1 新手引导 T182（2026-10-17，代码：Grok Build）
+- 新栏目 `#start`（别名 `guide-start` / `onboarding` / `newbie`）：学习、实施、赚钱三条路线，每步链到站里已有页面。顶栏第 2 项「新手引导」。页脚「新手引导」与「新手导览」（`#foot-tour` 重播）。手机底栏仍是 6 个入口，没有把新手引导塞进去。
+- 三张路线图截自 `#path`、`#work`（先写入一个演示站点）、`#war-rank` 视口顶部，存为 `assets/start/learn.webp`、`do.webp`、`earn.webp`（宽 640，quality 70，约 11 / 18 / 30 KB）。
+- 前 7 天勾选写入存档 `onboarding.days`（只追加字段）。聚光灯导览 `js/tour.js`：第一次打开 `#home` 且 `onboarding.tourDone !== true` 时出现；`navigator.webdriver` 时不自动出现，除非 `localStorage gefei-quest-tour-test=1`。跳过、Esc、完成、「不再显示」都会记下 `tourDone` 与 `tourSeenAt`。`#start-tour` 与页脚可以重播。
+- 空存档 1280×800：`#start` 1.50 屏（390×844 为 3.40 屏）。`tools/page-heights.js` → `/tmp/h.json`。
+- 首页布局未改（T183）。只加了导览用的 `data-tour` 锚点。
+- site-check：`TOTAL fails=0 consoleErrors=0`。P20a 覆盖导航、三条路线与编号步骤、深链、截图 naturalWidth、7 天勾选刷新后仍在、导览自动打开 / 上一步下一步 / Esc / 不再显示与完成 / 重播 / 缺目标跳过、390px 无横向滚动且气泡在视口内、file://。截图 `/tmp/sc-shots/p20-start.png`、`/tmp/sc-shots/p20-tour.png`。

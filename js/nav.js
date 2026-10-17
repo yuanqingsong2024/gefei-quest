@@ -9,6 +9,7 @@
   /** 主导航：名称在全站（顶栏、首页卡片、页脚、面包屑、标题）只从这里取 */
   var SITE_NAV = [
     { id: 'home', label: '首页', icon: 'lighthouse', hash: '#home', sub: '出海建站 · SEO · 练习营', desc: '从挖词到多站的完整练习路线。' },
+    { id: 'start', label: '新手引导', icon: 'flag', hash: '#start', sub: '三条路线 · 7 天清单 · 新手导览', desc: '学习、实施、赚钱三条路线，前 7 天清单，以及可以重播的新手导览。' },
     { id: 'path', label: '学习路线', icon: 'map', hash: '#path', sub: '关卡地图 · 任务清单', desc: '按章节闯关：入门准备 → 站一 → 站二 → 站三 → 变现 → 放大，勾选即线下完成。' },
     { id: 'war', label: '实战作战室', icon: 'target', hash: '#war', sub: '每站 Day1–7 · 实操助手 · 选词 · 赚钱榜', desc: '五个阶段各一张 7 天清单，加上站一实操助手、选词练习板和每日赚钱榜，与学习路线共用同一份进度。' },
     { id: 'lib', label: '资源库', icon: 'toolbox', hash: '#lib', sub: '工具 · 托管 · 变现 · 闲鱼', desc: '免费工具、托管域名、变现渠道、可试路径、闲鱼非实物与同路人方法，可筛选可搜索。' },
@@ -80,6 +81,7 @@
     { id: 'note', label: '笔记' },
   ];
   var DEV_DOCS = [
+    { id: 'PHASE20-HOME-ONBOARDING', title: 'Phase 20 · 新手引导 + 首页重做' },
     { id: 'MASTER-STATUS', title: '总进度 MASTER-STATUS' },
     { id: 'PHASE17-SHARE', title: 'Phase 17 · 内容分发（免费）' },
     { id: 'PHASE18-DESIGN', title: 'Phase 18 · 紧凑页面 + Google 连接 + 工作台' },
@@ -111,7 +113,7 @@
     '': 'home', map: 'path', quest: 'path-quests', quests: 'path-quests', ship: 'weekly',
     ach: 'me', settings: 'me', resources: 'lib', 'war-s1': 'war', guide: 'guides', docs: 'guides',
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
-    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', dashboard: 'work', 'war-work': 'work', review: 'work-review', 'weekly-review': 'work-review', 'me-review': 'work-review', fupan: 'work-review', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama',
+    xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', dashboard: 'work', 'war-work': 'work', review: 'work-review', 'weekly-review': 'work-review', 'me-review': 'work-review', fupan: 'work-review', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama', 'guide-start': 'start', onboarding: 'start', newbie: 'start',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -127,6 +129,7 @@
   function parse(raw) {
     var h = canonical(raw);
     if (/^home(-|$)/.test(h)) return { section: 'home', view: 'home', param: h === 'home' ? '' : h, hash: h };
+    if (h === 'start') return { section: 'start', view: 'start', hash: 'start' };
     if (h === 'path') return { section: 'path', view: 'map', hash: h };
     if (h === 'path-quests') return { section: 'path', view: 'quests', hash: h };
     var st = { war: 1, 'war-s2': 2, 'war-s3': 3, 'war-m': 4, 'war-x': 5 };
@@ -183,6 +186,7 @@
   function renderTopNav(active) {
     var el = document.getElementById('site-nav');
     if (!el) return;
+    el.setAttribute('data-tour', 'nav');
     el.innerHTML = '<div class="site-nav-inner">' +
       '<a class="brand" href="#home"><img src="assets/icon-192.png" alt="" width="34" height="34" /><span>' + SITE_NAME + '</span></a>' +
       '<nav class="site-links" aria-label="主导航">' + SITE_NAV.map(function (n) {
@@ -220,8 +224,8 @@
       '<p class="foot-desc"><b>关于本站</b>：基于哥飞等公开分享整理的出海小站练习路线，按「挖词 → 上站 → SEO → 变现 → 放大」闯关。非官方，不含付费社群内容；收入数字不构成保证。进度只保存在你的浏览器里。</p>' +
       '<p class="foot-ver"><span class="pill">' + V.v + '</span> 更新于 ' + esc(V.date) + ' · <a href="#changelog">更新日志</a> · <a href="daily.json" target="_blank" rel="noopener">daily.json</a></p></div>' +
       '<div class="foot-cols">' +
-      '<div><h4>站点地图</h4>' + SITE_NAV.map(function (n) { return '<a href="' + n.hash + '">' + n.label + '</a>'; }).join('') + '</div>' +
-      '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a><a href="#war-rank">每日赚钱榜</a><a href="#war-publish">发布上线</a><a href="#war-share">内容分发</a><a href="#work">工作台</a><a href="#work-review">每周复盘</a></div>' +
+      '<div><h4>站点地图</h4>' + SITE_NAV.map(function (n) { return '<a href="' + n.hash + '">' + n.label + '</a>'; }).join('') + '<a href="#start" id="foot-tour">新手导览</a></div>' +
+      '<div><h4>实战与工具</h4>' + STATIONS.map(function (s) { return '<a href="' + s.hash + '">' + s.label + '作战室</a>'; }).join('') + '<a href="#war-kit">站一实操助手</a><a href="#war-keywords">选词练习板</a><a href="#war-rank">每日赚钱榜</a><a href="#war-publish">发布上线</a><a href="#war-share">内容分发</a><a href="#work" data-tour="work">工作台</a><a href="#work-review">每周复盘</a></div>' +
       '<div><h4>资源库</h4>' + LIB_CATS.map(function (c) { return '<a href="#lib-' + c.id + '">' + c.label + '</a>'; }).join('') + '<a href="#pm">平台变现</a><a href="#pm-cn">平台变现 · 国内</a><a href="#pm-global">平台变现 · 海外</a></div>' +
       '<div><h4>我的</h4>' + ME_TABS.map(function (t) { return '<a href="' + t.hash + '">' + t.label + '</a>'; }).join('') + '<a href="#guides">手册与模板</a><a href="#dev">' + DEV_SECTION.label + '</a><a href="https://github.com/yuanqingsong2024/gefei-quest" target="_blank" rel="noopener">GitHub 仓库</a></div>' +
       '<div class="foot-news"><h4>最近更新</h4>' + log.map(function (e) { return '<a href="#changelog"><small>' + esc(e.date) + '</small>' + esc(e.title) + '</a>'; }).join('') + '</div>' +

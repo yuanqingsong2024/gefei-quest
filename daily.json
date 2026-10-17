@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T07:59:51.749Z",
-  "latestId": 23,
+  "generatedAt": "2026-10-17T09:54:06.437Z",
+  "latestId": 24,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 24,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "新手引导：三条路线 + 首次访问导览",
+      "items": [
+        "新页面「新手引导」：学习、实施、赚钱三条路线，每步链到站里已有的页面，并附一张本站截图",
+        "前 7 天清单可以勾选，完成数记在本机存档的 onboarding.days 里",
+        "第一次打开首页会看到聚光灯导览（顶栏、开始按钮、赚钱榜、路线、工作台、我的进度）。可跳过；在新手引导页或页脚「新手导览」可以重播",
+        "不承诺收入。导览只介绍站里已经有的功能"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#start"
+    },
     {
       "id": 23,
       "date": "2026-10-17",
@@ -128,19 +141,6 @@
         "每类有对比表，总览页有「新手怎么选」；不承诺收益，只列合法渠道"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#pm"
-    },
-    {
-      "id": 14,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "AI 设置升级：自管理服务商列表",
-      "items": [
-        "可添加任意数量的自定义服务商：名称、地址、模型列表、请求头、温度、最大 tokens",
-        "支持 OpenAI 兼容、Anthropic Messages、Ollama 本地三种格式，可一键获取模型列表",
-        "复制 / 编辑 / 删除 / 单独测试；工具页 AI 按钮旁可快速切换服务商",
-        "服务商配置可导入导出（导出不含 Key），旧配置自动迁移"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-ai"
     }
   ],
   "rank": {

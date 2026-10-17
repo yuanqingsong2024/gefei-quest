@@ -10,8 +10,8 @@ function cx(pg) {
 }
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3] || '';
-const ROUTES = ['home','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish','war-share'];
-const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq' };
+const ROUTES = ['home','start','path','path-quests','war','war-s2','war-s3','war-m','war-x','war-kit','war-keywords','war-rank','lib','lib-tools','lib-hosting','lib-monetize','lib-paths','lib-xianyu','lib-tips','lib-peers','guides','weekly','me','me-sites','me-ai','me-stats','changelog','dev','pm','pm-cn','pm-global','pm-cn-drama','pm-gl-video','me-accounts','me-analytics','war-publish','war-share'];
+const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', ship:'weekly', ach:'me', settings:'me', stats:'me-stats', updates:'changelog', resources:'lib', 'war-s1':'war', 'home-faq':'home-faq', 'guide-start':'start', onboarding:'start', newbie:'start' };
 (async () => {
   const b = await chromium.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', args: ['--no-sandbox'] });
   const p = await b.newPage({ viewport: { width: 1280, height: 860 } }); cx(p);
@@ -1144,6 +1144,215 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P19c functional fails=' + f19c); fail += f19c;
+
+  // ---------- Phase 20a · 新手引导 + 导览（新上下文，避免影响前面的存档） ----------
+  let f20a = 0; {
+  const T20a = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P20a ' + m); if (!c) f20a++; };
+  const ctx = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  await ctx.addInitScript(() => { try { localStorage.setItem('gefei-quest-tour-test', '1'); } catch (e) {} });
+  const pg = cx(await ctx.newPage());
+  const e20 = [];
+  const pushErr = (t) => { e20.push(t); errors.push(t); };
+  pg.on('pageerror', (e) => pushErr('pageerror ' + e.message));
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) pushErr(m.text()); });
+  try {
+    await pg.goto(BASE + 'index.html#start', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(300);
+    const nav = await pg.evaluate(() => [...document.querySelectorAll('.site-links a')].map((a) => ({ t: (a.querySelector('span') || a).textContent.trim(), h: a.getAttribute('href'), on: a.classList.contains('active') })));
+    T20a(nav[0] && nav[0].t === '首页' && nav[1] && nav[1].t === '新手引导' && nav[1].h === '#start' && nav[1].on, 'nav 2nd is 新手引导 ' + JSON.stringify(nav[1]));
+    const foot = await pg.evaluate(() => ({
+      guide: [...document.querySelectorAll('#site-footer a')].some((a) => a.textContent.trim() === '新手引导' && a.getAttribute('href') === '#start'),
+      tour: (document.querySelector('#foot-tour') || {}).textContent || '',
+    }));
+    T20a(foot.guide && /新手导览/.test(foot.tour), 'footer 新手引导 + 新手导览 ' + JSON.stringify(foot));
+    const found = await pg.evaluate(() => {
+      const a = QuestShell.search('新手引导').some((x) => x.href === '#start');
+      const b = QuestShell.search('新手导览').some((x) => x.href === '#start');
+      return a && b;
+    });
+    T20a(found, 'search finds 新手引导 / 新手导览');
+    const tracks = await pg.evaluate(() => {
+      const tabs = [...document.querySelectorAll('#start-tracks [role="tab"]')].map((b) => b.textContent.replace(/\s+/g, ''));
+      const counts = [...document.querySelectorAll('.start-panel ol.start-steps')].map((ol) => ol.querySelectorAll(':scope > li').length);
+      const lead = document.querySelector('.start-lead') && document.querySelector('.start-lead').textContent;
+      return { tabs, counts, lead };
+    });
+    T20a(/三条路线/.test(tracks.lead || '') && tracks.tabs.length === 3 && /学习/.test(tracks.tabs[0]) && /实施/.test(tracks.tabs[1]) && /赚钱/.test(tracks.tabs[2]), '3 tracks ' + JSON.stringify(tracks.tabs) + ' lead');
+    T20a(tracks.counts.length === 3 && tracks.counts.every((n) => n >= 4 && n <= 6), 'numbered steps ' + tracks.counts.join(','));
+    for (const id of ['learn', 'do', 'earn']) {
+      await pg.click('#start-tab-' + id);
+      await pg.locator('#start-img-' + id).scrollIntoViewIfNeeded();
+      await pg.waitForFunction((sel) => { const im = document.querySelector(sel); return !!(im && im.complete && im.naturalWidth > 0); }, '#start-img-' + id, { timeout: 8000 });
+      const wh = await pg.$eval('#start-img-' + id, (im) => im.naturalWidth + 'x' + im.naturalHeight + ' ' + im.getAttribute('alt') + ' lazy=' + im.getAttribute('loading'));
+      T20a(/lazy/.test(wh) && !/^0x/.test(wh), 'image ' + id + ' ' + wh);
+    }
+    const hrefs = await pg.$$eval('#panel-start a[href^="#"]', (as) => [...new Set(as.map((a) => a.getAttribute('href')))]);
+    T20a(hrefs.length >= 8, 'deep link count ' + hrefs.length + ' ' + hrefs.join(' '));
+    for (const h of hrefs) {
+      const key = h.slice(1).split('?')[0];
+      const parsed = await pg.evaluate((hash) => { const r = QuestNav.parse(hash); return r.section + ':' + r.hash; }, key);
+      await pg.goto(BASE + 'index.html' + h, { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(120);
+      const landed = await pg.evaluate(() => location.hash + ' ' + QuestNav.parse(location.hash.replace(/^#/, '').split('?')[0]).section);
+      const bad = parsed.indexOf('home:') === 0 || / #home$/.test(' ' + landed) || landed.endsWith(' home');
+      T20a(!bad && !landed.endsWith(' home'), h + ' -> parse ' + parsed + ' visit ' + landed);
+    }
+    await pg.goto(BASE + 'index.html#start', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#start-day-d1');
+    await pg.check('#start-day-d1');
+    await pg.check('#start-day-d3');
+    const savedDays = await pg.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).onboarding.days);
+    T20a(savedDays.d1 === true && savedDays.d3 === true && savedDays.d2 !== true, 'days saved ' + JSON.stringify(savedDays));
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#start-day-d1');
+    const daysAfter = await pg.evaluate(() => ({
+      d1: document.querySelector('#start-day-d1').checked,
+      d2: document.querySelector('#start-day-d2').checked,
+      d3: document.querySelector('#start-day-d3').checked,
+      n: document.querySelector('#start-done').textContent,
+    }));
+    T20a(daysAfter.d1 && daysAfter.d3 && !daysAfter.d2 && daysAfter.n === '2', 'days persist after reload ' + JSON.stringify(daysAfter));
+
+    await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg.waitForSelector('#tour-root');
+    const dlg = await pg.evaluate(() => {
+      const r = document.getElementById('tour-root');
+      return { role: r && r.getAttribute('role'), modal: r && r.getAttribute('aria-modal'), title: (document.getElementById('tour-title') || {}).textContent || '' };
+    });
+    T20a(dlg.role === 'dialog' && dlg.modal === 'true' && !!dlg.title, 'tour auto-opens ' + JSON.stringify(dlg));
+    const t1 = dlg.title;
+    await pg.click('#tour-next');
+    const t2 = await pg.locator('#tour-title').innerText();
+    T20a(t2 && t2 !== t1, 'next ' + t1 + ' -> ' + t2);
+    await pg.click('#tour-prev');
+    const t1b = await pg.locator('#tour-title').innerText();
+    T20a(t1b === t1, 'prev back to ' + t1b);
+    await pg.keyboard.press('ArrowRight');
+    const tArrow = await pg.locator('#tour-title').innerText();
+    T20a(tArrow === t2, 'ArrowRight ' + tArrow);
+    await pg.keyboard.press('ArrowLeft');
+    await pg.keyboard.press('Escape');
+    await pg.waitForTimeout(150);
+    const esc = await pg.evaluate(() => {
+      const o = JSON.parse(localStorage.getItem('gefei-quest-save-v1')).onboarding;
+      return { open: !!document.getElementById('tour-root'), done: o.tourDone === true, at: o.tourSeenAt, d1: o.days && o.days.d1 === true };
+    });
+    T20a(!esc.open && esc.done && /^\d{4}-\d{2}-\d{2}T/.test(esc.at || '') && esc.d1, 'Esc closes and sets tourDone ' + JSON.stringify(esc));
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(400);
+    T20a(await pg.evaluate(() => !document.getElementById('tour-root')), 'no tour after reload');
+
+    await pg.goto(BASE + 'index.html#start', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(200);
+    await pg.click('#start-tour');
+    await pg.waitForSelector('#tour-root');
+    T20a(await pg.evaluate(() => location.hash === '#home' && !!document.getElementById('tour-root')), 'replay from #start-tour');
+    await pg.keyboard.press('Escape');
+    await pg.waitForTimeout(100);
+    await pg.click('#foot-tour');
+    await pg.waitForSelector('#tour-root');
+    T20a(await pg.evaluate(() => !!document.getElementById('tour-root')), 'replay from footer');
+    await pg.check('#tour-never');
+    for (let i = 0; i < 10; i++) {
+      if (!(await pg.$('#tour-root'))) break;
+      const label = (await pg.locator('#tour-next').innerText()).trim();
+      await pg.click('#tour-next');
+      if (/完成/.test(label)) break;
+    }
+    await pg.waitForTimeout(150);
+    const fin = await pg.evaluate(() => {
+      const o = JSON.parse(localStorage.getItem('gefei-quest-save-v1')).onboarding;
+      return { open: !!document.getElementById('tour-root'), done: o.tourDone === true, at: o.tourSeenAt };
+    });
+    T20a(!fin.open && fin.done && /^\d{4}-\d{2}-\d{2}T/.test(fin.at || ''), '不再显示 + finish ' + JSON.stringify(fin));
+    await pg.reload({ waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(400);
+    T20a(await pg.evaluate(() => location.hash.indexOf('home') >= 0 && !document.getElementById('tour-root')), 'no tour after finish reload');
+
+    const beforeMiss = e20.length;
+    await pg.evaluate(() => {
+      const h = document.createElement('div');
+      h.id = 'tour-hidden-probe';
+      h.hidden = true;
+      h.textContent = 'hidden';
+      document.body.appendChild(h);
+      QuestTour.start([
+        { sel: '#no-such-tour-target', title: '缺失步骤', body: '不应显示' },
+        { sel: '#tour-hidden-probe', title: '隐藏步骤', body: '不应显示' },
+        { sel: '[data-tour="cta"]', title: '主按钮', body: '开始站一。' },
+      ]);
+    });
+    await pg.waitForSelector('#tour-title');
+    const missTitle = await pg.locator('#tour-title').innerText();
+    T20a(missTitle === '主按钮' && e20.length === beforeMiss, 'missing target skipped, got ' + missTitle + (e20.length !== beforeMiss ? ' errs ' + e20.slice(beforeMiss).join(' | ') : ''));
+    await pg.keyboard.press('Escape');
+
+    await pg.setViewportSize({ width: 390, height: 844 });
+    await pg.goto(BASE + 'index.html#start', { waitUntil: 'domcontentloaded' });
+    await pg.waitForTimeout(300);
+    const mob = await pg.evaluate(() => {
+      const bar = document.getElementById('bottom-bar');
+      const labels = bar ? [...bar.querySelectorAll('a span, button span')].map((s) => s.textContent.trim()) : [];
+      const br = bar ? bar.getBoundingClientRect() : { left: 0, right: 0 };
+      return {
+        sw: document.documentElement.scrollWidth,
+        n: bar ? bar.querySelectorAll('a, button').length : 0,
+        labels,
+        barRight: Math.round(br.right),
+        barLeft: Math.round(br.left),
+        barScroll: bar ? bar.scrollWidth : 0,
+        barClient: bar ? bar.clientWidth : 0,
+      };
+    });
+    T20a(mob.sw <= 390, '390px #start scrollWidth ' + mob.sw);
+    T20a(mob.n === 6 && mob.labels.indexOf('新手引导') < 0 && mob.barScroll <= mob.barClient + 1 && mob.barRight <= 391 && mob.barLeft >= -1, 'bottom bar ' + JSON.stringify(mob));
+    await pg.evaluate(() => QuestTour.start());
+    await pg.waitForSelector('#tour-card');
+    await pg.click('#tour-next');
+    const bubble = await pg.evaluate(() => {
+      const c = document.getElementById('tour-card');
+      const r = c.getBoundingClientRect();
+      return { top: r.top, left: r.left, right: r.right, bottom: r.bottom, vw: document.documentElement.clientWidth, vh: window.innerHeight, sheet: document.getElementById('tour-root').classList.contains('is-sheet') };
+    });
+    T20a(bubble.sheet && bubble.left >= -1 && bubble.top >= -1 && bubble.right <= bubble.vw + 1 && bubble.bottom <= bubble.vh + 1, 'tour bubble in viewport ' + JSON.stringify(bubble));
+
+    const filePg = await ctx.newPage();
+    filePg.on('pageerror', (e) => pushErr('file pageerror ' + e.message));
+    await filePg.setViewportSize({ width: 1280, height: 800 });
+    await filePg.goto('file:///workspace/gefei-quest/index.html#start', { waitUntil: 'domcontentloaded' });
+    await filePg.waitForTimeout(400);
+    const fileOk = await filePg.evaluate(() => {
+      const panel = document.getElementById('panel-start');
+      return !!(panel && !panel.hidden && document.querySelector('#start-tracks') && /三条路线/.test(document.body.innerText));
+    });
+    T20a(fileOk, 'file:// #start renders');
+    await filePg.close();
+
+    if (SHOTS) {
+      await pg.setViewportSize({ width: 1280, height: 800 });
+      await pg.goto(BASE + 'index.html#start', { waitUntil: 'domcontentloaded' });
+      await pg.waitForTimeout(400);
+      await pg.screenshot({ path: `${SHOTS}/p20-start.png`, fullPage: false });
+      await pg.evaluate(() => {
+        const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+        s.onboarding = Object.assign({}, s.onboarding, { tourDone: false, tourSeenAt: null });
+        localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s));
+        if (window.QuestApp) QuestApp.update((st) => Object.assign({}, st, { onboarding: s.onboarding }));
+      });
+      await pg.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+      await pg.reload({ waitUntil: 'domcontentloaded' });
+      await pg.waitForSelector('#tour-root');
+      await pg.click('#tour-next');
+      await pg.waitForTimeout(200);
+      await pg.screenshot({ path: `${SHOTS}/p20-tour.png`, fullPage: false });
+    }
+  } catch (e) {
+    T20a(false, 'threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 4).join(' | ') : e));
+  }
+  T20a(e20.length === 0, 'P20a console errors ' + e20.slice(0, 4).join(' | '));
+  await ctx.close();
+  }
+  console.log('P20a functional fails=' + f20a); fail += f20a;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

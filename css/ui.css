@@ -2080,6 +2080,8 @@ details.cx-details>:not(summary){margin:0 12px 12px}
   .foot-news a small{display:inline;margin-right:4px}
 }
 .pm-guide>h3{display:flex;align-items:center;gap:8px;cursor:pointer}
+/* 顶栏多一项时在栏内滚动，不把整页撑出横向滚动 */
+.site-links{min-width:0}
 /* Phase 19 · 一行展开（阅读须知 / 免责声明） */
 .cx-clip-host{display:flex!important;align-items:center;gap:8px}
 .cx-clip-host>.cx-clip{flex:1;min-width:0;display:-webkit-box!important;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
@@ -2238,3 +2240,50 @@ html.is-offline .offline-pill {
 .pwa-ios-hint { color: #fde68a; font-weight: 700; }
 .foot-note .btn, .foot-note .pwa-ios-hint { margin-left: 8px; vertical-align: middle; }
 .setting-row, .backup-reminder, .site-nav-inner, .foot-note { min-width: 0; }
+
+/* Phase 20 · 新手引导页 + 导览 */
+[data-tour] { scroll-margin: 72px; }
+.start-page { display: flex; flex-direction: column; gap: 12px; min-width: 0; max-width: 100%; }
+.start-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; min-width: 0; }
+.start-lead { margin: 0; color: #fff; font-size: 1.15rem; font-weight: 800; }
+#start-progress { margin: 4px 0 0; color: #e2e8f0; }
+#start-done { color: #fde68a; }
+.start-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; min-width: 0; }
+.start-card { display: flex; align-items: center; gap: 8px; min-width: 0; text-align: left; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font: inherit; cursor: pointer; }
+.start-card b { display: block; color: #fde68a; }
+.start-card small { display: block; color: #cbd5e1; font-size: .8rem; }
+.start-card.on { border-color: #fbbf24; background: rgba(251, 191, 36, .14); box-shadow: inset 0 0 0 1px rgba(251, 191, 36, .45); }
+.start-card:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.start-body { display: grid; grid-template-columns: minmax(0, 240px) minmax(0, 1fr); gap: 12px; align-items: start; min-width: 0; }
+.start-shot { width: 100%; max-width: 100%; height: 140px; object-fit: cover; object-position: top center; border-radius: 12px; border: 1px solid var(--line); background: #0b1220; display: block; }
+.start-steps { margin: 0; padding: 0 0 0 1.25em; min-width: 0; color: #e2e8f0; }
+.start-steps li { margin: 0 0 6px; line-height: 1.45; overflow-wrap: anywhere; }
+.start-steps .btn { margin: 2px 6px 2px 0; max-width: 100%; white-space: normal; }
+.start-week { min-width: 0; }
+.start-week .block-title { margin-bottom: 8px; }
+.start-days { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; min-width: 0; }
+.start-days li { min-width: 0; color: #e2e8f0; font-size: .9rem; line-height: 1.4; overflow-wrap: anywhere; }
+.start-days label { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; }
+.start-days input { margin-top: 3px; flex: none; accent-color: #fbbf24; }
+.start-days .btn { margin: 2px 6px 0 0; }
+@media (max-width: 720px) {
+  .start-body, .start-days { grid-template-columns: 1fr; }
+  .start-page .btn { flex: 0 1 auto; }
+}
+.tour-root { position: fixed; inset: 0; z-index: 130; pointer-events: none; }
+.tour-shade { position: fixed; inset: 0; pointer-events: auto; background: transparent; }
+.tour-hole { position: fixed; border-radius: 12px; pointer-events: none; box-shadow: 0 0 0 9999px rgba(2, 6, 23, .75); outline: 2px solid #fbbf24; }
+.tour-card { position: fixed; z-index: 2; pointer-events: auto; width: min(340px, calc(100vw - 16px)); max-height: calc(100vh - 16px); overflow: auto; padding: 14px; border-radius: 16px; background: #0f172a; color: #f8fafc; border: 1px solid #fbbf24; box-shadow: 0 16px 40px rgba(0, 0, 0, .5); }
+.tour-card h2 { margin: 0 0 6px; font-size: 1.05rem; color: #fde68a; }
+.tour-card p { margin: 0 0 10px; color: #e2e8f0; line-height: 1.45; font-size: .92rem; }
+.tour-dots { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+.tour-dot { width: 28px; height: 28px; border-radius: 999px; border: 1px solid #94a3b8; background: transparent; color: #f8fafc; cursor: pointer; position: relative; }
+.tour-dot::after { content: ''; position: absolute; left: 9px; top: 9px; width: 8px; height: 8px; border-radius: 99px; background: #94a3b8; }
+.tour-dot.on { border-color: #fbbf24; }
+.tour-dot.on::after { background: #fbbf24; }
+.tour-never { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; color: #f8fafc; font-size: .9rem; cursor: pointer; }
+.tour-never input { accent-color: #fbbf24; width: auto; }
+.tour-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.tour-nav { margin-left: auto; display: flex; gap: 8px; }
+.tour-card button:focus-visible, .tour-card input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.tour-root.is-sheet .tour-card { left: 0; right: 0; bottom: 0; top: auto; width: auto; max-height: min(52vh, calc(100vh - 12px)); border-radius: 16px 16px 0 0; }

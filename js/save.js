@@ -37,7 +37,20 @@
       rankPlan: [],
       lastBackupAt: null,
       backupSnoozeUntil: null,
+      onboarding: { tourDone: false, tourSeenAt: null, days: {} },
       updatedAt: new Date().toISOString(),
+    };
+  }
+
+  var DAY_KEYS = ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7'];
+  function mergeOnboarding(ob) {
+    var src = ob && typeof ob === 'object' && ob.days && typeof ob.days === 'object' ? ob.days : {};
+    var days = {};
+    DAY_KEYS.forEach(function (k) { if (src[k] === true) days[k] = true; });
+    return {
+      tourDone: !!(ob && ob.tourDone === true),
+      tourSeenAt: ob && typeof ob.tourSeenAt === 'string' ? ob.tourSeenAt : null,
+      days: days,
     };
   }
 
@@ -74,6 +87,7 @@
         rankFav: Array.isArray(parsed.rankFav) ? parsed.rankFav : [],
         rankPlan: Array.isArray(parsed.rankPlan) ? parsed.rankPlan : [],
         lastSeenChangelog: typeof parsed.lastSeenChangelog === 'number' ? parsed.lastSeenChangelog : 0,
+        onboarding: mergeOnboarding(parsed.onboarding),
       };
       return global.QuestTools ? global.QuestTools.ensure(merged) : merged;
     } catch (e) {
@@ -109,5 +123,6 @@
     saveSave,
     resetSave,
     isValidSave,
+    mergeOnboarding,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

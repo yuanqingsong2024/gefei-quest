@@ -8,7 +8,7 @@
   const N = window.QuestNav;
   const I = N.icon;
   const $ = (sel) => document.querySelector(sel);
-  const PANELS = ['home', 'path', 'war', 'lib', 'guides', 'weekly', 'me'];
+  const PANELS = ['home', 'path', 'war', 'lib', 'guides', 'weekly', 'me', 'start'];
 
   function persist() {
     state = QuestSave.saveSave(state);
@@ -43,6 +43,7 @@
       energy: { ...def.energy, ...(obj.energy || {}) },
       achievementDates: obj.achievementDates || {},
       notes: obj.notes || {},
+      onboarding: QuestSave.mergeOnboarding(obj.onboarding),
     };
     state = QuestTools.ensure(state);
     state = QuestProgress.recomputeUnlocks(state);
@@ -283,13 +284,13 @@
         crumb = acc ? '账号中心' : '数据分析';
         root.innerHTML = subTabs(N.ME_TABS, route.view) + '<div id="wb-body"></div>';
         QuestWorkbench[acc ? 'renderAccounts' : 'renderAnalytics'](state, $('#wb-body'), toolCtx());
-        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); afterRoute(); return;
       }
       if (route.view === 'ai') {
         crumb = 'AI 设置';
         root.innerHTML = subTabs(N.ME_TABS, 'ai') + '<div id="ai-body"></div>';
         QuestAI.renderSettings($('#ai-body'));
-        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); afterRoute(); return;
       }
       if (route.view === 'stats' || route.view === 'changelog') {
         const cl = route.view === 'changelog';
@@ -299,14 +300,14 @@
           QuestStats.renderChangelog(state, $('#stats-body'));
           if ((state.lastSeenChangelog || 0) < QuestStats.latestId()) { state.lastSeenChangelog = QuestStats.latestId(); persist(); }
         } else QuestStats.renderStats(state, $('#stats-body'));
-        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); afterRoute(); return;
       }
       if (route.view === 'sites') {
         crumb = '我的站点台账';
         root.innerHTML = subTabs(N.ME_TABS, 'sites') + '<div id="sites-body"></div>';
         QuestTools.renderSites(state, $('#sites-body'), toolCtx());
         $('#sites-body').insertAdjacentHTML('afterbegin', QuestWorkbench.pipeline(state, 'sites'));
-        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); return;
+        renderShell(crumb); N.fixLinks(document.getElementById('app')); scrollTopIfChanged(); afterRoute(); return;
       }
       root.innerHTML = backupBar() + subTabs(N.ME_TABS, 'overview') + `<section class="block"><h2 class="block-title">${I('chart')}概览</h2>${statsHtml()}</section>
         <section class="block" id="me-ach-wrap"><div id="me-ach"></div></section>
@@ -347,6 +348,8 @@
           });
         },
       });
+    } else if (sec === 'start') {
+      if (window.QuestStart) QuestStart.render($('#panel-start'), state);
     }
     renderShell(crumb);
     N.fixLinks(document.getElementById('app'));
@@ -354,15 +357,21 @@
     if (at && at.parentNode.scrollWidth > at.parentNode.clientWidth) at.parentNode.scrollLeft = at.getBoundingClientRect().left - at.parentNode.getBoundingClientRect().left + at.parentNode.scrollLeft - 16;
     const changed = renderAll._last !== route.hash;
     renderAll._last = route.hash;
-    if (!changed) return;
-    if (route.section !== 'home' || !route.param) {
-      window.scrollTo(0, 0);
-    } else {
-      setTimeout(() => {
-        const el = document.getElementById(route.param);
-        if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth' });
-      }, 30);
+    if (changed) {
+      if (route.section !== 'home' || !route.param) {
+        window.scrollTo(0, 0);
+      } else {
+        setTimeout(() => {
+          const el = document.getElementById(route.param);
+          if (el) el.scrollIntoView({ behavior: document.documentElement.classList.contains('reduce-motion') ? 'auto' : 'smooth' });
+        }, 30);
+      }
     }
+    afterRoute();
+  }
+
+  function afterRoute() {
+    if (window.QuestTour) QuestTour.afterRender(route);
   }
 
   function scrollTopIfChanged() {
@@ -413,12 +422,16 @@
   }
 
   function onHash() {
-    const raw = (location.hash || '').replace(/^#/, '');
+    let raw = (location.hash || '').replace(/^#/, '');
+    let q = '';
+    const iq = raw.indexOf('?');
+    if (iq >= 0) { q = raw.slice(iq + 1); raw = raw.slice(0, iq); }
     const canon = N.canonical(raw);
-    if (canon !== raw) {
+    if (canon !== raw || q) {
       try { history.replaceState(null, '', '#' + canon); } catch (_) {}
     }
     route = N.parse(canon);
+    route.tour = /(^|&)tour(=|&|$)/.test(q);
   }
 
   function init() {
@@ -430,6 +443,15 @@
     }
     state = QuestProgress.recomputeUnlocks(state);
     currentChapter = QuestProgress.getActiveChapterId(state);
+    window.QuestApp = {
+      update(fn) {
+        const next = fn(state);
+        if (next && typeof next === 'object') state = next;
+        persist();
+        return state;
+      },
+      get() { return state; },
+    };
     onHash();
     window.addEventListener('hashchange', () => { onHash(); renderAll(); });
     QuestModal.ensureRoots();

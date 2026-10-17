@@ -341,14 +341,14 @@
   function renderHome(root, state) {
     if (!root) return;
     var N = global.QuestNav, I = N.icon;
-    var sections = N.SITE_NAV.filter(function (n) { return n.id !== 'home'; });
+    var sections = N.SITE_NAV.filter(function (n) { return n.id !== 'home' && n.id !== 'start'; });
     root.innerHTML =
       '<section class="hero" aria-label="首页">' +
       '<div class="hero-inner">' +
       '<p class="hero-kicker">出海建站 · SEO · 练习营</p>' +
       '<h1 class="hero-title">把出海小站，<br />当成一场闯关冒险</h1>' +
       '<p class="hero-sub">挖词 → 上站 → SEO → 变现 → 放大<br />每一步都有清单、模板和资源，勾一项就是线下真做完一项。</p>' +
-      '<div class="hero-cta"><a class="btn btn-primary" href="#war">' + I('target') + '开始站一</a><a class="btn btn-ghost" href="#lib">' + I('toolbox') + '逛资源库</a></div>' +
+      '<div class="hero-cta"><a class="btn btn-primary" href="#war" data-tour="cta">' + I('target') + '开始站一</a><a class="btn btn-ghost" href="#lib">' + I('toolbox') + '逛资源库</a></div>' +
       '</div></section>' +
       '<div class="home-wrap">' + (state && global.QuestStats ? global.QuestStats.todayCard(state) : '') +
       '<section class="lp-sec" id="home-sections" data-tab="六个栏目"><div class="sec-head"><span class="sec-kicker">EXPLORE</span><h2>六个栏目</h2><p>全站只有这六个栏目，顶栏、页脚和这里名字完全一致。</p></div>' +
@@ -360,9 +360,9 @@
       '<a class="feat-card" href="#war-kit"><span class="card-ico card-ico-lg">' + I('kit') + '</span><b>站一实操助手</b><small>实战作战室</small><span>填主词和域名，实时检查 title / 描述 / h1，一键下载已填好的站一页面 + robots + sitemap，并附上线自查表。</span></a>' +
       '<a class="feat-card" href="#war-keywords"><span class="card-ico card-ico-lg">' + I('tag') + '</span><b>选词练习板</b><small>实战作战室</small><span>记候选词和搜索结果前 10 观察，自动打分「适合练手 / 可以试 / 先换长尾」，一键设为站一主词。</span></a>' +
       '<a class="feat-card" href="#me-sites"><span class="card-ico card-ico-lg">' + I('ledger') + '</span><b>我的站点台账</b><small>我的进度</small><span>登记每个站的域名、状态和变现方式，按月记曝光、点击、收入，自动画折线。</span></a>' +
-      '<a class="feat-card" href="#war-rank" id="home-rank-card"><span class="card-ico card-ico-lg">' + I('trophy') + '</span><b>每日赚钱榜</b><small>实战作战室 · ' + esc((global.QUEST_RANK && global.QUEST_RANK.latest) || '待发布') + '</small><span>每天 10 个公开、合法的赚钱 / 薅羊毛渠道：成本、难度、适合谁、风险和官方来源，可收藏、可加入实操计划。不保证收益。</span></a>' +
+      '<a class="feat-card" href="#war-rank" id="home-rank-card" data-tour="rank"><span class="card-ico card-ico-lg">' + I('trophy') + '</span><b>每日赚钱榜</b><small>实战作战室 · ' + esc((global.QUEST_RANK && global.QUEST_RANK.latest) || '待发布') + '</small><span>每天 10 个公开、合法的赚钱 / 薅羊毛渠道：成本、难度、适合谁、风险和官方来源，可收藏、可加入实操计划。不保证收益。</span></a>' +
       '</div></section>' +
-      '<section class="lp-sec" id="home-steps" data-tab="五步路线"><div class="sec-head"><span class="sec-kicker">ROADMAP</span><h2>五步路线</h2><p>从零到多站，按顺序推进，每步对应一个实战作战室。</p></div>' +
+      '<section class="lp-sec" id="home-steps" data-tab="五步路线" data-tour="tracks"><div class="sec-head"><span class="sec-kicker">ROADMAP</span><h2>五步路线</h2><p>从零到多站，按顺序推进，每步对应一个实战作战室。</p></div>' +
       '<ol class="steps">' + STEPS.map(function (s, k) {
         return '<li><a class="step" href="' + s[3] + '"><span class="step-no">' + (k + 1) + '</span><span class="card-ico">' + I(s[0]) + '</span><b>' + s[1] + '</b><span>' + s[2] + '</span></a></li>';
       }).join('') + '</ol></section>' +
@@ -374,7 +374,7 @@
       '<div class="guide-grid">' + N.GUIDES.filter(function (g) { return g.group !== 'note'; }).map(function (g) {
         return '<a class="guide" href="' + (g.href || '#guide-' + g.id) + '"' + (g.href ? ' target="_blank" rel="noopener noreferrer"' : '') + '><span class="card-ico">' + I(g.icon) + '</span>' + esc(g.title) + '</a>';
       }).join('') + '<a class="guide guide-more" href="#guides">' + I('book') + '全部手册与笔记</a></div></section>' +
-      '<section class="lp-sec" id="home-progress" data-tab="我的进度"><div class="sec-head"><span class="sec-kicker">PROGRESS</span><h2>我的进度</h2></div><div class="glass snap">' + snapshot() +
+      '<section class="lp-sec" id="home-progress" data-tab="我的进度" data-tour="me"><div class="sec-head"><span class="sec-kicker">PROGRESS</span><h2>我的进度</h2></div><div class="glass snap">' + snapshot() +
       '<div class="snap-links"><a class="btn btn-sm" href="#path">' + I('map') + '学习路线</a><a class="btn btn-sm" href="#me">' + I('user') + '我的进度</a></div></div></section>' +
       '<section class="lp-sec" id="home-faq" data-tab="常见问题"><div class="sec-head"><span class="sec-kicker">FAQ</span><h2>常见问题</h2></div>' +
       '<div class="faq">' +
