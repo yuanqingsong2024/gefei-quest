@@ -151,3 +151,9 @@ python3 -m http.server 8765
    - 在 `js/changelog.js` 加/替换当天「每日赚钱榜」条目，重建 `daily.json`（含 `rank.top3`）
    - 加 `--no-changelog` 可不写更新日志
 3. 推送：`git add -A && git commit -m "rank: YYYY-MM-DD" && git push`，约 1 分钟后 GitHub Pages 生效：`#war-rank`、`data/rank.json`、`daily.json`。
+
+## 分支与协作流程（2026-10-17 起）
+- `main`：GitHub Pages 线上分支。「赚钱榜雷达」agent 继续直接推送榜单数据到 main。
+- `develop`：所有功能开发先提交到这里（代码由 Grok Build CLI 编写，执行 agent 负责规划、评审、测试）。
+- 发布：develop 评审通过（site-check 0 fails、390px、file://、截图）→ `git pull --rebase` → 合并到 main → 推送 → 验证线上。每轮开始前先把 main 合回 develop，带上最新榜单数据。
+- 路线图：`docs/PHASE19-ROADMAP.md`
