@@ -1049,3 +1049,14 @@
 - [x] T154 来源链接核实脚本 + site-check、390px、截图、push
 
 | Phase 15 | T149–T154 | 6 |
+
+## Phase 16 · 实操工作台（见 docs/PHASE16-WORKBENCH.md）
+- [x] T155 可行性矩阵 + 架构
+- [ ] T156 账号中心 #me-accounts
+- [ ] T157 GitHub 连接器（PAT、预览、发布、开启 Pages）
+- [ ] T158 数据导入中心（GSC / AdSense / 通用 CSV → 台账）
+- [ ] T159 数据分析 #me-analytics（图表 + AI）
+- [ ] T160 流水线条 选词→实操助手→发布→台账
+- [ ] T161 测试、截图、推送
+- [ ] T162–T164 Phase B：Worker 后端（Cloudflare Pages / X / Pinterest / WordPress）
+- [ ] T165–T167 Phase C：Google OAuth 拉取（GSC / GA4 / AdSense / YouTube）
