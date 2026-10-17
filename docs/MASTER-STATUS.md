@@ -133,6 +133,7 @@
 ## Phase 19 · 路线图执行（develop → main）
 - T178 紧凑收尾 ✅：9 个超标页面全部 ≤2.5 桌面屏
 - T179 模板库 ✅：站一实操助手 `kit.template`（basic / tool / compare / glossary，缺省 basic）；预览、ZIP、发布按所选模板；非 basic 多一条占位自查（`kit.templateDone`）
+- T180 关键词灵感 ✅：`#war-keywords` 页内标签「关键词灵感」（js/ideas.js）。浏览器直连 Datamuse / Wikipedia opensearch / HN Algolia；Google 字母扩展、Trends、Reddit、Product Hunt 只开链接。勾选后写入 `keywords.items`。存档只追加 `ideas`（lastSeed + history，最多 20 条）。测试根地址 `gefei-quest-ideas-cfg`
 
 ## Phase 18 · 紧凑页面 + Google 连接 + 工作台 + 复盘 ✅（2026-10-17）
 - js/compact.js：tabs / collapse / more / paginate / reveal + MutationObserver 规则；全站平均桌面高度 4.19 → 2.10 屏，内容与路由/锚点全部保留

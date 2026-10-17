@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T06:16:38.025Z",
-  "latestId": 21,
+  "generatedAt": "2026-10-17T07:14:58.407Z",
+  "latestId": 22,
   "latestDate": "2026-10-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,19 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 22,
+      "date": "2026-10-17",
+      "tag": "新功能",
+      "title": "关键词灵感：免费联想词来源一键加入选词",
+      "items": [
+        "选词练习板新增「关键词灵感」标签：输入英文种子词，并列显示 Datamuse 联想、Wikipedia 词条和 HN 讨论标题",
+        "勾选联想词或字母扩展后，一键加入候选词，回到选词练习板即可打分",
+        "Google 字母扩展、Trends、Reddit、Product Hunt 只提供复制和打开官方搜索链接，页面不抓取这些网站",
+        "接口失败或超过 8 秒时显示中文提示；最近用过的种子词记在本机存档"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
+    },
     {
       "id": 21,
       "date": "2026-10-17",
@@ -128,18 +141,6 @@
         "选词练习板、每日赚钱榜、站一实操助手新增 AI 按钮（流式输出，只给合法建议，不承诺收益）"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-ai"
-    },
-    {
-      "id": 12,
-      "date": "2026-10-16",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-16",
-      "items": [
-        "No.1 京东/淘宝双11官方口令每日领红包与国补",
-        "No.2 立减金卡包分诊+固定支出出口（支付宝还款立减等）",
-        "No.3 工行2610期“到店取号有礼”线上取号抽立减金/i豆"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

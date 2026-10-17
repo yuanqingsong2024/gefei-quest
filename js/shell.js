@@ -58,6 +58,7 @@
     add('页面', 'Google 连接', '账号中心 · 用自己的 OAuth 客户端 ID 只读拉取 Search Console / GA4 / AdSense', '#me-accounts', 'google gsc ga4 adsense oauth 授权 自动拉取 search console analytics', 'search');
     add('页面', '内容分发', '实战作战室 · 一份内容生成 X/微博/小红书/知乎/Reddit/LinkedIn 等版本，官方免费链接发帖', '#war-share', '分享 分发 发帖 x 推特 微博 小红书 知乎 公众号 reddit linkedin pinterest facebook medium telegram whatsapp', 'external');
     add('页面', 'GitHub 一键发布', '发布上线 · Fine-grained Token 写入仓库并开启 Pages', '#war-publish', 'github pages 部署 发布 token pat', 'rocket');
+    add('页面', '关键词灵感', '选词练习板 · 免费联想词，勾选后加入候选词', '#war-keywords', '灵感 联想 autocomplete trends datamuse wikipedia hn', 'bulb');
     if (global.QUEST_PLATFORMS) {
       var PD = global.QUEST_PLATFORMS;
       add('页面', '平台变现 · 国内 + 海外', '资源库 · ' + PD.PLATFORMS.length + ' 个平台的变现方式、门槛、分成与来源', '#pm', '平台变现 流量主 创作激励 分成 副业 新手怎么选', 'coin');

@@ -203,3 +203,11 @@
 - 空存档 1280×800：`#war-kit` 2.36 屏（`tools/page-heights.js`）。P18 高度用例里 war-kit 为 1.92（上线自查标签打开、预览区收起），12 页均 ≤2.5。
 - site-check：routes=36 guides=9 dev=24 rawMd=0 broken=0，P9–P19 全部 0 fails，`TOTAL fails=0 consoleErrors=0`。P19：缺省 basic、三种新模板刷新后仍记住、预览含 form/table/8 条术语、每页一个 h1 与 title/description/canonical、文件为 index.html + robots.txt + sitemap.xml（只含 `/`）、占位勾选来回切换、假 GitHub 预演 3 个文件并显示模板名、390px `#war-kit` scrollWidth 390。
 - 截图：`/tmp/sc-shots/p19-templates.png`（桌面 `#war-kit`，对比/评测页选中）
+
+## Phase 19 · 计划 3 关键词灵感 T180（2026-10-17，代码：Grok Build）
+- `#war-keywords` 增加页内标签「选词练习板」「关键词灵感」（练习板在前）。`js/ideas.js` 在浏览器里直连 Datamuse 联想、Wikipedia opensearch、HN Algolia；失败或 8 秒超时显示「暂时取不到，可稍后再试或用下面的链接手动查」。
+- Google 自动补全只生成「种子词 + a…z」和 for / vs / free / online / alternative，可复制或打开 Google 搜索。Trends、Reddit、Product Hunt 只给官方搜索链接。不使用代理，不绕过 CORS。
+- 勾选后「加入候选词」写入 `keywords.items`（`QuestTools.newKeyword`，来源「联想」，可打分）。重复词不会再加。存档只追加 `ideas.lastSeed` 与 `ideas.history`（最多 20 条）。
+- 测试桩 `tools/fake-ideas.js`（8769）。`gefei-quest-ideas-cfg.base` 可改 API 根。空存档 1280×800：`#war-keywords` 1.85 屏。390px 练习板与灵感标签 scrollWidth 均为 390。
+- site-check：`TOTAL fails=0 consoleErrors=0`。P19b：三列有结果、A–Z 31 条 Google URL、Trends/Reddit/Product Hunt 编码正确、加入 3 个且第二次不重复、练习板能看到、种子词 fail 时只有 Datamuse 报错、history 记下 pdf merge / added 3、搜索能找到「关键词灵感」。
+- 截图：`/tmp/sc-shots/p19-ideas.png`（桌面，种子词 pdf merge 搜完之后）

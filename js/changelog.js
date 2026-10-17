@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 22, date: '2026-10-17', title: '关键词灵感：免费联想词来源一键加入选词', tag: '新功能', href: '#war-keywords',
+      items: ['选词练习板新增「关键词灵感」标签：输入英文种子词，并列显示 Datamuse 联想、Wikipedia 词条和 HN 讨论标题', '勾选联想词或字母扩展后，一键加入候选词，回到选词练习板即可打分', 'Google 字母扩展、Trends、Reddit、Product Hunt 只提供复制和打开官方搜索链接，页面不抓取这些网站', '接口失败或超过 8 秒时显示中文提示；最近用过的种子词记在本机存档'] },
     { id: 21, date: '2026-10-17', title: '模板库：工具站 / 对比评测 / 术语表三种起步模板', tag: '新功能', href: '#war-kit',
       items: ['站一实操助手可选择步模板：单页介绍（与原来相同）、在线工具站、对比/评测页、术语表/词汇站', '所选模板记在本机存档，实时预览、ZIP 下载和发布上线都按这个模板生成 index.html、robots.txt、sitemap.xml', '发布页的计划里显示模板名，例如「模板：在线工具站」', '工具站、对比页、术语表带可替换的占位内容；上线自查多一条「占位已替换」，勾选后才算通过'] },
     { id: 20, date: '2026-10-17', title: '紧凑收尾：9 个页面压到 2.5 屏以内', tag: '改进', href: '#home',

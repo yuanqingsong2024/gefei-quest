@@ -700,6 +700,216 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T19(w19 <= 390, '390px #war-kit scrollWidth ' + w19);
   }
   console.log('P19 functional fails=' + f19); fail += f19;
+  let f19b = 0; {
+  const T19b = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P19b ' + m); if (!c) f19b++; };
+  const ideaSrv = require('./fake-ideas.js').start(8769);
+  const ideaReady = await ideaSrv.ready;
+  T19b(!ideaReady, 'fake ideas listening' + (ideaReady ? ' ' + (ideaReady.message || ideaReady) : ''));
+  try {
+  await p.setViewportSize({ width: 1280, height: 860 });
+  await visit('war-keywords'); await p.waitForTimeout(350);
+  const tabInfo = await p.evaluate(() => {
+    const btns = [...document.querySelectorAll('#tool-body .cx-tab-btn')].map(b => b.textContent.trim());
+    const on = document.querySelector('#tool-body .cx-tab-btn.on');
+    const board = document.querySelector('.kw-board');
+    const idea = document.querySelector('#idea-panel');
+    return {
+      btns,
+      boardFirst: btns[0] === '选词练习板' && btns[1] === '关键词灵感',
+      active: !!(on && on.textContent.trim() === '选词练习板'),
+      boardOn: !!(board && !board.classList.contains('cx-off')),
+      ideaOff: !!(idea && idea.classList.contains('cx-off')),
+      controls: !!(document.querySelector('#idea-seed') && document.querySelector('#idea-go') && document.querySelector('#idea-results') && document.querySelector('#idea-add') && document.querySelector('#idea-copy-az')),
+    };
+  });
+  T19b(tabInfo.boardFirst && tabInfo.active && tabInfo.boardOn && tabInfo.ideaOff, 'tabs 选词练习板 / 关键词灵感, board first (' + (tabInfo.btns || []).join(' | ') + ')');
+  T19b(tabInfo.controls, 'idea controls present');
+  await p.evaluate(() => localStorage.setItem('gefei-quest-ideas-cfg', JSON.stringify({ base: 'http://127.0.0.1:8769' })));
+  await p.evaluate(() => { const b = [...document.querySelectorAll('#tool-body .cx-tab-btn')].find(x => x.textContent.trim() === '关键词灵感'); if (b) b.click(); });
+  await p.fill('#idea-seed', 'pdf merge');
+  await p.click('#idea-go');
+  let populated = false;
+  try {
+    await p.waitForFunction(() => {
+      const dm = document.querySelector('[data-idea-col="dm"]');
+      const wiki = document.querySelector('[data-idea-col="wiki"]');
+      const hn = document.querySelector('[data-idea-col="hn"]');
+      if (!dm || !wiki || !hn) return false;
+      if (/正在获取/.test(dm.textContent + wiki.textContent + hn.textContent)) return false;
+      return /pdf merge files/.test(dm.textContent) && /Datamuse 相关词 → 长尾组合/.test(dm.textContent) && /PDF Split and Merge/.test(wiki.textContent) && !wiki.querySelector('.searchmatch') && /Show HN: pdf merge/.test(hn.textContent);
+    }, null, { timeout: 12000 });
+    populated = true;
+  } catch (e) { console.log('P19b wait', e.message); }
+  if (!populated) {
+    const dump = await p.evaluate(() => ({
+      dm: (document.querySelector('[data-idea-col="dm"]') || {}).innerText,
+      wiki: (document.querySelector('[data-idea-col="wiki"]') || {}).innerText,
+      hn: (document.querySelector('[data-idea-col="hn"]') || {}).innerText,
+    }));
+    console.log('P19b dump ' + JSON.stringify(dump).slice(0, 800));
+  }
+  T19b(populated, 'pdf merge: Datamuse / Wikipedia / HN columns populated');
+  const dmChips = await p.evaluate(() => [...document.querySelectorAll('[data-idea-col="dm"] .idea-chk')].map(b => b.value));
+  const stop = ['the', 'a', 'an', 'to', 'of', 'and', 'or', 'in', 'on', 'for', 'with', 'into', 'is', 'are', 'be', 'it', 'this', 'that', '.', 'pdf', 'merge'];
+  const expectDm = ['pdf merge files', 'pdf merge converter', 'pdf merge documents', 'pdf merge online', 'pdf merge software', 'pdf merge free', 'pdf merge tool'];
+  const tails = dmChips.map(c => c.startsWith('pdf merge ') ? c.slice('pdf merge '.length) : '');
+  T19b(JSON.stringify(dmChips) === JSON.stringify(expectDm) && tails.every(w => w && stop.indexOf(w.toLowerCase()) < 0), 'datamuse chips are "<seed> <word>" without stopwords (' + dmChips.join(' | ') + ')');
+  const wikiInfo = await p.evaluate(() => {
+    const col = document.querySelector('[data-idea-col="wiki"]');
+    const chips = [...col.querySelectorAll('.idea-chk')].map(b => b.value);
+    const links = [...col.querySelectorAll('a')].map(a => ({ href: a.getAttribute('href'), text: a.textContent, target: a.getAttribute('target'), rel: a.getAttribute('rel') }));
+    const snips = [...col.querySelectorAll('.idea-snip')].map(s => s.textContent);
+    return {
+      chips,
+      links,
+      snips,
+      htmlHasTag: col.innerHTML.includes('<span class="searchmatch"') || !!col.querySelector('.searchmatch'),
+    };
+  });
+  T19b(JSON.stringify(wikiInfo.chips) === JSON.stringify(['PDF Split and Merge', 'PDF'])
+    && wikiInfo.links.length === 2
+    && wikiInfo.links[0].href === 'https://en.wikipedia.org/wiki/PDF_Split_and_Merge'
+    && wikiInfo.links[0].text === 'PDF Split and Merge'
+    && wikiInfo.links[0].target === '_blank' && wikiInfo.links[0].rel === 'noopener'
+    && wikiInfo.links[1].href === 'https://en.wikipedia.org/wiki/PDF'
+    && wikiInfo.snips[0] === 'Free PDF utility to split and merge files.'
+    && wikiInfo.snips[1] === 'Portable Document Format & related tools.'
+    && wikiInfo.htmlHasTag === false, 'wiki search titles link to /wiki/<title>, snippet HTML stripped (' + JSON.stringify(wikiInfo).slice(0, 500) + ')');
+  const hnLink = await p.evaluate(() => {
+    const col = document.querySelector('[data-idea-col="hn"]');
+    const a = col.querySelector('a[href="https://news.ycombinator.com/item?id=180001"]');
+    const btn = col.querySelector('.idea-copy-title');
+    const texts = [...col.querySelectorAll('a')].map(x => x.textContent);
+    const amp = col.querySelector('a[href="https://news.ycombinator.com/item?id=180002"]');
+    return {
+      ok: !!(a && a.textContent === 'Show HN: pdf merge' && a.getAttribute('target') === '_blank' && a.getAttribute('rel') === 'noopener' && btn && btn.getAttribute('data-title') === 'Show HN: pdf merge'),
+      amp: amp ? amp.textContent : '',
+      ampHtml: amp ? amp.innerHTML : '',
+      noEl: !col.querySelector('b') && !col.querySelector('script') && !col.querySelector('img'),
+      texts,
+    };
+  });
+  T19b(hnLink.ok && hnLink.amp === 'Ask HN: pdf merge & alternatives' && hnLink.ampHtml.includes('&amp;') && hnLink.noEl, 'HN title links to news.ycombinator.com/item, copy button, title escaped (' + hnLink.amp + ')');
+  if (SHOTS) await p.screenshot({ path: `${SHOTS}/p19-ideas.png`, fullPage: true });
+  const az = await p.evaluate((seed) => {
+    const links = [...document.querySelectorAll('#idea-az a[href*="google.com/search"]')];
+    const tails = ['for', 'vs', 'free', 'online', 'alternative'];
+    const expect = [];
+    for (let i = 0; i < 26; i++) expect.push('https://www.google.com/search?q=' + encodeURIComponent(seed + ' ' + String.fromCharCode(97 + i)));
+    tails.forEach(w => expect.push('https://www.google.com/search?q=' + encodeURIComponent(seed + ' ' + w)));
+    const hrefs = links.map(a => a.getAttribute('href'));
+    const attrs = links.length > 0 && links.every(a => a.getAttribute('target') === '_blank' && a.getAttribute('rel') === 'noopener');
+    return { n: hrefs.length, match: expect.every(u => hrefs.includes(u)) && hrefs.length === expect.length, attrs, sample: hrefs[0] || '' };
+  }, 'pdf merge');
+  T19b(az.n === 31 && az.match && az.attrs, 'A–Z list 26+5 with google URLs (' + az.n + ') ' + az.sample);
+  const manual = await p.evaluate((seed) => {
+    const q = encodeURIComponent(seed);
+    const want = {
+      '#idea-trends': 'https://trends.google.com/trends/explore?q=' + q,
+      '#idea-reddit': 'https://www.reddit.com/search/?q=' + q,
+      '#idea-ph': 'https://www.producthunt.com/search?q=' + q,
+    };
+    return Object.keys(want).every(sel => {
+      const a = document.querySelector(sel);
+      return !!(a && a.getAttribute('href') === want[sel] && a.getAttribute('target') === '_blank' && a.getAttribute('rel') === 'noopener');
+    });
+  }, 'pdf merge');
+  T19b(manual, 'Trends / Reddit / Product Hunt URLs encoded');
+  const before = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).keywords.items.length);
+  const picked = await p.evaluate(() => {
+    const boxes = [...document.querySelectorAll('[data-idea-col="dm"] .idea-chk')].slice(0, 3);
+    boxes.forEach(b => { b.checked = true; b.dispatchEvent(new Event('change', { bubbles: true })); });
+    const btn = document.querySelector('#idea-add');
+    return { values: boxes.map(b => b.value), btn: btn.textContent, disabled: btn.disabled };
+  });
+  T19b(picked.values.length === 3 && picked.btn === '加入候选词（3）' && picked.disabled === false, '3 chips checked (' + picked.values.join(' | ') + ') btn=' + picked.btn);
+  await p.click('#idea-add'); await p.waitForTimeout(250);
+  const after = await p.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1'));
+    const items = s.keywords.items;
+    const added = items.slice(-3);
+    return {
+      n: items.length,
+      added,
+      msg: (document.querySelector('#idea-msg') || {}).textContent || '',
+      count: (document.querySelector('#kw-count') || {}).textContent || '',
+      scores: added.map(k => QuestTools.score(k)),
+      labels: added.map(k => QuestTools.label(QuestTools.score(k))[1]),
+    };
+  });
+  T19b(after.n === before + 3, 'keywords.items grew by 3 (' + before + ' -> ' + after.n + ')');
+  T19b(after.msg === '已加入 3 个，去选词练习板打分', 'add message: ' + after.msg);
+  T19b(after.count === String(after.n), 'board tab count re-rendered ' + after.count + ' / ' + after.n);
+  T19b(after.added.length === 3 && after.added.every((k, i) => k.kw === picked.values[i].toLowerCase() && k.src === '联想' && k.vol === '' && k.big === '' && k.weak === '' && k.intent === 'tool' && k.note === '' && k.star === false && typeof k.id === 'string' && typeof k.at === 'number') && after.scores.every(s => s === 52) && after.labels.every(l => l === '可以试'), 'added rows use board defaults and score 52');
+  await p.click('#idea-add'); await p.waitForTimeout(200);
+  const n2 = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).keywords.items.length);
+  T19b(n2 === after.n, 'duplicates not re-added on second add (' + n2 + ')');
+  await p.evaluate(() => { const b = [...document.querySelectorAll('#tool-body .cx-tab-btn')].find(x => x.textContent.trim().indexOf('选词练习板') === 0); if (b) b.click(); });
+  await p.waitForTimeout(150);
+  const shown = await p.evaluate(() => [...document.querySelectorAll('.kw-name')].map(n => n.textContent.trim()));
+  T19b(picked.values.every(v => shown.includes(v.toLowerCase())), 'board tab shows added keywords');
+  await p.fill('#idea-seed', 'fail');
+  await p.click('#idea-go');
+  let failedOk = false;
+  try {
+    await p.waitForFunction(() => {
+      const dm = document.querySelector('[data-idea-col="dm"]');
+      const wiki = document.querySelector('[data-idea-col="wiki"]');
+      const hn = document.querySelector('[data-idea-col="hn"]');
+      if (!dm || !wiki || !hn) return false;
+      if (/正在获取/.test(dm.textContent)) return false;
+      return /暂时取不到，可稍后再试或用下面的链接手动查/.test(dm.textContent)
+        && /fail software/.test(wiki.textContent)
+        && /Show HN: fail/.test(hn.textContent)
+        && !/暂时取不到/.test(wiki.textContent)
+        && !/暂时取不到/.test(hn.textContent)
+        && !wiki.querySelector('.searchmatch')
+        && !hn.querySelector('b');
+    }, null, { timeout: 12000 });
+    failedOk = true;
+  } catch (e) {
+    console.log('P19b fail-wait', e.message);
+    const dump = await p.evaluate(() => ({
+      dm: (document.querySelector('[data-idea-col="dm"]') || {}).innerText,
+      wiki: (document.querySelector('[data-idea-col="wiki"]') || {}).innerText,
+      hn: (document.querySelector('[data-idea-col="hn"]') || {}).innerText,
+    }));
+    console.log('P19b fail dump ' + JSON.stringify(dump).slice(0, 800));
+  }
+  T19b(failedOk, 'seed fail: Datamuse friendly error, Wikipedia and HN still render');
+  const failSafe = await p.evaluate(() => {
+    const wiki = document.querySelector('[data-idea-col="wiki"]');
+    const hn = document.querySelector('[data-idea-col="hn"]');
+    const snips = [...wiki.querySelectorAll('.idea-snip')].map(s => s.textContent);
+    const ask = hn.querySelector('a[href="https://news.ycombinator.com/item?id=180002"]');
+    return {
+      snip: snips[0] || '',
+      ask: ask ? ask.textContent : '',
+      askHtml: ask ? ask.innerHTML : '',
+      noB: !hn.querySelector('b'),
+      noMatch: !wiki.querySelector('.searchmatch'),
+    };
+  });
+  T19b(failSafe.snip === 'Notes on fail.' && failSafe.ask === 'Ask HN: <b>fail</b> alternatives' && failSafe.askHtml.includes('&lt;b&gt;') && failSafe.noB && failSafe.noMatch, 'fail seed: wiki snippet textContent, HN title escaped (' + failSafe.ask + ' / ' + failSafe.snip + ')');
+  const hist = await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); return s.ideas || null; });
+  T19b(!!(hist && hist.lastSeed === 'fail' && Array.isArray(hist.history) && hist.history.length > 0 && hist.history.length <= 20 && hist.history.some(h => h.seed === 'pdf merge' && h.added === 3) && hist.history.every(h => typeof h.seed === 'string' && typeof h.at === 'number' && typeof h.added === 'number')), 'state.ideas.history recorded lastSeed=' + (hist && hist.lastSeed) + ' ' + JSON.stringify(hist && hist.history));
+  await m13.goto(BASE + 'index.html#war-keywords'); await m13.reload(); await m13.waitForTimeout(400);
+  const wKw = await m13.evaluate(() => document.documentElement.scrollWidth);
+  T19b(wKw <= 390, '390px #war-keywords scrollWidth ' + wKw);
+  await m13.evaluate(() => { const b = [...document.querySelectorAll('#tool-body .cx-tab-btn')].find(x => x.textContent.trim() === '关键词灵感'); if (b) b.click(); });
+  await m13.waitForTimeout(200);
+  const wIdea = await m13.evaluate(() => document.documentElement.scrollWidth);
+  T19b(wIdea <= 390, '390px #war-keywords ideas tab scrollWidth ' + wIdea);
+  await p.keyboard.press('Escape');
+  await p.keyboard.press('Control+k');
+  await p.keyboard.type('关键词灵感');
+  await p.waitForTimeout(200);
+  T19b(await p.evaluate(() => [...document.querySelectorAll('.sr-item')].some(a => a.getAttribute('href') === '#war-keywords' && /关键词灵感/.test(a.textContent))), 'search finds 关键词灵感');
+  await p.keyboard.press('Escape');
+  await p.evaluate(() => localStorage.removeItem('gefei-quest-ideas-cfg'));
+  } finally { await ideaSrv.close(); }
+  }
+  console.log('P19b functional fails=' + f19b); fail += f19b;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

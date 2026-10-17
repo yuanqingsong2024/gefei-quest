@@ -360,6 +360,10 @@
   function optList(arr, v) { return arr.map(function (o) { var val = Array.isArray(o) ? o[0] : o, t = Array.isArray(o) ? o[1] : o; return '<option value="' + esc(val) + '"' + (String(v) === String(val) ? ' selected' : '') + '>' + esc(t) + '</option>'; }).join(''); }
   function nOpts(v) { var a = []; for (var i = 0; i <= 10; i++) a.push(String(i)); return optList(a, v == null ? '' : v); }
   function lookup(arr, v) { var f = arr.filter(function (o) { return o[0] === v; })[0]; return f ? f[1] : '—'; }
+  /** 新候选词的默认字段（表单「加入练习板」与关键词灵感共用） */
+  function newKeyword(data) {
+    return Object.assign({ id: uid(), at: Date.now(), star: false, kw: '', src: 'Trends', vol: '', big: '', weak: '', intent: 'tool', note: '' }, data || {});
+  }
 
   function renderKeywords(state, root, ctx, editId) {
     ensure(state);
@@ -375,6 +379,7 @@
       return (b.k.star ? 1 : 0) - (a.k.star ? 1 : 0) || b.s - a.s;
     });
     root.innerHTML = '<div class="tool-wrap">' +
+      '<div class="kw-board" data-tab="选词练习板">' +
       '<section class="block glass tool-card"><h2 class="block-title">' + I('search') + (editing ? '编辑候选词' : '记一个候选词') + '</h2>' +
       '<form id="kw-form" class="form-grid" autocomplete="off">' +
       '<label class="fld fld-wide"><span>关键词</span><input id="kw-kw" required placeholder="例：pdf merge for mac" value="' + esc(e.kw) + '" /></label>' +
@@ -386,21 +391,21 @@
       '<label class="fld fld-wide"><span>备注</span><input id="kw-note" placeholder="例：前三都是 Reddit 帖子，有空位" value="' + esc(e.note) + '" /></label>' +
       '<div class="tool-actions fld-wide"><button type="submit" class="btn btn-primary btn-sm" id="kw-save">' + (editing ? '保存修改' : '加入练习板') + '</button>' + (editing ? '<button type="button" class="btn btn-sm" id="kw-cancel">取消</button>' : '') + '</div></form>' +
       '<details class="kw-formula"><summary>评分怎么算？</summary><p>' + FORMULA + '</p></details></section>' +
-      '<section class="block glass tool-card"><div class="kw-bar"><h2 class="block-title">' + I('list') + '候选词 <small class="tool-count">' + items.length + '</small></h2>' +
+      '<section class="block glass tool-card"><div class="kw-bar"><h2 class="block-title">' + I('list') + '候选词 <small class="tool-count" id="kw-count">' + items.length + '</small></h2>' +
       '<div class="kw-ctrl"><label>排序 <select id="kw-sort">' + optList([['score', '评分'], ['new', '最新'], ['kw', '字母']], K.sort) + '</select></label>' +
       '<label>筛选 <select id="kw-filter">' + optList([['all', '全部'], ['star', '星标'], ['good', '适合练手'], ['mid', '可以试'], ['bad', '先换长尾']], K.filter) + '</select></label>' +
       '<button type="button" class="btn btn-sm" id="kw-csv"' + (items.length ? '' : ' disabled') + '>' + I('download') + '导出 CSV</button></div></div>' +
       (K.s2Target ? '<p class="hint">站二目标词：<b>' + esc(K.s2Target) + '</b> · 站一主词：<b>' + esc(state.kit.keyword || '未设') + '</b></p>' : '') +
       (items.length ? (list.length ? '<ul class="kw-list">' + list.map(function (x) { return kwRow(x.k, x.s, state); }).join('') + '</ul>' : '<p class="empty-hint">当前筛选下没有词，换个筛选看看。</p>')
-        : '<div class="tool-empty">' + global.QuestIcons.illo('search') + '<p>还没有候选词。先从 Google Trends 或搜索联想找一个，比如 <b>pdf merge for mac</b>，看看搜索结果前 10 有几个大站，记下来。</p></div>') +
-      '</section>' + PRIV + '</div>';
+        : '<div class="tool-empty">' + global.QuestIcons.illo('search') + '<p>还没有候选词。先从 Google Trends 或搜索联想找一个，比如 <b>pdf merge for mac</b>，看看搜索结果前 10 有几个大站，记下来。也可以打开「关键词灵感」勾选免费联想词。</p></div>') +
+      '</section>' + PRIV + '</div></div>';
 
     var f = root.querySelector('#kw-form');
     f.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var kw = root.querySelector('#kw-kw').value.trim(); if (!kw) return;
       var data = { kw: kw, src: root.querySelector('#kw-src').value, vol: root.querySelector('#kw-vol').value, big: root.querySelector('#kw-big').value, weak: root.querySelector('#kw-weak').value, intent: root.querySelector('#kw-intent').value, note: root.querySelector('#kw-note').value.trim() };
-      if (editing) Object.assign(editing, data); else items.push(Object.assign({ id: uid(), at: Date.now(), star: false }, data));
+      if (editing) Object.assign(editing, data); else items.push(newKeyword(data));
       ctx.save(); renderKeywords(state, root, ctx);
     });
     var c = root.querySelector('#kw-cancel'); if (c) c.addEventListener('click', function () { renderKeywords(state, root, ctx); });
@@ -420,6 +425,7 @@
         ctx.save(); renderKeywords(state, root, ctx);
       });
     });
+    if (global.QuestIdeas) global.QuestIdeas.mount(state, root, ctx);
   }
   function kwRow(k, s, state) {
     var L = label(s), q = encodeURIComponent(k.kw);
@@ -544,5 +550,5 @@
       '<label class="fld"><span>备注</span><input name="note" placeholder="例：收录 3 页" /></label><button type="submit" class="btn btn-sm btn-primary">记一笔</button></form></section>';
   }
 
-  global.QuestTools = { ensure: ensure, renderKit: renderKit, renderKeywords: renderKeywords, renderSites: renderSites, score: score, label: label, gen: gen, files: files, makeZip: makeZip, summary: summary, FORMULA: FORMULA, TEMPLATES: TEMPLATES };
+  global.QuestTools = { ensure: ensure, renderKit: renderKit, renderKeywords: renderKeywords, renderSites: renderSites, score: score, label: label, gen: gen, files: files, makeZip: makeZip, summary: summary, FORMULA: FORMULA, TEMPLATES: TEMPLATES, newKeyword: newKeyword };
 })(typeof window !== 'undefined' ? window : globalThis);

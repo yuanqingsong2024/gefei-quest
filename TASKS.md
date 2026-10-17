@@ -1078,5 +1078,5 @@
 ## Phase 19 · 路线图执行（docs/PHASE19-ROADMAP.md）
 - [x] T178 计划 1 · 紧凑收尾（9 页 ≤2.5 屏）
 - [x] T179 计划 2 · 模板库（工具站 / 对比评测 / 术语表）
-- [ ] T180 计划 3 · 关键词灵感（Datamuse / Wikipedia / HN + 链接辅助）
+- [x] T180 计划 3 · 关键词灵感（Datamuse / Wikipedia / HN + 链接辅助）
 - [ ] T181 计划 4 · PWA 离线 + 安装 + 备份提醒
