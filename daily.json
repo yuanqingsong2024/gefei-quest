@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-17T17:11:50.839Z",
-  "latestId": 33,
+  "generatedAt": "2026-10-18T00:43:06.868Z",
+  "latestId": 34,
   "latestDate": "2026-10-18",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 34,
+      "date": "2026-10-18",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-18",
+      "items": [
+        "No.1 双11京东/淘宝10月20日20:00开卖：今天先领红包和平台加补券",
+        "No.2 四川「蜀里安逸·重阳敬老」消费券：今天9:00京东App开抢",
+        "No.3 银行App长期微信立减金（建行缴费抽2–10元、农行省钱月卡等，每月重置）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 33,
       "date": "2026-10-18",
@@ -117,43 +129,30 @@
         "今日任务和我的进度收成一行两卡。不展示用户数，不写评价，不承诺收入"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 24,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "新手引导：三条路线 + 首次访问导览",
-      "items": [
-        "新页面「新手引导」：学习、实施、赚钱三条路线，每步链到站里已有的页面，并附一张本站截图",
-        "前 7 天清单可以勾选，完成数记在本机存档的 onboarding.days 里",
-        "第一次打开首页会看到聚光灯导览（顶栏、开始按钮、赚钱榜、路线、工作台、我的进度）。可跳过；在新手引导页或页脚「新手导览」可以重播",
-        "不承诺收入。导览只介绍站里已经有的功能"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#start"
     }
   ],
   "rank": {
-    "date": "2026-10-17",
+    "date": "2026-10-18",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "双11京东/淘宝官方口令领券，10月20日20:00开卖前先备好",
+        "name": "双11京东/淘宝10月20日20:00开卖：今天先领红包和平台加补券",
         "type": "羊毛",
-        "source_url": "https://finance.sina.com.cn/roll/2026-10-08/doc-iniuphnz4345209.shtml"
+        "source_url": "https://finance.sina.com.cn/roll/2026-10-16/doc-inivmtxi8339972.shtml"
       },
       {
         "rank": 2,
-        "name": "银行App话费与云闪付支付立减（10月17日合集）",
+        "name": "四川「蜀里安逸·重阳敬老」消费券：今天9:00京东App开抢",
         "type": "羊毛",
-        "source_url": "https://v.jiujiuxb.com/item/873421.html"
+        "source_url": "https://news.qq.com/rain/a/20261015A0ARV400"
       },
       {
         "rank": 3,
-        "name": "中国移动10月话费流量活动（今天周六游戏中心可抽话费券）",
+        "name": "银行App长期微信立减金（建行缴费抽2–10元、农行省钱月卡等，每月重置）",
         "type": "羊毛",
-        "source_url": "https://www.91hym.cn/life/804.html"
+        "source_url": "https://10000yun.com/2561.html"
       }
     ]
   }
