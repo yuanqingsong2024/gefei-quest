@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-18T01:24:49.852Z",
-  "latestId": 34,
+  "generatedAt": "2026-10-18T01:48:36.725Z",
+  "latestId": 35,
   "latestDate": "2026-10-18",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -14,7 +14,7 @@
   },
   "entries": [
     {
-      "id": 34,
+      "id": 35,
       "date": "2026-10-18",
       "tag": "改进",
       "title": "每条赚钱榜和平台资料都标出来源：类型（官方/媒体/社区）、发布方、日期和核实日期；新增榜单类型筛选",

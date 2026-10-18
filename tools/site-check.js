@@ -2674,7 +2674,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     const swSrc = fs26.readFileSync(path26.join(root26, 'sw.js'), 'utf8');
     T26(/CACHE_VERSION\s*=\s*12/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 12 + sources.js precache');
     const cl = fs26.readFileSync(path26.join(root26, 'js/changelog.js'), 'utf8');
-    T26(/id:\s*34/.test(cl) && /每条赚钱榜和平台资料都标出来源/.test(cl), 'changelog id 34 sources entry');
+    T26(/id:\s*35/.test(cl) && /每条赚钱榜和平台资料都标出来源/.test(cl), 'changelog id 35 sources entry');
   } catch (e) {
     T26(false, 'file checks threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 4).join(' | ') : e));
   }
