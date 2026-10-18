@@ -159,10 +159,14 @@ python3 -m http.server 8765
 
 ## 每日赚钱榜发布（给「赚钱榜雷达」agent）
 1. 准备一个 JSON 文件（格式见 `data/rank-sample.json`）：
-   `{ "date": "YYYY-MM-DD", "items": [ 10 × { rank, name, type, cost, difficulty(1–5), fit, why, steps[], risk, source_url(https), tags[] } ] }`
-   只收合法渠道；脚本会拒绝含盗版、账号买卖、游戏币点卡、代写、刷量的条目。
+   `{ "date": "YYYY-MM-DD", "items": [ 10 × { rank, name, type, cost, difficulty(1–5), fit, why, steps[], risk, source_url, tags[], sources: [{ title, url, publisher, published, kind, checked }] } ] }`
+   - 每条至少 1 个来源；`kind` 为 `official` | `media` | `community`；`url` 必须是 http(s)。
+   - `source_url` = `sources[0].url`（旧字段保留）。只有旧 `source_url`、没有 `sources` 时脚本会按域名自动补一条并警告，请下次写全 `sources`。
+   - `published` 为 `YYYY-MM-DD` 或 `''`（不知道就留空，不要编）；`checked` 由脚本填当天（Asia/Shanghai）。
+   - `type` 可用：羊毛、副业、闲鱼非实物、出海小站、工具活动、出海新词、开发者羊毛、奖金赛/悬赏、平台激励、联盟营销、案例拆解、数字产品/接单。
+   只收合法渠道；脚本会拒绝含盗版、账号买卖、游戏币点卡、代写、刷量的条目，以及没有来源 / 非法 url / 非法 kind 的条目。
 2. 发布：`node tools/publish-rank.js /path/to/rank.json --check-urls`
-   - 校验结构，`--check-urls` 要求每个 source_url 返回 200
+   - 校验结构，`--check-urls` 要求每条来源 url 返回 200
    - 写 `data/rank.json`、`data/rank-history/<date>.json`、`data/rank-history/index.json`、`js/rank-data.js`（近 14 天内嵌，file:// 可用）
    - 在 `js/changelog.js` 加/替换当天「每日赚钱榜」条目，重建 `daily.json`（含 `rank.top3`）
    - 加 `--no-changelog` 可不写更新日志

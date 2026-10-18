@@ -9,7 +9,7 @@
 - 醒目免责声明：仅为公开渠道整理，不保证收益；规则、地区与费率以官网为准。
 
 ## 数据
-- `data/rank.json`：{ date, items[10] }，item = {rank,name,type,cost,difficulty,fit,why,steps[],risk,source_url,tags[]}。
+- `data/rank.json`：{ date, items[10] }，item = {rank,name,type,cost,difficulty,fit,why,steps[],risk,source_url,tags[],sources:[{title,url,publisher,published,kind,checked}]}。`source_url` = 第一条来源的 url。详见 `docs/PHASE24-SOURCES.md`。
 - `data/rank-history/<date>.json` + `index.json`（日期列表，新→旧）。
 - `js/rank-data.js`：最近 14 天内嵌，保证 file:// 也能看（fetch 失败时回退）。
 

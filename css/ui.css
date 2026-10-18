@@ -3132,3 +3132,62 @@ body.is-home .home-howto span.home-step-ico > svg,
   align-self: center;
   justify-self: center;
 }
+
+/* Phase 24 · 来源组件 */
+.qs { margin: 8px 0 0; min-width: 0; }
+.qs-label { font-size: .75rem; font-weight: 800; color: #fde68a; margin: 0 0 4px; letter-spacing: .04em; }
+.qs-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.qs-item { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: .82rem; color: #e2e8f0; min-width: 0; }
+.qs-kind {
+  display: inline-block; font-size: .7rem; font-weight: 800; line-height: 1.2;
+  padding: 2px 7px; border-radius: 999px; border: 1px solid; letter-spacing: .02em;
+}
+.qs-kind-official { background: #052e16; color: #86efac; border-color: #22c55e; }
+.qs-kind-media { background: #0c4a6e; color: #7dd3fc; border-color: #38bdf8; }
+.qs-kind-community { background: #431407; color: #fdba74; border-color: #f97316; }
+.qs-pub { font-weight: 700; color: #f8fafc; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 16rem; }
+.qs-title { color: #cbd5e1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 14rem; }
+.qs-published { color: #fde68a; font-variant-numeric: tabular-nums; }
+.qs-link { font-weight: 800; white-space: nowrap; }
+.qs-checked { color: #94a3b8; font-size: .75rem; }
+.qs-compact { margin: 4px 0 0; }
+.qs-compact .qs-list { flex-direction: row; flex-wrap: wrap; gap: 4px 10px; }
+.qs-compact .qs-item { gap: 4px 6px; font-size: .78rem; }
+.qs-compact .qs-kind { padding: 1px 6px; }
+.qs-oneline { min-width: 0; max-width: 100%; overflow: hidden; }
+.qs-oneline .qs-compact { margin: 0; max-width: 100%; }
+.qs-oneline .qs-list { flex-wrap: nowrap; overflow: hidden; min-width: 0; }
+.qs-oneline .qs-item { flex-wrap: nowrap; min-width: 0; max-width: 100%; overflow: hidden; }
+.qs-oneline .qs-pub { flex: 1 1 auto; min-width: 0; max-width: none; }
+.qs-oneline .qs-kind,
+.qs-oneline .qs-link,
+.qs-oneline .pm-link { flex: none; }
+.rank-face-src { margin-top: 6px; min-width: 0; max-width: 100%; }
+.pm-face-src { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; min-width: 0; max-width: 100%; }
+.pm-face-src .qs-oneline { flex: 1 1 auto; }
+.pm-face-marks { flex: none; display: inline-flex; align-items: center; gap: 4px; }
+.rank-foot .qs { flex: 1 1 100%; order: -1; margin: 0 0 8px; }
+.plan-item .qs { grid-column: 1 / -1; }
+.hero-top3-src { margin: 2px 0 4px 2.4rem; min-width: 0; }
+.hero-top3-src .qs-compact { margin: 0; }
+.pm-srcs .qs { margin: 0; }
+.pm-srcs .qs-list { gap: 8px; }
+.qa-bot .qs { margin: 8px 0 0; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: rgba(15, 23, 42, .45); }
+.channel-card .qs, .peer-card .qs { margin-top: 8px; }
+.md .qs-kind { margin-left: 4px; vertical-align: middle; }
+
+.pill[data-rtype], .chip[data-rtype], .rank-card .pill {
+  border: 1px solid transparent;
+}
+.rank-type-羊毛, .chip[data-rtype="羊毛"], .pill[data-type="羊毛"] { background: rgba(74, 222, 128, .18); color: #bbf7d0; }
+.rank-type-副业, .chip[data-rtype="副业"], .pill[data-type="副业"] { background: rgba(251, 191, 36, .2); color: #fde68a; }
+.rank-type-闲鱼非实物, .chip[data-rtype="闲鱼非实物"], .pill[data-type="闲鱼非实物"] { background: rgba(56, 189, 248, .2); color: #bae6fd; }
+.rank-type-出海小站, .chip[data-rtype="出海小站"], .pill[data-type="出海小站"] { background: rgba(167, 139, 250, .22); color: #ddd6fe; }
+.rank-type-工具活动, .chip[data-rtype="工具活动"], .pill[data-type="工具活动"] { background: rgba(248, 113, 113, .2); color: #fecaca; }
+.rank-type-出海新词, .chip[data-rtype="出海新词"], .pill[data-type="出海新词"] { background: rgba(45, 212, 191, .2); color: #99f6e4; }
+.rank-type-开发者羊毛, .chip[data-rtype="开发者羊毛"], .pill[data-type="开发者羊毛"] { background: rgba(132, 204, 22, .22); color: #d9f99d; }
+.rank-type-奖金赛-悬赏, .chip[data-rtype="奖金赛/悬赏"], .pill[data-type="奖金赛/悬赏"] { background: rgba(244, 114, 182, .22); color: #fbcfe8; }
+.rank-type-平台激励, .chip[data-rtype="平台激励"], .pill[data-type="平台激励"] { background: rgba(251, 146, 60, .22); color: #fed7aa; }
+.rank-type-联盟营销, .chip[data-rtype="联盟营销"], .pill[data-type="联盟营销"] { background: rgba(96, 165, 250, .22); color: #bfdbfe; }
+.rank-type-案例拆解, .chip[data-rtype="案例拆解"], .pill[data-type="案例拆解"] { background: rgba(148, 163, 184, .25); color: #e2e8f0; }
+.rank-type-数字产品-接单, .chip[data-rtype="数字产品/接单"], .pill[data-type="数字产品/接单"] { background: rgba(250, 204, 21, .22); color: #fef08a; }

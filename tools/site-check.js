@@ -2614,6 +2614,214 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx.close();
   }
   console.log('P25 functional fails=' + f25); fail += f25;
+
+  // ---------- Phase 26 · 每条都标来源 ----------
+  let f26 = 0; const T26 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P26 ' + m); if (!c) f26++; };
+  const fs26 = require('fs');
+  const path26 = require('path');
+  const cp26 = require('child_process');
+  const os26 = require('os');
+  const root26 = path26.resolve(__dirname, '..');
+  const shot26 = SHOTS || '/workspace/gefei-quest-shots';
+  fs26.mkdirSync(shot26, { recursive: true });
+  try {
+    const rankFiles = [];
+    const walk26 = (dir) => {
+      fs26.readdirSync(dir).forEach((f) => {
+        const pth = path26.join(dir, f);
+        if (fs26.statSync(pth).isDirectory()) return walk26(pth);
+        if (f === 'index.json') return;
+        if (/\.json$/.test(f)) rankFiles.push(pth);
+      });
+    };
+    rankFiles.push(path26.join(root26, 'data/rank.json'));
+    walk26(path26.join(root26, 'data/rank-history'));
+    walk26(path26.join(root26, 'data/money-rank'));
+    let miss = 0, nItems = 0;
+    rankFiles.forEach((f) => {
+      const data = JSON.parse(fs26.readFileSync(f, 'utf8'));
+      (data.items || []).forEach((it, i) => {
+        nItems++;
+        if (!Array.isArray(it.sources) || !it.sources.length || it.sources[0].url !== it.source_url) {
+          miss++;
+          if (miss <= 3) console.log('     missing sources', path26.relative(root26, f), 'items[' + i + ']');
+        }
+      });
+    });
+    T26(nItems >= 10 && miss === 0, 'every rank item has sources[0].url === source_url n=' + nItems);
+
+    const QS = require('./../js/sources.js');
+    T26(QS.kindOf('https://finance.sina.com.cn/roll/x') === 'media' && QS.kindOf('https://www.shhk.gov.cn/a') === 'official' && QS.kindOf('https://www.zhihu.com/creator') === 'community', 'kindOf media/official/community');
+
+    const baseRank = JSON.parse(fs26.readFileSync(path26.join(root26, 'data/rank.json'), 'utf8'));
+    const tmpDir = fs26.mkdtempSync(path26.join(os26.tmpdir(), 'p26-rank-'));
+    const runBad = (mutator, needle) => {
+      const copy = JSON.parse(JSON.stringify(baseRank));
+      mutator(copy);
+      const f = path26.join(tmpDir, 'bad.json');
+      fs26.writeFileSync(f, JSON.stringify(copy));
+      const r = cp26.spawnSync(process.execPath, [path26.join(root26, 'tools/publish-rank.js'), f, '--no-changelog'], { encoding: 'utf8' });
+      const out = (r.stdout || '') + (r.stderr || '');
+      const ok = r.status !== 0 && needle.test(out);
+      if (!ok) console.log('     publish exit=' + r.status + ' out=' + out.slice(0, 400));
+      return ok;
+    };
+    T26(runBad((d) => { delete d.items[0].sources; d.items[0].source_url = ''; }, /no source|没有来源|sources/i), 'publish-rank rejects item with no source');
+    T26(runBad((d) => { d.items[0].sources = [{ title: '', url: 'ftp://example.com/x', publisher: 'example.com', published: '', kind: 'media', checked: '2026-10-18' }]; d.items[0].source_url = 'ftp://example.com/x'; }, /url must be http/i), 'publish-rank rejects illegal url');
+    T26(runBad((d) => { d.items[0].sources = [{ title: '', url: 'https://example.com/x', publisher: 'example.com', published: '', kind: 'blog', checked: '2026-10-18' }]; d.items[0].source_url = 'https://example.com/x'; }, /kind must be/i), 'publish-rank rejects illegal kind');
+    try { fs26.rmSync(tmpDir, { recursive: true, force: true }); } catch (_) {}
+
+    const swSrc = fs26.readFileSync(path26.join(root26, 'sw.js'), 'utf8');
+    T26(/CACHE_VERSION\s*=\s*12/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 12 + sources.js precache');
+    const cl = fs26.readFileSync(path26.join(root26, 'js/changelog.js'), 'utf8');
+    T26(/id:\s*34/.test(cl) && /每条赚钱榜和平台资料都标出来源/.test(cl), 'changelog id 34 sources entry');
+  } catch (e) {
+    T26(false, 'file checks threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 4).join(' | ') : e));
+  }
+
+  const ctx26 = await b.newContext({ viewport: { width: 1280, height: 800 } });
+  const pg26 = cx(await ctx26.newPage());
+  const e26 = [];
+  pg26.on('pageerror', (e) => { e26.push('pageerror ' + e.message); errors.push('p26 ' + e.message); });
+  pg26.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e26.push(m.text()); errors.push('p26 ' + m.text()); } });
+  try {
+    await pg26.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg26.waitForTimeout(350);
+    await pg26.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close(); });
+    const rankUi = await pg26.evaluate(() => {
+      const cards = [...document.querySelectorAll('.rank-card')];
+      const sina = cards.find((c) => /finance\.sina\.com\.cn/.test(c.innerHTML));
+      const qs = sina ? sina.querySelector('.qs') : null;
+      const qsText = qs ? qs.textContent : '';
+      const chips = [...document.querySelectorAll('[data-rtype]')].map((b) => b.getAttribute('data-rtype'));
+      const present = [...new Set(cards.map((c) => c.getAttribute('data-type')))];
+      const extra = chips.filter((t) => t && t !== 'all' && present.indexOf(t) < 0);
+      const faceNodes = [...document.querySelectorAll('.rank-card .rank-face-src .qs-compact')];
+      const footNodes = [...document.querySelectorAll('.rank-card .rank-foot .qs')];
+      return {
+        n: cards.length,
+        nQs: document.querySelectorAll('.rank-card .qs').length,
+        face: faceNodes.length,
+        foot: footNodes.length,
+        faceOutside: faceNodes.length === 10 && faceNodes.every((q) => !q.closest('.cx-body') && q.querySelector('.qs-kind') && /官方|媒体|社区/.test(q.querySelector('.qs-kind').textContent) && q.querySelector('.qs-pub') && /↗/.test((q.querySelector('a.qs-link') || {}).textContent || '')),
+        footInside: footNodes.length === 10 && footNodes.every((q) => !!q.closest('.cx-body') && !q.classList.contains('qs-compact') && /来源/.test(q.textContent)),
+        sinaQs: !!(qs && /finance\.sina/.test(qs.innerHTML)),
+        sinaOfficial: qsText.indexOf('官方') >= 0,
+        sinaMedia: qsText.indexOf('媒体') >= 0,
+        chips: chips,
+        extra: extra,
+        hasAll: chips[0] === 'all',
+        types: window.QuestRank && QuestRank.TYPES ? QuestRank.TYPES.length : 0,
+      };
+    });
+    T26(rankUi.n === 10 && rankUi.face === 10 && rankUi.foot === 10 && rankUi.faceOutside && rankUi.footInside, 'rank cards face+footer sources n=' + rankUi.n + ' face=' + rankUi.face + ' foot=' + rankUi.foot + ' qs=' + rankUi.nQs);
+    T26(rankUi.sinaQs && rankUi.sinaMedia && !rankUi.sinaOfficial, 'sina source shows 媒体 not 官方');
+    await pg26.click('#panel-war .cx-pager [data-pg="all"]');
+    await pg26.waitForTimeout(80);
+    const faceVis = await pg26.evaluate(() => {
+      const cards = [...document.querySelectorAll('#panel-war .rank-grid > .rank-card')];
+      const rows = cards.map((c) => {
+        const q = c.querySelector(':scope > .rank-head .rank-face-src .qs-compact');
+        const body = c.querySelector(':scope > .cx-body');
+        const btn = c.querySelector(':scope > .cx-toggle');
+        const r = q ? q.getBoundingClientRect() : { width: 0, height: 0 };
+        const kind = q && q.querySelector('.qs-kind') ? q.querySelector('.qs-kind').textContent : '';
+        const pub = q && q.querySelector('.qs-pub') ? q.querySelector('.qs-pub').textContent.trim() : '';
+        const link = q && q.querySelector('a.qs-link') ? q.querySelector('a.qs-link').textContent : '';
+        const collapsed = !!(body && body.classList.contains('cx-off') && btn && btn.getAttribute('aria-expanded') === 'false' && !c.classList.contains('cx-open'));
+        return {
+          ok: !!q && !q.closest('.cx-body') && !c.classList.contains('cx-off') && collapsed && r.width > 0 && r.height > 0 && r.height <= 40 && /官方|媒体|社区/.test(kind) && !!pub && /↗/.test(link),
+          h: Math.round(r.height),
+        };
+      });
+      return { n: cards.length, ok: rows.length === 10 && rows.every((x) => x.ok), h: rows.map((x) => x.h) };
+    });
+    T26(faceVis.ok, 'rank compact source visible without expanding on all 10 h=' + (faceVis.h || []).join(','));
+    T26(rankUi.hasAll && rankUi.extra.length === 0 && rankUi.types === 12, 'type chips 全部 + only present types, TYPES=12 extra=' + rankUi.extra.join(','));
+    const firstType = await pg26.getAttribute('[data-rtype]:not([data-rtype="all"])', 'data-rtype');
+    await pg26.click('[data-rtype="' + firstType + '"]');
+    await pg26.waitForTimeout(120);
+    const filtered = await pg26.evaluate((t) => {
+      const cards = [...document.querySelectorAll('.rank-card')];
+      return { n: cards.length, ok: cards.length > 0 && cards.every((c) => c.getAttribute('data-type') === t) };
+    }, firstType);
+    T26(filtered.ok, 'type filter ' + firstType + ' n=' + filtered.n);
+    await pg26.click('[data-rtype="all"]');
+    await pg26.waitForTimeout(80);
+    await pg26.click('.rank-card[data-rank="1"] [data-plan-add]');
+    await pg26.waitForTimeout(120);
+    const planQs = await pg26.evaluate(() => {
+      const plan = document.querySelector('#rank-plan');
+      return { n: document.querySelectorAll('#rank-plan .plan-item').length, qs: !!(plan && plan.querySelector('.qs')) };
+    });
+    T26(planQs.n === 1 && planQs.qs, 'rankPlan shows QuestSources');
+    await pg26.locator('#panel-war .rank-card[data-rank="1"] .rank-face-src').screenshot({ path: shot26 + '/p26-rank-sources.png' }).catch(async () => {
+      await pg26.screenshot({ path: shot26 + '/p26-rank-sources.png' });
+    });
+
+    await pg26.goto(BASE + 'index.html#home', { waitUntil: 'domcontentloaded' });
+    await pg26.waitForTimeout(280);
+    await pg26.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); });
+    const homeQs = await pg26.evaluate(() => {
+      const box = document.querySelector('#hero-top3');
+      return { n: box ? box.querySelectorAll('.qs').length : 0, rows: document.querySelectorAll('#hero-top3 .hero-top3-row').length };
+    });
+    T26(homeQs.rows >= 3 && homeQs.n >= 3, 'home Top 3 compact sources rows=' + homeQs.rows + ' qs=' + homeQs.n);
+    await pg26.locator('#hero-top3').screenshot({ path: shot26 + '/p26-home-top3.png' });
+
+    await pg26.goto(BASE + 'index.html#pm-cn-media', { waitUntil: 'domcontentloaded' });
+    await pg26.waitForTimeout(280);
+    const pmQs = await pg26.evaluate(() => {
+      const n = document.querySelectorAll('.pm-card .qs').length;
+      const badges = document.querySelectorAll('.pm-card .pm-link').length;
+      const unkFn = (u) => {
+        const c = (window.QUEST_PLATFORM_LINKS && QUEST_PLATFORM_LINKS.status || {})[u];
+        if (!c) return '未核实';
+        if (c === '200') return '200 已核实';
+        return c + ' 自动检查被拦截';
+      };
+      const sina = [...document.querySelectorAll('.pm-card .qs-item')].find((el) => /finance\.sina/.test(el.innerHTML));
+      const sinaText = sina ? sina.textContent : '';
+      const shown = [...document.querySelectorAll('.pm-card')].filter((c) => !c.classList.contains('cx-off'));
+      const face = shown.map((c) => {
+        const q = c.querySelector(':scope > .pm-face-src .qs-compact');
+        const box = c.querySelector(':scope > .pm-face-src');
+        const collapsed = !!c.querySelector('dl > .cx-body.cx-off');
+        const r = box ? box.getBoundingClientRect() : { width: 0, height: 0 };
+        const unk = [...c.querySelectorAll(':scope > .pm-face-src .pm-link.unk')];
+        const unkOk = unk.every((el) => {
+          const b = el.getBoundingClientRect();
+          return b.width > 0 && b.height > 0 && !el.closest('.cx-body') && !el.closest('.cx-off');
+        });
+        return !!q && !q.closest('.cx-body') && collapsed && r.width > 0 && r.height > 0 && r.height <= 40 && unkOk && !!q.querySelector('.qs-kind') && /↗/.test((q.querySelector('a.qs-link') || {}).textContent || '') && !!q.querySelector('.pm-link');
+      });
+      return { n: n, badges: badges, unkLabel: unkFn('https://example.invalid/no-such-source'), sina: !!sina, sinaOfficial: sinaText.indexOf('官方') >= 0, sinaMedia: sinaText.indexOf('媒体') >= 0, faceOk: face.length >= 1 && face.every(Boolean), faceN: face.length };
+    });
+    T26(pmQs.n >= 1 && pmQs.badges >= 1 && pmQs.unkLabel === '未核实', 'platform sources + 未核实 mark n=' + pmQs.n + ' badges=' + pmQs.badges);
+    T26(pmQs.sina && pmQs.sinaMedia && !pmQs.sinaOfficial, 'platform sina reprint is 媒体 not 官方');
+    T26(pmQs.faceOk, 'platform card face shows compact source without expanding n=' + pmQs.faceN);
+    await pg26.locator('.pm-card .qs, .pm-card').first().screenshot({ path: shot26 + '/p26-platform-sources.png' });
+
+    await pg26.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg26.waitForTimeout(200);
+    await pg26.evaluate(() => { if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close(); });
+    const off = await pg26.evaluate(async () => {
+      if (!window.QuestAssistant) return { ok: false };
+      const q = 'AI Visibility Checker';
+      const hits = QuestAssistant.search(q);
+      await QuestAssistant.ask(q);
+      const panel = document.getElementById('qa-panel');
+      const qs = panel ? panel.querySelectorAll('.qs').length : 0;
+      const withSrc = (hits || []).filter((h) => h && ((h.sources && h.sources.length) || h.href === '#war-rank')).length;
+      return { n: (hits || []).length, withSrc: withSrc, qs: qs, label: panel && panel.textContent.indexOf('站内资料检索（未连接 AI）') >= 0 };
+    });
+    T26(off.n >= 1 && off.qs >= 1 && off.label, 'assistant offline results include sources hits=' + off.n + ' qs=' + off.qs);
+  } catch (e) {
+    T26(false, 'ui threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T26(e26.length === 0, 'P26 console errors ' + e26.slice(0, 4).join(' | '));
+  await ctx26.close();
+  console.log('P26 functional fails=' + f26); fail += f26;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

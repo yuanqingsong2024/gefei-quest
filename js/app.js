@@ -265,7 +265,7 @@
           N.titleFor(route, cc ? cc.label : '');
         },
       });
-      if (window.QUEST_PLATFORMS && !$('#pm-banner')) $('#panel-lib').insertAdjacentHTML('afterbegin', '<a id="pm-banner" class="pm-banner" href="#pm">' + QuestIcons.svg('coin') + '<span><b>平台变现 · 国内 + 海外</b><small>' + window.QUEST_PLATFORMS.PLATFORMS.length + ' 个平台的变现方式、门槛、分成规则与官方来源 · 新手怎么选</small></span>' + QuestIcons.svg('arrowRight') + '</a>');
+      if (window.QUEST_PLATFORMS && !$('#pm-banner')) $('#panel-lib').insertAdjacentHTML('afterbegin', '<a id="pm-banner" class="pm-banner" href="#pm">' + QuestIcons.svg('coin') + '<span><b>平台变现 · 国内 + 海外</b><small>' + window.QUEST_PLATFORMS.PLATFORMS.length + ' 个平台的变现方式、门槛、分成规则与来源 · 新手怎么选</small></span>' + QuestIcons.svg('arrowRight') + '</a>');
       ensureGroupTabs($('#panel-lib'));
     } else if (sec === 'guides' || sec === 'dev') {
       const root = $('#panel-guides');

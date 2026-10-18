@@ -120,15 +120,20 @@
     if (h.charAt(0) !== '#' || /[\s"'<>]/.test(h)) return '';
     return h;
   }
-  function addChunks(list, title, href, raw) {
+  function addChunks(list, title, href, raw, extra) {
     href = hashHref(href);
     if (!href) return;
     var text = plain(raw);
     if (text.length < 8) return;
     var size = 420, step = 320, i;
-    if (text.length <= size) { list.push({ title: title, text: text, href: href }); return; }
+    var row = function (t) {
+      var o = { title: title, text: t, href: href };
+      if (extra && extra.sources) o.sources = extra.sources;
+      return o;
+    };
+    if (text.length <= size) { list.push(row(text)); return; }
     for (i = 0; i < text.length; i += step) {
-      list.push({ title: title, text: text.slice(i, i + size), href: href });
+      list.push(row(text.slice(i, i + size)));
       if (i + size >= text.length) break;
     }
   }
@@ -192,7 +197,19 @@
         if (!p || !p.id) return;
         var rules = (p.rules || []).map(function (r) { return r && r[0]; }).filter(Boolean).join(' ');
         var steps = (p.steps || []).join(' ');
-        addChunks(list, p.name || p.id, '#pm-' + p.cat + '/' + p.id, [p.name, p.ways, p.gate, p.fit, p.risk, p.access, p.payout, rules, steps].filter(Boolean).join('\n'));
+        var src = null;
+        try {
+          if (global.QuestSources && p.src && p.src.length) {
+            var own = QuestSources.ownHostsOf(p.src.map(function (s) { return s[1]; }));
+            src = p.src.map(function (s) {
+              var o = QuestSources.fromLegacy(s[1], p.up || '');
+              o.title = s[0] || '';
+              if (QuestSources.isOwnHost(s[1], own)) { o.kind = 'official'; o.publisher = p.name || o.publisher; }
+              return o;
+            });
+          }
+        } catch (_) {}
+        addChunks(list, p.name || p.id, '#pm-' + p.cat + '/' + p.id, [p.name, p.ways, p.gate, p.fit, p.risk, p.access, p.payout, rules, steps].filter(Boolean).join('\n'), src ? { sources: src } : null);
       });
     }
     var tools = global.QuestTools;
@@ -201,6 +218,22 @@
         addChunks(list, t.name || t.id, '#war-kit', (t.name || '') + ' ' + (t.desc || '') + ' 起步模板');
       });
       if (tools.FORMULA) addChunks(list, '评分怎么算', '#war-keywords', tools.FORMULA);
+    }
+    var rank = global.QUEST_RANK || {};
+    var day = rank.latest && rank.days && rank.days[rank.latest];
+    if (day && Array.isArray(day.items)) {
+      day.items.forEach(function (it) {
+        if (!it) return;
+        var src = null;
+        try { if (global.QuestSources) src = QuestSources.of(it, day.date); } catch (_) {}
+        addChunks(
+          list,
+          '赚钱榜 No.' + it.rank + ' ' + (it.name || ''),
+          '#war-rank',
+          [it.name, it.type, it.why, it.fit, it.risk, (it.steps || []).join(' ')].filter(Boolean).join('\n'),
+          src && src.length ? { sources: src } : null
+        );
+      });
     }
     return list;
   }
@@ -308,7 +341,19 @@
     }
     logEl.innerHTML = messages.map(function (m) {
       if (m.role === 'user') return '<div class="qa-msg qa-user">' + esc(m.content).replace(/\n/g, '<br>') + '</div>';
-      return '<div class="qa-msg qa-bot"><div class="qa-body md">' + renderMd(m.content) + '</div></div>';
+      var extra = '';
+      if (m.hits && global.QuestSources) {
+        m.hits.forEach(function (h) {
+          var src = h && h.sources;
+          if ((!src || !src.length) && h && h.href === '#war-rank' && global.QuestRank) {
+            var items = QuestRank.latestItems() || [];
+            var it = items.filter(function (x) { return h.title && x.name && h.title.indexOf(x.name) >= 0; })[0] || items[0];
+            if (it) src = QuestSources.of(it);
+          }
+          if (src && src.length) extra += QuestSources.render(src, { compact: true });
+        });
+      }
+      return '<div class="qa-msg qa-bot"><div class="qa-body md">' + renderMd(m.content) + extra + '</div></div>';
     }).join('');
     logEl.scrollTop = logEl.scrollHeight;
   }
@@ -379,8 +424,9 @@
     return (messages[messages.length - 1] && messages[messages.length - 1].content) || '';
   }
   function sendOffline(text, mySeq) {
+    var hits = search(text);
     var body = offlineMd(text);
-    messages.push({ role: 'assistant', content: body, mode: 'offline' });
+    messages.push({ role: 'assistant', content: body, mode: 'offline', hits: hits });
     return Promise.resolve(finish(mySeq, body));
   }
   function sendCustom(mySeq) {

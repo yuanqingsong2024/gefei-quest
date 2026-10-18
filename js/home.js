@@ -559,10 +559,12 @@
     var top3 = items.slice(0, 3);
     var top3Body = top3.length
       ? '<ol class="hero-top3-list">' + top3.map(function (it) {
+        var src = (global.QuestSources ? QuestSources.render(QuestSources.of(it, date), { compact: true, date: date }) : '');
         return '<li><a class="hero-top3-row" href="#war-rank" data-name="' + esc(it.name) + '" data-rank="' + esc(it.rank) + '">' +
           '<span class="hero-top3-no">' + esc(it.rank) + '</span>' +
           '<span class="hero-top3-name">' + esc(it.name) + '</span>' +
-          '<span class="pill">' + esc(it.type) + '</span></a></li>';
+          '<span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span></a>' +
+          (src ? '<div class="hero-top3-src">' + src + '</div>' : '') + '</li>';
       }).join('') + '</ol>'
       : '<p class="hero-top3-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     root.innerHTML =

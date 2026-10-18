@@ -1105,7 +1105,7 @@
 - [x] T197 测试、截图、发布（changelog 33，sw v11）
 
 ## Phase 24 · 每条都标来源（docs/PHASE24-SOURCES.md）
-- [ ] T198 来源数据格式 + 迁移 + publish-rank 校验
-- [ ] T199 统一来源组件 QuestSources，接入各处
-- [ ] T200 榜单新类型 + 类型筛选
-- [ ] T201 测试、截图、发布（changelog 34，sw v12）
+- [x] T198 来源数据格式 + 迁移 + publish-rank 校验
+- [x] T199 统一来源组件 QuestSources，接入各处
+- [x] T200 榜单新类型 + 类型筛选
+- [x] T201 测试、截图、发布（changelog 34，sw v12）

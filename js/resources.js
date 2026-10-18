@@ -8,6 +8,25 @@
       .replace(/"/g, '&quot;');
   }
 
+  function channelLink(c) {
+    if (!c.url) return '';
+    if (/^https?:/i.test(c.url) && global.QuestSources) {
+      var s = QuestSources.fromLegacy(c.url, '');
+      s.title = '查看详情';
+      return QuestSources.render([s], { compact: true });
+    }
+    var ext = /^https?:/i.test(c.url) || /^\.\//.test(c.url);
+    return `<a class="card-link" href="${esc(c.url)}"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}>查看详情 →</a>`;
+  }
+  function peerLink(p) {
+    if (!p.url) return '';
+    if (/^https?:/i.test(p.url) && global.QuestSources) {
+      var s = QuestSources.fromLegacy(p.url, '');
+      s.title = p.name || '原文';
+      return QuestSources.render([s], { compact: true });
+    }
+    return `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">打开原文 ↗</a>`;
+  }
   function renderChannelCard(c) {
     const hay = [c.name, c.blurb, c.how, c.caveat, c.id].join(' ').toLowerCase();
     return `
@@ -16,7 +35,7 @@
         <p class="peer-line">${esc(c.blurb)}</p>
         <p class="peer-steal"><span class="tag">怎么试</span> ${esc(c.how)}</p>
         <p class="peer-caveat">注意：${esc(c.caveat)}</p>
-        ${c.url ? `<a class="card-link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">查看详情 →</a>` : ''}
+        ${channelLink(c)}
       </article>`;
   }
 
@@ -28,7 +47,7 @@
         <p class="peer-line">${esc(p.oneLiner)}</p>
         <p class="peer-steal"><span class="tag">可偷</span> ${esc(p.steal)}</p>
         <p class="peer-caveat">注意：${esc(p.caveat)}</p>
-        <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">打开原文 ↗</a>
+        ${peerLink(p)}
       </article>`;
   }
 

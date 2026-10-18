@@ -3,22 +3,51 @@
 // Writes data/rank.json, data/rank-history/<date>.json + index.json, js/rank-data.js,
 // adds/replaces a 「赚钱榜」 changelog entry for that date, and rebuilds daily.json.
 const fs = require('fs'), path = require('path'), cp = require('child_process');
+const QS = require('../js/sources.js');
 const root = path.resolve(__dirname, '..');
 const args = process.argv.slice(2), file = args.find(a => !a.startsWith('--'));
 if (!file) { console.error('usage: node tools/publish-rank.js <rank.json> [--no-changelog] [--check-urls]'); process.exit(2); }
 const data = JSON.parse(fs.readFileSync(path.resolve(file), 'utf8'));
+const KINDS = { official: 1, media: 1, community: 1 };
+function todayShanghai() {
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Shanghai' });
+}
+const today = todayShanghai();
 const errs = [];
 if (!/^\d{4}-\d{2}-\d{2}$/.test(data.date || '')) errs.push('date must be YYYY-MM-DD');
 if (!Array.isArray(data.items) || data.items.length !== 10) errs.push('items must have exactly 10 entries');
 const BAN = /盗版|破解|账号(合租|买卖|出售)|游戏币|点卡|代写|刷量|刷单|代考/;
 (data.items || []).forEach((it, i) => {
   const at = 'items[' + i + ']';
-  ['name', 'type', 'cost', 'fit', 'why', 'risk', 'source_url'].forEach(k => { if (typeof it[k] !== 'string' || !it[k].trim()) errs.push(at + '.' + k + ' required string'); });
+  ['name', 'type', 'cost', 'fit', 'why', 'risk'].forEach(k => { if (typeof it[k] !== 'string' || !it[k].trim()) errs.push(at + '.' + k + ' required string'); });
   if (!Number.isInteger(it.rank) || it.rank < 1 || it.rank > 10) errs.push(at + '.rank must be 1–10');
   if (!Number.isInteger(it.difficulty) || it.difficulty < 1 || it.difficulty > 5) errs.push(at + '.difficulty must be 1–5');
   if (!Array.isArray(it.steps) || !it.steps.length) errs.push(at + '.steps must be a non-empty array');
   if (!Array.isArray(it.tags)) errs.push(at + '.tags must be an array');
-  if (!/^https:\/\//.test(it.source_url || '')) errs.push(at + '.source_url must be https');
+  const hasSources = Array.isArray(it.sources) && it.sources.length > 0;
+  const hasLegacy = typeof it.source_url === 'string' && it.source_url.trim();
+  if (hasSources) {
+    if (!hasLegacy) it.source_url = it.sources[0] && it.sources[0].url;
+  } else if (hasLegacy) {
+    console.warn('WARN ' + at + ' has no sources[]; auto-converted from source_url. Agent: add sources next time.');
+    it.sources = [QS.fromLegacy(it.source_url, today)];
+  } else {
+    errs.push(at + ' has no source (need sources[] with at least 1 http(s) url, or legacy source_url)');
+    return;
+  }
+  (it.sources || []).forEach((s, j) => {
+    const sat = at + '.sources[' + j + ']';
+    if (!s || typeof s !== 'object') { errs.push(sat + ' must be an object'); return; }
+    if (!QS.isHttpUrl(s.url)) errs.push(sat + '.url must be http(s)');
+    if (s.kind == null || s.kind === '') s.kind = QS.kindOf(s.url);
+    if (!KINDS[s.kind]) errs.push(sat + '.kind must be official|media|community');
+    if (s.title == null) s.title = '';
+    if (!s.publisher) s.publisher = QS.hostOf(s.url);
+    if (s.published == null) s.published = '';
+    s.checked = today;
+  });
+  if (it.sources && it.sources[0] && it.sources[0].url) it.source_url = it.sources[0].url;
+  if (typeof it.source_url !== 'string' || !QS.isHttpUrl(it.source_url)) errs.push(at + '.source_url must be http(s)');
   if (BAN.test(JSON.stringify(it))) errs.push(at + ' contains a forbidden category (piracy/account trading/game coins/ghostwriting/fake traffic)');
 });
 const ranks = (data.items || []).map(i => i.rank).sort((a, b) => a - b).join();
@@ -27,11 +56,16 @@ if (errs.length) { console.error('INVALID rank file:\n- ' + errs.join('\n- ')); 
 data.items.sort((a, b) => a.rank - b.rank);
 
 if (args.includes('--check-urls')) {
+  const urls = [];
   for (const it of data.items) {
+    (it.sources || []).forEach(s => { if (s && s.url && urls.indexOf(s.url) < 0) urls.push(s.url); });
+    if (it.source_url && urls.indexOf(it.source_url) < 0) urls.push(it.source_url);
+  }
+  for (const u of urls) {
     let code = '000';
-    try { code = cp.execFileSync('curl', ['-s', '-o', '/dev/null', '-L', '-A', 'Mozilla/5.0', '-w', '%{http_code}', '--max-time', '15', it.source_url]).toString(); } catch (_) {}
-    console.log(code + ' ' + it.source_url);
-    if (code !== '200') { console.error('source_url not 200: ' + it.source_url); process.exit(1); }
+    try { code = cp.execFileSync('curl', ['-s', '-o', '/dev/null', '-L', '-A', 'Mozilla/5.0', '-w', '%{http_code}', '--max-time', '15', u]).toString(); } catch (_) {}
+    console.log(code + ' ' + u);
+    if (code !== '200') { console.error('source url not 200: ' + u); process.exit(1); }
   }
 }
 

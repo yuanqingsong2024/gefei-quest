@@ -26,7 +26,17 @@
       "threshold": "零门槛",
       "time": "今天约10分钟，10月20日晚再花10分钟",
       "risk_level": "低",
-      "reason": "离开卖只剩两天，红包每天可领、官方入口人人可做；今天领、20日晚结算，可行性和时效性都最高。"
+      "reason": "离开卖只剩两天，红包每天可领、官方入口人人可做；今天领、20日晚结算，可行性和时效性都最高。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://finance.sina.com.cn/roll/2026-10-16/doc-inivmtxi8339972.shtml",
+          "publisher": "finance.sina.com.cn",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 2,
@@ -53,7 +63,17 @@
       "threshold": "收货地址在四川",
       "time": "约10分钟",
       "risk_level": "低",
-      "reason": "政府发放、只有今天开抢，时效性最强；但只限四川收货地址，所以排在全国性的双11后面。"
+      "reason": "政府发放、只有今天开抢，时效性最强；但只限四川收货地址，所以排在全国性的双11后面。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://news.qq.com/rain/a/20261015A0ARV400",
+          "publisher": "news.qq.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 3,
@@ -79,7 +99,17 @@
       "threshold": "有对应银行卡即可",
       "time": "首次约15分钟，之后每月几分钟",
       "risk_level": "低",
-      "reason": "把每月必交的费用换成立减金，零额外支出；每月都能重复参与，适合周日花15分钟一次性设置好。"
+      "reason": "把每月必交的费用换成立减金，零额外支出；每月都能重复参与，适合周日花15分钟一次性设置好。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://10000yun.com/2561.html",
+          "publisher": "10000yun.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 4,
@@ -106,7 +136,17 @@
       "threshold": "能用可灵AI剪出1分钟以上的成片",
       "time": "约1–3天",
       "risk_level": "低",
-      "reason": "作品只要1分钟、门槛比同类比赛低，还剩两周；做好的片子还能复用到其他AI视频比赛。"
+      "reason": "作品只要1分钟、门槛比同类比赛低，还剩两周；做好的片子还能复用到其他AI视频比赛。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.aibetas.com/aigc_events/616",
+          "publisher": "aibetas.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 5,
@@ -132,7 +172,17 @@
       "threshold": "人在上海、有云闪付",
       "time": "逛街时顺手，约5分钟",
       "risk_level": "低",
-      "reason": "政府官方活动、无需抢券、每天都能用，周日逛街正好用上；只限上海，所以排在中段。"
+      "reason": "政府官方活动、无需抢券、每天都能用，周日逛街正好用上；只限上海，所以排在中段。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.shhk.gov.cn/xwzx/002014/20261016/9d5e49b8-c746-4b42-8472-ee4f1be8c4ab.html",
+          "publisher": "shhk.gov.cn",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 6,
@@ -158,7 +208,17 @@
       "threshold": "有小红书账号，能做一篇原创内容",
       "time": "每篇约1–3小时",
       "risk_level": "低",
-      "reason": "官方活动、奖项名额多达90个，门槛只是发一篇原创笔记；周末就能做，还能顺便练小红书内容。"
+      "reason": "官方活动、奖项名额多达90个，门槛只是发一篇原创笔记；周末就能做，还能顺便练小红书内容。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.sina.cn/news/detail/5352048246653585.html",
+          "publisher": "sina.cn",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 7,
@@ -184,7 +244,17 @@
       "threshold": "能做出一份自己用过、真的有用的资料",
       "time": "第一件约3–5小时",
       "risk_level": "中",
-      "reason": "零成本、当天能上架，是合规的非实物交易；做一次可以反复卖，适合周末做出第一件。"
+      "reason": "零成本、当天能上架，是合规的非实物交易；做一次可以反复卖，适合周末做出第一件。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.jxxy.net/ai/articles/DongQingAi-2100433090892173789/",
+          "publisher": "jxxy.net",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 8,
@@ -211,7 +281,17 @@
       "threshold": "有一个已上线的网站，会跑命令行",
       "time": "约1–2小时",
       "risk_level": "低",
-      "reason": "直接对应出海小站「上线后没人找得到」的问题，免费、今天就能跑一遍。"
+      "reason": "直接对应出海小站「上线后没人找得到」的问题，免费、今天就能跑一遍。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.nicheloom.com/launches/55084/",
+          "publisher": "nicheloom.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 9,
@@ -238,7 +318,17 @@
       "threshold": "能独立完成10分钟以上的AI叙事短片",
       "time": "约3–4周",
       "risk_level": "低",
-      "reason": "奖金池大、名额多，还有一个多月准备时间；但要做10分钟完整故事，门槛最高，所以排在后面。"
+      "reason": "奖金池大、名额多，还有一个多月准备时间；但要做10分钟完整故事，门槛最高，所以排在后面。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.aibetas.com/aigc_events/608",
+          "publisher": "aibetas.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-18"
+        }
+      ]
     },
     {
       "rank": 10,
@@ -265,7 +355,17 @@
       "threshold": "会VR开发，能加入Meta Start计划",
       "time": "约3–4周，每周10小时以上",
       "risk_level": "低",
-      "reason": "奖金高、专项奖多，可远程参加；但需要先加入Meta Start计划并有VR开发能力，门槛最高。"
+      "reason": "奖金高、专项奖多，可远程参加；但需要先加入Meta Start计划并有VR开发能力，门槛最高。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://start-developer-competition-26.devpost.com/",
+          "publisher": "start-developer-competition-26.devpost.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-18"
+        }
+      ]
     }
   ]
 }

@@ -17,6 +17,53 @@
     if (c === '200') return '<span class="pm-link ok">200 已核实</span>';
     return '<span class="pm-link warn" title="自动检查被网站拦截或返回异常，请在浏览器手动打开">' + esc(c) + ' 自动检查被拦截</span>';
   }
+  function platformSources(p) {
+    var S = global.QuestSources;
+    if (!S || !p.src || !p.src.length) return null;
+    var own = S.ownHostsOf(p.src.map(function (s) { return s[1]; }));
+    var date = links().checked || p.up || '';
+    var sources = p.src.map(function (s) {
+      var o = S.fromLegacy(s[1], date);
+      o.title = s[0] || '';
+      if (S.isOwnHost(s[1], own)) {
+        o.kind = 'official';
+        o.publisher = p.name || o.publisher;
+      } else {
+        o.publisher = o.publisher || S.hostOf(s[1]);
+      }
+      return o;
+    });
+    return { sources: sources, date: date };
+  }
+  function srcBlock(p) {
+    var S = global.QuestSources;
+    var pack = platformSources(p);
+    if (!pack) {
+      return '<ul class="pm-srcs">' + (p.src || []).map(function (s) { return '<li><a href="' + esc(s[1]) + '" target="_blank" rel="noopener noreferrer">' + esc(s[0]) + '</a> ' + linkBadge(s[1]) + '</li>'; }).join('') + '</ul>';
+    }
+    return '<div class="pm-srcs">' + S.render(pack.sources, {
+      date: pack.date,
+      badge: function (src) { return linkBadge(src.url); },
+    }) + '</div>';
+  }
+  function faceSrc(p) {
+    var S = global.QuestSources;
+    var pack = platformSources(p);
+    if (!pack) {
+      if (!p.src || !p.src.length) return '';
+      var s0 = p.src[0];
+      var extra0 = p.src.slice(1).filter(function (s) { return !links().status[s[1]]; }).map(function (s) { return linkBadge(s[1]); }).join('');
+      return '<div class="pm-face-src"><div class="qs-oneline"><a href="' + esc(s0[1]) + '" target="_blank" rel="noopener noreferrer">' + esc(s0[0] || s0[1]) + ' ↗</a> ' + linkBadge(s0[1]) + '</div>' + (extra0 ? '<span class="pm-face-marks">' + extra0 + '</span>' : '') + '</div>';
+    }
+    var extraUnk = pack.sources.slice(1).filter(function (s) { return !links().status[s.url]; });
+    var html = S.render(pack.sources.slice(0, 1), {
+      compact: true,
+      date: pack.date,
+      badge: function (src) { return linkBadge(src.url); },
+    });
+    var marks = extraUnk.map(function (s) { return linkBadge(s.url); }).join('');
+    return '<div class="pm-face-src"><div class="qs-oneline">' + html + '</div>' + (marks ? '<span class="pm-face-marks">' + marks + '</span>' : '') + '</div>';
+  }
   function disclaimer() {
     var L = links();
     return '<div class="pm-note">' + ico('lock') + '<div><b>阅读须知</b>：规则会变，所有数字均标注来源与日期；查不到可靠来源的写「' + esc(D().NA) + '」。本页不承诺任何收益，只列合法渠道；海外平台仅供身处支持地区或有合法海外主体者参考，本站不提供绕过地区限制的方法。共 <b>' + sourceCount() + '</b> 个来源、<b>' + figureCount() + '</b> 条带出处的规则，链接于 ' + esc(L.checked || '—') + ' 自动核实 ' + (L.ok || 0) + '/' + (L.total || 0) + ' 返回 200（其余为网站拦截机器访问，已逐条标注）。</div></div>';
@@ -49,12 +96,13 @@
   }
   function card(p) {
     return '<article class="pm-card card" id="pm-p-' + p.id + '"><header><h3>' + esc(p.name) + '</h3>' + stars(p.level || 3) + '<span class="pm-up">更新 ' + esc(p.up) + '</span></header>' +
+      faceSrc(p) +
       '<dl><dt>变现方式</dt><dd>' + esc(p.ways) + '</dd><dt>门槛</dt><dd>' + esc(p.gate) + '</dd>' +
       '<dt>分成 / 计费规则</dt><dd><ul class="pm-rules">' + p.rules.map(function (r) { return '<li>' + (isNA(r[0]) && !r[1] ? '<span class="pm-na">' + esc(r[0]) + '</span>' : esc(r[0])) + (r[1] ? ' <small class="pm-src">来源：' + esc(r[1]) + (r[2] ? '，' + esc(r[2]) : '') + '</small>' : '') + '</li>'; }).join('') + '</ul></dd>' +
       (p.access ? '<dt>大陆可用性</dt><dd>' + esc(p.access) + '</dd><dt>收款方式</dt><dd>' + esc(p.payout || D().NA) + '</dd>' : '') +
       '<dt>实操方案</dt><dd><ol>' + p.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol></dd>' +
       '<dt>适合谁</dt><dd>' + esc(p.fit) + '</dd><dt>风险 / 违规红线</dt><dd class="pm-risk">' + esc(p.risk) + '</dd>' +
-      '<dt>来源链接</dt><dd><ul class="pm-srcs">' + p.src.map(function (s) { return '<li><a href="' + esc(s[1]) + '" target="_blank" rel="noopener nofollow">' + esc(s[0]) + '</a> ' + linkBadge(s[1]) + '</li>'; }).join('') + '</ul></dd></dl></article>';
+      '<dt>来源链接</dt><dd>' + srcBlock(p) + '</dd></dl></article>';
   }
   function render(el, param) {
     var d = D(); if (!d) { el.innerHTML = '<p>数据未加载</p>'; return; }

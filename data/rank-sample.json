@@ -1,15 +1,323 @@
 {
   "date": "2026-10-16",
   "items": [
-    {"rank":1,"name":"英文工具小站 + Google AdSense","type":"建站广告","cost":"域名约 $10/年，托管免费","difficulty":3,"fit":"愿意每周投入 5 小时、能耐心等 3–6 个月的人","why":"和本站路线完全一致：一个低竞争需求词做一页工具/指南，有自然流量后申请 AdSense。","steps":["选词练习板挑一个 ≥65 分的词","用站一实操助手生成页面并上线","接 GSC，补 About/Privacy 与 5–10 篇原创内容","有稳定流量后申请 AdSense"],"risk":"审核会拒空站与抄袭内容；收入取决于流量，前几个月可能是 0。","source_url":"https://adsense.google.com/start/","tags":["SEO","被动收入","长期"]},
-    {"rank":2,"name":"亚马逊联盟（Amazon Associates）测评页","type":"联盟推广","cost":"0（复用已有小站）","difficulty":3,"fit":"已有一个有流量的英文站，能写真实对比/选购指南","why":"在选购指南里放联盟链接，成交拿佣金，比广告单次收入高。","steps":["在已有站点加一篇「best X for Y」对比页","注册 Associates 并按要求披露联盟关系","180 天内需要产生合格销售，否则账户关闭"],"risk":"必须明确披露；180 天无成交会被关闭；佣金比例按品类变化。","source_url":"https://affiliate-program.amazon.com/","tags":["SEO","佣金"]},
-    {"rank":3,"name":"Gumroad 卖数字产品（模板/清单/小教程）","type":"数字产品","cost":"0，平台按成交抽成","difficulty":2,"fit":"有一项可整理成文件的经验，如表格模板、提示词合集、教程 PDF","why":"做一次可以反复卖，不碰实物物流；可和小站、社媒导流结合。","steps":["挑一个你自己用过的模板或流程","做成 PDF/表格并写清使用说明","上架 Gumroad，定 $3–$9 的入门价","在小站或社媒放链接"],"risk":"只能卖原创或已获授权的内容；平台费率以官网为准。","source_url":"https://gumroad.com/features","tags":["数字产品","一次制作"]},
-    {"rank":4,"name":"Notion 模板上架模板市场","type":"数字产品","cost":"0","difficulty":2,"fit":"熟练使用 Notion，能做出清晰好用的工作区","why":"Notion 官方模板库支持创作者上架免费或付费模板，有站内曝光。","steps":["做一个解决具体问题的模板（如习惯追踪、内容日历）","按官方创作者指南准备封面与说明","提交到 Notion 模板库，付费版可配合 Gumroad 等收款"],"risk":"审核与收款方式以官方说明为准；同类模板多，需差异化。","source_url":"https://www.notion.com/templates/creators","tags":["模板","数字产品"]},
-    {"rank":5,"name":"Canva Creators 投稿模板与素材","type":"素材投稿","cost":"0","difficulty":2,"fit":"会做设计，愿意持续产出海报/社媒模板","why":"作品被 Canva Pro 用户使用即可获得分成，适合设计练手。","steps":["阅读 Canva Creators 申请要求","准备作品集并申请","通过后按主题批量上传模板"],"risk":"需要通过申请审核；收入与使用量挂钩，不固定。","source_url":"https://www.canva.com/creators/","tags":["设计","分成"]},
-    {"rank":6,"name":"Shutterstock 图片/视频投稿","type":"素材投稿","cost":"0（需相机或手机）","difficulty":2,"fit":"喜欢拍照、拍视频，能按要求做关键词","why":"一张图可被多次授权下载，长期累积；可和 Adobe Stock 同时投。","steps":["注册投稿账号并完成身份验证","上传原创、清晰、无商标的照片","写准确的英文标题与关键词"],"risk":"含人物需模特授权；单张收益低，需要量；规则以官网为准。","source_url":"https://submit.shutterstock.com/","tags":["摄影","长期"]},
-    {"rank":7,"name":"Adobe Stock 投稿（含插画、矢量）","type":"素材投稿","cost":"0","difficulty":2,"fit":"会做插画/矢量/图标，或已有图片库存","why":"与 Shutterstock 互补，接受矢量与插画，对设计类作品友好。","steps":["用 Adobe 账号登录投稿平台","上传作品并填写标题、关键词","按审核反馈改进"],"risk":"AI 生成内容有专门标注要求；审核标准以官方为准。","source_url":"https://contributor.stock.adobe.com/","tags":["设计","摄影"]},
-    {"rank":8,"name":"Redbubble 按需印刷（只出设计稿）","type":"按需印刷","cost":"0","difficulty":2,"fit":"会画画或做文字设计，不想处理库存与发货","why":"你只上传图案，平台负责印刷和发货，卖出拿加价部分。","steps":["做 5–10 个同一主题的原创图案","上架到 T 恤、贴纸等商品并设置加价","用英文标签描述受众与场景"],"risk":"严禁侵权（影视、品牌、人物形象）；同质化严重，需细分主题。","source_url":"https://www.redbubble.com/about/selling","tags":["设计","无库存"]},
-    {"rank":9,"name":"Prolific 参与学术研究问卷","type":"任务赚钱","cost":"0","difficulty":1,"fit":"零基础、碎片时间、英文阅读无障碍","why":"由研究机构发布、明确标注报酬与时长，是较正规的问卷类渠道。","steps":["注册并完善个人资料（影响能收到的研究）","完成资格筛选问卷","认真作答，避免被拒"],"risk":"可参与地区有限制，以官网为准；研究数量不稳定，只适合补贴零花。","source_url":"https://www.prolific.com/participants","tags":["零门槛","碎片时间"]},
-    {"rank":10,"name":"UserTesting 网站/App 可用性测试","type":"任务赚钱","cost":"0（需麦克风）","difficulty":1,"fit":"能用英文边操作边说出想法","why":"为产品团队录屏测试网站或 App，每单有明确报酬，还能学到产品与 UX 视角。","steps":["注册测试员并完成练习测试","保持资料更新以匹配更多测试","按任务要求清楚口述思路"],"risk":"测试名额竞争激烈，不保证每天有单；可参与地区以官网为准。","source_url":"https://www.usertesting.com/get-paid-to-test","tags":["零门槛","英文"]}
+    {
+      "rank": 1,
+      "name": "【示例】英文工具小站 + Google AdSense",
+      "type": "出海小站",
+      "cost": "域名约 $10/年，托管免费",
+      "difficulty": 3,
+      "fit": "愿意每周投入 5 小时、能耐心等 3–6 个月的人",
+      "why": "和本站路线完全一致：一个低竞争需求词做一页工具/指南，有自然流量后申请 AdSense。本条是 rank-sample.json 的格式示例，含两条来源（官方 + 媒体）。",
+      "steps": [
+        "选词练习板挑一个 ≥65 分的词",
+        "用站一实操助手生成页面并上线",
+        "接 GSC，补 About/Privacy 与 5–10 篇原创内容",
+        "有稳定流量后申请 AdSense"
+      ],
+      "risk": "审核会拒空站与抄袭内容；收入取决于流量，前几个月可能是 0。",
+      "source_url": "https://adsense.google.com/start/",
+      "tags": [
+        "SEO",
+        "被动收入",
+        "长期",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "AdSense 官方入门页（照页面标题原样填写）",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        },
+        {
+          "title": "【示例】媒体报道标题（照原文标题填写，不确定就留空）",
+          "url": "https://example.com/news/adsense-guide",
+          "publisher": "示例媒体（不确定就填域名）",
+          "published": "2026-10-15",
+          "kind": "media",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "【示例】亚马逊联盟（Amazon Associates）测评页",
+      "type": "联盟营销",
+      "cost": "0（复用已有小站）",
+      "difficulty": 3,
+      "fit": "已有一个有流量的英文站，能写真实对比/选购指南",
+      "why": "在选购指南里放联盟链接，成交拿佣金，比广告单次收入高。",
+      "steps": [
+        "在已有站点加一篇「best X for Y」对比页",
+        "注册 Associates 并按要求披露联盟关系",
+        "180 天内需要产生合格销售，否则账户关闭"
+      ],
+      "risk": "必须明确披露；180 天无成交会被关闭；佣金比例按品类变化。",
+      "source_url": "https://affiliate-program.amazon.com/",
+      "tags": [
+        "SEO",
+        "佣金",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://affiliate-program.amazon.com/",
+          "publisher": "affiliate-program.amazon.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "【示例】Gumroad 卖数字产品（模板/清单/小教程）",
+      "type": "数字产品/接单",
+      "cost": "0，平台按成交抽成",
+      "difficulty": 2,
+      "fit": "有一项可整理成文件的经验，如表格模板、提示词合集、教程 PDF",
+      "why": "做一次可以反复卖，不碰实物物流；可和小站、社媒导流结合。",
+      "steps": [
+        "挑一个你自己用过的模板或流程",
+        "做成 PDF/表格并写清使用说明",
+        "上架 Gumroad，定 $3–$9 的入门价",
+        "在小站或社媒放链接"
+      ],
+      "risk": "只能卖原创或已获授权的内容；平台费率以官网为准。",
+      "source_url": "https://gumroad.com/features",
+      "tags": [
+        "数字产品",
+        "一次制作",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://gumroad.com/features",
+          "publisher": "gumroad.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "【示例】Notion 模板上架模板市场",
+      "type": "数字产品/接单",
+      "cost": "0",
+      "difficulty": 2,
+      "fit": "熟练使用 Notion，能做出清晰好用的工作区",
+      "why": "Notion 官方模板库支持创作者上架免费或付费模板，有站内曝光。",
+      "steps": [
+        "做一个解决具体问题的模板（如习惯追踪、内容日历）",
+        "按官方创作者指南准备封面与说明",
+        "提交到 Notion 模板库，付费版可配合 Gumroad 等收款"
+      ],
+      "risk": "审核与收款方式以官方说明为准；同类模板多，需差异化。",
+      "source_url": "https://www.notion.com/templates/creators",
+      "tags": [
+        "模板",
+        "数字产品",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.notion.com/templates/creators",
+          "publisher": "notion.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "【示例】Canva Creators 投稿模板与素材",
+      "type": "平台激励",
+      "cost": "0",
+      "difficulty": 2,
+      "fit": "会做设计，愿意持续产出海报/社媒模板",
+      "why": "作品被 Canva Pro 用户使用即可获得分成，适合设计练手。",
+      "steps": [
+        "阅读 Canva Creators 申请要求",
+        "准备作品集并申请",
+        "通过后按主题批量上传模板"
+      ],
+      "risk": "需要通过申请审核；收入与使用量挂钩，不固定。",
+      "source_url": "https://www.canva.com/creators/",
+      "tags": [
+        "设计",
+        "分成",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.canva.com/creators/",
+          "publisher": "canva.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "【示例】Shutterstock 图片/视频投稿",
+      "type": "数字产品/接单",
+      "cost": "0（需相机或手机）",
+      "difficulty": 2,
+      "fit": "喜欢拍照、拍视频，能按要求做关键词",
+      "why": "一张图可被多次授权下载，长期累积；可和 Adobe Stock 同时投。",
+      "steps": [
+        "注册投稿账号并完成身份验证",
+        "上传原创、清晰、无商标的照片",
+        "写准确的英文标题与关键词"
+      ],
+      "risk": "含人物需模特授权；单张收益低，需要量；规则以官网为准。",
+      "source_url": "https://submit.shutterstock.com/",
+      "tags": [
+        "摄影",
+        "长期",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://submit.shutterstock.com/",
+          "publisher": "submit.shutterstock.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "【示例】Product Hunt 上的开发者羊毛（免费额度/开源工具）",
+      "type": "开发者羊毛",
+      "cost": "0",
+      "difficulty": 2,
+      "fit": "会跑命令行、已经有一个英文小站的人",
+      "why": "示例类型「开发者羊毛」：公开免费工具和额度，用来降低做站成本。",
+      "steps": [
+        "打开产品页读清免费档限制",
+        "只用于自己的站点",
+        "两周后看是否还需要"
+      ],
+      "risk": "免费档随时会改；不承诺带来收入。",
+      "source_url": "https://www.producthunt.com/",
+      "tags": [
+        "开发者",
+        "免费",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.producthunt.com/",
+          "publisher": "producthunt.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "【示例】公开黑客松 / 奖金赛报名",
+      "type": "奖金赛/悬赏",
+      "cost": "0",
+      "difficulty": 4,
+      "fit": "会做原型、能在截止前交作品的人",
+      "why": "示例类型「奖金赛/悬赏」：只收录官方报名页，不保证获奖。",
+      "steps": [
+        "读完整规则和地区限制",
+        "做最小可运行原型",
+        "按要求提交演示"
+      ],
+      "risk": "竞争激烈，不保证获奖；以官方规则为准。",
+      "source_url": "https://devpost.com/",
+      "tags": [
+        "黑客松",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://devpost.com/",
+          "publisher": "devpost.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "【示例】出海新词选词练习（不承诺流量）",
+      "type": "出海新词",
+      "cost": "0",
+      "difficulty": 2,
+      "fit": "正在用选词练习板挑英文词的人",
+      "why": "示例类型「出海新词」：说明格式，不为新类型造假渠道。",
+      "steps": [
+        "在选词练习板记下 3 个候选词",
+        "看前 10 结果里的大站数量",
+        "只做适合练手的词"
+      ],
+      "risk": "新词也可能没有需求；不承诺排名和收入。",
+      "source_url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "tags": [
+        "选词",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+          "publisher": "developers.google.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "【示例】公开案例拆解（只整理方法，不承诺复制收入）",
+      "type": "案例拆解",
+      "cost": "0",
+      "difficulty": 1,
+      "fit": "想看别人怎么做小站、但不会照抄内容的人",
+      "why": "示例类型「案例拆解」：只引用公开文章，收入数字不是你的收入。",
+      "steps": [
+        "读原文，记下可复用步骤",
+        "只学方法，不搬运内容",
+        "回到自己的词和站点上执行"
+      ],
+      "risk": "个案收入不可复制；以原文和官网为准。",
+      "source_url": "https://developers.google.com/search/docs",
+      "tags": [
+        "案例",
+        "示例"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://developers.google.com/search/docs",
+          "publisher": "developers.google.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-16"
+        }
+      ]
+    }
   ]
 }

@@ -13,7 +13,9 @@
       if (/^(\.\.\/)?starters\//.test(raw)) raw = raw.replace(/^\.\.\//, '');
       var fixed = N().fixHref(raw);
       var ext = /^https?:/i.test(fixed) || /^starters\//.test(fixed);
-      return '<a href="' + esc(fixed) + '"' + (ext ? ' target="_blank" rel="noopener noreferrer"' : '') + '>' + txt + '</a>';
+      var a = '<a href="' + esc(fixed) + '"' + (ext ? ' target="_blank" rel="noopener noreferrer"' : '') + '>' + txt + '</a>';
+      if (/^https?:/i.test(fixed) && global.QuestSources) a += ' ' + QuestSources.kindBadge(QuestSources.kindOf(fixed));
+      return a;
     });
     t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>').replace(/(^|[^*])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
     t = t.replace(/\u0000(\d+)\u0000/g, function (_, i) { return '<code>' + esc(codes[+i]) + '</code>'; });

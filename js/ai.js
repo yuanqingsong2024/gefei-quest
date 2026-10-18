@@ -230,7 +230,8 @@
     } else if (b.hasAttribute('data-ai-rank')) {
       var R = global.QuestRank ? global.QuestRank.latestItems() : [], it = R.filter(function (x) { return x.rank === +b.getAttribute('data-ai-rank'); })[0];
       if (!it) return; host = b.closest('.rank-card'); title = 'AI 点评：' + it.name;
-      prompt = '这是今天「每日赚钱榜」上的一个方案，请客观点评并拆成今天能做的步骤。\n名称：' + it.name + '\n类型：' + it.type + '\n成本：' + it.cost + '\n难度：' + it.difficulty + '/5\n适合：' + it.fit + '\n理由：' + it.why + '\n已知步骤：' + (it.steps || []).join('；') + '\n风险：' + it.risk + '\n官方来源：' + it.source_url + '\n请输出：\n## 一句话点评（适合谁、不适合谁）\n## 主要风险与合规注意\n## 今天 30–60 分钟的步骤（编号）\n## 一周后怎么判断要不要继续\n不要承诺收益。';
+      var srcLine = (it.sources || []).map(function (s) { return (s.kind || '') + ' ' + (s.publisher || '') + ' ' + (s.url || ''); }).filter(Boolean).join('；') || it.source_url || '';
+      prompt = '这是今天「每日赚钱榜」上的一个方案，请客观点评并拆成今天能做的步骤。\n名称：' + it.name + '\n类型：' + it.type + '\n成本：' + it.cost + '\n难度：' + it.difficulty + '/5\n适合：' + it.fit + '\n理由：' + it.why + '\n已知步骤：' + (it.steps || []).join('；') + '\n风险：' + it.risk + '\n来源：' + srcLine + '\n请输出：\n## 一句话点评（适合谁、不适合谁）\n## 主要风险与合规注意\n## 今天 30–60 分钟的步骤（编号）\n## 一周后怎么判断要不要继续\n不要承诺收益。';
     } else {
       var kit = s.kit || {}; host = b.closest('.ai-kit'); title = 'AI 生成 title/描述';
       if (!(kit.keyword || '').trim()) { host.insertAdjacentHTML('beforeend', '<div class="ai-out"><p class="ai-error">先在上面填写「主词 / 品牌名」，再让 AI 生成。</p></div>'); return; }
@@ -278,7 +279,7 @@
       '<label class="ai-mode glass' + (c.mode === 'custom' ? ' on' : '') + '"><input type="radio" name="ai-mode" value="custom"' + (c.mode === 'custom' ? ' checked' : '') + ' /><span class="card-ico card-ico-lg">' + I('gear') + '</span><span><b>自定义 · 我的服务商</b><small>OpenAI 兼容 / Anthropic / Ollama 本地，数量不限</small></span></label></div></section>';
     if (c.mode !== 'custom') {
       html += '<section class="block glass tool-card" id="ai-grok"><h2 class="block-title">' + I('lighthouse') + 'Grok Bot 模式在做什么</h2>' +
-        '<div class="ai-agents"><div class="ai-agent"><span class="card-ico">' + I('trophy') + '</span><div><b>赚钱榜雷达</b><p>每天在后台搜集公开、合法的赚钱与薅羊毛渠道，核对官方来源后发布到 <a href="#war-rank">每日赚钱榜</a>，并更新 daily.json。</p></div></div>' +
+        '<div class="ai-agents"><div class="ai-agent"><span class="card-ico">' + I('trophy') + '</span><div><b>赚钱榜雷达</b><p>每天在后台搜集公开、合法的赚钱与薅羊毛渠道，核对该条来源后发布到 <a href="#war-rank">每日赚钱榜</a>，并更新 daily.json。</p></div></div>' +
         '<div class="ai-agent"><span class="card-ico">' + I('kit') + '</span><div><b>赚钱项目实施官</b><p>帮你把选中的方案落地：拆步骤、写页面文案、分析选词、复盘数据。需要时直接在 Grok Bot 聊天里找它。</p></div></div></div>' +
         '<p class="hint">两个 agent 都在后台工作，这里<b>没有需要配置的内容</b>。网页上的 AI 按钮会提示你去聊天里提问。' + (c.providers.length ? '你保存的 ' + c.providers.length + ' 个自定义服务商仍保留，切回自定义即可使用。' : '') + '</p></section>';
     } else {

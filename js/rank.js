@@ -4,9 +4,28 @@
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  var TYPES = ['羊毛', '副业', '闲鱼非实物', '出海小站', '工具活动', '出海新词', '开发者羊毛', '奖金赛/悬赏', '平台激励', '联盟营销', '案例拆解', '数字产品/接单'];
   var view = { date: null, type: 'all', fav: false };
   var cache = {};
   function R() { return global.QUEST_RANK || { latest: null, dates: [], days: {} }; }
+  function QS() { return global.QuestSources; }
+  function srcHtml(item, compact, date) {
+    var S = QS(); if (!S) return '';
+    return S.render(S.of(item, date), { compact: !!compact, date: date });
+  }
+  function typeClass(t) {
+    return 'rank-type-' + String(t || '').replace(/[^\w\u4e00-\u9fa5]+/g, '-');
+  }
+  function typesIn(day) {
+    var present = {}, i, t, out = [];
+    (day.items || []).forEach(function (it) { if (it && it.type) present[it.type] = (present[it.type] || 0) + 1; });
+    for (i = 0; i < TYPES.length; i++) {
+      t = TYPES[i];
+      if (present[t]) { out.push(t); delete present[t]; }
+    }
+    Object.keys(present).forEach(function (k) { out.push(k); });
+    return out;
+  }
   function ensure(state) {
     if (!Array.isArray(state.rankFav)) state.rankFav = [];
     if (!Array.isArray(state.rankPlan)) state.rankPlan = [];
@@ -29,7 +48,8 @@
       (P.length ? '<ul class="plan-list">' + P.map(function (p, i) {
         return '<li class="plan-item' + (p.done ? ' done' : '') + '" data-plan="' + esc(p.name) + '"><label><input type="checkbox" data-plan-done="' + i + '"' + (p.done ? ' checked' : '') + ' /> <b>' + esc(p.name) + '</b></label>' +
           '<small>' + esc(p.type) + ' · 加入于 ' + esc(p.date) + (p.steps && p.steps[0] ? ' · 第一步：' + esc(p.steps[0]) : '') + '</small>' +
-          '<span class="plan-acts">' + (p.source_url ? '<a class="btn btn-sm" href="' + esc(p.source_url) + '" target="_blank" rel="noopener noreferrer">官网 ↗</a>' : '') + '<button type="button" class="btn btn-sm btn-ghost" data-plan-del="' + i + '" aria-label="移出计划">移出</button></span></li>';
+          srcHtml(p, true, p.date) +
+          '<span class="plan-acts"><button type="button" class="btn btn-sm btn-ghost" data-plan-del="' + i + '" aria-label="移出计划">移出</button></span></li>';
       }).join('') + '</ul>' : '<div class="tool-empty"><p>还没有计划。下一步：到每日赚钱榜挑 1 条，点「加入实操计划」，先试一周。</p><a class="btn btn-primary btn-sm" href="#war-rank">去每日赚钱榜</a></div>') +
       '</section>';
   }
@@ -38,17 +58,21 @@
     root.querySelectorAll('[data-plan-del]').forEach(function (b) { b.addEventListener('click', function () { state.rankPlan.splice(+b.getAttribute('data-plan-del'), 1); ctx.save(); ctx.rerender(); }); });
   }
 
-  function card(it, state) {
+  function card(it, state, date) {
     var fav = state.rankFav.indexOf(it.name) >= 0, planned = state.rankPlan.some(function (p) { return p.name === it.name; });
+    var S = QS();
+    var face = S ? '<div class="rank-face-src qs-oneline">' + S.render(it.sources, { compact: true }) + '</div>' : '';
     return '<article class="rank-card glass" data-rank="' + it.rank + '" data-type="' + esc(it.type) + '">' +
       '<div class="rank-head"><span class="rank-no rank-no-' + Math.min(it.rank, 4) + '">' + it.rank + '</span><div class="rank-title"><h3>' + esc(it.name) + '</h3>' +
-      '<p><span class="pill">' + esc(it.type) + '</span> ' + stars(it.difficulty) + ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span></p></div>' +
+      '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + stars(it.difficulty) + ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span></p>' +
+      face + '</div>' +
       '<button type="button" class="rank-fav' + (fav ? ' on' : '') + '" data-fav="' + esc(it.name) + '" aria-pressed="' + fav + '" aria-label="' + (fav ? '取消收藏' : '收藏') + '">' + I('star') + '</button></div>' +
       '<p class="rank-why">' + esc(it.why) + '</p>' +
       '<dl class="rank-meta"><dt>适合谁</dt><dd>' + esc(it.fit) + '</dd><dt>风险</dt><dd class="rank-risk">' + esc(it.risk) + '</dd></dl>' +
       '<details class="rank-steps"><summary>怎么开始（' + it.steps.length + ' 步）</summary><ol>' + it.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol></details>' +
-      '<div class="rank-foot"><span class="rank-tags">' + (it.tags || []).map(function (t) { return '<span class="tag">#' + esc(t) + '</span>'; }).join('') + '</span>' +
-      '<span class="tool-actions"><a class="btn btn-sm" href="' + esc(it.source_url) + '" target="_blank" rel="noopener noreferrer">' + I('external') + '官方来源</a>' +
+      '<div class="rank-foot">' + srcHtml(it, false, date) +
+      '<span class="rank-tags">' + (it.tags || []).map(function (t) { return '<span class="tag">#' + esc(t) + '</span>'; }).join('') + '</span>' +
+      '<span class="tool-actions">' +
       '<button type="button" class="btn btn-sm ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-plan-add="' + it.rank + '"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在计划中' : '加入实操计划') + '</button></span></div></article>';
   }
 
@@ -60,15 +84,15 @@
     root.innerHTML = '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
     getDay(date, function (day) {
       if (!day) { root.innerHTML = DISCLAIMER + '<div class="empty-illo">' + global.QuestIcons.illo('search') + '<p><b>这一天的榜单读取失败</b><br>换个日期试试。</p></div>'; return; }
-      var types = []; day.items.forEach(function (i) { if (types.indexOf(i.type) < 0) types.push(i.type); });
+      var types = typesIn(day);
       var list = day.items.filter(function (i) { return (view.type === 'all' || i.type === view.type) && (!view.fav || state.rankFav.indexOf(i.name) >= 0); });
       root.innerHTML = DISCLAIMER +
         '<section class="rank-bar"><div class="rank-date"><label class="fld"><span>' + I('calendar') + '榜单日期</span><select id="rank-date">' + r.dates.map(function (d) { return '<option value="' + d + '"' + (d === date ? ' selected' : '') + '>' + d + (d === r.latest ? '（最新）' : '') + '</option>'; }).join('') + '</select></label></div>' +
         '<div class="chip-row rank-types" role="group" aria-label="按类型筛选"><button type="button" class="chip' + (view.type === 'all' ? ' active' : '') + '" data-rtype="all">全部 ' + day.items.length + '</button>' +
-        types.map(function (t) { var n = day.items.filter(function (i) { return i.type === t; }).length; return '<button type="button" class="chip' + (view.type === t ? ' active' : '') + '" data-rtype="' + esc(t) + '">' + esc(t) + ' ' + n + '</button>'; }).join('') +
+        types.map(function (t) { var n = day.items.filter(function (i) { return i.type === t; }).length; return '<button type="button" class="chip ' + typeClass(t) + (view.type === t ? ' active' : '') + '" data-rtype="' + esc(t) + '">' + esc(t) + ' ' + n + '</button>'; }).join('') +
         '<button type="button" class="chip chip-fav' + (view.fav ? ' active' : '') + '" id="rank-only-fav" aria-pressed="' + view.fav + '">' + I('star') + '只看收藏 ' + state.rankFav.length + '</button></div></section>' +
         '<p class="hint" id="rank-count">' + esc(day.date) + ' · 显示 ' + list.length + ' / ' + day.items.length + ' 条 · 每天更新一次</p>' +
-        (list.length ? '<div class="rank-grid">' + list.map(function (i) { return card(i, state); }).join('') + '</div>'
+        (list.length ? '<div class="rank-grid">' + list.map(function (i) { return card(i, state, day.date); }).join('') + '</div>'
           : '<div class="empty-illo">' + global.QuestIcons.illo('star') + '<p><b>' + (view.fav ? '还没有收藏' : '这个类型今天没有上榜') + '</b><br>' + (view.fav ? '点卡片右上角的星标收藏感兴趣的方案。' : '切回「全部」看看。') + '</p></div>') +
         planHtml(state);
       root.querySelector('#rank-date').addEventListener('change', function (e) { view.date = e.target.value; renderRank(state, root, ctx); });
@@ -81,7 +105,7 @@
       }); });
       root.querySelectorAll('[data-plan-add]').forEach(function (b) { b.addEventListener('click', function () {
         var it = day.items.filter(function (i) { return i.rank === +b.getAttribute('data-plan-add'); })[0]; if (!it) return;
-        if (!state.rankPlan.some(function (p) { return p.name === it.name; })) state.rankPlan.push({ name: it.name, type: it.type, date: global.QuestStats ? global.QuestStats.ymd(new Date()) : day.date, steps: it.steps.slice(), source_url: it.source_url, done: false });
+        if (!state.rankPlan.some(function (p) { return p.name === it.name; })) state.rankPlan.push({ name: it.name, type: it.type, date: global.QuestStats ? global.QuestStats.ymd(new Date()) : day.date, steps: it.steps.slice(), source_url: it.source_url, sources: (it.sources && it.sources.slice()) || undefined, done: false });
         ctx.save(); if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name); renderRank(state, root, ctx);
       }); });
       bindPlan(state, root, { save: ctx.save, rerender: function () { renderRank(state, root, ctx); } });
@@ -89,5 +113,5 @@
     });
   }
   function latestItems() { var r = R(); return r.latest && r.days[r.latest] ? r.days[r.latest].items : []; }
-  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER };
+  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER, TYPES: TYPES };
 })(typeof window !== 'undefined' ? window : globalThis);

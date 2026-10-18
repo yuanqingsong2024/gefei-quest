@@ -25,7 +25,17 @@
       "threshold": "零门槛",
       "time": "今天约10分钟，10月20日晚再花10分钟结算",
       "risk_level": "低",
-      "reason": "大促最关键的节点就在三天后，官方入口、人人可做，时效性和可行性都最高。"
+      "reason": "大促最关键的节点就在三天后，官方入口、人人可做，时效性和可行性都最高。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://finance.sina.com.cn/roll/2026-10-08/doc-iniuphnz4345209.shtml",
+          "publisher": "finance.sina.com.cn",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 2,
@@ -51,7 +61,17 @@
       "threshold": "有对应银行卡即可",
       "time": "首次约15分钟，之后每月几分钟",
       "risk_level": "低",
-      "reason": "把每月必花的话费、网购换成立减，零额外支出；信息是今天更新的，月底前还能用。"
+      "reason": "把每月必花的话费、网购换成立减，零额外支出；信息是今天更新的，月底前还能用。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://v.jiujiuxb.com/item/873421.html",
+          "publisher": "v.jiujiuxb.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 3,
@@ -77,7 +97,17 @@
       "threshold": "移动用户",
       "time": "每天约3分钟",
       "risk_level": "低",
-      "reason": "今天正好是周六，游戏中心有加码；入口官方、操作简单，适合当天就做。"
+      "reason": "今天正好是周六，游戏中心有加码；入口官方、操作简单，适合当天就做。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.91hym.cn/life/804.html",
+          "publisher": "91hym.cn",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 4,
@@ -103,7 +133,17 @@
       "threshold": "会用AI视频工具剪出2分钟以上的连续剧情",
       "time": "每集约4–8小时，至少做2集",
       "risk_level": "低",
-      "reason": "大平台官方活动、截止前还有两周，作品还能复用到下面几个AI视频比赛。"
+      "reason": "大平台官方活动、截止前还有两周，作品还能复用到下面几个AI视频比赛。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://caifuhao.eastmoney.com/news/20261010160319181314700",
+          "publisher": "caifuhao.eastmoney.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 5,
@@ -129,7 +169,17 @@
       "threshold": "能独立完成一条2–5分钟的AI短片",
       "time": "约2–4天",
       "risk_level": "低",
-      "reason": "大厂主办、奖项覆盖前50名，获奖面比一般比赛宽；截止还有两周。"
+      "reason": "大厂主办、奖项覆盖前50名，获奖面比一般比赛宽；截止还有两周。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.aibetas.com/aigc_events/tencent-ssv-ai-for-good-video-competition-2026",
+          "publisher": "aibetas.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 6,
@@ -155,7 +205,17 @@
       "threshold": "会写短剧剧本并用即梦生成视频",
       "time": "周期长，每周约5–10小时",
       "risk_level": "低",
-      "reason": "刚开赛、周期长、有积分支持，适合把上面两个比赛的作品继续打磨。"
+      "reason": "刚开赛、周期长、有积分支持，适合把上面两个比赛的作品继续打磨。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.sina.cn/news/detail/5354377275771948.html",
+          "publisher": "sina.cn",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 7,
@@ -180,7 +240,17 @@
       "threshold": "至少有3个可展示的作品案例",
       "time": "上架约1小时，每单1–3小时",
       "risk_level": "中",
-      "reason": "零成本、当天可上架，属于合规的非实物交易；风险主要在纠纷，写清规则就能控制。"
+      "reason": "零成本、当天可上架，属于合规的非实物交易；风险主要在纠纷，写清规则就能控制。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.runmie.com/31356.html",
+          "publisher": "runmie.com",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 8,
@@ -206,7 +276,17 @@
       "threshold": "已有一个上线的英文小站或工具",
       "time": "约2–3小时分批提交",
       "risk_level": "低",
-      "reason": "直接补上出海小站「上线后没人知道」这一步，免费、马上能用。"
+      "reason": "直接补上出海小站「上线后没人知道」这一步，免费、马上能用。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.hunted.space/product/saaslaunch",
+          "publisher": "hunted.space",
+          "published": "",
+          "kind": "media",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 9,
@@ -232,7 +312,17 @@
       "threshold": "会写代码，能录3分钟英文演示视频",
       "time": "约3–5天",
       "risk_level": "低",
-      "reason": "奖金高、可远程参加，Alexa+模拟体验路线门槛相对低；只剩6天，所以排在后面。"
+      "reason": "奖金高、可远程参加，Alexa+模拟体验路线门槛相对低；只剩6天，所以排在后面。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://amazonappdev2026.devpost.com/",
+          "publisher": "amazonappdev2026.devpost.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-17"
+        }
+      ]
     },
     {
       "rank": 10,
@@ -258,7 +348,17 @@
       "threshold": "会调用大模型API做一个能跑的小应用",
       "time": "约3–5天",
       "risk_level": "低",
-      "reason": "比Amazon那场多两周准备时间，还有门槛更低的反馈奖；但仍需要编程能力。"
+      "reason": "比Amazon那场多两周准备时间，还有门槛更低的反馈奖；但仍需要编程能力。",
+      "sources": [
+        {
+          "title": "",
+          "url": "https://nebiusglobalaihackathon.devpost.com/",
+          "publisher": "nebiusglobalaihackathon.devpost.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-17"
+        }
+      ]
     }
   ]
 }
