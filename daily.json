@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-18T01:48:36.725Z",
-  "latestId": 35,
+  "generatedAt": "2026-10-18T03:52:57.644Z",
+  "latestId": 36,
   "latestDate": "2026-10-18",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 36,
+      "date": "2026-10-18",
+      "tag": "新功能",
+      "title": "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选",
+      "items": [
+        "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 35,
       "date": "2026-10-18",
@@ -113,19 +123,6 @@
         "悬停仍能看到完整成本。屏幕宽度不超过 600px 时，名称下面多一行完整成本，最多两行"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-rank"
-    },
-    {
-      "id": 26,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "首页更好懂：先说清楚网站是干什么的 + 每页提示",
-      "items": [
-        "首页改成白话说明：这个站是跟着哥飞的方法做英文出海小站，并整理靠谱的赚钱和副业渠道；写给想做副业的新手；你能拿到学习路线、做站工具和每日赚钱榜",
-        "有进度时显示一行「继续上次」。三步「学 / 做 / 赚」分别进入新手引导对应标签。不再在首页放功能卡和今日任务",
-        "工具页顶部多一行提示：这个页面是干什么的，以及第一步做什么。可以关掉，关掉后记在这台浏览器里",
-        "空页面写明下一步，并给出按钮。不承诺收益，不写假数字"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

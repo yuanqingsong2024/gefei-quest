@@ -1109,3 +1109,6 @@
 - [x] T199 统一来源组件 QuestSources，接入各处
 - [x] T200 榜单新类型 + 类型筛选
 - [x] T201 测试、截图、发布（changelog 34，sw v12）
+
+## Phase 25 · 羊毛 → 闲鱼原创方案（resell 字段）
+- [x] T202 rank 条目可选 `resell: { product, buyers, expires }`：校验、示例、卡片「闲鱼方案」块 + 筛选、测试（changelog 36，sw v13）

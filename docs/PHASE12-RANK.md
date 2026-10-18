@@ -9,7 +9,8 @@
 - 醒目免责声明：仅为公开渠道整理，不保证收益；规则、地区与费率以官网为准。
 
 ## 数据
-- `data/rank.json`：{ date, items[10] }，item = {rank,name,type,cost,difficulty,fit,why,steps[],risk,source_url,tags[],sources:[{title,url,publisher,published,kind,checked}]}。`source_url` = 第一条来源的 url。详见 `docs/PHASE24-SOURCES.md`。
+- `data/rank.json`：{ date, items[10] }，item = {rank,name,type,cost,difficulty,fit,why,steps[],risk,source_url,tags[],sources:[{title,url,publisher,published,kind,checked}], resell?}。`source_url` = 第一条来源的 url。详见 `docs/PHASE24-SOURCES.md`。
+- 可选 `resell`：`{ product, buyers, expires }`。`product` 是可卖的原创攻略/清单/模板，`buyers` 是目标买家，`expires` 是到期下架日（`YYYY-MM-DD` 或 `''`）。没有该字段的条目照常通过。只卖原创整理的攻略，不卖账号、券码或代领。卡片在正面显示「闲鱼方案」，当天至少有一条时出现筛选。格式示例在 `data/rank-sample.json`（全是【示例】，可以多于 10 条，脚本只校验、不发布）。给「赚钱榜雷达」agent 的字段说明见 README「每日赚钱榜发布」。
 - `data/rank-history/<date>.json` + `index.json`（日期列表，新→旧）。
 - `js/rank-data.js`：最近 14 天内嵌，保证 file:// 也能看（fetch 失败时回退）。
 

@@ -1,26 +1,53 @@
 #!/usr/bin/env node
-// Usage: node tools/publish-rank.js <rank.json> [--no-changelog] [--check-urls]
+// Usage: node tools/publish-rank.js <rank.json> [--no-changelog] [--check-urls] [--validate-only]
 // Writes data/rank.json, data/rank-history/<date>.json + index.json, js/rank-data.js,
 // adds/replaces a 「赚钱榜」 changelog entry for that date, and rebuilds daily.json.
+// --validate-only checks and exits without writing. A file whose every name starts
+// with 【示例】 (data/rank-sample.json) is validated only and is not published.
 const fs = require('fs'), path = require('path'), cp = require('child_process');
 const QS = require('../js/sources.js');
 const root = path.resolve(__dirname, '..');
 const args = process.argv.slice(2), file = args.find(a => !a.startsWith('--'));
-if (!file) { console.error('usage: node tools/publish-rank.js <rank.json> [--no-changelog] [--check-urls]'); process.exit(2); }
+if (!file) { console.error('usage: node tools/publish-rank.js <rank.json> [--no-changelog] [--check-urls] [--validate-only]'); process.exit(2); }
 const data = JSON.parse(fs.readFileSync(path.resolve(file), 'utf8'));
 const KINDS = { official: 1, media: 1, community: 1 };
 function todayShanghai() {
   return new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Shanghai' });
 }
+function isValidYmd(s) {
+  if (typeof s !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(s)) return false;
+  const p = s.split('-'), y = +p[0], m = +p[1], d = +p[2];
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d;
+}
+function isExampleSet(items) {
+  return Array.isArray(items) && items.length > 0 && items.every(it => it && typeof it.name === 'string' && it.name.startsWith('【示例】'));
+}
+function ranksAre1ToN(items) {
+  const got = items.map(i => i.rank).slice().sort((a, b) => a - b);
+  for (let i = 0; i < got.length; i++) if (got[i] !== i + 1) return false;
+  return true;
+}
 const today = todayShanghai();
 const errs = [];
+const exampleSet = isExampleSet(data.items);
 if (!/^\d{4}-\d{2}-\d{2}$/.test(data.date || '')) errs.push('date must be YYYY-MM-DD');
-if (!Array.isArray(data.items) || data.items.length !== 10) errs.push('items must have exactly 10 entries');
+if (!Array.isArray(data.items) || (!exampleSet && data.items.length !== 10)) errs.push('items must have exactly 10 entries');
 const BAN = /盗版|破解|账号(合租|买卖|出售)|游戏币|点卡|代写|刷量|刷单|代考/;
 (data.items || []).forEach((it, i) => {
   const at = 'items[' + i + ']';
   ['name', 'type', 'cost', 'fit', 'why', 'risk'].forEach(k => { if (typeof it[k] !== 'string' || !it[k].trim()) errs.push(at + '.' + k + ' required string'); });
-  if (!Number.isInteger(it.rank) || it.rank < 1 || it.rank > 10) errs.push(at + '.rank must be 1–10');
+  const rankMax = exampleSet ? (data.items || []).length : 10;
+  if (!Number.isInteger(it.rank) || it.rank < 1 || it.rank > rankMax) errs.push(at + '.rank must be 1–' + rankMax);
+  if (it.resell !== undefined) {
+    const rs = it.resell;
+    if (!rs || typeof rs !== 'object' || Array.isArray(rs)) errs.push(at + '.resell must be an object { product, buyers, expires }');
+    else {
+      if (typeof rs.product !== 'string' || !rs.product.trim()) errs.push(at + '.resell.product must be a non-empty string');
+      if (typeof rs.buyers !== 'string' || !rs.buyers.trim()) errs.push(at + '.resell.buyers must be a non-empty string');
+      if (rs.expires !== '' && !isValidYmd(rs.expires)) errs.push(at + ".resell.expires must be '' or a valid YYYY-MM-DD date");
+    }
+  }
   if (!Number.isInteger(it.difficulty) || it.difficulty < 1 || it.difficulty > 5) errs.push(at + '.difficulty must be 1–5');
   if (!Array.isArray(it.steps) || !it.steps.length) errs.push(at + '.steps must be a non-empty array');
   if (!Array.isArray(it.tags)) errs.push(at + '.tags must be an array');
@@ -50,10 +77,11 @@ const BAN = /盗版|破解|账号(合租|买卖|出售)|游戏币|点卡|代写|
   if (typeof it.source_url !== 'string' || !QS.isHttpUrl(it.source_url)) errs.push(at + '.source_url must be http(s)');
   if (BAN.test(JSON.stringify(it))) errs.push(at + ' contains a forbidden category (piracy/account trading/game coins/ghostwriting/fake traffic)');
 });
-const ranks = (data.items || []).map(i => i.rank).sort((a, b) => a - b).join();
-if (ranks !== '1,2,3,4,5,6,7,8,9,10') errs.push('ranks must be 1..10 each once');
+const rankItems = Array.isArray(data.items) ? data.items : [];
+if (rankItems.length && !ranksAre1ToN(rankItems)) errs.push('ranks must be 1..' + (exampleSet ? rankItems.length : 10) + ' each once');
 if (errs.length) { console.error('INVALID rank file:\n- ' + errs.join('\n- ')); process.exit(1); }
 data.items.sort((a, b) => a.rank - b.rank);
+if (args.includes('--validate-only')) { console.log('valid rank ' + data.date + ' (' + data.items.length + ' items)'); process.exit(0); }
 
 if (args.includes('--check-urls')) {
   const urls = [];
@@ -68,6 +96,8 @@ if (args.includes('--check-urls')) {
     if (code !== '200') { console.error('source url not 200: ' + u); process.exit(1); }
   }
 }
+
+if (exampleSet) { console.log('valid example rank ' + data.date + ' (' + data.items.length + ' items, not published)'); process.exit(0); }
 
 const dataDir = path.join(root, 'data'), hist = path.join(dataDir, 'rank-history');
 fs.mkdirSync(hist, { recursive: true });

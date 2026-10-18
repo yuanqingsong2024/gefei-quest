@@ -1845,6 +1845,16 @@ body.search-open { overflow: hidden; }
 @media (max-width: 520px) { .plan-item { grid-template-columns: 1fr; } .plan-item .plan-acts { grid-row: auto; grid-column: 1; } }
 .rank-types { display: flex; flex-wrap: wrap; gap: 8px; }
 .rank-types .chip { white-space: nowrap; flex: none; writing-mode: horizontal-tb; }
+.rank-types .chip-resell { border-color: rgba(125, 211, 252, .85); color: #e0f2fe; background: #0c4a6e; }
+.rank-types .chip-resell.active { background: #0369a1; color: #fff; border-color: #7dd3fc; }
+.rank-resell { margin-top: 8px; padding: 8px 10px; border: 1px solid #7dd3fc; border-radius: 10px; background: #082f49; color: #f8fafc; font-size: .82rem; line-height: 1.45; }
+.rank-resell-title { margin: 0 0 4px; font-weight: 800; color: #fff; font-size: .92rem; }
+.rank-resell dl { display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; margin: 0; }
+.rank-resell dt { color: #7dd3fc; font-weight: 800; }
+.rank-resell dd { margin: 0; color: #fff; overflow-wrap: anywhere; }
+.rank-resell-empty { color: #fde68a; font-weight: 800; }
+.rank-resell-badge { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 999px; background: #dc2626; color: #fff; font-size: .75rem; font-weight: 800; line-height: 1.45; vertical-align: 1px; }
+.rank-resell-note { margin: 6px 0 0; color: #fde68a; font-weight: 700; font-size: .78rem; }
 @media (max-width: 640px) { .rank-types { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; } .rank-bar .fld { min-width: 0; width: 100%; } }
 
 /* ================= Phase 13 · AI ================= */

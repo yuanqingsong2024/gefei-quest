@@ -159,12 +159,19 @@ python3 -m http.server 8765
 
 ## 每日赚钱榜发布（给「赚钱榜雷达」agent）
 1. 准备一个 JSON 文件（格式见 `data/rank-sample.json`）：
-   `{ "date": "YYYY-MM-DD", "items": [ 10 × { rank, name, type, cost, difficulty(1–5), fit, why, steps[], risk, source_url, tags[], sources: [{ title, url, publisher, published, kind, checked }] } ] }`
+   `{ "date": "YYYY-MM-DD", "items": [ 10 × { rank, name, type, cost, difficulty(1–5), fit, why, steps[], risk, source_url, tags[], sources: [{ title, url, publisher, published, kind, checked }], resell? } ] }`
    - 每条至少 1 个来源；`kind` 为 `official` | `media` | `community`；`url` 必须是 http(s)。
    - `source_url` = `sources[0].url`（旧字段保留）。只有旧 `source_url`、没有 `sources` 时脚本会按域名自动补一条并警告，请下次写全 `sources`。
    - `published` 为 `YYYY-MM-DD` 或 `''`（不知道就留空，不要编）；`checked` 由脚本填当天（Asia/Shanghai）。
    - `type` 可用：羊毛、副业、闲鱼非实物、出海小站、工具活动、出海新词、开发者羊毛、奖金赛/悬赏、平台激励、联盟营销、案例拆解、数字产品/接单。
-   只收合法渠道；脚本会拒绝含盗版、账号买卖、游戏币点卡、代写、刷量的条目，以及没有来源 / 非法 url / 非法 kind 的条目。
+   - 可选 `resell`（没有这个字段的条目照常通过）。有则必须是对象：
+     `{ "product": "卖什么", "buyers": "卖给谁", "expires": "YYYY-MM-DD" 或 "" }`
+     - `product`：可在闲鱼卖的原创攻略 / 清单 / 模板（非空字符串）。
+     - `buyers`：谁会买（非空字符串）。
+     - `expires`：到期下架日，`YYYY-MM-DD` 或 `''`（还没写就留空）。必须是合法日期，`2026-13-40`、`10/30` 这类会被拒绝。
+     - 只卖原创整理的攻略，不卖账号、券码或代领。格式示例见 `data/rank-sample.json` 的羊毛条目。
+   只收合法渠道；脚本会拒绝含盗版、账号买卖、游戏币点卡、代写、刷量的条目，以及没有来源 / 非法 url / 非法 kind / 不合法 `resell` 的条目。
+   `data/rank-sample.json` 的条目名都以【示例】开头，用来展示格式（可以多于 10 条）。对这个文件运行脚本只会校验，不会覆盖线上榜单。正式一天仍然正好 10 条。
 2. 发布：`node tools/publish-rank.js /path/to/rank.json --check-urls`
    - 校验结构，`--check-urls` 要求每条来源 url 返回 200
    - 写 `data/rank.json`、`data/rank-history/<date>.json`、`data/rank-history/index.json`、`js/rank-data.js`（近 14 天内嵌，file:// 可用）

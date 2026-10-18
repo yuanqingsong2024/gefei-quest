@@ -2672,7 +2672,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     try { fs26.rmSync(tmpDir, { recursive: true, force: true }); } catch (_) {}
 
     const swSrc = fs26.readFileSync(path26.join(root26, 'sw.js'), 'utf8');
-    T26(/CACHE_VERSION\s*=\s*12/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 12 + sources.js precache');
+    T26(/CACHE_VERSION\s*=\s*13/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 13 + sources.js precache');
     const cl = fs26.readFileSync(path26.join(root26, 'js/changelog.js'), 'utf8');
     T26(/id:\s*35/.test(cl) && /每条赚钱榜和平台资料都标出来源/.test(cl), 'changelog id 35 sources entry');
   } catch (e) {
@@ -2822,6 +2822,211 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T26(e26.length === 0, 'P26 console errors ' + e26.slice(0, 4).join(' | '));
   await ctx26.close();
   console.log('P26 functional fails=' + f26); fail += f26;
+
+  // ---------- Phase 27 · 闲鱼方案 resell ----------
+  let f27 = 0; const T27 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P27 ' + m); if (!c) f27++; };
+  const fs27 = require('fs');
+  const path27 = require('path');
+  const cp27 = require('child_process');
+  const os27 = require('os');
+  const crypto27 = require('crypto');
+  const root27 = path27.resolve(__dirname, '..');
+  const shot27 = '/workspace/gefei-quest-shots';
+  fs27.mkdirSync(shot27, { recursive: true });
+  const hash27 = (rel) => crypto27.createHash('sha256').update(fs27.readFileSync(path27.join(root27, rel))).digest('hex');
+  const watch27 = ['data/rank.json', 'data/rank-history/index.json', 'js/rank-data.js', 'daily.json', 'js/changelog.js'];
+  const before27 = {};
+  watch27.forEach((rel) => { before27[rel] = hash27(rel); });
+  const histBefore27 = fs27.readdirSync(path27.join(root27, 'data/rank-history')).sort().join('\n');
+  try {
+    const publish27 = path27.join(root27, 'tools/publish-rank.js');
+    const baseRank27 = JSON.parse(fs27.readFileSync(path27.join(root27, 'data/rank.json'), 'utf8'));
+    const tmp27 = fs27.mkdtempSync(path27.join(os27.tmpdir(), 'p27-rank-'));
+    const runPub = (mutator, flags) => {
+      const copy = JSON.parse(JSON.stringify(baseRank27));
+      if (mutator) mutator(copy);
+      const f = path27.join(tmp27, 'c-' + Math.random().toString(16).slice(2) + '.json');
+      fs27.writeFileSync(f, JSON.stringify(copy));
+      const r = cp27.spawnSync(process.execPath, [publish27, f].concat(flags || ['--no-changelog', '--validate-only']), { encoding: 'utf8' });
+      return { status: r.status, out: (r.stdout || '') + (r.stderr || '') };
+    };
+    const validResell = { product: '【示例】原创领取清单', buyers: '想自己领的人', expires: '2026-11-11' };
+    let okV = runPub((d) => { d.items[0].resell = validResell; });
+    T27(okV.status === 0 && /valid rank/.test(okV.out), 'valid resell passes');
+    okV = runPub((d) => { d.items[0].resell = { product: '【示例】原创领取清单', buyers: '想自己领的人', expires: '' }; });
+    T27(okV.status === 0, 'resell expires empty string passes');
+    const noRs = runPub((d) => { d.items.forEach((it) => { delete it.resell; }); });
+    T27(noRs.status === 0, 'item without resell passes');
+    const missP = runPub((d) => { d.items[0].resell = { buyers: '想自己领的人', expires: '' }; });
+    T27(missP.status !== 0 && /resell\.product must be a non-empty string/.test(missP.out), 'product missing fails');
+    const badB = runPub((d) => { d.items[0].resell = { product: '【示例】原创领取清单', buyers: 12, expires: '2026-11-11' }; });
+    T27(badB.status !== 0 && /resell\.buyers must be a non-empty string/.test(badB.out), 'non-string buyers fails');
+    const badE1 = runPub((d) => { d.items[0].resell = { product: '【示例】原创领取清单', buyers: '想自己领的人', expires: '2026-13-40' }; });
+    T27(badE1.status !== 0 && /resell\.expires/.test(badE1.out), 'expires 2026-13-40 fails');
+    const badE2 = runPub((d) => { d.items[0].resell = { product: '【示例】原创领取清单', buyers: '想自己领的人', expires: '10/30' }; });
+    T27(badE2.status !== 0 && /resell\.expires/.test(badE2.out), 'expires 10/30 fails');
+    const tooMany = runPub((d) => { const extra = JSON.parse(JSON.stringify(d.items[0])); extra.rank = 11; extra.name = '不是示例的第十一条'; d.items.push(extra); });
+    T27(tooMany.status !== 0 && /exactly 10/.test(tooMany.out), 'non-example file still requires 10 items');
+    const sampleSrc = fs27.readFileSync(path27.join(root27, 'data/rank-sample.json'), 'utf8');
+    const sample27 = JSON.parse(sampleSrc);
+    const sampleFile = path27.join(tmp27, 'sample.json');
+    fs27.writeFileSync(sampleFile, sampleSrc);
+    const sampleRun = cp27.spawnSync(process.execPath, [publish27, sampleFile, '--no-changelog'], { encoding: 'utf8' });
+    const sampleOut = (sampleRun.stdout || '') + (sampleRun.stderr || '');
+    T27(sampleRun.status === 0 && /valid example rank/.test(sampleOut) && sample27.items.some((it) => it.type === '羊毛' && it.resell && String(it.resell.product).indexOf('【示例】') === 0), 'rank-sample validates and is not published ' + sampleOut.slice(0, 180));
+    try { fs27.rmSync(tmp27, { recursive: true, force: true }); } catch (_) {}
+    const realFiles = [];
+    const walkReal = (dir) => {
+      fs27.readdirSync(dir).forEach((name) => {
+        const pth = path27.join(dir, name);
+        if (fs27.statSync(pth).isDirectory()) return walkReal(pth);
+        if (name === 'rank-sample.json' || name === 'index.json') return;
+        if (/\.json$/.test(name)) realFiles.push(pth);
+      });
+    };
+    realFiles.push(path27.join(root27, 'data/rank.json'));
+    walkReal(path27.join(root27, 'data/rank-history'));
+    walkReal(path27.join(root27, 'data/money-rank'));
+    let resellHits = 0;
+    realFiles.forEach((f) => { if (/"resell"\s*:/.test(fs27.readFileSync(f, 'utf8'))) resellHits++; });
+    T27(resellHits === 0, 'real rank data has no resell');
+    watch27.forEach((rel) => { T27(before27[rel] === hash27(rel), 'unchanged ' + rel); });
+    T27(histBefore27 === fs27.readdirSync(path27.join(root27, 'data/rank-history')).sort().join('\n'), 'rank-history file list unchanged');
+    const cl27 = fs27.readFileSync(path27.join(root27, 'js/changelog.js'), 'utf8');
+    T27(/id:\s*36/.test(cl27) && /赚钱榜支持「闲鱼方案」/.test(cl27), 'changelog id 36');
+    T27(/CACHE_VERSION\s*=\s*13/.test(fs27.readFileSync(path27.join(root27, 'sw.js'), 'utf8')), 'sw CACHE_VERSION 13');
+  } catch (e) {
+    T27(false, 'file checks threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
+  }
+
+  const ymdShift27 = (days) => {
+    const fmt = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit' });
+    const parts = fmt.format(new Date()).split('-').map(Number);
+    const dt = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+    dt.setUTCDate(dt.getUTCDate() + days);
+    return dt.toISOString().slice(0, 10);
+  };
+  const sampleUi = JSON.parse(fs27.readFileSync(path27.join(root27, 'data/rank-sample.json'), 'utf8'));
+  const uiItems = JSON.parse(JSON.stringify(sampleUi.items));
+  const woolUi = uiItems.filter((it) => it.resell)[0];
+  const yesterday27 = ymdShift27(-1);
+  woolUi.resell.expires = yesterday27;
+  const xssUi = JSON.parse(JSON.stringify(woolUi));
+  xssUi.rank = 12;
+  xssUi.name = '【示例】转义检查';
+  xssUi.resell = { product: '【示例】<img class="p27-xss" src=x onerror=alert(1)>', buyers: '买家<script>alert(1)</script>', expires: '' };
+  uiItems.push(xssUi);
+  const payload27 = { latest: sampleUi.date, dates: [sampleUi.date], days: {} };
+  payload27.days[sampleUi.date] = { date: sampleUi.date, items: uiItems };
+  const ctx27 = await b.newContext({ viewport: { width: 1366, height: 900 }, deviceScaleFactor: 1 });
+  await ctx27.route('**/js/rank-data.js*', (route) => route.fulfill({
+    status: 200,
+    contentType: 'application/javascript; charset=utf-8',
+    headers: { 'Cache-Control': 'no-store' },
+    body: 'window.QUEST_RANK = ' + JSON.stringify(payload27) + ';\n',
+  }));
+  const pg27 = cx(await ctx27.newPage());
+  const e27 = [];
+  pg27.on('pageerror', (e) => { e27.push('pageerror ' + e.message); errors.push('p27 ' + e.message); });
+  pg27.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e27.push(m.text()); errors.push('p27 ' + m.text()); } });
+  try {
+    await pg27.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg27.waitForSelector('.rank-card.has-resell .rank-resell', { timeout: 8000, state: 'attached' });
+    await pg27.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close(); });
+    const block = await pg27.evaluate((y) => {
+      const card = [...document.querySelectorAll('.rank-card.has-resell')].find((c) => /已过期/.test(c.textContent) && /平台活动领取步骤清单/.test(c.textContent));
+      const box = card ? card.querySelector('.rank-resell') : null;
+      const text = box ? box.textContent : '';
+      const html = box ? box.innerHTML : '';
+      const xss = [...document.querySelectorAll('.rank-resell')].find((el) => /p27-xss/.test(el.textContent));
+      const chip = document.getElementById('rank-only-resell');
+      return {
+        latest: window.QUEST_RANK && QUEST_RANK.latest,
+        text: text,
+        labels: /卖什么:/.test(text) && /卖给谁:/.test(text) && /到期下架:/.test(text),
+        product: text.indexOf('【示例】平台活动领取步骤清单（原创整理，不是券）') >= 0,
+        buyers: text.indexOf('想在截止前自己领、但不想翻完活动规则的人') >= 0,
+        exp: text.indexOf(y) >= 0 && text.indexOf('已过期') >= 0,
+        note: text.indexOf('只卖原创整理的攻略，不卖账号/券码/代领') >= 0,
+        face: !!(box && box.closest('.rank-head') && !box.closest('.cx-body')),
+        xssText: xss ? xss.textContent : '',
+        xssImg: xss ? xss.querySelectorAll('img,script').length : -1,
+        xssEsc: xss ? xss.innerHTML.indexOf('<img') < 0 && xss.innerHTML.indexOf('<script') < 0 && xss.textContent.indexOf('未写到期日') >= 0 : false,
+        raw: html.indexOf('<img') < 0,
+        chip: !!(chip && chip.textContent.indexOf('闲鱼方案') >= 0),
+        beside: !!(chip && chip.closest('.rank-types') && chip.previousElementSibling && chip.previousElementSibling.hasAttribute('data-rtype') && chip.nextElementSibling && chip.nextElementSibling.id === 'rank-only-fav'),
+      };
+    }, yesterday27);
+    T27(block.latest === sampleUi.date && block.labels && block.product && block.buyers && block.exp && block.note && block.face && block.raw, 'resell block on card face ' + JSON.stringify({ labels: block.labels, product: block.product, buyers: block.buyers, exp: block.exp, note: block.note, face: block.face }));
+    T27(block.xssEsc && block.xssImg === 0 && block.xssText.indexOf('<img') >= 0 && block.xssText.indexOf('<script>') >= 0, 'resell strings escaped');
+    T27(block.chip && block.beside, '闲鱼方案 chip next to type chips');
+    await pg27.click('#rank-only-resell');
+    await pg27.waitForTimeout(150);
+    const filtered27 = await pg27.evaluate(() => {
+      const cards = [...document.querySelectorAll('.rank-grid > .rank-card')].filter((c) => !c.classList.contains('cx-off'));
+      return {
+        n: cards.length,
+        ok: cards.length >= 1 && cards.every((c) => !!c.querySelector('.rank-resell')),
+        active: document.getElementById('rank-only-resell').classList.contains('active'),
+      };
+    });
+    T27(filtered27.ok && filtered27.active, '闲鱼方案 chip filters to resell items only n=' + filtered27.n);
+    await pg27.click('[data-rtype="出海小站"]');
+    await pg27.waitForTimeout(150);
+    const both27 = await pg27.evaluate(() => ({
+      cards: [...document.querySelectorAll('.rank-grid > .rank-card')].filter((c) => !c.classList.contains('cx-off')).length,
+      empty: /这个类型里没有闲鱼方案/.test(document.body.textContent),
+      still: document.getElementById('rank-only-resell').classList.contains('active'),
+    }));
+    T27(both27.cards === 0 && both27.empty && both27.still, 'resell filter AND type filter ' + JSON.stringify(both27));
+    await pg27.click('[data-rtype="羊毛"]');
+    await pg27.waitForTimeout(150);
+    const woolOnly = await pg27.evaluate(() => {
+      const cards = [...document.querySelectorAll('.rank-grid > .rank-card')].filter((c) => !c.classList.contains('cx-off'));
+      return { n: cards.length, ok: cards.length >= 1 && cards.every((c) => c.getAttribute('data-type') === '羊毛' && c.querySelector('.rank-resell')) };
+    });
+    T27(woolOnly.ok, '羊毛 + 闲鱼方案 n=' + woolOnly.n);
+    await pg27.evaluate(() => {
+      const el = document.querySelector('.rank-resell-badge');
+      if (el) el.scrollIntoView({ block: 'center', inline: 'nearest' });
+    });
+    await pg27.waitForTimeout(80);
+    const shotBox = await pg27.evaluate(() => {
+      const block = document.querySelector('.rank-card .rank-resell-badge') && document.querySelector('.rank-card .rank-resell-badge').closest('.rank-resell');
+      const r = block ? block.getBoundingClientRect() : { top: -1, bottom: -1, width: 0, height: 0 };
+      return { w: window.innerWidth, top: r.top, bottom: r.bottom, width: r.width, height: r.height, inView: r.top >= 0 && r.bottom <= window.innerHeight && r.height > 24 && r.width > 80 };
+    });
+    T27(shotBox.w === 1366 && shotBox.inView, 'resell card in view at 1366 ' + JSON.stringify(shotBox));
+    await pg27.screenshot({ path: shot27 + '/p27-resell.png' });
+  } catch (e) {
+    T27(false, 'ui threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+
+  const ctx27b = await b.newContext({ viewport: { width: 1366, height: 900 } });
+  const pg27b = cx(await ctx27b.newPage());
+  pg27b.on('pageerror', (e) => { e27.push('pageerror ' + e.message); errors.push('p27 ' + e.message); });
+  pg27b.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e27.push(m.text()); errors.push('p27 ' + m.text()); } });
+  try {
+    await pg27b.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg27b.waitForSelector('.rank-card', { timeout: 8000 });
+    await pg27b.evaluate(() => { const t = document.getElementById('tour-root'); if (t) t.remove(); if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close(); });
+    const real27 = await pg27b.evaluate(() => {
+      const buttons = [...document.querySelectorAll('.rank-types button')].map((b) => b.textContent.trim());
+      return {
+        chip: !!document.getElementById('rank-only-resell') || buttons.some((t) => t.indexOf('闲鱼方案') === 0),
+        blocks: document.querySelectorAll('.rank-resell').length,
+        latest: window.QUEST_RANK && QUEST_RANK.latest,
+        n: document.querySelectorAll('.rank-card').length,
+      };
+    });
+    T27(!real27.chip && real27.blocks === 0 && real27.n === 10 && real27.latest !== sampleUi.date, 'chip hidden on real day without resell ' + JSON.stringify(real27));
+  } catch (e) {
+    T27(false, 'real day threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
+  }
+  T27(e27.length === 0, 'P27 console errors ' + e27.slice(0, 4).join(' | '));
+  await ctx27.close();
+  await ctx27b.close();
+  console.log('P27 functional fails=' + f27); fail += f27;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };
