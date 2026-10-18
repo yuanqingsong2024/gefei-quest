@@ -235,6 +235,27 @@
         );
       });
     }
+    var cols = global.QUEST_COLLECTIONS || {};
+    var col = cols['xianyu-zero-cost'];
+    if (col) {
+      if (col.intro) addChunks(list, col.title || '闲鱼零成本方案', '#war-rank-xianyu', col.intro);
+      (col.items || []).forEach(function (it) {
+        if (!it || !it.name) return;
+        var src = null;
+        try { if (global.QuestSources) src = QuestSources.of(it, col.updated || ''); } catch (_) {}
+        addChunks(
+          list,
+          it.name,
+          '#war-rank-xianyu',
+          [it.fit, it.why].filter(Boolean).join('\n'),
+          src && src.length ? { sources: src } : null
+        );
+      });
+      (col.rules || []).forEach(function (rule) {
+        if (!rule || !rule.text) return;
+        addChunks(list, rule.text, '#war-rank-xianyu', rule.text, rule.sources && rule.sources.length ? { sources: rule.sources } : null);
+      });
+    }
     return list;
   }
   function termsOf(query) {
@@ -268,6 +289,11 @@
     if (start + 120 < text.length) slice += '…';
     return slice;
   }
+  function resetIndex() { INDEX = null; }
+  function entries() {
+    if (!INDEX) INDEX = buildIndex();
+    return INDEX;
+  }
   function search(query) {
     var terms = termsOf(query);
     if (!terms.length) return [];
@@ -300,7 +326,9 @@
         var href = list[n].e.href;
         if (seen[href]) continue;
         seen[href] = 1;
-        out.push({ title: list[n].e.title, text: list[n].e.text, href: href, snippet: snippet(list[n].e.text, terms) });
+        var hit = { title: list[n].e.title, text: list[n].e.text, href: href, snippet: snippet(list[n].e.text, terms) };
+        if (list[n].e.sources && list[n].e.sources.length) hit.sources = list[n].e.sources;
+        out.push(hit);
       }
     }
     pushFrom(user);
@@ -573,5 +601,5 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 
-  global.QuestAssistant = { open: open, close: close, ask: ask, search: search };
+  global.QuestAssistant = { open: open, close: close, ask: ask, search: search, entries: entries, resetIndex: resetIndex };
 })(typeof window !== 'undefined' ? window : globalThis);

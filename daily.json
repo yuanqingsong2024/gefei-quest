@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-18T03:52:57.644Z",
-  "latestId": 36,
+  "generatedAt": "2026-10-18T04:53:23.210Z",
+  "latestId": 37,
   "latestDate": "2026-10-18",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 37,
+      "date": "2026-10-18",
+      "tag": "新功能",
+      "title": "新增「闲鱼零成本方案」合集：11 个可零成本起步的非实物方案，附来源与闲鱼规则提醒",
+      "items": [
+        "新增「闲鱼零成本方案」合集：11 个可零成本起步的非实物方案，附来源与闲鱼规则提醒"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-xianyu"
+    },
     {
       "id": 36,
       "date": "2026-10-18",
@@ -112,17 +122,6 @@
         "页脚只留常用链接。全部页面放到网站地图 #sitemap"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 27,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "首页赚钱榜：成本一栏更好懂",
-      "items": [
-        "今日赚钱榜的成本不再只显示分号前的「0」。开头是 0、0元或免费时显示「免费起步」，否则显示第一句，最多 12 个字",
-        "悬停仍能看到完整成本。屏幕宽度不超过 600px 时，名称下面多一行完整成本，最多两行"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-rank"
     }
   ],
   "rank": {

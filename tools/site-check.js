@@ -2672,7 +2672,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     try { fs26.rmSync(tmpDir, { recursive: true, force: true }); } catch (_) {}
 
     const swSrc = fs26.readFileSync(path26.join(root26, 'sw.js'), 'utf8');
-    T26(/CACHE_VERSION\s*=\s*13/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 13 + sources.js precache');
+    T26(/CACHE_VERSION\s*=\s*14/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 14 + sources.js precache');
     const cl = fs26.readFileSync(path26.join(root26, 'js/changelog.js'), 'utf8');
     T26(/id:\s*35/.test(cl) && /每条赚钱榜和平台资料都标出来源/.test(cl), 'changelog id 35 sources entry');
   } catch (e) {
@@ -2894,7 +2894,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     T27(histBefore27 === fs27.readdirSync(path27.join(root27, 'data/rank-history')).sort().join('\n'), 'rank-history file list unchanged');
     const cl27 = fs27.readFileSync(path27.join(root27, 'js/changelog.js'), 'utf8');
     T27(/id:\s*36/.test(cl27) && /赚钱榜支持「闲鱼方案」/.test(cl27), 'changelog id 36');
-    T27(/CACHE_VERSION\s*=\s*13/.test(fs27.readFileSync(path27.join(root27, 'sw.js'), 'utf8')), 'sw CACHE_VERSION 13');
+    T27(/CACHE_VERSION\s*=\s*14/.test(fs27.readFileSync(path27.join(root27, 'sw.js'), 'utf8')), 'sw CACHE_VERSION 14');
   } catch (e) {
     T27(false, 'file checks threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
   }
@@ -3027,6 +3027,258 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await ctx27.close();
   await ctx27b.close();
   console.log('P27 functional fails=' + f27); fail += f27;
+
+  // ---------- Phase 28 · 闲鱼零成本方案合集 ----------
+  let f28 = 0; const T28 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P28 ' + m); if (!c) f28++; };
+  const fs28 = require('fs');
+  const path28 = require('path');
+  const cp28 = require('child_process');
+  const os28 = require('os');
+  const root28 = path28.resolve(__dirname, '..');
+  const shot28 = '/workspace/gefei-quest-shots';
+  fs28.mkdirSync(shot28, { recursive: true });
+  try {
+    const V28 = require('./rank-validate.js');
+    const colPath = path28.join(root28, 'data/collections/xianyu-zero-cost.json');
+    const raw28 = fs28.readFileSync(colPath, 'utf8');
+    const col28 = JSON.parse(raw28);
+    const v28 = V28.validateCollection(JSON.parse(raw28));
+    T28(v28.ok && col28.items.length === 11 && col28.rules.length === 5 && col28.title === '闲鱼零成本方案', 'collection valid via shared validator ' + (v28.ok ? 'ok' : v28.errors.join('; ')));
+    const research28 = JSON.parse(fs28.readFileSync('/workspace/research/xianyu-zero-cost.json', 'utf8'));
+    const strip28 = (items) => JSON.stringify(items, (k, val) => (k === 'checked' || k === 'unverified' ? undefined : val));
+    T28(strip28(col28.items) === strip28(research28), 'items match research verbatim');
+    const pub28 = path28.join(root28, 'tools/publish-collection.js');
+    const beforeBytes = fs28.readFileSync(colPath);
+    const okRun = cp28.spawnSync(process.execPath, [pub28, colPath], { encoding: 'utf8' });
+    const afterBytes = fs28.readFileSync(colPath);
+    T28(okRun.status === 0 && beforeBytes.equals(afterBytes), 'publish-collection without --check-urls keeps the file');
+    const tmp28 = fs28.mkdtempSync(path28.join(os28.tmpdir(), 'p28-col-'));
+    const runBad = (mut, needle) => {
+      const copy = JSON.parse(raw28);
+      mut(copy);
+      const f = path28.join(tmp28, 'bad.json');
+      fs28.writeFileSync(f, JSON.stringify(copy));
+      const r = cp28.spawnSync(process.execPath, [pub28, f], { encoding: 'utf8' });
+      const out = (r.stdout || '') + (r.stderr || '');
+      try { fs28.unlinkSync(f); } catch (_) {}
+      const ok = r.status !== 0 && needle.test(out);
+      if (!ok) console.log('     publish-collection exit=' + r.status + ' ' + out.slice(0, 500));
+      return ok;
+    };
+    T28(runBad((d) => { delete d.items[0].sources; d.items[0].source_url = ''; }, /no source|sources/i), 'rejects item missing sources');
+    T28(runBad((d) => { d.items[0].why = '作者月入 8000 元'; }, /个人说法|自述|称/), 'rejects unlabelled income figure');
+    try { fs28.rmSync(tmp28, { recursive: true, force: true }); } catch (_) {}
+  } catch (e) {
+    T28(false, 'file checks threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
+  }
+
+  const ctx28 = await b.newContext({ viewport: { width: 1366, height: 900 } });
+  const pg28 = cx(await ctx28.newPage());
+  const e28 = [];
+  pg28.on('pageerror', (e) => { e28.push('pageerror ' + e.message); errors.push('p28 ' + e.message); });
+  pg28.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e28.push(m.text()); errors.push('p28 ' + m.text()); } });
+  const quiet28 = () => pg28.evaluate(() => {
+    const t = document.getElementById('tour-root'); if (t) t.remove();
+    if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close();
+  });
+  const frameRank28 = async () => {
+    await quiet28();
+    const place = () => pg28.evaluate(() => {
+      const nav = document.getElementById('site-nav');
+      const el = document.querySelector('.rank-switch');
+      if (!el) return;
+      for (let i = 0; i < 3; i++) {
+        const navH = nav ? nav.getBoundingClientRect().height : 0;
+        const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+        window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + y - navH - 8));
+      }
+    });
+    await place();
+    await pg28.waitForTimeout(80);
+    await place();
+  };
+  const edge28 = () => pg28.evaluate(() => {
+    const vw = window.innerWidth;
+    const bad = [];
+    const counts = {};
+    ['.rank-card', '.rank-fav', '.rank-rules'].forEach((sel) => {
+      let n = 0;
+      document.querySelectorAll(sel).forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.width < 1 || r.height < 1) return;
+        n++;
+        if (r.right > vw - 8 || r.left < 8) bad.push(sel + ' ' + Math.round(r.left) + '..' + Math.round(r.right));
+      });
+      counts[sel] = n;
+    });
+    return { vw, scroll: document.documentElement.scrollWidth, bad, counts };
+  });
+  try {
+    await pg28.goto(BASE + 'index.html#war-rank-xianyu', { waitUntil: 'domcontentloaded' });
+    await pg28.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    await quiet28();
+    const first = await pg28.evaluate(() => {
+      const cards = [...document.querySelectorAll('#col-grid .rank-card')];
+      const vis = cards.filter((c) => getComputedStyle(c).display !== 'none' && c.getBoundingClientRect().height > 0);
+      const rules = document.querySelector('.rank-rules');
+      const ruleEls = [...document.querySelectorAll('.rank-rule')];
+      let sorted = true;
+      for (let i = 1; i < cards.length; i++) {
+        const d0 = +cards[i - 1].getAttribute('data-difficulty');
+        const d1 = +cards[i].getAttribute('data-difficulty');
+        const r0 = +cards[i - 1].getAttribute('data-rank');
+        const r1 = +cards[i].getAttribute('data-rank');
+        if (d1 < d0 || (d1 === d0 && r1 < r0)) sorted = false;
+      }
+      return {
+        n: cards.length,
+        vis: vis.length,
+        rulesOpen: !!(rules && rules.open),
+        ruleN: ruleEls.length,
+        ruleSrc: ruleEls.length === 5 && ruleEls.every((el) => !!el.querySelector('.qs')),
+        order: cards.map((c) => +c.getAttribute('data-rank')),
+        sorted,
+        qs: cards.every((c) => !!c.querySelector('.qs')),
+        resell: cards.filter((c) => c.querySelector('.rank-resell')).map((c) => c.getAttribute('data-rank')),
+        kind1: ((document.querySelector('.rank-card[data-rank="1"] .qs-kind') || {}).textContent || '').trim(),
+        intro: ((document.querySelector('.rank-intro') || {}).textContent || '').indexOf('个人说法') >= 0,
+      };
+    });
+    T28(first.n === 11 && first.vis === 6, '11 cards, 6 visible initially ' + first.n + '/' + first.vis);
+    T28(first.qs, 'every card has .qs');
+    T28(!first.rulesOpen && first.ruleN === 5 && first.ruleSrc, 'rules collapsed with 5 sourced rules');
+    T28(first.sorted && first.order.join(',') === '5,1,2,3,4,6,7,8,11,9,10', 'sorted by difficulty ' + first.order.join(','));
+    T28(first.resell.indexOf('3') >= 0, 'resell block renders');
+    T28(first.kind1 === '社区', 'Chinese kind renders as 社区 (' + first.kind1 + ')');
+    T28(first.intro, 'intro line present');
+    const nav1 = await pg28.evaluate(() => ({
+      hash: location.hash,
+      parent: ((document.querySelector('a.nav-top.active span') || {}).textContent || '').trim(),
+      item: ((document.querySelector('.nav-menu a.active b') || {}).textContent || '').trim(),
+      crumbs: [...document.querySelectorAll('.crumbs > a, .crumbs > [aria-current]')].map((el) => el.textContent.trim()).join('/'),
+      owners: QuestNav.pagesOwning(location.hash).map((p) => p.id),
+      tab: !!document.querySelector('.rank-switch a.active[href="#war-rank-xianyu"]'),
+    }));
+    T28(nav1.hash === '#war-rank-xianyu' && nav1.tab && nav1.parent === '赚钱' && nav1.item === '每日赚钱榜' && nav1.crumbs === '首页/赚钱/每日赚钱榜' && nav1.owners.join(',') === 'war-rank', 'collection hash + nav ' + JSON.stringify(nav1));
+    // Screenshots on a fresh load, before any add-to-plan (no toast, plan button still idle).
+    await frameRank28();
+    const shotBox = await pg28.evaluate(() => {
+      const navH = (document.getElementById('site-nav') || { getBoundingClientRect: () => ({ bottom: 0 }) }).getBoundingClientRect().bottom;
+      const sw = document.querySelector('.rank-switch');
+      const intro = document.querySelector('.rank-intro');
+      const rules = document.querySelector('.rank-rules');
+      const card = document.querySelector('#col-grid .rank-card');
+      const sr = sw ? sw.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ir = intro ? intro.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const rr = rules ? rules.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const cr = card ? card.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ih = window.innerHeight;
+      const tabs = sw ? sw.innerText.replace(/\s+/g, '') : '';
+      const toast = !!document.querySelector('#toast-root .toast');
+      const inView = sr.height > 10 && sr.top >= navH - 2 && sr.top <= navH + 20 && sr.bottom <= ih
+        && ir.height > 8 && ir.top >= navH - 2 && ir.bottom <= ih
+        && rr.height > 20 && rr.top < ih && rr.bottom > navH
+        && cr.height > 40 && cr.top < ih && cr.bottom > navH && cr.top >= rr.top;
+      return { w: window.innerWidth, navH, swTop: sr.top, introTop: ir.top, rulesTop: rr.top, cardTop: cr.top, cardH: cr.height, open: !!(rules && rules.open), toast, tabs, inView };
+    });
+    T28(shotBox.w === 1366 && shotBox.inView && !shotBox.open && !shotBox.toast && shotBox.tabs.indexOf('每日Top10') >= 0 && shotBox.tabs.indexOf('闲鱼零成本方案') >= 0, 'screenshot frame 1366 ' + JSON.stringify(shotBox));
+    await pg28.screenshot({ path: shot28 + '/p28-xianyu.png' });
+    await pg28.setViewportSize({ width: 390, height: 844 });
+    await pg28.goto(BASE + 'index.html#war-rank-xianyu', { waitUntil: 'domcontentloaded' });
+    await pg28.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    await frameRank28();
+    const mob = await pg28.evaluate(() => {
+      const navH = (document.getElementById('site-nav') || { getBoundingClientRect: () => ({ bottom: 0 }) }).getBoundingClientRect().bottom;
+      const sw = document.querySelector('.rank-switch');
+      const intro = document.querySelector('.rank-intro');
+      const rules = document.querySelector('.rank-rules');
+      const card = document.querySelector('#col-grid .rank-card');
+      const sr = sw ? sw.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ir = intro ? intro.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const rr = rules ? rules.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const cr = card ? card.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ih = window.innerHeight;
+      const toast = !!document.querySelector('#toast-root .toast');
+      const inView = sr.height > 10 && sr.top >= navH - 2 && sr.top <= navH + 24 && ir.height > 8 && ir.bottom <= ih && rr.height > 20 && rr.top < ih && ! (rules && rules.open) && cr.height > 30 && cr.top < ih;
+      return { w: document.documentElement.scrollWidth, vw: window.innerWidth, inView, open: !!(rules && rules.open), toast, swTop: sr.top, navH, rulesTop: rr.top, cardTop: cr.top };
+    });
+    const edgeMob = await edge28();
+    T28(mob.w <= 390 && mob.vw === 390 && mob.inView && !mob.open && !mob.toast && edgeMob.bad.length === 0 && edgeMob.counts['.rank-card'] >= 1 && edgeMob.counts['.rank-fav'] >= 1 && edgeMob.counts['.rank-rules'] >= 1 && edgeMob.scroll <= 390, '390 layout ' + JSON.stringify({ mob, edge: edgeMob }));
+    await pg28.screenshot({ path: shot28 + '/p28-xianyu-390.png' });
+    await pg28.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg28.waitForSelector('#panel-war .rank-grid .rank-card', { timeout: 8000 });
+    await quiet28();
+    await pg28.waitForTimeout(120);
+    const edgeTop = await edge28();
+    T28(edgeTop.vw === 390 && edgeTop.scroll <= 390 && edgeTop.bad.length === 0 && edgeTop.counts['.rank-card'] >= 1 && edgeTop.counts['.rank-fav'] >= 1, '390 layout #war-rank ' + JSON.stringify(edgeTop));
+    await pg28.setViewportSize({ width: 1366, height: 900 });
+    await pg28.goto(BASE + 'index.html#war-rank-xianyu', { waitUntil: 'domcontentloaded' });
+    await pg28.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    await quiet28();
+    await pg28.click('#col-more');
+    await pg28.waitForTimeout(100);
+    const afterMore = await pg28.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => getComputedStyle(c).display !== 'none' && c.getBoundingClientRect().height > 0).length);
+    T28(afterMore === 11, '展开更多 shows 11 (' + afterMore + ')');
+    await pg28.click('.rank-card[data-rank="5"] [data-plan-add]');
+    await pg28.waitForTimeout(180);
+    const plan = await pg28.evaluate(() => {
+      const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || '{}');
+      const hit = (s.rankPlan || []).filter((p) => p.key === 'xianyu-zero-cost:5')[0];
+      const label = [...document.querySelectorAll('#rank-plan .plan-item')].map((el) => el.textContent).join('\n');
+      return { ok: !!(hit && hit.name && label.indexOf(hit.name) >= 0), name: hit && hit.name };
+    });
+    T28(plan.ok, 'add-to-plan shows in 我的实操计划 ' + JSON.stringify(plan));
+    await pg28.click('.rank-switch a[href="#war-rank"]');
+    await pg28.waitForSelector('#rank-date', { timeout: 8000 });
+    await pg28.waitForTimeout(150);
+    const top = await pg28.evaluate(() => ({
+      hash: location.hash,
+      cards: document.querySelectorAll('#panel-war .rank-grid:not([data-col-expand]) .rank-card').length,
+      date: !!document.getElementById('rank-date'),
+      col: !!document.getElementById('col-grid'),
+      parent: ((document.querySelector('a.nav-top.active span') || {}).textContent || '').trim(),
+      item: ((document.querySelector('.nav-menu a.active b') || {}).textContent || '').trim(),
+      crumbs: [...document.querySelectorAll('.crumbs > a, .crumbs > [aria-current]')].map((el) => el.textContent.trim()).join('/'),
+      tab: !!document.querySelector('.rank-switch a.active[href="#war-rank"]'),
+      owners: QuestNav.pagesOwning(location.hash).map((p) => p.id),
+    }));
+    T28(top.hash === '#war-rank' && top.cards === 10 && top.date && !top.col && top.tab && top.parent === '赚钱' && top.item === '每日赚钱榜' && top.crumbs === '首页/赚钱/每日赚钱榜' && top.owners.join(',') === 'war-rank', 'Top 10 tab ' + JSON.stringify(top));
+    await pg28.click('.rank-switch a[href="#war-rank-xianyu"]');
+    await pg28.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    const back = await pg28.evaluate(() => ({ hash: location.hash, tab: !!document.querySelector('.rank-switch a.active[href="#war-rank-xianyu"]'), n: document.querySelectorAll('#col-grid .rank-card').length }));
+    T28(back.hash === '#war-rank-xianyu' && back.tab && back.n === 11, 'switch back to collection ' + JSON.stringify(back));
+    const idx = await pg28.evaluate(() => {
+      QuestAssistant.resetIndex();
+      QuestShell.resetIndex();
+      const ents = QuestAssistant.entries();
+      const col = (window.QUEST_COLLECTIONS || {})['xianyu-zero-cost'];
+      const itemsOk = (col.items || []).every((it) => ents.some((e) => e.href === '#war-rank-xianyu' && e.title === it.name && (it.fit ? e.text.indexOf(it.fit.slice(0, 8)) >= 0 : e.text.length > 0)));
+      const rulesOk = (col.rules || []).every((rule) => ents.some((e) => e.href === '#war-rank-xianyu' && (e.text.indexOf(rule.text) >= 0 || e.title.indexOf(rule.text) >= 0)));
+      const hits = QuestShell.search('闲鱼零成本');
+      const map = [...document.querySelectorAll('#panel-sitemap a[href="#war-rank-xianyu"]')].length;
+      return { itemsOk, rulesOk, search: hits.some((h) => h.href === '#war-rank-xianyu'), n: ents.filter((e) => e.href === '#war-rank-xianyu').length, map };
+    });
+    T28(idx.itemsOk && idx.rulesOk && idx.search, 'search + 问 AI index ' + JSON.stringify(idx));
+    const badge = await pg28.evaluate(() => {
+      const html = QuestSources.render([{ title: '示例', url: 'https://example.com/p28-unverified', publisher: 'example.com', published: '', kind: '社区', checked: '2026-10-18', unverified: true }], {});
+      const box = document.createElement('div');
+      box.id = 'p28-uv';
+      box.innerHTML = html;
+      document.body.appendChild(box);
+      const el = box.querySelector('.qs-unverified');
+      const r = el ? el.getBoundingClientRect() : { width: 0, height: 0 };
+      const real = document.querySelector('#col-grid .rank-card[data-rank="2"] .rank-face-src .qs-unverified');
+      const rr = real ? real.getBoundingClientRect() : { width: 0, height: 0 };
+      return { text: el ? el.textContent : '', w: r.width, h: r.height, kind: ((box.querySelector('.qs-kind') || {}).textContent || '').trim(), realW: rr.width, realH: rr.height, checked: box.textContent.indexOf('核实于') >= 0 };
+    });
+    T28(badge.text === '未核实' && badge.w > 0 && badge.h > 0 && badge.kind === '社区' && !badge.checked && (!require('../data/collections/xianyu-zero-cost.json').items.concat(require('../data/collections/xianyu-zero-cost.json').rules).some(x => (x.sources || []).some(z => z.unverified)) || (badge.realW > 0 && badge.realH > 0)), '未核实 badge visible (real data only if it has unverified) ' + JSON.stringify(badge));
+    await pg28.evaluate(() => { const n = document.getElementById('p28-uv'); if (n) n.remove(); });
+  } catch (e) {
+    T28(false, 'ui threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T28(e28.length === 0, 'P28 console errors ' + e28.slice(0, 4).join(' | '));
+  await ctx28.close();
+  console.log('P28 functional fails=' + f28); fail += f28;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

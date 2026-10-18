@@ -1112,3 +1112,6 @@
 
 ## Phase 25 · 羊毛 → 闲鱼原创方案（resell 字段）
 - [x] T202 rank 条目可选 `resell: { product, buyers, expires }`：校验、示例、卡片「闲鱼方案」块 + 筛选、测试（changelog 36，sw v13）
+
+## Phase 26 · 闲鱼零成本方案合集
+- [x] T203 常青合集 data/collections/xianyu-zero-cost.json + #war-rank 第二个标签 + 计划/搜索/问 AI 接入（changelog 37，sw v14）

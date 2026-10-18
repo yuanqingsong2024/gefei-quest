@@ -123,9 +123,19 @@
   function isHttpUrl(u) {
     return /^https?:\/\/\S+$/i.test(String(u || ''));
   }
+  function canonKind(kind, url) {
+    if (kind === 'official' || kind === '官方') return 'official';
+    if (kind === 'media' || kind === '媒体') return 'media';
+    if (kind === 'community' || kind === '社区') return 'community';
+    if (KIND_LABEL[kind]) return kind;
+    return kindOf(url);
+  }
   function kindBadge(kind) {
     var k = KIND_LABEL[kind] ? kind : 'media';
     return '<span class="qs-kind qs-kind-' + k + '">' + KIND_LABEL[k] + '</span>';
+  }
+  function unverifiedBadge(s) {
+    return s && s.unverified ? '<span class="qs-unverified">未核实</span>' : '';
   }
   function isMediaHost(host) {
     var i;
@@ -158,14 +168,16 @@
   function normalize(src, date) {
     src = src || {};
     var url = String(src.url || '');
-    return {
+    var out = {
       title: src.title == null ? '' : String(src.title),
       url: url,
       publisher: src.publisher ? String(src.publisher) : hostOf(url),
       published: src.published == null ? '' : String(src.published),
-      kind: KIND_LABEL[src.kind] ? src.kind : kindOf(url),
+      kind: canonKind(src.kind, url),
       checked: src.checked ? String(src.checked) : (date || ''),
     };
+    if (src.unverified === true) out.unverified = true;
+    return out;
   }
   function render(sources, opts) {
     opts = opts || {};
@@ -178,6 +190,7 @@
       if (compact) {
         return '<li class="qs-item">' +
           kindBadge(s.kind) +
+          unverifiedBadge(s) +
           '<span class="qs-pub">' + esc(pub) + '</span>' +
           '<a class="qs-link" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">↗</a>' +
           extra +
@@ -185,12 +198,13 @@
       }
       return '<li class="qs-item">' +
         kindBadge(s.kind) +
+        unverifiedBadge(s) +
         '<span class="qs-pub">' + esc(pub) + '</span>' +
         (s.published ? '<time class="qs-published" datetime="' + esc(s.published) + '">' + esc(s.published) + '</time>' : '') +
         (s.title ? '<span class="qs-title">' + esc(s.title) + '</span>' : '') +
         '<a class="qs-link" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">链接 ↗</a>' +
         extra +
-        (s.checked ? '<span class="qs-checked">核实于 ' + esc(s.checked) + '</span>' : '') +
+        (!s.unverified && s.checked ? '<span class="qs-checked">核实于 ' + esc(s.checked) + '</span>' : '') +
         '</li>';
     }).join('');
     return '<div class="qs' + (compact ? ' qs-compact' : '') + '">' +
@@ -215,6 +229,7 @@
     fromLegacy: fromLegacy,
     of: of,
     isHttpUrl: isHttpUrl,
+    canonKind: canonKind,
     kindBadge: kindBadge,
     isMediaHost: isMediaHost,
     isOwnHost: isOwnHost,
