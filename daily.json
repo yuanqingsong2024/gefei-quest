@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-18T06:55:13.156Z",
-  "latestId": 37,
-  "latestDate": "2026-10-18",
+  "generatedAt": "2026-10-19T00:45:01.802Z",
+  "latestId": 38,
+  "latestDate": "2026-10-19",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 38,
+      "date": "2026-10-19",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-19",
+      "items": [
+        "No.1 双11明天20:00开卖前夜：尾款提醒+88VIP券自选+免定卡凑单攻略",
+        "No.2 上海普陀「乐购普陀」云闪付消费券：下一轮10月23日周五10:00开抢",
+        "No.3 云南「彩云美物」商圈商超周六消费券：10月24日支付宝/京东再发一轮"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 37,
       "date": "2026-10-18",
@@ -110,42 +122,30 @@
         "首页大标题改为「做英文出海小站」"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 28,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "首页视觉整理：导航更简洁、分区更清楚",
-      "items": [
-        "顶栏收成六个入口：首页、新手引导、学习、实战、资源、我的。其余页面放进对应下拉，键盘和点击都能打开，搜索仍能找到每一页",
-        "首页改成全宽分区：灯塔首屏只留一句说明和两个按钮；三步「学 / 做 / 赚」；今日赚钱榜两列卡片只显示名次、名称、类型，有截止日期才标出。成本和难度仍在完整榜单",
-        "页脚只留常用链接。全部页面放到网站地图 #sitemap"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-10-18",
+    "date": "2026-10-19",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "双11京东/淘宝10月20日20:00开卖：今天先领红包和平台加补券",
+        "name": "双11明天20:00开卖前夜：尾款提醒+88VIP券自选+免定卡凑单攻略",
         "type": "羊毛",
-        "source_url": "https://finance.sina.com.cn/roll/2026-10-16/doc-inivmtxi8339972.shtml"
+        "source_url": "https://jingji.cctv.com/2026/10/15/ARTIWtbJczwOS6BxWUh2I1sL261015.shtml"
       },
       {
         "rank": 2,
-        "name": "四川「蜀里安逸·重阳敬老」消费券：今天9:00京东App开抢",
+        "name": "上海普陀「乐购普陀」云闪付消费券：下一轮10月23日周五10:00开抢",
         "type": "羊毛",
-        "source_url": "https://news.qq.com/rain/a/20261015A0ARV400"
+        "source_url": "https://www.shpt.gov.cn/bm-ms/20261015/973700.html"
       },
       {
         "rank": 3,
-        "name": "银行App长期微信立减金（建行缴费抽2–10元、农行省钱月卡等，每月重置）",
+        "name": "云南「彩云美物」商圈商超周六消费券：10月24日支付宝/京东再发一轮",
         "type": "羊毛",
-        "source_url": "https://10000yun.com/2561.html"
+        "source_url": "https://yn.yunnan.cn/system/2026/10/16/034175630.shtml"
       }
     ]
   }
