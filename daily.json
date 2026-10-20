@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-19T00:45:01.802Z",
-  "latestId": 38,
-  "latestDate": "2026-10-19",
+  "generatedAt": "2026-10-20T00:42:40.608Z",
+  "latestId": 39,
+  "latestDate": "2026-10-20",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 39,
+      "date": "2026-10-20",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-20",
+      "items": [
+        "No.1 今晚20:00双11正式开卖：天猫尾款+88VIP券开用+京东超级秒杀日",
+        "No.2 虹口「白相来虹口」云闪付零售立减：每天08:00–23:00无需抢券",
+        "No.3 云南「彩云美物」商圈商超周六消费券：10月24日支付宝/京东再发一轮"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 38,
       "date": "2026-10-19",
@@ -112,34 +124,24 @@
         "顶部导航固定在最上方，滚动时始终可见"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 29,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "首页标题更简洁",
-      "items": [
-        "首页大标题改为「做英文出海小站」"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-10-19",
+    "date": "2026-10-20",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "双11明天20:00开卖前夜：尾款提醒+88VIP券自选+免定卡凑单攻略",
+        "name": "今晚20:00双11正式开卖：天猫尾款+88VIP券开用+京东超级秒杀日",
         "type": "羊毛",
-        "source_url": "https://jingji.cctv.com/2026/10/15/ARTIWtbJczwOS6BxWUh2I1sL261015.shtml"
+        "source_url": "https://finance.eastmoney.com/a/202610153896960196.html"
       },
       {
         "rank": 2,
-        "name": "上海普陀「乐购普陀」云闪付消费券：下一轮10月23日周五10:00开抢",
+        "name": "虹口「白相来虹口」云闪付零售立减：每天08:00–23:00无需抢券",
         "type": "羊毛",
-        "source_url": "https://www.shpt.gov.cn/bm-ms/20261015/973700.html"
+        "source_url": "https://www.shanghai.gov.cn/nw17239/20261016/2c0401968e3b42a985e1b73495759399.html"
       },
       {
         "rank": 3,
