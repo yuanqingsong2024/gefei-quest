@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-21T10:42:02.779Z",
-  "latestId": 40,
+  "generatedAt": "2026-10-21T10:49:06.424Z",
+  "latestId": 41,
   "latestDate": "2026-10-21",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 41,
+      "date": "2026-10-21",
+      "tag": "新功能",
+      "title": "新增「AI生活起号选题方案」合集：10 个场景选题与可卖的原创日历/提示词包角度，附来源与合规提醒",
+      "items": [
+        "新增「AI生活起号选题方案」合集：10 个场景选题与可卖的原创日历/提示词包角度，附来源与合规提醒"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 40,
       "date": "2026-10-21",
@@ -112,18 +122,6 @@
         "首页桌面版重排：两栏首屏、今日 Top 3 预览、下一步并入主按钮",
         "首屏右边是今天赚钱榜的前 3 名，并标出榜单日期；「看完整 Top 10」滚到下面的完整榜",
         "主按钮按你的进度变化。新访客是「我是新手，从这里开始」。单独的「下一步」横条已去掉，避免和主按钮重复"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 31,
-      "date": "2026-10-17",
-      "tag": "新功能",
-      "title": "问 AI、首页下一步、工具页目标",
-      "items": [
-        "新增「问 AI」助手：每个页面右下角都能提问。连了自定义服务商会流式回答；没连接时只检索站内资料，并标明「站内资料检索（未连接 AI）」",
-        "首页在首屏下面增加一张「下一步」卡片：按你的存档，在学习、实施、赚钱里只推荐一件事，一个按钮直达",
-        "各工具页写明这一页的目标；页面底部有「下一步 →」按钮，按学习、实施、赚钱的顺序进入下一页"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }

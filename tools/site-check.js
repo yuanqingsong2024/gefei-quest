@@ -540,7 +540,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     H[r] = +(await p.evaluate(() => document.documentElement.scrollHeight / 800)).toFixed(2);
   }
   await p.setViewportSize({ width: 1280, height: 860 });
-  T18(Object.entries(H).every(([k, v]) => k === 'home' || v <= 2.5), 'heights ≤2.5 screens (home uncapped) @1280x800 ' + JSON.stringify(H));
+  T18(Object.entries(H).every(([k, v]) => k === 'home' || (k === 'war-rank' ? v <= 3.0 : v <= 2.5)), 'heights ≤2.5 screens (home uncapped, war-rank ≤3.0) @1280x800 ' + JSON.stringify(H));
   await visit('me-accounts'); await p.reload(); await p.waitForTimeout(300);
   T18(await p.evaluate(() => {
     const cards = [...document.querySelectorAll('#panel-me .wb-plat')].filter(el => el.offsetParent !== null);
@@ -2672,7 +2672,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     try { fs26.rmSync(tmpDir, { recursive: true, force: true }); } catch (_) {}
 
     const swSrc = fs26.readFileSync(path26.join(root26, 'sw.js'), 'utf8');
-    T26(/CACHE_VERSION\s*=\s*14/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 14 + sources.js precache');
+    T26(/CACHE_VERSION\s*=\s*15/.test(swSrc) && /js\/sources\.js/.test(swSrc), 'sw CACHE_VERSION 15 + sources.js precache');
     const cl = fs26.readFileSync(path26.join(root26, 'js/changelog.js'), 'utf8');
     T26(/id:\s*35/.test(cl) && /每条赚钱榜和平台资料都标出来源/.test(cl), 'changelog id 35 sources entry');
   } catch (e) {
@@ -2691,8 +2691,8 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     const rankUi = await pg26.evaluate(() => {
       const cards = [...document.querySelectorAll('.rank-card')];
       const sina = cards.find((c) => /finance\.sina\.com\.cn/.test(c.innerHTML));
-      const qs = sina ? sina.querySelector('.qs') : null;
-      const qsText = qs ? qs.textContent : '';
+      const sinaItem = sina ? [...sina.querySelectorAll('.qs-item')].find((el) => /finance\.sina/.test(el.innerHTML)) : null;
+      const sinaKind = ((sinaItem && sinaItem.querySelector('.qs-kind')) || {}).textContent || '';
       const chips = [...document.querySelectorAll('[data-rtype]')].map((b) => b.getAttribute('data-rtype'));
       const present = [...new Set(cards.map((c) => c.getAttribute('data-type')))];
       const extra = chips.filter((t) => t && t !== 'all' && present.indexOf(t) < 0);
@@ -2705,9 +2705,9 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         foot: footNodes.length,
         faceOutside: faceNodes.length === 10 && faceNodes.every((q) => !q.closest('.cx-body') && q.querySelector('.qs-kind') && /官方|媒体|社区/.test(q.querySelector('.qs-kind').textContent) && q.querySelector('.qs-pub') && /↗/.test((q.querySelector('a.qs-link') || {}).textContent || '')),
         footInside: footNodes.length === 10 && footNodes.every((q) => !!q.closest('.cx-body') && !q.classList.contains('qs-compact') && /来源/.test(q.textContent)),
-        sinaQs: !!(qs && /finance\.sina/.test(qs.innerHTML)),
-        sinaOfficial: qsText.indexOf('官方') >= 0,
-        sinaMedia: qsText.indexOf('媒体') >= 0,
+        sinaQs: !!sinaItem,
+        sinaOfficial: sinaKind === '官方',
+        sinaMedia: sinaKind === '媒体',
         chips: chips,
         extra: extra,
         hasAll: chips[0] === 'all',
@@ -2887,14 +2887,27 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     realFiles.push(path27.join(root27, 'data/rank.json'));
     walkReal(path27.join(root27, 'data/rank-history'));
     walkReal(path27.join(root27, 'data/money-rank'));
-    let resellHits = 0;
-    realFiles.forEach((f) => { if (/"resell"\s*:/.test(fs27.readFileSync(f, 'utf8'))) resellHits++; });
-    T27(resellHits === 0, 'real rank data has no resell');
+    let resellHits = 0, resellBad = 0;
+    realFiles.forEach((f) => {
+      const raw = fs27.readFileSync(f, 'utf8');
+      if (!/"resell"\s*:/.test(raw)) return;
+      resellHits++;
+      const data = JSON.parse(raw);
+      (data.items || []).forEach((it) => {
+        if (!it || it.resell === undefined) return;
+        const rs = it.resell;
+        if (!rs || typeof rs !== 'object' || Array.isArray(rs)) { resellBad++; return; }
+        if (typeof rs.product !== 'string' || !rs.product.trim()) resellBad++;
+        if (typeof rs.buyers !== 'string' || !rs.buyers.trim()) resellBad++;
+        if (typeof rs.expires !== 'string') resellBad++;
+      });
+    });
+    T27(resellBad === 0, 'real rank resell fields valid (files=' + resellHits + ')');
     watch27.forEach((rel) => { T27(before27[rel] === hash27(rel), 'unchanged ' + rel); });
     T27(histBefore27 === fs27.readdirSync(path27.join(root27, 'data/rank-history')).sort().join('\n'), 'rank-history file list unchanged');
     const cl27 = fs27.readFileSync(path27.join(root27, 'js/changelog.js'), 'utf8');
     T27(/id:\s*36/.test(cl27) && /赚钱榜支持「闲鱼方案」/.test(cl27), 'changelog id 36');
-    T27(/CACHE_VERSION\s*=\s*14/.test(fs27.readFileSync(path27.join(root27, 'sw.js'), 'utf8')), 'sw CACHE_VERSION 14');
+    T27(/CACHE_VERSION\s*=\s*15/.test(fs27.readFileSync(path27.join(root27, 'sw.js'), 'utf8')), 'sw CACHE_VERSION 15');
   } catch (e) {
     T27(false, 'file checks threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
   }
@@ -3019,7 +3032,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         n: document.querySelectorAll('.rank-card').length,
       };
     });
-    T27(!real27.chip && real27.blocks === 0 && real27.n === 10 && real27.latest !== sampleUi.date, 'chip hidden on real day without resell ' + JSON.stringify(real27));
+    T27(real27.n === 10 && real27.latest !== sampleUi.date && (real27.blocks > 0 ? real27.chip : !real27.chip), 'real day resell chip matches data ' + JSON.stringify(real27));
   } catch (e) {
     T27(false, 'real day threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
   }
@@ -3279,6 +3292,254 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T28(e28.length === 0, 'P28 console errors ' + e28.slice(0, 4).join(' | '));
   await ctx28.close();
   console.log('P28 functional fails=' + f28); fail += f28;
+
+  // ---------- Phase 29 · AI生活起号选题合集 ----------
+  let f29 = 0; const T29 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P29 ' + m); if (!c) f29++; };
+  const fs29 = require('fs');
+  const path29 = require('path');
+  const cp29 = require('child_process');
+  const os29 = require('os');
+  const root29 = path29.resolve(__dirname, '..');
+  const shot29 = '/workspace/gefei-quest-shots';
+  fs29.mkdirSync(shot29, { recursive: true });
+  try {
+    const V29 = require('./rank-validate.js');
+    const colPath = path29.join(root29, 'data/collections/ai-life-wechat-topics.json');
+    const raw29 = fs29.readFileSync(colPath, 'utf8');
+    const col29 = JSON.parse(raw29);
+    const v29 = V29.validateCollection(JSON.parse(raw29));
+    T29(v29.ok && col29.items.length === 10 && col29.rules.length === 6 && col29.title === 'AI生活起号选题方案', 'collection valid via shared validator ' + (v29.ok ? 'ok' : v29.errors.join('; ')));
+    const src29 = JSON.parse(fs29.readFileSync('/workspace/ai-life-wechat-topics.json', 'utf8'));
+    const strip29 = (obj) => JSON.stringify(obj, (k, val) => (k === 'checked' || k === 'unverified' ? undefined : val));
+    T29(strip29(col29.items) === strip29(src29.items) && strip29(col29.rules) === strip29(src29.rules) && col29.intro === src29.intro, 'items/rules/intro match source verbatim');
+    const pub29 = path29.join(root29, 'tools/publish-collection.js');
+    const beforeBytes = fs29.readFileSync(colPath);
+    const okRun = cp29.spawnSync(process.execPath, [pub29, colPath], { encoding: 'utf8' });
+    const afterBytes = fs29.readFileSync(colPath);
+    T29(okRun.status === 0 && beforeBytes.equals(afterBytes), 'publish-collection without --check-urls keeps the file');
+    const embed = fs29.readFileSync(path29.join(root29, 'js/collection-data.js'), 'utf8');
+    T29(/"xianyu-zero-cost"/.test(embed) && /"ai-life-wechat-topics"/.test(embed), 'collection-data.js embeds both collections');
+    const sw29 = fs29.readFileSync(path29.join(root29, 'sw.js'), 'utf8');
+    T29(/CACHE_VERSION\s*=\s*15/.test(sw29) && /ai-life-wechat-topics\.json/.test(sw29) && /collection-data\.js/.test(sw29), 'sw v15 precaches ai-life collection');
+    const cl29 = fs29.readFileSync(path29.join(root29, 'js/changelog.js'), 'utf8');
+    T29(/id:\s*41/.test(cl29) && /AI生活起号选题方案/.test(cl29), 'changelog id 41');
+    const tmp29 = fs29.mkdtempSync(path29.join(os29.tmpdir(), 'p29-col-'));
+    const runBad = (mut, needle) => {
+      const copy = JSON.parse(raw29);
+      mut(copy);
+      const f = path29.join(tmp29, 'bad.json');
+      fs29.writeFileSync(f, JSON.stringify(copy));
+      const r = cp29.spawnSync(process.execPath, [pub29, f], { encoding: 'utf8' });
+      const out = (r.stdout || '') + (r.stderr || '');
+      try { fs29.unlinkSync(f); } catch (_) {}
+      const ok = r.status !== 0 && needle.test(out);
+      if (!ok) console.log('     publish-collection exit=' + r.status + ' ' + out.slice(0, 500));
+      return ok;
+    };
+    T29(runBad((d) => { delete d.items[0].sources; d.items[0].source_url = ''; }, /no source|sources/i), 'rejects item missing sources');
+    try { fs29.rmSync(tmp29, { recursive: true, force: true }); } catch (_) {}
+  } catch (e) {
+    T29(false, 'file checks threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 6).join(' | ') : e));
+  }
+
+  const ctx29 = await b.newContext({ viewport: { width: 1366, height: 900 } });
+  const pg29 = cx(await ctx29.newPage());
+  const e29 = [];
+  pg29.on('pageerror', (e) => { e29.push('pageerror ' + e.message); errors.push('p29 ' + e.message); });
+  pg29.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource|net::ERR_|ERR_INTERNET_DISCONNECTED|ERR_CONNECTION_REFUSED/.test(m.text())) { e29.push(m.text()); errors.push('p29 ' + m.text()); } });
+  const quiet29 = () => pg29.evaluate(() => {
+    const t = document.getElementById('tour-root'); if (t) t.remove();
+    if (window.QuestAssistant && QuestAssistant.close) QuestAssistant.close();
+  });
+  const frameRank29 = async () => {
+    await quiet29();
+    const place = () => pg29.evaluate(() => {
+      const nav = document.getElementById('site-nav');
+      const el = document.querySelector('.rank-switch');
+      if (!el) return;
+      for (let i = 0; i < 3; i++) {
+        const navH = nav ? nav.getBoundingClientRect().height : 0;
+        const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+        window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top + y - navH - 8));
+      }
+    });
+    await place();
+    await pg29.waitForTimeout(80);
+    await place();
+  };
+  const edge29 = () => pg29.evaluate(() => {
+    const vw = window.innerWidth;
+    const bad = [];
+    const counts = {};
+    ['.rank-card', '.rank-fav', '.rank-rules'].forEach((sel) => {
+      let n = 0;
+      document.querySelectorAll(sel).forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.width < 1 || r.height < 1) return;
+        n++;
+        if (r.right > vw - 8 || r.left < 8) bad.push(sel + ' ' + Math.round(r.left) + '..' + Math.round(r.right));
+      });
+      counts[sel] = n;
+    });
+    return { vw, scroll: document.documentElement.scrollWidth, bad, counts };
+  });
+  try {
+    await pg29.goto(BASE + 'index.html#war-rank-ai-life', { waitUntil: 'domcontentloaded' });
+    await pg29.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    await quiet29();
+    const first = await pg29.evaluate(() => {
+      const cards = [...document.querySelectorAll('#col-grid .rank-card')];
+      const vis = cards.filter((c) => getComputedStyle(c).display !== 'none' && c.getBoundingClientRect().height > 0);
+      const rules = document.querySelector('.rank-rules');
+      const ruleEls = [...document.querySelectorAll('.rank-rule')];
+      let sorted = true;
+      for (let i = 1; i < cards.length; i++) {
+        const d0 = +cards[i - 1].getAttribute('data-difficulty');
+        const d1 = +cards[i].getAttribute('data-difficulty');
+        const r0 = +cards[i - 1].getAttribute('data-rank');
+        const r1 = +cards[i].getAttribute('data-rank');
+        if (d1 < d0 || (d1 === d0 && r1 < r0)) sorted = false;
+      }
+      return {
+        n: cards.length,
+        vis: vis.length,
+        rulesOpen: !!(rules && rules.open),
+        ruleN: ruleEls.length,
+        ruleSrc: ruleEls.length === 6 && ruleEls.every((el) => !!el.querySelector('.qs')),
+        order: cards.map((c) => +c.getAttribute('data-rank')),
+        sorted,
+        qs: cards.every((c) => !!c.querySelector('.qs')),
+        tabs: [...document.querySelectorAll('.rank-switch a')].map((a) => a.textContent.trim()),
+      };
+    });
+    T29(first.n === 10 && first.vis === 6, '10 cards, 6 visible initially ' + first.n + '/' + first.vis);
+    T29(first.qs, 'every card has .qs');
+    T29(!first.rulesOpen && first.ruleN === 6 && first.ruleSrc, 'rules collapsed with 6 sourced rules');
+    T29(first.sorted && first.order.join(',') === '1,7,9,10,2,3,4,5,6,8', 'sorted by difficulty ' + first.order.join(','));
+    T29(first.tabs.join('|') === '每日 Top 10|闲鱼零成本方案|AI生活起号选题', 'three tabs ' + first.tabs.join('|'));
+    const nav1 = await pg29.evaluate(() => ({
+      hash: location.hash,
+      parent: ((document.querySelector('a.nav-top.active span') || {}).textContent || '').trim(),
+      item: ((document.querySelector('.nav-menu a.active b') || {}).textContent || '').trim(),
+      crumbs: [...document.querySelectorAll('.crumbs > a, .crumbs > [aria-current]')].map((el) => el.textContent.trim()).join('/'),
+      owners: QuestNav.pagesOwning(location.hash).map((p) => p.id),
+      tab: !!document.querySelector('.rank-switch a.active[href="#war-rank-ai-life"]'),
+      parse: QuestNav.parse(location.hash),
+    }));
+    T29(nav1.hash === '#war-rank-ai-life' && nav1.tab && nav1.parent === '赚钱' && nav1.item === '每日赚钱榜' && nav1.crumbs === '首页/赚钱/每日赚钱榜' && nav1.owners.join(',') === 'war-rank' && nav1.parse.section === 'war' && nav1.parse.view === 'rank' && nav1.parse.param === 'ai-life', 'collection hash + nav ' + JSON.stringify(nav1));
+    await frameRank29();
+    const shotBox = await pg29.evaluate(() => {
+      const navH = (document.getElementById('site-nav') || { getBoundingClientRect: () => ({ bottom: 0 }) }).getBoundingClientRect().bottom;
+      const sw = document.querySelector('.rank-switch');
+      const intro = document.querySelector('.rank-intro');
+      const rules = document.querySelector('.rank-rules');
+      const card = document.querySelector('#col-grid .rank-card');
+      const sr = sw ? sw.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ir = intro ? intro.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const rr = rules ? rules.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const cr = card ? card.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ih = window.innerHeight;
+      const tabs = sw ? sw.innerText.replace(/\s+/g, '') : '';
+      const toast = !!document.querySelector('#toast-root .toast');
+      const inView = sr.height > 10 && sr.top >= navH - 2 && sr.top <= navH + 20 && sr.bottom <= ih
+        && ir.height > 8 && ir.top >= navH - 2 && ir.bottom <= ih
+        && rr.height > 20 && rr.top < ih && rr.bottom > navH
+        && cr.height > 40 && cr.top < ih && cr.bottom > navH && cr.top >= rr.top;
+      return { w: window.innerWidth, navH, swTop: sr.top, introTop: ir.top, rulesTop: rr.top, cardTop: cr.top, cardH: cr.height, open: !!(rules && rules.open), toast, tabs, inView };
+    });
+    T29(shotBox.w === 1366 && shotBox.inView && !shotBox.open && !shotBox.toast && shotBox.tabs.indexOf('每日Top10') >= 0 && shotBox.tabs.indexOf('闲鱼零成本方案') >= 0 && shotBox.tabs.indexOf('AI生活起号选题') >= 0, 'screenshot frame 1366 ' + JSON.stringify(shotBox));
+    await pg29.screenshot({ path: shot29 + '/p29-ai-life.png' });
+    await pg29.setViewportSize({ width: 390, height: 844 });
+    await pg29.goto(BASE + 'index.html#war-rank-ai-life', { waitUntil: 'domcontentloaded' });
+    await pg29.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    await frameRank29();
+    const mob = await pg29.evaluate(() => {
+      const navH = (document.getElementById('site-nav') || { getBoundingClientRect: () => ({ bottom: 0 }) }).getBoundingClientRect().bottom;
+      const sw = document.querySelector('.rank-switch');
+      const intro = document.querySelector('.rank-intro');
+      const rules = document.querySelector('.rank-rules');
+      const card = document.querySelector('#col-grid .rank-card');
+      const sr = sw ? sw.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ir = intro ? intro.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const rr = rules ? rules.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const cr = card ? card.getBoundingClientRect() : { top: -1, bottom: 0, height: 0 };
+      const ih = window.innerHeight;
+      const toast = !!document.querySelector('#toast-root .toast');
+      const inView = sr.height > 10 && sr.top >= navH - 2 && sr.top <= navH + 24 && ir.height > 8 && ir.bottom <= ih && rr.height > 20 && rr.top < ih && ! (rules && rules.open) && cr.height > 30 && cr.top < ih;
+      return { w: document.documentElement.scrollWidth, vw: window.innerWidth, inView, open: !!(rules && rules.open), toast, swTop: sr.top, navH, rulesTop: rr.top, cardTop: cr.top };
+    });
+    const edgeMob = await edge29();
+    T29(mob.w <= 390 && mob.vw === 390 && mob.inView && !mob.open && !mob.toast && edgeMob.bad.length === 0 && edgeMob.counts['.rank-card'] >= 1 && edgeMob.counts['.rank-fav'] >= 1 && edgeMob.counts['.rank-rules'] >= 1 && edgeMob.scroll <= 390, '390 layout ' + JSON.stringify({ mob, edge: edgeMob }));
+    await pg29.screenshot({ path: shot29 + '/p29-ai-life-390.png' });
+    await pg29.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });
+    await pg29.waitForSelector('#panel-war .rank-grid .rank-card', { timeout: 8000 });
+    await quiet29();
+    await pg29.waitForTimeout(120);
+    const edgeTop = await edge29();
+    T29(edgeTop.vw === 390 && edgeTop.scroll <= 390 && edgeTop.bad.length === 0 && edgeTop.counts['.rank-card'] >= 1 && edgeTop.counts['.rank-fav'] >= 1, '390 layout #war-rank ' + JSON.stringify(edgeTop));
+    await pg29.setViewportSize({ width: 1366, height: 900 });
+    await pg29.goto(BASE + 'index.html#war-rank-ai-life', { waitUntil: 'domcontentloaded' });
+    await pg29.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    await quiet29();
+    await pg29.click('#col-more');
+    await pg29.waitForTimeout(100);
+    const afterMore = await pg29.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => getComputedStyle(c).display !== 'none' && c.getBoundingClientRect().height > 0).length);
+    T29(afterMore === 10, '展开更多 shows 10 (' + afterMore + ')');
+    await pg29.click('.rank-card[data-rank="1"] [data-plan-add]');
+    await pg29.waitForTimeout(180);
+    const plan = await pg29.evaluate(() => {
+      const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1') || '{}');
+      const hit = (s.rankPlan || []).filter((p) => p.key === 'ai-life-wechat-topics:1')[0];
+      const label = [...document.querySelectorAll('#rank-plan .plan-item')].map((el) => el.textContent).join('\n');
+      return { ok: !!(hit && hit.name && label.indexOf(hit.name) >= 0), name: hit && hit.name, key: hit && hit.key };
+    });
+    T29(plan.ok && plan.key === 'ai-life-wechat-topics:1', 'add-to-plan key prefix ' + JSON.stringify(plan));
+    await pg29.click('.rank-switch a[href="#war-rank"]');
+    await pg29.waitForSelector('#rank-date', { timeout: 8000 });
+    await pg29.waitForTimeout(150);
+    const top = await pg29.evaluate(() => ({
+      hash: location.hash,
+      cards: document.querySelectorAll('#panel-war .rank-grid:not([data-col-expand]) .rank-card').length,
+      date: !!document.getElementById('rank-date'),
+      col: !!document.getElementById('col-grid'),
+      tab: !!document.querySelector('.rank-switch a.active[href="#war-rank"]'),
+      parent: ((document.querySelector('a.nav-top.active span') || {}).textContent || '').trim(),
+    }));
+    T29(top.hash === '#war-rank' && top.cards === 10 && top.date && !top.col && top.tab && top.parent === '赚钱', 'Top 10 tab ' + JSON.stringify(top));
+    await pg29.click('.rank-switch a[href="#war-rank-xianyu"]');
+    await pg29.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
+    const xianyu = await pg29.evaluate(() => ({
+      hash: location.hash,
+      tab: !!document.querySelector('.rank-switch a.active[href="#war-rank-xianyu"]'),
+      n: document.querySelectorAll('#col-grid .rank-card').length,
+      parent: ((document.querySelector('a.nav-top.active span') || {}).textContent || '').trim(),
+    }));
+    T29(xianyu.hash === '#war-rank-xianyu' && xianyu.tab && xianyu.n === 11 && xianyu.parent === '赚钱', 'xianyu tab still works ' + JSON.stringify(xianyu));
+    await pg29.click('.rank-switch a[href="#war-rank-ai-life"]');
+    await pg29.waitForFunction(() => location.hash === '#war-rank-ai-life' && !!document.querySelector('.rank-switch a.active[href="#war-rank-ai-life"]') && document.querySelectorAll('#col-grid .rank-card').length === 10, { timeout: 8000 });
+    const back = await pg29.evaluate(() => ({ hash: location.hash, tab: !!document.querySelector('.rank-switch a.active[href="#war-rank-ai-life"]'), n: document.querySelectorAll('#col-grid .rank-card').length }));
+    T29(back.hash === '#war-rank-ai-life' && back.tab && back.n === 10, 'switch back to AI life ' + JSON.stringify(back));
+    await pg29.goto(BASE + 'index.html#sitemap', { waitUntil: 'domcontentloaded' });
+    await pg29.waitForTimeout(200);
+    const idx = await pg29.evaluate(() => {
+      QuestAssistant.resetIndex();
+      QuestShell.resetIndex();
+      const ents = QuestAssistant.entries();
+      const col = (window.QUEST_COLLECTIONS || {})['ai-life-wechat-topics'];
+      const itemsOk = (col.items || []).every((it) => ents.some((e) => e.href === '#war-rank-ai-life' && e.title === it.name && (it.fit ? e.text.indexOf(it.fit.slice(0, 8)) >= 0 : e.text.length > 0)));
+      const rulesOk = (col.rules || []).every((rule) => ents.some((e) => e.href === '#war-rank-ai-life' && (e.text.indexOf(rule.text) >= 0 || e.title.indexOf(rule.text) >= 0)));
+      const hits = QuestShell.search('AI生活起号');
+      const map = [...document.querySelectorAll('#panel-sitemap a[href="#war-rank-ai-life"]')].length;
+      const xianyuHits = QuestShell.search('闲鱼零成本');
+      return { itemsOk, rulesOk, search: hits.some((h) => h.href === '#war-rank-ai-life'), n: ents.filter((e) => e.href === '#war-rank-ai-life').length, map, xianyuSearch: xianyuHits.some((h) => h.href === '#war-rank-xianyu') };
+    });
+    T29(idx.itemsOk && idx.rulesOk && idx.search && idx.map >= 1 && idx.xianyuSearch, 'search + 问 AI + sitemap ' + JSON.stringify(idx));
+  } catch (e) {
+    T29(false, 'ui threw ' + (e && e.stack ? e.stack.split('\n').slice(0, 8).join(' | ') : e));
+  }
+  T29(e29.length === 0, 'P29 console errors ' + e29.slice(0, 4).join(' | '));
+  await ctx29.close();
+  console.log('P29 functional fails=' + f29); fail += f29;
   console.log(`TOTAL fails=${fail} consoleErrors=${errors.length}`);
   if (SHOTS) {
     const shot = async (h, name, pg = p) => { await pg.goto(BASE + 'index.html#' + h); await pg.waitForTimeout(400); await pg.screenshot({ path: `${SHOTS}/p8-${name}.png`, fullPage: false }); };

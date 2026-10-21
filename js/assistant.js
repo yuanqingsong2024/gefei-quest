@@ -236,9 +236,15 @@
       });
     }
     var cols = global.QUEST_COLLECTIONS || {};
-    var col = cols['xianyu-zero-cost'];
-    if (col) {
-      if (col.intro) addChunks(list, col.title || '闲鱼零成本方案', '#war-rank-xianyu', col.intro);
+    var metas = (global.QuestRank && QuestRank.COLS) || [
+      { id: 'xianyu-zero-cost', hash: 'war-rank-xianyu', label: '闲鱼零成本方案' },
+      { id: 'ai-life-wechat-topics', hash: 'war-rank-ai-life', label: 'AI生活起号选题' },
+    ];
+    metas.forEach(function (meta) {
+      var col = cols[meta.id];
+      if (!col) return;
+      var href = '#' + meta.hash;
+      if (col.intro) addChunks(list, col.title || meta.label, href, col.intro);
       (col.items || []).forEach(function (it) {
         if (!it || !it.name) return;
         var src = null;
@@ -246,16 +252,16 @@
         addChunks(
           list,
           it.name,
-          '#war-rank-xianyu',
+          href,
           [it.fit, it.why].filter(Boolean).join('\n'),
           src && src.length ? { sources: src } : null
         );
       });
       (col.rules || []).forEach(function (rule) {
         if (!rule || !rule.text) return;
-        addChunks(list, rule.text, '#war-rank-xianyu', rule.text, rule.sources && rule.sources.length ? { sources: rule.sources } : null);
+        addChunks(list, rule.text, href, rule.text, rule.sources && rule.sources.length ? { sources: rule.sources } : null);
       });
-    }
+    });
     return list;
   }
   function termsOf(query) {

@@ -1,15 +1,18 @@
 /** Phase 12 · 每日赚钱榜 #war-rank
  *  数据：js/rank-data.js（内嵌近 14 天，file:// 可用）→ 历史更早的日期再 fetch data/rank-history/<date>.json
- *  合集：js/collection-data.js，再 fetch data/collections/xianyu-zero-cost.json
+ *  合集：js/collection-data.js，再 fetch data/collections/<id>.json（QUEST_COLLECTIONS[id] 兜底）
  *  存档追加：rankFav [name] · rankPlan [{name,type,date,steps,source_url,done,key?}]
- *  合集计划的 key 为 xianyu-zero-cost:<rank>，只追加字段，不改已有字段名。 */
+ *  合集计划的 key 为 <collection-id>:<rank>，只追加字段，不改已有字段名。 */
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   var TYPES = ['羊毛', '副业', '闲鱼非实物', '出海小站', '工具活动', '出海新词', '开发者羊毛', '奖金赛/悬赏', '平台激励', '联盟营销', '案例拆解', '数字产品/接单'];
   var view = { date: null, type: 'all', fav: false, resell: false };
-  var COL_ID = 'xianyu-zero-cost';
-  var colOpen = false;
+  var COLS = [
+    { id: 'xianyu-zero-cost', hash: 'war-rank-xianyu', tab: 'xianyu', label: '闲鱼零成本方案', rulesTitle: '闲鱼规则提醒', icon: 'fish', searchHay: '闲鱼 零成本 合集 规则' },
+    { id: 'ai-life-wechat-topics', hash: 'war-rank-ai-life', tab: 'ai-life', label: 'AI生活起号选题', rulesTitle: '合规提醒', icon: 'sparkle', searchHay: 'AI 生活 起号 选题 公众号 合集 规则 提示词' },
+  ];
+  var colOpen = {};
   var cache = {};
   function R() { return global.QUEST_RANK || { latest: null, dates: [], days: {} }; }
   function QS() { return global.QuestSources; }
@@ -109,16 +112,29 @@
     if (global.QuestNav && QuestNav.canonical) { try { h = QuestNav.canonical(h); } catch (e2) {} }
     return h;
   }
-  function isXianyu() { return hashNow() === 'war-rank-xianyu'; }
-  function switchHtml(which) {
-    return '<nav class="rank-switch" aria-label="榜单内容">' +
-      '<a class="rank-switch-btn' + (which === 'top' ? ' active' : '') + '" href="#war-rank"' + (which === 'top' ? ' aria-current="page"' : '') + '>每日 Top 10</a>' +
-      '<a class="rank-switch-btn' + (which === 'xianyu' ? ' active' : '') + '" href="#war-rank-xianyu"' + (which === 'xianyu' ? ' aria-current="page"' : '') + '>闲鱼零成本方案</a>' +
-      '</nav>';
+  function colByHash(h) {
+    h = h || hashNow();
+    var i;
+    for (i = 0; i < COLS.length; i++) if (COLS[i].hash === h) return COLS[i];
+    return null;
   }
-  function colBundle() {
+  function colById(id) {
+    var i;
+    for (i = 0; i < COLS.length; i++) if (COLS[i].id === id) return COLS[i];
+    return null;
+  }
+  function switchHtml(which) {
+    var html = '<nav class="rank-switch" aria-label="榜单内容">' +
+      '<a class="rank-switch-btn' + (which === 'top' ? ' active' : '') + '" href="#war-rank"' + (which === 'top' ? ' aria-current="page"' : '') + '>每日 Top 10</a>';
+    COLS.forEach(function (c) {
+      var on = which === c.tab;
+      html += '<a class="rank-switch-btn' + (on ? ' active' : '') + '" href="#' + c.hash + '"' + (on ? ' aria-current="page"' : '') + '>' + esc(c.label) + '</a>';
+    });
+    return html + '</nav>';
+  }
+  function colBundle(id) {
     var all = global.QUEST_COLLECTIONS || {};
-    return all[COL_ID] || null;
+    return all[id] || null;
   }
   function sortCol(items) {
     return (items || []).slice().sort(function (a, b) {
@@ -127,41 +143,44 @@
       return (a.rank || 0) - (b.rank || 0);
     });
   }
-  function paintCollection(state, root, ctx, data) {
+  function paintCollection(state, root, ctx, meta, data) {
     ensure(state);
+    meta = meta || colByHash();
     data = data || {};
+    if (!meta) return;
+    var open = !!colOpen[meta.id];
     var items = sortCol(data.items);
     var rules = data.rules || [];
     var S = QS();
-    var rulesHtml = '<details class="rank-rules"><summary>闲鱼规则提醒</summary><ol class="rank-rule-list">' +
+    var rulesHtml = '<details class="rank-rules"><summary>' + esc(meta.rulesTitle || '规则提醒') + '</summary><ol class="rank-rule-list">' +
       rules.map(function (rule) {
         return '<li class="rank-rule"><p>' + esc(rule.text) + '</p>' + (S ? S.render(rule.sources, { compact: true }) : '') + '</li>';
       }).join('') + '</ol></details>';
     var cards = items.map(function (it, idx) {
       return card(it, state, data.updated || '', {
-        planKey: COL_ID + ':' + it.rank,
-        extraClass: (!colOpen && idx >= 6) ? 'col-more' : '',
+        planKey: meta.id + ':' + it.rank,
+        extraClass: (!open && idx >= 6) ? 'col-more' : '',
       });
     }).join('');
-    var moreBtn = (!colOpen && items.length > 6) ? '<p class="rank-more-row"><button type="button" class="btn btn-sm" id="col-more">展开更多</button></p>' : '';
-    root.innerHTML = switchHtml('xianyu') +
+    var moreBtn = (!open && items.length > 6) ? '<p class="rank-more-row"><button type="button" class="btn btn-sm" id="col-more">展开更多</button></p>' : '';
+    root.innerHTML = switchHtml(meta.tab) +
       '<p class="rank-intro">' + esc(data.intro || '') + '</p>' +
       rulesHtml +
-      (items.length ? '<div class="rank-grid' + (colOpen ? ' is-open' : '') + '" id="col-grid" data-col-expand="1">' + cards + '</div>' : '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>这组合集还没有条目</b></p></div>') +
+      (items.length ? '<div class="rank-grid' + (open ? ' is-open' : '') + '" id="col-grid" data-col-expand="1">' + cards + '</div>' : '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>这组合集还没有条目</b></p></div>') +
       moreBtn +
       planHtml(state);
     var more = root.querySelector('#col-more');
-    if (more) more.addEventListener('click', function () { colOpen = true; paintCollection(state, root, ctx, data); });
+    if (more) more.addEventListener('click', function () { colOpen[meta.id] = true; paintCollection(state, root, ctx, meta, data); });
     root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function () {
       var n = b.getAttribute('data-fav'), k = state.rankFav.indexOf(n);
       if (k >= 0) state.rankFav.splice(k, 1); else state.rankFav.push(n);
-      ctx.save(); paintCollection(state, root, ctx, data);
+      ctx.save(); paintCollection(state, root, ctx, meta, data);
     }); });
     root.querySelectorAll('[data-plan-add]').forEach(function (b) { b.addEventListener('click', function () {
       var rank = +b.getAttribute('data-plan-add');
       var it = items.filter(function (i) { return i.rank === rank; })[0];
       if (!it) return;
-      var key = COL_ID + ':' + it.rank;
+      var key = meta.id + ':' + it.rank;
       if (!state.rankPlan.some(function (p) { return p.key === key; })) {
         state.rankPlan.push({
           key: key,
@@ -176,40 +195,45 @@
       }
       ctx.save();
       if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name);
-      paintCollection(state, root, ctx, data);
+      paintCollection(state, root, ctx, meta, data);
     }); });
     bindPlan(state, root, { save: ctx.save, rerender: function () {
-      if (isXianyu()) paintCollection(state, root, ctx, colBundle() || data);
+      var m = colByHash();
+      if (m) paintCollection(state, root, ctx, m, colBundle(m.id) || data);
       else renderRank(state, root, ctx);
     } });
     if (global.QuestNav) global.QuestNav.fixLinks(root);
   }
-  function renderCollection(state, root, ctx) {
+  function renderCollection(state, root, ctx, meta) {
     ensure(state);
-    var embedded = colBundle();
-    if (embedded) paintCollection(state, root, ctx, embedded);
-    else root.innerHTML = switchHtml('xianyu') + '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i></div>';
+    meta = meta || colByHash();
+    if (!meta) return;
+    var embedded = colBundle(meta.id);
+    if (embedded) paintCollection(state, root, ctx, meta, embedded);
+    else root.innerHTML = switchHtml(meta.tab) + '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i></div>';
     if (!global.fetch) return;
     var seq = (renderCollection._seq = (renderCollection._seq || 0) + 1);
-    fetch('data/collections/xianyu-zero-cost.json', { cache: 'no-cache' }).then(function (res) {
+    fetch('data/collections/' + meta.id + '.json', { cache: 'no-cache' }).then(function (res) {
       return res && res.ok ? res.json() : null;
     }).then(function (d) {
       if (seq !== renderCollection._seq) return;
       if (!d || !Array.isArray(d.items) || !d.items.length) return;
       global.QUEST_COLLECTIONS = global.QUEST_COLLECTIONS || {};
-      var prev = global.QUEST_COLLECTIONS[COL_ID];
+      var prev = global.QUEST_COLLECTIONS[meta.id];
       var same = false;
       try { same = JSON.stringify(prev) === JSON.stringify(d); } catch (e) { same = false; }
-      global.QUEST_COLLECTIONS[COL_ID] = d;
+      global.QUEST_COLLECTIONS[meta.id] = d;
       if (same) return;
       if (global.QuestAssistant && QuestAssistant.resetIndex) QuestAssistant.resetIndex();
       if (global.QuestShell && QuestShell.resetIndex) QuestShell.resetIndex();
-      if (isXianyu()) paintCollection(state, root, ctx, d);
+      var now = colByHash();
+      if (now && now.id === meta.id) paintCollection(state, root, ctx, meta, d);
     }).catch(function () {});
   }
   function renderRank(state, root, ctx) {
     ensure(state);
-    if (isXianyu()) { renderCollection(state, root, ctx); return; }
+    var meta = colByHash();
+    if (meta) { renderCollection(state, root, ctx, meta); return; }
     var r = R();
     if (!r.latest) { root.innerHTML = switchHtml('top') + DISCLAIMER + '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>榜单还没有发布</b><br>稍后再来看看。</p></div>'; return; }
     var date = view.date && r.dates.indexOf(view.date) >= 0 ? view.date : r.latest;
@@ -255,5 +279,5 @@
     });
   }
   function latestItems() { var r = R(); return r.latest && r.days[r.latest] ? r.days[r.latest].items : []; }
-  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER, TYPES: TYPES };
+  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER, TYPES: TYPES, COLS: COLS, colByHash: colByHash, colById: colById };
 })(typeof window !== 'undefined' ? window : globalThis);

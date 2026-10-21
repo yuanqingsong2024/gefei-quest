@@ -103,18 +103,25 @@
       PD.PLATFORMS.forEach(function (p) { add('平台变现', p.name, p.ways, '#pm-' + p.cat + '/' + p.id, [p.gate, p.fit].join(' '), 'coin'); });
     }
     if (global.QuestRank) global.QuestRank.latestItems().forEach(function (it) { add('赚钱榜', 'No.' + it.rank + ' ' + it.name, it.type + ' · ' + it.why, '#war-rank', [it.fit, it.risk, (it.tags || []).join(' '), it.cost].join(' '), 'trophy'); });
-    add('赚钱榜', '闲鱼零成本方案', '可零成本起步的闲鱼非实物方案', '#war-rank-xianyu', '闲鱼 零成本 合集 规则', 'fish');
-    var col = global.QUEST_COLLECTIONS && global.QUEST_COLLECTIONS['xianyu-zero-cost'];
-    if (col) {
+    var rankCols = (global.QuestRank && QuestRank.COLS) || [
+      { id: 'xianyu-zero-cost', hash: 'war-rank-xianyu', label: '闲鱼零成本方案', icon: 'fish', searchHay: '闲鱼 零成本 合集 规则' },
+      { id: 'ai-life-wechat-topics', hash: 'war-rank-ai-life', label: 'AI生活起号选题', icon: 'sparkle', searchHay: 'AI 生活 起号 选题 公众号 合集 规则' },
+    ];
+    rankCols.forEach(function (meta) {
+      var col = global.QUEST_COLLECTIONS && global.QUEST_COLLECTIONS[meta.id];
+      var href = '#' + meta.hash;
+      var ico = meta.icon || 'list';
+      add('赚钱榜', meta.label, (col && col.intro) || meta.label, href, meta.searchHay || '', ico);
+      if (!col) return;
       (col.items || []).forEach(function (it) {
         if (!it || !it.name) return;
-        add('赚钱榜', it.name, (it.fit || '') + (it.why ? ' · ' + it.why : ''), '#war-rank-xianyu', [it.risk, (it.tags || []).join(' '), it.cost, it.type].join(' '), 'fish');
+        add('赚钱榜', it.name, (it.fit || '') + (it.why ? ' · ' + it.why : ''), href, [it.risk, (it.tags || []).join(' '), it.cost, it.type].join(' '), ico);
       });
       (col.rules || []).forEach(function (rule) {
         if (!rule || !rule.text) return;
-        add('赚钱榜', '闲鱼规则', rule.text, '#war-rank-xianyu', rule.text, 'fish');
+        add('赚钱榜', meta.id === 'xianyu-zero-cost' ? '闲鱼规则' : '合集规则', rule.text, href, rule.text, ico);
       });
-    }
+    });
     var MD = global.QUEST_GUIDES_MD || {};
     Nv.GUIDES.forEach(function (g) { add('手册', g.title, g.desc, g.href || '#guide-' + g.id, g.href ? '' : heads(MD[g.id]), g.icon); });
     Nv.DEV_DOCS.forEach(function (d) { add('开发文档', d.title, '开发者文档', '#dev-' + d.id, heads(MD[d.id]), 'code'); });

@@ -1115,3 +1115,6 @@
 
 ## Phase 26 · 闲鱼零成本方案合集
 - [x] T203 常青合集 data/collections/xianyu-zero-cost.json + #war-rank 第二个标签 + 计划/搜索/问 AI 接入（changelog 37，sw v14）
+
+## Phase 27 · AI生活起号选题合集
+- [x] T204 常青合集 data/collections/ai-life-wechat-topics.json + #war-rank 第三个标签（changelog 41，sw v15）
