@@ -1,0 +1,434 @@
+{
+  "date": "2026-10-21",
+  "publishedAt": "2026-10-21T00:38:56.406Z",
+  "items": [
+    {
+      "rank": 1,
+      "name": "福建「有口福」第四轮：今天起摇号中签，准备10/24起核销清单",
+      "type": "羊毛",
+      "cost": "0；报名已于10月20日截止，今天起看中签结果",
+      "difficulty": 1,
+      "fit": "已在云闪付/支付宝/微信报名、人在福建（不含厦门）的人；预估投入：查中签5分钟，中签后到店核销约10分钟",
+      "why": "福建省商务厅公告：2026年第二期「福建有口福」餐饮消费券第四轮公证摇号时间为10月21日–23日，核销期10月24日–11月2日；券面满150抵50、满300抵100、满800抵300。报名窗口已过，今天起看中签与备核销最关键。 上榜理由：时效性全榜最强；可把「中签核对+到店核销注意」整理成原创攻略在闲鱼售卖（不卖券、不代领）。",
+      "steps": [
+        "打开报名时用的云闪付/支付宝/微信，查看「福建有口福」中签与到账状态",
+        "中签后记下面额、核销截止（11月2日24:00前）与不可用场景（预付卡、团购线上等）",
+        "10月24日起到福建省内（不含厦门）参与餐饮门店出示对应付款码核销，建议消费前向商家确认可用"
+      ],
+      "risk": "风险等级：低。未报名无法补报；中签随机不保证；禁止转售与虚假交易；以商务厅公告与平台页为准。不承诺收益。",
+      "source_url": "https://swt.fj.gov.cn/xxgk/jgzn/jgcs/fwyfzc/tzgg_459/202610/t20261013_7224687.htm",
+      "tags": [
+        "羊毛",
+        "消费券",
+        "福建",
+        "时效"
+      ],
+      "summary": "福建「有口福」第四轮今日起摇号，10月24日起可到店核销餐饮券；适合已报名用户查中签并备核销清单。",
+      "threshold": "已在三个平台之一完成第四轮报名，定位曾在福建",
+      "time": "查中签约5分钟；到店核销约10分钟",
+      "risk_level": "低",
+      "reason": "今天进入摇号窗口，规则官方、路径短，适合做成可售原创核销攻略。",
+      "sources": [
+        {
+          "title": "2026年第二期「福建有口福」餐饮消费券第四轮发放公告",
+          "url": "https://swt.fj.gov.cn/xxgk/jgzn/jgcs/fwyfzc/tzgg_459/202610/t20261013_7224687.htm",
+          "publisher": "福建省商务厅",
+          "published": "2026-10-13",
+          "kind": "official",
+          "checked": "2026-10-21"
+        }
+      ],
+      "resell": {
+        "product": "福建有口福第四轮中签核对与到店核销清单（面额、截止、禁用场景、三平台入口）",
+        "buyers": "已报名、想少翻公告直接按步骤核销的福建餐饮消费者",
+        "expires": "2026-11-02"
+      }
+    },
+    {
+      "rank": 2,
+      "name": "双11正式期第一天：价保窗口+国补叠加核对表（别只盯开卖夜）",
+      "type": "羊毛",
+      "cost": "0；需淘宝/京东账号，国补需实名与地区资格",
+      "difficulty": 2,
+      "fit": "已下单或本周还要买大件的人；预估投入：建表30分钟，之后隔天扫一眼价保",
+      "why": "媒体与平台节奏：天猫现货自10月20日20:00起至11月13日，进入品类轮动与价保跟踪期；京东价保帮助中心明确可申请周期与「国补/消费券导致降价通常不纳入价保」等例外。正式期重点从「抢开卖」换成「到手价复核+价保日历」。 上榜理由：开卖夜已过，今天起最该做的是比价与价保；可做成原创表格在闲鱼售卖。",
+      "steps": [
+        "把已下单商品记入表：平台、价保天数、起算节点（签收/下单）、是否含国补标识",
+        "对照京东价保帮助页，标出不支持退差的场景（国补、直播专享价、部分补贴活动等）",
+        "大件下单前单独核对国补地区与实付基数，付款后截图；降价则在价保入口申请"
+      ],
+      "risk": "风险等级：低。价保以商品页标识为准；国补与消费券降价多半不能价保；勿为凑优惠买闲置。不承诺收益。",
+      "source_url": "https://help.jd.com/user/issue/291-4537.html",
+      "tags": [
+        "羊毛",
+        "双11",
+        "价保",
+        "国补"
+      ],
+      "summary": "双11进入正式期，重点从开卖夜转向价保跟踪与国补叠加核对；适合已下单或本周采购大件的人。",
+      "threshold": "有淘宝或京东订单，或本周有采购计划",
+      "time": "建表约30分钟，后续每天几分钟",
+      "risk_level": "低",
+      "reason": "正式期第一天，价保规则复杂、付费意愿明确，适合做成可售原创核对表。",
+      "sources": [
+        {
+          "title": "京东帮助中心：价格保护服务说明",
+          "url": "https://help.jd.com/user/issue/291-4537.html",
+          "publisher": "京东",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        },
+        {
+          "title": "天猫双11现货售卖与官方立减节奏报道",
+          "url": "https://finance.sina.com.cn/jjxw/2026-09-22/doc-inissitp2235398.shtml",
+          "publisher": "新浪财经（转北京商报）",
+          "published": "2026-09-22",
+          "kind": "media",
+          "checked": "2026-10-21"
+        }
+      ],
+      "resell": {
+        "product": "双11正式期价保+国补核对表（Excel：订单、价保起算、例外清单、复检日历）",
+        "buyers": "已付尾款或计划买家电数码、怕降价吃亏的人",
+        "expires": "2026-11-13"
+      }
+    },
+    {
+      "rank": 3,
+      "name": "湖南「乐享湖南·湘当有惠」：支付宝碰一下零售立减+多平台餐饮券仍在发",
+      "type": "羊毛",
+      "cost": "0；需定位在湖南省内",
+      "difficulty": 1,
+      "fit": "人在湖南、本周有零售或餐饮消费的人；预估投入：到店支付多约2分钟，领餐饮券约10分钟",
+      "why": "湖南省商务厅转载：2026「乐享湖南·湘当有惠」自10月12日起投放约1亿元省级资金；零售券走支付宝NFC「碰一下」立减（每日限量），餐饮券在美团/大众点评/抖音按轮次领取。资金用完即止。 上榜理由：与昨日上海/云南条目错开地域，官方来源，适合整理成湖南多品类领用清单售卖。",
+      "steps": [
+        "确认手机定位在湖南省内，升级支付宝并打开NFC",
+        "零售：到参与门店用支付宝「碰一下」支付，留意每日/每周次数上限",
+        "餐饮：在美团、大众点评或抖音搜活动名，按轮次首日10:00领取后到店核销"
+      ],
+      "risk": "风险等级：低。名额与资金有限；严禁虚假交易与倒卖；以商务厅与平台规则为准。不承诺收益。",
+      "source_url": "https://swt.hunan.gov.cn/swt/hnswt/mt/202610/t20261008_694106607632319744.html",
+      "tags": [
+        "羊毛",
+        "消费券",
+        "湖南",
+        "支付宝"
+      ],
+      "summary": "湖南省级消费券覆盖零售碰一下立减与多平台餐饮券，定位在省内可参与，资金用完即止。",
+      "threshold": "手机定位在湖南，近期有线下消费计划",
+      "time": "到店多约2分钟；领券约10分钟",
+      "risk_level": "低",
+      "reason": "省级官方活动仍在进行，规则分散，整理后可售原创攻略。",
+      "sources": [
+        {
+          "title": "1亿元！2026「乐享湖南·湘当有惠」消费券10月12日开抢",
+          "url": "https://swt.hunan.gov.cn/swt/hnswt/mt/202610/t20261008_694106607632319744.html",
+          "publisher": "湖南省商务厅",
+          "published": "2026-10-08",
+          "kind": "official",
+          "checked": "2026-10-21"
+        }
+      ],
+      "resell": {
+        "product": "湖南乐享湖南多品类领用步骤卡（零售碰一下/餐饮美团抖音/次数上限提醒）",
+        "buyers": "在长沙等湖南城市本周要逛街吃饭的人",
+        "expires": "2026-11-30"
+      }
+    },
+    {
+      "rank": 4,
+      "name": "Nebius × NVIDIA Global AI Hackathon：奖金约5万美元（10月30日截止）",
+      "type": "奖金赛/悬赏",
+      "cost": "0；需能调用 Nebius/NVIDIA 开放模型与算力按官方说明",
+      "difficulty": 4,
+      "fit": "会做 AI Agent/应用、能在约九天内交可运行作品的开发者；预估投入：每天数小时",
+      "why": "Devpost 官方页：Nebius x NVIDIA Global AI Hackathon 现金奖池约5万美元（大奖2万美元等），截止太平洋时间2026年10月30日；要求在开放基础设施上构建可运行 AI 系统。 上榜理由：与昨日 Amazon 黑客松错开，窗口仍有约九天，适合已有原型的人冲刺。",
+      "steps": [
+        "打开 Devpost 活动页读完整规则、赛道与地区限制并注册",
+        "用官方推荐的 Nebius Token Factory / NVIDIA 开源模型搭最小可演示闭环",
+        "10月30日截止前提交仓库、演示与反馈材料"
+      ],
+      "risk": "风险等级：中。参赛者多、不保证获奖；部分地区可能受限；以官方规则为准。不承诺收益。",
+      "source_url": "https://nebiusglobalaihackathon.devpost.com/",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "NVIDIA",
+        "Nebius"
+      ],
+      "summary": "Nebius 与 NVIDIA 联合 AI 黑客松，现金约5万美元，截止约10月30日；需可运行作品与官方基础设施。",
+      "threshold": "有 AI/ML 工程经验，能按时交Demo",
+      "time": "剩余约9天，每天数小时",
+      "risk_level": "中",
+      "reason": "奖金明确、赛题前沿，适合中短期冲刺组合进作品集。",
+      "sources": [
+        {
+          "title": "Nebius x NVIDIA Global AI Hackathon",
+          "url": "https://nebiusglobalaihackathon.devpost.com/",
+          "publisher": "Devpost / Nebius",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "ARC Prize 2026（ARC-AGI-3）：报名截止10月26日，总奖池最高约85万美元",
+      "type": "奖金赛/悬赏",
+      "cost": "0；算力与工程成本自负",
+      "difficulty": 5,
+      "fit": "有竞赛级机器学习经验、能开源方案的团队或个人；预估投入：报名确认半天，后续按冲刺计划",
+      "why": "Kaggle 官方竞赛页：ARC Prize 2026 - ARC-AGI-3 报名与组队截止2026年10月26日，最终提交11月2日；页面列出总奖池最高约85万美元（含进度奖与条件触发的大奖）。要求开源才有资格领奖。 上榜理由：报名窗口只剩约五天，提醒有能力者先完成报名与规则确认。",
+      "steps": [
+        "打开 Kaggle 竞赛页，在10月26日前接受规则并完成报名/组队",
+        "通读开源与里程碑要求，确认是否具备提交资格",
+        "按最终提交截止安排验证与复现材料，勿临近才改环境"
+      ],
+      "risk": "风险等级：高。竞争极强、不保证名次；不开源可能失去奖金资格；以 Kaggle 规则为准。不承诺收益。",
+      "source_url": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3",
+      "tags": [
+        "奖金赛",
+        "Kaggle",
+        "ARC",
+        "报名截止"
+      ],
+      "summary": "ARC Prize 2026 ARC-AGI-3 报名截止10月26日、提交截止11月2日；高难度流体智能赛，奖池高但门槛极高。",
+      "threshold": "具备竞赛级 ML 能力，接受开源领奖条件",
+      "time": "先用半天完成报名，再排冲刺日程",
+      "risk_level": "高",
+      "reason": "报名临近，错过窗口无法参赛；适合专业选手关注。",
+      "sources": [
+        {
+          "title": "ARC Prize 2026 - ARC-AGI-3",
+          "url": "https://www.kaggle.com/competitions/arc-prize-2026-arc-agi-3",
+          "publisher": "Kaggle",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "ReSO AI / GEO：让品牌出现在 ChatGPT 等 AI 回答里的新词",
+      "type": "出海新词",
+      "cost": "工具有试用；内容与站点建设靠自己",
+      "difficulty": 3,
+      "fit": "做出海品牌/独立站、关心 AI 搜索可见度的人；预估投入：了解产品半天，试点两周",
+      "why": "ReSO AI 登上 Product Hunt 2026年10月月榜前列，定位生成式引擎优化（GEO）：追踪品牌在 ChatGPT、Perplexity、Google AI Overview 等回答中的出现情况，并给出内容与技术优先事项。官网 resollm.ai。 上榜理由：与昨日 Spira 错开；新需求词「GEO / AI推荐可见度」可写选词或栏目，不承诺排名。",
+      "steps": [
+        "打开 Product Hunt 月榜或官网，弄清支持的 AI 平台与交付物",
+        "先手工抽查自己品牌在 2–3 个 AI 助手里的回答与来源引用",
+        "把「实体信息一致、权威外链、FAQ 结构化」写成自有清单，两周后复测"
+      ],
+      "risk": "风险等级：中。AI 答案不稳定、工具不能替代真实产品与口碑；不承诺出现在回答前列。不承诺收益。",
+      "source_url": "https://www.resollm.ai/",
+      "tags": [
+        "出海新词",
+        "GEO",
+        "AI搜索",
+        "Product Hunt"
+      ],
+      "summary": "ReSO AI 面向 AI 搜索可见度（GEO），登上2026年10月 Product Hunt 前列；适合学习品牌如何被大模型引用，而不是指望一键冲榜。",
+      "threshold": "已有可推广的英文品牌或站点",
+      "time": "了解约半天，试点约两周",
+      "risk_level": "中",
+      "reason": "抓住 GEO 新词，适合出海站点做差异化内容实验。",
+      "sources": [
+        {
+          "title": "ReSO AI 官网",
+          "url": "https://www.resollm.ai/",
+          "publisher": "resollm.ai",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        },
+        {
+          "title": "ReSO AI on Product Hunt",
+          "url": "https://www.producthunt.com/products/reso",
+          "publisher": "Product Hunt",
+          "published": "",
+          "kind": "community",
+          "checked": "2026-10-21"
+        },
+        {
+          "title": "Best of Product Hunt: October 2026",
+          "url": "https://www.producthunt.com/leaderboard/monthly/2026/10",
+          "publisher": "Product Hunt",
+          "published": "",
+          "kind": "community",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Shopify Affiliates：内容推荐店铺开通，合资格推荐可拿佣金",
+      "type": "联盟营销",
+      "cost": "0；需有相关内容渠道并通过申请",
+      "difficulty": 3,
+      "fit": "写跨境开店/创业测评、有博客或视频的人；预估投入：申请与第一篇约半天",
+      "why": "Shopify 官方 Affiliate 页：免费申请，通过专属链接推荐商家开通合资格付费方案可获佣金（页面示例写明单笔最高约150美元量级，实际以地区与条款为准）；与 Partner 计划不同，披露与合规以官网为准。 上榜理由：官方长期计划，可与开店教程、对比文结合；不碰灰产。",
+      "steps": [
+        "打开 shopify.com/affiliates 阅读资格与结算规则后提交申请",
+        "写一篇你真实体验过的「选店平台对比/开店清单」，文中明确披露联盟关系",
+        "只用官方素材与自有数据，跟踪哪类内容转化更好再迭代"
+      ],
+      "risk": "风险等级：中。申请可能被拒；试用转付费与跟踪窗口有限期；禁止误导承诺收入。不承诺收益。",
+      "source_url": "https://www.shopify.com/affiliates",
+      "tags": [
+        "联盟营销",
+        "Shopify",
+        "内容变现"
+      ],
+      "summary": "通过 Shopify 官方联盟计划，在原创开店/创业内容中放合规推荐链接，合资格付费开通可获佣；需披露并遵守条款。",
+      "threshold": "有稳定产出的创业/电商内容渠道",
+      "time": "申请与第一篇约半天",
+      "risk_level": "中",
+      "reason": "官方佣金路径清晰，适合已有受众的内容创作者中长期布局。",
+      "sources": [
+        {
+          "title": "Shopify Affiliate Program",
+          "url": "https://www.shopify.com/affiliates",
+          "publisher": "Shopify",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        },
+        {
+          "title": "Shopify Help: Affiliate earnings",
+          "url": "https://help.shopify.com/en/affiliates/earnings",
+          "publisher": "Shopify Help Center",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "Lemon Squeezy：上架数字下载/模板，顺带开自有联盟分销",
+      "type": "数字产品/接单",
+      "cost": "0 起步；平台按成交抽成（以官网为准）",
+      "difficulty": 2,
+      "fit": "有模板、清单、小课程或软件许可证可交付的人；预估投入：第一件产品约1–2天",
+      "why": "Lemon Squeezy 官方数字产品页支持文件交付、订阅与许可证；文档说明商家默认可开联盟，创作者也可申请成为他人产品的 affiliate。适合不想自建支付的独立开发者。 上榜理由：与昨日 Gumroad/Notion 错开平台；零库存，可与闲鱼原创攻略并行（只卖自有内容）。",
+      "steps": [
+        "挑一个你用过、能说清「帮谁省了什么时间」的素材做成 PDF/表格/压缩包",
+        "在 Lemon Squeezy 创建产品、定价与交付文件，写清退款与授权范围",
+        "需要时打开商家联盟或申请推广他人产品，在自有渠道放链接"
+      ],
+      "risk": "风险等级：中。平台费率与税务以官网为准；没有流量可能长期0单；只能卖原创或已获授权内容。不承诺收益。",
+      "source_url": "https://www.lemonsqueezy.com/ecommerce/digital-products",
+      "tags": [
+        "数字产品",
+        "Lemon Squeezy",
+        "联盟"
+      ],
+      "summary": "用 Lemon Squeezy 上架数字下载与订阅，并可启用联盟分销；适合把个人流程产品化，不碰实物物流。",
+      "threshold": "能交付可下载的原创数字资产",
+      "time": "第一件约1–2天",
+      "risk_level": "中",
+      "reason": "支付与交付托管省事，是数字产品常见入门路径。",
+      "sources": [
+        {
+          "title": "Sell Digital Products • Lemon Squeezy",
+          "url": "https://www.lemonsqueezy.com/ecommerce/digital-products",
+          "publisher": "lemonsqueezy.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "VectoSolve 公开案例：PNG转SVG 工具约月入2695美元（Stripe核验）拆解",
+      "type": "案例拆解",
+      "cost": "0（阅读学习）；实操需自备产品与时间",
+      "difficulty": 3,
+      "fit": "想做微型工具站、需要可对照获客步骤的人；预估投入：读透案例2小时，再做最小工具",
+      "why": "公开案例站 Shipped & Paid（2026年10月核验）：VectoSolve 称近30天收入约2695美元（作者自述，第三方 TrustMRR/Stripe 核验说法以原文为准），路径是多语言落地页+长尾 SEO+收紧免费额度+订阅与积分包并行。 上榜理由：方法可拆解；强调不可直接复制数字，只学流程。",
+      "steps": [
+        "通读原文，记下「自用痛点—多语言落地页—长尾转换词—收紧免费额度—订阅+积分包」",
+        "选一个你自己反复遇到的小转换/小计算需求，先做单页工具",
+        "用搜索词矩阵验证需求，两周内看自然流量与付费转化再决定是否扩语言"
+      ],
+      "risk": "风险等级：中。收入为公开案例自述/核验口径，品类不同结果差很大；勿把截图当承诺。不承诺收益。",
+      "source_url": "https://shippedandpaid.com/cases/vectosolve-png-to-svg-converter-2-7k-month-claude-code-manus/",
+      "tags": [
+        "案例拆解",
+        "微型SaaS",
+        "SEO",
+        "出海小站"
+      ],
+      "summary": "一篇2026年公开核验案例拆解 PNG→SVG 工具如何靠 SEO 与产品包装做到约月入二千多美元量级；可学的是选词与定价流程。",
+      "threshold": "愿意先做小工具验证，而不是先做大平台",
+      "time": "读案例约2小时，最小产品约数天到两周",
+      "risk_level": "中",
+      "reason": "步骤完整、获客路径清楚，适合作为出海小工具方法论参考。",
+      "sources": [
+        {
+          "title": "VectoSolve: $2.7K/month verified, built with Claude Code",
+          "url": "https://shippedandpaid.com/cases/vectosolve-png-to-svg-converter-2-7k-month-claude-code-manus/",
+          "publisher": "shippedandpaid.com",
+          "published": "2026-10-20",
+          "kind": "media",
+          "checked": "2026-10-21"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "把云厂商免费额度整理成闲鱼「开发者起步清单」（AWS/GCP）",
+      "type": "羊毛",
+      "cost": "0；需官方账号，超额会收费",
+      "difficulty": 2,
+      "fit": "会基础命令行、想做英文小站或练手项目的人；也适合把额度对照表整理后卖攻略的人；预估投入：开通与对照表半天",
+      "why": "AWS Free Tier 与 Google Cloud Free Program 官方页持续提供新用户试用额度与始终免费档（具体金额与期限以官网为准，常见说法含短期试用额度）。把「开通顺序、始终免费 vs 试用、防超额账单」整理成原创清单，可在闲鱼作为虚拟资料售卖（不卖账号、不代开）。 上榜理由：官方长期存在、信息分散，赶时间的人愿意买整理版。",
+      "steps": [
+        "打开 AWS Free Tier 与 Google Cloud Free 文档，分列「始终免费」与「试用额度」两栏",
+        "为自己的练手项目只开通最小服务，设置预算告警与账单邮件",
+        "若卖攻略：只写原创步骤与避坑，标明「不含账号与代开」，并注明规则会变"
+      ],
+      "risk": "风险等级：中。试用到期或超额会产生费用；严禁倒卖账号；以官网条款为准。不承诺收益。",
+      "source_url": "https://aws.amazon.com/free/",
+      "tags": [
+        "羊毛",
+        "开发者",
+        "云额度",
+        "闲鱼攻略"
+      ],
+      "summary": "对照 AWS/GCP 官方免费档整理开发者起步清单，可自用降本，也可把步骤做成可售原创攻略（不卖账号）。",
+      "threshold": "能读英文官方文档，会基础云控制台操作",
+      "time": "对照与开通约半天",
+      "risk_level": "中",
+      "reason": "官方信息分散、付费意愿明确，适合做成可售原创攻略或亲自练手。",
+      "sources": [
+        {
+          "title": "AWS Free Tier",
+          "url": "https://aws.amazon.com/free/",
+          "publisher": "Amazon Web Services",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        },
+        {
+          "title": "Google Cloud Free Program",
+          "url": "https://docs.cloud.google.com/free/docs/free-cloud-features",
+          "publisher": "Google Cloud",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-21"
+        }
+      ],
+      "resell": {
+        "product": "AWS/GCP 免费额度对照与防超额账单清单（始终免费 vs 试用、告警设置，不含账号）",
+        "buyers": "想开第一个练手站、怕云账单爆掉的独立开发者新手",
+        "expires": ""
+      }
+    }
+  ]
+}

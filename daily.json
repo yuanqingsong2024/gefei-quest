@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-20T00:42:40.608Z",
-  "latestId": 39,
-  "latestDate": "2026-10-20",
+  "generatedAt": "2026-10-21T10:42:02.779Z",
+  "latestId": 40,
+  "latestDate": "2026-10-21",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 40,
+      "date": "2026-10-21",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-21",
+      "items": [
+        "No.1 福建「有口福」第四轮：今天起摇号中签，准备10/24起核销清单",
+        "No.2 双11正式期第一天：价保窗口+国补叠加核对表（别只盯开卖夜）",
+        "No.3 湖南「乐享湖南·湘当有惠」：支付宝碰一下零售立减+多平台餐饮券仍在发"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 39,
       "date": "2026-10-20",
@@ -114,40 +126,30 @@
         "各工具页写明这一页的目标；页面底部有「下一步 →」按钮，按学习、实施、赚钱的顺序进入下一页"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 30,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "顶部导航固定在最上方，滚动时始终可见",
-      "items": [
-        "顶部导航固定在最上方，滚动时始终可见"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-10-20",
+    "date": "2026-10-21",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "今晚20:00双11正式开卖：天猫尾款+88VIP券开用+京东超级秒杀日",
+        "name": "福建「有口福」第四轮：今天起摇号中签，准备10/24起核销清单",
         "type": "羊毛",
-        "source_url": "https://finance.eastmoney.com/a/202610153896960196.html"
+        "source_url": "https://swt.fj.gov.cn/xxgk/jgzn/jgcs/fwyfzc/tzgg_459/202610/t20261013_7224687.htm"
       },
       {
         "rank": 2,
-        "name": "虹口「白相来虹口」云闪付零售立减：每天08:00–23:00无需抢券",
+        "name": "双11正式期第一天：价保窗口+国补叠加核对表（别只盯开卖夜）",
         "type": "羊毛",
-        "source_url": "https://www.shanghai.gov.cn/nw17239/20261016/2c0401968e3b42a985e1b73495759399.html"
+        "source_url": "https://help.jd.com/user/issue/291-4537.html"
       },
       {
         "rank": 3,
-        "name": "云南「彩云美物」商圈商超周六消费券：10月24日支付宝/京东再发一轮",
+        "name": "湖南「乐享湖南·湘当有惠」：支付宝碰一下零售立减+多平台餐饮券仍在发",
         "type": "羊毛",
-        "source_url": "https://yn.yunnan.cn/system/2026/10/16/034175630.shtml"
+        "source_url": "https://swt.hunan.gov.cn/swt/hnswt/mt/202610/t20261008_694106607632319744.html"
       }
     ]
   }
