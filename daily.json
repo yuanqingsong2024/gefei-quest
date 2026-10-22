@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-21T10:49:06.424Z",
-  "latestId": 41,
-  "latestDate": "2026-10-21",
+  "generatedAt": "2026-10-22T00:41:23.601Z",
+  "latestId": 42,
+  "latestDate": "2026-10-22",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 42,
+      "date": "2026-10-22",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-22",
+      "items": [
+        "No.1 上海普陀「乐购普陀」：明天周五10:00第二轮云闪付商圈零售券",
+        "No.2 广州「食在广州」第三轮餐饮券：本周周期仍可领，云闪付/支付宝双入口",
+        "No.3 Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 41,
       "date": "2026-10-21",
@@ -112,42 +124,30 @@
         "图标按同一套线稿重绘。学习、实施、赚钱的功能卡片改成浅蓝、青绿和金色的柔和色块"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 32,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "首页桌面版重排：两栏首屏、今日 Top 3 预览、下一步并入主按钮",
-      "items": [
-        "首页桌面版重排：两栏首屏、今日 Top 3 预览、下一步并入主按钮",
-        "首屏右边是今天赚钱榜的前 3 名，并标出榜单日期；「看完整 Top 10」滚到下面的完整榜",
-        "主按钮按你的进度变化。新访客是「我是新手，从这里开始」。单独的「下一步」横条已去掉，避免和主按钮重复"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "福建「有口福」第四轮：今天起摇号中签，准备10/24起核销清单",
+        "name": "上海普陀「乐购普陀」：明天周五10:00第二轮云闪付商圈零售券",
         "type": "羊毛",
-        "source_url": "https://swt.fj.gov.cn/xxgk/jgzn/jgcs/fwyfzc/tzgg_459/202610/t20261013_7224687.htm"
+        "source_url": "https://www.shanghai.gov.cn/nw17239/20261015/4406289c66554165ab6ec1b18326963b.html"
       },
       {
         "rank": 2,
-        "name": "双11正式期第一天：价保窗口+国补叠加核对表（别只盯开卖夜）",
+        "name": "广州「食在广州」第三轮餐饮券：本周周期仍可领，云闪付/支付宝双入口",
         "type": "羊毛",
-        "source_url": "https://help.jd.com/user/issue/291-4537.html"
+        "source_url": "https://www.21jingji.com/article/20261019/herald/8a03631a94c178444480bca330a897f2.html"
       },
       {
         "rank": 3,
-        "name": "湖南「乐享湖南·湘当有惠」：支付宝碰一下零售立减+多平台餐饮券仍在发",
-        "type": "羊毛",
-        "source_url": "https://swt.hunan.gov.cn/swt/hnswt/mt/202610/t20261008_694106607632319744.html"
+        "name": "Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日",
+        "type": "奖金赛/悬赏",
+        "source_url": "https://amazonappdev2026.devpost.com/"
       }
     ]
   }
