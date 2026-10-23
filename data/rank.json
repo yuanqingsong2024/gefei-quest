@@ -1,179 +1,87 @@
 {
-  "date": "2026-10-22",
-  "publishedAt": "2026-10-22T00:41:23.509Z",
+  "date": "2026-10-23",
+  "publishedAt": "2026-10-23T00:43:48.395Z",
   "items": [
     {
       "rank": 1,
-      "name": "上海普陀「乐购普陀」：明天周五10:00第二轮云闪付商圈零售券",
-      "type": "羊毛",
-      "cost": "0；需云闪付实名、定位在上海",
-      "difficulty": 1,
-      "fit": "人在上海、本周要在普陀商圈买服饰美妆珠宝或非国补数码的人；预估投入：领券约5分钟，到店核销约10分钟",
-      "why": "上海市政府转载普陀区商务委：新一轮「乐购普陀」商圈零售消费券于2026年10月16日–31日每周五10:00发放，共三轮；明天10月23日是第二轮。券面满5000减1000、满1000减300、满500减150，每周限领1张，前两批领后7个自然日有效，仅限普陀参与门店。上榜理由：全榜时效最强；可把「领券日历+档位选择+禁用场景」整理成原创攻略在闲鱼售卖（不卖券、不代领）。",
-      "steps": [
-        "提前升级云闪付并完成实名绑卡，领券与核销时打开上海定位",
-        "10月23日周五10:00进入「政府促消费」里的「乐购普陀」或搜索该关键词，按消费预算选一档领取",
-        "到普陀区参与门店出示云闪付付款码核销；勿用于预付卡/礼品卡，部分品类不参加以店内公示为准"
-      ],
-      "risk": "风险等级：低。名额有限领完即止；禁止转卖套现；跨区门店无法核销。以普陀区公告与云闪付页为准。不承诺收益。",
-      "source_url": "https://www.shanghai.gov.cn/nw17239/20261015/4406289c66554165ab6ec1b18326963b.html",
-      "tags": [
-        "羊毛",
-        "消费券",
-        "上海",
-        "普陀",
-        "时效"
-      ],
-      "summary": "普陀「乐购普陀」第二轮明天周五10:00开抢，云闪付领商圈零售满减券，适合本周在普陀逛街采购的人。",
-      "threshold": "云闪付实名，手机定位能在上海，近期有普陀线下消费计划",
-      "time": "领券约5分钟；到店核销约10分钟",
-      "risk_level": "低",
-      "reason": "明天就是第二轮窗口，规则官方、路径短，适合做成可售原创领用攻略。",
-      "sources": [
-        {
-          "title": "最高可减1000元！普陀区将发放新一轮商圈零售消费券",
-          "url": "https://www.shanghai.gov.cn/nw17239/20261015/4406289c66554165ab6ec1b18326963b.html",
-          "publisher": "上海市人民政府（转普陀区人民政府）",
-          "published": "2026-10-15",
-          "kind": "official",
-          "checked": "2026-10-22"
-        }
-      ],
-      "resell": {
-        "product": "乐购普陀第二/三轮领券日历与档位对照卡（入口、每周限领、7日有效期、禁用场景）",
-        "buyers": "在上海普陀商圈本周要买服饰美妆珠宝或非国补数码、怕错过周五窗口的人",
-        "expires": "2026-10-31"
-      }
-    },
-    {
-      "rank": 2,
-      "name": "广州「食在广州」第三轮餐饮券：本周周期仍可领，云闪付/支付宝双入口",
-      "type": "羊毛",
-      "cost": "0；需定位在广州相关范围，按平台页提示",
-      "difficulty": 1,
-      "fit": "人在广州、本周有餐饮聚餐计划的人；预估投入：领券约10分钟，到店核销随餐完成",
-      "why": "广州商务体系公开信息：第三轮「食在广州」餐饮消费券活动期为2026年10月13日–12月7日，分多期发放；每期首日10:00起领，券面常见满200减50、满500减100、满1000减200。云闪付经「广东消费券」、支付宝搜「食在广州餐饮消费券」。上榜理由：与昨日福建/湖南错开城市；可整理成双平台领用步骤卡售卖。",
-      "steps": [
-        "确认定位后，任选云闪付「广东消费券」或支付宝搜索「食在广州餐饮消费券」进入活动页",
-        "按当期周期在首日10:00或有余量时领取一档，记下有效期与适用门店列表",
-        "到适用餐饮门店核销；勿用于预付充值与违规套现"
-      ],
-      "risk": "风险等级：低。每期名额有限；规则以广州商务与平台活动页为准；禁止倒卖。不承诺收益。",
-      "source_url": "https://www.21jingji.com/article/20261019/herald/8a03631a94c178444480bca330a897f2.html",
-      "tags": [
-        "羊毛",
-        "消费券",
-        "广州",
-        "餐饮"
-      ],
-      "summary": "广州「食在广州」第三轮餐饮券活动期至12月7日，云闪付/支付宝可领满减券，适合本周在穗吃饭的人。",
-      "threshold": "定位能参与活动，近期有广州餐饮消费",
-      "time": "领券约10分钟",
-      "risk_level": "低",
-      "reason": "换城市、规则分散在双平台，整理后付费意愿明确。",
-      "sources": [
-        {
-          "title": "「食在广州」消费券周二开抢！联动第140届广交会，满减福利别错过",
-          "url": "https://www.21jingji.com/article/20261019/herald/8a03631a94c178444480bca330a897f2.html",
-          "publisher": "21经济网（来源：广州商务）",
-          "published": "2026-10-19",
-          "kind": "media",
-          "checked": "2026-10-22"
-        },
-        {
-          "title": "广 州 新 消 费 券 来 了（荔湾发布转广州商务）",
-          "url": "https://news.qq.com/rain/a/20261020A03KP600",
-          "publisher": "腾讯新闻 / 广州荔湾发布",
-          "published": "2026-10-20",
-          "kind": "media",
-          "checked": "2026-10-22"
-        }
-      ],
-      "resell": {
-        "product": "食在广州双平台领用步骤卡（云闪付/支付宝入口、档位、周期有效期提醒）",
-        "buyers": "在广州本周要聚餐、不想翻多篇公告的人",
-        "expires": "2026-12-07"
-      }
-    },
-    {
-      "rank": 3,
-      "name": "Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日",
+      "name": "OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
       "type": "奖金赛/悬赏",
-      "cost": "0；需按赛道准备 Fire TV / Alexa+ / Bee / Ring 等开发环境",
+      "cost": "0；需能部署 OpenCV 5 与 AWS 组件",
       "difficulty": 4,
-      "fit": "已有原型或能在约一天内补齐演示与仓库的开发者；预估投入：冲刺提交数小时到一天",
-      "why": "Devpost 官方页：Build, Ship, Shape Amazon Developer Hackathon 现金奖池约13.8万美元（另有 AWS 积分等），截止太平洋时间2026年10月23日中午；赛道含 Fire TV、Alexa+、Bee、Ring，并可叠加 AWS Builder / Open Source 迷你挑战。上榜理由：窗口只剩约一天，适合已开工作品尽快交；与昨日 Nebius/ARC 错开。",
+      "fit": "会做图像/视频分析、能在约三天内补齐报告与演示的人；预估投入：冲刺提交约1–3天",
+      "why": "Devpost 官方页：OpenCV AI Competition 2026 powered by AWS，现金奖池约20,250美元，决赛截止太平洋时间2026年10月26日23:45；要求实质使用 OpenCV 5 做图像或视频分析，并在 AWS 上跑有意义组件；另有 Best Use of COOL、Agentic Vision 各约1000美元可选奖。上榜理由：亚马逊设备黑客松今日截止，本条换视觉赛道、窗口还剩约三天。",
       "steps": [
-        "打开 Devpost 活动页确认资格、赛道与提交清单（演示视频、仓库、产品反馈）",
-        "选定主赛道，保证代码真实调用对应 API/SDK 或按 Fire TV 要求在真机/模拟器跑通",
-        "在截止前上传英文演示（建议3分钟内）、仓库权限与反馈；可选填 friction log 争取评审加分"
+        "打开 opencv26.devpost.com 核对资格、提交清单与赛道（含可选 COOL / Agentic Vision）",
+        "保证仓库可复现：OpenCV 5 核心视觉链路 + 至少一个 AWS 组件，并准备架构图与≤5分钟演示视频",
+        "在截止前上传技术报告、可访问演示与评测证据；勿把「只用 AI 写代码」当成 Agentic Vision"
       ],
-      "risk": "风险等级：中。参赛者多、不保证获奖；部分地区可能受限；以官方规则为准。不承诺收益。",
-      "source_url": "https://amazonappdev2026.devpost.com/",
+      "risk": "风险等级：中。参赛者多、不保证获奖；地区与规则以官方为准。不承诺收益。",
+      "source_url": "https://opencv26.devpost.com/",
       "tags": [
         "奖金赛",
         "黑客松",
-        "Amazon",
+        "OpenCV",
+        "AWS",
         "截止"
       ],
-      "summary": "亚马逊开发者黑客松现金约13.8万美元，明天截止；适合已有 Fire TV/Alexa+/Bee/Ring 相关原型的人冲刺提交。",
-      "threshold": "有相关设备/模拟器开发经验，能按时交可运行演示",
-      "time": "剩余约1天，集中冲刺数小时到一天",
+      "summary": "OpenCV×AWS 视觉黑客松现金约2万美元，10月26日截止；适合已有 OpenCV 5 + 云部署原型的人冲刺交卷。",
+      "threshold": "能交付可运行的 OpenCV 5 视觉分析与 AWS 部署演示",
+      "time": "剩余约3天，集中冲刺1–3天",
       "risk_level": "中",
-      "reason": "奖金明确且截止在即，适合已开工者最后窗口提醒。",
+      "reason": "奖金明确且窗口尚在，避开已截止的 Amazon 设备赛，换视觉赛道提醒。",
       "sources": [
         {
-          "title": "Build, Ship, Shape: Amazon Developer Hackathon",
-          "url": "https://amazonappdev2026.devpost.com/",
-          "publisher": "Devpost / Amazon",
+          "title": "OpenCV AI Competition 2026, powered by AWS",
+          "url": "https://opencv26.devpost.com/",
+          "publisher": "Devpost / OpenCV / AWS",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         }
       ]
     },
     {
-      "rank": 4,
-      "name": "Pancake：给 AI Agent 的 GTM 基础设施（出海新词「Agentic GTM」）",
+      "rank": 2,
+      "name": "IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）",
       "type": "出海新词",
-      "cost": "产品有试用/付费档；内容与获客实验靠自己",
+      "cost": "产品有试用；内容实验与自建同类工具靠自己",
       "difficulty": 3,
-      "fit": "做出海 SaaS/独立开发、已在用 Claude/Codex 做销售实验的人；预估投入：了解产品半天，试点一周",
-      "why": "Pancake 登上 Product Hunt 2026年10月月榜前列，自称「The Vercel for GTM」：给 AI agent 提供 GTM Brain、外联基础设施与多家数据源，经 MCP 连接 Claude/Codex 部署获客 Play。官网 pancake.ai。上榜理由：与昨日 GEO/ReSO 错开；新需求词「Agentic GTM / AI代运营获客」可写选词或对比文，不承诺线索量。",
+      "fit": "做出海独立开发/内容、关注桌面自动化与 AI PC 的人；预估投入：了解产品半天，选题试点一周",
+      "why": "IrisGo 官网页与 Product Hunt：面向个人创业者的 AI 操作系统，主打 Watch & Learn——演示一次任务即可沉淀为可重复工作流，并在本地/跨应用执行。2026年10月登上 Product Hunt 月榜前列。上榜理由：新需求词「Agentic OS / AI Executive Assistant」可写对比文、选词或做极窄垂直自动化小工具；不承诺替代人工获客。",
       "steps": [
-        "打开官网与 Product Hunt 页，弄清交付物、MCP 接入方式与数据来源披露",
-        "先手工定义一个极窄 ICP，用现有工具跑一轮「找线索—人工审核—跟进」对照",
-        "若试用：只把审批后的触达交给自动化，记录回复率再决定是否扩量"
+        "打开 irisgo.ai 与 Product Hunt 产品页，弄清 Watch & Learn、本地推理与技能库边界",
+        "挑一个你自己每周重复≥3次的桌面流程，先手工计时，再评估是否值得产品化",
+        "若做内容或竞品：只写真实试用步骤与失败场景；若自建工具，先卖给一个熟人再扩"
       ],
-      "risk": "风险等级：中。自动化外联易触达平台反垃圾与合规红线；工具不能替代产品与信任。不承诺收益。",
-      "source_url": "https://pancake.ai/",
+      "risk": "风险等级：中。自动化触及账号与隐私合规；工具热度不等于付费意愿。不承诺收益。",
+      "source_url": "https://irisgo.ai/",
       "tags": [
         "出海新词",
-        "GTM",
-        "AI Agent",
+        "Agentic OS",
+        "自动化",
         "Product Hunt"
       ],
-      "summary": "Pancake 面向用 AI agent 跑获客流程的 GTM 基础设施，登上2026年10月 Product Hunt 前列；适合学习 Agentic GTM，而不是指望一键爆单。",
-      "threshold": "已有可售的英文产品或服务，能自己审核线索",
+      "summary": "IrisGo 把「演示一次就能自动化」做成桌面 AI OS，登上2026年10月 Product Hunt 前列；适合学习 Agentic OS 新词并做窄场景工具实验。",
+      "threshold": "有可重复的桌面工作流，能写清真实场景",
       "time": "了解约半天，试点约一周",
       "risk_level": "中",
-      "reason": "抓住 Agentic GTM 新词，适合出海内容与产品实验。",
+      "reason": "抓住桌面 Agentic OS 新词，与昨日 Pancake（GTM Agent）错开赛道。",
       "sources": [
         {
-          "title": "Pancake 官网",
-          "url": "https://pancake.ai/",
-          "publisher": "pancake.ai",
+          "title": "IrisGo - Automate Everything",
+          "url": "https://irisgo.ai/",
+          "publisher": "irisgo.ai",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         },
         {
-          "title": "Pancake on Product Hunt",
-          "url": "https://www.producthunt.com/products/pancake-6",
+          "title": "IrisGo: AI operating system for workflow automation",
+          "url": "https://www.producthunt.com/products/irisgo-public-beta",
           "publisher": "Product Hunt",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         },
         {
           "title": "Best of Product Hunt: October 2026",
@@ -181,258 +89,223 @@
           "publisher": "Product Hunt",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成",
+      "type": "联盟营销",
+      "cost": "0；需通过申请并有相关内容渠道",
+      "difficulty": 3,
+      "fit": "写建站/域名/VPS 对比、有博客或视频的人；预估投入：申请与第一篇约半天",
+      "why": "Hostinger 官方联盟页与协议：免费加入；对合资格共享主机、云主机、VPS 等首次购买（通常12个月及以上套餐）可获最高约40%佣金，AI Builder 在特定优惠下最高约60%；Cookie 约30天；不含月付主机与续费升级。上榜理由：与昨日 HubSpot 错开品类，适合出海小站相关内容变现。",
+      "steps": [
+        "打开 hostinger.com/affiliates 阅读协议后提交申请，等待审核（官方称约5个工作日内）",
+        "写一篇你真实对比过的「静态站/入门主机选购」文，明确披露联盟关系，只用后台批准素材",
+        "在联盟面板跟踪转化，避免自购、品牌词 PPC、优惠码滥用等协议禁止行为"
+      ],
+      "risk": "风险等级：中。申请可能被拒；45天内退款会扣佣；禁止黑帽与自推。不承诺收益。",
+      "source_url": "https://www.hostinger.com/affiliates",
+      "tags": [
+        "联盟营销",
+        "Hostinger",
+        "建站",
+        "内容变现"
+      ],
+      "summary": "通过 Hostinger 官方联盟在原创建站内容中放合规链接，合资格首次成交可拿分成；须披露并遵守协议。",
+      "threshold": "有稳定产出的建站/开发者内容渠道",
+      "time": "申请与第一篇约半天",
+      "risk_level": "中",
+      "reason": "官方佣金路径清晰，与出海小站内容栈匹配，换掉昨日 HubSpot。",
+      "sources": [
+        {
+          "title": "Hostinger affiliate program",
+          "url": "https://www.hostinger.com/affiliates",
+          "publisher": "Hostinger",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-23"
+        },
+        {
+          "title": "Affiliate program agreement",
+          "url": "https://www.hostinger.com/legal/affiliate-program-agreement",
+          "publisher": "Hostinger",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "B站创作激励：权益达标后投稿自制视频拿基础激励与广告分成",
+      "type": "平台激励",
+      "cost": "0；需持续产出合规自制内容",
+      "difficulty": 3,
+      "fit": "做 B 站长视频或知识区、愿意按官方门槛积累的人；预估投入：对照门槛半天，再按选题周更",
+      "why": "哔哩哔哩客服2026年5月公开说明：个人UP主可在创作中心申请视频创作激励；常见前置为权益等级≥3、信用分≥80，审核约3个工作日。收益含稿件基础激励（有收入与稿件范围限制，单月基础激励常见上限说明）与框下/暂停广告分成。上榜理由：官方长期路径，与昨日 YouTube YPP 错开平台。",
+      "steps": [
+        "在创作中心→收益管理→创作激励核对权益等级与信用分，阅读当期协议后再申请",
+        "只投加入后发布的自制稿件；避开课堂/花火商单/充电等不计入说明的类型",
+        "用收益明细观察哪类选题更稳，稳定周更；提现与贝壳规则以页面为准"
+      ],
+      "risk": "风险等级：中。达标不保证通过；异常互动或搬运会被取消资格；收入随流量波动。不承诺收益。",
+      "source_url": "https://www.bilibili.com/opus/1198858284376784900",
+      "tags": [
+        "平台激励",
+        "B站",
+        "UP主",
+        "创作激励"
+      ],
+      "summary": "对照 B 站官方创作激励申请条件与收益构成，用自制投稿走基础激励与广告分成，适合国内长视频创作者。",
+      "threshold": "个人UP主，权益与信用分达标，能持续自制投稿",
+      "time": "对照门槛约半天，之后按周更",
+      "risk_level": "中",
+      "reason": "官方规则可核验，与 YouTube 错开，适合国内创作者进账路径。",
+      "sources": [
+        {
+          "title": "【UP主创作直通车】UP主成长系列-视频创作激励篇",
+          "url": "https://www.bilibili.com/opus/1198858284376784900",
+          "publisher": "哔哩哔哩客服",
+          "published": "2026-05-05",
+          "kind": "official",
+          "checked": "2026-10-23"
+        },
+        {
+          "title": "“bilibili创作激励计划”规则",
+          "url": "https://www.bilibili.com/opus/77399369418311052",
+          "publisher": "哔哩哔哩UP主服务中心",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-23"
         }
       ]
     },
     {
       "rank": 5,
-      "name": "HubSpot Affiliates：商务内容挂合规推荐链接，合资格成交拿经常性佣金",
-      "type": "联盟营销",
-      "cost": "0；需通过申请并有相关内容渠道",
-      "difficulty": 3,
-      "fit": "写 CRM/营销工具测评、有博客或视频的人；预估投入：申请与第一篇约半天",
-      "why": "HubSpot 官方 Affiliate 页：免费加入，页面写明对合资格推荐可获约30%经常性佣金（最长约一年量级，具体以条款与 Impact 后台为准），并有分级权益。适合软件评测与 B2B 内容创作者。上榜理由：与昨日 Shopify 错开品类；官方长期计划，须披露联盟关系。",
+      "name": "Lemon Squeezy：上架数字下载/订阅，Merchant of Record 代收税",
+      "type": "数字产品/接单",
+      "cost": "0 起步；平台按成交抽成并以官网为准；需完成店铺激活与身份核验",
+      "difficulty": 2,
+      "fit": "有可交付文件或轻量 SaaS/课程、想卖向海外的人；预估投入：第一件产品约1–2天",
+      "why": "Lemon Squeezy 官方数字产品页：支持软件订阅、主题、课程、数字下载等；作为 Merchant of Record 处理支付、税务与欺诈；支持一次性、订阅、PWYW 与免费线索磁铁。上榜理由：与昨日 Gumroad 错开平台，适合需要跨境合规收款的创作者。",
       "steps": [
-        "打开 hubspot.com/partners/affiliates 阅读政策与协议后提交申请",
-        "写一篇你真实对比过的「中小企业 CRM/营销自动化选购」文，文中明确披露联盟关系",
-        "只用官方素材与自有数据，在 Impact 后台跟踪哪类内容转化更好再迭代"
+        "注册店铺并按文档完成「Activate your store」问卷与身份核验（常见需数个工作日）",
+        "上传原创 PDF/压缩包或配置许可证密钥，写清交付与退款说明后 Publish",
+        "用结账链接或嵌入表单导流；先用入门价验证，再考虑订阅档"
       ],
-      "risk": "风险等级：中。申请可能被拒；Cookie 与结算窗口有限期；禁止虚假承诺效果。不承诺收益。",
-      "source_url": "https://www.hubspot.com/partners/affiliates",
+      "risk": "风险等级：中。审核可能拒绝服务类/不合规品；费率与税务以官网为准；无流量可能零单。不承诺收益。",
+      "source_url": "https://www.lemonsqueezy.com/ecommerce/digital-products",
       "tags": [
-        "联盟营销",
-        "HubSpot",
-        "内容变现"
+        "数字产品",
+        "Lemon Squeezy",
+        "跨境收款"
       ],
-      "summary": "通过 HubSpot 官方联盟在原创商务内容中放合规链接，合资格成交可获经常性佣；需披露并遵守条款。",
-      "threshold": "有稳定产出的 SaaS/创业内容渠道",
-      "time": "申请与第一篇约半天",
+      "summary": "用 Lemon Squeezy 上架数字下载与订阅，平台代处理跨境支付与税；适合把经验产品化卖向海外。",
+      "threshold": "能交付原创数字资产，接受店铺 KYC",
+      "time": "第一件约1–2天（含等待激活）",
       "risk_level": "中",
-      "reason": "官方佣金路径清晰，适合已有受众的 B2B 内容作者中长期布局。",
+      "reason": "MoR 收款省事，换掉 Gumroad 后仍是可反复卖的数字产品路径。",
       "sources": [
         {
-          "title": "HubSpot Affiliate Program",
-          "url": "https://www.hubspot.com/partners/affiliates",
-          "publisher": "HubSpot",
+          "title": "Sell Digital Products • Lemon Squeezy",
+          "url": "https://www.lemonsqueezy.com/ecommerce/digital-products",
+          "publisher": "lemonsqueezy.com",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         },
         {
-          "title": "HubSpot Affiliate Program Agreement",
-          "url": "https://legal.hubspot.com/affiliate-program-agreement",
-          "publisher": "HubSpot Legal",
+          "title": "Lemon Squeezy homepage",
+          "url": "https://www.lemonsqueezy.com/",
+          "publisher": "lemonsqueezy.com",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         }
       ]
     },
     {
       "rank": 6,
-      "name": "YouTube 合作伙伴计划：广告与粉丝打赏等官方创收门槛对照",
-      "type": "平台激励",
-      "cost": "0；需持续产出合规内容并满足地区资格",
-      "difficulty": 3,
-      "fit": "做长视频或 Shorts、愿意按官方门槛积累观看的人；预估投入：先对照门槛半天，再按选题周更",
-      "why": "YouTube 帮助中心与创作者页：加入合作伙伴计划需遵守变现政策、所在地区可用、无有效社区指正等；完整广告分成常见门槛为1000订阅且过去12个月4000合格长视频观看小时，或过去90天1000万合格 Shorts 观看。另有更早的粉丝资助类门槛说明。上榜理由：官方路径清楚，适合做成「门槛对照+选题周计划」自用或售卖清单（不卖涨粉服务）。",
+      "name": "Netlify Drop + Google AdSense：拖拽上线英文小站再申请广告变现",
+      "type": "出海小站",
+      "cost": "域名自备（可选）；Netlify 免费档按官方额度；AdSense 0 起步",
+      "difficulty": 2,
+      "fit": "会一点前端或静态站、想先上线再观察搜索与转化的人；预估投入：第一站约半天到两天",
+      "why": "Netlify 官方 Drop 文档：拖拽文件夹即可获得 netlify.app 预览地址；Google AdSense 入门页说明可对网站内容展示广告。适合先做一页工具/指南验证词，有稳定访问后再申请广告。上榜理由：与昨日 Cloudflare Pages 错开托管商，强调「上线验证→广告」路径。",
       "steps": [
-        "打开 YouTube 帮助中心合作伙伴计划页，核对所在地区与双重验证、进阶功能等前置条件",
-        "在 Studio「收益」查看当前进度：长视频小时与 Shorts 观看分开统计",
-        "按垂直选题稳定上传，达标后在 Studio 申请并准备好 AdSense for YouTube"
+        "按 Netlify Drop 文档登录后拖入含 index.html 的构建目录，确认公开可访问",
+        "补齐 About/Privacy 与原创说明，接入搜索控制台观察展示与点击",
+        "有稳定流量后再到 adsense.google.com/start 申请；额度与计费以各官网为准并设用量提醒"
       ],
-      "risk": "风险等级：中。达标不保证通过审核；违规可失去资格；收入取决于流量与 CPM。不承诺收益。",
-      "source_url": "https://support.google.com/youtube/answer/72851?hl=en",
+      "risk": "风险等级：中。免费额度有限；空站与抄袭难过广告审核；收入取决于流量。不承诺收益。",
+      "source_url": "https://docs.netlify.com/start/quickstarts/netlify-drop-quickstart/",
       "tags": [
-        "平台激励",
-        "YouTube",
-        "创作者"
+        "出海小站",
+        "Netlify",
+        "AdSense",
+        "静态站"
       ],
-      "summary": "对照 YouTube 官方合作伙伴计划门槛（订阅、长视频小时或 Shorts 观看）规划内容节奏，走广告与粉丝打赏等官方变现。",
-      "threshold": "能持续产出原创视频，所在地区支持 YPP",
-      "time": "对照门槛约半天，之后按周更执行",
+      "summary": "用 Netlify Drop 快速上线英文静态页，验证需求后再走 Google AdSense；换掉纯 Cloudflare 表述。",
+      "threshold": "能准备基础 HTML/静态输出并公开站点",
+      "time": "第一站约半天到两天",
       "risk_level": "中",
-      "reason": "官方规则权威，门槛信息适合做成可售对照清单或自用路线图。",
+      "reason": "上线成本低、官方文档完整，托管与变现来源均换新。",
       "sources": [
         {
-          "title": "YouTube Partner Program overview & eligibility",
-          "url": "https://support.google.com/youtube/answer/72851?hl=en",
-          "publisher": "YouTube Help",
+          "title": "Netlify Drop Quickstart",
+          "url": "https://docs.netlify.com/start/quickstarts/netlify-drop-quickstart/",
+          "publisher": "Netlify Docs",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         },
         {
-          "title": "Join the YouTube Partner Program",
-          "url": "https://www.youtube.com/creators/earn/youtube-partner-program/",
-          "publisher": "YouTube for Creators",
+          "title": "Google AdSense - Earn Money from Your Website",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         }
       ]
     },
     {
       "rank": 7,
-      "name": "Erly 公开案例：俯卧撑闹钟 App 作者自述高月销——只拆获客方法",
-      "type": "案例拆解",
-      "cost": "0（阅读学习）；实操需自备产品、投放与时间",
-      "difficulty": 3,
-      "fit": "想做微型 App、需要对照「先营销后堆功能」路径的人；预估投入：读透案例2小时，再做最小原型",
-      "why": "公开案例站 Shipped & Paid（2026年10月核验口径）：Erly 为俯卧撑才能关掉的闹钟 App，创始人在访谈中自述上线约四个月后月销处于很高量级（截图口径、非独立审计）。路径要点是极简机制+快速上架+TikTok/Instagram 创作者按播放效果付费并严格追踪。上榜理由：只学方法，不可直接复制数字。",
-      "steps": [
-        "通读原文，记下「人人都有的痛点—单点机制—十九天量级上架—创作者 UGC—按效果续费」",
-        "选一个你自己反复遇到的生活小问题，先做能演示的最小付费点",
-        "小预算测试 1–2 个创作者内容，用安装与留存决定是否加码，而不是先堆功能"
-      ],
-      "risk": "风险等级：中。收入为公开案例自述/截图口径，品类与投放成本差很大；勿把截图当承诺。不承诺收益。",
-      "source_url": "https://shippedandpaid.com/cases/erly-push-up-alarm-app-50k-month-claude-code/",
-      "tags": [
-        "案例拆解",
-        "App",
-        "获客",
-        "出海"
-      ],
-      "summary": "一篇公开案例拆解俯卧撑闹钟 App 如何强调营销先于堆功能；可学的是选题、上架节奏与创作者投放追踪，而非照搬收入数字。",
-      "threshold": "愿意先做小 App 验证，能接受投放试错",
-      "time": "读案例约2小时，最小产品约数天到数周",
-      "risk_level": "中",
-      "reason": "获客路径写得具体，适合作为微型 App 方法论参考。",
-      "sources": [
-        {
-          "title": "Erly: push-up alarm app at $50K/month via Claude Code",
-          "url": "https://shippedandpaid.com/cases/erly-push-up-alarm-app-50k-month-claude-code/",
-          "publisher": "shippedandpaid.com",
-          "published": "2026-10-20",
-          "kind": "media",
-          "checked": "2026-10-22"
-        }
-      ]
-    },
-    {
-      "rank": 8,
-      "name": "Gumroad：上架原创模板/清单/小教程，一次制作反复卖",
-      "type": "数字产品/接单",
-      "cost": "0 起步；平台按成交抽成（以官网定价页为准）",
-      "difficulty": 2,
-      "fit": "有可交付文件经验（表格、提示词合集、教程 PDF）的人；预估投入：第一件产品约1–2天",
-      "why": "Gumroad 官方功能页支持数字下载、会员与课程等；定价页说明无月费、按成交抽成（直接链接与 Discover 渠道费率不同，以官网为准）。适合不想自建支付的创作者。上榜理由：与昨日 Lemon Squeezy 错开平台；零库存，可与闲鱼原创攻略并行（只卖自有内容）。",
-      "steps": [
-        "挑一个你用过、能说清「帮谁省了什么时间」的素材做成 PDF/表格/压缩包",
-        "在 Gumroad 创建产品、定价与交付文件，写清授权与退款说明",
-        "在自有小站、社媒或邮件列表放链接，先用入门价验证需求"
-      ],
-      "risk": "风险等级：中。平台费率与税务以官网为准；没有流量可能长期零单；只能卖原创或已获授权内容。不承诺收益。",
-      "source_url": "https://gumroad.com/features",
-      "tags": [
-        "数字产品",
-        "Gumroad",
-        "模板"
-      ],
-      "summary": "用 Gumroad 上架原创数字下载与会员内容；适合把个人流程产品化，不碰实物物流。",
-      "threshold": "能交付可下载的原创数字资产",
-      "time": "第一件约1–2天",
-      "risk_level": "中",
-      "reason": "支付与交付托管省事，是数字产品常见入门路径。",
-      "sources": [
-        {
-          "title": "Gumroad features: Sell digital products, memberships & courses",
-          "url": "https://gumroad.com/features",
-          "publisher": "gumroad.com",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-10-22"
-        },
-        {
-          "title": "Gumroad pricing",
-          "url": "https://gumroad.com/pricing",
-          "publisher": "gumroad.com",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-10-22"
-        }
-      ]
-    },
-    {
-      "rank": 9,
-      "name": "Cloudflare Pages：免费档部署英文工具小站，先验证需求再谈变现",
-      "type": "出海小站",
-      "cost": "域名自备（可选）；Pages 免费档按官方额度",
-      "difficulty": 2,
-      "fit": "会一点前端或静态站、想先上线再观察搜索与转化的人；预估投入：第一站约半天到两天",
-      "why": "Cloudflare 官方文档：Pages 可在各方案使用，连接 Git 或直接上传静态资源部署到全球网络；免费额度与 Functions/Workers 配额以官网定价与 limits 为准。适合先做一页工具/指南验证词，再接广告或联盟。上榜理由：与昨日云厂商额度「卖攻略」角度不同，本条强调自己上站验证。",
-      "steps": [
-        "打开 Cloudflare Pages 文档，用 Git 集成或 Direct Upload 部署一个最小静态页",
-        "页面写清用途、隐私与联系方式，接上搜索控制台观察展示与点击",
-        "有稳定访问后再考虑 AdSense/联盟；额度与计费以官方 limits/pricing 为准并设用量提醒"
-      ],
-      "risk": "风险等级：中。免费额度有限，超额或绑卡方式以官网为准；空站与抄袭难获广告审核。不承诺收益。",
-      "source_url": "https://developers.cloudflare.com/pages/",
-      "tags": [
-        "出海小站",
-        "Cloudflare",
-        "静态站",
-        "免费档"
-      ],
-      "summary": "用 Cloudflare Pages 免费档快速部署英文静态/工具页，先验证需求与流量，再考虑广告或联盟变现。",
-      "threshold": "能写或生成基础 HTML/静态站并绑定仓库",
-      "time": "第一站约半天到两天",
-      "risk_level": "中",
-      "reason": "上线成本低、官方文档完整，适合出海小站起步验证。",
-      "sources": [
-        {
-          "title": "Cloudflare Pages documentation",
-          "url": "https://developers.cloudflare.com/pages/",
-          "publisher": "Cloudflare Docs",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-10-22"
-        },
-        {
-          "title": "Cloudflare Pages product page",
-          "url": "https://pages.cloudflare.com/",
-          "publisher": "Cloudflare",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-10-22"
-        }
-      ]
-    },
-    {
-      "rank": 10,
-      "name": "闲鱼卖原创模板/清单：只卖自有虚拟资料，站内交易防纠纷",
+      "name": "闲鱼技能/副业接单：简历优化、表格定制、设计改稿等合法信息服务",
       "type": "闲鱼非实物",
-      "cost": "0 起步；需有一项可产品化的经验与基础美工",
+      "cost": "0 起步；需有可演示的作品或样例",
       "difficulty": 2,
-      "fit": "能把流程整理成表格/PDF/课件的人；也适合把消费券/双11核对表做成可售资料；预估投入：第一件约1天",
-      "why": "闲鱼用户服务协议与信息发布规范要求真实、不侵权、不虚假误导。把你自己整理的清单、模板、攻略写成说明清晰的商品，用站内聊天与担保交易交付，是常见的非实物路径。上榜理由：与羊毛「整理后转售攻略」同一能力栈，本条直接讲上架与合规边界。",
+      "fit": "有一项可交付技能（Excel/简历/海报改稿/文档整理）的人；预估投入：上架与样例约半天",
+      "why": "闲鱼社区卖家服务协议要求发布真实、有合法权利、不虚假误导的信息。把「帮人改一版简历/做一张表格/改一页海报」写成边界清晰的技能服务，用站内聊天与担保交易交付，是常见非实物进账路径。上榜理由：与昨日「卖模板清单」错开，本条强调按次技能服务，不卖平台账号、不做代领。",
       "steps": [
-        "选一个你真实用过的主题，做成原创文件并写清目录、适用人群与不包含的服务",
-        "阅读闲鱼社区用户服务协议与发布规范，确认类目允许后再上架",
-        "描述里写清交付方式与修改次数，全程站内沟通收款，留存证据；只卖原创资料，不提供账号或代领服务"
+        "选一个你能稳定交付的窄技能，准备前后对比样例，写清交付物、轮次与不包含的服务",
+        "阅读闲鱼卖家服务协议与发布规范，确认类目允许后再上架，标价与修改次数写死",
+        "全程站内沟通收款，完成后留存证据；拒绝学术作弊、虚假流量、买卖账号等违禁需求"
       ],
-      "risk": "风险等级：中。侵权与虚假描述会被下架限权；服务类易遇纠纷。以平台规则为准。不承诺收益。",
-      "source_url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other201708081618_51146.html",
+      "risk": "风险等级：中。服务类易遇纠纷与差评；侵权与虚假描述会被限权。以平台规则为准。不承诺收益。",
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
       "tags": [
         "闲鱼非实物",
-        "原创",
-        "模板",
+        "技能接单",
+        "副业",
         "合规"
       ],
-      "summary": "在闲鱼上架自己做的模板与清单类虚拟资料，遵守协议与发布规范，站内交易交付；只卖原创信息服务。",
-      "threshold": "能产出原创可下载资料，接受平台规则约束",
-      "time": "第一件约1天，之后按订单答疑",
+      "summary": "在闲鱼上架可交付的技能服务（非账号、非代领），站内交易、边界写清；适合有一项手艺的人直接接单。",
+      "threshold": "能交付可验收的服务结果，接受平台规则",
+      "time": "上架约半天，之后按单交付",
       "risk_level": "中",
-      "reason": "门槛相对低、与本站羊毛转攻略策略一致，强调合规边界。",
+      "reason": "门槛相对低、直接进账，与模板商品错开为技能服务。",
       "sources": [
         {
-          "title": "闲鱼社区用户服务协议",
-          "url": "https://terms.alicdn.com/legal-agreement/terms/suit_bu1_other/suit_bu1_other201708081618_51146.html",
+          "title": "闲鱼社区卖家服务协议",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
           "publisher": "闲鱼 / 阿里巴巴",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
         },
         {
           "title": "闲鱼社区信息发布规范公示通知",
@@ -440,7 +313,134 @@
           "publisher": "闲鱼",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-22"
+          "checked": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "公开案例：给熟人做单点工具，作者自述3天£25 MRR——只拆方法",
+      "type": "案例拆解",
+      "cost": "0（阅读学习）；实操需自备产品与时间",
+      "difficulty": 2,
+      "fit": "想做微型工具、害怕从零找客户的人；预估投入：读案例1小时，再做最小原型",
+      "why": "公开案例站 Shipped & Paid（2026年10月核验口径）：作者自述为妹妹做一个单点功能工具，约一天量级上线，三天内有3位付费用户、自述约£25 MRR（截图/帖文口径、非独立审计）。路径要点是「先为真实熟人做一功能→立刻收费→再加 Pro」。上榜理由：只学方法，不复制数字。",
+      "steps": [
+        "通读原文，记下「真人痛点—单功能—当天量级上线—先收费再堆功能」",
+        "找一个你认识、愿意付小钱的人，约定只做一个他反复遇到的问题",
+        "上线后先收第一笔，再决定要不要做第二功能；勿把自述收入当目标承诺"
+      ],
+      "risk": "风险等级：中。收入为公开自述口径，品类与人脉差很大；勿把截图当承诺。不承诺收益。",
+      "source_url": "https://shippedandpaid.com/cases/tool-for-sister-25-gbp-mrr-in-3-days/",
+      "tags": [
+        "案例拆解",
+        "微型工具",
+        "获客",
+        "出海"
+      ],
+      "summary": "一篇公开案例拆解「先为熟人做单点工具再收费」；可学的是选题与上线节奏，而非照搬自述收入。",
+      "threshold": "愿意先服务一个真实用户，能接受小额验证",
+      "time": "读案例约1小时，最小产品约1–3天",
+      "risk_level": "中",
+      "reason": "方法具体且与 Erly 大投放案例错开，适合微型工具起步。",
+      "sources": [
+        {
+          "title": "Vibe coded a tool for his sister in under 24h: 3 paying customers in 3 days",
+          "url": "https://shippedandpaid.com/cases/tool-for-sister-25-gbp-mrr-in-3-days/",
+          "publisher": "shippedandpaid.com",
+          "published": "2026-10-12",
+          "kind": "media",
+          "checked": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "Fiverr：把一项技能做成 Gig，面向全球买家接远程单",
+      "type": "副业",
+      "cost": "0 起步；平台按成交抽成（以官网为准）",
+      "difficulty": 3,
+      "fit": "英语能沟通、有可演示技能（设计/表格/落地页文案/简单开发）的人；预估投入：上架与作品集约1天",
+      "why": "Fiverr 官方帮助中心：完成卖家入驻与资料后可创建 Gig，审核通过后对买家可见；新手活跃 Gig 数量有上限说明。适合把国内已验证的技能换成美元计价远程单。上榜理由：与闲鱼技能错开市场，走出海接单。",
+      "steps": [
+        "打开 fiverr.com/start_selling 完成卖家资料、手机与必要核验",
+        "只上一个极窄 Gig（例如「Notion 数据库搭建」），配 3–5 个前后对比作品与清晰交付边界",
+        "用快速回复与小套餐攒评价，再逐步提价；遵守平台禁止类目，不做学术作弊与虚假流量"
+      ],
+      "risk": "风险等级：中。竞争激烈、新卖家曝光慢；纠纷与差评影响排名；抽成以官网为准。不承诺收益。",
+      "source_url": "https://www.fiverr.com/start_selling",
+      "tags": [
+        "副业",
+        "Fiverr",
+        "远程接单",
+        "出海"
+      ],
+      "summary": "在 Fiverr 上架单一窄技能 Gig，面向全球买家远程交付；适合英语沟通尚可、已有作品的人。",
+      "threshold": "能用英文描述服务与交付，有可展示样例",
+      "time": "上架约1天，之后按单交付",
+      "risk_level": "中",
+      "reason": "直接进账的出海技能市场，与国内闲鱼技能形成互补。",
+      "sources": [
+        {
+          "title": "Start selling on Fiverr",
+          "url": "https://www.fiverr.com/start_selling",
+          "publisher": "fiverr.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-23"
+        },
+        {
+          "title": "Fiverr",
+          "url": "https://www.fiverr.com/",
+          "publisher": "fiverr.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "小红书蒲公英：官方种草合作平台接品牌笔记/直播商单",
+      "type": "平台激励",
+      "cost": "0；需有可合作的内容账号与合规经营主体/个人资质（以平台要求为准）",
+      "difficulty": 3,
+      "fit": "已有小红书内容积累、愿按品牌brief创作的人；预估投入：了解平台与报价表约半天",
+      "why": "小红书蒲公英为官方内容种草与直播合作平台，品牌可筛选博主并发起定制/批量/众测等合作，平台强调数据与交易保障。创作者侧通过官方合作链路接商单，比私域私下转账更清晰。上榜理由：与 B 站激励错开为「品牌合作进账」。",
+      "steps": [
+        "打开 pgy.xiaohongshu.com 阅读帮助中心与入驻说明，按博主/创作者路径完善资料",
+        "整理垂直选题与历史笔记数据，设置合理报价与可接品类边界",
+        "只走平台邀约与合同流程，按brief创作并保留底稿；拒绝虚假流量与虚假种草"
+      ],
+      "risk": "风险等级：中。账号健康度不够可能无法接单；商单有审核与修改轮次；收入不稳定。不承诺收益。",
+      "source_url": "https://pgy.xiaohongshu.com/",
+      "tags": [
+        "平台激励",
+        "小红书",
+        "蒲公英",
+        "商单"
+      ],
+      "summary": "通过小红书官方蒲公英平台接品牌种草/直播合作，走平台交易与数据；适合已有垂直内容的博主。",
+      "threshold": "有可持续更新的小红书账号，接受品牌brief约束",
+      "time": "了解与完善资料约半天，之后按单创作",
+      "risk_level": "中",
+      "reason": "官方合作入口清晰，是内容账号直接进账的常见路径。",
+      "sources": [
+        {
+          "title": "小红书蒲公英 - 好产品种草第一站",
+          "url": "https://pgy.xiaohongshu.com/",
+          "publisher": "小红书蒲公英",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-23"
+        },
+        {
+          "title": "帮助中心 - 小红书蒲公英",
+          "url": "https://pgy.xiaohongshu.com/help/home",
+          "publisher": "小红书蒲公英",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-23"
         }
       ]
     }

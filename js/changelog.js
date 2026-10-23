@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 43, date: '2026-10-23', title: '每日赚钱榜 · 2026-10-23', tag: '赚钱榜', href: '#war-rank', items: ["No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止","No.2 IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）","No.3 Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成"] },
     { id: 42, date: '2026-10-22', title: '每日赚钱榜 · 2026-10-22', tag: '赚钱榜', href: '#war-rank', items: ["No.1 上海普陀「乐购普陀」：明天周五10:00第二轮云闪付商圈零售券","No.2 广州「食在广州」第三轮餐饮券：本周周期仍可领，云闪付/支付宝双入口","No.3 Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日"] },
     { id: 41, date: '2026-10-21', title: '新增「AI生活起号选题方案」合集：10 个场景选题与可卖的原创日历/提示词包角度，附来源与合规提醒', tag: '新功能', href: '#war-rank-ai-life',
       items: ['新增「AI生活起号选题方案」合集：10 个场景选题与可卖的原创日历/提示词包角度，附来源与合规提醒'] },

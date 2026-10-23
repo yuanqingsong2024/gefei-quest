@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-22T00:41:23.601Z",
-  "latestId": 42,
-  "latestDate": "2026-10-22",
+  "generatedAt": "2026-10-23T00:43:48.501Z",
+  "latestId": 43,
+  "latestDate": "2026-10-23",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 43,
+      "date": "2026-10-23",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-23",
+      "items": [
+        "No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
+        "No.2 IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）",
+        "No.3 Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 42,
       "date": "2026-10-22",
@@ -112,42 +124,30 @@
         "No.3 银行App长期微信立减金（建行缴费抽2–10元、农行省钱月卡等，每月重置）"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 33,
-      "date": "2026-10-18",
-      "tag": "改进",
-      "title": "导航按 学习 / 实施 / 赚钱 重新整理，每页只在一个菜单里，新增面包屑；图标统一重绘",
-      "items": [
-        "导航按 学习 / 实施 / 赚钱 重新整理，每页只在一个菜单里，新增面包屑；图标统一重绘",
-        "顶栏、底部栏、页脚和网站地图用同一份菜单。子页面面包屑是「首页 / 分组 / 页面」",
-        "图标按同一套线稿重绘。学习、实施、赚钱的功能卡片改成浅蓝、青绿和金色的柔和色块"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-10-22",
+    "date": "2026-10-23",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "上海普陀「乐购普陀」：明天周五10:00第二轮云闪付商圈零售券",
-        "type": "羊毛",
-        "source_url": "https://www.shanghai.gov.cn/nw17239/20261015/4406289c66554165ab6ec1b18326963b.html"
+        "name": "OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
+        "type": "奖金赛/悬赏",
+        "source_url": "https://opencv26.devpost.com/"
       },
       {
         "rank": 2,
-        "name": "广州「食在广州」第三轮餐饮券：本周周期仍可领，云闪付/支付宝双入口",
-        "type": "羊毛",
-        "source_url": "https://www.21jingji.com/article/20261019/herald/8a03631a94c178444480bca330a897f2.html"
+        "name": "IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）",
+        "type": "出海新词",
+        "source_url": "https://irisgo.ai/"
       },
       {
         "rank": 3,
-        "name": "Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日",
-        "type": "奖金赛/悬赏",
-        "source_url": "https://amazonappdev2026.devpost.com/"
+        "name": "Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成",
+        "type": "联盟营销",
+        "source_url": "https://www.hostinger.com/affiliates"
       }
     ]
   }
