@@ -1755,7 +1755,7 @@ kbd { display: inline-block; min-width: 1.4em; padding: 1px 6px; border-radius: 
 /* 底部 Tab 栏 */
 .bottom-bar { display: none; }
 @media (max-width: 640px) {
-  .bottom-bar { display: grid; grid-template-columns: repeat(6, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); background: rgba(6,11,22,.96); border-top: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .bottom-bar { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); background: rgba(6,11,22,.96); border-top: 1px solid var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   .bottom-bar a, .bottom-bar button { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 4px 0; color: #cbd5e1; font: inherit; font-size: 11px; background: none; border: 0; border-radius: 10px; text-decoration: none; cursor: pointer; }
   .bottom-bar .ico { width: 22px; height: 22px; }
   .bottom-bar a.active { color: var(--gold-text); background: rgba(251,191,36,.12); }
@@ -2318,7 +2318,7 @@ html.is-offline .offline-pill {
 }
 
 /* Phase 20 · 首页产品页 */
-#home-howto, #home-rank, #home-why, #home-faq, #home-continue, #home-next { scroll-margin-top: calc(var(--nav-h, 56px) + 12px); }
+#home-howto, #home-rank, #home-why, #home-faq, #home-continue, #home-next, #home-path, #home-path-today, #hero-top3 { scroll-margin-top: calc(var(--nav-h, 56px) + 12px); }
 .hero.hero-home { min-height: 0; align-items: center; }
 .hero-home .hero-inner {
   display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(280px, .9fr);
@@ -2597,8 +2597,9 @@ body.is-home .hero.hero-home .hero-cta .btn { padding: 12px 18px; font-size: 1re
 .home-band.band-a { background: rgba(15, 23, 42, .78); }
 .home-band.band-b { background: rgba(2, 6, 23, .55); }
 #home-continue {
-  display: block; margin: 0; padding: 0; border: 0; border-radius: 0;
-  background: #0b1c33; border-bottom: 1px solid #fde68a; color: #f8fafc;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+  margin: 12px 0 0; padding: 10px 14px; border-radius: 12px;
+  background: rgba(11, 28, 51, .9); border: 1px solid rgba(253, 230, 138, .45); color: #f8fafc;
 }
 #home-continue .home-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-top: 10px; padding-bottom: 10px; }
 #home-continue p { margin: 0; flex: 1 1 220px; min-width: 0; color: #f8fafc; }
@@ -3219,3 +3220,121 @@ body.is-home .home-howto span.home-step-ico > svg,
 .rank-type-联盟营销, .chip[data-rtype="联盟营销"], .pill[data-type="联盟营销"] { background: rgba(96, 165, 250, .22); color: #bfdbfe; }
 .rank-type-案例拆解, .chip[data-rtype="案例拆解"], .pill[data-type="案例拆解"] { background: rgba(148, 163, 184, .25); color: #e2e8f0; }
 .rank-type-数字产品-接单, .chip[data-rtype="数字产品/接单"], .pill[data-type="数字产品/接单"] { background: rgba(250, 204, 21, .22); color: #fef08a; }
+
+/* Phase 25 · 顶栏减负 + 首页路径 */
+.nav-start-today {
+  display: inline-flex; align-items: center; gap: 6px; flex: none;
+  padding: 6px 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: rgba(15, 23, 42, .55);
+  color: #f8fafc; font-size: 13px; font-weight: 700; white-space: nowrap; text-decoration: none;
+}
+.nav-start-today .ico { width: 15px; height: 15px; }
+.nav-start-today:hover { color: var(--gold-text); border-color: var(--gold); text-decoration: none; }
+.nav-mine { position: relative; display: flex; align-items: center; flex: none; }
+.nav-mine-btn {
+  width: 36px; height: 36px; margin: 0; padding: 0;
+  border-radius: 50%; border: 1px solid var(--line);
+  background: rgba(15, 23, 42, .7); color: #e2e8f0; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; position: relative;
+}
+.nav-mine-btn .ico { width: 18px; height: 18px; }
+.nav-mine-btn .nav-dot { position: absolute; top: 2px; right: 2px; margin: 0; }
+.nav-mine.is-active > .nav-mine-btn,
+.nav-mine.is-open > .nav-mine-btn {
+  color: var(--gold-text); border-color: var(--gold);
+  background: rgba(251, 191, 36, .14);
+}
+.nav-mine .nav-menu { right: 0; left: auto; }
+@media (max-width: 640px) {
+  .nav-start-today { display: none; }
+}
+
+.home-path-band { padding-top: 20px; }
+.home-path-layout {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+  gap: 24px 36px; align-items: start;
+}
+.home-path {
+  list-style: none; margin: 0; padding: 8px 0 0; min-width: 0;
+}
+.home-path-node { position: relative; padding: 0 0 22px 0; }
+.home-path-node:last-child { padding-bottom: 0; }
+.home-path-node:not(:last-child)::after {
+  content: ""; position: absolute; left: 13px; top: 32px; bottom: 2px;
+  width: 2px; background: var(--line); pointer-events: none;
+}
+.home-path-node.is-done:not(:last-child)::after { background: var(--ok); }
+.home-path-node a {
+  display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: center;
+  color: #f8fafc; text-decoration: none; min-width: 0;
+}
+.home-path-node a:hover { color: #fff; text-decoration: none; }
+.home-path-dot {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid #64748b; background: #0f172a;
+  display: grid; place-items: center;
+  font-size: 13px; font-weight: 800; line-height: 1; color: #052e16;
+  position: relative; z-index: 1;
+}
+.home-path-label {
+  display: inline-flex; align-items: center; gap: 8px; min-width: 0;
+  font-weight: 700; font-size: 1.05rem;
+}
+.home-path-label .ico { width: 18px; height: 18px; opacity: .85; }
+.home-path-node.is-done .home-path-dot {
+  background: #4ade80; border-color: #4ade80; color: #052e16;
+}
+.home-path-node.is-current .home-path-dot {
+  background: #14532d; border-color: #4ade80; color: #bbf7d0;
+  box-shadow: 0 0 0 4px rgba(74, 222, 128, .22);
+}
+.home-path-node.is-current.is-done .home-path-dot {
+  background: #4ade80; color: #052e16;
+}
+.home-path-node.is-current .home-path-label { color: #bbf7d0; }
+.home-path-node.is-locked { opacity: .48; }
+.home-path-node.is-locked .home-path-dot {
+  background: #1e293b; border-color: #475569; color: transparent;
+}
+.home-path-rail { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.home-path-side {
+  padding: 18px 18px 16px; border-radius: 16px;
+  border: 1px solid var(--line); background: var(--panel);
+  min-width: 0;
+}
+.home-path-kicker {
+  margin: 0 0 6px; font-size: .78rem; font-weight: 800; letter-spacing: .06em;
+  color: #86efac; text-transform: none;
+}
+.home-path-side h2 { margin: 0 0 8px; font-size: 1.05rem; color: #fff; }
+.home-path-title { margin: 0 0 6px; color: #fde68a; font-weight: 700; font-size: 1.02rem; line-height: 1.4; }
+.home-path-why { margin: 0 0 14px; color: #cbd5e1; font-size: .95rem; line-height: 1.45; }
+.home-path-side .btn { display: inline-flex; }
+.home-more {
+  border: 1px solid var(--line); border-radius: 14px; background: var(--panel);
+  padding: 4px 16px 4px;
+}
+.home-more > summary {
+  cursor: pointer; list-style: none; padding: 12px 4px;
+  font-weight: 800; color: #f8fafc; font-size: 1.05rem;
+}
+.home-more > summary::-webkit-details-marker { display: none; }
+.home-more > summary::before { content: "▸ "; color: #94a3b8; }
+.home-more[open] > summary::before { content: "▾ "; }
+.home-more .home-pair { padding: 4px 4px 16px; }
+body.is-home .hero.hero-home { min-height: 0; height: auto; }
+body.is-home .home-continue {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px;
+  margin: 12px 0 0; padding: 10px 14px; border-radius: 12px;
+  background: rgba(11, 28, 51, .9); border: 1px solid rgba(253, 230, 138, .45);
+}
+@media (min-width: 1024px) {
+  body.is-home .hero.hero-home { min-height: 0; height: auto; }
+  body.is-home .hero.hero-home .hero-inner {
+    display: block; height: auto; padding-top: 22px; padding-bottom: 8px;
+  }
+  body.is-home .hero.hero-home h1.hero-title { font-size: clamp(28px, 3vw, 36px); margin-bottom: 8px; }
+}
+@media (max-width: 800px) {
+  .home-path-layout { grid-template-columns: 1fr; }
+}

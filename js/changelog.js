@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 45, date: '2026-10-24', title: '首页改成主线路径，顶栏只留四个入口', tag: '改进', href: '#home',
+      items: ['顶栏四个主入口：首页、学习、实施、赚钱。「我的」收到右侧头像菜单。新手引导和每周补给仍可从首页路径或页脚打开', '首页中间是五步竖向路径（新手引导 → 学习路线 → 做站 Day → 发布上线 → 试渠道），当前关高亮，旁边是「今天这一关」', '首页只保留今日赚钱榜 Top 3，完整榜去每日赚钱榜。常见问题和「为什么做」默认折叠'] },
     { id: 44, date: '2026-10-24', title: '每日赚钱榜 · 2026-10-24', tag: '赚钱榜', href: '#war-rank', items: ["No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止","No.2 ReSO AI / GEO：生成式引擎优化新词，做 AI 搜索可见度内容或咨询实验","No.3 DigitalOcean Affiliates：云主机/开发者内容挂合规链接，合资格成交拿分成"] },
     { id: 43, date: '2026-10-23', title: '每日赚钱榜 · 2026-10-23', tag: '赚钱榜', href: '#war-rank', items: ["No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止","No.2 IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）","No.3 Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成"] },
     { id: 42, date: '2026-10-22', title: '每日赚钱榜 · 2026-10-22', tag: '赚钱榜', href: '#war-rank', items: ["No.1 上海普陀「乐购普陀」：明天周五10:00第二轮云闪付商圈零售券","No.2 广州「食在广州」第三轮餐饮券：本周周期仍可领，云闪付/支付宝双入口","No.3 Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日"] },

@@ -47,13 +47,14 @@
   }
   function reduced() { return doc.documentElement.classList.contains('reduce-motion') || (global.matchMedia && global.matchMedia('(prefers-reduced-motion: reduce)').matches); }
 
-  /* ---------- 底部 Tab 栏（≤640px 由 CSS 显示）。6 项与顶栏同一组，搜索留在顶栏。 ---------- */
+  /* ---------- 底部 Tab 栏（≤640px 由 CSS 显示）。5 项：首页/学习/实施/赚钱/我的。搜索留在顶栏。 ---------- */
   function renderBottomBar() {
     var el = doc.getElementById('bottom-bar');
     if (!el) { el = doc.createElement('nav'); el.id = 'bottom-bar'; el.className = 'bottom-bar'; el.setAttribute('aria-label', '底部导航'); doc.body.appendChild(el); }
     var Nv = N();
     var loc = Nv.locate ? Nv.locate(String(location.hash || '').replace(/^#/, '')) : { group: null };
-    el.innerHTML = (Nv.SITE_NAV || []).map(function (n) {
+    var items = (Nv.SITE_NAV || []).filter(function (n) { return n.id !== 'start'; });
+    el.innerHTML = items.map(function (n) {
       var on = loc.group && loc.group.id === n.id;
       return '<a href="' + n.hash + '" data-bb="' + n.id + '"' + (on ? ' class="active" aria-current="page"' : '') + '>' + I(n.icon) + '<span>' + esc(n.short || n.label) + '</span></a>';
     }).join('');
@@ -88,6 +89,8 @@
       (n.children || []).forEach(addNav);
     }
     Nv.SITE_NAV.forEach(addNav);
+    if (Nv.START_PAGE) addNav(Nv.START_PAGE);
+    add('页面', '每周补给', '每周几张短卡片，已暂停更新。', '#weekly', '每周补给 周更 ship 知识卡', 'calendar');
     add('页面', '关键词灵感', '选词练习板里的免费联想词，勾选后加入候选', '#war-keywords', '灵感 联想', 'tag');
     if (Nv.SITEMAP) add('页面', Nv.SITEMAP.label, Nv.SITEMAP.desc || '', Nv.SITEMAP.hash, 'sitemap 站点地图', Nv.SITEMAP.icon);
     Nv.STATIONS.forEach(function (s) { add('页面', s.name, '7 天作战日程 · Day1–7', s.hash, s.hash === '#war' ? '实战作战室' : '', s.icon); });

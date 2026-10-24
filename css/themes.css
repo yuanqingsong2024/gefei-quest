@@ -1,0 +1,825 @@
+/* 主题：水墨纸 ink / 海岸青 ocean / 像素暖沙 pixel
+ * 挂在 html[data-theme] 上，盖过 ui.css 里的深色硬编码。
+ * 只改配色与背景，不改首页路径结构。 */
+
+html[data-theme] {
+  color-scheme: light;
+  --ok: #15803d;
+  --danger: #b91c1c;
+  --boss: #dc2626;
+}
+
+html[data-theme="ink"] {
+  --bg: #fafaf8;
+  --panel: #ffffff;
+  --panel2: #f4f1ea;
+  --ink: #1c1917;
+  --muted: #57534e;
+  --line: #e7e5e4;
+  --gold: #1e3a5f;
+  --gold-text: #1e3a5f;
+  --cyan: #0f766e;
+  --cyan-hot: #115e59;
+  --tag-bg: #e8eef5;
+  --tag-fg: #1e3a5f;
+  --focus: #1e3a5f;
+  --shadow: 0 10px 28px rgba(28, 25, 23, 0.08);
+  --glass: rgba(255, 255, 255, 0.86);
+  --glass-line: rgba(28, 25, 23, 0.1);
+  --glow: 0 0 0 1px rgba(30, 58, 95, 0.16), 0 12px 28px rgba(28, 25, 23, 0.06);
+  --btn-bg: #1e3a5f;
+  --btn-bg-hover: #16304f;
+  --btn-fg: #fafaf8;
+  --btn-shadow: 0 8px 20px rgba(30, 58, 95, 0.16);
+  --btn-shadow-hover: 0 12px 26px rgba(30, 58, 95, 0.22);
+  --hero-bg: transparent;
+  --theme-color: #fafaf8;
+}
+
+html[data-theme="ocean"] {
+  --bg: #e0f2fe;
+  --panel: rgba(255, 255, 255, 0.92);
+  --panel2: rgba(255, 255, 255, 0.74);
+  --ink: #0c4a6e;
+  --muted: #0369a1;
+  --line: #bae6fd;
+  --gold: #0891b2;
+  --gold-text: #0e7490;
+  --cyan: #0891b2;
+  --cyan-hot: #0e7490;
+  --ok: #0f766e;
+  --tag-bg: #cffafe;
+  --tag-fg: #155e75;
+  --focus: #0891b2;
+  --shadow: 0 10px 28px rgba(14, 116, 144, 0.12);
+  --glass: rgba(255, 255, 255, 0.78);
+  --glass-line: rgba(8, 145, 178, 0.22);
+  --glow: 0 0 0 1px rgba(8, 145, 178, 0.28), 0 12px 28px rgba(14, 116, 144, 0.12);
+  --btn-bg: #0891b2;
+  --btn-bg-hover: #0e7490;
+  --btn-fg: #f0fdfa;
+  --btn-shadow: 0 8px 20px rgba(8, 145, 178, 0.28);
+  --btn-shadow-hover: 0 12px 26px rgba(14, 116, 144, 0.34);
+  --hero-bg: transparent;
+  --theme-color: #e0f2fe;
+}
+
+html[data-theme="pixel"] {
+  --bg: #f5f0e6;
+  --panel: #fffdf8;
+  --panel2: #f3eadb;
+  --ink: #3f2e22;
+  --muted: #7c6a58;
+  --line: #e6d7c3;
+  --gold: #0284c7;
+  --gold-text: #0369a1;
+  --cyan: #db2777;
+  --cyan-hot: #be185d;
+  --tag-bg: #fce7f3;
+  --tag-fg: #9d174d;
+  --focus: #0284c7;
+  --shadow: 4px 4px 0 rgba(63, 46, 34, 0.08);
+  --glass: rgba(255, 253, 248, 0.92);
+  --glass-line: rgba(63, 46, 34, 0.14);
+  --glow: 3px 3px 0 rgba(244, 114, 182, 0.45);
+  --btn-bg: linear-gradient(180deg, #7dd3fc 0%, #38bdf8 100%);
+  --btn-bg-hover: linear-gradient(180deg, #bae6fd 0%, #7dd3fc 100%);
+  --btn-fg: #1c1917;
+  --btn-shadow: 3px 3px 0 #f9a8d4;
+  --btn-shadow-hover: 4px 4px 0 #f472b6;
+  --hero-bg: transparent;
+  --theme-color: #f5f0e6;
+}
+
+/* ---------- 页面底：去掉夜景灯塔 ---------- */
+html[data-theme] .page-bg,
+html[data-theme] body.is-home .page-bg {
+  filter: none;
+  background: var(--bg);
+}
+html[data-theme] .hero,
+html[data-theme] body.is-home .hero.hero-home {
+  background: var(--hero-bg);
+  background-image: none;
+}
+
+html[data-theme="ink"] .page-bg,
+html[data-theme="ink"] body.is-home .page-bg {
+  background-color: #fafaf8;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 220'%3E%3Cpath fill='%231e3a5f' fill-opacity='.06' d='M0 148l72-30 58 20 92-64 78 50 74-56 88 42 78-30 92 38 168-22v124H0z'/%3E%3Cpath fill='%231e3a5f' fill-opacity='.045' d='M0 176l108-24 84 18 102-42 92 30 116-26 112 22 186-18v84H0z'/%3E%3Ccircle cx='618' cy='40' r='18' fill='%231e3a5f' fill-opacity='.05'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #fafaf8 0%, #f6f3ec 100%);
+  background-repeat: no-repeat, no-repeat;
+  background-position: right bottom, center;
+  background-size: min(920px, 92vw) auto, cover;
+}
+html[data-theme="ocean"] .page-bg,
+html[data-theme="ocean"] body.is-home .page-bg {
+  background:
+    radial-gradient(120% 70% at 50% 120%, rgba(8, 145, 178, 0.18), transparent 56%),
+    radial-gradient(70% 42% at 100% 0%, rgba(255, 255, 255, 0.75), transparent 52%),
+    linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 48%, #cffafe 100%);
+}
+html[data-theme="pixel"] .page-bg,
+html[data-theme="pixel"] body.is-home .page-bg {
+  background-color: #f5f0e6;
+  background-image:
+    linear-gradient(#7dd3fc, #7dd3fc),
+    linear-gradient(#f9a8d4, #f9a8d4),
+    linear-gradient(#38bdf8, #38bdf8),
+    linear-gradient(#fbcfe8, #fbcfe8),
+    linear-gradient(rgba(63, 46, 34, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 46, 34, 0.05) 1px, transparent 1px);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat, repeat;
+  background-position: 7% 18%, 12% 24%, 92% 14%, 86% 22%, 0 0, 0 0;
+  background-size: 10px 10px, 6px 6px, 8px 8px, 5px 5px, 16px 16px, 16px 16px;
+}
+
+/* ---------- 文字：浅色底上不再用白字 ---------- */
+html[data-theme] .hero-title,
+html[data-theme] .hero-home .hero-title,
+html[data-theme] body.is-home .hero.hero-home h1.hero-title,
+html[data-theme] .sec-head h2,
+html[data-theme] .sec-head h3,
+html[data-theme] body.is-home .home-band .sec-head h2,
+html[data-theme] body.is-home .home-rank-head h2,
+html[data-theme] .step b,
+html[data-theme] .faq summary,
+html[data-theme] #home-faq .faq summary,
+html[data-theme] .game-header h1,
+html[data-theme] .panel-head h2,
+html[data-theme] .sh-title,
+html[data-theme] .block-title,
+html[data-theme] .island-name,
+html[data-theme] .war-station-title,
+html[data-theme] .channel-cat-title,
+html[data-theme] .guide,
+html[data-theme] .md,
+html[data-theme] .md h2,
+html[data-theme] .md h3,
+html[data-theme] .md h4,
+html[data-theme] .md h5,
+html[data-theme] .me-lv b,
+html[data-theme] .stat b,
+html[data-theme] .ach-card h3,
+html[data-theme] .ship-card h3,
+html[data-theme] .gc-body b,
+html[data-theme] .kw-name,
+html[data-theme] .site-head h3,
+html[data-theme] .rank-title h3,
+html[data-theme] .home-path-side h2,
+html[data-theme] .hero-top3-head h2,
+html[data-theme] .home-next-title,
+html[data-theme] .home-next-title b,
+html[data-theme] .home-rank-name-text,
+html[data-theme] .empty-illo b,
+html[data-theme] .foot-cols h4,
+html[data-theme] .foot-brand b,
+html[data-theme] .strip-item,
+html[data-theme] .sub-tab,
+html[data-theme] .home-more > summary {
+  color: var(--ink);
+  text-shadow: none;
+}
+
+html[data-theme] .hero-sub,
+html[data-theme] .hero-home .hero-sub,
+html[data-theme] body.is-home .hero.hero-home .hero-sub,
+html[data-theme] .hero-kicker,
+html[data-theme] .hero-home .hero-kicker,
+html[data-theme] .sec-head p,
+html[data-theme] .step span:last-child,
+html[data-theme] .feat-card span:last-child,
+html[data-theme] .snap-item span,
+html[data-theme] .snap-note,
+html[data-theme] .snap-empty p,
+html[data-theme] .faq p,
+html[data-theme] #home-faq .faq p,
+html[data-theme] .foot-brand span,
+html[data-theme] .foot-note,
+html[data-theme] .foot-desc,
+html[data-theme] .foot-cols a,
+html[data-theme] #foot-tour,
+html[data-theme] .foot-replay-note,
+html[data-theme] .crumbs,
+html[data-theme] .crumbs a,
+html[data-theme] .sh-desc,
+html[data-theme] .block-sub,
+html[data-theme] .panel-sub,
+html[data-theme] .empty-state,
+html[data-theme] .empty,
+html[data-theme] .hint,
+html[data-theme] .empty-illo,
+html[data-theme] .empty-illo p,
+html[data-theme] .home-path-why,
+html[data-theme] body.is-home .home-rank-head p,
+html[data-theme] .nav-item-text small,
+html[data-theme] .peer-steal,
+html[data-theme] .peer-caveat,
+html[data-theme] .gc-body span,
+html[data-theme] .res-search-label,
+html[data-theme] .fld span,
+html[data-theme] .tool-privacy,
+html[data-theme] .doc-toc a,
+html[data-theme] .doc-meta,
+html[data-theme] .setting-row small,
+html[data-theme] .me-lv small,
+html[data-theme] .stat small,
+html[data-theme] .ach-desc,
+html[data-theme] .sitemap-lead {
+  color: var(--muted);
+}
+
+html[data-theme] .home-path-kicker,
+html[data-theme] .hero-top3-date,
+html[data-theme] .home-next-why,
+html[data-theme] body.is-home .home-rank-head time,
+html[data-theme] .qs-label,
+html[data-theme] .qs-published,
+html[data-theme] .feat-card b,
+html[data-theme] body.is-home .home-howto b {
+  color: var(--gold-text);
+}
+html[data-theme] .home-path-title,
+html[data-theme] .hero-top3-more,
+html[data-theme] .hero-top3-empty a {
+  color: var(--cyan);
+}
+html[data-theme] .hero-top3-more:hover,
+html[data-theme] .hero-steps a:hover {
+  color: var(--cyan-hot);
+}
+html[data-theme] body.is-home .home-band .sec-head h2 .ico,
+html[data-theme] body.is-home .home-rank-head h2 .ico {
+  color: var(--gold);
+}
+
+/* ---------- 顶栏 / 菜单 / 底栏 ---------- */
+html[data-theme] .site-nav,
+html[data-theme] body.nav-condensed .site-nav {
+  background: color-mix(in srgb, var(--panel) 88%, var(--bg));
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 1px 0 var(--line);
+}
+html[data-theme] .site-links a,
+html[data-theme] .site-links a.nav-top,
+html[data-theme] .nav-caret {
+  color: var(--ink);
+}
+html[data-theme] .site-links a:hover,
+html[data-theme] .site-links a.active,
+html[data-theme] .site-links a.nav-top.active,
+html[data-theme] .nav-drop.is-open > .nav-caret,
+html[data-theme] .nav-drop.is-active > .nav-caret {
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  color: var(--gold-text);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent);
+}
+html[data-theme] .nav-search,
+html[data-theme] .nav-start-today,
+html[data-theme] .nav-mine-btn,
+html[data-theme] kbd {
+  background: var(--panel);
+  color: var(--ink);
+  border-color: var(--line);
+}
+html[data-theme] .nav-search:hover,
+html[data-theme] .nav-start-today:hover,
+html[data-theme] .nav-mine.is-active > .nav-mine-btn,
+html[data-theme] .nav-mine.is-open > .nav-mine-btn {
+  color: var(--gold-text);
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 10%, var(--panel));
+}
+html[data-theme] .nav-menu {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+html[data-theme] .nav-menu a {
+  background: transparent;
+  color: var(--ink);
+}
+html[data-theme] .nav-menu a:hover,
+html[data-theme] .nav-menu a:focus-visible,
+html[data-theme] .nav-menu a.active {
+  background: color-mix(in srgb, var(--gold) 10%, var(--panel));
+  color: var(--gold-text);
+}
+html[data-theme] .nav-menu a.active .nav-item-text small,
+html[data-theme] .nav-menu a:hover .nav-item-text small {
+  color: var(--gold-text);
+}
+html[data-theme] .bottom-bar {
+  background: color-mix(in srgb, var(--panel) 94%, transparent);
+  border-top-color: var(--line);
+}
+html[data-theme] .bottom-bar a,
+html[data-theme] .bottom-bar button {
+  color: var(--muted);
+}
+html[data-theme] .bottom-bar a.active {
+  color: var(--gold-text);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+}
+
+/* ---------- 按钮 ---------- */
+html[data-theme] .btn-primary,
+html[data-theme] .md a.btn-primary,
+html[data-theme] .qa-actions .btn-primary {
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  border: 1px solid transparent;
+  box-shadow: var(--btn-shadow);
+}
+html[data-theme] .btn-primary:hover,
+html[data-theme] .md a.btn-primary:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-fg);
+  box-shadow: var(--btn-shadow-hover);
+}
+html[data-theme] .btn-ghost,
+html[data-theme] .btn:not(.btn-primary):not(.btn-ghost):not(.btn-danger):not(.btn-gold),
+html[data-theme] .md a.btn:not(.btn-primary) {
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+html[data-theme] .btn-ghost:hover,
+html[data-theme] .btn:not(.btn-primary):not(.btn-ghost):not(.btn-danger):not(.btn-gold):hover {
+  color: var(--ink);
+  background: var(--panel2);
+}
+html[data-theme="pixel"] .btn-primary,
+html[data-theme="pixel"] .md a.btn-primary {
+  border: 2px solid #3f2e22;
+}
+
+/* ---------- 首页路径 / Top3 / 卡片 / 页脚 ---------- */
+html[data-theme] .home-band.band-a { background: color-mix(in srgb, var(--panel) 55%, transparent); }
+html[data-theme] .home-band.band-b { background: color-mix(in srgb, var(--panel2) 70%, transparent); }
+html[data-theme="ink"] .home-band.band-a,
+html[data-theme="ink"] .home-band.band-b { background: transparent; }
+
+html[data-theme] .home-path-node a { color: var(--ink); }
+html[data-theme] .home-path-node a:hover { color: var(--cyan-hot); }
+html[data-theme] .home-path-dot {
+  background: var(--panel);
+  border-color: var(--line);
+  color: var(--muted);
+}
+html[data-theme] .home-path-node.is-done .home-path-dot,
+html[data-theme] .home-path-node.is-current.is-done .home-path-dot {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: #f0fdf4;
+}
+html[data-theme] .home-path-node.is-current .home-path-dot {
+  background: var(--panel);
+  border-color: var(--gold);
+  color: var(--gold);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--gold) 20%, transparent);
+}
+html[data-theme] .home-path-node.is-current .home-path-label { color: var(--gold-text); }
+html[data-theme] .home-path-node.is-locked .home-path-dot {
+  background: var(--panel2);
+  border-color: var(--line);
+  color: transparent;
+}
+html[data-theme] .hero-top3,
+html[data-theme] .glass,
+html[data-theme] .site-nav {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-theme="ink"] .home-path-node.is-current .home-path-label { color: #0f766e; }
+html[data-theme] .home-path-side,
+html[data-theme] .hero-top3,
+html[data-theme] .home-more,
+html[data-theme] #home-continue,
+html[data-theme] body.is-home .home-continue,
+html[data-theme] #home-next,
+html[data-theme] body.is-home .home-howto a,
+html[data-theme] body.is-home .home-rank-row,
+html[data-theme] #home-faq .faq details,
+html[data-theme] .faq details,
+html[data-theme] .sitemap-grid section,
+html[data-theme] .snap-item {
+  background: var(--panel);
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+html[data-theme="ink"] .home-path-side,
+html[data-theme="ink"] .hero-top3,
+html[data-theme="ink"] .home-more,
+html[data-theme="ink"] #home-continue,
+html[data-theme="ink"] body.is-home .home-continue,
+html[data-theme="ink"] .faq details,
+html[data-theme="ink"] .theme-chip.is-active {
+  box-shadow: none;
+}
+html[data-theme] #home-continue p,
+html[data-theme] #home-continue b,
+html[data-theme] body.is-home .home-howto a,
+html[data-theme] body.is-home .home-howto a:hover,
+html[data-theme] body.is-home .home-rank-row,
+html[data-theme] body.is-home .home-rank-row:hover,
+html[data-theme] .hero-top3-row,
+html[data-theme] .hero-top3-empty,
+html[data-theme] body.is-home .home-howto span:not(.home-step-ico) {
+  color: var(--ink);
+}
+html[data-theme] body.is-home .home-howto span:not(.home-step-ico),
+html[data-theme] #home-continue p { color: var(--muted); }
+html[data-theme] #home-continue b { color: var(--ink); }
+html[data-theme] body.is-home .home-howto a:hover,
+html[data-theme] body.is-home .home-rank-row:hover,
+html[data-theme] .hero-top3-row:hover {
+  background: var(--panel2);
+  color: var(--ink);
+}
+html[data-theme] .hero-top3-row {
+  background: var(--panel2);
+}
+html[data-theme] .hero-top3-no,
+html[data-theme] body.is-home .home-rank-no {
+  background: var(--gold);
+  color: var(--btn-fg);
+}
+html[data-theme] body.is-home .home-rank-list li:nth-child(n + 4) .home-rank-no {
+  background: var(--panel2);
+  color: var(--ink);
+}
+html[data-theme] .hero-steps li:not(:last-child)::after,
+html[data-theme] .hero-steps a { color: var(--gold-text); }
+html[data-theme] .home-next-stage,
+html[data-theme] body.is-home .home-howto .home-step-ico {
+  background: var(--gold);
+  color: var(--btn-fg);
+  border-color: transparent;
+}
+html[data-theme] .site-footer {
+  background: color-mix(in srgb, var(--panel) 90%, var(--bg));
+  border-top-color: var(--line);
+  color: var(--ink);
+}
+html[data-theme] .foot-cols a:hover,
+html[data-theme] #foot-tour:hover { color: var(--cyan-hot); }
+
+html[data-theme] .section-head {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--panel) 80%, transparent), transparent);
+  border-bottom-color: var(--line);
+}
+html[data-theme] .tabs {
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+  border-color: var(--line);
+}
+html[data-theme] .pill,
+html[data-theme] .pill[data-type],
+html[data-theme] [class^="rank-type-"] {
+  color: var(--ink);
+  border-color: var(--line);
+}
+html[data-theme] .chip,
+html[data-theme] .chip[data-rtype],
+html[data-theme] .war-station-btn,
+html[data-theme] .res-filter-btn {
+  background: var(--panel);
+  color: var(--ink);
+  border-color: var(--line);
+}
+html[data-theme] .chip:hover,
+html[data-theme] .war-station-btn:hover,
+html[data-theme] .res-filter-btn:hover,
+html[data-theme] .chip.active,
+html[data-theme] .war-station-btn.active,
+html[data-theme] .res-filter-btn.active {
+  color: var(--gold-text);
+  background: color-mix(in srgb, var(--gold) 12%, var(--panel));
+  border-color: color-mix(in srgb, var(--gold) 45%, var(--line));
+}
+html[data-theme] .sub-tabs {
+  background: var(--panel2);
+  border-color: var(--line);
+}
+html[data-theme] .sub-tab:hover,
+html[data-theme] .sub-tab.active {
+  color: var(--gold-text);
+  background: var(--panel);
+}
+html[data-theme] .rank-title h3 { color: var(--ink); }
+html[data-theme] .rank-title p,
+html[data-theme] .rank-meta dd,
+html[data-theme] .rank-steps ol,
+html[data-theme] .plan-item small { color: var(--muted); }
+html[data-theme] .rank-why { color: var(--ink); }
+html[data-theme] .rank-meta .rank-risk { color: var(--danger); }
+html[data-theme] .rank-fav { background: var(--panel); color: var(--muted); }
+html[data-theme] .rank-fav.on { background: color-mix(in srgb, var(--gold) 12%, var(--panel)); color: var(--gold-text); }
+html[data-theme] .rank-no-4 { background: var(--panel2); color: var(--ink); }
+html[data-theme] .rank-types .chip-resell {
+  background: var(--panel);
+  color: var(--cyan-hot);
+  border-color: var(--cyan);
+}
+html[data-theme] .rank-types .chip-resell.active {
+  background: var(--cyan);
+  color: #fff;
+  border-color: var(--cyan);
+}
+html[data-theme] .rank-resell {
+  background: var(--panel2);
+  color: var(--ink);
+  border-color: var(--line);
+}
+html[data-theme] .rank-resell-title,
+html[data-theme] .rank-resell dd { color: var(--ink); }
+html[data-theme] .rank-resell dt { color: var(--cyan-hot); }
+html[data-theme] .rank-resell-empty,
+html[data-theme] .rank-resell-note { color: var(--gold-text); }
+html[data-theme] .skip-link,
+html[data-theme] .cx-pg.on { color: var(--btn-fg); background: var(--gold); }
+html[data-theme] .tool-empty,
+html[data-theme] .tool-empty p,
+html[data-theme] .empty-hint { color: var(--ink); }
+html[data-theme] .tool-card .block-title small,
+html[data-theme] .tool-count,
+html[data-theme] .kit-prev dt,
+html[data-theme] .site-logs th { color: var(--cyan-hot); }
+html[data-theme] .card-ico,
+html[data-theme] .sh-ico,
+html[data-theme] .nav-ico,
+html[data-theme] .home-step-ico {
+  color: var(--ink);
+}
+html[data-theme] .tint-learn { color: #0369a1; background: rgba(14, 165, 233, 0.12); border-color: rgba(14, 165, 233, 0.4); }
+html[data-theme] .tint-do { color: #0f766e; background: rgba(13, 148, 136, 0.12); border-color: rgba(13, 148, 136, 0.4); }
+html[data-theme] .tint-earn { color: #b45309; background: rgba(245, 158, 11, 0.14); border-color: rgba(217, 119, 6, 0.4); }
+html[data-theme] .tint-neutral { color: #44403c; background: rgba(120, 113, 108, 0.12); border-color: rgba(120, 113, 108, 0.35); }
+
+html[data-theme] .qs-item,
+html[data-theme] .qs-title,
+html[data-theme] .qs-pub,
+html[data-theme] .qs-checked { color: var(--muted); }
+html[data-theme] .qs-kind-official { background: #dcfce7; color: #166534; border-color: #86efac; }
+html[data-theme] .qs-kind-media { background: #e0f2fe; color: #075985; border-color: #7dd3fc; }
+html[data-theme] .qs-kind-community { background: #ffedd5; color: #9a3412; border-color: #fdba74; }
+html[data-theme] .qs-unverified { background: var(--panel2); color: var(--muted); border-color: var(--line); }
+
+html[data-theme] .res-search,
+html[data-theme] .fld input,
+html[data-theme] .fld select,
+html[data-theme] .fld textarea,
+html[data-theme] .kw-ctrl select,
+html[data-theme] .search-box,
+html[data-theme] .search-input-row input,
+html[data-theme] .sr-hint button {
+  background: var(--panel);
+  color: var(--ink);
+  border-color: var(--line);
+}
+html[data-theme] .search-input-row input::placeholder,
+html[data-theme] .fld input::placeholder { color: var(--muted); }
+html[data-theme] .sr-item { color: var(--ink); }
+html[data-theme] .sr-item:hover,
+html[data-theme] .sr-item.sel { background: var(--panel2); color: var(--ink); }
+html[data-theme] .sr-text b { color: var(--ink); }
+html[data-theme] .sr-text small,
+html[data-theme] .sr-group h4,
+html[data-theme] .sr-hint,
+html[data-theme] .search-foot { color: var(--muted); }
+html[data-theme] .sr-item mark { background: color-mix(in srgb, var(--gold) 28%, transparent); color: var(--ink); }
+html[data-theme] .md code { background: var(--panel2); color: var(--gold-text); }
+html[data-theme] .md pre,
+html[data-theme] .kit-prev dd,
+html[data-theme] .kit-frame { background: var(--panel2); color: var(--ink); border-color: var(--line); }
+html[data-theme] .md th { background: var(--panel2); color: var(--ink); }
+html[data-theme] .md blockquote { color: var(--ink); }
+html[data-theme] .to-top {
+  background: var(--panel);
+  color: var(--gold-text);
+  border-color: var(--line);
+}
+html[data-theme] .to-top:hover { background: var(--panel2); }
+html[data-theme] .count { color: var(--btn-fg); background: var(--gold); }
+html[data-theme] .sitemap-grid h2 { color: var(--gold-text); }
+html[data-theme] .sitemap-grid a,
+html[data-theme] .sitemap-grid ul ul a { color: var(--cyan); }
+html[data-theme] .sitemap-grid a:hover { color: var(--cyan-hot); }
+html[data-theme] .sub-tab:hover,
+html[data-theme] .chip:hover,
+html[data-theme] .doc-toc a:hover { color: var(--ink); background: var(--panel2); }
+html[data-theme] .rank-switch-btn,
+html[data-theme] .rank-rules,
+html[data-theme] .rank-intro,
+html[data-theme] .rank-rule,
+html[data-theme] .rank-disclaimer {
+  color: var(--ink);
+  background: var(--panel);
+  border-color: var(--line);
+}
+html[data-theme] .rank-disclaimer { background: color-mix(in srgb, var(--gold) 8%, var(--panel)); }
+html[data-theme] .rank-disclaimer b,
+html[data-theme] .rank-rules summary,
+html[data-theme] .rank-switch-btn.active { color: var(--gold-text); }
+
+/* 像素：方一点的控件，仍保持可读 */
+html[data-theme="pixel"] .btn,
+html[data-theme="pixel"] .hero-top3,
+html[data-theme="pixel"] .home-path-side,
+html[data-theme="pixel"] .theme-switcher,
+html[data-theme="pixel"] .theme-chip,
+html[data-theme="pixel"] .home-path-dot,
+html[data-theme="pixel"] .nav-mine-btn,
+html[data-theme="pixel"] .hero-top3-no,
+html[data-theme="pixel"] .hero-top3-row {
+  border-radius: 4px;
+}
+
+/* ---------- 主题切换控件 ---------- */
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+  padding: 2px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+}
+.theme-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 4px 10px 4px 6px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.theme-chip:hover { color: var(--ink); background: color-mix(in srgb, var(--gold) 8%, transparent); }
+.theme-chip.is-active {
+  color: var(--ink);
+  background: var(--panel);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+.theme-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(28, 25, 23, 0.18);
+  flex: none;
+}
+.theme-swatch-ink { background: linear-gradient(135deg, #fafaf8 40%, #1e3a5f 41%); }
+.theme-swatch-ocean { background: linear-gradient(135deg, #e0f2fe 40%, #0891b2 41%); }
+.theme-swatch-pixel { background: linear-gradient(135deg, #f5f0e6 30%, #38bdf8 31% 62%, #f9a8d4 63%); }
+.theme-short { display: none; }
+.nav-theme-group { display: none; }
+.nav-theme-kicker {
+  margin: 2px 4px 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+@media (max-width: 1180px) {
+  .theme-switcher .theme-name { display: none; }
+  .theme-switcher .theme-short { display: inline; }
+  .theme-switcher .theme-chip { padding: 4px 8px 4px 5px; }
+}
+@media (max-width: 760px) {
+  .theme-switcher .theme-short { display: none; }
+  .theme-switcher .theme-chip { padding: 5px; }
+}
+@media (max-width: 640px) {
+  #theme-switcher { display: none; }
+  .nav-theme-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 4px 4px 8px;
+    margin: 0 0 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-theme-group .theme-chip {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+  .nav-theme-group .theme-name { display: inline; }
+  .nav-theme-group .theme-short { display: none; }
+}
+
+/* ---------- 首页主视觉：主题插画铺在标题和路径后面 ---------- */
+html[data-theme] .home-hero-stage {
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+}
+html[data-theme] .home-hero-stage::before,
+html[data-theme] .home-hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+html[data-theme] .home-hero-stage::before {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+}
+html[data-theme="ink"] .home-hero-stage::before {
+  background-image: url("../assets/bg/ink.webp");
+}
+html[data-theme="ocean"] .home-hero-stage::before {
+  background-image: url("../assets/bg/ocean.webp");
+}
+html[data-theme="pixel"] .home-hero-stage::before {
+  background-image: url("../assets/bg/pixel.webp");
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
+}
+html[data-theme] .home-hero-stage::after {
+  background-image:
+    linear-gradient(90deg,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 98%, transparent) 44%,
+      color-mix(in srgb, var(--bg) 52%, transparent) 60%,
+      color-mix(in srgb, var(--bg) 14%, transparent) 74%,
+      transparent 88%),
+    linear-gradient(180deg,
+      transparent 0%,
+      transparent 58%,
+      color-mix(in srgb, var(--bg) 45%, transparent) 80%,
+      var(--bg) 100%);
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+}
+html[data-theme] .home-hero-stage > .home-path-band {
+  background: transparent;
+}
+html[data-theme] .home-hero-stage .home-path-side,
+html[data-theme] .home-hero-stage .hero-top3,
+html[data-theme] .home-hero-stage .home-continue,
+html[data-theme] .home-hero-stage #home-continue {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+html[data-theme] .home-hero-stage .hero-top3-row {
+  background: rgba(255, 255, 255, 0.78);
+}
+html[data-theme] .home-hero-stage .hero-top3-row:hover {
+  background: rgba(255, 255, 255, 0.94);
+}
+@media (max-width: 640px) {
+  html[data-theme] body.is-home .home-hero-stage .hero.hero-home .hero-inner {
+    padding-top: 12px;
+    padding-bottom: 4px;
+  }
+  html[data-theme] body.is-home .home-hero-stage .hero-sub {
+    max-width: 15.5em;
+  }
+  html[data-theme] .home-hero-stage::before {
+    bottom: auto;
+    height: 248px;
+    background-size: auto 148%;
+    background-position: calc(100% + 42px) 62%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 46%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 46%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+  html[data-theme] .home-hero-stage::after {
+    background-image:
+      linear-gradient(180deg, transparent 0%, transparent 132px, var(--bg) 248px),
+      linear-gradient(90deg,
+        var(--bg) 0%,
+        var(--bg) 66%,
+        color-mix(in srgb, var(--bg) 40%, transparent) 84%,
+        transparent 100%),
+      linear-gradient(90deg,
+        var(--bg) 0%,
+        color-mix(in srgb, var(--bg) 94%, transparent) 40%,
+        transparent 68%);
+    background-size: 100% 100%, 100% 156px, 100% 248px;
+    background-position: top center, top center, top center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+}

@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-24T00:37:18.930Z",
-  "latestId": 44,
+  "generatedAt": "2026-10-24T15:58:46.426Z",
+  "latestId": 45,
   "latestDate": "2026-10-24",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 45,
+      "date": "2026-10-24",
+      "tag": "改进",
+      "title": "首页改成主线路径，顶栏只留四个入口",
+      "items": [
+        "顶栏四个主入口：首页、学习、实施、赚钱。「我的」收到右侧头像菜单。新手引导和每周补给仍可从首页路径或页脚打开",
+        "首页中间是五步竖向路径（新手引导 → 学习路线 → 做站 Day → 发布上线 → 试渠道），当前关高亮，旁边是「今天这一关」",
+        "首页只保留今日赚钱榜 Top 3，完整榜去每日赚钱榜。常见问题和「为什么做」默认折叠"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 44,
       "date": "2026-10-24",
@@ -112,16 +124,6 @@
       "title": "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选",
       "items": [
         "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 35,
-      "date": "2026-10-18",
-      "tag": "改进",
-      "title": "每条赚钱榜和平台资料都标出来源：类型（官方/媒体/社区）、发布方、日期和核实日期；新增榜单类型筛选",
-      "items": [
-        "每条赚钱榜和平台资料都标出来源：类型（官方/媒体/社区）、发布方、日期和核实日期；新增榜单类型筛选"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
