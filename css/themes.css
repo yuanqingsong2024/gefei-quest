@@ -721,3 +721,105 @@ html[data-theme="pixel"] .hero-top3-row {
   .nav-theme-group .theme-name { display: inline; }
   .nav-theme-group .theme-short { display: none; }
 }
+
+/* ---------- 首页主视觉：主题插画铺在标题和路径后面 ---------- */
+html[data-theme] .home-hero-stage {
+  position: relative;
+  isolation: isolate;
+  background: var(--bg);
+}
+html[data-theme] .home-hero-stage::before,
+html[data-theme] .home-hero-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+html[data-theme] .home-hero-stage::before {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+}
+html[data-theme="ink"] .home-hero-stage::before {
+  background-image: url("../assets/bg/ink.webp");
+}
+html[data-theme="ocean"] .home-hero-stage::before {
+  background-image: url("../assets/bg/ocean.webp");
+}
+html[data-theme="pixel"] .home-hero-stage::before {
+  background-image: url("../assets/bg/pixel.webp");
+  image-rendering: -moz-crisp-edges;
+  image-rendering: pixelated;
+}
+html[data-theme] .home-hero-stage::after {
+  background-image:
+    linear-gradient(90deg,
+      var(--bg) 0%,
+      color-mix(in srgb, var(--bg) 98%, transparent) 44%,
+      color-mix(in srgb, var(--bg) 52%, transparent) 60%,
+      color-mix(in srgb, var(--bg) 14%, transparent) 74%,
+      transparent 88%),
+    linear-gradient(180deg,
+      transparent 0%,
+      transparent 58%,
+      color-mix(in srgb, var(--bg) 45%, transparent) 80%,
+      var(--bg) 100%);
+  background-repeat: no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+}
+html[data-theme] .home-hero-stage > .home-path-band {
+  background: transparent;
+}
+html[data-theme] .home-hero-stage .home-path-side,
+html[data-theme] .home-hero-stage .hero-top3,
+html[data-theme] .home-hero-stage .home-continue,
+html[data-theme] .home-hero-stage #home-continue {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+html[data-theme] .home-hero-stage .hero-top3-row {
+  background: rgba(255, 255, 255, 0.78);
+}
+html[data-theme] .home-hero-stage .hero-top3-row:hover {
+  background: rgba(255, 255, 255, 0.94);
+}
+@media (max-width: 640px) {
+  html[data-theme] body.is-home .home-hero-stage .hero.hero-home .hero-inner {
+    padding-top: 12px;
+    padding-bottom: 4px;
+  }
+  html[data-theme] body.is-home .home-hero-stage .hero-sub {
+    max-width: 15.5em;
+  }
+  html[data-theme] .home-hero-stage::before {
+    bottom: auto;
+    height: 248px;
+    background-size: auto 148%;
+    background-position: calc(100% + 42px) 62%;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 46%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 46%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+  html[data-theme] .home-hero-stage::after {
+    background-image:
+      linear-gradient(180deg, transparent 0%, transparent 132px, var(--bg) 248px),
+      linear-gradient(90deg,
+        var(--bg) 0%,
+        var(--bg) 66%,
+        color-mix(in srgb, var(--bg) 40%, transparent) 84%,
+        transparent 100%),
+      linear-gradient(90deg,
+        var(--bg) 0%,
+        color-mix(in srgb, var(--bg) 94%, transparent) 40%,
+        transparent 68%);
+    background-size: 100% 100%, 100% 156px, 100% 248px;
+    background-position: top center, top center, top center;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+  }
+}

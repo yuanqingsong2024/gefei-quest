@@ -592,6 +592,7 @@
       }).join('') + '</ol>'
       : '<p class="hero-top3-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     root.innerHTML =
+      '<div class="home-hero-stage">' +
       '<section class="hero hero-home" aria-label="首页">' +
       '<div class="hero-inner home-inner"><div class="hero-copy">' +
       '<h1 class="hero-title">做英文出海小站</h1>' +
@@ -615,6 +616,7 @@
       '<a class="hero-top3-more" href="#war-rank">看完整榜</a></div>' +
       top3Body + '</aside>' +
       '</div></div></section>' +
+      '</div>' +
       '<section class="home-band band-b" id="home-split"><div class="home-inner">' +
       '<details class="home-more">' +
       '<summary>为什么做 · 常见问题</summary>' +
