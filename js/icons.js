@@ -1,7 +1,8 @@
 /** Phase 11 · 统一图标家族
  *  规格：24×24 网格 · currentColor · 可选 <g class="ia"> 淡色面
  *  P = ocean 基线（stroke 1.75 · round）。P_ink / P_pixel 只覆盖需要换形状的名字，缺的回退 P。
- *  svg() 读 html[data-theme]。QuestIcons.refresh() 换掉文档里已有的 svg.ico。
+ *  ILLUST_NAMES：html[data-theme] 为 ink|ocean|pixel 时改用 assets/icons/{theme}/{name}.webp（与 index.html 的 assets/ 相对路径一致）。其它名字仍走 SVG pack。
+ *  svg() 读 html[data-theme]。QuestIcons.refresh() 换掉文档里已有的 svg.ico 和 img.ico / img.ico-img。
  *  badge(name)：渐变圆角底 + 图标；色调由 TONE 决定（gold / cyan / green / violet / rose / slate）。 */
 (function (global) {
   function A(d) { return '<g class="ia" fill="currentColor" stroke="none" opacity=".15">' + d + '</g>'; }
@@ -186,6 +187,12 @@
     ink: ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"',
     pixel: ' fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"'
   };
+  var ILLUST_NAMES = ['flag', 'map', 'calendar-check', 'rocket', 'trophy', 'home', 'book-open', 'tools', 'coin'];
+  var ILLUST = {};
+  var ILLUST_THEMES = { ink: 1, ocean: 1, pixel: 1 };
+  var illustI;
+  for (illustI = 0; illustI < ILLUST_NAMES.length; illustI++) ILLUST[ILLUST_NAMES[illustI]] = 1;
+  function isIllust(name) { return !!ILLUST[name]; }
   function currentTheme() {
     try {
       var doc = global.document;
@@ -200,11 +207,15 @@
     return 'ocean';
   }
   function svg(name, cls) {
+    var extra = cls ? ' ' + cls : '';
+    var theme = currentTheme();
+    if (ILLUST_THEMES[theme] && ILLUST[name]) {
+      return '<img class="ico ico-img ico-' + name + ' ico-pack-' + theme + ' tone-' + (TONE[name] || 'slate') + extra + '" src="assets/icons/' + theme + '/' + name + '.webp" width="24" height="24" alt="" aria-hidden="true" draggable="false">';
+    }
     var known = !!P[name];
     var resolved = known ? name : 'compass';
     var pack = packFor(resolved);
     var body = pack === 'ink' ? P_ink[resolved] : (pack === 'pixel' ? P_pixel[resolved] : (P[resolved] || P.compass));
-    var extra = cls ? ' ' + cls : '';
     return '<svg class="ico ico-' + resolved + ' ico-pack-' + pack + ' tone-' + (TONE[name] || 'slate') + extra + '" viewBox="0 0 24 24" width="24" height="24"' + STROKE[pack] + ' aria-hidden="true" focusable="false">' + body + '</svg>';
   }
   var PACK_CLASS = { 'ico-pack-ink': 1, 'ico-pack-ocean': 1, 'ico-pack-pixel': 1 };
@@ -212,7 +223,7 @@
     var doc = global.document;
     var scope = root || doc;
     if (!scope || !scope.querySelectorAll) return;
-    var found = scope.querySelectorAll('svg.ico');
+    var found = scope.querySelectorAll('svg.ico, img.ico, img.ico-img');
     var nodes = [];
     var i, el, classes, n, c, name, keep, html;
     for (i = 0; i < found.length; i++) nodes.push(found[i]);
@@ -223,8 +234,8 @@
       keep = [];
       for (n = 0; n < classes.length; n++) {
         c = classes[n];
-        if (!c || c === 'ico' || PACK_CLASS[c] || c.indexOf('tone-') === 0) continue;
-        if (c.indexOf('ico-') === 0 && P[c.slice(4)]) { name = c.slice(4); continue; }
+        if (!c || c === 'ico' || c === 'ico-img' || PACK_CLASS[c] || c.indexOf('tone-') === 0) continue;
+        if (c.indexOf('ico-') === 0 && (P[c.slice(4)] || ILLUST[c.slice(4)])) { name = c.slice(4); continue; }
         keep.push(c);
       }
       if (!name) continue;
@@ -243,5 +254,5 @@
       '<path d="M52 86l4-38h10l4 38z" fill="#f1f5f9"/><path d="M53.5 72h15M54.6 60h12.8" stroke="#ef4444" stroke-width="5"/><rect x="54" y="40" width="14" height="9" rx="2" fill="#fbbf24"/><path d="M61 34v6" stroke="#f1f5f9" stroke-width="3" stroke-linecap="round"/>' +
       '<path d="M20 98c8-5 16-5 24 0s16 5 24 0 16-5 24 0 16 5 24 0 16-5 24 0" fill="none" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>' + mark + '</svg>';
   }
-  global.QuestIcons = { svg: svg, badge: badge, illo: illo, refresh: refresh, names: Object.keys(P), TONE: TONE };
+  global.QuestIcons = { svg: svg, badge: badge, illo: illo, refresh: refresh, names: Object.keys(P), TONE: TONE, isIllust: isIllust, ILLUST_NAMES: ILLUST_NAMES };
 })(typeof window !== 'undefined' ? window : globalThis);
