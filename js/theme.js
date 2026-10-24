@@ -41,7 +41,9 @@
     theme = valid(theme);
     try { localStorage.setItem(KEY, theme); }
     catch (e) {}
-    return apply(theme);
+    theme = apply(theme);
+    if (global.QuestIcons && global.QuestIcons.refresh) global.QuestIcons.refresh();
+    return theme;
   }
 
   function bind(root) { sync(root || global.document); }
