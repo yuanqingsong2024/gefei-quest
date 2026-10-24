@@ -5,7 +5,7 @@
  * 所以 GitHub Pages 上的新文件下次打开就会生效，不必等用户点「刷新」。
  * 图片和字体走缓存优先。只缓存同源 GET 且 status === 200 的响应。
  * skipWaiting 只在页面 postMessage {type:'SKIP_WAITING'} 之后。 */
-const CACHE_VERSION = 16;
+const CACHE_VERSION = 17;
 const CACHE_NAME = 'gefei-quest-v' + CACHE_VERSION;
 
 const PRECACHE = [
@@ -16,7 +16,9 @@ const PRECACHE = [
   './data/collections/ai-life-wechat-topics.json',
   './css/tokens.css',
   './css/ui.css',
+  './css/themes.css',
   './js/icons.js',
+  './js/theme.js',
   './js/nav.js',
   './js/save.js',
   './js/data.js',

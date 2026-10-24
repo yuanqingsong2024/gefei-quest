@@ -351,6 +351,11 @@
   function closeDrops(root) {
     (root || document).querySelectorAll('.nav-drop.is-open').forEach(closeDrop);
   }
+  function menuItems(drop) {
+    return [].slice.call(drop.querySelectorAll('.nav-menu a, .nav-theme-group [data-theme-set]')).filter(function (node) {
+      return node.getClientRects().length > 0;
+    });
+  }
   function bindNav(el) {
     if (el.getAttribute('data-nav-bound') === '1') return;
     el.setAttribute('data-nav-bound', '1');
@@ -389,20 +394,20 @@
     el.addEventListener('keydown', function (e) {
       var drop = dropOf(e.target, el);
       if (!drop) return;
-      var items = [].slice.call(drop.querySelectorAll('.nav-menu a'));
+      var items = menuItems(drop);
       var btn = drop.querySelector('.nav-caret');
       var open = drop.classList.contains('is-open');
       var idx = items.indexOf(document.activeElement);
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         if (!open) openDrop(drop);
-        items = [].slice.call(drop.querySelectorAll('.nav-menu a'));
+        items = menuItems(drop);
         var n = idx < 0 ? 0 : Math.min(items.length - 1, idx + 1);
         if (items[n]) items[n].focus();
         drop.setAttribute('data-via', 'key');
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        if (!open) { openDrop(drop); items = [].slice.call(drop.querySelectorAll('.nav-menu a')); if (items.length) items[items.length - 1].focus(); return; }
+        if (!open) { openDrop(drop); items = menuItems(drop); if (items.length) items[items.length - 1].focus(); return; }
         if (idx <= 0) { if (btn) btn.focus(); }
         else if (items[idx - 1]) items[idx - 1].focus();
       } else if (e.key === 'Home') {
@@ -439,7 +444,7 @@
       '<button type="button" class="nav-caret nav-mine-btn" aria-expanded="false" aria-haspopup="true" aria-controls="' + menuId + '" aria-label="' + esc(n.label) + '"' + (on ? ' aria-current="page"' : '') + '>' +
         I(n.icon) + (dot ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') +
       '</button>' +
-      '<div class="nav-menu" id="' + menuId + '" role="menu" hidden>' + (n.children || []).map(function (c) {
+      '<div class="nav-menu" id="' + menuId + '" role="menu" hidden>' + themeMenuGroupHtml() + (n.children || []).map(function (c) {
         var cur = loc.page && loc.page.id === c.id;
         return '<a role="menuitem" href="' + c.hash + '"' + (cur ? ' class="active" aria-current="page"' : '') + '><span class="nav-ico' + tint + '">' + I(c.icon) + '</span><span class="nav-item-text"><b>' + esc(c.label) + '</b><small>' + esc(c.desc || '') + '</small></span></a>';
       }).join('') + '</div></div>';
@@ -459,10 +464,34 @@
       }).join('') + '</nav>' +
       '<a class="nav-start-today" id="nav-start-today" href="#home">' + I('flag') + '<span>开始今天</span></a>' +
       '<button type="button" class="nav-search" data-open-search aria-label="全站搜索（快捷键 / 或 Ctrl+K）" title="搜索（/ 或 Ctrl+K）">' + I('search') + '<span>搜索</span><kbd>/</kbd></button>' +
+      themeSwitcherHtml() +
       (mine ? mineDropHtml(mine, loc, dot) : '') +
       '<span id="offline-pill" class="offline-pill" role="status">离线模式：AI / 发布 / 数据拉取暂不可用</span></div>';
     bindNav(el);
+    if (global.QuestTheme && QuestTheme.bind) QuestTheme.bind(el);
     if (global.QuestShell && QuestShell.syncNavH) QuestShell.syncNavH();
+  }
+  var THEME_CHOICES = [
+    { id: 'ink', name: '水墨纸', short: '水墨' },
+    { id: 'ocean', name: '海岸青', short: '海岸' },
+    { id: 'pixel', name: '像素暖沙', short: '像素' }
+  ];
+  function themeChipHtml(t, menu) {
+    var role = menu ? ' role="menuitemradio" aria-checked="false"' : ' aria-pressed="false"';
+    return '<button type="button" class="theme-chip" data-theme-set="' + t.id + '"' + role +
+      ' aria-label="' + esc(t.name) + '" title="' + esc(t.name) + '">' +
+      '<span class="theme-swatch theme-swatch-' + t.id + '" aria-hidden="true"></span>' +
+      '<span class="theme-name">' + esc(t.name) + '</span>' +
+      '<span class="theme-short">' + esc(t.short) + '</span></button>';
+  }
+  function themeSwitcherHtml() {
+    return '<div id="theme-switcher" class="theme-switcher" role="group" aria-label="主题风格">' +
+      THEME_CHOICES.map(function (t) { return themeChipHtml(t, false); }).join('') + '</div>';
+  }
+  function themeMenuGroupHtml() {
+    return '<div class="nav-theme-group" role="group" aria-label="风格">' +
+      '<span class="nav-theme-kicker" aria-hidden="true">风格</span>' +
+      THEME_CHOICES.map(function (t) { return themeChipHtml(t, true); }).join('') + '</div>';
   }
 
   /** 区块头带：页面名（不是分组名）+ 面包屑 首页 / 分组 / 页面 */
