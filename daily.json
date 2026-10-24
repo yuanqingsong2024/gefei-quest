@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-23T00:43:48.501Z",
-  "latestId": 43,
-  "latestDate": "2026-10-23",
+  "generatedAt": "2026-10-24T00:37:18.930Z",
+  "latestId": 44,
+  "latestDate": "2026-10-24",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 44,
+      "date": "2026-10-24",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-24",
+      "items": [
+        "No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
+        "No.2 ReSO AI / GEO：生成式引擎优化新词，做 AI 搜索可见度内容或咨询实验",
+        "No.3 DigitalOcean Affiliates：云主机/开发者内容挂合规链接，合资格成交拿分成"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 43,
       "date": "2026-10-23",
@@ -112,22 +124,10 @@
         "每条赚钱榜和平台资料都标出来源：类型（官方/媒体/社区）、发布方、日期和核实日期；新增榜单类型筛选"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 34,
-      "date": "2026-10-18",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-18",
-      "items": [
-        "No.1 双11京东/淘宝10月20日20:00开卖：今天先领红包和平台加补券",
-        "No.2 四川「蜀里安逸·重阳敬老」消费券：今天9:00京东App开抢",
-        "No.3 银行App长期微信立减金（建行缴费抽2–10元、农行省钱月卡等，每月重置）"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-10-23",
+    "date": "2026-10-24",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
@@ -139,15 +139,15 @@
       },
       {
         "rank": 2,
-        "name": "IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）",
+        "name": "ReSO AI / GEO：生成式引擎优化新词，做 AI 搜索可见度内容或咨询实验",
         "type": "出海新词",
-        "source_url": "https://irisgo.ai/"
+        "source_url": "https://www.resollm.ai/"
       },
       {
         "rank": 3,
-        "name": "Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成",
+        "name": "DigitalOcean Affiliates：云主机/开发者内容挂合规链接，合资格成交拿分成",
         "type": "联盟营销",
-        "source_url": "https://www.hostinger.com/affiliates"
+        "source_url": "https://www.digitalocean.com/affiliates"
       }
     ]
   }
