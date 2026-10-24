@@ -347,7 +347,7 @@
   }
 
   var HOME_FAQ = [
-    ['怎么开始？', '点「我是新手，从这里开始」，按学习、做站、赚钱三步走。也可以先看今日赚钱榜，挑一条试一周。'],
+    ['怎么开始？', '看首页中间的主线路径，点「今天这一关」的开始按钮。也可以先看今日赚钱榜 Top 3，挑一条试一周。'],
     ['数据存在哪？', '进度只存在你自己的浏览器里，不上传。换电脑或换浏览器之前，到「我的进度」导出 JSON，再到新浏览器导入。'],
     ['要不要付费？', '不用付费。这个网站免费使用，不卖课，也不含付费社群里的内容。'],
     ['能保证赚钱吗？', '不承诺收益。赚钱榜和平台页只整理公开、合法的渠道，规则和额度会变，以各平台官网为准。'],
@@ -531,6 +531,36 @@
     }
     return oneStep('赚钱', '看每日赚钱榜，挑一条试一周', '课、站、数据和复盘都有记录了。榜单不保证收益，挑一条加入实操计划即可。', '#war-rank', '去每日赚钱榜');
   }
+
+  var PATH_DEFS = [
+    { id: 'start', label: '新手引导', hash: '#start', icon: 'flag' },
+    { id: 'path', label: '学习路线', hash: '#path', icon: 'map' },
+    { id: 'war', label: '做站 Day', hash: '#war', icon: 'calendar-check' },
+    { id: 'war-publish', label: '发布上线', hash: '#war-publish', icon: 'rocket' },
+    { id: 'war-rank', label: '试渠道', hash: '#war-rank', icon: 'trophy' },
+  ];
+  function nodeComplete(save, id) {
+    if (id === 'start') return visitorStarted(save);
+    if (id === 'path') return asArr(save && save.done).length > 0 || kwReady(save) || sitesOf(save).length > 0;
+    if (id === 'war') return kwReady(save);
+    if (id === 'war-publish') return isPublished(save);
+    if (id === 'war-rank') return hasData(save) || hasReview(save) || asArr(save && save.rankPlan).length > 0;
+    return false;
+  }
+  function pathNodes(save) {
+    var nodes = PATH_DEFS.map(function (d) {
+      return { id: d.id, label: d.label, hash: d.hash, icon: d.icon, done: nodeComplete(save, d.id) };
+    });
+    var current = nodes.length - 1;
+    var i;
+    for (i = 0; i < nodes.length; i++) {
+      if (!nodes[i].done) { current = i; break; }
+    }
+    return nodes.map(function (n, i) {
+      var status = i < current ? 'done' : (i === current ? 'current' : 'locked');
+      return { id: n.id, label: n.label, hash: n.hash, icon: n.icon, done: n.done, status: status, current: i === current };
+    });
+  }
   function renderHome(root, state) {
     if (!root) return;
     var I = global.QuestNav.icon;
@@ -539,23 +569,17 @@
     var date = rank.latest || '';
     var next = continueNext(state);
     var step = nextStep(state);
-    var rankBody = items.length
-      ? '<ol class="home-rank-list" id="home-rank-list">' + items.map(function (it) {
-        var due = deadlineOf(it);
-        return '<li><a class="home-rank-row" href="#war-rank" data-name="' + esc(it.name) + '" data-type="' + esc(it.type) + '">' +
-          '<span class="home-rank-no">' + esc(it.rank) + '</span>' +
-          '<span class="home-rank-name" title="' + esc(it.name) + '"><span class="home-rank-name-text">' + esc(it.name) + '</span></span>' +
-          '<span class="home-rank-meta"><span class="pill">' + esc(it.type) + '</span>' +
-          (due ? '<span class="home-rank-deadline">' + esc(due) + '</span>' : '') +
-          '</span></a></li>';
-      }).join('') + '</ol>'
-      : '<p class="home-rank-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
-    var howto = [
-      ['#path', groupSvg('learn', 'book-open'), 'tint-learn', '① 学', '先看学习路线，知道每一步在做什么。'],
-      ['#war', groupSvg('do', 'tools'), 'tint-do', '② 做', '按实施步骤选词、做页面、再发布。'],
-      ['#war-rank', groupSvg('earn', 'coin'), 'tint-earn', '③ 赚', '看每日赚钱榜，挑一条先试一周。'],
-    ];
-    var flow = [['#start-learn', '学习'], ['#start-do', '实施'], ['#start-earn', '赚钱']];
+    var nodes = pathNodes(state);
+    var nodesHtml = nodes.map(function (n) {
+      var cls = 'home-path-node is-' + n.status + (n.done && n.status !== 'done' ? ' is-done' : '');
+      var id = n.current ? ' id="home-path-today"' : '';
+      var mark = n.status === 'done' || (n.done && n.current) ? '✓' : '';
+      return '<li class="' + cls + '"' + id + (n.current ? ' aria-current="step"' : '') + '>' +
+        '<a href="' + n.hash + '">' +
+        '<span class="home-path-dot" aria-hidden="true">' + mark + '</span>' +
+        '<span class="home-path-label">' + pageSvg(n.hash, n.icon) + esc(n.label) + '</span>' +
+        '</a></li>';
+    }).join('');
     var top3 = items.slice(0, 3);
     var top3Body = top3.length
       ? '<ol class="hero-top3-list">' + top3.map(function (it) {
@@ -569,50 +593,40 @@
       : '<p class="hero-top3-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     root.innerHTML =
       '<section class="hero hero-home" aria-label="首页">' +
-      '<div class="hero-inner home-inner"><div class="hero-grid">' +
-      '<div class="hero-copy">' +
+      '<div class="hero-inner home-inner"><div class="hero-copy">' +
       '<h1 class="hero-title">做英文出海小站</h1>' +
-      '<p class="hero-sub">学习路线、做站工具和每日赚钱榜都在这里。不承诺收入。</p>' +
-      '<ol class="hero-steps" aria-label="学习、实施、赚钱">' + flow.map(function (s) {
-        return '<li><a href="' + s[0] + '">' + s[1] + '</a></li>';
-      }).join('') + '</ol>' +
-      '<div class="hero-cta"><a class="btn btn-primary" id="home-cta" href="' + esc(step.href) + '" data-tour="cta">' + pageSvg(step.href, 'flag') + esc(step.btn) + '</a>' +
-      '<a class="btn btn-ghost" href="#home-rank">' + pageSvg('#war-rank', 'trophy') + '直接看今日赚钱榜</a></div>' +
-      '</div>' +
+      '<p class="hero-sub">跟着主线路径，从新手引导做到试渠道。不承诺收入。</p>' +
+      (next ? '<aside class="home-continue" id="home-continue"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></aside>' : '') +
+      '</div></div></section>' +
+      '<section class="home-band band-a home-path-band" id="home-path" data-tour="path">' +
+      '<div class="home-inner home-path-layout">' +
+      '<ol class="home-path">' + nodesHtml + '</ol>' +
+      '<div class="home-path-rail" id="home-rank">' +
+      '<aside class="home-path-side" data-tour="cta" aria-label="今天这一关">' +
+      '<p class="home-path-kicker">' + esc(step.stage || '') + '</p>' +
+      '<h2>今天这一关</h2>' +
+      '<p class="home-path-title">' + esc(step.title) + '</p>' +
+      '<p class="home-path-why">' + esc(step.why) + '</p>' +
+      '<a class="btn btn-primary" id="home-cta" href="' + esc(step.href) + '">' + pageSvg(step.href, 'flag') + esc(step.btn || '开始') + '</a>' +
+      '</aside>' +
       '<aside class="hero-top3" id="hero-top3" aria-label="今日赚钱榜 Top 3">' +
       '<div class="hero-top3-head"><h2>今日赚钱榜 Top 3</h2>' +
       (date ? '<time class="hero-top3-date" datetime="' + esc(date) + '">' + esc(date) + '</time>' : '') +
-      '<a class="hero-top3-more" href="#home-rank">看完整 Top 10</a></div>' +
+      '<a class="hero-top3-more" href="#war-rank">看完整榜</a></div>' +
       top3Body + '</aside>' +
       '</div></div></section>' +
-      (next ? '<aside class="home-continue" id="home-continue"><div class="home-inner"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></div></aside>' : '') +
-      '<section class="home-band band-a" id="home-howto" data-tour="howto"><div class="home-inner"><div class="sec-head"><h2>' + I('flag') + '这个网站怎么用</h2></div>' +
-      '<ol class="home-howto">' + howto.map(function (s) {
-        return '<li><a href="' + s[0] + '"><span class="home-step-ico ' + s[2] + '" aria-hidden="true">' + s[1] + '</span><b>' + s[3] + '</b><span>' + esc(s[4]) + '</span></a></li>';
-      }).join('') + '</ol></div></section>' +
-      '<section class="home-band band-b" id="home-rank" data-tour="rank" aria-label="今日赚钱榜"><div class="home-inner">' +
-      '<div class="home-rank-head"><div><h2>' + pageSvg('#war-rank', 'trophy') + '今日赚钱榜</h2>' +
-      '<p>' + (date ? '<time id="home-rank-date" datetime="' + esc(date) + '">' + esc(date) + '</time> · ' : '') + '每日更新 · 不保证收益</p></div>' +
-      '<a class="btn btn-primary" href="#war-rank">查看完整榜单</a></div>' +
-      rankBody + '</div></section>' +
-      '<section class="home-band band-a" id="home-split"><div class="home-inner home-pair">' +
+      '<section class="home-band band-b" id="home-split"><div class="home-inner">' +
+      '<details class="home-more">' +
+      '<summary>为什么做 · 常见问题</summary>' +
+      '<div class="home-pair">' +
       '<section id="home-why"><div class="sec-head"><h2>' + I('bulb') + '为什么做这个网站</h2></div><div class="home-why">' +
       '<p>想做副业或英文出海小站时，新手常常不知道先做什么。这个站把公开的方法收成一条能跟着走的路线，并把靠谱渠道整理成每天更新的赚钱榜。</p>' +
       '<ul><li>不承诺收益。</li><li>榜单每条附来源链接，以官方为准。</li><li>进度只存在你自己的浏览器。</li></ul></div></section>' +
       '<section id="home-faq"><div class="sec-head"><h2>' + I('list') + '常见问题</h2></div><div class="faq">' +
       HOME_FAQ.map(function (qa) {
         return '<details><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>';
-      }).join('') + '</div></section></div></section>';
-    root.querySelectorAll('a[href="#home-rank"]').forEach(function (a) {
-      a.addEventListener('click', function () {
-        if ((location.hash || '') !== '#home-rank') return;
-        var el = document.getElementById('home-rank');
-        if (!el) return;
-        if (global.QuestShell && typeof QuestShell.scrollToEl === 'function') QuestShell.scrollToEl(el, 'auto');
-        else el.scrollIntoView({ block: 'start' });
-      });
-    });
+      }).join('') + '</div></section></div></details></div></section>';
   }
 
-  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep };
+  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep, pathNodes: pathNodes };
 })(typeof window !== 'undefined' ? window : globalThis);

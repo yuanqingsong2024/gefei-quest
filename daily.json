@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-21T10:49:06.424Z",
-  "latestId": 41,
-  "latestDate": "2026-10-21",
+  "generatedAt": "2026-10-24T14:45:50.089Z",
+  "latestId": 42,
+  "latestDate": "2026-10-24",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 42,
+      "date": "2026-10-24",
+      "tag": "改进",
+      "title": "首页改成主线路径，顶栏只留四个入口",
+      "items": [
+        "顶栏四个主入口：首页、学习、实施、赚钱。「我的」收到右侧头像菜单。新手引导和每周补给仍可从首页路径或页脚打开",
+        "首页中间是五步竖向路径（新手引导 → 学习路线 → 做站 Day → 发布上线 → 试渠道），当前关高亮，旁边是「今天这一关」",
+        "首页只保留今日赚钱榜 Top 3，完整榜去每日赚钱榜。常见问题和「为什么做」默认折叠"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 41,
       "date": "2026-10-21",
@@ -110,18 +122,6 @@
         "导航按 学习 / 实施 / 赚钱 重新整理，每页只在一个菜单里，新增面包屑；图标统一重绘",
         "顶栏、底部栏、页脚和网站地图用同一份菜单。子页面面包屑是「首页 / 分组 / 页面」",
         "图标按同一套线稿重绘。学习、实施、赚钱的功能卡片改成浅蓝、青绿和金色的柔和色块"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 32,
-      "date": "2026-10-17",
-      "tag": "改进",
-      "title": "首页桌面版重排：两栏首屏、今日 Top 3 预览、下一步并入主按钮",
-      "items": [
-        "首页桌面版重排：两栏首屏、今日 Top 3 预览、下一步并入主按钮",
-        "首屏右边是今天赚钱榜的前 3 名，并标出榜单日期；「看完整 Top 10」滚到下面的完整榜",
-        "主按钮按你的进度变化。新访客是「我是新手，从这里开始」。单独的「下一步」横条已去掉，避免和主按钮重复"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }

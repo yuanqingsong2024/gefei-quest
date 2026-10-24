@@ -7,11 +7,13 @@
 
   var SITE_NAME = '出海小站练站营';
   /** 顶栏、下拉、底部栏、页脚、网站地图、标题和 FLOW 都从这里生成。路由 hash 不改。 */
+  var START_PAGE = { id: 'start', label: '新手引导', short: '新手', icon: 'flag', hash: '#start', owns: ['start', 'start-*'],
+    desc: '学习、实施、赚钱三条路线，前 7 天清单，以及可以重播的新手导览。' };
+  var WEEKLY_PAGE = { id: 'weekly', label: '每周补给', icon: 'calendar', hash: '#weekly', owns: ['weekly'],
+    desc: '每周几张短卡片，已暂停更新。' };
   var SITE_NAV = [
     { id: 'home', label: '首页', short: '首页', icon: 'home', hash: '#home', owns: ['home', 'home-*'],
       desc: '从挖词到多站的完整练习路线。' },
-    { id: 'start', label: '新手引导', short: '新手', icon: 'flag', hash: '#start', owns: ['start', 'start-*'],
-      desc: '学习、实施、赚钱三条路线，前 7 天清单，以及可以重播的新手导览。' },
     { id: 'learn', label: '学习', short: '学习', icon: 'book-open', hash: '#path', tint: 'learn',
       desc: '学习路线、任务清单、手册与模板、资源库。',
       children: [
@@ -23,8 +25,6 @@
           desc: '作战手册、单页模板和渠道笔记。' },
         { id: 'lib', label: '资源库', icon: 'archive', hash: '#lib', owns: ['lib', 'lib-*'],
           desc: '免费工具、托管、渠道和同路人方法。' },
-        { id: 'weekly', label: '每周补给', icon: 'calendar', hash: '#weekly', owns: ['weekly'],
-          desc: '每周几张短卡片，已暂停更新。' },
       ] },
     { id: 'do', label: '实施', short: '实施', icon: 'tools', hash: '#war', tint: 'do',
       desc: '从 7 天日程做到发布、分发和工作台。',
@@ -56,7 +56,7 @@
         { id: 'pm', label: '平台变现', icon: 'wallet', hash: '#pm', owns: ['pm', 'pm-*'],
           desc: '各平台的门槛和分成，以官网为准。' },
       ] },
-    { id: 'mine', label: '我的', short: '我的', icon: 'user', hash: '#me', dataNav: 'me', tint: 'neutral',
+    { id: 'mine', label: '我的', short: '我的', icon: 'user', hash: '#me', dataNav: 'me', tint: 'neutral', slot: 'end',
       desc: '进度、统计、账号和 AI 设置。',
       children: [
         { id: 'me', label: '我的进度', icon: 'gauge', hash: '#me', owns: ['me'],
@@ -71,9 +71,9 @@
           desc: '这个网站最近改了什么。' },
       ] },
   ];
-  var SITEMAP = { id: 'sitemap', label: '网站地图', icon: 'sitemap', hash: '#sitemap', desc: '顶栏六个入口以外的全部页面。sitemap 站点地图' };
+  var SITEMAP = { id: 'sitemap', label: '网站地图', icon: 'sitemap', hash: '#sitemap', desc: '顶栏四个主入口以外的全部页面。sitemap 站点地图' };
   var DEV_SECTION = { id: 'dev', label: '开发者文档', icon: 'code', hash: '#dev', desc: '项目开发过程文档，供维护者查阅。' };
-  /** 主线顺序。必须是 SITE_NAV 从上到下的子序列。 */
+  /** 主线顺序。必须是 START_PAGE + SITE_NAV 从上到下的子序列。 */
   var FLOW_IDS = ['start', 'path', 'path-quests', 'war', 'war-keywords', 'war-kit', 'me-sites', 'war-publish', 'war-share', 'work', 'me-analytics', 'work-review', 'war-rank', 'pm'];
   function tabsFrom(groupId) {
     var g = null, i;
@@ -163,6 +163,8 @@
   function navById(id) {
     if (id === 'dev') return DEV_SECTION;
     if (id === 'sitemap') return SITEMAP;
+    if (id === START_PAGE.id || (id && id.indexOf('start-') === 0)) return START_PAGE;
+    if (id === WEEKLY_PAGE.id) return WEEKLY_PAGE;
     var i, n, c;
     for (i = 0; i < SITE_NAV.length; i++) if (SITE_NAV[i].id === id) return SITE_NAV[i];
     for (i = 0; i < SITE_NAV.length; i++) {
@@ -197,6 +199,8 @@
         }
       } else if (pageOwns(g, id)) return { group: g, page: g, id: id };
     }
+    if (pageOwns(START_PAGE, id)) return { group: null, page: START_PAGE, id: id };
+    if (pageOwns(WEEKLY_PAGE, id)) return { group: null, page: WEEKLY_PAGE, id: id };
     if (id === 'sitemap') return { group: null, page: SITEMAP, id: id };
     if (id === 'dev' || id.indexOf('dev-') === 0) return { group: null, page: DEV_SECTION, id: id };
     return { group: null, page: null, id: id };
@@ -208,6 +212,8 @@
       if (g.children) g.children.forEach(function (c) { if (pageOwns(c, id)) out.push(c); });
       else if (pageOwns(g, id)) out.push(g);
     });
+    if (pageOwns(START_PAGE, id)) out.push(START_PAGE);
+    if (pageOwns(WEEKLY_PAGE, id)) out.push(WEEKLY_PAGE);
     return out;
   }
   function mainFlow() {
@@ -218,6 +224,7 @@
       if (want[n.id]) out.push({ id: n.id, hash: n.hash, title: n.label });
       (n.children || []).forEach(walk);
     }
+    walk(START_PAGE);
     SITE_NAV.forEach(walk);
     return out;
   }
@@ -424,18 +431,35 @@
       });
     }
   }
+  function mineDropHtml(n, loc, dot) {
+    var on = loc.group && loc.group.id === n.id;
+    var menuId = 'nav-menu-' + n.id;
+    var tint = n.tint ? ' tint-' + n.tint : '';
+    return '<div class="nav-drop nav-mine' + (on ? ' is-active' : '') + '" data-group="' + n.id + '">' +
+      '<button type="button" class="nav-caret nav-mine-btn" aria-expanded="false" aria-haspopup="true" aria-controls="' + menuId + '" aria-label="' + esc(n.label) + '"' + (on ? ' aria-current="page"' : '') + '>' +
+        I(n.icon) + (dot ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') +
+      '</button>' +
+      '<div class="nav-menu" id="' + menuId + '" role="menu" hidden>' + (n.children || []).map(function (c) {
+        var cur = loc.page && loc.page.id === c.id;
+        return '<a role="menuitem" href="' + c.hash + '"' + (cur ? ' class="active" aria-current="page"' : '') + '><span class="nav-ico' + tint + '">' + I(c.icon) + '</span><span class="nav-item-text"><b>' + esc(c.label) + '</b><small>' + esc(c.desc || '') + '</small></span></a>';
+      }).join('') + '</div></div>';
+  }
   function renderTopNav() {
     var el = document.getElementById('site-nav');
     if (!el) return;
     el.setAttribute('data-tour', 'nav');
     var loc = hereLoc();
     var dot = unseenCount();
+    var center = SITE_NAV.filter(function (n) { return n.slot !== 'end'; });
+    var mine = SITE_NAV.filter(function (n) { return n.slot === 'end'; })[0];
     el.innerHTML = '<div class="site-nav-inner">' +
       '<a class="brand" href="#home"><img src="assets/icon-192.png" alt="" width="34" height="34" /><span>' + SITE_NAME + '</span></a>' +
-      '<nav class="site-links" aria-label="主导航">' + SITE_NAV.map(function (n) {
+      '<nav class="site-links" aria-label="主导航">' + center.map(function (n) {
         return n.children && n.children.length ? dropHtml(n, loc, dot) : topLink(n, loc, dot);
       }).join('') + '</nav>' +
+      '<a class="nav-start-today" id="nav-start-today" href="#home">' + I('flag') + '<span>开始今天</span></a>' +
       '<button type="button" class="nav-search" data-open-search aria-label="全站搜索（快捷键 / 或 Ctrl+K）" title="搜索（/ 或 Ctrl+K）">' + I('search') + '<span>搜索</span><kbd>/</kbd></button>' +
+      (mine ? mineDropHtml(mine, loc, dot) : '') +
       '<span id="offline-pill" class="offline-pill" role="status">离线模式：AI / 发布 / 数据拉取暂不可用</span></div>';
     bindNav(el);
     if (global.QuestShell && QuestShell.syncNavH) QuestShell.syncNavH();
@@ -507,8 +531,10 @@
       return out;
     }
     var groups = [];
-    var tops = SITE_NAV.filter(function (g) { return !g.children; }).map(function (g) { return { href: g.hash, label: g.label }; });
-    groups.push({ title: '开始', links: fresh(tops) });
+    groups.push({ title: '开始', links: fresh([
+      { href: '#home', label: '首页' },
+      { href: START_PAGE.hash, label: START_PAGE.label },
+    ]) });
     SITE_NAV.forEach(function (g) {
       if (!g.children) return;
       groups.push({ title: g.label, links: fresh(g.children.map(function (c) {
@@ -516,6 +542,7 @@
       })) });
     });
     groups.push({ title: '其他', links: fresh([
+      { href: WEEKLY_PAGE.hash, label: WEEKLY_PAGE.label },
       { href: '#sitemap', label: SITEMAP.label },
       { href: '#dev', label: DEV_SECTION.label, children: DEV_DOCS.map(function (d) { return { href: '#dev-' + d.id, label: d.title }; }) },
       { href: 'https://github.com/yuanqingsong2024/gefei-quest', label: 'GitHub 仓库' },
@@ -534,7 +561,7 @@
       '<div class="foot-about"><div class="foot-brand"><img src="assets/icon-192.png" alt="" width="44" height="44" /><div><b>' + SITE_NAME + '</b><span>出海建站 · SEO · 练习营</span></div></div>' +
       '<p class="foot-desc"><b>关于本站</b>：跟着公开的方法做英文出海小站，并把靠谱渠道收成每天更新的赚钱榜。非官方，不含付费社群内容。不承诺收益。进度只保存在你的浏览器里。</p></div>' +
       '<div class="foot-cols">' +
-      '<div><h4>开始</h4>' + footA('#home', '首页') + footA('#start', '新手引导') +
+      '<div><h4>开始</h4>' + footA('#home', '首页') + footA('#start', '新手引导') + footA('#weekly', '每周补给') +
       '<button type="button" id="foot-tour" data-tour="replay" title="再看一遍首页聚光灯导览">重播新手导览</button><small class="foot-replay-note">再看一遍首页聚光灯导览</small>' +
       footA('#sitemap', '网站地图') + footA('#dev', DEV_SECTION.label) + '</div>' +
       '<div><h4>学习</h4>' + footChildren('learn') + '</div>' +
@@ -550,7 +577,7 @@
       return '<li><a href="' + l.href + '"' + extAttr(l.href) + '>' + esc(l.label) + '</a>' +
         (l.children && l.children.length ? '<ul>' + l.children.map(li).join('') + '</ul>' : '') + '</li>';
     }
-    root.innerHTML = '<div class="sitemap-page"><p class="sitemap-lead">顶栏六个入口。下面按学习、实施、赚钱和我的列出全部页面，每个链接只出现一次。</p><div class="sitemap-grid">' +
+    root.innerHTML = '<div class="sitemap-page"><p class="sitemap-lead">顶栏四个主入口。下面按学习、实施、赚钱和我的列出全部页面，每个链接只出现一次。</p><div class="sitemap-grid">' +
       groups.map(function (g) {
         return '<section><h2>' + esc(g.title) + '</h2><ul>' + g.links.map(li).join('') + '</ul></section>';
       }).join('') + '</div></div>';
@@ -572,7 +599,7 @@
   function iconFor(raw) { return I(iconName(raw) || 'compass'); }
 
   global.QuestNav = {
-    SITE_NAME: SITE_NAME, SITE_NAV: SITE_NAV, SITEMAP: SITEMAP, DEV_SECTION: DEV_SECTION, PATH_TABS: PATH_TABS, WAR_TABS: WAR_TABS, EARN_TABS: EARN_TABS, ME_TABS: ME_TABS, STATIONS: STATIONS,
+    SITE_NAME: SITE_NAME, SITE_NAV: SITE_NAV, START_PAGE: START_PAGE, SITEMAP: SITEMAP, DEV_SECTION: DEV_SECTION, PATH_TABS: PATH_TABS, WAR_TABS: WAR_TABS, EARN_TABS: EARN_TABS, ME_TABS: ME_TABS, STATIONS: STATIONS,
     LIB_CATS: LIB_CATS, GUIDES: GUIDES, GUIDE_GROUPS: GUIDE_GROUPS, DEV_DOCS: DEV_DOCS, ALIASES: ALIASES,
     parse: parse, canonical: canonical, fixHref: fixHref, fixLinks: fixLinks, navById: navById, guideById: guideById,
     locate: locate, pagesOwning: pagesOwning, pageOwns: pageOwns, mainFlow: mainFlow, nextInGroup: nextInGroup,
