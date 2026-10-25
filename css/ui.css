@@ -1441,7 +1441,7 @@ body.is-home .view { max-width: none; padding: 0; }
 .doc-toc a { color: var(--muted); font-size: var(--fs-sm); padding: 4px 8px; border-radius: 8px; }
 .doc-toc a:hover { background: rgba(56,189,248,.12); color: var(--ink); text-decoration: none; }
 .doc-toc .toc-l3 { padding-left: 20px; font-size: var(--fs-xs); }
-.doc-body { background: rgba(10,17,30,.88); border: 1px solid var(--glass-line); border-radius: 18px; padding: 28px 32px; min-width: 0; }
+.doc-body { background: var(--panel); border: 1px solid var(--glass-line); border-radius: 18px; padding: 28px 32px; min-width: 0; }
 .doc-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; color: var(--muted); font-size: var(--fs-sm); padding-bottom: 14px; border-bottom: 1px solid var(--glass-line); margin-bottom: 8px; }
 .doc-meta .btn { margin-left: auto; }
 .md { color: var(--ink); line-height: 1.8; overflow-wrap: anywhere; }
