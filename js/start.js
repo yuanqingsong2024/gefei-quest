@@ -89,6 +89,7 @@
     root.innerHTML =
       '<div class="start-page" id="start-page">' +
       '<div class="start-top"><div><p class="start-lead">三条路线，选一条先走 7 天</p>' +
+      '<p class="start-full">找词到收款的全流程写在一份总览里。 <a class="btn btn-sm" href="#guide-full-method-playbook">看完整主线说明（找词→收款）</a></p>' +
       '<p id="start-progress">前 7 天已完成 <b id="start-done">' + n + '</b> / 7</p></div>' +
       '<button type="button" class="btn btn-primary" id="start-tour">' + navI('#start', 'flag') + '重新播放导览</button></div>' +
       '<div class="start-cards" id="start-tracks" role="tablist" aria-label="三条路线">' +

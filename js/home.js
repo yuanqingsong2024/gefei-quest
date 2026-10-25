@@ -158,6 +158,13 @@
       blurb: '可部署单页 + Day 作战手册',
       cards: [
         {
+          emoji: '🗺️',
+          title: '完整主线说明',
+          desc: '找词→建站→SEO→变现→收款',
+          action: 'href',
+          target: '#guide-full-method-playbook',
+        },
+        {
           emoji: '1️⃣',
           title: '站一 Starter',
           desc: '替换 YOURBRAND 即可上线',

@@ -2269,6 +2269,8 @@ html.is-offline .offline-pill {
 .start-page { display: flex; flex-direction: column; gap: 12px; min-width: 0; max-width: 100%; }
 .start-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; min-width: 0; }
 .start-lead { margin: 0; color: var(--ink); font-size: 1.15rem; font-weight: 800; }
+.start-full { margin: 6px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.45; overflow-wrap: anywhere; }
+.start-full .btn { margin: 2px 0 2px 6px; vertical-align: middle; max-width: 100%; white-space: normal; }
 #start-progress { margin: 4px 0 0; color: var(--ink); }
 #start-done { color: var(--gold-text); }
 .start-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; min-width: 0; }

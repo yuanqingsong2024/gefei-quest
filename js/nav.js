@@ -104,6 +104,7 @@
   ];
 
   var GUIDES = [
+    { id: 'full-method-playbook', group: 'playbook', title: '完整主线说明', icon: 'map', desc: '找词→建站→SEO→变现→收款全流程。' },
     { id: 'station-one-playbook', group: 'playbook', title: '站一手册', icon: 'island1', desc: '定词、上线一页、挂统计与 GSC。' },
     { id: 'station-two-playbook', group: 'playbook', title: '站二手册', icon: 'island2', desc: '一个真实需求词做一站，看曝光。' },
     { id: 'station-three-playbook', group: 'playbook', title: '站三手册', icon: 'island3', desc: '扩内页、内链与收录。' },

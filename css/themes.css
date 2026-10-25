@@ -1031,6 +1031,7 @@ html[data-theme] .start-card small,
 html[data-theme] .start-steps,
 html[data-theme] .start-days li,
 html[data-theme] #start-progress,
+html[data-theme] .start-full,
 html[data-theme] .ai-mode small,
 html[data-theme] .ai-agent p { color: var(--muted); }
 html[data-theme] .tour-card h2,

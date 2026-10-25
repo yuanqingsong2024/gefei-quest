@@ -1,6 +1,6 @@
 # 变现港作战手册（可打印）
 
-> 配套：[作战室 · 变现](../index.html#war-m) · [可试渠道笔记](./channels-and-tips.md)  
+> 配套：[作战室 · 变现](../index.html#war-m) · [可试渠道笔记](./channels-and-tips.md) · [完整主线说明](./full-method-playbook.md)  
 > 解锁：先完成站三 Boss（群岛连线 / `q-s3-boss`）。  
 > 勾选以游戏内存档为准。**申请成功非必须**；本关写清路径即可。
 
