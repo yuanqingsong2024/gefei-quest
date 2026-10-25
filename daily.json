@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-24T15:58:46.426Z",
-  "latestId": 45,
-  "latestDate": "2026-10-24",
+  "generatedAt": "2026-10-25T00:33:18.893Z",
+  "latestId": 46,
+  "latestDate": "2026-10-25",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 46,
+      "date": "2026-10-25",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-25",
+      "items": [
+        "No.1 PayPal AI Hackathon：用 PayPal API + AI 做支付/代理商务项目，现金奖约6.75万美元，11月12日截止",
+        "No.2 UGREEN AI NAS 黑客松：第一轮只交想法 PDF + 技能包，不需要 NAS，现金奖池4.6万美元",
+        "No.3 《明日方舟：终末地》「丹青渡」多平台创作征集：B站/抖音/小红书投稿瓜分现金"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 45,
       "date": "2026-10-24",
@@ -116,40 +128,30 @@
         "新增「闲鱼零成本方案」合集：11 个可零成本起步的非实物方案，附来源与闲鱼规则提醒"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-xianyu"
-    },
-    {
-      "id": 36,
-      "date": "2026-10-18",
-      "tag": "新功能",
-      "title": "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选",
-      "items": [
-        "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-10-24",
+    "date": "2026-10-25",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
+        "name": "PayPal AI Hackathon：用 PayPal API + AI 做支付/代理商务项目，现金奖约6.75万美元，11月12日截止",
         "type": "奖金赛/悬赏",
-        "source_url": "https://opencv26.devpost.com/"
+        "source_url": "https://paypalaihackathon.devpost.com/"
       },
       {
         "rank": 2,
-        "name": "ReSO AI / GEO：生成式引擎优化新词，做 AI 搜索可见度内容或咨询实验",
-        "type": "出海新词",
-        "source_url": "https://www.resollm.ai/"
+        "name": "UGREEN AI NAS 黑客松：第一轮只交想法 PDF + 技能包，不需要 NAS，现金奖池4.6万美元",
+        "type": "奖金赛/悬赏",
+        "source_url": "https://ugreenhackathon.devpost.com/"
       },
       {
         "rank": 3,
-        "name": "DigitalOcean Affiliates：云主机/开发者内容挂合规链接，合资格成交拿分成",
-        "type": "联盟营销",
-        "source_url": "https://www.digitalocean.com/affiliates"
+        "name": "《明日方舟：终末地》「丹青渡」多平台创作征集：B站/抖音/小红书投稿瓜分现金",
+        "type": "平台激励",
+        "source_url": "https://endfield.hypergryph.com/news/9326"
       }
     ]
   }
