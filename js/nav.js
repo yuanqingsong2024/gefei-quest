@@ -352,7 +352,7 @@
     (root || document).querySelectorAll('.nav-drop.is-open').forEach(closeDrop);
   }
   function menuItems(drop) {
-    return [].slice.call(drop.querySelectorAll('.nav-menu a, .nav-theme-group [data-theme-set]')).filter(function (node) {
+    return [].slice.call(drop.querySelectorAll('.nav-menu a, .nav-menu [data-theme-set], .nav-theme-group [data-theme-set]')).filter(function (node) {
       return node.getClientRects().length > 0;
     });
   }
@@ -389,7 +389,7 @@
         drop.setAttribute('data-via', 'click');
         return;
       }
-      if (e.target.closest && e.target.closest('.nav-menu a')) closeDrops(el);
+      if (e.target.closest && (e.target.closest('.nav-menu a') || e.target.closest('.nav-menu [data-theme-set]'))) closeDrops(el);
     });
     el.addEventListener('keydown', function (e) {
       var drop = dropOf(e.target, el);
@@ -481,12 +481,14 @@
     return '<button type="button" class="theme-chip" data-theme-set="' + t.id + '"' + role +
       ' aria-label="' + esc(t.name) + '" title="' + esc(t.name) + '">' +
       '<span class="theme-swatch theme-swatch-' + t.id + '" aria-hidden="true"></span>' +
-      '<span class="theme-name">' + esc(t.name) + '</span>' +
-      '<span class="theme-short">' + esc(t.short) + '</span></button>';
+      '<span class="theme-name">' + esc(t.name) + '</span></button>';
   }
   function themeSwitcherHtml() {
-    return '<div id="theme-switcher" class="theme-switcher" role="group" aria-label="主题风格">' +
-      THEME_CHOICES.map(function (t) { return themeChipHtml(t, false); }).join('') + '</div>';
+    return '<div id="theme-switcher" class="nav-drop nav-theme" data-group="theme">' +
+      '<button type="button" class="nav-caret nav-theme-btn" aria-expanded="false" aria-haspopup="true" aria-controls="nav-menu-theme" aria-label="换风格" title="换风格">🎨 换风格</button>' +
+      '<div class="nav-menu theme-popover" id="nav-menu-theme" role="menu" hidden>' +
+      THEME_CHOICES.map(function (t) { return themeChipHtml(t, true); }).join('') +
+      '</div></div>';
   }
   function themeMenuGroupHtml() {
     return '<div class="nav-theme-group" role="group" aria-label="风格">' +

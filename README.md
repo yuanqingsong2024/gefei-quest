@@ -113,7 +113,7 @@ python3 -m http.server 8765
 
 根目录 `sw.js` 只在 `http:` / `https:` 注册（`file://` 双击打开不会注册，也不会报错）。
 
-缓存名是 `gefei-quest-v` + `sw.js` 顶部的 **`CACHE_VERSION`**（当前从 1 起）。**每次发布请把 `CACHE_VERSION` 加 1**，再部署。新的 Service Worker 安装后会删掉旧的 `gefei-quest-*` 缓存；页面上出现「有新版本，点此刷新」时，点一下才会 `skipWaiting` 并重新加载。
+缓存名是 `gefei-quest-v` + `sw.js` 顶部的 **`CACHE_VERSION`**（当前从 1 起）。**每次发布请把 `CACHE_VERSION` 加 1**，再部署。新的 Service Worker 安装后会自动 `skipWaiting`，页面在 `controllerchange` 时刷新一次；也会删掉旧的 `gefei-quest-*` 缓存。
 
 策略（保证 GitHub Pages 的更新下次打开就能看到）：
 

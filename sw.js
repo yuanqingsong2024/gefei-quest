@@ -4,8 +4,9 @@
  * HTML / JSON / JS / CSS / webmanifest 以及导航请求走网络优先（失败才用缓存），
  * 所以 GitHub Pages 上的新文件下次打开就会生效，不必等用户点「刷新」。
  * 图片和字体走缓存优先。只缓存同源 GET 且 status === 200 的响应。
- * skipWaiting 只在页面 postMessage {type:'SKIP_WAITING'} 之后。 */
-const CACHE_VERSION = 20;
+ * 新版本 install 后自动 skipWaiting；页面在 controllerchange 时刷新一次。
+ * 仍接受页面 postMessage {type:'SKIP_WAITING'}。 */
+const CACHE_VERSION = 21;
 const CACHE_NAME = 'gefei-quest-v' + CACHE_VERSION;
 
 const PRECACHE = [
@@ -96,7 +97,7 @@ const PRECACHE = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(precache());
+  event.waitUntil(precache().then(() => self.skipWaiting()));
 });
 
 self.addEventListener('message', (event) => {

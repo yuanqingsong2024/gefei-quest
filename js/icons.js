@@ -247,10 +247,10 @@
   /** 空状态插画：小岛 + 灯塔 + 波浪（自带配色，160×110） */
   function illo(kind) {
     var mark = { search: '<circle cx="104" cy="40" r="13" fill="none" stroke="#7dd3fc" stroke-width="4"/><path d="M114 50l10 10" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round"/>',
-      list: '<rect x="92" y="24" width="34" height="40" rx="5" fill="#1e293b" stroke="#7dd3fc" stroke-width="3"/><path d="M99 36h20M99 45h20M99 54h12" stroke="#fde68a" stroke-width="3" stroke-linecap="round"/>' }[kind] || '<path d="M108 22l3.5 9 9.5 1-7 6.5 2 9.5-8-4.5-8 4.5 2-9.5-7-6.5 9.5-1z" fill="#fde68a"/>';
+      list: '<rect x="92" y="24" width="34" height="40" rx="5" fill="#f4f1ea" stroke="#0f766e" stroke-width="3"/><path d="M99 36h20M99 45h20M99 54h12" stroke="#1e3a5f" stroke-width="3" stroke-linecap="round"/>' }[kind] || '<path d="M108 22l3.5 9 9.5 1-7 6.5 2 9.5-8-4.5-8 4.5 2-9.5-7-6.5 9.5-1z" fill="#1e3a5f"/>';
     return '<svg class="illo" viewBox="0 0 160 110" width="160" height="110" aria-hidden="true">' +
       '<defs><linearGradient id="illo-sea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#38bdf8" stop-opacity=".55"/><stop offset="1" stop-color="#1e3a8a" stop-opacity=".2"/></linearGradient></defs>' +
-      '<ellipse cx="80" cy="92" rx="70" ry="12" fill="url(#illo-sea)"/><path d="M30 88c10-16 24-24 40-24s28 8 36 24z" fill="#334155"/>' +
+      '<ellipse cx="80" cy="92" rx="70" ry="12" fill="url(#illo-sea)"/><path d="M30 88c10-16 24-24 40-24s28 8 36 24z" fill="#e7e5e4"/>' +
       '<path d="M52 86l4-38h10l4 38z" fill="#f1f5f9"/><path d="M53.5 72h15M54.6 60h12.8" stroke="#ef4444" stroke-width="5"/><rect x="54" y="40" width="14" height="9" rx="2" fill="#fbbf24"/><path d="M61 34v6" stroke="#f1f5f9" stroke-width="3" stroke-linecap="round"/>' +
       '<path d="M20 98c8-5 16-5 24 0s16 5 24 0 16-5 24 0 16 5 24 0 16-5 24 0" fill="none" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>' + mark + '</svg>';
   }

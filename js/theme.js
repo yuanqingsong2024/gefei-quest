@@ -6,12 +6,20 @@
   var LABELS = { ink: '水墨纸', ocean: '海岸青', pixel: '像素暖沙' };
 
   function valid(theme) {
+    theme = String(theme || '').trim().toLowerCase();
     return THEMES.indexOf(theme) >= 0 ? theme : 'ink';
   }
 
   function get() {
-    try { return valid(localStorage.getItem(KEY)); }
-    catch (e) { return 'ink'; }
+    try {
+      var stored = localStorage.getItem(KEY);
+      if (stored == null || stored === '') return 'ink';
+      if (THEMES.indexOf(String(stored).trim().toLowerCase()) < 0) {
+        try { localStorage.removeItem(KEY); } catch (e2) {}
+        return 'ink';
+      }
+      return valid(stored);
+    } catch (e) { return 'ink'; }
   }
 
   function sync(root) {
@@ -69,6 +77,7 @@
     LABELS: LABELS
   };
 
+  try { apply(get()); } catch (e) {}
   if (global.document.readyState === 'loading') global.document.addEventListener('DOMContentLoaded', init);
   else init();
 })(typeof window !== 'undefined' ? window : globalThis);
