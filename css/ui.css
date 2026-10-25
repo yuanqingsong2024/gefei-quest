@@ -2607,6 +2607,13 @@ body.is-home .hero.hero-home h1.hero-title {
 body.is-home .hero.hero-home .hero-sub {
   margin: 0 0 10px; max-width: 40em; color: var(--ink); font-size: 1rem; line-height: 1.45; white-space: normal;
 }
+body.is-home .hero-playbook {
+  margin: 0; max-width: 100%; min-width: 0;
+}
+body.is-home .hero-playbook .btn {
+  flex: 0 1 auto; width: auto; max-width: 100%; box-sizing: border-box;
+  white-space: normal; overflow-wrap: anywhere; line-height: 1.35; text-align: left;
+}
 body.is-home .hero.hero-home .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; }
 body.is-home .hero.hero-home .hero-cta .btn { padding: 12px 18px; font-size: 1rem; }
 .home-inner { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px; min-width: 0; }

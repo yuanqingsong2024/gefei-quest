@@ -604,6 +604,7 @@
       '<div class="hero-inner home-inner"><div class="hero-copy">' +
       '<h1 class="hero-title">做英文出海小站</h1>' +
       '<p class="hero-sub">跟着主线路径，从新手引导做到试渠道。不承诺收入。</p>' +
+      '<p class="hero-playbook"><a class="btn btn-sm" href="#guide-full-method-playbook">完整主线说明：找词→建站→收款</a></p>' +
       (next ? '<aside class="home-continue" id="home-continue"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></aside>' : '') +
       '</div></div></section>' +
       '<section class="home-band band-a home-path-band" id="home-path" data-tour="path">' +
