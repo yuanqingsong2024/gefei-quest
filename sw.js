@@ -5,7 +5,7 @@
  * 所以 GitHub Pages 上的新文件下次打开就会生效，不必等用户点「刷新」。
  * 图片和字体走缓存优先。只缓存同源 GET 且 status === 200 的响应。
  * skipWaiting 只在页面 postMessage {type:'SKIP_WAITING'} 之后。 */
-const CACHE_VERSION = 19;
+const CACHE_VERSION = 20;
 const CACHE_NAME = 'gefei-quest-v' + CACHE_VERSION;
 
 const PRECACHE = [
@@ -66,6 +66,33 @@ const PRECACHE = [
   './assets/bg/ink.webp',
   './assets/bg/ocean.webp',
   './assets/bg/pixel.webp',
+  './assets/icons/ink/flag.webp',
+  './assets/icons/ink/map.webp',
+  './assets/icons/ink/calendar-check.webp',
+  './assets/icons/ink/rocket.webp',
+  './assets/icons/ink/trophy.webp',
+  './assets/icons/ink/home.webp',
+  './assets/icons/ink/book-open.webp',
+  './assets/icons/ink/tools.webp',
+  './assets/icons/ink/coin.webp',
+  './assets/icons/ocean/flag.webp',
+  './assets/icons/ocean/map.webp',
+  './assets/icons/ocean/calendar-check.webp',
+  './assets/icons/ocean/rocket.webp',
+  './assets/icons/ocean/trophy.webp',
+  './assets/icons/ocean/home.webp',
+  './assets/icons/ocean/book-open.webp',
+  './assets/icons/ocean/tools.webp',
+  './assets/icons/ocean/coin.webp',
+  './assets/icons/pixel/flag.webp',
+  './assets/icons/pixel/map.webp',
+  './assets/icons/pixel/calendar-check.webp',
+  './assets/icons/pixel/rocket.webp',
+  './assets/icons/pixel/trophy.webp',
+  './assets/icons/pixel/home.webp',
+  './assets/icons/pixel/book-open.webp',
+  './assets/icons/pixel/tools.webp',
+  './assets/icons/pixel/coin.webp',
 ];
 
 self.addEventListener('install', (event) => {

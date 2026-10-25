@@ -1314,6 +1314,17 @@ body.is-home .page-bg { background: var(--bg); }
 
 /* ================= Phase 8 · 统一壳 + 图标 + 内页抛光 ================= */
 .ico { width: 1.2em; height: 1.2em; flex: none; vertical-align: -0.2em; }
+/* 插画与同位置的 svg.ico 共用 .ico 尺寸。object-fit 保住裁切后的图；描边/填充不作用到 img。 */
+img.ico-img {
+  object-fit: contain;
+  object-position: center;
+  stroke: none;
+  fill: none;
+  border: 0;
+  background: transparent;
+  max-width: none;
+  box-sizing: content-box;
+}
 .ico-lg { width: 48px; height: 48px; color: var(--gold); }
 .card-ico { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; flex: none;
   color: var(--gold-text); background: linear-gradient(135deg, rgba(251,191,36,.18), rgba(56,189,248,.12)); border: 1px solid rgba(251,191,36,.3); }
@@ -1923,7 +1934,7 @@ body.search-open { overflow: hidden; }
 
 /* ===== Phase 15 · 平台变现 ===== */
 .pm-page{display:flex;flex-direction:column;gap:16px;min-width:0}
-.pm-page svg{width:20px;height:20px;flex:none;vertical-align:-4px}
+.pm-page svg, .pm-page img.ico-img{width:20px;height:20px;flex:none;vertical-align:-4px}
 .pm-tabs{display:flex;gap:8px;flex-wrap:wrap}
 .pm-tabs a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--panel)}
 .pm-tabs a.on{background:var(--gold);color:#111;border-color:var(--gold);font-weight:700}
@@ -1959,13 +1970,13 @@ body.search-open { overflow: hidden; }
 .pm-more{display:flex;gap:8px;flex-wrap:wrap}
 .pm-more .chip{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none}
 .pm-banner{display:flex;align-items:center;gap:12px;padding:12px 16px;margin-bottom:14px;border:2px solid var(--gold);border-radius:var(--radius);background:#2a2410;color:var(--ink);text-decoration:none}
-.pm-banner svg{width:24px;height:24px;flex:none}.pm-banner span{flex:1}.pm-banner b{display:block;color:var(--gold-text)}.pm-banner small{color:var(--ink)}
+.pm-banner svg, .pm-banner img.ico-img{width:24px;height:24px;flex:none}.pm-banner span{flex:1}.pm-banner b{display:block;color:var(--gold-text)}.pm-banner small{color:var(--ink)}
 @media (max-width:640px){.pm-card dl{grid-template-columns:1fr}.pm-card dt{margin-top:6px}.pm-cats{grid-template-columns:1fr}}
 
 /* ===== Phase 16 · 实操工作台 ===== */
 .wb-pipe{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0 0 14px;padding:10px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
 .wb-step{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-size:.9rem}
-.wb-step svg{width:16px;height:16px}.wb-step i{font-style:normal;color:#111;background:var(--ok);border-radius:50%;width:16px;height:16px;display:inline-grid;place-items:center;font-size:.7rem}
+.wb-step svg, .wb-step img.ico-img{width:16px;height:16px}.wb-step i{font-style:normal;color:#111;background:var(--ok);border-radius:50%;width:16px;height:16px;display:inline-grid;place-items:center;font-size:.7rem}
 .wb-step.done{border-color:var(--ok)}.wb-step.on{background:var(--gold);color:#111;border-color:var(--gold);font-weight:700}
 .wb-pipe-arrow{color:var(--muted)}
 .wb-legend{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;color:var(--ink)}
@@ -1990,7 +2001,7 @@ body.search-open { overflow: hidden; }
 /* ===== Phase 17 · 内容分发 ===== */
 .sh-src{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 .sh-src .chip,.sh .chip{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel2);color:var(--ink);cursor:pointer}
-.sh-src .chip svg{width:16px;height:16px}.sh-src .chip.on{background:var(--gold);color:#111;font-weight:700;border-color:var(--gold)}
+.sh-src .chip svg, .sh-src .chip img.ico-img{width:16px;height:16px}.sh-src .chip.on{background:var(--gold);color:#111;font-weight:700;border-color:var(--gold)}
 .sh-plats{display:flex;flex-wrap:wrap;gap:6px 14px;border:1px solid var(--line);border-radius:12px;padding:10px;margin:10px 0;color:var(--ink)}.sh-plats legend{color:var(--cyan);padding:0 6px}
 .sh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;margin:12px 0}
 .sh-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -2003,7 +2014,7 @@ body.search-open { overflow: hidden; }
 .sh-mini{display:flex;gap:6px;flex-wrap:wrap}
 .sh-bars{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}.sh-bar{display:grid;grid-template-columns:90px 1fr 36px;gap:8px;align-items:center;color:var(--ink)}.sh-bar i{display:block;height:12px;border-radius:6px;background:var(--cyan)}
 .sh-tl{margin:0;padding-left:1.2em;color:var(--ink)}.sh-tl ul{padding-left:1.1em;margin:4px 0 8px}.sh-tl a{color:var(--cyan)}
-.wb-free{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:700;color:#111;background:var(--ok);border-radius:6px;padding:2px 8px;text-decoration:none;align-self:flex-start}.wb-free svg{width:14px;height:14px}
+.wb-free{display:inline-flex;align-items:center;gap:4px;font-size:.78rem;font-weight:700;color:#111;background:var(--ok);border-radius:6px;padding:2px 8px;text-decoration:none;align-self:flex-start}.wb-free svg, .wb-free img.ico-img{width:14px;height:14px}
 @media (max-width:640px){.sh-grid{grid-template-columns:1fr}}
 
 /* ===== Phase 18 · 紧凑组件 ===== */
@@ -2054,9 +2065,9 @@ details.cx-details>:not(summary){margin:0 12px 12px}
 .pm-card>.cx-toggle{margin:4px 0 0}
 /* Phase 18 · 工作台 / 复盘 / Google */
 .wb-pipe-home{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;margin-right:6px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);font-weight:700;font-size:.85rem;text-decoration:none}
-.wb-pipe-home svg{width:16px;height:16px}
+.wb-pipe-home svg, .wb-pipe-home img.ico-img{width:16px;height:16px}
 .g-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 14px;margin:0;border-radius:12px;border:1px solid var(--line)}
-.g-bar svg{width:18px;height:18px}.g-bar .hint{margin:0}
+.g-bar svg, .g-bar img.ico-img{width:18px;height:18px}.g-bar .hint{margin:0}
 .g-scopes{display:flex;flex-wrap:wrap;gap:8px 18px;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
 .g-scopes legend{padding:0 4px;color:var(--muted);font-size:.85rem}
 .g-scopes .chk{display:inline-flex;align-items:center;gap:6px}
@@ -2104,7 +2115,7 @@ details.cx-details>:not(summary){margin:0 12px 12px}
 .wb-meta{display:flex;align-items:center;gap:4px 8px;min-width:0}
 .wb-meta>.wb-st{flex:0 0 auto;max-width:calc(100% - 52px);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wb-meta>.wb-free{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;align-self:center;display:block}
-.wb-meta>.wb-free svg{display:inline-block;vertical-align:-2px}
+.wb-meta>.wb-free svg, .wb-meta>.wb-free img.ico-img{display:inline-block;vertical-align:-2px}
 .wb-plat .cx-toggle{flex:none;width:auto;margin:0 0 0 auto;padding:0 2px;border:0;border-radius:0;background:none;font-size:.78rem;font-weight:700;line-height:1.4}
 .wb-plat.cx-open .cx-body p{display:block;-webkit-line-clamp:unset;overflow:visible}
 .pm-note.cx-clip-host{padding:8px 12px}
@@ -3137,12 +3148,23 @@ body.is-home .home-howto span.home-step-ico > svg,
 .home-step-ico > svg,
 .sh-ico > svg,
 .nav-ico > svg,
-.card-ico > svg {
+.card-ico > svg,
+body.is-home .home-howto span.home-step-ico > img.ico-img,
+.home-step-ico > img.ico-img,
+.sh-ico > img.ico-img,
+.nav-ico > img.ico-img,
+.card-ico > img.ico-img {
   display: block;
   margin: 0;
   vertical-align: top;
   align-self: center;
   justify-self: center;
+}
+.home-path-label img.ico-img,
+.site-links a img.ico-img,
+.nav-start-today img.ico-img {
+  align-self: center;
+  object-fit: contain;
 }
 
 /* Phase 24 · 来源组件 */

@@ -640,6 +640,10 @@ html[data-theme="pixel"] .hero-top3-row {
 html[data-theme="ink"] .ico .ia { opacity: .28; }
 html[data-theme="pixel"] .ico-pack-pixel .ia { opacity: .34; }
 html[data-theme="pixel"] .ico-pack-pixel { shape-rendering: crispEdges; }
+html[data-theme="pixel"] .ico-img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
 
 html[data-theme="ink"] .home-path-label .ico { color: #292524; opacity: 1; }
 html[data-theme="ocean"] .home-path-label .ico { color: #0e7490; opacity: 1; }
