@@ -114,6 +114,17 @@
       '</aside><article class="doc-body md">' +
       '<div class="doc-meta">' + (g ? '<span class="card-ico">' + Nv.icon(g.icon) + '</span>' : '') + '<span>' + esc(docTitle(id, isDev)) + '</span>' + related + '</div>' +
       r.html + '<div class="doc-end"><a class="btn btn-sm" href="' + back + '">' + Nv.icon('arrowLeft') + '返回' + backLabel + '</a></div></article></div>';
+    if (!isDev && g && !g.href && global.QuestXianyuCard) {
+      var metaEl = root.querySelector('.doc-meta');
+      var slot = document.createElement('div');
+      slot.className = 'xy-card-slot';
+      if (metaEl && metaEl.parentNode) metaEl.parentNode.insertBefore(slot, metaEl.nextSibling);
+      else {
+        var art = root.querySelector('.doc-body');
+        if (art) art.insertBefore(slot, art.querySelector('.doc-end') || null);
+      }
+      global.QuestXianyuCard.mount(slot, { guideId: id, allowPick: false });
+    }
     root.querySelectorAll('.doc-toc a').forEach(function (a) {
       a.addEventListener('click', function (e) {
         e.preventDefault();

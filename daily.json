@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-25T00:33:30.944Z",
-  "latestId": 47,
+  "generatedAt": "2026-10-25T09:07:39.413Z",
+  "latestId": 48,
   "latestDate": "2026-10-25",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 48,
+      "date": "2026-10-25",
+      "tag": "新功能",
+      "title": "攻略详情与作战页可生成闲鱼方案上架卡",
+      "items": [
+        "手册详情页和作战日程可折叠「生成闲鱼上架卡」：根据站内手册本地生成标题、3 条卖点、交付物和原文来源链接",
+        "各段一键复制，也可复制全部（含固定合规提示）。草稿只存在本机浏览器，不调用外部 AI"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#guides"
+    },
     {
       "id": 47,
       "date": "2026-10-25",
@@ -36,7 +47,7 @@
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     },
-{
+    {
       "id": 45,
       "date": "2026-10-24",
       "tag": "改进",
@@ -117,28 +128,6 @@
         "No.3 云南「彩云美物」商圈商超周六消费券：10月24日支付宝/京东再发一轮"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 38,
-      "date": "2026-10-19",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-19",
-      "items": [
-        "No.1 双11明天20:00开卖前夜：尾款提醒+88VIP券自选+免定卡凑单攻略",
-        "No.2 上海普陀「乐购普陀」云闪付消费券：下一轮10月23日周五10:00开抢",
-        "No.3 云南「彩云美物」商圈商超周六消费券：10月24日支付宝/京东再发一轮"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 37,
-      "date": "2026-10-18",
-      "tag": "新功能",
-      "title": "新增「闲鱼零成本方案」合集：11 个可零成本起步的非实物方案，附来源与闲鱼规则提醒",
-      "items": [
-        "新增「闲鱼零成本方案」合集：11 个可零成本起步的非实物方案，附来源与闲鱼规则提醒"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-xianyu"
     }
   ],
   "rank": {

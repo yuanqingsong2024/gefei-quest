@@ -289,6 +289,7 @@
           <a class="btn ${meta.showStarter ? 'btn-sm' : 'btn-primary btn-sm'}" href="${meta.playbookHref}">阅读本站手册</a>
           <button type="button" class="btn btn-sm" id="war-goto-quest">在学习路线查看</button>
         </div>
+        ${meta.playbookHref ? '<div class="xy-card-slot war-xy-slot"></div>' : ''}
       </div>
       ${
         stationLocked
@@ -323,6 +324,11 @@
     const gotoBtn = root.querySelector('#war-goto-quest');
     if (gotoBtn && handlers && handlers.onGotoQuest) {
       gotoBtn.addEventListener('click', () => handlers.onGotoQuest(station));
+    }
+    const xySlot = root.querySelector('.war-xy-slot');
+    if (xySlot && global.QuestXianyuCard && meta.playbookHref) {
+      const m = String(meta.playbookHref).match(/#guide-([A-Za-z0-9_-]+)/);
+      global.QuestXianyuCard.mount(xySlot, { guideId: m ? m[1] : '', allowPick: true });
     }
   }
 
