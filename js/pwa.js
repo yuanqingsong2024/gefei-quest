@@ -140,9 +140,11 @@
     navigator.serviceWorker.register('./sw.js').then(track).catch(function () {});
   }
 
+  var reloadedOnce = false;
   if (navigator.serviceWorker) {
     navigator.serviceWorker.addEventListener('controllerchange', function () {
-      if (!armReload) return;
+      if (reloadedOnce) return;
+      reloadedOnce = true;
       armReload = false;
       global.location.reload();
     });

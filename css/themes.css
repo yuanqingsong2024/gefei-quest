@@ -630,6 +630,7 @@ html[data-theme="pixel"] .hero-top3,
 html[data-theme="pixel"] .home-path-side,
 html[data-theme="pixel"] .theme-switcher,
 html[data-theme="pixel"] .theme-chip,
+html[data-theme="pixel"] .nav-theme-btn,
 html[data-theme="pixel"] .nav-mine-btn,
 html[data-theme="pixel"] .hero-top3-no,
 html[data-theme="pixel"] .hero-top3-row {
@@ -761,45 +762,77 @@ html[data-theme="pixel"] .home-path-node.is-done:not(:last-child)::after {
   background-image: repeating-linear-gradient(to bottom, #3f2e22 0 4px, transparent 4px 8px);
 }
 
-/* ---------- 主题切换控件 ---------- */
-.theme-switcher {
+/* ---------- 主题切换：顶栏「换风格」按钮 + 弹出三项 ---------- */
+#theme-switcher {
+  display: flex;
+  position: relative;
+  flex: none;
+  align-items: center;
+}
+.nav-theme-btn {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  flex: none;
-  padding: 2px;
+  justify-content: center;
+  gap: 4px;
+  width: auto;
+  height: auto;
+  min-height: 34px;
+  margin: 0;
+  padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav-theme-btn:hover,
+.nav-theme.is-open > .nav-theme-btn,
+.nav-theme.is-active > .nav-theme-btn {
+  color: var(--gold-text);
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 10%, var(--panel));
+}
+.theme-popover {
+  min-width: 200px;
+  right: 0;
+  left: auto;
+  padding: 8px;
 }
 .theme-chip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   margin: 0;
-  padding: 4px 10px 4px 6px;
-  border-radius: 999px;
+  padding: 8px 10px;
+  border-radius: 10px;
   border: 1px solid transparent;
   background: transparent;
-  color: var(--muted);
+  color: var(--ink);
   font: inherit;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.2;
   cursor: pointer;
   white-space: nowrap;
+  width: 100%;
+  justify-content: flex-start;
 }
 .theme-chip:hover { color: var(--ink); background: color-mix(in srgb, var(--gold) 8%, transparent); }
 .theme-chip.is-active {
-  color: var(--ink);
-  background: var(--panel);
-  border-color: var(--line);
-  box-shadow: var(--shadow);
+  color: var(--gold-text);
+  background: color-mix(in srgb, var(--gold) 12%, var(--panel));
+  border-color: color-mix(in srgb, var(--gold) 40%, var(--line));
+  box-shadow: none;
 }
 .theme-swatch {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
   border: 1px solid rgba(28, 25, 23, 0.18);
   flex: none;
 }
@@ -807,7 +840,15 @@ html[data-theme="pixel"] .home-path-node.is-done:not(:last-child)::after {
 .theme-swatch-ocean { background: linear-gradient(135deg, #e0f2fe 40%, #0891b2 41%); }
 .theme-swatch-pixel { background: linear-gradient(135deg, #f5f0e6 30%, #38bdf8 31% 62%, #f9a8d4 63%); }
 .theme-short { display: none; }
-.nav-theme-group { display: none; }
+.nav-theme-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  padding: 4px 4px 8px;
+  margin: 0 0 6px;
+  border-bottom: 1px solid var(--line);
+}
 .nav-theme-kicker {
   margin: 2px 4px 4px;
   font-size: 12px;
@@ -815,35 +856,18 @@ html[data-theme="pixel"] .home-path-node.is-done:not(:last-child)::after {
   letter-spacing: 0.08em;
   color: var(--muted);
 }
+.nav-theme-group .theme-chip {
+  width: 100%;
+  justify-content: flex-start;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.nav-theme-group .theme-name { display: inline; }
+.nav-theme-group .theme-short { display: none; }
 
-@media (max-width: 1180px) {
-  .theme-switcher .theme-name { display: none; }
-  .theme-switcher .theme-short { display: inline; }
-  .theme-switcher .theme-chip { padding: 4px 8px 4px 5px; }
-}
-@media (max-width: 760px) {
-  .theme-switcher .theme-short { display: none; }
-  .theme-switcher .theme-chip { padding: 5px; }
-}
 @media (max-width: 640px) {
-  #theme-switcher { display: none; }
-  .nav-theme-group {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-    padding: 4px 4px 8px;
-    margin: 0 0 6px;
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-theme-group .theme-chip {
-    width: 100%;
-    justify-content: flex-start;
-    padding: 8px 10px;
-    border-radius: 10px;
-  }
-  .nav-theme-group .theme-name { display: inline; }
-  .nav-theme-group .theme-short { display: none; }
+  #theme-switcher { display: flex; }
+  .nav-theme-btn { padding: 6px 10px; font-size: 12px; }
 }
 
 /* ---------- 首页主视觉：主题插画铺在标题和路径后面 ---------- */
@@ -946,4 +970,88 @@ html[data-theme] .home-hero-stage .hero-top3-row:hover {
     background-position: top center, top center, top center;
     background-repeat: no-repeat, no-repeat, no-repeat;
   }
+}
+
+/* ---------- 内页：作战日程 / 路线 / 赚钱榜 / 我的 / 弹层 / 导览 ---------- */
+html[data-theme] .war-quest,
+html[data-theme] .kit-checks li,
+html[data-theme] .kit-tpl,
+html[data-theme] .kw-item,
+html[data-theme] .idea-col,
+html[data-theme] .idea-chip,
+html[data-theme] .page-hint,
+html[data-theme] .backup-reminder,
+html[data-theme] .tour-card,
+html[data-theme] .qa-panel,
+html[data-theme] .qa-bot,
+html[data-theme] .qa-input,
+html[data-theme] .ai-out,
+html[data-theme] .ai-switch,
+html[data-theme] .ai-switch select,
+html[data-theme] .toast,
+html[data-theme] .input {
+  background: var(--panel);
+  color: var(--ink);
+  border-color: var(--line);
+}
+html[data-theme] .war-quest { background: var(--panel2); }
+html[data-theme] .idea-chip { background: var(--panel2); }
+html[data-theme] .page-hint,
+html[data-theme] .backup-reminder { background: var(--panel2); }
+html[data-theme] .page-hint p,
+html[data-theme] .page-hint b,
+html[data-theme] .backup-reminder p,
+html[data-theme] .tour-card,
+html[data-theme] .tour-card p,
+html[data-theme] .tour-never,
+html[data-theme] .qa-head h2,
+html[data-theme] .qa-sub,
+html[data-theme] .qa-empty,
+html[data-theme] .qa-close,
+html[data-theme] .start-lead,
+html[data-theme] .start-card small,
+html[data-theme] .start-steps,
+html[data-theme] .start-days li,
+html[data-theme] #start-progress,
+html[data-theme] .idea-col h3,
+html[data-theme] .idea-panel .hint,
+html[data-theme] .idea-status,
+html[data-theme] .idea-msg,
+html[data-theme] .kw-name,
+html[data-theme] .ai-mode b,
+html[data-theme] .ai-mode small,
+html[data-theme] .ai-agent p,
+html[data-theme] .home-path-side h2 {
+  color: var(--ink);
+}
+html[data-theme] .page-hint p,
+html[data-theme] .tour-card p,
+html[data-theme] .qa-sub,
+html[data-theme] .start-card small,
+html[data-theme] .start-steps,
+html[data-theme] .start-days li,
+html[data-theme] #start-progress,
+html[data-theme] .ai-mode small,
+html[data-theme] .ai-agent p { color: var(--muted); }
+html[data-theme] .tour-card h2,
+html[data-theme] .start-lead,
+html[data-theme] .start-card b,
+html[data-theme] .qa-head h2 { color: var(--gold-text); }
+html[data-theme] .qa-close {
+  background: var(--panel2);
+  color: var(--ink);
+  border-color: var(--line);
+}
+html[data-theme] .qa-close:hover { background: var(--panel); color: var(--ink); }
+html[data-theme] .qa-actions .btn { background: var(--panel2); color: var(--ink); border-color: var(--line); }
+html[data-theme] .heatmap rect,
+html[data-theme] .hm-legend i { fill: var(--panel2); background: var(--panel2); stroke: var(--line); }
+html[data-theme] .tabs,
+html[data-theme] .cx-tabs,
+html[data-theme] .sub-tabs { background: var(--panel); color: var(--ink); }
+html[data-theme] .nav-theme-btn,
+html[data-theme] .theme-popover {
+  background: var(--panel);
+  color: var(--ink);
+  border-color: var(--line);
 }

@@ -6,6 +6,7 @@
     <title>出海小站练站营</title>
     <meta name="description" content="本地关卡式出海 SEO 练站打卡：学习路线 · 7 天作战日程 · 资源库 · 手册与模板。" />
     <meta name="theme-color" content="#fafaf8" />
+    <meta name="color-scheme" content="light" />
     <script>
       (function () {
         var colors = { ink: "#fafaf8", ocean: "#e0f2fe", pixel: "#f5f0e6" };
@@ -13,8 +14,10 @@
         try {
           var s = localStorage.getItem("gefei-theme");
           if (s === "ink" || s === "ocean" || s === "pixel") t = s;
+          else if (s) localStorage.removeItem("gefei-theme");
         } catch (e) {}
         document.documentElement.setAttribute("data-theme", t);
+        document.documentElement.style.colorScheme = "light";
         var m = document.querySelector('meta[name="theme-color"]');
         if (m) m.setAttribute("content", colors[t]);
       })();
@@ -59,7 +62,7 @@
       </main>
       <footer class="site-footer" id="site-footer"></footer>
     </div>
-    <noscript><p style="padding:2rem;color:#fff">本站需要启用 JavaScript。</p></noscript>
+    <noscript><p style="padding:2rem;color:#1c1917">本站需要启用 JavaScript。</p></noscript>
 
     <script src="js/icons.js"></script>
     <script src="js/theme.js"></script>

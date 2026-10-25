@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-24T15:58:46.426Z",
-  "latestId": 45,
-  "latestDate": "2026-10-24",
+  "generatedAt": "2026-10-25T00:33:30.944Z",
+  "latestId": 46,
+  "latestDate": "2026-10-25",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 46,
+      "date": "2026-10-25",
+      "tag": "改进",
+      "title": "全站改为浅色三主题，顶栏可换风格",
+      "items": [
+        "水墨纸 / 海岸青 / 像素暖沙都是浅色。顶栏「🎨 换风格」在手机和电脑都能打开",
+        "新版本安装后会自动刷新，不必再点「有新版本」"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 45,
       "date": "2026-10-24",
@@ -116,16 +127,6 @@
         "新增「闲鱼零成本方案」合集：11 个可零成本起步的非实物方案，附来源与闲鱼规则提醒"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-xianyu"
-    },
-    {
-      "id": 36,
-      "date": "2026-10-18",
-      "tag": "新功能",
-      "title": "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选",
-      "items": [
-        "赚钱榜支持「闲鱼方案」：羊毛条目可附带可卖的原创攻略方向、目标买家和到期下架日；新增筛选"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
