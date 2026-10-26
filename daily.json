@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-26T00:37:12.886Z",
-  "latestId": 49,
+  "generatedAt": "2026-10-26T05:18:11.177Z",
+  "latestId": 50,
   "latestDate": "2026-10-26",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 50,
+      "date": "2026-10-26",
+      "tag": "内容",
+      "title": "AI生活合集新增「早晨出门秘书」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：7:30 一句话搞定日历冲突、通勤预估、今日重点；含公众号结构、可复制提示词、小红书与闲鱼模板角度",
+        "附 Digital Today / Engadget / Google Gemini 帮助来源；不承诺收益，不卖账号代开通代领"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 49,
       "date": "2026-10-26",
@@ -116,18 +127,6 @@
         "新增「AI生活起号选题方案」合集：10 个场景选题与可卖的原创日历/提示词包角度，附来源与合规提醒"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 40,
-      "date": "2026-10-21",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-21",
-      "items": [
-        "No.1 福建「有口福」第四轮：今天起摇号中签，准备10/24起核销清单",
-        "No.2 双11正式期第一天：价保窗口+国补叠加核对表（别只盯开卖夜）",
-        "No.3 湖南「乐享湖南·湘当有惠」：支付宝碰一下零售立减+多平台餐饮券仍在发"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
