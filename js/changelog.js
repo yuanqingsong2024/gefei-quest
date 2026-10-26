@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 49, date: '2026-10-26', title: 'AI生活合集新增「早晨出门秘书」场景文选题', tag: '内容', href: '#war-rank-ai-life',
+      items: ['「AI生活起号选题方案」合集置顶新增：7:30 一句话搞定日历冲突、通勤预估、今日重点；含公众号结构、可复制提示词、小红书与闲鱼模板角度', '附 Digital Today / Engadget / Google Gemini 帮助来源；不承诺收益，不卖账号代开通代领'] },
     { id: 48, date: '2026-10-25', title: '攻略详情与作战页可生成闲鱼方案上架卡', tag: '新功能', href: '#guides',
       items: ['手册详情页和作战日程可折叠「生成闲鱼上架卡」：根据站内手册本地生成标题、3 条卖点、交付物和原文来源链接', '各段一键复制，也可复制全部（含固定合规提示）。草稿只存在本机浏览器，不调用外部 AI'] },
     { id: 47, date: '2026-10-25', title: '全站改为浅色三主题，顶栏可换风格', tag: '改进', href: '#home',
