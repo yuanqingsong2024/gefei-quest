@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 49, date: '2026-10-26', title: '每日赚钱榜 · 2026-10-26', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止","No.2 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止","No.3 B站「不普通影视计划2026」：影视区挂话题投稿，每周开奖可叠加子活动激励"] },
     { id: 48, date: '2026-10-25', title: '攻略详情与作战页可生成闲鱼方案上架卡', tag: '新功能', href: '#guides',
       items: ['手册详情页和作战日程可折叠「生成闲鱼上架卡」：根据站内手册本地生成标题、3 条卖点、交付物和原文来源链接', '各段一键复制，也可复制全部（含固定合规提示）。草稿只存在本机浏览器，不调用外部 AI'] },
     { id: 47, date: '2026-10-25', title: '全站改为浅色三主题，顶栏可换风格', tag: '改进', href: '#home',

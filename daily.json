@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-25T09:07:39.413Z",
-  "latestId": 48,
-  "latestDate": "2026-10-25",
+  "generatedAt": "2026-10-26T00:37:12.886Z",
+  "latestId": 49,
+  "latestDate": "2026-10-26",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 49,
+      "date": "2026-10-26",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-26",
+      "items": [
+        "No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止",
+        "No.2 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
+        "No.3 B站「不普通影视计划2026」：影视区挂话题投稿，每周开奖可叠加子活动激励"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 48,
       "date": "2026-10-25",
@@ -116,42 +128,30 @@
         "No.3 湖南「乐享湖南·湘当有惠」：支付宝碰一下零售立减+多平台餐饮券仍在发"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 39,
-      "date": "2026-10-20",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-20",
-      "items": [
-        "No.1 今晚20:00双11正式开卖：天猫尾款+88VIP券开用+京东超级秒杀日",
-        "No.2 虹口「白相来虹口」云闪付零售立减：每天08:00–23:00无需抢券",
-        "No.3 云南「彩云美物」商圈商超周六消费券：10月24日支付宝/京东再发一轮"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-10-25",
+    "date": "2026-10-26",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "PayPal AI Hackathon：用 PayPal API + AI 做支付/代理商务项目，现金奖约6.75万美元，11月12日截止",
+        "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止",
         "type": "奖金赛/悬赏",
-        "source_url": "https://paypalaihackathon.devpost.com/"
+        "source_url": "https://twitchcon-codex.devpost.com/"
       },
       {
         "rank": 2,
-        "name": "UGREEN AI NAS 黑客松：第一轮只交想法 PDF + 技能包，不需要 NAS，现金奖池4.6万美元",
+        "name": "Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
         "type": "奖金赛/悬赏",
-        "source_url": "https://ugreenhackathon.devpost.com/"
+        "source_url": "https://nebiusglobalaihackathon.devpost.com/"
       },
       {
         "rank": 3,
-        "name": "《明日方舟：终末地》「丹青渡」多平台创作征集：B站/抖音/小红书投稿瓜分现金",
+        "name": "B站「不普通影视计划2026」：影视区挂话题投稿，每周开奖可叠加子活动激励",
         "type": "平台激励",
-        "source_url": "https://endfield.hypergryph.com/news/9326"
+        "source_url": "https://www.bilibili.com/opus/1248206857356443648"
       }
     ]
   }

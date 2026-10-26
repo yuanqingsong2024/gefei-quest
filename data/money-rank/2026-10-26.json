@@ -1,0 +1,385 @@
+{
+  "date": "2026-10-26",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止",
+      "type": "奖金赛/悬赏",
+      "summary": "Devpost 上 OpenAI 与 Twitch 合办线上赛，个人可参赛，当前报名约六百人，距截止约一周。",
+      "cost": "0；需 Codex 与 Twitch 开发者账号",
+      "difficulty": 3,
+      "threshold": "能用 Codex 做出连接 Twitch API/聊天/EventSub 的可运行 Demo，并录演示视频",
+      "time": "约1周，每天2–4小时",
+      "fit": "会做 Web/机器人或直播互动工具的开发者；预估投入：约1周业余时间",
+      "why": "Devpost 官方页显示：截止 2026-11-02 下午（太平洋时间），现金奖池2.5万美元（一等奖1万美元，前五名可登 TwitchCon 舞台），资格为本国成年且排除公司团队，全球多数地区可参加。当前参赛人数约六百人，远低于同期大型赛。上榜理由：时间紧但竞争小，适合本周集中交付。",
+      "steps": [
+        "打开 twitchcon-codex.devpost.com 读规则与排除地区，注册并记下 Codex Session ID",
+        "选一个方向（观众互动、主播协作或内容增强），用 Twitch API + Codex 做最小可用 Demo",
+        "截止前提交仓库、3 分钟内演示视频与项目说明，留出一天缓冲"
+      ],
+      "risk": "风险等级：中。不保证获奖；须按规则披露 Codex 使用并遵守 Twitch 开发者条款。不承诺收益。",
+      "risk_level": "中",
+      "reason": "今天仍开放的现金赛里参赛人数最少、单人可交的一个。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "Twitch",
+        "Codex",
+        "OpenAI"
+      ],
+      "sources": [
+        {
+          "title": "Codex x TwitchCon Hackathon: Build for streamers and their community on Twitch with OpenAI Codex",
+          "url": "https://twitchcon-codex.devpost.com/",
+          "publisher": "Devpost / OpenAI / Twitch",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://twitchcon-codex.devpost.com/"
+    },
+    {
+      "rank": 2,
+      "name": "Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
+      "type": "奖金赛/悬赏",
+      "summary": "线上公开赛，个人或组队，须在 Nebius Token Factory/AI Cloud 上调用 NVIDIA 开源模型，距截止仅约四天。",
+      "cost": "0；需 Nebius 账号与自备算力/额度",
+      "difficulty": 4,
+      "threshold": "能在截止前交出可运行 Demo、公开仓库与 3 分钟演示视频",
+      "time": "紧急：约3–4天集中冲刺",
+      "fit": "已有 AI Agent/应用半成品、能快速接 Nebius API 的开发者；预估投入：本周每天4小时以上",
+      "why": "Devpost 官方页：截止 2026-10-30 上午（太平洋时间），现金奖池约5万美元（一等奖2万美元），另有赛道奖与 Tavily 单项现金；资格为本国成年、全球多数地区。须使用至少一款 NVIDIA 开源模型并跑在 Nebius 上。上榜理由：本周最后窗口的大额现金赛，有半成品的人今天就该动手。",
+      "steps": [
+        "打开 nebiusglobalaihackathon.devpost.com 核对资格与赛道，注册并领 Token Factory 额度",
+        "把现有半成品接到 Nebius + Nemotron，选一个赛道做成可演示闭环",
+        "准备公开仓库（含开源协议与 README）、演示链接与不超过 3 分钟视频，10月30日前提交"
+      ],
+      "risk": "风险等级：高。截止极近、参赛者众多，不保证获奖；须遵守官方规则与地区限制。不承诺收益。",
+      "risk_level": "高",
+      "reason": "本周内截止的大额现金赛，只适合已有半成品、能立刻交付的人。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "NVIDIA",
+        "Nebius",
+        "紧急"
+      ],
+      "sources": [
+        {
+          "title": "Nebius x NVIDIA Global AI Hackathon: Build the next frontier of AI on open infrastructure",
+          "url": "https://nebiusglobalaihackathon.devpost.com/",
+          "publisher": "Devpost / Nebius / NVIDIA",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://nebiusglobalaihackathon.devpost.com/"
+    },
+    {
+      "rank": 3,
+      "name": "B站「不普通影视计划2026」：影视区挂话题投稿，每周开奖可叠加子活动激励",
+      "type": "平台激励",
+      "summary": "官方影视创作征集，投稿至11月30日，设观点/宝藏/创意/黑马等奖与每周瓜分奖池。",
+      "cost": "0；有剪辑工具与影视区账号即可",
+      "difficulty": 2,
+      "threshold": "在影视区发≥10秒原创视频并勾选活动话题",
+      "time": "每条作品1–3小时；活动期内可持续投稿",
+      "fit": "会做影评、拉片、二创剪辑的 UP 主；预估投入：每周3–5小时",
+      "why": "B站官方动态（2026-10-16 更新）写明：投稿期至 2026-11-30，每周开奖；单项奖每周 TOP3 各约600元贝壳，另有每周5000元瓜分奖（当周投稿且单条播放≥1000）；可与站内子活动奖励叠加。上榜理由：规则清晰、每周都有开奖窗口，适合本周就发一条试水。",
+      "steps": [
+        "读官方活动帖，记下必挂话题、赛道与稿件无效情形",
+        "先做一条观点鲜明的影评或拉片，投稿影视区并勾选活动话题",
+        "关注每周开奖与站内信，达标后可再投系列稿叠加子活动"
+      ],
+      "risk": "风险等级：低。奖励以贝壳等形式按规则发放，热门赛道竞争大；须原创，禁止作弊手段。不承诺收益。",
+      "risk_level": "低",
+      "reason": "国内平台激励里本周仍开放、规则写得最清楚的一个。",
+      "tags": [
+        "平台激励",
+        "B站",
+        "影视创作",
+        "每周开奖"
+      ],
+      "sources": [
+        {
+          "title": "不普通影视计划2026，上！线！啦！",
+          "url": "https://www.bilibili.com/opus/1248206857356443648",
+          "publisher": "哔哩哔哩 / 哔斯卡金像奖",
+          "published": "2026-10-16",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://www.bilibili.com/opus/1248206857356443648"
+    },
+    {
+      "rank": 4,
+      "name": "Framer Creator Program：上架模板拿 100% 售价，还可靠 remix 链接拿订阅推荐佣金",
+      "type": "出海新词",
+      "summary": "Framer 官方创作者计划：Marketplace 卖付费模板自留全款；模板 remix 带来的合资格订阅可拿推荐佣金。",
+      "cost": "0 起；需 Framer 账号，付费站点功能以官网定价为准",
+      "difficulty": 3,
+      "threshold": "能做出可发布的落地页/作品集模板，并写清英文说明",
+      "time": "首个模板3–7天；之后每周迭代与推广",
+      "fit": "会做落地页、作品集或营销站的设计师/前端；预估投入：每周5–8小时",
+      "why": "Framer 官方帮助中心（2026-09-15 更新）写明：付费模板销售收入创作者保留 100%；通过模板 remix 链接带来的合资格自助订阅可拿推荐佣金；发布 Marketplace 产品即可自动加入创作者计划。10月25日 Product Hunt 上也有 Framer AI Agents 等更新热度。变现路径：做细分场景英文模板上架，用 remix 链接在推特/短视频引流。上榜理由：售价全留 + 订阅佣金双路径，和出海小站主题互补。",
+      "steps": [
+        "读官方 Creator Program 说明，注册并熟悉 Marketplace 发布流程",
+        "做一个细分场景模板（如 AI 工具落地页、独立开发者作品集），设合理付费价或先免费引流",
+        "用 Links 面板跟踪 remix 与转化，在社媒持续发改版案例"
+      ],
+      "risk": "风险等级：中。模板审核与佣金规则以官方为准；企业订阅不计推荐佣金；竞争随 Framer 热度上升。不承诺收益。",
+      "risk_level": "中",
+      "reason": "今天仍可立刻上架的海外模板变现路径，规则写清「售价 100% 归创作者」。",
+      "tags": [
+        "出海新词",
+        "Framer",
+        "模板",
+        "联盟佣金"
+      ],
+      "sources": [
+        {
+          "title": "How the Creator Program works",
+          "url": "https://www.framer.com/help/articles/how-the-creator-program-works/",
+          "publisher": "Framer Help",
+          "published": "2026-09-15",
+          "kind": "official",
+          "checked": "2026-10-26"
+        },
+        {
+          "title": "Best of Product Hunt: October 25, 2026",
+          "url": "https://www.producthunt.com/leaderboard/daily/2026/10/25",
+          "publisher": "Product Hunt",
+          "published": "2026-10-25",
+          "kind": "community",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://www.framer.com/help/articles/how-the-creator-program-works/"
+    },
+    {
+      "rank": 5,
+      "name": "Railway Affiliate：写部署教程/对比文，推荐付费用户拿首年账单 15% 佣金",
+      "type": "联盟营销",
+      "summary": "Railway 官方联盟：被推荐用户获 $20 额度，你对其首 12 个月账单拿 15% 佣金，可提现到 GitHub Sponsors 等。",
+      "cost": "0；需有可展示的技术内容渠道",
+      "difficulty": 2,
+      "threshold": "有 Railway 账号，能持续产出部署/云主机相关内容",
+      "time": "开通链接半天；内容积累需数周",
+      "fit": "做独立开发、部署教程、SaaS 基建内容的博主；预估投入：每周3–5小时",
+      "why": "Railway 官方文档写明：从你的推荐链接注册的用户获 $20 额度；成为付费客户后，你对其首 12 个月账单拿 15% 佣金；可在 Earnings 页申请提现到 GitHub Sponsors 或 Buy Me a Coffee。上榜理由：佣金比例清晰、和出海小站/SaaS 教程天然契合，开通成本为零。",
+      "steps": [
+        "登录 Railway，在 Refer/推荐页复制专属链接",
+        "写「Railway 部署 Next.js」「Railway vs 其他 PaaS」等教程，按要求披露推广关系",
+        "在 Earnings 页跟踪转化，达提现条件后按官方指引提现"
+      ],
+      "risk": "风险等级：低。须如实披露推广关系；佣金依赖被推荐方持续付费，转化周期不定。不承诺收益。",
+      "risk_level": "低",
+      "reason": "SaaS 联盟里规则透明、和开发者内容匹配度高的一个。",
+      "tags": [
+        "联盟营销",
+        "Railway",
+        "部署教程",
+        "SaaS"
+      ],
+      "sources": [
+        {
+          "title": "Affiliate Program",
+          "url": "https://docs.railway.com/community/affiliate-program",
+          "publisher": "Railway Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://docs.railway.com/community/affiliate-program"
+    },
+    {
+      "rank": 6,
+      "name": "Notion Marketplace：上架原创模板，经 Stripe 收款（平台约 8%+$0.40/笔）",
+      "type": "数字产品/接单",
+      "summary": "Notion 官方模板市场支持付费上架；也可用第三方收款链接先卖，适合做清单、内容日历、CRM 等模板。",
+      "cost": "0；付费直销需 Stripe 入驻（部分国家需排队审核）",
+      "difficulty": 2,
+      "threshold": "能做出解决具体问题的 Notion 工作区并写清英文/中文说明",
+      "time": "首个模板2–5天；审核与迭代视情况数周",
+      "fit": "熟练 Notion、能把流程固化成模板的人；预估投入：每周4–6小时",
+      "why": "Notion 官方帮助中心说明：可在 Marketplace 上架免费或付费模板；经 Notion 收款时平台收取约 8% 加每笔 40 美分，双周结算、最低约 $20；也支持外链第三方收款。上榜理由：一次制作可反复卖，中文模板在本地语言市场仍有差异化空间。",
+      "steps": [
+        "在 app.notion.com/profile 建创作者资料，把模板发布为 Notion Site 并开启 Duplicate as template",
+        "按官方流程提交 Marketplace，付费版先申请 Stripe 或外链 Gumroad 等",
+        "根据浏览与复制数据迭代说明与封面，再做系列模板"
+      ],
+      "risk": "风险等级：低。Stripe 直销有国家名单与审核等待；模板须原创且可复制内容完整。不承诺收益。",
+      "risk_level": "低",
+      "reason": "数字产品里上手快、平台自带流量的路径之一。",
+      "tags": [
+        "数字产品",
+        "Notion",
+        "模板",
+        "反复卖"
+      ],
+      "sources": [
+        {
+          "title": "Sell templates on Notion Marketplace",
+          "url": "https://www.notion.com/help/selling-on-marketplace",
+          "publisher": "Notion Help",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://www.notion.com/help/selling-on-marketplace"
+    },
+    {
+      "rank": 7,
+      "name": "Canva Creators：申请成为模板创作者，作品被使用即可拿版税分成",
+      "type": "数字产品/接单",
+      "summary": "Canva 官方创作者计划，通过作品集申请后可向全球模板库投稿，按使用量参与版税池分成。",
+      "cost": "0；需准备 5–10 件可公开展示的设计作品集",
+      "difficulty": 3,
+      "threshold": "有扎实平面/社媒/演示文稿设计功底，作品须原创且非纯 AI 生成",
+      "time": "准备作品集3–7天；审核可能需数周到数月",
+      "fit": "会做海报、社媒套图、演示模板的设计师；预估投入：每周5–8小时产出",
+      "why": "Canva 官方 Creators 页写明：模板创作者需提交作品集申请；通过后可向 Marketplace 发布模板，用户使用即可获得版税；Element 创作者申请目前暂停，模板创作者仍可申请。上榜理由：一次上架可持续产生使用分成，适合设计能力强、愿批量产出的人。",
+      "steps": [
+        "整理 5–10 件可公开访问的原创作品链接，按官方要求申请 Template Creator",
+        "通过后阅读设计规范，按主题批量做可定制模板并提交审核",
+        "用创作者后台看使用与导出数据，保留高表现题材持续扩展"
+      ],
+      "risk": "风险等级：中。需通过申请，审核周期不定；明显 AI 生成内容会被拒；分成与使用量挂钩。不承诺收益。",
+      "risk_level": "中",
+      "reason": "设计向数字产品里平台流量最大的官方通道之一。",
+      "tags": [
+        "数字产品",
+        "Canva",
+        "模板",
+        "版税"
+      ],
+      "sources": [
+        {
+          "title": "Canva Creators: Share your designs with the world",
+          "url": "https://www.canva.com/creators/",
+          "publisher": "Canva",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://www.canva.com/creators/"
+    },
+    {
+      "rank": 8,
+      "name": "Cloudflare Pages：免费托管英文工具小站，验证流量后再接广告或联盟",
+      "type": "出海小站",
+      "summary": "用 Cloudflare Pages 直接上传或 Wrangler 部署静态站，适合单页工具/指南，全球 CDN 免费档可用。",
+      "cost": "0；可选买域名",
+      "difficulty": 2,
+      "threshold": "会基础 HTML/JS，或会用 AI 生成静态页面并打包上传",
+      "time": "首站半天到2天；SEO 与迭代每周2–3小时",
+      "fit": "想低成本试出海长尾词的人；预估投入：每周3小时",
+      "why": "Cloudflare 官方文档说明可通过 Direct Upload（拖拽或 Wrangler）把预构建静态资源部署到 Pages，站点落在 *.pages.dev，并支持后续自定义域名。玩法：挑一个长尾英文需求做单页工具，接 Search Console，有稳定访问后再申请广告或挂联盟链接。上榜理由：相对 GitHub Pages 多一种部署路径，拖拽即可上线，适合今天就试一个词。",
+      "steps": [
+        "按官方 Direct Upload 文档建 Pages 项目，拖拽或 wrangler pages deploy 上线",
+        "用关键词工具选一个长尾需求，做单页英文工具并写清 Privacy/About",
+        "提交 Google Search Console，流量稳定后再接广告或联盟"
+      ],
+      "risk": "风险等级：低。免费档有构建与文件数限制；广告审核与自然流量都不保证。不承诺收益。",
+      "risk_level": "低",
+      "reason": "出海小站里今天就能零成本上线的方案，和选词练习板直接配套。",
+      "tags": [
+        "出海小站",
+        "Cloudflare Pages",
+        "SEO",
+        "工具站"
+      ],
+      "sources": [
+        {
+          "title": "Direct Upload · Cloudflare Pages docs",
+          "url": "https://developers.cloudflare.com/pages/get-started/direct-upload/",
+          "publisher": "Cloudflare Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://developers.cloudflare.com/pages/get-started/direct-upload/"
+    },
+    {
+      "rank": 9,
+      "name": "闲鱼技能服务：求职简历优化与作品集排版，按件计价接单",
+      "type": "闲鱼非实物",
+      "summary": "在闲鱼发布自有技能的信息服务（简历润色、中英双语版、作品集 PDF 排版），按件或按岗位收费。",
+      "cost": "0；需实名与常用办公/排版软件",
+      "difficulty": 2,
+      "threshold": "能看懂岗位 JD，1–2 天内交付可用简历或作品集",
+      "time": "每单1–4小时；起步期每天1小时回复咨询",
+      "fit": "写过简历、做过作品集的上班族或应届生；预估投入：每周5小时",
+      "why": "闲鱼平台服务规则允许发布合法信息服务类商品；秋招/跳槽季对简历与作品集有稳定需求，交付物可沉淀成模板再卖。上榜理由：零成本即刻上架，和模板数字产品可叠加，不涉及账号券码代领。",
+      "steps": [
+        "阅读闲鱼平台服务协议，确认类目与禁发内容",
+        "准备 3–5 组改版前后对比图，写清岗位方向、修改次数、交付时长与报价",
+        "全程站内沟通与交易，交付后邀评，把高频结构做成可售模板另行上架"
+      ],
+      "risk": "风险等级：低。注意客户隐私；不接论文类违规、造假经历或侵权素材；站外交易易起纠纷。不承诺收益。",
+      "risk_level": "低",
+      "reason": "国内技能变现里季节性需求明确、可沉淀为模板的路径。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "简历",
+        "作品集"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
+          "publisher": "terms.alicdn.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
+    },
+    {
+      "rank": 10,
+      "name": "案例拆解：AgentOS 从失败支付产品转到帮创始人收款，作者自述两月约 $9.5k MRR——只拆方法",
+      "type": "案例拆解",
+      "summary": "Indie Hackers 10月6日访谈：Panche 在支付失败后 pivot，靠内容与一对一入职做到约 $9.5k 月经常性收入。",
+      "cost": "0 起；时间成本为主",
+      "difficulty": 4,
+      "threshold": "有产品或服务雏形，愿意先访谈用户再收费",
+      "time": "方法复盘1天；验证与冷启动需数周到数月",
+      "fit": "做 SaaS/工具、卡在获客与定价的独立开发者；预估投入：每周6–10小时",
+      "why": "据访谈作者自述（2026-10-06）：首款支付产品过早失败，pivot 后两人月内约 $9.5k MRR、400+ 注册与 1400+ 笔支付；自称 $0 广告，靠问题向内容与亲自 onboarding（个人说法，未核实）。可借鉴的方法：先写问题再推产品；收费从第一天起；收入与用户成功挂钩；早期做不可规模化的一对一。上榜理由：近期公开的获客与定价样本，和联盟、出海小站可交叉验证。",
+      "steps": [
+        "读原文，记下「问题优先内容」「第一天收费」「亲自 onboarding」三条做法",
+        "对本领域至少访谈 10–20 个潜在付费用户，确认愿付费的具体痛点",
+        "做最小收费方案上线，用内容引流，把高频问答沉淀成公开 playbook"
+      ],
+      "risk": "风险等级：低。收入为作者自述，不代表可复制；支付与合规因地区而异。不承诺收益。",
+      "risk_level": "低",
+      "reason": "方法可落地，适合正在做产品却缺获客节奏的人对照执行。",
+      "tags": [
+        "案例拆解",
+        "Indie Hackers",
+        "SaaS",
+        "获客"
+      ],
+      "sources": [
+        {
+          "title": "Starting from scratch and hitting $9.5k MRR in two months",
+          "url": "https://www.indiehackers.com/post/tech/starting-from-scratch-and-hitting-9-5k-mrr-in-two-months-j5pMaED5FEbKw8qmeyj9",
+          "publisher": "Indie Hackers",
+          "published": "2026-10-06",
+          "kind": "media",
+          "checked": "2026-10-26"
+        }
+      ],
+      "source_url": "https://www.indiehackers.com/post/tech/starting-from-scratch-and-hitting-9-5k-mrr-in-two-months-j5pMaED5FEbKw8qmeyj9"
+    }
+  ]
+}
