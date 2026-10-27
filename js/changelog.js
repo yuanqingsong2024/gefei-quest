@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 53, date: '2026-10-27', title: '平台变现详情改为大弹窗：列表只留摘要', tag: '改进', href: '#pm-cn-media',
+      items: ['平台卡不再「展开：分成规则…」折叠；短卡只留变现方式/门槛（海外含大陆可用性）与「查看详情」', '详情弹窗对齐赚钱榜大尺寸：分成规则、实操步骤路线图、适合谁、红线、来源；对比表深链 #pm-<分类>/<id> 直接打开弹窗'] },
     { id: 52, date: '2026-10-27', title: '新增「Agent 赚钱」榜：用 Agent 合法进账的可执行方案', tag: '新功能', href: '#war-rank-agent',
       items: ['独立于每日赚钱榜：短卡片 + 详情弹窗（agent_howto / agent_stack）；导航「赚钱 → Agent 赚钱」，数据来自 data/agent-money', '可收藏并加入实操计划。不承诺收益'] },
     { id: 51, date: '2026-10-27', title: '每日赚钱榜 · 2026-10-27', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止","No.2 B站「AI创造公开赛S2」：用大模型/vibe coding 做出可运行产品并投稿，一等奖税前100万元","No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"] },

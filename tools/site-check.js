@@ -487,8 +487,8 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   const vis = (pg, sel) => pg.evaluate(s => { const e = document.querySelector(s); return !!e && !!(e.offsetWidth || e.offsetHeight || e.getClientRects().length); }, sel);
   // 紧凑：赚钱榜分页
   await visit('war-rank'); await p.reload(); await p.waitForTimeout(300);
-  const rk = await p.evaluate(() => { const g = document.querySelector('#panel-war .rank-grid'); const c = [...g.querySelectorAll(':scope > .rank-card')]; return { all: c.length, shown: c.filter(x => !x.classList.contains('cx-off')).length, pager: !!document.querySelector('#panel-war .cx-pager'), tog: document.querySelectorAll('#panel-war .rank-card .cx-toggle').length }; });
-  T18(rk.all > 6 && rk.shown === 6 && rk.pager && rk.tog === rk.all, 'rank: paginate 6/page + per-card collapse (' + rk.shown + '/' + rk.all + ')');
+  const rk = await p.evaluate(() => { const g = document.querySelector('#panel-war .rank-grid'); const c = [...g.querySelectorAll(':scope > .rank-card')]; return { all: c.length, shown: c.filter(x => !x.classList.contains('cx-off')).length, pager: !!document.querySelector('#panel-war .cx-pager'), detail: document.querySelectorAll('#panel-war .rank-card [data-rank-detail]').length, tog: document.querySelectorAll('#panel-war .rank-card .cx-toggle').length }; });
+  T18(rk.all > 6 && rk.shown === 6 && rk.pager && rk.detail === rk.all && rk.tog === 0, 'rank: paginate 6/page + detail modal buttons (' + rk.shown + '/' + rk.all + ')');
   await p.click('#panel-war .cx-pager [data-pg="1"]'); await p.waitForTimeout(80);
   T18(await p.evaluate(() => { const c = [...document.querySelectorAll('#panel-war .rank-grid > .rank-card')]; return c[0].classList.contains('cx-off') && !c[6].classList.contains('cx-off'); }), 'rank: page 2 shows cards 7+');
   await p.click('#panel-war .cx-pager [data-pg="all"]'); await p.waitForTimeout(80);
@@ -501,12 +501,14 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T18(await p.evaluate(() => [...document.querySelectorAll('#res-sections > .res-section')].every(x => !x.classList.contains('cx-off'))), 'lib: 显示更多 reveals all categories (content preserved)');
   // 平台变现分类：标签 + 分页 + 深链接展开
   await visit('pm-cn-media'); await p.reload(); await p.waitForTimeout(300);
-  const pm = await p.evaluate(() => ({ tabs: [...document.querySelectorAll('#panel-lib .cx-tabs .cx-tab-btn')].map(b => b.textContent), cards: document.querySelectorAll('#panel-lib .pm-card').length, shown: [...document.querySelectorAll('#panel-lib .pm-card')].filter(x => !x.classList.contains('cx-off')).length, dl: document.querySelectorAll('#panel-lib .pm-card dl > .cx-body.cx-off').length, table: !!document.querySelector('#panel-lib .pm-table-wrap') }));
+  const pm = await p.evaluate(() => ({ tabs: [...document.querySelectorAll('#panel-lib .cx-tabs .cx-tab-btn')].map(b => b.textContent), cards: document.querySelectorAll('#panel-lib .pm-card').length, shown: [...document.querySelectorAll('#panel-lib .pm-card')].filter(x => !x.classList.contains('cx-off')).length, detail: document.querySelectorAll('#panel-lib .pm-card [data-pm-detail]').length, dlCollapse: document.querySelectorAll('#panel-lib .pm-card dl > .cx-body').length, table: !!document.querySelector('#panel-lib .pm-table-wrap') }));
   T18(pm.tabs.length === 2 && /平台详情/.test(pm.tabs[0]) && pm.tabs[1] === '对比表' && pm.table, 'pm category: tabs 平台详情 / 对比表 (' + pm.tabs.join('|') + ')');
-  T18(pm.cards >= 7 && pm.shown === 6 && pm.dl === pm.cards, 'pm category: cards paginated 6 + dl collapsed (' + pm.shown + '/' + pm.cards + ')');
+  T18(pm.cards >= 7 && pm.shown === 6 && pm.detail === pm.cards && pm.dlCollapse === 0, 'pm category: cards paginated 6 + detail modal buttons (' + pm.shown + '/' + pm.cards + ')');
   const lastId = await p.evaluate(() => { const c = [...document.querySelectorAll('#panel-lib .pm-card')]; return c[c.length - 1].id.replace('pm-p-', ''); });
   await p.goto(BASE + 'index.html#pm-cn-media/' + lastId); await p.reload(); await p.waitForTimeout(400);
   T18(await vis(p, '#pm-p-' + lastId), 'pm deep link #pm-cn-media/' + lastId + ' reveals card on page 2');
+  T18(await p.evaluate(() => { const m = document.getElementById('modal-root'); return !!(m && !m.hidden && m.querySelector('.pm-detail-card')); }), 'pm deep link opens platform detail modal');
+  await p.evaluate(() => { if (window.QuestPlatforms && QuestPlatforms.closeDetail) QuestPlatforms.closeDetail(); });
   await visit('pm-cn'); await p.reload(); await p.waitForTimeout(300);
   T18(await p.evaluate(() => document.querySelectorAll('#panel-lib details.pm-det').length >= 8 && document.querySelectorAll('#panel-lib details.pm-det .pm-table-wrap').length >= 8), 'pm-cn: per-category tables in details (all kept)');
   // 手册：分节折叠 + 目录跳转自动展开
@@ -2780,26 +2782,34 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         if (c === '200') return '200 已核实';
         return c + ' 自动检查被拦截';
       };
-      const sina = [...document.querySelectorAll('.pm-card .qs-item')].find((el) => /finance\.sina/.test(el.innerHTML));
-      const sinaText = sina ? sina.textContent : '';
       const shown = [...document.querySelectorAll('.pm-card')].filter((c) => !c.classList.contains('cx-off'));
       const face = shown.map((c) => {
         const q = c.querySelector(':scope > .pm-face-src .qs-compact');
         const box = c.querySelector(':scope > .pm-face-src');
-        const collapsed = !!c.querySelector('dl > .cx-body.cx-off');
+        const detailBtn = c.querySelector('[data-pm-detail]');
         const r = box ? box.getBoundingClientRect() : { width: 0, height: 0 };
         const unk = [...c.querySelectorAll(':scope > .pm-face-src .pm-link.unk')];
         const unkOk = unk.every((el) => {
           const b = el.getBoundingClientRect();
           return b.width > 0 && b.height > 0 && !el.closest('.cx-body') && !el.closest('.cx-off');
         });
-        return !!q && !q.closest('.cx-body') && collapsed && r.width > 0 && r.height > 0 && r.height <= 40 && unkOk && !!q.querySelector('.qs-kind') && /↗/.test((q.querySelector('a.qs-link') || {}).textContent || '') && !!q.querySelector('.pm-link');
+        return !!q && !!detailBtn && !q.closest('.cx-body') && r.width > 0 && r.height > 0 && r.height <= 40 && unkOk && !!q.querySelector('.qs-kind') && /↗/.test((q.querySelector('a.qs-link') || {}).textContent || '') && !!q.querySelector('.pm-link');
       });
-      return { n: n, badges: badges, unkLabel: unkFn('https://example.invalid/no-such-source'), sina: !!sina, sinaOfficial: sinaText.indexOf('官方') >= 0, sinaMedia: sinaText.indexOf('媒体') >= 0, faceOk: face.length >= 1 && face.every(Boolean), faceN: face.length };
+      return { n: n, badges: badges, unkLabel: unkFn('https://example.invalid/no-such-source'), faceOk: face.length >= 1 && face.every(Boolean), faceN: face.length, detailN: shown.filter((c) => c.querySelector('[data-pm-detail]')).length };
     });
     T26(pmQs.n >= 1 && pmQs.badges >= 1 && pmQs.unkLabel === '未核实', 'platform sources + 未核实 mark n=' + pmQs.n + ' badges=' + pmQs.badges);
-    T26(pmQs.sina && pmQs.sinaMedia && !pmQs.sinaOfficial, 'platform sina reprint is 媒体 not 官方');
-    T26(pmQs.faceOk, 'platform card face shows compact source without expanding n=' + pmQs.faceN);
+    T26(pmQs.faceOk && pmQs.detailN === pmQs.faceN, 'platform card face shows compact source + 查看详情 n=' + pmQs.faceN);
+    // 新浪转载来源在详情弹窗全文里（列表卡只留首条 faceSrc）
+    await pg26.click('#pm-p-wechat-mp [data-pm-detail]');
+    await pg26.waitForTimeout(120);
+    const sinaModal = await pg26.evaluate(() => {
+      const m = document.getElementById('modal-root');
+      const sina = m ? [...m.querySelectorAll('.qs-item')].find((el) => /finance\.sina/.test(el.innerHTML)) : null;
+      const text = sina ? sina.textContent : '';
+      return { open: !!(m && !m.hidden && m.querySelector('.pm-detail-card')), sina: !!sina, sinaOfficial: text.indexOf('官方') >= 0, sinaMedia: text.indexOf('媒体') >= 0 };
+    });
+    T26(sinaModal.open && sinaModal.sina && sinaModal.sinaMedia && !sinaModal.sinaOfficial, 'platform modal sina reprint is 媒体 not 官方');
+    await pg26.evaluate(() => { if (window.QuestPlatforms && QuestPlatforms.closeDetail) QuestPlatforms.closeDetail(); });
     await pg26.locator('.pm-card .qs, .pm-card').first().screenshot({ path: shot26 + '/p26-platform-sources.png' });
 
     await pg26.goto(BASE + 'index.html#war-rank', { waitUntil: 'domcontentloaded' });

@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-27T03:50:13.874Z",
-  "latestId": 52,
+  "generatedAt": "2026-10-27T05:59:00.862Z",
+  "latestId": 53,
   "latestDate": "2026-10-27",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 53,
+      "date": "2026-10-27",
+      "tag": "改进",
+      "title": "平台变现详情改为大弹窗：列表只留摘要",
+      "items": [
+        "平台卡不再「展开：分成规则…」折叠；短卡只留变现方式/门槛（海外含大陆可用性）与「查看详情」",
+        "详情弹窗对齐赚钱榜大尺寸：分成规则、实操步骤路线图、适合谁、红线、来源；对比表深链 #pm-<分类>/<id> 直接打开弹窗"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#pm-cn-media"
+    },
     {
       "id": 52,
       "date": "2026-10-27",
@@ -114,18 +125,6 @@
         "No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
         "No.2 ReSO AI / GEO：生成式引擎优化新词，做 AI 搜索可见度内容或咨询实验",
         "No.3 DigitalOcean Affiliates：云主机/开发者内容挂合规链接，合资格成交拿分成"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 43,
-      "date": "2026-10-23",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-23",
-      "items": [
-        "No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
-        "No.2 IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）",
-        "No.3 Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }

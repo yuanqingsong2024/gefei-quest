@@ -141,7 +141,7 @@
     ['.res-sections', function (el) { var secs = kids(el, '.res-section'); if (secs.length > 3) more(el, '.res-section', 3, '显示更多分类'); secs.forEach(function (s) { var g = s.querySelector('.peer-grid'); if (!g) return; if (secs.length > 1) more(g, null, 3, '显示本类更多'); else paginate(g, null, 6); }); }],
     ['.cl-list', function (el) { more(el, 'li', 5, '更多更新'); }],
     ['article.doc-body', docSections],
-    ['.pm-card dl', function (el) { collapse(el, { keep: 4, btnOutside: true, more: '展开：分成规则 · 实操 · 红线 · 来源' }); }],
+    // pm 详情改弹窗，不再对 .pm-card dl collapse 插入「展开：分成规则…」
     ['.pm-cards', function (el) { paginate(el, '.pm-card', 6); }],
     ['.wb-plat', function (el) {
       if (el.__cx) return;

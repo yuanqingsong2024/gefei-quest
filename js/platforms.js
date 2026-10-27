@@ -94,15 +94,104 @@
         return '<tr><td><a href="#pm-' + p.cat + '/' + p.id + '" data-pm-jump="' + p.id + '"><b>' + esc(p.name) + '</b></a></td><td>' + esc(p.ways) + '</td><td>' + esc(p.gate) + '</td><td>' + (r ? esc(r[0]) + '<small class="pm-src">（' + esc(r[1]) + '，' + esc(r[2]) + '）</small>' : '<span class="pm-na">' + esc(D().NA) + '</span>') + '</td>' + (global_ ? '<td>' + esc(p.access || '') + '</td>' : '') + '<td>' + stars(p.level || 3) + '</td></tr>';
       }).join('') + '</tbody></table></div>';
   }
+  function byId(id) {
+    var d = D(); if (!d) return null;
+    return d.PLATFORMS.find(function (p) { return p.id === id; }) || null;
+  }
+  function cnStep(n) {
+    var u = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+    n = +n || 0;
+    if (n <= 0) return '第' + n + '步';
+    if (n < 10) return '第' + u[n] + '步';
+    if (n === 10) return '第十步';
+    if (n < 20) return '第十' + u[n - 10] + '步';
+    if (n < 100) {
+      var t = Math.floor(n / 10), o = n % 10;
+      return '第' + u[t] + '十' + (o ? u[o] : '') + '步';
+    }
+    return '第' + n + '步';
+  }
+  function rulesList(p) {
+    return '<ul class="pm-rules">' + (p.rules || []).map(function (r) {
+      return '<li>' + (isNA(r[0]) && !r[1] ? '<span class="pm-na">' + esc(r[0]) + '</span>' : esc(r[0])) +
+        (r[1] ? ' <small class="pm-src">来源：' + esc(r[1]) + (r[2] ? '，' + esc(r[2]) : '') + '</small>' : '') + '</li>';
+    }).join('') + '</ul>';
+  }
+  function closePmDetail() {
+    var M = global.QuestModal;
+    if (!M) return;
+    var roots = M.ensureRoots();
+    var modal = roots.modal;
+    modal.hidden = true;
+    modal.innerHTML = '';
+    modal.onclick = null;
+    if (closePmDetail._onKey) {
+      document.removeEventListener('keydown', closePmDetail._onKey);
+      closePmDetail._onKey = null;
+    }
+  }
+  function openPmDetail(p) {
+    var M = global.QuestModal;
+    if (!M || !p) return;
+    if (closePmDetail._onKey) {
+      document.removeEventListener('keydown', closePmDetail._onKey);
+      closePmDetail._onKey = null;
+    }
+    var roots = M.ensureRoots();
+    var modal = roots.modal;
+    var steps = (p.steps || []).map(function (s, i) {
+      return '<li class="rank-step" data-step="' + (i + 1) + '">' +
+        '<span class="rank-step-badge">' + cnStep(i + 1) + '</span>' +
+        '<div class="rank-step-card">' + esc(s) + '</div></li>';
+    }).join('');
+    var accessSec = p.access
+      ? '<section class="rank-detail-section rank-panel rank-panel-fit"><h3 class="rank-detail-label">大陆可用性 / 收款</h3>' +
+        '<dl class="rank-meta"><dt>大陆可用性</dt><dd>' + esc(p.access) + '</dd><dt>收款方式</dt><dd>' + esc(p.payout || D().NA) + '</dd></dl></section>'
+      : '';
+    modal.hidden = false;
+    modal.innerHTML =
+      '<div class="modal-backdrop" data-pm-close="1"></div>' +
+      '<div class="modal-card rank-detail-card detail-modal-card pm-detail-card" role="dialog" aria-modal="true" aria-labelledby="pm-detail-title">' +
+      '<button type="button" class="rank-detail-close" data-pm-close="1" aria-label="关闭">×</button>' +
+      '<div class="rank-detail-head">' +
+      '<div class="rank-title"><h2 id="pm-detail-title">' + esc(p.name) + '</h2>' +
+      '<p>' + stars(p.level || 3) + ' <span class="pm-up">更新 ' + esc(p.up) + '</span></p></div></div>' +
+      '<section class="rank-detail-section rank-panel rank-panel-why"><h3 class="rank-detail-label">变现方式</h3><p class="rank-why rank-why-full">' + esc(p.ways) + '</p></section>' +
+      '<section class="rank-detail-section rank-panel rank-panel-fit"><h3 class="rank-detail-label">门槛</h3><p class="rank-why rank-why-full">' + esc(p.gate) + '</p></section>' +
+      '<section class="rank-detail-section rank-panel rank-panel-rules"><h3 class="rank-detail-label">分成 / 计费规则</h3>' + rulesList(p) + '</section>' +
+      accessSec +
+      '<section class="rank-detail-section"><h3 class="rank-detail-label">实操方案（' + (p.steps || []).length + ' 步）</h3><ol class="rank-roadmap">' + steps + '</ol></section>' +
+      '<section class="rank-detail-section rank-panel rank-panel-fit"><h3 class="rank-detail-label">适合谁</h3><p class="rank-why rank-why-full">' + esc(p.fit) + '</p></section>' +
+      '<section class="rank-detail-section rank-panel rank-panel-risk"><h3 class="rank-detail-label">风险 / 违规红线</h3><p class="pm-risk rank-why rank-why-full">' + esc(p.risk) + '</p></section>' +
+      '<section class="rank-detail-section rank-panel rank-panel-src"><h3 class="rank-detail-label">来源链接</h3>' + srcBlock(p) + '</section>' +
+      '<div class="modal-actions rank-detail-actions">' +
+      '<button type="button" class="btn" data-pm-close="1">关闭</button></div></div>';
+
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closePmDetail();
+      }
+    }
+    closePmDetail._onKey = onKey;
+    document.addEventListener('keydown', onKey);
+    modal.onclick = function (e) {
+      if (e.target.closest('[data-pm-close]')) closePmDetail();
+    };
+    var closeBtn = modal.querySelector('.rank-detail-close');
+    if (closeBtn) setTimeout(function () { try { closeBtn.focus(); } catch (_) {} }, 30);
+  }
   function card(p) {
-    return '<article class="pm-card card" id="pm-p-' + p.id + '"><header><h3>' + esc(p.name) + '</h3>' + stars(p.level || 3) + '<span class="pm-up">更新 ' + esc(p.up) + '</span></header>' +
+    return '<article class="pm-card pm-card--teaser card" id="pm-p-' + p.id + '" data-pm-id="' + p.id + '">' +
+      '<header><h3>' + esc(p.name) + '</h3>' + stars(p.level || 3) + '<span class="pm-up">更新 ' + esc(p.up) + '</span></header>' +
       faceSrc(p) +
-      '<dl><dt>变现方式</dt><dd>' + esc(p.ways) + '</dd><dt>门槛</dt><dd>' + esc(p.gate) + '</dd>' +
-      '<dt>分成 / 计费规则</dt><dd><ul class="pm-rules">' + p.rules.map(function (r) { return '<li>' + (isNA(r[0]) && !r[1] ? '<span class="pm-na">' + esc(r[0]) + '</span>' : esc(r[0])) + (r[1] ? ' <small class="pm-src">来源：' + esc(r[1]) + (r[2] ? '，' + esc(r[2]) : '') + '</small>' : '') + '</li>'; }).join('') + '</ul></dd>' +
-      (p.access ? '<dt>大陆可用性</dt><dd>' + esc(p.access) + '</dd><dt>收款方式</dt><dd>' + esc(p.payout || D().NA) + '</dd>' : '') +
-      '<dt>实操方案</dt><dd><ol>' + p.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol></dd>' +
-      '<dt>适合谁</dt><dd>' + esc(p.fit) + '</dd><dt>风险 / 违规红线</dt><dd class="pm-risk">' + esc(p.risk) + '</dd>' +
-      '<dt>来源链接</dt><dd>' + srcBlock(p) + '</dd></dl></article>';
+      '<dl class="pm-summary">' +
+      '<dt>变现方式</dt><dd>' + esc(p.ways) + '</dd>' +
+      '<dt>门槛</dt><dd>' + esc(p.gate) + '</dd>' +
+      (p.access ? '<dt>大陆可用性</dt><dd class="pm-access-line">' + esc(p.access) + '</dd>' : '') +
+      '</dl>' +
+      '<div class="pm-card-foot"><button type="button" class="btn btn-sm" data-pm-detail="' + p.id + '">查看详情</button></div>' +
+      '</article>';
   }
   function render(el, param) {
     var d = D(); if (!d) { el.innerHTML = '<p>数据未加载</p>'; return; }
@@ -128,9 +217,37 @@
       if (global.QuestShell && QuestShell.scrollToEl) QuestShell.scrollToEl(t, behavior || 'auto');
       else t.scrollIntoView({ behavior: behavior || 'auto', block: 'start' });
     }
-    el.querySelectorAll('[data-pm-jump]').forEach(function (a) { a.addEventListener('click', function (e) { var t = el.querySelector('#pm-p-' + a.getAttribute('data-pm-jump')); if (t) { e.preventDefault(); if (global.QuestCompact) QuestCompact.reveal(t); scrollPastNav(t, 'smooth'); } }); });
-    if (sub[1]) { var t = el.querySelector('#pm-p-' + sub[1]); if (t) setTimeout(function () { if (global.QuestCompact) { QuestCompact.apply(el); QuestCompact.reveal(t); } scrollPastNav(t, 'auto'); }, 30); }
+    el.querySelectorAll('[data-pm-detail]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openPmDetail(byId(b.getAttribute('data-pm-detail')));
+      });
+    });
+    el.querySelectorAll('[data-pm-jump]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('data-pm-jump');
+        var t = el.querySelector('#pm-p-' + id);
+        // 分类页内有对应卡片：拦截并弹窗；总览对比表无卡时放行 hash，由目标页 sub[1] 打开弹窗
+        if (!t) return;
+        e.preventDefault();
+        if (global.QuestCompact) QuestCompact.reveal(t);
+        scrollPastNav(t, 'smooth');
+        openPmDetail(byId(id));
+      });
+    });
+    if (sub[1]) {
+      var jumpId = sub[1];
+      var t = el.querySelector('#pm-p-' + jumpId);
+      setTimeout(function () {
+        if (t) {
+          if (global.QuestCompact) { QuestCompact.apply(el); QuestCompact.reveal(t); }
+          scrollPastNav(t, 'auto');
+        }
+        openPmDetail(byId(jumpId));
+      }, 30);
+    }
   }
   function titleOf(param) { var id = (param || '').split('/')[0]; if (!id) return '平台变现'; if (id === 'cn') return '平台变现 · 国内'; if (id === 'global') return '平台变现 · 海外'; var c = cat(id); return c ? '平台变现 · ' + c.label : '平台变现'; }
-  global.QuestPlatforms = { render: render, titleOf: titleOf, sourceCount: sourceCount, figureCount: figureCount };
+  global.QuestPlatforms = { render: render, titleOf: titleOf, sourceCount: sourceCount, figureCount: figureCount, openDetail: openPmDetail, closeDetail: closePmDetail };
 })(typeof window !== 'undefined' ? window : globalThis);

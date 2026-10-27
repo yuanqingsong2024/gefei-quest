@@ -1860,7 +1860,8 @@ body.search-open { overflow: hidden; }
   .rank-detail-actions,
   .rank-detail-section:has(.rank-roadmap),
   .rank-detail-section.rank-panel-howto,
-  .rank-detail-section.rank-panel-src {
+  .rank-detail-section.rank-panel-src,
+  .rank-detail-section.rank-panel-rules {
     grid-column: 1 / -1;
   }
   .rank-detail-section { margin: 0; }
@@ -1881,6 +1882,9 @@ body.search-open { overflow: hidden; }
 .rank-panel-resell { --rank-accent: 56, 189, 248; background: rgba(56, 189, 248, .1); }
 .rank-panel-src { --rank-accent: 148, 163, 184; }
 .rank-panel-howto { --rank-accent: 167, 139, 250; }
+.rank-panel-rules { --rank-accent: 251, 146, 60; }
+.rank-panel-risk { --rank-accent: 248, 113, 113; }
+.detail-modal-card { /* shared large detail dialog; size from .rank-detail-card */ }
 .rank-agent-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .rank-panel .rank-resell { margin-top: 0; background: transparent; border-color: rgba(125, 211, 252, .45); }
 .rank-detail-steps { margin: 0; padding-left: 20px; color: var(--ink); line-height: 1.6; }
@@ -2087,14 +2091,23 @@ body.search-open { overflow: hidden; }
 .pm-na{color:#fdba74;font-weight:600}
 .pm-lv{color:var(--gold);letter-spacing:1px;white-space:nowrap}.pm-lv i{color:var(--muted);font-style:normal}
 .pm-card{padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);scroll-margin-top:calc(var(--nav-h, 56px) + 12px)}
-.pm-card header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px}
+.pm-card--teaser{display:flex;flex-direction:column;gap:10px}
+.pm-card header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:0}
 .pm-card h3{margin:0;color:var(--gold-text)}
 .pm-up{margin-left:auto;font-size:.8rem;color:var(--muted)}
-.pm-card dl{margin:0;display:grid;grid-template-columns:120px 1fr;gap:6px 12px}
+.pm-card dl,.pm-detail-card .pm-rules{margin:0}
+.pm-card dl{display:grid;grid-template-columns:120px 1fr;gap:6px 12px}
 .pm-card dt{color:var(--cyan);font-weight:700}
 .pm-card dd{margin:0;color:var(--ink);line-height:1.6;min-width:0;overflow-wrap:anywhere}
-.pm-card ul,.pm-card ol{margin:0;padding-left:1.2em}
-.pm-risk{color:#fecaca!important}
+.pm-card--teaser .pm-summary dd{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pm-card--teaser .pm-summary dd.pm-access-line{-webkit-line-clamp:1}
+.pm-card-foot{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.pm-card ul,.pm-card ol,.pm-detail-card ul,.pm-detail-card ol{margin:0;padding-left:1.2em}
+.pm-risk{color:#b91c1c!important}
+.pm-detail-card .pm-risk{color:#b91c1c!important;margin:0}
+.pm-detail-card .pm-rules{padding-left:1.15em;color:var(--ink);line-height:1.55}
+.pm-detail-card .pm-rules li{margin:4px 0}
+.pm-detail-card .rank-detail-head .pm-up{margin-left:0}
 .pm-link{display:inline-block;font-size:.75rem;padding:1px 6px;border-radius:6px;margin-left:4px}
 .pm-link.ok{background:#14532d;color:#bbf7d0}.pm-link.warn{background:#7c2d12;color:#fed7aa}.pm-link.unk{background:var(--line);color:var(--ink)}
 .pm-more{display:flex;gap:8px;flex-wrap:wrap}
@@ -2158,7 +2171,6 @@ body.search-open { overflow: hidden; }
 header .cx-toggle,h2 .cx-toggle,h3 .cx-toggle,.block-title .cx-toggle{margin:0 0 0 auto}
 .war-day-head{display:flex;align-items:center;gap:8px;cursor:pointer}
 .cx-coll>.cx-body{margin-top:6px}
-.pm-card dl>.cx-body{display:contents}.pm-card dl>.cx-body.cx-off{display:none!important}
 .cx-more-btn{margin:8px 0 0}
 .cx-pager{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:12px 0}
 .cx-pg{min-width:36px;height:34px;padding:0 10px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font:inherit;cursor:pointer}
@@ -2192,7 +2204,6 @@ details.cx-details>:not(summary){margin:0 12px 12px}
 .home-wrap .lp-sec{padding-top:24px;padding-bottom:24px}
 @media (max-width:640px){.cx-tabs{top:56px}.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr))!important}.hero{min-height:auto}.hero-inner{padding:36px 18px 40px}}
 @media (min-width:900px){.pm-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}.pm-cards .pm-card{margin:0}}
-.pm-card>.cx-toggle{margin:4px 0 0}
 /* Phase 18 · 工作台 / 复盘 / Google */
 .wb-pipe-home{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;margin-right:6px;border-radius:999px;border:1px solid var(--gold);color:var(--gold);font-weight:700;font-size:.85rem;text-decoration:none}
 .wb-pipe-home svg, .wb-pipe-home img.ico-img{width:16px;height:16px}
