@@ -1,0 +1,394 @@
+{
+  "date": "2026-10-27",
+  "publishedAt": "2026-10-27T00:41:06.217Z",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止",
+      "type": "奖金赛/悬赏",
+      "summary": "Devpost 上 OpenAI 与 Twitch 合办线上赛，个人可参赛；当前约千人报名，距截止约六天。",
+      "cost": "0；需 Codex 与 Twitch 开发者账号",
+      "difficulty": 3,
+      "threshold": "能用 Codex 做出连接 Twitch API/聊天/EventSub 的可运行 Demo，并录演示视频",
+      "time": "约1周，每天2–4小时",
+      "fit": "会做 Web/机器人或直播互动工具的开发者；预估投入：约1周业余时间",
+      "why": "Devpost 官方页显示：截止 2026-11-02 下午（太平洋时间），现金奖池2.5万美元（一等奖1万美元，前五名可登 TwitchCon 舞台），资格为本国成年且排除公司团队，全球多数地区可参加。当前参赛人数约一千人量级，仍低于同期大型赛。上榜理由：本周仍开放的现金赛里窗口合适、单人可交。",
+      "steps": [
+        "打开 twitchcon-codex.devpost.com 读规则与排除地区，注册并记下 Codex Session ID",
+        "选一个方向（观众互动、主播协作或内容增强），用 Twitch API + Codex 做最小可用 Demo",
+        "截止前提交仓库、3 分钟内演示视频与项目说明，留出一天缓冲"
+      ],
+      "risk": "风险等级：中。不保证获奖；须按规则披露 Codex 使用并遵守 Twitch 开发者条款。不承诺收益。",
+      "risk_level": "中",
+      "reason": "今天仍开放的现金赛里截止窗口与可交付性最均衡的一个。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "Twitch",
+        "Codex",
+        "OpenAI"
+      ],
+      "sources": [
+        {
+          "title": "Codex x TwitchCon Hackathon: Build for streamers and their community on Twitch with OpenAI Codex",
+          "url": "https://twitchcon-codex.devpost.com/",
+          "publisher": "Devpost / OpenAI / Twitch",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://twitchcon-codex.devpost.com/"
+    },
+    {
+      "rank": 2,
+      "name": "B站「AI创造公开赛S2」：用大模型/vibe coding 做出可运行产品并投稿，一等奖税前100万元",
+      "type": "平台激励",
+      "summary": "官方 AI 造物征集，2026-10-24 起投稿，要求横屏≥1分钟原创视频并挂活动话题；评选为模型入围+评审团终审。",
+      "cost": "0；需能做出可运行/可交互产品并拍演示视频",
+      "difficulty": 4,
+      "threshold": "借助大模型或 vibe coding 做出可运行产品（非纯 AIGC），投稿横屏原创视频并勾选#B站AI创造公开赛#",
+      "time": "产品打磨1–4周；活动期内可持续更新合集",
+      "fit": "会做应用/硬件原型、能拍演示的独立开发者或团队；预估投入：每周8小时以上",
+      "why": "B站官方活动帖（2026-10-23）写明：投稿自 2026-10-24 起，截止时间将提前不少于30日公告；一等奖税前100万元，二等奖3名各30万元，三等奖6名各5万元；须为可运行可交互产品且获奖后独家展示。上榜理由：国内平台现金激励里金额与主题（AI 造物）最匹配本周新开窗口。",
+      "steps": [
+        "读官方规则，确认「可运行产品」定义、独家展示义务与无效稿情形",
+        "做出最小可演示产品，拍≥1分钟横屏演示，标题加【B站AI创造公开赛】并勾选活动话题",
+        "把同一产品相关视频收入合集，关注评审团报名（10月24–30日）与后续入围公示"
+      ],
+      "risk": "风险等级：高。竞争大、不保证入围或获奖；须原创且获奖后独家；禁止操纵数据等舞弊。不承诺收益。",
+      "risk_level": "高",
+      "reason": "本周新开的百万级官方创作赛，适合已有可演示 AI 产品的人立刻投稿。",
+      "tags": [
+        "平台激励",
+        "B站",
+        "AI造物",
+        "现金奖"
+      ],
+      "sources": [
+        {
+          "title": "B站AI创造公开赛S2 活动规则",
+          "url": "https://www.bilibili.com/opus/1262431200618741810",
+          "publisher": "哔哩哔哩 / 专注AI的研究员",
+          "published": "2026-10-23",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://www.bilibili.com/opus/1262431200618741810"
+    },
+    {
+      "rank": 3,
+      "name": "Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
+      "type": "奖金赛/悬赏",
+      "summary": "线上公开赛，个人或组队，须在 Nebius 上调用 NVIDIA 开源模型；距截止仅约三天。",
+      "cost": "0；需 Nebius 账号与自备算力/额度",
+      "difficulty": 4,
+      "threshold": "能在截止前交出可运行 Demo、公开仓库与 3 分钟演示视频",
+      "time": "紧急：约2–3天集中冲刺",
+      "fit": "已有 AI Agent/应用半成品、能快速接 Nebius API 的开发者；预估投入：本周每天4小时以上",
+      "why": "Devpost 官方页：截止 2026-10-30 上午（太平洋时间），现金奖池约5万美元（一等奖2万美元），另有赛道奖与 Tavily 单项现金；资格为本国成年、全球多数地区。须使用至少一款 NVIDIA 开源模型并跑在 Nebius 上。上榜理由：本周内最后窗口的大额现金赛，有半成品的人今天就该动手。",
+      "steps": [
+        "打开 nebiusglobalaihackathon.devpost.com 核对资格与赛道，注册并领 Token Factory 额度",
+        "把现有半成品接到 Nebius + Nemotron，选一个赛道做成可演示闭环",
+        "准备公开仓库（含开源协议与 README）、演示链接与不超过 3 分钟视频，10月30日前提交"
+      ],
+      "risk": "风险等级：高。截止极近、参赛者众多，不保证获奖；须遵守官方规则与地区限制。不承诺收益。",
+      "risk_level": "高",
+      "reason": "距截止仅三天的大额现金赛，只适合已有半成品、能立刻交付的人。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "NVIDIA",
+        "Nebius",
+        "紧急"
+      ],
+      "sources": [
+        {
+          "title": "Nebius x NVIDIA Global AI Hackathon: Build the next frontier of AI on open infrastructure",
+          "url": "https://nebiusglobalaihackathon.devpost.com/",
+          "publisher": "Devpost / Nebius / NVIDIA",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://nebiusglobalaihackathon.devpost.com/"
+    },
+    {
+      "rank": 4,
+      "name": "Hostinger Affiliate：写建站/主机对比文，合资格首购可拿最高约40%佣金",
+      "type": "联盟营销",
+      "summary": "Hostinger 官方联盟：共享主机/VPS/建站等年付及以上首购可获最高约40%佣金；AI Builder 特定优惠最高约60%。",
+      "cost": "0；需通过联盟申请审核（官方称最长约5个工作日）",
+      "difficulty": 2,
+      "threshold": "有可展示的建站/出海/主机相关内容渠道，并如实披露推广关系",
+      "time": "开通与素材准备1–3天；内容积累需数周",
+      "fit": "做建站教程、独立开发部署、出海小站内容的博主；预估投入：每周3–5小时",
+      "why": "Hostinger 官方联盟页与协议（2026-08 修订）写明：共享/云/VPS 等合资格首购佣金最高约40%，AI Builder 特定优惠最高约60%；通常不计一个月主机、续费与升级；Cookie 约30天。上榜理由：佣金比例公开、与出海小站主题天然契合，开通成本为零。",
+      "steps": [
+        "在 hostinger.com/affiliates 提交申请，通过后进入后台复制专属链接与素材",
+        "写「Hostinger 部署静态站」「主机套餐怎么选」等教程，按要求披露推广关系",
+        "达最低提现条件后按官方指引申请 PayPal 或银行打款"
+      ],
+      "risk": "风险等级：低。须如实披露；退款窗口内取消不计佣金；比例与提现门槛以官方协议为准。不承诺收益。",
+      "risk_level": "低",
+      "reason": "SaaS/主机联盟里规则透明、和出海内容匹配度高的一个。",
+      "tags": [
+        "联盟营销",
+        "Hostinger",
+        "建站",
+        "佣金"
+      ],
+      "sources": [
+        {
+          "title": "Hostinger affiliate program",
+          "url": "https://www.hostinger.com/affiliates",
+          "publisher": "Hostinger",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        },
+        {
+          "title": "Affiliate program agreement",
+          "url": "https://www.hostinger.com/legal/affiliate-program-agreement",
+          "publisher": "Hostinger",
+          "published": "2026-08-19",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://www.hostinger.com/affiliates"
+    },
+    {
+      "rank": 5,
+      "name": "Gumroad：上架原创模板/清单/小教程，直链成交抽成约10%+$0.50",
+      "type": "数字产品/接单",
+      "summary": "无月费数字商品平台；通过个人主页或直链成交费率约10%加每笔50美分，Discover 流量成交约30%。",
+      "cost": "0 月费；平台按成交抽成",
+      "difficulty": 2,
+      "threshold": "有一项可整理成文件的原创经验（模板、提示词合集、教程 PDF 等）",
+      "time": "首个产品1–3天；推广与迭代每周2–4小时",
+      "fit": "愿意把流程固化成可下载文件、能用中英文说明的人；预估投入：每周4小时",
+      "why": "Gumroad 官方定价页写明：无月费；个人主页/直链成交约10%+$0.50，经 Discover 发现的新客成交约30%；自 2025 起平台作为 Merchant of Record 处理多地销售税。上榜理由：一次制作可反复卖，可与小站、社媒导流叠加。",
+      "steps": [
+        "挑一个自己用过的模板或流程，做成 PDF/表格并写清使用说明与适用范围",
+        "注册 Gumroad，定 $3–$19 入门价，写清交付内容与更新政策",
+        "在小站、推特或闲鱼（卖原创文件说明）放直链，根据退款与评价迭代"
+      ],
+      "risk": "风险等级：低。只能卖原创或已获授权内容；费率与结算以官网为准；不承诺销量。不承诺收益。",
+      "risk_level": "低",
+      "reason": "数字产品里开通最快、费率公开的路径之一。",
+      "tags": [
+        "数字产品",
+        "Gumroad",
+        "模板",
+        "反复卖"
+      ],
+      "sources": [
+        {
+          "title": "Gumroad pricing: 10% + 50¢ direct, 30% via Discover",
+          "url": "https://gumroad.com/pricing",
+          "publisher": "Gumroad",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://gumroad.com/pricing"
+    },
+    {
+      "rank": 6,
+      "name": "出海新词：用 Google Trends 找上升英文查询，做单页工具/指南再接广告或联盟",
+      "type": "出海新词",
+      "summary": "在 Google Trends 看 Rising/相关查询，挑竞争可控的长尾词做英文单页，验证流量后再变现。",
+      "cost": "0 起；可选域名约每年数十美元",
+      "difficulty": 3,
+      "threshold": "能读懂英文搜索意图，并写出有用的原创说明或做一个小工具",
+      "time": "选词与首页2–4天；SEO 见效通常需数周到数月",
+      "fit": "愿意做英文内容、能耐心等自然流量的人；预估投入：每周4–6小时",
+      "why": "Google Trends 官方可免费查看地区与时间维度的搜索兴趣及上升查询；Google 亦提供 Search Central 上的 Trends API（申请制）说明。变现路径：上升词→单页指南/计算器→Search Console→AdSense 或联盟链接。上榜理由：选词成本为零，和出海小站、联盟条目直接配套。",
+      "steps": [
+        "打开 trends.google.com，选目标国家与近90天，记下 Rising 相关查询",
+        "人工打开前10结果评估大站密度，只挑能做出差异化单页的词",
+        "上线后接 Search Console；有稳定访问再申请 AdSense 或挂合资格联盟链接"
+      ],
+      "risk": "风险等级：中。上升词也可能很快过气；广告与联盟审核不保证通过；收入取决于流量。不承诺收益。",
+      "risk_level": "中",
+      "reason": "今天就能免费开始的选词→小站变现闭环，适合想试出海的人。",
+      "tags": [
+        "出海新词",
+        "Google Trends",
+        "SEO",
+        "选词"
+      ],
+      "sources": [
+        {
+          "title": "Google Trends",
+          "url": "https://trends.google.com/trends/",
+          "publisher": "Google Trends",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        },
+        {
+          "title": "Google AdSense - Earn Money from Your Website with Monetization",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://trends.google.com/trends/"
+    },
+    {
+      "rank": 7,
+      "name": "Netlify：拖拽或 Git 部署英文工具小站，验证流量后再接广告或联盟",
+      "type": "出海小站",
+      "summary": "用 Netlify 创建部署静态站或 Jamstack 站点，适合单页工具/指南；免费档可先验证需求。",
+      "cost": "0；可选买域名",
+      "difficulty": 2,
+      "threshold": "会基础 HTML/JS，或会用 AI 生成静态页面并部署",
+      "time": "首站半天到2天；SEO 与迭代每周2–3小时",
+      "fit": "想低成本试出海长尾词的人；预估投入：每周3小时",
+      "why": "Netlify 官方文档说明可通过 Git 连续部署、CLI 或拖拽等方式创建站点部署。玩法：挑一个长尾英文需求做单页工具，接 Search Console，有稳定访问后再申请广告或挂联盟。上榜理由：相对仅 Git 托管多一种拖拽上线路径，适合今天就试一个词。",
+      "steps": [
+        "按官方 Create deploys 文档用拖拽、CLI 或连 Git 仓库上线首版",
+        "用 Trends/关键词工具选一个长尾需求，做单页英文工具并写清 Privacy/About",
+        "提交 Google Search Console，流量稳定后再接广告或联盟"
+      ],
+      "risk": "风险等级：低。免费档有带宽与构建限制；广告审核与自然流量都不保证。不承诺收益。",
+      "risk_level": "低",
+      "reason": "出海小站里今天就能零成本上线的方案，和 Trends 选词直接配套。",
+      "tags": [
+        "出海小站",
+        "Netlify",
+        "SEO",
+        "工具站"
+      ],
+      "sources": [
+        {
+          "title": "Create deploys | Netlify Docs",
+          "url": "https://docs.netlify.com/site-deploys/create-deploys/",
+          "publisher": "Netlify Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://docs.netlify.com/site-deploys/create-deploys/"
+    },
+    {
+      "rank": 8,
+      "name": "YouTube 合作伙伴计划（YPP）：达订阅与时长门槛后申请广告分成",
+      "type": "平台激励",
+      "summary": "官方创作者变现：满1000订阅，且近12个月4000合格时长或近90天1000万 Shorts 合格播放，可申请广告等分成。",
+      "cost": "0；需持续产出原创视频与合规频道运营",
+      "difficulty": 4,
+      "threshold": "住在 YPP 支持地区，无有效社区指南警告，并达到订阅与观看门槛",
+      "time": "攒门槛通常需数月；申请审核常见约1个月量级",
+      "fit": "愿意长期做中长视频或 Shorts 的创作者；预估投入：每周5–10小时",
+      "why": "YouTube 官方帮助中心写明：加入 YPP 需遵守变现政策、开启两步验证并关联 AdSense；门槛为1000订阅 +（近12个月4000合格公共时长 或 近90天1000万合格 Shorts 播放）。上榜理由：规则清晰的全球平台分成通道，可与中文区内容能力复用到英文选题。",
+      "steps": [
+        "在 Studio 的「收益」核对门槛与政策，打开两步验证",
+        "按长视频或 Shorts 路线规划选题，保持原创与合规上传",
+        "达标后在 Studio 申请 YPP、接受条款并关联 AdSense，等待审核"
+      ],
+      "risk": "风险等级：中。达标不自动通过；政策违规会关变现；2027-02 起新申请人门槛将上调（以官方公告为准）。不承诺收益。",
+      "risk_level": "中",
+      "reason": "海外平台激励里规则最清楚、可长期复利的官方分成路径。",
+      "tags": [
+        "平台激励",
+        "YouTube",
+        "YPP",
+        "广告分成"
+      ],
+      "sources": [
+        {
+          "title": "YouTube Partner Program overview & eligibility",
+          "url": "https://support.google.com/youtube/answer/72851?hl=en",
+          "publisher": "YouTube Help",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://support.google.com/youtube/answer/72851?hl=en"
+    },
+    {
+      "rank": 9,
+      "name": "闲鱼技能服务：短视频分镜与口播稿定制，按条/按系列计价接单",
+      "type": "闲鱼非实物",
+      "summary": "在闲鱼发布自有技能的信息服务（分镜表、口播稿、选题日历），按条数或系列打包收费。",
+      "cost": "0；需实名与常用文档/表格工具",
+      "difficulty": 2,
+      "threshold": "能根据产品卖点在1–2天内交付可用分镜或口播稿",
+      "time": "每单1–3小时；起步期每天1小时回复咨询",
+      "fit": "做过短视频运营、会写口播的人；预估投入：每周5小时",
+      "why": "闲鱼平台服务规则允许发布合法信息服务类商品；短视频创业与店主对「能直接拍」的分镜/口播有稳定需求，交付物可沉淀成模板再在闲鱼或 Gumroad 卖。上榜理由：零成本即刻上架，不涉及账号券码代领，和数字产品可叠加。",
+      "steps": [
+        "阅读闲鱼平台服务协议，确认类目与禁发内容",
+        "准备 2–3 组分镜/口播前后对比样例，写清修改次数、交付格式与报价",
+        "全程站内沟通与交易，交付后邀评，把高频结构做成可售模板另行上架"
+      ],
+      "risk": "风险等级：低。注意客户隐私与素材版权；不接虚假宣传文案或违规推广；站外交易易起纠纷。不承诺收益。",
+      "risk_level": "低",
+      "reason": "国内技能变现里需求明确、可沉淀为模板的路径。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "短视频",
+        "分镜"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
+          "publisher": "terms.alicdn.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
+    },
+    {
+      "rank": 10,
+      "name": "案例拆解：CodedThemes 从接外包养产品，作者自述约 $12k/月——只拆方法",
+      "type": "案例拆解",
+      "summary": "Indie Hackers 10月访谈：Rakesh 用代理公司现金流养开发者后台模板产品，现约七人团队。",
+      "cost": "0 起；时间成本为主",
+      "difficulty": 4,
+      "threshold": "有设计/前端能力，或能把客户项目沉淀成可售模板",
+      "time": "方法复盘1天；做出可售模板需数周到数月",
+      "fit": "做外包/设计、想转到可复利数字产品的人；预估投入：每周6–10小时",
+      "why": "据访谈作者自述（发布于 2026-10-07）：先做 IT 代理再把可复用后台/UI 套件上架 Envato 与自有店，团队约7人，作者称当前约 $12k/月、高峰曾更高；Berry/Mantis 等在 MUI Store 有公开销售叙事（个人说法，未核实）。可借鉴的方法：用服务现金流养产品；同一套组件多框架分发；免费版引流+付费套件；多市场（自有店/Envato/MUI）铺货。上榜理由：近期公开的「代理→模板产品」样本，和 Gumroad/闲鱼模板路径可对照。",
+      "steps": [
+        "读原文公开部分，记下「服务养产品」「多市场分发」「免费+付费」三条做法",
+        "从近半年客户项目里抽出可复用模块，做成一份可售模板并写清授权",
+        "先在一个市场小范围上架，用真实使用反馈迭代后再扩分发渠道"
+      ],
+      "risk": "风险等级：低。收入为作者自述，不代表可复制；模板市场有同质化与平台抽成。不承诺收益。",
+      "risk_level": "低",
+      "reason": "方法可落地，适合正做外包却缺可复利产品的人对照执行。",
+      "tags": [
+        "案例拆解",
+        "Indie Hackers",
+        "模板产品",
+        "代理转型"
+      ],
+      "sources": [
+        {
+          "title": "Turning an agency into a $12k/mo product portfolio",
+          "url": "https://www.indiehackers.com/post/tech/turning-an-agency-into-a-12k-mo-product-portfolio-13QkMY561jAQxsiA0LSg",
+          "publisher": "Indie Hackers",
+          "published": "2026-10-07",
+          "kind": "media",
+          "checked": "2026-10-27"
+        }
+      ],
+      "source_url": "https://www.indiehackers.com/post/tech/turning-an-agency-into-a-12k-mo-product-portfolio-13QkMY561jAQxsiA0LSg"
+    }
+  ]
+}

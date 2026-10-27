@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-26T05:18:11.177Z",
-  "latestId": 50,
-  "latestDate": "2026-10-26",
+  "generatedAt": "2026-10-27T00:41:06.297Z",
+  "latestId": 51,
+  "latestDate": "2026-10-27",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 51,
+      "date": "2026-10-27",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-27",
+      "items": [
+        "No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止",
+        "No.2 B站「AI创造公开赛S2」：用大模型/vibe coding 做出可运行产品并投稿，一等奖税前100万元",
+        "No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 50,
       "date": "2026-10-26",
@@ -117,20 +129,10 @@
         "No.3 Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 41,
-      "date": "2026-10-21",
-      "tag": "新功能",
-      "title": "新增「AI生活起号选题方案」合集：10 个场景选题与可卖的原创日历/提示词包角度，附来源与合规提醒",
-      "items": [
-        "新增「AI生活起号选题方案」合集：10 个场景选题与可卖的原创日历/提示词包角度，附来源与合规提醒"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
-    "date": "2026-10-26",
+    "date": "2026-10-27",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
@@ -142,15 +144,15 @@
       },
       {
         "rank": 2,
-        "name": "Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
-        "type": "奖金赛/悬赏",
-        "source_url": "https://nebiusglobalaihackathon.devpost.com/"
+        "name": "B站「AI创造公开赛S2」：用大模型/vibe coding 做出可运行产品并投稿，一等奖税前100万元",
+        "type": "平台激励",
+        "source_url": "https://www.bilibili.com/opus/1262431200618741810"
       },
       {
         "rank": 3,
-        "name": "B站「不普通影视计划2026」：影视区挂话题投稿，每周开奖可叠加子活动激励",
-        "type": "平台激励",
-        "source_url": "https://www.bilibili.com/opus/1248206857356443648"
+        "name": "Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
+        "type": "奖金赛/悬赏",
+        "source_url": "https://nebiusglobalaihackathon.devpost.com/"
       }
     ]
   }

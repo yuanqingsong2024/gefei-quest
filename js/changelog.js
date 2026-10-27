@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 51, date: '2026-10-27', title: '每日赚钱榜 · 2026-10-27', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止","No.2 B站「AI创造公开赛S2」：用大模型/vibe coding 做出可运行产品并投稿，一等奖税前100万元","No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"] },
     { id: 50, date: '2026-10-26', title: 'AI生活合集新增「早晨出门秘书」场景文选题', tag: '内容', href: '#war-rank-ai-life',
       items: ['「AI生活起号选题方案」合集置顶新增：7:30 一句话搞定日历冲突、通勤预估、今日重点；含公众号结构、可复制提示词、小红书与闲鱼模板角度', '附 Digital Today / Engadget / Google Gemini 帮助来源；不承诺收益，不卖账号代开通代领'] },
     { id: 49, date: '2026-10-26', title: '每日赚钱榜 · 2026-10-26', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止","No.2 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止","No.3 B站「不普通影视计划2026」：影视区挂话题投稿，每周开奖可叠加子活动激励"] },
