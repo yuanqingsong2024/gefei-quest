@@ -1859,6 +1859,8 @@ body.search-open { overflow: hidden; }
 .rank-panel-fit { --rank-accent: 125, 211, 252; }
 .rank-panel-resell { --rank-accent: 56, 189, 248; background: rgba(56, 189, 248, .1); }
 .rank-panel-src { --rank-accent: 148, 163, 184; }
+.rank-panel-howto { --rank-accent: 167, 139, 250; }
+.rank-agent-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .rank-panel .rank-resell { margin-top: 0; background: transparent; border-color: rgba(125, 211, 252, .45); }
 .rank-detail-steps { margin: 0; padding-left: 20px; color: var(--ink); line-height: 1.6; }
 .rank-detail-steps li { margin: 4px 0; }
@@ -3362,6 +3364,24 @@ body.is-home .home-howto span.home-step-ico > img.ico-img,
 .rank-card.rank-type-联盟营销, .rank-detail-card.rank-type-联盟营销 { --rank-accent: 96, 165, 250; }
 .rank-card.rank-type-案例拆解, .rank-detail-card.rank-type-案例拆解 { --rank-accent: 148, 163, 184; }
 .rank-card.rank-type-数字产品-接单, .rank-detail-card.rank-type-数字产品-接单 { --rank-accent: 250, 204, 21; }
+
+/* Agent 赚钱类型色 */
+.chip.rank-type-Agent接单, .pill[data-type="Agent接单"] { background: rgba(129, 140, 248, .22); color: #c7d2fe; }
+.chip.rank-type-Agent内容变现, .pill[data-type="Agent内容变现"] { background: rgba(244, 114, 182, .22); color: #fbcfe8; }
+.chip.rank-type-Agent工具-小产品, .pill[data-type="Agent工具/小产品"] { background: rgba(45, 212, 191, .22); color: #99f6e4; }
+.chip.rank-type-Agent出海小站, .pill[data-type="Agent出海小站"] { background: rgba(167, 139, 250, .22); color: #ddd6fe; }
+.chip.rank-type-Agent闲鱼方案, .pill[data-type="Agent闲鱼方案"] { background: rgba(56, 189, 248, .22); color: #bae6fd; }
+.chip.rank-type-Agent平台激励, .pill[data-type="Agent平台激励"] { background: rgba(251, 146, 60, .22); color: #fed7aa; }
+.chip.rank-type-Agent案例拆解, .pill[data-type="Agent案例拆解"] { background: rgba(148, 163, 184, .25); color: var(--ink); }
+
+.rank-card.rank-type-Agent接单, .rank-detail-card.rank-type-Agent接单 { --rank-accent: 129, 140, 248; }
+.rank-card.rank-type-Agent内容变现, .rank-detail-card.rank-type-Agent内容变现 { --rank-accent: 244, 114, 182; }
+.rank-card.rank-type-Agent工具-小产品, .rank-detail-card.rank-type-Agent工具-小产品 { --rank-accent: 45, 212, 191; }
+.rank-card.rank-type-Agent出海小站, .rank-detail-card.rank-type-Agent出海小站 { --rank-accent: 167, 139, 250; }
+.rank-card.rank-type-Agent闲鱼方案, .rank-detail-card.rank-type-Agent闲鱼方案 { --rank-accent: 56, 189, 248; }
+.rank-card.rank-type-Agent平台激励, .rank-detail-card.rank-type-Agent平台激励 { --rank-accent: 251, 146, 60; }
+.rank-card.rank-type-Agent案例拆解, .rank-detail-card.rank-type-Agent案例拆解 { --rank-accent: 148, 163, 184; }
+
 
 /* Phase 25 · 顶栏减负 + 首页路径 */
 .nav-start-today {

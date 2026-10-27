@@ -167,6 +167,10 @@
       '<section class="rank-detail-section rank-panel rank-panel-why"><h3 class="rank-detail-label">为什么上榜</h3><p class="rank-why rank-why-full">' + esc(it.why) + '</p></section>' +
       '<section class="rank-detail-section rank-panel rank-panel-fit"><h3 class="rank-detail-label">适合谁 / 风险</h3>' +
       '<dl class="rank-meta"><dt>适合谁</dt><dd>' + esc(it.fit) + '</dd><dt>风险</dt><dd class="rank-risk">' + esc(it.risk) + '</dd></dl></section>' +
+      (it.agent_howto ? '<section class="rank-detail-section rank-panel rank-panel-howto"><h3 class="rank-detail-label">怎么用 Agent 做</h3><p class="rank-why rank-why-full">' + esc(it.agent_howto) + '</p>' +
+        (Array.isArray(it.agent_stack) && it.agent_stack.length
+          ? '<div class="rank-agent-stack">' + it.agent_stack.map(function (s) { return '<span class="tag">' + esc(s) + '</span>'; }).join('') + '</div>'
+          : '') + '</section>' : '') +
       (hasResell(it) ? '<section class="rank-detail-section rank-panel rank-panel-resell">' + resellHtml(it) + '</section>' : '') +
       '<section class="rank-detail-section"><h3 class="rank-detail-label">怎么开始（' + (it.steps || []).length + ' 步）</h3><ol class="rank-roadmap">' + steps + '</ol></section>' +
       '<section class="rank-detail-section rank-panel rank-panel-src"><h3 class="rank-detail-label">来源</h3>' + srcHtml(it, false, date) +
@@ -285,6 +289,7 @@
       var on = which === c.tab;
       html += '<a class="rank-switch-btn' + (on ? ' active' : '') + '" href="#' + c.hash + '"' + (on ? ' aria-current="page"' : '') + '>' + esc(c.label) + '</a>';
     });
+    html += '<a class="rank-switch-btn' + (which === 'agent' ? ' active' : '') + '" href="#war-rank-agent"' + (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 赚钱</a>';
     return html + '</nav>';
   }
   function colBundle(id) {
@@ -445,5 +450,5 @@
     });
   }
   function latestItems() { var r = R(); return r.latest && r.days[r.latest] ? r.days[r.latest].items : []; }
-  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER, TYPES: TYPES, COLS: COLS, colByHash: colByHash, colById: colById, openRankDetail: openRankDetail, closeRankDetail: closeRankDetail };
+  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER, TYPES: TYPES, COLS: COLS, colByHash: colByHash, colById: colById, openRankDetail: openRankDetail, closeRankDetail: closeRankDetail, card: card, bindRankCards: bindRankCards, switchHtml: switchHtml };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -207,6 +207,11 @@
       } else {
         QuestMap.renderMap(state, $('#path-body'), (chapterId) => { currentChapter = chapterId; go('#path-quests'); });
       }
+    } else if (sec === 'war' && route.view === 'rank-agent') {
+      crumb = 'Agent 赚钱';
+      $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';
+      if (window.QuestAgentMoney) QuestAgentMoney.render(state, $('#tool-body'), toolCtx());
+      else $('#tool-body').innerHTML = '<div class="empty-illo"><p><b>Agent 赚钱模块未加载</b></p></div>';
     } else if (sec === 'war' && route.view === 'rank') {
       crumb = '每日赚钱榜';
       $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';
