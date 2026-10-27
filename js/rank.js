@@ -82,28 +82,166 @@
     root.querySelectorAll('[data-plan-del]').forEach(function (b) { b.addEventListener('click', function () { state.rankPlan.splice(+b.getAttribute('data-plan-del'), 1); ctx.save(); ctx.rerender(); }); });
   }
 
+  function isPlanned(it, state, planKey) {
+    return planKey
+      ? state.rankPlan.some(function (p) { return p.key === planKey; })
+      : state.rankPlan.some(function (p) { return !p.key && p.name === it.name; });
+  }
   function card(it, state, date, opts) {
     opts = opts || {};
     var planKey = opts.planKey || '';
     var extra = opts.extraClass ? ' ' + opts.extraClass : '';
     var fav = state.rankFav.indexOf(it.name) >= 0;
-    var planned = planKey
-      ? state.rankPlan.some(function (p) { return p.key === planKey; })
-      : state.rankPlan.some(function (p) { return !p.key && p.name === it.name; });
+    var planned = isPlanned(it, state, planKey);
     var S = QS();
     var face = S ? '<div class="rank-face-src qs-oneline">' + S.render(it.sources, { compact: true }) + '</div>' : '';
-    return '<article class="rank-card glass' + (hasResell(it) ? ' has-resell' : '') + extra + '" data-rank="' + it.rank + '" data-difficulty="' + it.difficulty + '" data-type="' + esc(it.type) + '">' +
+    var resellBadge = hasResell(it) ? '<span class="rank-resell-pill" title="含闲鱼方案">闲鱼方案</span>' : '';
+    return '<article class="rank-card rank-card--teaser glass' + (hasResell(it) ? ' has-resell' : '') + extra + '" data-rank="' + it.rank + '" data-difficulty="' + it.difficulty + '" data-type="' + esc(it.type) + '"' + (planKey ? ' data-plan-key="' + esc(planKey) + '"' : '') + '>' +
       '<div class="rank-head"><span class="rank-no rank-no-' + Math.min(it.rank, 4) + '">' + it.rank + '</span><div class="rank-title"><h3>' + esc(it.name) + '</h3>' +
-      '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + stars(it.difficulty) + ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span></p>' +
-      face + resellHtml(it) + '</div>' +
+      '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + stars(it.difficulty) + ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span>' + resellBadge + '</p>' +
+      face + '</div>' +
       '<button type="button" class="rank-fav' + (fav ? ' on' : '') + '" data-fav="' + esc(it.name) + '" aria-pressed="' + fav + '" aria-label="' + (fav ? '取消收藏' : '收藏') + '">' + I('star') + '</button></div>' +
       '<p class="rank-why">' + esc(it.why) + '</p>' +
-      '<dl class="rank-meta"><dt>适合谁</dt><dd>' + esc(it.fit) + '</dd><dt>风险</dt><dd class="rank-risk">' + esc(it.risk) + '</dd></dl>' +
-      '<details class="rank-steps"><summary>怎么开始（' + it.steps.length + ' 步）</summary><ol>' + it.steps.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ol></details>' +
-      '<div class="rank-foot">' + srcHtml(it, false, date) +
-      '<span class="rank-tags">' + (it.tags || []).map(function (t) { return '<span class="tag">#' + esc(t) + '</span>'; }).join('') + '</span>' +
+      '<div class="rank-foot">' +
       '<span class="tool-actions">' +
+      '<button type="button" class="btn btn-sm" data-rank-detail="' + it.rank + '">查看详情</button>' +
       '<button type="button" class="btn btn-sm ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-plan-add="' + it.rank + '"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在计划中' : '加入实操计划') + '</button></span></div></article>';
+  }
+
+  function closeRankDetail() {
+    var M = global.QuestModal;
+    if (!M) return;
+    var roots = M.ensureRoots();
+    var modal = roots.modal;
+    modal.hidden = true;
+    modal.innerHTML = '';
+    modal.onclick = null;
+    if (closeRankDetail._onKey) {
+      document.removeEventListener('keydown', closeRankDetail._onKey);
+      closeRankDetail._onKey = null;
+    }
+  }
+
+  function openRankDetail(it, state, date, ctx) {
+    var M = global.QuestModal;
+    if (!M || !it) return;
+    if (closeRankDetail._onKey) {
+      document.removeEventListener('keydown', closeRankDetail._onKey);
+      closeRankDetail._onKey = null;
+    }
+    ensure(state);
+    var roots = M.ensureRoots();
+    var modal = roots.modal;
+    var planKey = (ctx && ctx.planKey) || '';
+    var fav = state.rankFav.indexOf(it.name) >= 0;
+    var planned = isPlanned(it, state, planKey);
+    var steps = (it.steps || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
+    var tags = (it.tags || []).map(function (t) { return '<span class="tag">#' + esc(t) + '</span>'; }).join('');
+    modal.hidden = false;
+    modal.innerHTML =
+      '<div class="modal-backdrop" data-rank-close="1"></div>' +
+      '<div class="modal-card rank-detail-card" role="dialog" aria-modal="true" aria-labelledby="rank-detail-title">' +
+      '<button type="button" class="rank-detail-close" data-rank-close="1" aria-label="关闭">×</button>' +
+      '<div class="rank-detail-head">' +
+      '<span class="rank-no rank-no-' + Math.min(it.rank, 4) + '">' + it.rank + '</span>' +
+      '<div class="rank-title"><h2 id="rank-detail-title">' + esc(it.name) + '</h2>' +
+      '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + stars(it.difficulty) +
+      ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span></p></div></div>' +
+      '<section class="rank-detail-section"><h3 class="rank-detail-label">为什么上榜</h3><p class="rank-why rank-why-full">' + esc(it.why) + '</p></section>' +
+      '<section class="rank-detail-section"><h3 class="rank-detail-label">适合谁 / 风险</h3>' +
+      '<dl class="rank-meta"><dt>适合谁</dt><dd>' + esc(it.fit) + '</dd><dt>风险</dt><dd class="rank-risk">' + esc(it.risk) + '</dd></dl></section>' +
+      (hasResell(it) ? '<section class="rank-detail-section">' + resellHtml(it) + '</section>' : '') +
+      '<section class="rank-detail-section"><h3 class="rank-detail-label">怎么开始（' + (it.steps || []).length + ' 步）</h3><ol class="rank-detail-steps">' + steps + '</ol></section>' +
+      '<section class="rank-detail-section"><h3 class="rank-detail-label">来源</h3>' + srcHtml(it, false, date) +
+      (tags ? '<div class="rank-tags" style="margin-top:8px">' + tags + '</div>' : '') + '</section>' +
+      '<div class="modal-actions rank-detail-actions">' +
+      '<button type="button" class="btn rank-fav-btn' + (fav ? ' on' : '') + '" data-rank-fav-toggle="1" aria-pressed="' + fav + '">' + I('star') + (fav ? ' 已收藏' : ' 收藏') + '</button>' +
+      '<button type="button" class="btn ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-rank-plan-toggle="1"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在计划中' : '加入实操计划') + '</button>' +
+      '<button type="button" class="btn" data-rank-close="1">关闭</button></div></div>';
+
+    function refreshDetailActions() {
+      fav = state.rankFav.indexOf(it.name) >= 0;
+      planned = isPlanned(it, state, planKey);
+      var favBtn = modal.querySelector('[data-rank-fav-toggle]');
+      var planBtn = modal.querySelector('[data-rank-plan-toggle]');
+      if (favBtn) {
+        favBtn.classList.toggle('on', fav);
+        favBtn.setAttribute('aria-pressed', fav ? 'true' : 'false');
+        favBtn.innerHTML = I('star') + (fav ? ' 已收藏' : ' 收藏');
+      }
+      if (planBtn) {
+        planBtn.disabled = planned;
+        planBtn.className = 'btn ' + (planned ? 'btn-ghost' : 'btn-primary');
+        planBtn.textContent = planned ? '已在计划中' : '加入实操计划';
+      }
+    }
+
+    function onKey(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeRankDetail();
+      }
+    }
+    closeRankDetail._onKey = onKey;
+    document.addEventListener('keydown', onKey);
+    modal.onclick = function (e) {
+      if (e.target.closest('[data-rank-close]')) {
+        closeRankDetail();
+        return;
+      }
+      if (e.target.closest('[data-rank-fav-toggle]')) {
+        e.preventDefault();
+        e.stopPropagation();
+        var k = state.rankFav.indexOf(it.name);
+        if (k >= 0) state.rankFav.splice(k, 1); else state.rankFav.push(it.name);
+        if (ctx && ctx.save) ctx.save();
+        refreshDetailActions();
+        if (ctx && ctx.onChanged) ctx.onChanged();
+        return;
+      }
+      if (e.target.closest('[data-rank-plan-toggle]')) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isPlanned(it, state, planKey)) return;
+        var entry = {
+          name: it.name,
+          type: it.type,
+          date: global.QuestStats ? global.QuestStats.ymd(new Date()) : (date || ''),
+          steps: (it.steps || []).slice(),
+          source_url: it.source_url,
+          sources: (it.sources && it.sources.slice()) || undefined,
+          done: false,
+        };
+        if (planKey) entry.key = planKey;
+        state.rankPlan.push(entry);
+        if (ctx && ctx.save) ctx.save();
+        if (M.showToast) M.showToast('已加入实操计划：' + it.name);
+        refreshDetailActions();
+        if (ctx && ctx.onChanged) ctx.onChanged();
+      }
+    };
+  }
+
+  function bindRankCards(root, items, state, date, ctx, opts) {
+    opts = opts || {};
+    root.querySelectorAll('[data-rank-detail]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var rank = +b.getAttribute('data-rank-detail');
+        var it = items.filter(function (i) { return i.rank === rank; })[0];
+        if (!it) return;
+        var planKey = opts.planKeyFor ? opts.planKeyFor(it) : '';
+        openRankDetail(it, state, date, {
+          save: ctx.save,
+          planKey: planKey,
+          onChanged: function () {
+            if (opts.rerender) opts.rerender();
+            else if (ctx.rerender) ctx.rerender();
+          },
+        });
+      });
+    });
   }
 
   function hashNow() {
@@ -171,12 +309,14 @@
       planHtml(state);
     var more = root.querySelector('#col-more');
     if (more) more.addEventListener('click', function () { colOpen[meta.id] = true; paintCollection(state, root, ctx, meta, data); });
-    root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function () {
+    root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function (e) {
+      e.stopPropagation();
       var n = b.getAttribute('data-fav'), k = state.rankFav.indexOf(n);
       if (k >= 0) state.rankFav.splice(k, 1); else state.rankFav.push(n);
       ctx.save(); paintCollection(state, root, ctx, meta, data);
     }); });
-    root.querySelectorAll('[data-plan-add]').forEach(function (b) { b.addEventListener('click', function () {
+    root.querySelectorAll('[data-plan-add]').forEach(function (b) { b.addEventListener('click', function (e) {
+      e.stopPropagation();
       var rank = +b.getAttribute('data-plan-add');
       var it = items.filter(function (i) { return i.rank === rank; })[0];
       if (!it) return;
@@ -197,6 +337,10 @@
       if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name);
       paintCollection(state, root, ctx, meta, data);
     }); });
+    bindRankCards(root, items, state, data.updated || '', ctx, {
+      planKeyFor: function (it) { return meta.id + ':' + it.rank; },
+      rerender: function () { paintCollection(state, root, ctx, meta, data); },
+    });
     bindPlan(state, root, { save: ctx.save, rerender: function () {
       var m = colByHash();
       if (m) paintCollection(state, root, ctx, m, colBundle(m.id) || data);
@@ -264,20 +408,25 @@
       var rsBtn = root.querySelector('#rank-only-resell');
       if (rsBtn) rsBtn.addEventListener('click', function () { view.resell = !view.resell; renderRank(state, root, ctx); });
       root.querySelector('#rank-only-fav').addEventListener('click', function () { view.fav = !view.fav; renderRank(state, root, ctx); });
-      root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function () {
+      root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function (e) {
+        e.stopPropagation();
         var n = b.getAttribute('data-fav'), k = state.rankFav.indexOf(n);
         if (k >= 0) state.rankFav.splice(k, 1); else state.rankFav.push(n);
         ctx.save(); renderRank(state, root, ctx);
       }); });
-      root.querySelectorAll('[data-plan-add]').forEach(function (b) { b.addEventListener('click', function () {
+      root.querySelectorAll('[data-plan-add]').forEach(function (b) { b.addEventListener('click', function (e) {
+        e.stopPropagation();
         var it = day.items.filter(function (i) { return i.rank === +b.getAttribute('data-plan-add'); })[0]; if (!it) return;
         if (!state.rankPlan.some(function (p) { return !p.key && p.name === it.name; })) state.rankPlan.push({ name: it.name, type: it.type, date: global.QuestStats ? global.QuestStats.ymd(new Date()) : day.date, steps: it.steps.slice(), source_url: it.source_url, sources: (it.sources && it.sources.slice()) || undefined, done: false });
         ctx.save(); if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name); renderRank(state, root, ctx);
       }); });
+      bindRankCards(root, day.items, state, day.date, ctx, {
+        rerender: function () { renderRank(state, root, ctx); },
+      });
       bindPlan(state, root, { save: ctx.save, rerender: function () { renderRank(state, root, ctx); } });
       if (global.QuestNav) global.QuestNav.fixLinks(root);
     });
   }
   function latestItems() { var r = R(); return r.latest && r.days[r.latest] ? r.days[r.latest].items : []; }
-  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER, TYPES: TYPES, COLS: COLS, colByHash: colByHash, colById: colById };
+  global.QuestRank = { ensure: ensure, renderRank: renderRank, planHtml: planHtml, bindPlan: bindPlan, latestItems: latestItems, DISCLAIMER: DISCLAIMER, TYPES: TYPES, COLS: COLS, colByHash: colByHash, colById: colById, openRankDetail: openRankDetail, closeRankDetail: closeRankDetail };
 })(typeof window !== 'undefined' ? window : globalThis);

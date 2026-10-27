@@ -133,7 +133,7 @@
   var RULES = [
     ['.home-wrap, .tool-wrap, .pm-page, #wb-body .wb', tabs],
     ['.war-days > section.war-day:not(.war-day-today)', function (el) { collapse(el, { head: '.war-day-head', more: '展开', less: '收起' }); }],
-    ['.rank-card', function (el) { collapse(el, { keep: 2, btnBelow: true }); }],
+    // rank 详情改弹窗，不再对 .rank-card collapse 插入「展开详情」
     ['.rank-grid', function (el) { if (el.hasAttribute('data-col-expand')) return; paginate(el, '.rank-card', 6); }],
     ['.rank-disclaimer', function (el) { clipLine(el); }],
     ['.pm-note', function (el) { clipLine(el, ':scope > div'); }],
