@@ -1825,32 +1825,107 @@ body.search-open { overflow: hidden; }
 .chip-fav .ico { color: var(--gold); }
 .rank-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 12px 0 var(--sp-6); min-width: 0; }
 @media (max-width: 860px) { .rank-grid { grid-template-columns: minmax(0, 1fr); } }
-.rank-card { padding: 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
-.rank-card--teaser { gap: 12px; padding: 16px 18px; }
+.rank-card {
+  --rank-accent: 148, 163, 184;
+  padding: 18px; display: flex; flex-direction: column; gap: 10px;
+  min-width: 0; max-width: 100%; overflow-wrap: anywhere;
+  border-left: 4px solid rgba(var(--rank-accent), .85);
+  background:
+    linear-gradient(105deg, rgba(var(--rank-accent), .14), rgba(var(--rank-accent), .04) 42%, transparent 68%),
+    var(--glass);
+}
+.rank-card--teaser { gap: 12px; padding: 14px 16px 16px 14px; }
 .rank-card--teaser .rank-foot { margin-top: 4px; }
 .rank-card--teaser .tool-actions { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+.rank-card--teaser .rank-title h3 { font-weight: 800; letter-spacing: .01em; }
 .rank-resell-pill { display: inline-flex; align-items: center; padding: 1px 8px; border-radius: 999px; font-size: var(--fs-xs); font-weight: 700; color: var(--cyan); background: #0c4a6e; border: 1px solid rgba(125,211,252,.7); }
-.rank-detail-card { width: min(640px, 94vw); max-height: 85vh; overflow: auto; padding: 22px 22px 16px; }
+.rank-detail-card {
+  --rank-accent: 148, 163, 184;
+  width: min(640px, 94vw); max-height: 85vh; overflow: auto; padding: 22px 22px 16px;
+  border-top: 3px solid rgba(var(--rank-accent), .75);
+}
 .rank-detail-close { position: absolute; top: 10px; right: 12px; width: 36px; height: 36px; border: 0; border-radius: 10px; background: transparent; color: var(--muted); font-size: 1.4rem; line-height: 1; cursor: pointer; }
 .rank-detail-close:hover { color: var(--ink); background: var(--panel2); }
 .rank-detail-head { display: flex; gap: 12px; align-items: flex-start; padding-right: 36px; margin-bottom: 8px; }
 .rank-detail-head h2 { margin: 0 0 6px; font-size: 1.2rem; color: var(--ink); }
 .rank-detail-section { margin: 14px 0; }
 .rank-detail-label { margin: 0 0 8px; font-size: var(--fs-sm); color: var(--gold-text); font-weight: 800; letter-spacing: .02em; }
+.rank-panel {
+  padding: 12px 14px; border-radius: 14px;
+  border: 1px solid rgba(var(--rank-accent), .22);
+  background: rgba(var(--rank-accent), .08);
+}
+.rank-panel-why { --rank-accent: 251, 191, 36; }
+.rank-panel-fit { --rank-accent: 125, 211, 252; }
+.rank-panel-resell { --rank-accent: 56, 189, 248; background: rgba(56, 189, 248, .1); }
+.rank-panel-src { --rank-accent: 148, 163, 184; }
+.rank-panel .rank-resell { margin-top: 0; background: transparent; border-color: rgba(125, 211, 252, .45); }
 .rank-detail-steps { margin: 0; padding-left: 20px; color: var(--ink); line-height: 1.6; }
 .rank-detail-steps li { margin: 4px 0; }
+.rank-roadmap {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.rank-step {
+  --step-bg: 196, 181, 253;
+  --step-fg: 109, 40, 217;
+  display: flex; align-items: flex-start; gap: 10px; min-width: 0;
+}
+.rank-step-badge {
+  flex: none; display: inline-flex; align-items: center; justify-content: center;
+  min-width: 3.6em; max-width: 5.2em; height: 1.7rem; padding: 0 10px;
+  border-radius: 999px; font-size: .72rem; font-weight: 800; letter-spacing: .02em;
+  white-space: nowrap; line-height: 1;
+  color: rgb(var(--step-fg));
+  background: rgba(var(--step-bg), .55);
+  border: 1px solid rgba(var(--step-bg), .85);
+}
+.rank-step-card {
+  flex: 1; min-width: 0;
+  padding: 10px 12px; border-radius: 12px;
+  color: var(--ink); line-height: 1.55; font-size: var(--fs-sm);
+  background: rgba(var(--step-bg), .18);
+  border: 1px solid rgba(var(--step-bg), .35);
+  overflow-wrap: anywhere;
+}
+.rank-step:nth-child(6n + 1) { --step-bg: 196, 181, 253; --step-fg: 124, 58, 237; }
+.rank-step:nth-child(6n + 2) { --step-bg: 253, 186, 116; --step-fg: 194, 65, 12; }
+.rank-step:nth-child(6n + 3) { --step-bg: 167, 243, 208; --step-fg: 4, 120, 87; }
+.rank-step:nth-child(6n + 4) { --step-bg: 186, 230, 253; --step-fg: 3, 105, 161; }
+.rank-step:nth-child(6n + 5) { --step-bg: 251, 207, 232; --step-fg: 190, 24, 93; }
+.rank-step:nth-child(6n + 6) { --step-bg: 254, 240, 138; --step-fg: 161, 98, 7; }
 .rank-detail-actions { flex-wrap: wrap; justify-content: flex-start; gap: 8px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
 .rank-fav-btn.on { color: var(--gold); border-color: var(--gold); background: rgba(251,191,36,.14); }
 @media (max-width: 520px) {
   .rank-detail-card { width: min(640px, 96vw); padding: 18px 14px 14px; max-height: 88vh; }
   .rank-detail-actions .btn { flex: 1 1 auto; }
+  .rank-step { gap: 8px; }
+  .rank-step-badge { min-width: 3.2em; padding: 0 8px; font-size: .68rem; }
+  .rank-step-card { padding: 9px 10px; }
 }
-.rank-head { display: flex; gap: 12px; align-items: flex-start; min-width: 0; max-width: 100%; }
-.rank-no { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; font-weight: 800; font-size: 1.25rem; color: var(--ink); background: #94a3b8; box-shadow: var(--sh-1); }
+.rank-head { display: flex; gap: 10px; align-items: flex-start; min-width: 0; max-width: 100%; }
+.rank-no {
+  flex: none; width: 42px; height: 42px; border-radius: 12px;
+  display: grid; place-items: center; font-weight: 800; font-size: 1.25rem;
+  color: var(--ink); background: #94a3b8; box-shadow: var(--sh-1);
+}
+.rank-no.rank-badge {
+  width: auto; min-width: 3.2em; height: 1.7rem; padding: 0 10px;
+  border-radius: 999px; font-size: .72rem; letter-spacing: .02em;
+  white-space: nowrap; line-height: 1;
+  background: rgba(var(--rank-accent), .28);
+  color: var(--ink);
+  border: 1px solid rgba(var(--rank-accent), .55);
+  box-shadow: none;
+}
 .rank-no-1 { background: linear-gradient(145deg, #fde68a, #f59e0b); }
 .rank-no-2 { background: linear-gradient(145deg, #f1f5f9, #94a3b8); }
 .rank-no-3 { background: linear-gradient(145deg, #fdba74, #c2410c); color: var(--btn-fg); }
 .rank-no-4 { background: var(--line); color: var(--ink); }
+.rank-no.rank-badge.rank-no-1 { background: linear-gradient(145deg, #fde68a, #f59e0b); color: #78350f; border-color: transparent; }
+.rank-no.rank-badge.rank-no-2 { background: linear-gradient(145deg, #f1f5f9, #94a3b8); color: #1e293b; border-color: transparent; }
+.rank-no.rank-badge.rank-no-3 { background: linear-gradient(145deg, #fdba74, #c2410c); color: var(--btn-fg); border-color: transparent; }
+.rank-no.rank-badge.rank-no-4 { background: rgba(var(--rank-accent), .28); color: var(--ink); }
 .rank-title { flex: 1; min-width: 0; }
 .rank-title h3 { margin: 0 0 6px; font-size: 1.08rem; color: var(--ink); overflow-wrap: anywhere; }
 .rank-title p { margin: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; color: var(--muted); font-size: var(--fs-sm); min-width: 0; }
@@ -2185,7 +2260,7 @@ details.cx-details>:not(summary){margin:0 12px 12px}
   .rank-card{padding:10px 12px;gap:6px}
   .rank-why{-webkit-line-clamp:2}
   .rank-grid{gap:10px}
-  .rank-no{width:34px;height:34px;font-size:1.05rem}
+  .rank-no{width:34px;height:34px;font-size:1.05rem}.rank-no.rank-badge{width:auto;min-width:2.8em;height:1.55rem;padding:0 8px;font-size:.68rem}
   .peer-grid{gap:8px}
   .peer-card{padding:8px 10px}
   .peer-card h4{margin:0 0 2px}
@@ -3262,18 +3337,31 @@ body.is-home .home-howto span.home-step-ico > img.ico-img,
 .pill[data-rtype], .chip[data-rtype], .rank-card .pill {
   border: 1px solid transparent;
 }
-.rank-type-羊毛, .chip[data-rtype="羊毛"], .pill[data-type="羊毛"] { background: rgba(74, 222, 128, .18); color: #bbf7d0; }
-.rank-type-副业, .chip[data-rtype="副业"], .pill[data-type="副业"] { background: rgba(251, 191, 36, .2); color: var(--gold-text); }
-.rank-type-闲鱼非实物, .chip[data-rtype="闲鱼非实物"], .pill[data-type="闲鱼非实物"] { background: rgba(56, 189, 248, .2); color: var(--cyan); }
-.rank-type-出海小站, .chip[data-rtype="出海小站"], .pill[data-type="出海小站"] { background: rgba(167, 139, 250, .22); color: #ddd6fe; }
-.rank-type-工具活动, .chip[data-rtype="工具活动"], .pill[data-type="工具活动"] { background: rgba(248, 113, 113, .2); color: #fecaca; }
-.rank-type-出海新词, .chip[data-rtype="出海新词"], .pill[data-type="出海新词"] { background: rgba(45, 212, 191, .2); color: #99f6e4; }
-.rank-type-开发者羊毛, .chip[data-rtype="开发者羊毛"], .pill[data-type="开发者羊毛"] { background: rgba(132, 204, 22, .22); color: #d9f99d; }
-.rank-type-奖金赛-悬赏, .chip[data-rtype="奖金赛/悬赏"], .pill[data-type="奖金赛/悬赏"] { background: rgba(244, 114, 182, .22); color: #fbcfe8; }
-.rank-type-平台激励, .chip[data-rtype="平台激励"], .pill[data-type="平台激励"] { background: rgba(251, 146, 60, .22); color: #fed7aa; }
-.rank-type-联盟营销, .chip[data-rtype="联盟营销"], .pill[data-type="联盟营销"] { background: rgba(96, 165, 250, .22); color: #bfdbfe; }
-.rank-type-案例拆解, .chip[data-rtype="案例拆解"], .pill[data-type="案例拆解"] { background: rgba(148, 163, 184, .25); color: var(--ink); }
-.rank-type-数字产品-接单, .chip[data-rtype="数字产品/接单"], .pill[data-type="数字产品/接单"] { background: rgba(250, 204, 21, .22); color: #fef08a; }
+.chip.rank-type-羊毛, .pill[data-type="羊毛"] { background: rgba(74, 222, 128, .18); color: #bbf7d0; }
+.chip.rank-type-副业, .pill[data-type="副业"] { background: rgba(251, 191, 36, .2); color: var(--gold-text); }
+.chip.rank-type-闲鱼非实物, .pill[data-type="闲鱼非实物"] { background: rgba(56, 189, 248, .2); color: var(--cyan); }
+.chip.rank-type-出海小站, .pill[data-type="出海小站"] { background: rgba(167, 139, 250, .22); color: #ddd6fe; }
+.chip.rank-type-工具活动, .pill[data-type="工具活动"] { background: rgba(248, 113, 113, .2); color: #fecaca; }
+.chip.rank-type-出海新词, .pill[data-type="出海新词"] { background: rgba(45, 212, 191, .2); color: #99f6e4; }
+.chip.rank-type-开发者羊毛, .pill[data-type="开发者羊毛"] { background: rgba(132, 204, 22, .22); color: #d9f99d; }
+.chip.rank-type-奖金赛-悬赏, .pill[data-type="奖金赛/悬赏"] { background: rgba(244, 114, 182, .22); color: #fbcfe8; }
+.chip.rank-type-平台激励, .pill[data-type="平台激励"] { background: rgba(251, 146, 60, .22); color: #fed7aa; }
+.chip.rank-type-联盟营销, .pill[data-type="联盟营销"] { background: rgba(96, 165, 250, .22); color: #bfdbfe; }
+.chip.rank-type-案例拆解, .pill[data-type="案例拆解"] { background: rgba(148, 163, 184, .25); color: var(--ink); }
+.chip.rank-type-数字产品-接单, .pill[data-type="数字产品/接单"] { background: rgba(250, 204, 21, .22); color: #fef08a; }
+
+.rank-card.rank-type-羊毛, .rank-detail-card.rank-type-羊毛 { --rank-accent: 74, 222, 128; }
+.rank-card.rank-type-副业, .rank-detail-card.rank-type-副业 { --rank-accent: 251, 191, 36; }
+.rank-card.rank-type-闲鱼非实物, .rank-detail-card.rank-type-闲鱼非实物 { --rank-accent: 56, 189, 248; }
+.rank-card.rank-type-出海小站, .rank-detail-card.rank-type-出海小站 { --rank-accent: 167, 139, 250; }
+.rank-card.rank-type-工具活动, .rank-detail-card.rank-type-工具活动 { --rank-accent: 248, 113, 113; }
+.rank-card.rank-type-出海新词, .rank-detail-card.rank-type-出海新词 { --rank-accent: 45, 212, 191; }
+.rank-card.rank-type-开发者羊毛, .rank-detail-card.rank-type-开发者羊毛 { --rank-accent: 132, 204, 22; }
+.rank-card.rank-type-奖金赛-悬赏, .rank-detail-card.rank-type-奖金赛-悬赏 { --rank-accent: 244, 114, 182; }
+.rank-card.rank-type-平台激励, .rank-detail-card.rank-type-平台激励 { --rank-accent: 251, 146, 60; }
+.rank-card.rank-type-联盟营销, .rank-detail-card.rank-type-联盟营销 { --rank-accent: 96, 165, 250; }
+.rank-card.rank-type-案例拆解, .rank-detail-card.rank-type-案例拆解 { --rank-accent: 148, 163, 184; }
+.rank-card.rank-type-数字产品-接单, .rank-detail-card.rank-type-数字产品-接单 { --rank-accent: 250, 204, 21; }
 
 /* Phase 25 · 顶栏减负 + 首页路径 */
 .nav-start-today {

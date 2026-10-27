@@ -515,6 +515,29 @@ html[data-theme] .rank-steps ol,
 html[data-theme] .plan-item small { color: var(--muted); }
 html[data-theme] .rank-why { color: var(--ink); }
 html[data-theme] .rank-meta .rank-risk { color: var(--danger); }
+html[data-theme] .rank-card {
+  background:
+    linear-gradient(105deg, rgba(var(--rank-accent), .12), rgba(var(--rank-accent), .04) 42%, transparent 68%),
+    var(--glass);
+}
+html[data-theme] .rank-panel {
+  background: color-mix(in srgb, rgb(var(--rank-accent)) 12%, var(--panel));
+  border-color: color-mix(in srgb, rgb(var(--rank-accent)) 28%, var(--line));
+}
+html[data-theme] .rank-step-badge {
+  color: rgb(var(--step-fg));
+  background: color-mix(in srgb, rgb(var(--step-bg)) 55%, #fff);
+  border-color: color-mix(in srgb, rgb(var(--step-bg)) 70%, var(--line));
+}
+html[data-theme] .rank-step-card {
+  color: var(--ink);
+  background: color-mix(in srgb, rgb(var(--step-bg)) 28%, var(--panel));
+  border-color: color-mix(in srgb, rgb(var(--step-bg)) 40%, var(--line));
+}
+html[data-theme] .rank-no.rank-badge.rank-no-4 {
+  background: color-mix(in srgb, rgb(var(--rank-accent)) 22%, var(--panel2));
+  color: var(--ink);
+}
 html[data-theme] .rank-fav { background: var(--panel); color: var(--muted); }
 html[data-theme] .rank-fav.on { background: color-mix(in srgb, var(--gold) 12%, var(--panel)); color: var(--gold-text); }
 html[data-theme] .rank-no-4 { background: var(--panel2); color: var(--ink); }

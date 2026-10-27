@@ -23,6 +23,19 @@
   function typeClass(t) {
     return 'rank-type-' + String(t || '').replace(/[^\w\u4e00-\u9fa5]+/g, '-');
   }
+  function cnStep(n) {
+    var u = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+    n = +n || 0;
+    if (n <= 0) return '第' + n + '步';
+    if (n < 10) return '第' + u[n] + '步';
+    if (n === 10) return '第十步';
+    if (n < 20) return '第十' + u[n - 10] + '步';
+    if (n < 100) {
+      var t = Math.floor(n / 10), o = n % 10;
+      return '第' + u[t] + '十' + (o ? u[o] : '') + '步';
+    }
+    return '第' + n + '步';
+  }
   function typesIn(day) {
     var present = {}, i, t, out = [];
     (day.items || []).forEach(function (it) { if (it && it.type) present[it.type] = (present[it.type] || 0) + 1; });
@@ -96,8 +109,8 @@
     var S = QS();
     var face = S ? '<div class="rank-face-src qs-oneline">' + S.render(it.sources, { compact: true }) + '</div>' : '';
     var resellBadge = hasResell(it) ? '<span class="rank-resell-pill" title="含闲鱼方案">闲鱼方案</span>' : '';
-    return '<article class="rank-card rank-card--teaser glass' + (hasResell(it) ? ' has-resell' : '') + extra + '" data-rank="' + it.rank + '" data-difficulty="' + it.difficulty + '" data-type="' + esc(it.type) + '"' + (planKey ? ' data-plan-key="' + esc(planKey) + '"' : '') + '>' +
-      '<div class="rank-head"><span class="rank-no rank-no-' + Math.min(it.rank, 4) + '">' + it.rank + '</span><div class="rank-title"><h3>' + esc(it.name) + '</h3>' +
+    return '<article class="rank-card rank-card--teaser glass ' + typeClass(it.type) + (hasResell(it) ? ' has-resell' : '') + extra + '" data-rank="' + it.rank + '" data-difficulty="' + it.difficulty + '" data-type="' + esc(it.type) + '"' + (planKey ? ' data-plan-key="' + esc(planKey) + '"' : '') + '>' +
+      '<div class="rank-head"><span class="rank-no rank-badge rank-no-' + Math.min(it.rank, 4) + '" aria-label="第' + it.rank + '名">第' + it.rank + '名</span><div class="rank-title"><h3>' + esc(it.name) + '</h3>' +
       '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + stars(it.difficulty) + ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span>' + resellBadge + '</p>' +
       face + '</div>' +
       '<button type="button" class="rank-fav' + (fav ? ' on' : '') + '" data-fav="' + esc(it.name) + '" aria-pressed="' + fav + '" aria-label="' + (fav ? '取消收藏' : '收藏') + '">' + I('star') + '</button></div>' +
@@ -135,24 +148,28 @@
     var planKey = (ctx && ctx.planKey) || '';
     var fav = state.rankFav.indexOf(it.name) >= 0;
     var planned = isPlanned(it, state, planKey);
-    var steps = (it.steps || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
+    var steps = (it.steps || []).map(function (s, i) {
+      return '<li class="rank-step" data-step="' + (i + 1) + '">' +
+        '<span class="rank-step-badge">' + cnStep(i + 1) + '</span>' +
+        '<div class="rank-step-card">' + esc(s) + '</div></li>';
+    }).join('');
     var tags = (it.tags || []).map(function (t) { return '<span class="tag">#' + esc(t) + '</span>'; }).join('');
     modal.hidden = false;
     modal.innerHTML =
       '<div class="modal-backdrop" data-rank-close="1"></div>' +
-      '<div class="modal-card rank-detail-card" role="dialog" aria-modal="true" aria-labelledby="rank-detail-title">' +
+      '<div class="modal-card rank-detail-card ' + typeClass(it.type) + '" role="dialog" aria-modal="true" aria-labelledby="rank-detail-title">' +
       '<button type="button" class="rank-detail-close" data-rank-close="1" aria-label="关闭">×</button>' +
       '<div class="rank-detail-head">' +
-      '<span class="rank-no rank-no-' + Math.min(it.rank, 4) + '">' + it.rank + '</span>' +
+      '<span class="rank-no rank-badge rank-no-' + Math.min(it.rank, 4) + '" aria-label="第' + it.rank + '名">第' + it.rank + '名</span>' +
       '<div class="rank-title"><h2 id="rank-detail-title">' + esc(it.name) + '</h2>' +
       '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + stars(it.difficulty) +
       ' <span class="rank-cost">' + I('coin') + esc(it.cost) + '</span></p></div></div>' +
-      '<section class="rank-detail-section"><h3 class="rank-detail-label">为什么上榜</h3><p class="rank-why rank-why-full">' + esc(it.why) + '</p></section>' +
-      '<section class="rank-detail-section"><h3 class="rank-detail-label">适合谁 / 风险</h3>' +
+      '<section class="rank-detail-section rank-panel rank-panel-why"><h3 class="rank-detail-label">为什么上榜</h3><p class="rank-why rank-why-full">' + esc(it.why) + '</p></section>' +
+      '<section class="rank-detail-section rank-panel rank-panel-fit"><h3 class="rank-detail-label">适合谁 / 风险</h3>' +
       '<dl class="rank-meta"><dt>适合谁</dt><dd>' + esc(it.fit) + '</dd><dt>风险</dt><dd class="rank-risk">' + esc(it.risk) + '</dd></dl></section>' +
-      (hasResell(it) ? '<section class="rank-detail-section">' + resellHtml(it) + '</section>' : '') +
-      '<section class="rank-detail-section"><h3 class="rank-detail-label">怎么开始（' + (it.steps || []).length + ' 步）</h3><ol class="rank-detail-steps">' + steps + '</ol></section>' +
-      '<section class="rank-detail-section"><h3 class="rank-detail-label">来源</h3>' + srcHtml(it, false, date) +
+      (hasResell(it) ? '<section class="rank-detail-section rank-panel rank-panel-resell">' + resellHtml(it) + '</section>' : '') +
+      '<section class="rank-detail-section"><h3 class="rank-detail-label">怎么开始（' + (it.steps || []).length + ' 步）</h3><ol class="rank-roadmap">' + steps + '</ol></section>' +
+      '<section class="rank-detail-section rank-panel rank-panel-src"><h3 class="rank-detail-label">来源</h3>' + srcHtml(it, false, date) +
       (tags ? '<div class="rank-tags" style="margin-top:8px">' + tags + '</div>' : '') + '</section>' +
       '<div class="modal-actions rank-detail-actions">' +
       '<button type="button" class="btn rank-fav-btn' + (fav ? ' on' : '') + '" data-rank-fav-toggle="1" aria-pressed="' + fav + '">' + I('star') + (fav ? ' 已收藏' : ' 收藏') + '</button>' +
