@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-27T00:41:06.297Z",
-  "latestId": 51,
+  "generatedAt": "2026-10-27T03:50:13.874Z",
+  "latestId": 52,
   "latestDate": "2026-10-27",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 52,
+      "date": "2026-10-27",
+      "tag": "新功能",
+      "title": "新增「Agent 赚钱」榜：用 Agent 合法进账的可执行方案",
+      "items": [
+        "独立于每日赚钱榜：短卡片 + 详情弹窗（agent_howto / agent_stack）；导航「赚钱 → Agent 赚钱」，数据来自 data/agent-money",
+        "可收藏并加入实操计划。不承诺收益"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-agent"
+    },
     {
       "id": 51,
       "date": "2026-10-27",
@@ -115,18 +126,6 @@
         "No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
         "No.2 IrisGo：用「Watch & Learn」做 AI 桌面工作流（出海新词 Agentic OS）",
         "No.3 Hostinger Affiliates：建站/托管测评挂合规链接，合资格成交拿分成"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 42,
-      "date": "2026-10-22",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-22",
-      "items": [
-        "No.1 上海普陀「乐购普陀」：明天周五10:00第二轮云闪付商圈零售券",
-        "No.2 广州「食在广州」第三轮餐饮券：本周周期仍可领，云闪付/支付宝双入口",
-        "No.3 Amazon Developer Hackathon：现金约13.8万美元，截止明天10月23日"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
