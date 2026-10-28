@@ -3363,9 +3363,6 @@ body.is-home .home-howto span.home-step-ico > img.ico-img,
 .rank-rule-list { margin: 10px 0 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 10px; }
 .rank-rule { color: var(--ink); min-width: 0; overflow-wrap: anywhere; }
 .rank-rule p { margin: 0; overflow-wrap: anywhere; }
-.rank-more-row { margin: 0 0 16px; }
-.rank-grid[data-col-expand="1"] > .rank-card.col-more { display: none; }
-.rank-grid[data-col-expand="1"].is-open > .rank-card.col-more { display: flex; }
 .rank-face-src { margin-top: 6px; min-width: 0; max-width: 100%; }
 .pm-face-src { display: flex; align-items: center; gap: 6px; margin: 0 0 8px; min-width: 0; max-width: 100%; }
 .pm-face-src .qs-oneline { flex: 1 1 auto; }

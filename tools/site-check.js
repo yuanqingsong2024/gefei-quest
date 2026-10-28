@@ -535,7 +535,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   await p.goto(BASE + 'index.html#home-faq'); await p.reload(); await p.waitForTimeout(400);
   T18(await p.evaluate(() => !document.querySelector('#home-faq').classList.contains('cx-off')), 'home: #home-faq anchor reveals its tab');
   await visit('changelog'); await p.reload(); await p.waitForTimeout(200);
-  T18(await p.evaluate(() => [...document.querySelectorAll('.cl-list > li')].filter(x => !x.classList.contains('cx-off')).length === 5 && !!document.querySelector('.cl-list + .cx-more-btn')), 'changelog: 5 latest + 更多更新');
+  T18(await p.evaluate(() => [...document.querySelectorAll('.cl-list > li')].filter(x => !x.classList.contains('cx-off')).length === 8 && !!document.querySelector('.cl-list + .cx-pager')), 'changelog: 8 per page + cx-pager');
   await visit('war'); await p.reload(); await p.waitForTimeout(200);
   T18(await p.evaluate(() => { const d = [...document.querySelectorAll('#panel-war section.war-day')]; return d.length >= 7 && d.filter(x => x.querySelector(':scope > .cx-body.cx-off')).length >= d.length - 1; }), 'war: non-today days collapsed');
   // 高度（与 page-heights 一致：1280×800，屏 = scrollHeight/800）
@@ -3242,10 +3242,12 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await pg28.goto(BASE + 'index.html#war-rank-xianyu', { waitUntil: 'domcontentloaded' });
     await pg28.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
     await quiet28();
-    await pg28.click('#col-more');
+    const page1 = await pg28.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => !c.classList.contains('cx-off')).length);
+    T28(page1 === 6 && !!document.querySelector('#col-grid + .cx-pager'), 'collection page1 6 + pager (' + page1 + ')');
+    await pg28.click('.cx-pager [data-pg="all"]');
     await pg28.waitForTimeout(100);
-    const afterMore = await pg28.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => getComputedStyle(c).display !== 'none' && c.getBoundingClientRect().height > 0).length);
-    T28(afterMore === 11, '展开更多 shows 11 (' + afterMore + ')');
+    const afterMore = await pg28.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => !c.classList.contains('cx-off')).length);
+    T28(afterMore === 11, '全部 shows 11 (' + afterMore + ')');
     await pg28.click('.rank-card[data-rank="5"] [data-plan-add]');
     await pg28.waitForTimeout(180);
     const plan = await pg28.evaluate(() => {
@@ -3426,11 +3428,11 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         tabs: [...document.querySelectorAll('.rank-switch a')].map((a) => a.textContent.trim()),
       };
     });
-    T29(first.n === 10 && first.vis === 6, '10 cards, 6 visible initially ' + first.n + '/' + first.vis);
+    T29(first.n === 12 && first.vis === 6, '12 cards, 6 visible initially ' + first.n + '/' + first.vis);
     T29(first.qs, 'every card has .qs');
     T29(!first.rulesOpen && first.ruleN === 6 && first.ruleSrc, 'rules collapsed with 6 sourced rules');
-    T29(first.sorted && first.order.join(',') === '1,7,9,10,2,3,4,5,6,8', 'sorted by difficulty ' + first.order.join(','));
-    T29(first.tabs.join('|') === '每日 Top 10|闲鱼零成本方案|AI生活起号选题', 'three tabs ' + first.tabs.join('|'));
+    T29(first.sorted && first.order.join(',') === '1,2,3,9,11,12,4,5,6,7,8,10', 'sorted by difficulty ' + first.order.join(','));
+    T29(first.tabs.join('|') === '每日 Top 10|闲鱼零成本方案|AI生活起号选题|Agent 赚钱|工具发掘', 'rank switch tabs ' + first.tabs.join('|'));
     const nav1 = await pg29.evaluate(() => ({
       hash: location.hash,
       parent: ((document.querySelector('a.nav-top.active span') || {}).textContent || '').trim(),
@@ -3495,10 +3497,12 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await pg29.goto(BASE + 'index.html#war-rank-ai-life', { waitUntil: 'domcontentloaded' });
     await pg29.waitForSelector('#col-grid .rank-card', { timeout: 8000 });
     await quiet29();
-    await pg29.click('#col-more');
+    const page1 = await pg29.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => !c.classList.contains('cx-off')).length);
+    T29(page1 === 6 && !!document.querySelector('#col-grid + .cx-pager'), 'ai-life page1 6 + pager (' + page1 + ')');
+    await pg29.click('.cx-pager [data-pg="all"]');
     await pg29.waitForTimeout(100);
-    const afterMore = await pg29.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => getComputedStyle(c).display !== 'none' && c.getBoundingClientRect().height > 0).length);
-    T29(afterMore === 10, '展开更多 shows 10 (' + afterMore + ')');
+    const afterMore = await pg29.evaluate(() => [...document.querySelectorAll('#col-grid .rank-card')].filter((c) => !c.classList.contains('cx-off')).length);
+    T29(afterMore === 12, '全部 shows 12 (' + afterMore + ')');
     await pg29.click('.rank-card[data-rank="1"] [data-plan-add]');
     await pg29.waitForTimeout(180);
     const plan = await pg29.evaluate(() => {
@@ -3530,9 +3534,9 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     }));
     T29(xianyu.hash === '#war-rank-xianyu' && xianyu.tab && xianyu.n === 11 && xianyu.parent === '赚钱', 'xianyu tab still works ' + JSON.stringify(xianyu));
     await pg29.click('.rank-switch a[href="#war-rank-ai-life"]');
-    await pg29.waitForFunction(() => location.hash === '#war-rank-ai-life' && !!document.querySelector('.rank-switch a.active[href="#war-rank-ai-life"]') && document.querySelectorAll('#col-grid .rank-card').length === 10, { timeout: 8000 });
+    await pg29.waitForFunction(() => location.hash === '#war-rank-ai-life' && !!document.querySelector('.rank-switch a.active[href="#war-rank-ai-life"]') && document.querySelectorAll('#col-grid .rank-card').length === 12, { timeout: 8000 });
     const back = await pg29.evaluate(() => ({ hash: location.hash, tab: !!document.querySelector('.rank-switch a.active[href="#war-rank-ai-life"]'), n: document.querySelectorAll('#col-grid .rank-card').length }));
-    T29(back.hash === '#war-rank-ai-life' && back.tab && back.n === 10, 'switch back to AI life ' + JSON.stringify(back));
+    T29(back.hash === '#war-rank-ai-life' && back.tab && back.n === 12, 'switch back to AI life ' + JSON.stringify(back));
     await pg29.goto(BASE + 'index.html#sitemap', { waitUntil: 'domcontentloaded' });
     await pg29.waitForTimeout(200);
     const idx = await pg29.evaluate(() => {

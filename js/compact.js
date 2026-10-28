@@ -91,7 +91,7 @@
       }
     });
     items.forEach(function (it, i) { setShow(it, function () { if (!all) { cur = Math.floor(i / size); draw(); } }); });
-    if (el.matches('.rank-grid,.ship-list,.peer-grid,.wb-plats,.quest-list,.res-grid,.pm-cards')) el.after(nav); else last.after(nav);
+    if (el.matches('.rank-grid,.ship-list,.peer-grid,.wb-plats,.quest-list,.res-grid,.pm-cards,.cl-list')) el.after(nav); else last.after(nav);
     draw();
   }
   /** 文档：按 h2/h3 分节折叠（前 2 节展开） */
@@ -134,12 +134,12 @@
     ['.home-wrap, .tool-wrap, .pm-page, #wb-body .wb', tabs],
     ['.war-days > section.war-day:not(.war-day-today)', function (el) { collapse(el, { head: '.war-day-head', more: '展开', less: '收起' }); }],
     // rank 详情改弹窗，不再对 .rank-card collapse 插入「展开详情」
-    ['.rank-grid', function (el) { if (el.hasAttribute('data-col-expand')) return; paginate(el, '.rank-card', 6); }],
+    ['.rank-grid', function (el) { paginate(el, '.rank-card', 6); }],
     ['.rank-disclaimer', function (el) { clipLine(el); }],
     ['.pm-note', function (el) { clipLine(el, ':scope > div'); }],
     ['.ship-list', function (el) { paginate(el, '.ship-card', 4); }],
-    ['.res-sections', function (el) { var secs = kids(el, '.res-section'); if (secs.length > 3) more(el, '.res-section', 3, '显示更多分类'); secs.forEach(function (s) { var g = s.querySelector('.peer-grid'); if (!g) return; if (secs.length > 1) more(g, null, 3, '显示本类更多'); else paginate(g, null, 6); }); }],
-    ['.cl-list', function (el) { more(el, 'li', 5, '更多更新'); }],
+    ['.res-sections', function (el) { var secs = kids(el, '.res-section'); if (secs.length > 3) more(el, '.res-section', 3, '显示更多分类'); secs.forEach(function (s) { var g = s.querySelector('.peer-grid'); if (g) paginate(g, null, 6); }); }],
+    ['.cl-list', function (el) { paginate(el, 'li', 8); }],
     ['article.doc-body', docSections],
     // pm 详情改弹窗，不再对 .pm-card dl collapse 插入「展开：分成规则…」
     ['.pm-cards', function (el) { paginate(el, '.pm-card', 6); }],

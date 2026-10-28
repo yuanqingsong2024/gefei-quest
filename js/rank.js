@@ -12,7 +12,6 @@
     { id: 'xianyu-zero-cost', hash: 'war-rank-xianyu', tab: 'xianyu', label: '闲鱼零成本方案', rulesTitle: '闲鱼规则提醒', icon: 'fish', searchHay: '闲鱼 零成本 合集 规则' },
     { id: 'ai-life-wechat-topics', hash: 'war-rank-ai-life', tab: 'ai-life', label: 'AI生活起号选题', rulesTitle: '合规提醒', icon: 'sparkle', searchHay: 'AI 生活 起号 选题 公众号 合集 规则 提示词' },
   ];
-  var colOpen = {};
   var cache = {};
   function R() { return global.QUEST_RANK || { latest: null, dates: [], days: {} }; }
   function QS() { return global.QuestSources; }
@@ -309,7 +308,6 @@
     meta = meta || colByHash();
     data = data || {};
     if (!meta) return;
-    var open = !!colOpen[meta.id];
     var items = sortCol(data.items);
     var rules = data.rules || [];
     var S = QS();
@@ -317,21 +315,17 @@
       rules.map(function (rule) {
         return '<li class="rank-rule"><p>' + esc(rule.text) + '</p>' + (S ? S.render(rule.sources, { compact: true }) : '') + '</li>';
       }).join('') + '</ol></details>';
-    var cards = items.map(function (it, idx) {
+    var cards = items.map(function (it) {
       return card(it, state, data.updated || '', {
         planKey: meta.id + ':' + it.rank,
-        extraClass: (!open && idx >= 6) ? 'col-more' : '',
       });
     }).join('');
-    var moreBtn = (!open && items.length > 6) ? '<p class="rank-more-row"><button type="button" class="btn btn-sm" id="col-more">展开更多</button></p>' : '';
+    // 合集走 QuestCompact.paginate（.rank-grid / 每页 6），深链 reveal 可翻到对应页
     root.innerHTML = switchHtml(meta.tab) +
       '<p class="rank-intro">' + esc(data.intro || '') + '</p>' +
       rulesHtml +
-      (items.length ? '<div class="rank-grid' + (open ? ' is-open' : '') + '" id="col-grid" data-col-expand="1">' + cards + '</div>' : '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>这组合集还没有条目</b></p></div>') +
-      moreBtn +
+      (items.length ? '<div class="rank-grid" id="col-grid">' + cards + '</div>' : '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>这组合集还没有条目</b></p></div>') +
       planHtml(state);
-    var more = root.querySelector('#col-more');
-    if (more) more.addEventListener('click', function () { colOpen[meta.id] = true; paintCollection(state, root, ctx, meta, data); });
     root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function (e) {
       e.stopPropagation();
       var n = b.getAttribute('data-fav'), k = state.rankFav.indexOf(n);
