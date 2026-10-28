@@ -1569,8 +1569,22 @@ body.is-home .view { max-width: none; padding: 0; }
 .kit-tpl .ico { width: 18px; height: 18px; flex: none; }
 .kit-tpl-name { font-weight: 800; font-size: .82rem; line-height: 1.25; min-width: 0; overflow-wrap: anywhere; }
 .kit-tpl-desc { color: var(--ink); font-size: .72rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.kit-frame-label { margin: 10px 0 4px; font-size: .78rem; color: var(--muted); font-weight: 700; letter-spacing: .02em; }
-.kit-frame { width: 100%; height: 360px; border: 1px solid rgba(148,163,184,.45); border-radius: 8px; background: var(--bg); margin: 0 0 8px; display: block; }
+.kit-frame-label { margin: 0; font-size: .78rem; color: var(--muted); font-weight: 700; letter-spacing: .02em; }
+.kit-preview-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin: 10px 0 8px; padding: 10px 12px; border-radius: 12px; background: var(--panel2); border: 1px solid rgba(148,163,184,.35); }
+.kit-frame { width: 100%; border: 1px solid rgba(148,163,184,.45); border-radius: 8px; background: var(--bg); display: block; }
+.kit-frame--modal { height: min(78vh, 78dvh); min-height: 280px; margin: 0; background: #fff; }
+.kit-preview-card.rank-detail-card {
+  display: flex !important;
+  flex-direction: column;
+  width: min(1100px, 98vw);
+  max-height: min(96vh, 96dvh);
+  grid-template-columns: none;
+}
+.kit-preview-card .rank-detail-head,
+.kit-preview-card .rank-detail-actions,
+.kit-preview-card .kit-preview-frame-wrap { grid-column: auto; }
+.kit-preview-frame-wrap { flex: 1 1 auto; min-height: 0; display: flex; margin: 4px 0 0; }
+.kit-preview-frame-wrap .kit-frame--modal { flex: 1 1 auto; }
 .kit-files { margin: 6px 0 0; color: var(--ink); font-size: .82rem; }
 .kit-files code { margin-right: 6px; }
 #kit-tpl-row[hidden] { display: none !important; }
@@ -2302,8 +2316,9 @@ details.cx-details>:not(summary){margin:0 12px 12px}
   .kit-rules{gap:2px}
   .kit-tpl{padding:5px 6px}
   .kit-tpl-desc{-webkit-line-clamp:1}
-  .kit-frame{height:220px;margin:0 0 6px}
-  .kit-frame-label{margin:6px 0 2px;font-size:.74rem}
+  .kit-preview-actions{margin:6px 0;padding:8px 10px;gap:8px}
+  .kit-frame-label{font-size:.74rem}
+  .kit-frame--modal{height:min(72vh,72dvh);min-height:220px}
   .kit-tpls{margin-top:6px}
   .rank-card{padding:10px 12px;gap:6px}
   .rank-why{-webkit-line-clamp:2}

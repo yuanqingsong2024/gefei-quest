@@ -664,11 +664,13 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       const doc = new DOMParser().parseFromString(html, 'text/html');
       const g = QuestTools.gen(s.kit);
       const h1s = [...doc.querySelectorAll('h1')];
-      const frame = document.querySelector('#kit-frame');
+      const openBtn = document.querySelector('#kit-open-preview');
       return {
         saved: s.kit.template,
         checked: document.querySelector('#kit-tpl-' + tid).checked,
-        src: frame ? frame.srcdoc : '',
+        src: html,
+        hasOpen: !!openBtn && /打开预览/.test(openBtn.textContent || ''),
+        inlineFrame: !!document.querySelector('#kit-preview #kit-frame'),
         names: files.map(f => f.name).join(','),
         h1: h1s.length === 1 && h1s[0].textContent === g.h1 && g.h1 === s.kit.keyword.trim(),
         title: doc.querySelector('title').textContent === g.title,
@@ -685,10 +687,28 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     await p.reload(); await p.waitForTimeout(300);
     const again = await p.evaluate(() => JSON.parse(localStorage.getItem('gefei-quest-save-v1')).kit.template);
     T19(again === id, 'reload keeps kit.template=' + id + ' (' + again + ')');
-    T19(markerOk(id, live.src), id + ' preview iframe has template markers');
+    T19(markerOk(id, live.src), id + ' generated html has template markers');
+    T19(live.hasOpen && !live.inlineFrame, id + ' open-preview button, no inline iframe');
     T19(live.h1 && live.title && live.desc && live.can && live.lang && live.marks, id + ' one h1 + title + description + canonical');
     T19(live.names === 'index.html,robots.txt,sitemap.xml' && live.locs === 1 && live.robots && /index\.html/.test(live.filesUi) && /robots\.txt/.test(live.filesUi) && /sitemap\.xml/.test(live.filesUi), id + ' files index/robots/sitemap (sitemap only /)');
   }
+  await visit('war-kit');
+  await p.click('#kit-tpl-glossary'); await p.waitForTimeout(150);
+  await p.click('#kit-open-preview'); await p.waitForTimeout(250);
+  const modalPrev = await p.evaluate(() => {
+    const root = document.querySelector('#modal-root');
+    const frame = document.querySelector('#modal-root #kit-frame');
+    const title = document.querySelector('#kit-preview-title');
+    return {
+      open: !!(root && !root.hidden),
+      hasFrame: !!(frame && frame.srcdoc && frame.srcdoc.length > 200),
+      title: title ? title.textContent : '',
+      tall: frame ? (frame.getBoundingClientRect().height >= 200) : false,
+    };
+  });
+  T19(modalPrev.open && modalPrev.hasFrame && modalPrev.tall && /术语表/.test(modalPrev.title), 'kit preview opens large modal (' + modalPrev.title + ')');
+  await p.click('#modal-root [data-kit-close]'); await p.waitForTimeout(150);
+  T19(await p.evaluate(() => { const r = document.querySelector('#modal-root'); return !r || r.hidden || !r.innerHTML; }), 'kit preview modal closes');
   await visit('war-kit');
   await p.click('#kit-tpl-tool'); await p.waitForTimeout(150);
   await p.evaluate(() => { const s = JSON.parse(localStorage.getItem('gefei-quest-save-v1')); s.kit.templateDone = false; localStorage.setItem('gefei-quest-save-v1', JSON.stringify(s)); });

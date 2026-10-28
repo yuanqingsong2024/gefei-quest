@@ -296,18 +296,81 @@
       var cnt = root.querySelector('#kit-count');
       if (cnt) cnt.textContent = doneN + '/' + (CHECKS.length + (extra ? 1 : 0));
     }
+    function closeKitPreview() {
+      var M = global.QuestModal;
+      if (!M) return;
+      var roots = M.ensureRoots();
+      var modal = roots.modal;
+      modal.hidden = true;
+      modal.innerHTML = '';
+      modal.onclick = null;
+      if (closeKitPreview._onKey) {
+        document.removeEventListener('keydown', closeKitPreview._onKey);
+        closeKitPreview._onKey = null;
+      }
+    }
+    function openKitPreview() {
+      var M = global.QuestModal;
+      if (!M) return;
+      if (closeKitPreview._onKey) {
+        document.removeEventListener('keydown', closeKitPreview._onKey);
+        closeKitPreview._onKey = null;
+      }
+      var g = gen(kit), meta = templateMeta(kit), list = files(kit);
+      var kw = (kit.keyword || '').trim() || g.h1 || '未填主词';
+      var roots = M.ensureRoots();
+      var modal = roots.modal;
+      modal.hidden = false;
+      modal.innerHTML =
+        '<div class="modal-backdrop" data-kit-close="1"></div>' +
+        '<div class="modal-card rank-detail-card detail-modal-card kit-preview-card" role="dialog" aria-modal="true" aria-labelledby="kit-preview-title">' +
+        '<button type="button" class="rank-detail-close" data-kit-close="1" aria-label="关闭">×</button>' +
+        '<div class="rank-detail-head">' +
+        '<div class="rank-title"><h2 id="kit-preview-title">生成页预览 · ' + esc(meta.name) + ' · ' + esc(kw) + '</h2>' +
+        '<p class="hint">可滚动查看完整页面；关闭后可继续改主词/模板。</p></div></div>' +
+        '<div class="kit-preview-frame-wrap">' +
+        '<iframe id="kit-frame" class="kit-frame kit-frame--modal" sandbox="allow-scripts allow-forms" title="生成页面预览"></iframe>' +
+        '</div>' +
+        '<div class="modal-actions rank-detail-actions">' +
+        '<button type="button" class="btn" data-kit-close="1">关闭</button></div></div>';
+      modal.querySelector('#kit-frame').srcdoc = list[0].text;
+      function onKey(e) {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeKitPreview();
+        }
+      }
+      closeKitPreview._onKey = onKey;
+      document.addEventListener('keydown', onKey);
+      modal.onclick = function (e) {
+        if (e.target.closest('[data-kit-close]')) closeKitPreview();
+      };
+      var closeBtn = modal.querySelector('.rank-detail-close');
+      if (closeBtn) setTimeout(function () { try { closeBtn.focus(); } catch (_) {} }, 30);
+    }
     function preview() {
       var g = gen(kit), r = rules(g, kit), list = files(kit);
       var box = root.querySelector('#kit-preview');
+      var meta = templateMeta(kit);
+      var kw = (kit.keyword || '').trim() || '未填主词';
       box.innerHTML = '<dl class="kit-prev">' +
         '<dt>&lt;title&gt; <small>' + g.title.length + '/60</small></dt><dd id="kit-title">' + esc(g.title) + '</dd>' +
         '<dt>meta description <small>' + g.desc.length + ' · 建议 120–160</small></dt><dd id="kit-desc">' + esc(g.desc) + '</dd>' +
         '<dt>h1</dt><dd id="kit-h1">' + esc(g.h1) + '</dd><dt>slug / 网址</dt><dd>https://' + esc(g.domain) + '/ <small>（内页可用 /' + esc(g.slug) + '/）</small></dd></dl>' +
-        '<p class="kit-frame-label">生成页预览（可滚动）</p>' +
-        '<iframe id="kit-frame" class="kit-frame" sandbox="allow-scripts allow-forms" title="生成页面预览"></iframe>' +
+        '<div class="kit-preview-actions">' +
+        '<p class="kit-frame-label">当前模板：<b>' + esc(meta.name) + '</b> · 主词：<b>' + esc(kw) + '</b></p>' +
+        '<button type="button" class="btn btn-primary btn-sm" id="kit-open-preview">' + I('search') + '打开预览</button>' +
+        '</div>' +
         '<ul class="kit-rules">' + r.map(function (x) { return '<li class="' + (x.ok ? 'ok' : 'warn') + '">' + (x.ok ? '✓ ' : '! ') + esc(x.t) + '</li>'; }).join('') + '</ul>' +
         '<p class="kit-files" id="kit-files">文件：' + list.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ') + '</p>';
-      box.querySelector('#kit-frame').srcdoc = list[0].text;
+      var openBtn = box.querySelector('#kit-open-preview');
+      if (openBtn) openBtn.addEventListener('click', openKitPreview);
+      var live = document.querySelector('#modal-root:not([hidden]) #kit-frame');
+      if (live) {
+        live.srcdoc = list[0].text;
+        var tit = document.querySelector('#kit-preview-title');
+        if (tit) tit.textContent = '生成页预览 · ' + meta.name + ' · ' + kw;
+      }
       var dl = root.querySelector('#kit-dl-files');
       if (dl) dl.innerHTML = '文件：' + list.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ');
       syncChrome();

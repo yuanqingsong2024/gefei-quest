@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T12:09:33.417Z",
-  "latestId": 60,
+  "generatedAt": "2026-10-28T12:16:52.279Z",
+  "latestId": 61,
   "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 61,
+      "date": "2026-10-28",
+      "tag": "改进",
+      "title": "站一生成页预览改为大弹窗",
+      "items": [
+        "实操助手不再把完整页面塞进矮 iframe；摘要区只留 title/描述/h1 与「打开预览」",
+        "点击后用 QuestModal 大弹窗展示约 78vh 可滚动 iframe，标题含当前模板与主词；Esc / 遮罩 / 关闭按钮可关"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
+    },
     {
       "id": 60,
       "date": "2026-10-28",
@@ -112,18 +123,6 @@
         "可收藏并加入实操计划。不承诺收益"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-agent"
-    },
-    {
-      "id": 51,
-      "date": "2026-10-27",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-27",
-      "items": [
-        "No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止",
-        "No.2 B站「AI创造公开赛S2」：用大模型/vibe coding 做出可运行产品并投稿，一等奖税前100万元",
-        "No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

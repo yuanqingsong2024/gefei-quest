@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 61, date: '2026-10-28', title: '站一生成页预览改为大弹窗', tag: '改进', href: '#war-kit',
+      items: ['实操助手不再把完整页面塞进矮 iframe；摘要区只留 title/描述/h1 与「打开预览」', '点击后用 QuestModal 大弹窗展示约 78vh 可滚动 iframe，标题含当前模板与主词；Esc / 遮罩 / 关闭按钮可关'] },
     { id: 60, date: '2026-10-28', title: '站一预览加高 + 重播导览先回首页', tag: '修复', href: '#war-kit',
       items: ['实操助手「生成页预览」从约 96px 加高到桌面 360px / 窄屏 220px，并加「生成页预览（可滚动）」说明，避免被当成坏顶栏', '页脚/按钮重播新手导览时若在非首页，先回到 #home 再开；tour-root 全屏叠层提高，避免叠在工具页预览上'] },
     { id: 59, date: '2026-10-28', title: '长列表统一分页：合集 / 更新日志对齐赚钱榜控件', tag: '改进', href: '#changelog',
