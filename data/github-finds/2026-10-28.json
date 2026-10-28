@@ -1,148 +1,160 @@
 {
   "date": "2026-10-28",
-  "updated": "2026-10-28T10:40:00+08:00",
+  "updated": "2026-10-28T10:45:00+08:00",
   "weekday": "weekday",
   "items": [
     {
-      "id": "sample-aider",
+      "id": "elmohq-elmo",
       "rank": 1,
-      "name": "【样例】Aider：终端结对编程 Agent",
+      "name": "elmo：开源 AEO/GEO 可见性平台",
       "category": "项目",
-      "summary": "在本地 Git 仓库里用自然语言改代码、提交，适合开发者日常提速。",
-      "why": "开源、可接多种 LLM；适合当作「项目向」发掘条目的字段样板，不是收益承诺。",
-      "url": "https://github.com/Aider-AI/aider",
-      "repo": "Aider-AI/aider",
-      "stars": 39000,
+      "summary": "盯 ChatGPT/Claude/Perplexity/Gemini 等对品牌的提及与引用；Visibility、SoV、Citation、Query Fan-out、Opportunities。",
+      "why": "对 autograph-ai：少从零做多引擎可见性与引用追踪；可 Docker 旁路跑，或只抄 worker 指标口径与「报告 rates 不是 ranks」。",
+      "url": "https://github.com/elmohq/elmo",
+      "repo": "elmohq/elmo",
+      "stars": 505,
       "tags": [
-        "Agent",
-        "CLI",
-        "样例"
+        "AEO",
+        "GEO",
+        "autograph-ai",
+        "MCP"
       ],
       "steps": [
-        "打开仓库 README，确认支持的模型与安装方式",
-        "在一个玩具仓库里试一次 /add + 自然语言改文件",
-        "看 diff 与 commit 是否符合预期后再用于真实项目"
+        "npm i -g @elmohq/cli && elmo init && elmo compose up -d",
+        "用 5–10 条 unbranded prompt 跑一周基线",
+        "评估 Python SDK/MCP 是否把 brands/prompts/citations 拉进 FastAPI"
       ],
-      "risk": "样例数据仅供预览频道 UI；使用第三方 Agent 时注意密钥与代码外泄。",
+      "risk": "前端 TanStack≠Vue；依赖 scraping 有成本；不做 on-page 改写。接入成本：中。",
       "sources": [
         {
-          "title": "Aider on GitHub",
-          "url": "https://github.com/Aider-AI/aider"
+          "title": "elmohq/elmo",
+          "url": "https://github.com/elmohq/elmo"
         }
       ]
     },
     {
-      "id": "sample-excalidraw",
+      "id": "hbai-toonflow-app",
       "rank": 2,
-      "name": "【样例】Excalidraw：手绘风白板",
+      "name": "Toonflow-app：AI 短剧/漫剧工作台",
       "category": "项目",
-      "summary": "开源白板，可自托管，适合画架构图与产品草图。",
-      "why": "项目向样例：有清晰 repo URL 与可跟进的自托管路径。",
-      "url": "https://github.com/excalidraw/excalidraw",
-      "repo": "excalidraw/excalidraw",
-      "stars": 110000,
+      "summary": "无限画布上剧本、分镜、角色/场景资产、图生/视频；MCP、插件市场、开放 Agent，可接 ComfyUI。",
+      "why": "对 soloforge-storyfactory：少摸「剧本→角色→分镜→视频」信息架构；对照 packages/nodes + providers 设计节点抽象。",
+      "url": "https://github.com/HBAI-Ltd/Toonflow-app",
+      "repo": "HBAI-Ltd/Toonflow-app",
+      "stars": 19600,
       "tags": [
-        "白板",
-        "自托管",
-        "样例"
+        "漫剧",
+        "短剧",
+        "soloforge-storyfactory",
+        "MCP"
       ],
       "steps": [
-        "浏览官方 demo 确认交互",
-        "若需私有部署，按 docs 的 Docker/自托管说明试跑",
-        "评估是否接入团队协作流程"
+        "docker compose up -d --build",
+        "用内置 myProject 走完「剧本→角色图→一分镜视频」",
+        "把节点类型+Provider 声明映射到现有 FastAPI 流水线（不必整仓迁）"
       ],
-      "risk": "样例条目；自托管需自行维护与备份。",
+      "risk": "栈 Vue≠React 不宜 fork；默认 Web 缺完整鉴权；体量大。对照轻到中，代码融合重。",
       "sources": [
         {
-          "title": "excalidraw/excalidraw",
-          "url": "https://github.com/excalidraw/excalidraw"
+          "title": "HBAI-Ltd/Toonflow-app",
+          "url": "https://github.com/HBAI-Ltd/Toonflow-app"
         }
       ]
     },
     {
-      "id": "sample-whisper-cpp",
+      "id": "paperclipai-paperclip",
       "rank": 3,
-      "name": "【样例】whisper.cpp：本地语音转写",
+      "name": "paperclip：管 AI agents 做公司的控制面",
       "category": "项目",
-      "summary": "C/C++ 移植的 Whisper，可在消费级机器本地转写音频。",
-      "why": "适合「项目向」里偏工具链的条目：可本地跑、依赖清晰。",
-      "url": "https://github.com/ggerganov/whisper.cpp",
-      "repo": "ggerganov/whisper.cpp",
-      "stars": 46000,
+      "summary": "Org Chart、任务审批、Heartbeat、预算、Skills、Routines；适配 OpenClaw、OpenCode、Hermes+Gateway、Cursor 等。",
+      "why": "对 clawkit / star-river / Hermes：少自研多 harness 排队+预算+审批；可把凌霄与 OpenClaw/OpenCode 挂进一张看板。",
+      "url": "https://github.com/paperclipai/paperclip",
+      "repo": "paperclipai/paperclip",
+      "stars": 108000,
       "tags": [
-        "语音",
-        "本地",
-        "样例"
+        "Agent编排",
+        "Hermes",
+        "clawkit",
+        "OpenClaw"
       ],
       "steps": [
-        "按 README 下载小模型并跑通一条样例音频",
-        "对比云端 ASR 成本与隐私需求",
-        "再决定是否接到自己的工作流"
+        "npx paperclipai@latest onboard --yes",
+        "只接 Hermes + 1 个 OpenCode 成 org 角色",
+        "用 3 个真实任务验 checkout/预算/审批"
       ],
-      "risk": "样例；模型体积与算力因机型而异。",
+      "risk": "心智负担大（公司 OS）；Node≥24.11；默认有可关 telemetry。接入成本：轻→中。",
       "sources": [
         {
-          "title": "ggerganov/whisper.cpp",
-          "url": "https://github.com/ggerganov/whisper.cpp"
+          "title": "paperclipai/paperclip",
+          "url": "https://github.com/paperclipai/paperclip"
         }
       ]
     },
     {
-      "id": "sample-anki",
+      "id": "open-sunsama",
       "rank": 4,
-      "name": "【样例】Anki：间隔重复记忆",
+      "name": "open-sunsama：开源按日时间块日程",
       "category": "生活",
-      "summary": "经典开源闪卡；适合语言、考证与长期记忆。",
-      "why": "生活向样例：与赚钱无直接关系，展示 category=生活 的字段。",
-      "url": "https://github.com/ankitects/anki",
-      "repo": "ankitects/anki",
-      "stars": 24000,
+      "summary": "按日看板 + 日历时间块 + Focus + 未完成滚日；可同步 Google/Outlook/iCloud；MCP 接 Claude/ChatGPT。",
+      "why": "早晨/日程场景：早间 10 分钟把 P0/P1 拖进时间块；适合「AI 早报式排程」跟做与闲鱼模板包。",
+      "url": "https://github.com/ShadowWalker2014/open-sunsama",
+      "repo": "ShadowWalker2014/open-sunsama",
+      "stars": 127,
       "tags": [
-        "学习",
-        "闪卡",
-        "样例"
+        "日程",
+        "早晨效率",
+        "MCP",
+        "跟做"
       ],
       "steps": [
-        "安装官方客户端或从源码构建",
-        "导入或自建一套小牌组试一周",
-        "用统计面板看复习负担是否可持续"
+        "打开 opensunsama.com 注册",
+        "同步一个日历",
+        "把明天 3 件事拖进时间块（自托管非首推）"
       ],
-      "risk": "样例；过度刷卡可能导致疲劳，请按自己节奏。",
+      "risk": "许可非商用（勿整包转售 SaaS）；自托管要 Postgres/Redis。上手成本：轻。",
       "sources": [
         {
-          "title": "ankitects/anki",
-          "url": "https://github.com/ankitects/anki"
+          "title": "ShadowWalker2014/open-sunsama",
+          "url": "https://github.com/ShadowWalker2014/open-sunsama"
+        },
+        {
+          "title": "opensunsama.com",
+          "url": "https://opensunsama.com"
         }
       ]
     },
     {
-      "id": "sample-activitywatch",
+      "id": "actualbudget-actual",
       "rank": 5,
-      "name": "【样例】ActivityWatch：本地时间追踪",
+      "name": "Actual Budget：本地优先信封预算",
       "category": "生活",
-      "summary": "开源、本地优先的自动时间统计，帮助看清一天花在哪。",
-      "why": "生活向样例：强调隐私本地，不关联收益承诺。",
-      "url": "https://github.com/ActivityWatch/activitywatch",
-      "repo": "ActivityWatch/activitywatch",
-      "stars": 15000,
+      "summary": "Local-first 信封预算：账户、分类预算、社区迁移文档；桌面端可本地用，不必先上 server。",
+      "why": "消费/轻理财场景：月初拆信封、月底复盘劝退；适合「中文信封预算一周跟做 + 分类表 + 月末复盘提示词」。",
+      "url": "https://github.com/actualbudget/actual",
+      "repo": "actualbudget/actual",
+      "stars": 29800,
       "tags": [
-        "时间管理",
-        "隐私",
-        "样例"
+        "记账",
+        "信封预算",
+        "轻理财",
+        "跟做"
       ],
       "steps": [
-        "安装桌面客户端并开启自动采集",
-        "一周后看分类占比，只改一个习惯",
-        "确认数据仅存本机后再考虑是否导出"
+        "从 actualbudget.org/download 装桌面端",
+        "建五个信封（餐饮/通勤/日用/储蓄等）",
+        "录入本周支出并做月末复盘"
       ],
-      "risk": "样例；屏幕活动统计可能涉及敏感窗口标题，请自行关闭不需要的模块。",
+      "risk": "国内银行卡自动同步通常不可用，方案写清 CSV/手工；信封法需附中文命名表。上手成本：轻。",
       "sources": [
         {
-          "title": "ActivityWatch/activitywatch",
-          "url": "https://github.com/ActivityWatch/activitywatch"
+          "title": "actualbudget/actual",
+          "url": "https://github.com/actualbudget/actual"
+        },
+        {
+          "title": "Download",
+          "url": "https://actualbudget.org/download/"
         }
       ]
     }
-  ],
-  "sample": true
+  ]
 }
