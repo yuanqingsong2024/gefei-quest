@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-28",
+  "timezone": "Asia/Shanghai",
+  "updated": "2026-10-28T10:38:00+08:00",
+  "title": "每日执行包｜Cloudflare Pages 工具站续作 + 闲鱼 Notion/飞书模板",
+  "source": "赚钱项目实施官 attachments/2026-10-28",
+  "primary": [
+    "Cloudflare Pages 英文工具小站（Stacked Discount Calculator）",
+    "Product Hunt 月榜选词手填"
+  ],
+  "side": [
+    "闲鱼 Notion/飞书模板与工作流定制（文案+接单表）"
+  ],
+  "deferred": [
+    "Kiroween（可选注册占位）",
+    "B站 AI 创造公开赛 S2",
+    "Nebius×NVIDIA",
+    "DigitalOcean Affiliate",
+    "Etsy",
+    "小红书蒲公英"
+  ],
+  "files": [
+    {
+      "path": "今日执行卡-2026-10-28.md",
+      "kind": "exec-card",
+      "note": "当日步骤与时长"
+    },
+    {
+      "path": "PH月榜选词清单-工具站.md",
+      "kind": "worksheet",
+      "note": "出海新词手填表"
+    },
+    {
+      "path": "闲鱼上架文案-Notion飞书模板定制.md",
+      "kind": "xianyu-copy",
+      "note": "可公开上架文案模板"
+    },
+    {
+      "path": "闲鱼Notion飞书模板定制-交付与接单清单.xlsx",
+      "kind": "xianyu-sheet",
+      "note": "接单字段清单"
+    },
+    {
+      "path": "stacked-discount-calculator/index.html",
+      "kind": "tool-draft",
+      "note": "英文单页工具草稿"
+    },
+    {
+      "path": "stacked-discount-calculator/wrangler-notes.md",
+      "kind": "deploy-notes",
+      "note": "CF Pages 部署备忘"
+    },
+    {
+      "path": "stacked-discount-calculator/netlify-notes.md",
+      "kind": "deploy-notes",
+      "note": "Netlify 备选备忘"
+    },
+    {
+      "path": "stacked-discount-calculator/_redirects",
+      "kind": "deploy-notes",
+      "note": "Netlify redirects"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "money-rank-2026-10-28.json",
+      "reason": "榜单已在 data/money-rank/，避免重复"
+    }
+  ],
+  "privacy": "仅收录可公开交付物（执行卡、闲鱼文案/表格、工具草稿）。不含客户私聊、账号凭证、真实订单隐私。"
+}

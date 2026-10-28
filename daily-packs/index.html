@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>每日执行包 · 出海小站练站营</title>
+  <meta name="description" content="赚钱项目实施官每日可公开执行材料归档：执行卡、闲鱼文案、工具草稿。" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <style>
+    :root { --bg:#fafaf8; --ink:#1c1917; --muted:#57534e; --card:#fff; --line:#e7e5e4; --accent:#0f766e; }
+    * { box-sizing: border-box; }
+    body { margin:0; font:16px/1.55 system-ui,sans-serif; background:var(--bg); color:var(--ink); }
+    .wrap { max-width:720px; margin:0 auto; padding:1.5rem 1.25rem 3rem; }
+    a { color:var(--accent); }
+    h1 { font-size:1.45rem; margin:0 0 .35rem; }
+    .sub { color:var(--muted); margin:0 0 1.25rem; font-size:.95rem; }
+    .nav { margin-bottom:1.25rem; font-size:.9rem; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:1rem 1.1rem; margin:0 0 .75rem; }
+    .card h2 { font-size:1.05rem; margin:0 0 .35rem; }
+    .meta { color:var(--muted); font-size:.85rem; margin:0 0 .5rem; }
+    ul { margin:.35rem 0 0; padding-left:1.15rem; }
+    li { margin:.2rem 0; }
+    .empty { color:var(--muted); padding:1rem 0; }
+    .foot { margin-top:2rem; font-size:.85rem; color:var(--muted); }
+    code { font-size:.85em; background:#f5f5f4; padding:.1em .35em; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="nav"><a href="../">← 回练站营首页</a> · <a href="../#war-rank">每日赚钱榜</a></p>
+    <h1>每日执行包</h1>
+    <p class="sub">实施官每天挑 1–2 个项目后产出的可公开材料（执行卡 / 闲鱼文案与表格 / 工具草稿）。<br>
+      起始归档：<strong>2026-10-28</strong> · 时区 Asia/Shanghai · 不含客户私聊与凭证。</p>
+    <div id="list" class="empty">加载中…</div>
+    <p class="foot">数据：<code>data/daily-packs/index.json</code> · 仓库说明见同目录 <code>README.md</code></p>
+  </div>
+  <script>
+    (function () {
+      var root = document.getElementById('list');
+      var base = '../data/daily-packs/';
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+      function render(idx) {
+        var packs = (idx && idx.packs) || [];
+        if (!packs.length) {
+          root.className = 'empty';
+          root.textContent = '还没有执行包。';
+          return;
+        }
+        root.className = '';
+        root.innerHTML = packs.map(function (p) {
+          var dir = base + encodeURIComponent(p.date) + '/';
+          return '<article class="card">' +
+            '<h2><a href="' + dir + 'manifest.json">' + esc(p.date) + '</a></h2>' +
+            '<p class="meta">' + esc(p.title || '') + ' · ' + (p.file_count || 0) + ' 个文件</p>' +
+            '<p><a href="' + dir + '">打开目录</a> · ' +
+            '<a href="' + dir + 'manifest.json">manifest.json</a></p>' +
+            '</article>';
+        }).join('');
+      }
+      fetch(base + 'index.json', { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) { render(d); })
+        .catch(function () {
+          root.className = 'empty';
+          root.textContent = '加载失败。可直接打开 ../data/daily-packs/';
+        });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "updated": "2026-10-28T10:38:00+08:00",
+  "start_date": "2026-10-28",
+  "count": 1,
+  "packs": [
+    {
+      "date": "2026-10-28",
+      "title": "每日执行包｜Cloudflare Pages 工具站续作 + 闲鱼 Notion/飞书模板",
+      "updated": "2026-10-28T10:38:00+08:00",
+      "path": "data/daily-packs/2026-10-28/",
+      "manifest": "data/daily-packs/2026-10-28/manifest.json",
+      "file_count": 8
+    }
+  ]
+}
