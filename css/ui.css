@@ -3596,6 +3596,65 @@ body.is-home .home-continue {
   .xy-fld-head { gap: 6px; }
 }
 
+/* —— 挖词候选卡 —— */
+.home-today-band { padding: 8px 0 16px; background: var(--panel); }
+#panel-home .today-sec.lp-sec { padding: 0; }
+.kw-card-slot, .home-kw-slot { min-width: 0; max-width: 100%; }
+.home-kw-slot { margin-top: 12px; }
+.kw-card { min-width: 0; }
+.kw-card-body {
+  display: grid; gap: 10px; min-width: 0;
+  color: var(--ink);
+}
+.kw-fld { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.kw-fld-head {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0;
+  font-size: .85rem; font-weight: 600; color: var(--muted);
+}
+.kw-form {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; min-width: 0;
+}
+.kw-form-actions { grid-column: 1 / -1; }
+.kw-card input[type="text"],
+.kw-card textarea {
+  width: 100%; box-sizing: border-box; min-width: 0;
+  padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+  font: inherit; line-height: 1.5;
+}
+.kw-card textarea { resize: vertical; min-height: 3.2em; }
+.kw-card input[type="text"]:focus,
+.kw-card textarea:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+.kw-hint { margin: 0; color: var(--muted); font-size: .82rem; }
+.kw-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 1.4em; padding: 0 6px; margin-left: 4px; border-radius: 999px;
+  background: var(--panel2); border: 1px solid var(--line);
+  color: var(--muted); font-size: .75rem; font-weight: 700;
+}
+.kw-card > summary .ico, .kw-card > summary svg.ico { width: 18px; height: 18px; flex: none; }
+.kw-list { display: grid; gap: 8px; min-width: 0; list-style: none; margin: 0; padding: 0; }
+.kw-item {
+  display: grid; gap: 8px; min-width: 0;
+  padding: 10px 12px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--panel2); color: var(--ink);
+}
+.kw-item p { margin: 0; font-size: .9rem; line-height: 1.45; overflow-wrap: anywhere; }
+.kw-item p span { color: var(--muted); font-weight: 600; margin-right: 6px; }
+.kw-item-actions { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.kw-empty { margin: 0; color: var(--muted); font-size: .88rem; }
+.kw-actions { margin-top: 2px; }
+@media (max-width: 640px) {
+  .kw-card-slot, .kw-card, .kw-card-body, .kw-fld, .home-kw-slot { min-width: 0; max-width: 100%; }
+  .kw-form { grid-template-columns: 1fr; }
+  .kw-card input[type="text"],
+  .kw-card textarea {
+    width: 100%; box-sizing: border-box; min-width: 0;
+  }
+  .kw-fld-head { gap: 6px; }
+  .home-today-band { padding: 8px 0 12px; }
+}
+
 /* 工具发掘 · 项目/生活 */
 .pill[data-type="项目"], .chip.gf-cat-proj { background: rgba(56, 189, 248, .2); color: var(--cyan, #38bdf8); }
 .pill[data-type="生活"], .chip.gf-cat-life { background: rgba(74, 222, 128, .18); color: #86efac; }

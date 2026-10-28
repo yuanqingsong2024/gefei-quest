@@ -625,6 +625,11 @@
       top3Body + '</aside>' +
       '</div></div></section>' +
       '</div>' +
+      '<section class="home-band home-today-band">' +
+      '<div class="home-inner">' +
+      (global.QuestStats && typeof QuestStats.todayCard === 'function' ? QuestStats.todayCard(state) : '') +
+      '<div class="kw-card-slot home-kw-slot"></div>' +
+      '</div></section>' +
       '<section class="home-band band-b" id="home-split"><div class="home-inner">' +
       '<details class="home-more">' +
       '<summary>为什么做 · 常见问题</summary>' +
@@ -636,6 +641,10 @@
       HOME_FAQ.map(function (qa) {
         return '<details><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>';
       }).join('') + '</div></section></div></details></div></section>';
+    var slot = root.querySelector('.home-kw-slot');
+    if (slot && global.QuestKeywordCard && typeof QuestKeywordCard.mount === 'function') {
+      QuestKeywordCard.mount(slot);
+    }
   }
 
   global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep, pathNodes: pathNodes };

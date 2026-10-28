@@ -123,7 +123,11 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   // ---------- Phase 10 ----------
   let f10 = 0; const T10 = (c, m) => { console.log((c ? 'ok   ' : 'FAIL ') + 'P10 ' + m); if (!c) f10++; };
   await p.goto(BASE + 'index.html#home'); await p.evaluate(() => localStorage.clear()); await p.reload(); await p.waitForTimeout(200);
-  T10(await p.evaluate(() => !document.getElementById('home-today') && !/今日任务/.test(document.getElementById('panel-home').textContent)), 'home has no 今日任务 card');
+  T10(await p.evaluate(() => {
+    const el = document.getElementById('home-today');
+    const t = (document.getElementById('panel-home') || {}).textContent || '';
+    return !!el && (/今日任务/.test(t) || /挖词候选卡/.test(t));
+  }), 'home has #home-today and 今日任务 or 挖词候选卡');
   T10(await p.evaluate(() => !!document.querySelector('.site-links a[data-nav="me"] .red-dot')), 'red dot on top nav for unseen changelog');
   await visit('changelog');
   T10(await p.evaluate(() => document.querySelectorAll('.cl-item').length >= 5 && document.querySelectorAll('.cl-item.is-new').length >= 5), 'changelog lists entries marked NEW');
@@ -527,7 +531,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     faq: !!document.getElementById('home-faq'),
     rank: !!document.getElementById('home-rank'),
   }));
-  T18(!hm.today && !hm.grid && !hm.task && hm.faq && hm.rank, 'home: no today card or feature grid; faq + rank kept');
+  T18(hm.today && !hm.grid && hm.task && hm.faq && hm.rank, 'home: today card + faq + rank; no feature grid');
   await p.goto(BASE + 'index.html#home-faq'); await p.reload(); await p.waitForTimeout(400);
   T18(await p.evaluate(() => !document.querySelector('#home-faq').classList.contains('cx-off')), 'home: #home-faq anchor reveals its tab');
   await visit('changelog'); await p.reload(); await p.waitForTimeout(200);
@@ -1440,7 +1444,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
       howto: [...document.querySelectorAll('#home-howto a')].map((a) => a.getAttribute('href')),
       faq: document.querySelectorAll('#home-faq details').length,
     }));
-    T20b(!shape.grid && !shape.today && !shape.progress && !shape.task, 'no feature grid or today/progress cards ' + JSON.stringify(shape));
+    T20b(!shape.grid && shape.today && !shape.progress && shape.task, 'today card present, no feature grid or progress ' + JSON.stringify(shape));
     T20b(!shape.cont, 'continue strip hidden for fresh save');
     T20b(shape.howto.join(',') === '#path,#war,#war-rank' && shape.faq >= 3, 'howto + faq ' + shape.howto.join(',') + ' faq=' + shape.faq);
     for (const h of ['#start-learn', '#start-do', '#start-earn']) {
@@ -1505,7 +1509,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     });
     T20b(/继续上次/.test(cont.text) && cont.text.indexOf('新手示例站') >= 0 && cont.text.indexOf('选词') >= 0 && cont.href === '#war-keywords', 'continue strip ' + JSON.stringify(cont));
     const aliases = [
-      ['home-today', '#work'],
+      ['home-today', '#home-today'],
       ['home-progress', '#me'],
       ['home-sections', '#start'],
       ['home-tools', '#war'],

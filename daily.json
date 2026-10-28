@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T02:41:44.311Z",
-  "latestId": 56,
+  "generatedAt": "2026-10-28T02:51:56.707Z",
+  "latestId": 57,
   "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 57,
+      "date": "2026-10-28",
+      "tag": "新功能",
+      "title": "首页新增「挖词候选卡」：本机收词并一键复制",
+      "items": [
+        "首页今日任务旁可折叠「挖词候选卡」：词 / 搜索意图 / 拟标题 / 变现方式，增删改只存本机",
+        "一键复制全文（含固定合规提示：只卖教程和方案，不卖账号、兑换码，也不做代领，不承诺收益）。不调用外部 AI"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-today"
+    },
     {
       "id": 56,
       "date": "2026-10-28",
@@ -114,17 +125,6 @@
         "各段一键复制，也可复制全部（含固定合规提示）。草稿只存在本机浏览器，不调用外部 AI"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#guides"
-    },
-    {
-      "id": 47,
-      "date": "2026-10-25",
-      "tag": "改进",
-      "title": "全站改为浅色三主题，顶栏可换风格",
-      "items": [
-        "水墨纸 / 海岸青 / 像素暖沙都是浅色。顶栏「🎨 换风格」在手机和电脑都能打开",
-        "新版本安装后会自动刷新，不必再点「有新版本」"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

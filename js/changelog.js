@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 57, date: '2026-10-28', title: '首页新增「挖词候选卡」：本机收词并一键复制', tag: '新功能', href: '#home-today',
+      items: ['首页今日任务旁可折叠「挖词候选卡」：词 / 搜索意图 / 拟标题 / 变现方式，增删改只存本机', '一键复制全文（含固定合规提示：只卖教程和方案，不卖账号、兑换码，也不做代领，不承诺收益）。不调用外部 AI'] },
     { id: 56, date: '2026-10-28', title: '新增「工具发掘」频道：GitHub 项目向 / 生活向', tag: '新功能', href: '#war-tools',
       items: ['导航「赚钱 → 工具发掘」（#war-tools）；短卡摘要 + 详情弹窗；筛选项目/生活', '数据 data/github-finds/YYYY-MM-DD.json + latest.json；工具发掘大师推 main 即可上线。不承诺收益'] },
     { id: 55, date: '2026-10-28', title: '每日赚钱榜 · 2026-10-28', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Kiroween 2026：用 Kiro 做全新项目，现金奖池约10万美元，现可报名，10月30日起可提交","No.2 B站「AI创造公开赛S2」：用大模型做出可运行产品并投稿，一等奖税前100万元","No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"] },
