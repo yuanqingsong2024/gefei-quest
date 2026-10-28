@@ -160,7 +160,7 @@
     ach: 'me', settings: 'me', resources: 'lib', 'war-s1': 'war', guide: 'guides', docs: 'guides',
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
     xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', dashboard: 'work', 'war-work': 'work', review: 'work-review', 'weekly-review': 'work-review', 'me-review': 'work-review', fupan: 'work-review', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama', 'guide-start': 'start', onboarding: 'start', newbie: 'start',
-    'home-today': 'work', 'home-progress': 'me', 'home-sections': 'start', 'home-tools': 'war', 'home-steps': 'start', 'home-res': 'pm', 'home-guides': 'guides',
+    'home-progress': 'me', 'home-sections': 'start', 'home-tools': 'war', 'home-steps': 'start', 'home-res': 'pm', 'home-guides': 'guides',
     learn: 'path', do: 'war', practice: 'war', earn: 'war-rank', money: 'war-rank', 'agent-money': 'war-rank-agent', 'war-agent': 'war-rank-agent', 'github-finds': 'war-tools', 'tool-find': 'war-tools', 'tools-find': 'war-tools', 'war-rank-tools': 'war-tools', res: 'lib',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
