@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-28",
+  "updated": "2026-10-28T10:40:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "sample-aider",
+      "rank": 1,
+      "name": "【样例】Aider：终端结对编程 Agent",
+      "category": "项目",
+      "summary": "在本地 Git 仓库里用自然语言改代码、提交，适合开发者日常提速。",
+      "why": "开源、可接多种 LLM；适合当作「项目向」发掘条目的字段样板，不是收益承诺。",
+      "url": "https://github.com/Aider-AI/aider",
+      "repo": "Aider-AI/aider",
+      "stars": 39000,
+      "tags": [
+        "Agent",
+        "CLI",
+        "样例"
+      ],
+      "steps": [
+        "打开仓库 README，确认支持的模型与安装方式",
+        "在一个玩具仓库里试一次 /add + 自然语言改文件",
+        "看 diff 与 commit 是否符合预期后再用于真实项目"
+      ],
+      "risk": "样例数据仅供预览频道 UI；使用第三方 Agent 时注意密钥与代码外泄。",
+      "sources": [
+        {
+          "title": "Aider on GitHub",
+          "url": "https://github.com/Aider-AI/aider"
+        }
+      ]
+    },
+    {
+      "id": "sample-excalidraw",
+      "rank": 2,
+      "name": "【样例】Excalidraw：手绘风白板",
+      "category": "项目",
+      "summary": "开源白板，可自托管，适合画架构图与产品草图。",
+      "why": "项目向样例：有清晰 repo URL 与可跟进的自托管路径。",
+      "url": "https://github.com/excalidraw/excalidraw",
+      "repo": "excalidraw/excalidraw",
+      "stars": 110000,
+      "tags": [
+        "白板",
+        "自托管",
+        "样例"
+      ],
+      "steps": [
+        "浏览官方 demo 确认交互",
+        "若需私有部署，按 docs 的 Docker/自托管说明试跑",
+        "评估是否接入团队协作流程"
+      ],
+      "risk": "样例条目；自托管需自行维护与备份。",
+      "sources": [
+        {
+          "title": "excalidraw/excalidraw",
+          "url": "https://github.com/excalidraw/excalidraw"
+        }
+      ]
+    },
+    {
+      "id": "sample-whisper-cpp",
+      "rank": 3,
+      "name": "【样例】whisper.cpp：本地语音转写",
+      "category": "项目",
+      "summary": "C/C++ 移植的 Whisper，可在消费级机器本地转写音频。",
+      "why": "适合「项目向」里偏工具链的条目：可本地跑、依赖清晰。",
+      "url": "https://github.com/ggerganov/whisper.cpp",
+      "repo": "ggerganov/whisper.cpp",
+      "stars": 46000,
+      "tags": [
+        "语音",
+        "本地",
+        "样例"
+      ],
+      "steps": [
+        "按 README 下载小模型并跑通一条样例音频",
+        "对比云端 ASR 成本与隐私需求",
+        "再决定是否接到自己的工作流"
+      ],
+      "risk": "样例；模型体积与算力因机型而异。",
+      "sources": [
+        {
+          "title": "ggerganov/whisper.cpp",
+          "url": "https://github.com/ggerganov/whisper.cpp"
+        }
+      ]
+    },
+    {
+      "id": "sample-anki",
+      "rank": 4,
+      "name": "【样例】Anki：间隔重复记忆",
+      "category": "生活",
+      "summary": "经典开源闪卡；适合语言、考证与长期记忆。",
+      "why": "生活向样例：与赚钱无直接关系，展示 category=生活 的字段。",
+      "url": "https://github.com/ankitects/anki",
+      "repo": "ankitects/anki",
+      "stars": 24000,
+      "tags": [
+        "学习",
+        "闪卡",
+        "样例"
+      ],
+      "steps": [
+        "安装官方客户端或从源码构建",
+        "导入或自建一套小牌组试一周",
+        "用统计面板看复习负担是否可持续"
+      ],
+      "risk": "样例；过度刷卡可能导致疲劳，请按自己节奏。",
+      "sources": [
+        {
+          "title": "ankitects/anki",
+          "url": "https://github.com/ankitects/anki"
+        }
+      ]
+    },
+    {
+      "id": "sample-activitywatch",
+      "rank": 5,
+      "name": "【样例】ActivityWatch：本地时间追踪",
+      "category": "生活",
+      "summary": "开源、本地优先的自动时间统计，帮助看清一天花在哪。",
+      "why": "生活向样例：强调隐私本地，不关联收益承诺。",
+      "url": "https://github.com/ActivityWatch/activitywatch",
+      "repo": "ActivityWatch/activitywatch",
+      "stars": 15000,
+      "tags": [
+        "时间管理",
+        "隐私",
+        "样例"
+      ],
+      "steps": [
+        "安装桌面客户端并开启自动采集",
+        "一周后看分类占比，只改一个习惯",
+        "确认数据仅存本机后再考虑是否导出"
+      ],
+      "risk": "样例；屏幕活动统计可能涉及敏感窗口标题，请自行关闭不需要的模块。",
+      "sources": [
+        {
+          "title": "ActivityWatch/activitywatch",
+          "url": "https://github.com/ActivityWatch/activitywatch"
+        }
+      ]
+    }
+  ],
+  "sample": true
+}

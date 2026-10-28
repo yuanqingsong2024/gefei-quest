@@ -290,6 +290,7 @@
       html += '<a class="rank-switch-btn' + (on ? ' active' : '') + '" href="#' + c.hash + '"' + (on ? ' aria-current="page"' : '') + '>' + esc(c.label) + '</a>';
     });
     html += '<a class="rank-switch-btn' + (which === 'agent' ? ' active' : '') + '" href="#war-rank-agent"' + (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 赚钱</a>';
+    html += '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' + (which === 'tools' ? ' aria-current="page"' : '') + '>工具发掘</a>';
     return html + '</nav>';
   }
   function colBundle(id) {

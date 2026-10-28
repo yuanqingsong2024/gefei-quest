@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T00:43:39.314Z",
-  "latestId": 55,
+  "generatedAt": "2026-10-28T02:41:44.311Z",
+  "latestId": 56,
   "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 56,
+      "date": "2026-10-28",
+      "tag": "新功能",
+      "title": "新增「工具发掘」频道：GitHub 项目向 / 生活向",
+      "items": [
+        "导航「赚钱 → 工具发掘」（#war-tools）；短卡摘要 + 详情弹窗；筛选项目/生活",
+        "数据 data/github-finds/YYYY-MM-DD.json + latest.json；工具发掘大师推 main 即可上线。不承诺收益"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-tools"
+    },
     {
       "id": 55,
       "date": "2026-10-28",
@@ -114,18 +125,6 @@
         "新版本安装后会自动刷新，不必再点「有新版本」"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 46,
-      "date": "2026-10-25",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-25",
-      "items": [
-        "No.1 PayPal AI Hackathon：用 PayPal API + AI 做支付/代理商务项目，现金奖约6.75万美元，11月12日截止",
-        "No.2 UGREEN AI NAS 黑客松：第一轮只交想法 PDF + 技能包，不需要 NAS，现金奖池4.6万美元",
-        "No.3 《明日方舟：终末地》「丹青渡」多平台创作征集：B站/抖音/小红书投稿瓜分现金"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

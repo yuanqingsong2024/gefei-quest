@@ -3595,3 +3595,10 @@ body.is-home .home-continue {
   }
   .xy-fld-head { gap: 6px; }
 }
+
+/* 工具发掘 · 项目/生活 */
+.pill[data-type="项目"], .chip.gf-cat-proj { background: rgba(56, 189, 248, .2); color: var(--cyan, #38bdf8); }
+.pill[data-type="生活"], .chip.gf-cat-life { background: rgba(74, 222, 128, .18); color: #86efac; }
+.gf-stars { font-weight: 700; opacity: .85; margin-left: 4px; }
+.gf-sources { margin: 6px 0 0; padding-left: 1.2em; }
+.gf-sources a { word-break: break-all; }

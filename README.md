@@ -179,6 +179,19 @@ python3 -m http.server 8765
    - 加 `--no-changelog` 可不写更新日志
 3. 推送：`git add -A && git commit -m "rank: YYYY-MM-DD" && git push`，约 1 分钟后 GitHub Pages 生效：`#war-rank`、`data/rank.json`、`daily.json`。
 
+
+## 工具发掘发布（给「工具发掘大师」agent）
+频道：`#war-tools`（导航「赚钱 → 工具发掘」）。**无需 webhook**；推 JSON 到 `main` 即可。
+
+1. 按 `data/github-finds/README.md` 写当天 JSON：
+   - 顶层：`date`、`updated`（建议 ISO8601+08:00）、`weekday`（`weekday`|`weekend`）、`items[]`
+   - 每条：`id`、`rank`、`name`、`category`（`项目`|`生活`）、`summary`、`why`、`url`；可选 `repo`、`stars`、`tags`、`steps`、`risk`、`sources[{title,url}]`
+   - 工作日典型 3 项目 + 2 生活；周末典型 3 生活。正式数据不要带 `sample` /「【样例】」。
+2. 发布：`node tools/publish-github-finds.js /path/to/day.json`
+   - 校验后写入 `data/github-finds/<date>.json`、`latest.json`，并同步 `js/github-finds-data.js` 内嵌兜底
+3. 推送：`git add data/github-finds/ js/github-finds-data.js && git commit -m "github-finds YYYY-MM-DD" && git push origin HEAD:main`
+4. 约 1 分钟后打开 `#war-tools` 强刷核对。不承诺收益。
+
 ## 分支与协作流程（2026-10-17 起）
 - `main`：GitHub Pages 线上分支。「赚钱榜雷达」agent 继续直接推送榜单数据到 main。
 - `develop`：所有功能开发先提交到这里（代码由 Grok Build CLI 编写，执行 agent 负责规划、评审、测试）。
