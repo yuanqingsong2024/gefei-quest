@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 62, date: '2026-10-28', title: '顶栏下拉选中态改成整颗胶囊', tag: '修复', href: '#home',
+      items: ['学习 / 实施 / 赚钱选中或展开时，图标+文案+箭头共用同一背景与描边，不再左右拆成两个圆角框', '悬停同样整颗高亮；首页等无下拉项与「我的 / 换风格」按钮保持原样'] },
     { id: 61, date: '2026-10-28', title: '站一生成页预览改为大弹窗', tag: '改进', href: '#war-kit',
       items: ['实操助手不再把完整页面塞进矮 iframe；摘要区只留 title/描述/h1 与「打开预览」', '点击后用 QuestModal 大弹窗展示约 78vh 可滚动 iframe，标题含当前模板与主词；Esc / 遮罩 / 关闭按钮可关'] },
     { id: 60, date: '2026-10-28', title: '站一预览加高 + 重播导览先回首页', tag: '修复', href: '#war-kit',

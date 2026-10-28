@@ -2696,12 +2696,39 @@ html.is-offline .offline-pill {
 /* T184 · 顶栏 6 项 + 下拉，首页全宽分区 */
 .site-links { align-items: center; }
 .nav-drop { position: relative; display: flex; align-items: center; }
+/* 学习/实施/赚钱：选中·展开·悬停整颗胶囊，避免主链+箭头左右两截 */
+.nav-drop:not(.nav-mine):not(.nav-theme) {
+  border-radius: 999px;
+  transition: background .2s, color .2s, box-shadow .2s;
+}
+.nav-drop:not(.nav-mine):not(.nav-theme):hover {
+  background: rgba(251, 191, 36, .14);
+  color: var(--gold-text);
+}
+.nav-drop:not(.nav-mine):not(.nav-theme).is-active,
+.nav-drop:not(.nav-mine):not(.nav-theme).is-open {
+  background: rgba(251, 191, 36, .22);
+  color: var(--gold-text);
+  box-shadow: inset 0 0 0 2px #fbbf24;
+}
+.site-links .nav-drop:not(.nav-mine):not(.nav-theme) > a.nav-top,
+.site-links .nav-drop:not(.nav-mine):not(.nav-theme) > a.nav-top:hover,
+.site-links .nav-drop:not(.nav-mine):not(.nav-theme) > a.nav-top.active,
+.nav-drop:not(.nav-mine):not(.nav-theme) > .nav-caret,
+.nav-drop:not(.nav-mine):not(.nav-theme).is-open > .nav-caret,
+.nav-drop:not(.nav-mine):not(.nav-theme).is-active > .nav-caret {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+}
 .site-links a.nav-top { font-size: 16px; padding: 8px 10px; color: var(--ink); }
+.nav-drop:not(.nav-mine):not(.nav-theme) > a.nav-top { padding-right: 4px; border-radius: 999px 0 0 999px; }
 .nav-caret {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 28px; height: 34px; margin-left: -4px; padding: 0;
+  width: 26px; height: 34px; margin-left: 0; padding: 0 6px 0 0;
   border: 0; border-radius: 8px; background: transparent; color: var(--ink); cursor: pointer;
 }
+.nav-drop:not(.nav-mine):not(.nav-theme) > .nav-caret { border-radius: 0 999px 999px 0; }
 .nav-theme-btn {
   width: auto; height: auto; min-height: 34px; margin-left: 0; padding: 6px 12px;
   border: 1px solid var(--line); border-radius: 999px; background: var(--panel);

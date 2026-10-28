@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T12:16:52.279Z",
-  "latestId": 61,
+  "generatedAt": "2026-10-28T12:30:40.662Z",
+  "latestId": 62,
   "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 62,
+      "date": "2026-10-28",
+      "tag": "修复",
+      "title": "顶栏下拉选中态改成整颗胶囊",
+      "items": [
+        "学习 / 实施 / 赚钱选中或展开时，图标+文案+箭头共用同一背景与描边，不再左右拆成两个圆角框",
+        "悬停同样整颗高亮；首页等无下拉项与「我的 / 换风格」按钮保持原样"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 61,
       "date": "2026-10-28",
@@ -112,17 +123,6 @@
         "详情弹窗对齐赚钱榜大尺寸：分成规则、实操步骤路线图、适合谁、红线、来源；对比表深链 #pm-<分类>/<id> 直接打开弹窗"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#pm-cn-media"
-    },
-    {
-      "id": 52,
-      "date": "2026-10-27",
-      "tag": "新功能",
-      "title": "新增「Agent 赚钱」榜：用 Agent 合法进账的可执行方案",
-      "items": [
-        "独立于每日赚钱榜：短卡片 + 详情弹窗（agent_howto / agent_stack）；导航「赚钱 → Agent 赚钱」，数据来自 data/agent-money",
-        "可收藏并加入实操计划。不承诺收益"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-agent"
     }
   ],
   "rank": {

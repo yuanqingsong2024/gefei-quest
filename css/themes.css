@@ -266,14 +266,34 @@ html[data-theme] .site-links a.nav-top,
 html[data-theme] .nav-caret {
   color: var(--ink);
 }
-html[data-theme] .site-links a:hover,
-html[data-theme] .site-links a.active,
-html[data-theme] .site-links a.nav-top.active,
-html[data-theme] .nav-drop.is-open > .nav-caret,
-html[data-theme] .nav-drop.is-active > .nav-caret {
+/* 无下拉的顶栏项：悬停/选中仍是单颗胶囊 */
+html[data-theme] .site-links > a:hover,
+html[data-theme] .site-links > a.active,
+html[data-theme] .site-links > a.nav-top.active {
   background: color-mix(in srgb, var(--gold) 12%, transparent);
   color: var(--gold-text);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent);
+}
+/* 学习/实施/赚钱：整颗 .nav-drop 画胶囊，子链与箭头不再各自描边 */
+html[data-theme] .nav-drop:not(.nav-mine):not(.nav-theme):hover {
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  color: var(--gold-text);
+}
+html[data-theme] .nav-drop:not(.nav-mine):not(.nav-theme).is-active,
+html[data-theme] .nav-drop:not(.nav-mine):not(.nav-theme).is-open {
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  color: var(--gold-text);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--gold) 40%, transparent);
+}
+html[data-theme] .site-links .nav-drop:not(.nav-mine):not(.nav-theme) > a.nav-top,
+html[data-theme] .site-links .nav-drop:not(.nav-mine):not(.nav-theme) > a.nav-top:hover,
+html[data-theme] .site-links .nav-drop:not(.nav-mine):not(.nav-theme) > a.nav-top.active,
+html[data-theme] .nav-drop:not(.nav-mine):not(.nav-theme) > .nav-caret,
+html[data-theme] .nav-drop:not(.nav-mine):not(.nav-theme).is-open > .nav-caret,
+html[data-theme] .nav-drop:not(.nav-mine):not(.nav-theme).is-active > .nav-caret {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
 }
 html[data-theme] .nav-search,
 html[data-theme] .nav-start-today,
