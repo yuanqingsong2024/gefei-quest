@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T00:31:41.770Z",
-  "latestId": 54,
+  "generatedAt": "2026-10-28T00:43:39.314Z",
+  "latestId": 55,
   "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 55,
+      "date": "2026-10-28",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-28",
+      "items": [
+        "No.1 Kiroween 2026：用 Kiro 做全新项目，现金奖池约10万美元，现可报名，10月30日起可提交",
+        "No.2 B站「AI创造公开赛S2」：用大模型做出可运行产品并投稿，一等奖税前100万元",
+        "No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 54,
       "date": "2026-10-28",
@@ -114,34 +126,22 @@
         "No.3 《明日方舟：终末地》「丹青渡」多平台创作征集：B站/抖音/小红书投稿瓜分现金"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 45,
-      "date": "2026-10-24",
-      "tag": "改进",
-      "title": "首页改成主线路径，顶栏只留四个入口",
-      "items": [
-        "顶栏四个主入口：首页、学习、实施、赚钱。「我的」收到右侧头像菜单。新手引导和每周补给仍可从首页路径或页脚打开",
-        "首页中间是五步竖向路径（新手引导 → 学习路线 → 做站 Day → 发布上线 → 试渠道），当前关高亮，旁边是「今天这一关」",
-        "首页只保留今日赚钱榜 Top 3，完整榜去每日赚钱榜。常见问题和「为什么做」默认折叠"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 给 Twitch 主播/观众做工具，现金奖2.5万美元，11月2日截止",
+        "name": "Kiroween 2026：用 Kiro 做全新项目，现金奖池约10万美元，现可报名，10月30日起可提交",
         "type": "奖金赛/悬赏",
-        "source_url": "https://twitchcon-codex.devpost.com/"
+        "source_url": "https://kiroween.devpost.com/"
       },
       {
         "rank": 2,
-        "name": "B站「AI创造公开赛S2」：用大模型/vibe coding 做出可运行产品并投稿，一等奖税前100万元",
+        "name": "B站「AI创造公开赛S2」：用大模型做出可运行产品并投稿，一等奖税前100万元",
         "type": "平台激励",
         "source_url": "https://www.bilibili.com/opus/1262431200618741810"
       },

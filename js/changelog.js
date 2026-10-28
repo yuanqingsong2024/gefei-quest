@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 55, date: '2026-10-28', title: '每日赚钱榜 · 2026-10-28', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Kiroween 2026：用 Kiro 做全新项目，现金奖池约10万美元，现可报名，10月30日起可提交","No.2 B站「AI创造公开赛S2」：用大模型做出可运行产品并投稿，一等奖税前100万元","No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"] },
     { id: 54, date: '2026-10-28', title: '三套主题首页背景图焕新：水墨 / 海岸 / 像素', tag: '改进', href: '#home',
       items: ['首页首屏背景按「水墨纸 / 海岸青 / 像素暖沙」重新绘制，左侧留白给标题，右侧放景', '顶栏「换风格」可切换；强刷或等 SW v28 生效后可见'] },
     { id: 53, date: '2026-10-27', title: '平台变现详情改为大弹窗：列表只留摘要', tag: '改进', href: '#pm-cn-media',

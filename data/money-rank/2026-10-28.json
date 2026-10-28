@@ -1,0 +1,386 @@
+{
+  "date": "2026-10-28",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Kiroween 2026：用 Kiro 做全新项目，现金奖池约10万美元，现可报名，10月30日起可提交",
+      "type": "奖金赛/悬赏",
+      "summary": "Kiro 年度万圣节主题线上黑客松；报名已开，正式提交窗口约 10/30–12/4（太平洋时间），官方称现金奖池约10万美元，细则10月30日公布。",
+      "cost": "0；需 Devpost 账号与有效 Kiro 或 AWS 账号 ID",
+      "difficulty": 3,
+      "threshold": "本国成年、排除标准地区；只能提交提交期内新建的项目，未开提交前不要动工",
+      "time": "今天完成报名与选题；正式构建约1个月窗口",
+      "fit": "会用 AI IDE/Agent 写可演示应用的开发者；预估投入：提交期每周8小时以上",
+      "why": "Devpost 官方页写明：报名已开；完整规则、奖项拆分与加分挑战于 2026-10-30 提交正式开放时公布；提交截止 2026-12-04 下午 2:00 太平洋时间；期望现金奖池约10万美元。主题含 Resurrection / Frankenstein / Skeleton Crew / Costume Contest。上榜理由：本周可抢先占位的大额现金赛，窗口长于临近截止的赛，适合今天先注册再等开赛。",
+      "steps": [
+        "打开 kiroween.devpost.com 注册，准备 Kiro 用户 ID 或 AWS 账号 ID",
+        "加入 Kiro Discord、浏览 2025 项目库选题，但在 10 月 30 日前提交开放前不要写代码",
+        "细则公布后按赛道与规则新建仓库，12 月 4 日前完成提交"
+      ],
+      "risk": "风险等级：中。2026 正式规则与奖项拆分尚未全部公示；须新建项目；不保证获奖。不承诺收益。",
+      "risk_level": "中",
+      "reason": "本周可报名、提交窗口最长的大额现金黑客松，适合先占位再等开赛。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "Kiro",
+        "AWS",
+        "现金奖"
+      ],
+      "sources": [
+        {
+          "title": "Kiroween 2026: Build something wicked and git commit to the darkness",
+          "url": "https://kiroween.devpost.com/",
+          "publisher": "Devpost / Kiro",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://kiroween.devpost.com/"
+    },
+    {
+      "rank": 2,
+      "name": "B站「AI创造公开赛S2」：用大模型做出可运行产品并投稿，一等奖税前100万元",
+      "type": "平台激励",
+      "summary": "官方 AI 造物征集，自 2026-10-24 起投稿；要求横屏≥1分钟原创视频并挂活动话题；截止将提前不少于30日公告。",
+      "cost": "0；需能做出可运行/可交互产品并拍演示视频",
+      "difficulty": 4,
+      "threshold": "借助大模型或 vibe coding 做出可运行产品（非纯 AIGC），投稿横屏原创视频并勾选#B站AI创造公开赛#",
+      "time": "产品打磨1–4周；活动期内可持续更新合集",
+      "fit": "会做应用/硬件原型、能拍演示的独立开发者或团队；预估投入：每周8小时以上",
+      "why": "B站官方活动帖（2026-10-23）写明：投稿自 2026-10-24 起，截止时间将提前不少于30日公告；一等奖税前100万元，二等奖3名各30万元，三等奖6名各5万元；须为可运行可交互产品且获奖后独家展示。上榜理由：国内平台现金激励里金额与主题（AI 造物）仍匹配本周开放窗口。",
+      "steps": [
+        "读官方规则，确认「可运行产品」定义、独家展示义务与无效稿情形",
+        "做出最小可演示产品，拍≥1分钟横屏演示，标题加【B站AI创造公开赛】并勾选活动话题",
+        "把同一产品相关视频收入合集，关注评审团与后续入围公示"
+      ],
+      "risk": "风险等级：高。竞争大、不保证入围或获奖；须原创且获奖后独家；禁止操纵数据等舞弊。不承诺收益。",
+      "risk_level": "高",
+      "reason": "百万级官方创作赛仍在征稿，适合已有可演示 AI 产品的人持续更新合集。",
+      "tags": [
+        "平台激励",
+        "B站",
+        "AI造物",
+        "现金奖"
+      ],
+      "sources": [
+        {
+          "title": "B站AI创造公开赛S2 活动规则",
+          "url": "https://www.bilibili.com/opus/1262431200618741810",
+          "publisher": "哔哩哔哩 / 专注AI的研究员",
+          "published": "2026-10-23",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://www.bilibili.com/opus/1262431200618741810"
+    },
+    {
+      "rank": 3,
+      "name": "Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
+      "type": "奖金赛/悬赏",
+      "summary": "线上公开赛，个人或组队，须在 Nebius 上调用 NVIDIA 开源模型；距截止仅约两天。",
+      "cost": "0；需 Nebius 账号与自备算力/额度",
+      "difficulty": 4,
+      "threshold": "能在截止前交出可运行 Demo、公开仓库与 3 分钟演示视频",
+      "time": "紧急：约1–2天集中冲刺",
+      "fit": "已有 AI Agent/应用半成品、能快速接 Nebius API 的开发者；预估投入：今天起每天4小时以上",
+      "why": "Devpost 官方页：截止 2026-10-30 上午（太平洋时间），现金奖池约5万美元（一等奖2万美元），另有赛道奖与 Tavily 单项现金；资格为本国成年、全球多数地区。须使用至少一款 NVIDIA 开源模型并跑在 Nebius 上。上榜理由：本周内最后窗口的大额现金赛，有半成品的人今天就该动手。",
+      "steps": [
+        "打开 nebiusglobalaihackathon.devpost.com 核对资格与赛道，注册并领 Token Factory 额度",
+        "把现有半成品接到 Nebius + Nemotron，选一个赛道做成可演示闭环",
+        "准备公开仓库（含开源协议与 README）、演示链接与不超过 3 分钟视频，10月30日前提交"
+      ],
+      "risk": "风险等级：高。截止极近、参赛者众多，不保证获奖；须遵守官方规则与地区限制。不承诺收益。",
+      "risk_level": "高",
+      "reason": "距截止约两天的大额现金赛，只适合已有半成品、能立刻交付的人。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "NVIDIA",
+        "Nebius",
+        "紧急"
+      ],
+      "sources": [
+        {
+          "title": "Nebius x NVIDIA Global AI Hackathon: Build the next frontier of AI on open infrastructure",
+          "url": "https://nebiusglobalaihackathon.devpost.com/",
+          "publisher": "Devpost / Nebius / NVIDIA",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://nebiusglobalaihackathon.devpost.com/"
+    },
+    {
+      "rank": 4,
+      "name": "DigitalOcean Affiliate：写云主机/部署教程，合资格付费用户月消费可拿约10%佣金、持续约12个月",
+      "type": "联盟营销",
+      "summary": "官方云基础设施联盟：成功推荐新付费用户后，按其月消费约拿10%佣金，并持续约一年。",
+      "cost": "0；需通过联盟申请审核",
+      "difficulty": 2,
+      "threshold": "有可展示的部署/出海/开发相关内容渠道，并如实披露推广关系",
+      "time": "开通与素材准备1–3天；内容积累需数周",
+      "fit": "做部署教程、独立开发上云、出海小站内容的博主；预估投入：每周3–5小时",
+      "why": "DigitalOcean 官方联盟页写明：每当你推荐一位新付费用户，可就其月消费获得约10%佣金，并持续约一整年。上榜理由：规则公开、与出海小站/教程主题契合，开通成本为零；与昨日主机联盟条目换源，避免同质。",
+      "steps": [
+        "在 digitalocean.com/affiliates 提交申请，通过后复制专属链接与素材",
+        "写「Droplet 部署静态站」「VPS 怎么选」等教程，按要求披露推广关系",
+        "在联盟后台核对转化，按官方指引申请结算（勿与站内 Referral 积分计划混用同一单）"
+      ],
+      "risk": "风险等级：低。须如实披露；禁止违规导流与自推；佣金与资格以官方协议为准。不承诺收益。",
+      "risk_level": "低",
+      "reason": "云主机联盟里佣金结构公开、和开发者内容匹配度高的一个。",
+      "tags": [
+        "联盟营销",
+        "DigitalOcean",
+        "云主机",
+        "佣金"
+      ],
+      "sources": [
+        {
+          "title": "Affiliate Program | DigitalOcean",
+          "url": "https://www.digitalocean.com/affiliates",
+          "publisher": "DigitalOcean",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://www.digitalocean.com/affiliates"
+    },
+    {
+      "rank": 5,
+      "name": "Etsy：上架原创数字下载（模板/清单/可打印文件），按成交收上架费与约6.5%交易费",
+      "type": "数字产品/接单",
+      "summary": "全球手作与数字商品市场；数字下载无物流，可反复卖；费用含上架费与交易/支付处理费。",
+      "cost": "开店一次性费用因地而异；每条 listing 约 $0.20；成交另收交易与支付处理费",
+      "difficulty": 3,
+      "threshold": "有可整理成文件的原创设计/模板，并能用英文写清交付与授权说明",
+      "time": "首个 listing 1–3天；优化标题与图每周2–4小时",
+      "fit": "会做 Notion/表格/打印模板或设计素材、愿做英文详情页的人；预估投入：每周4小时",
+      "why": "Etsy 官方帮助中心写明：每条 listing 约 $0.20（约4个月有效），成交另收订单总额约6.5%交易费及按国家不同的支付处理费；数字商品适合无物流反复交付。上榜理由：相对直链商店更有站内搜索流量，可与小站/社媒导流叠加。",
+      "steps": [
+        "读官方 Fees 与卖家政策，确认所在地区能否开店与数字下载类目要求",
+        "挑一套自己用过的模板做成可下载文件，写清授权范围与使用说明，定入门价",
+        "优化英文标题与标签，用站外内容导流；根据退款与评价迭代文件包"
+      ],
+      "risk": "风险等级：中。只能卖原创或已获授权内容；站内竞争大；费用与结算以官网为准；不承诺销量。不承诺收益。",
+      "risk_level": "中",
+      "reason": "数字产品里有站内搜索流量、适合英文模板反复卖的路径。",
+      "tags": [
+        "数字产品",
+        "Etsy",
+        "模板",
+        "反复卖"
+      ],
+      "sources": [
+        {
+          "title": "What are the Fees and Taxes for Selling on Etsy?",
+          "url": "https://help.etsy.com/hc/en-us/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy",
+          "publisher": "Etsy Help",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://help.etsy.com/hc/en-us/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy"
+    },
+    {
+      "rank": 6,
+      "name": "出海新词：盯 Product Hunt 月榜新品，做英文对比/教程页再接联盟或广告",
+      "type": "出海新词",
+      "summary": "用 Product Hunt 月度榜发现当月热门新品，挑有联盟或可挂广告的工具写对比指南，验证搜索意图后再变现。",
+      "cost": "0 起；可选域名约每年数十美元",
+      "difficulty": 3,
+      "threshold": "能读懂英文产品定位，并写出有用的原创对比或上手教程",
+      "time": "选题与首篇2–4天；SEO 见效通常需数周到数月",
+      "fit": "愿意跟踪新品、能写英文测评/对比的人；预估投入：每周4–6小时",
+      "why": "Product Hunt 官方月榜（2026年10月）公开当月高互动新品（如 Spira、Pancake、ReSO 等 AI 工具）。变现路径：新品→英文「X vs Y / how to」单页→Search Console→申请该产品联盟或接 AdSense。上榜理由：选词来源与昨日 Trends 不同，更贴合 AI 工具迭代节奏。",
+      "steps": [
+        "打开 producthunt.com/leaderboard/monthly 记下本月前十与评论里吐槽的痛点",
+        "人工搜英文长尾，只挑能做出差异化对比页且产品有公开联盟或可挂广告的词",
+        "上线后接 Search Console；有稳定访问再申请联盟或广告"
+      ],
+      "risk": "风险等级：中。新品热度可能很快过气；联盟申请与广告审核不保证通过；收入取决于流量。不承诺收益。",
+      "risk_level": "中",
+      "reason": "本周可免费开始的「新品→对比页→联盟/广告」闭环，适合跟踪 AI 工具的人。",
+      "tags": [
+        "出海新词",
+        "Product Hunt",
+        "SEO",
+        "联盟"
+      ],
+      "sources": [
+        {
+          "title": "Best of Product Hunt: October 2026",
+          "url": "https://www.producthunt.com/leaderboard/monthly/2026/10",
+          "publisher": "Product Hunt",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        },
+        {
+          "title": "Google AdSense - Earn Money from Your Website with Monetization",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://www.producthunt.com/leaderboard/monthly/2026/10"
+    },
+    {
+      "rank": 7,
+      "name": "Cloudflare Pages：拖拽或 Wrangler 部署英文工具小站，验证流量后再接广告或联盟",
+      "type": "出海小站",
+      "summary": "用 Cloudflare Pages 免费部署静态站；支持拖拽或 Wrangler 上传，适合单页工具/指南。",
+      "cost": "0；可选买域名（自定义域名更利于后续广告审核）",
+      "difficulty": 2,
+      "threshold": "会基础 HTML/JS，或会用 AI 生成静态页面并部署",
+      "time": "首站半天到2天；SEO 与迭代每周2–3小时",
+      "fit": "想低成本试出海长尾词的人；预估投入：每周3小时",
+      "why": "Cloudflare Pages 官方文档说明可用 Wrangler 或控制台拖拽上传预构建资源并全球分发。玩法：挑一个长尾英文需求做单页工具，接 Search Console，有稳定访问后再申请广告或挂联盟。上榜理由：相对昨日 Netlify 条目换托管方，拖拽上线路径同样适合今天就试一个词。",
+      "steps": [
+        "按官方 Direct Upload 文档用拖拽或 wrangler pages deploy 上线首版",
+        "用 Trends/Product Hunt 选一个长尾需求，做单页英文工具并写清 Privacy/About",
+        "绑定自定义域名、提交 Google Search Console，流量稳定后再接广告或联盟"
+      ],
+      "risk": "风险等级：低。免费档有上传与请求限制；广告审核与自然流量都不保证。不承诺收益。",
+      "risk_level": "低",
+      "reason": "出海小站里今天就能零成本拖拽上线的方案，和 PH/Trends 选词直接配套。",
+      "tags": [
+        "出海小站",
+        "Cloudflare Pages",
+        "SEO",
+        "工具站"
+      ],
+      "sources": [
+        {
+          "title": "Direct Upload · Cloudflare Pages docs",
+          "url": "https://developers.cloudflare.com/pages/get-started/direct-upload/",
+          "publisher": "Cloudflare Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://developers.cloudflare.com/pages/get-started/direct-upload/"
+    },
+    {
+      "rank": 8,
+      "name": "小红书蒲公英：粉丝达标后开通博主合作，接定制/批量等官方商单变现",
+      "type": "平台激励",
+      "summary": "官方内容合作平台；实名、年满18、粉丝≥1000并完成专业号升级后，可在创作者中心开通并接商单。",
+      "cost": "0；需持续产出合规笔记以攒粉与接单",
+      "difficulty": 3,
+      "threshold": "完成实名与个人专业号升级，粉丝≥1000，近期无社区违规",
+      "time": "攒粉通常需数周到数月；开通后按邀约交付",
+      "fit": "已在垂直领域持续发笔记、愿意接品牌合作的创作者；预估投入：每周5–8小时",
+      "why": "小红书蒲公英帮助中心「博主入驻操作指南」（更新于 2026-10-20）写明：入驻需实名、年满18、粉丝≥1000、完成个人专业号升级且近期无违规；合作模式含定制商单、批量商单、众测、探店等。上榜理由：国内平台官方商单通道，规则与入口清晰，可与内容能力直接变现。",
+      "steps": [
+        "对照官方入驻条件自查粉丝与专业号状态，读社区规范避免踩线",
+        "在 App 创作者中心→全部服务→博主合作开通蒲公英，完善服务与报价信息",
+        "按邀约交付原创笔记，走站内结算，勿私下收款"
+      ],
+      "risk": "风险等级：中。达标不保证有单；须原创合规披露合作；违规可能关合作资格。不承诺收益。",
+      "risk_level": "中",
+      "reason": "国内官方内容商单通道，适合已有垂直笔记基础的人立刻核门槛。",
+      "tags": [
+        "平台激励",
+        "小红书",
+        "蒲公英",
+        "商单"
+      ],
+      "sources": [
+        {
+          "title": "博主入驻操作指南 - 小红书蒲公英帮助中心",
+          "url": "https://pgy.xiaohongshu.com/help/detail?id=22aa451e5f92647735efb60001b704d2&userType=6",
+          "publisher": "小红书蒲公英",
+          "published": "2026-10-20",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://pgy.xiaohongshu.com/help/detail?id=22aa451e5f92647735efb60001b704d2&userType=6"
+    },
+    {
+      "rank": 9,
+      "name": "闲鱼技能服务：Notion/飞书工作流与模板定制，按套/按模块计价接单",
+      "type": "闲鱼非实物",
+      "summary": "在闲鱼发布自有技能的信息服务（知识库结构、自动化流程、可复用模板），按套数或模块打包收费。",
+      "cost": "0；需实名与 Notion/飞书等常用工具账号",
+      "difficulty": 2,
+      "threshold": "能根据客户场景在1–3天内交付可用模板或流程说明",
+      "time": "每单2–6小时；起步期每天1小时回复咨询",
+      "fit": "做过知识管理/团队协作搭建、会拆流程的人；预估投入：每周5小时",
+      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；个人与小团队对「能直接套用」的 Notion/飞书模板有稳定需求，交付物可沉淀成标准包再在闲鱼或海外数字平台卖。上榜理由：零成本即刻上架，不涉及账号券码代领，和数字产品可叠加；相对昨日分镜条目换技能方向。",
+      "steps": [
+        "阅读闲鱼卖家服务协议，确认类目与禁发内容",
+        "准备 2–3 组前后对比样例（空白→建好的库），写清修改次数、交付格式与报价",
+        "全程站内沟通与交易，交付后邀评，把高频结构做成可售模板另行上架"
+      ],
+      "risk": "风险等级：低。注意客户隐私与素材版权；不接违规推广；站外交易易起纠纷。不承诺收益。",
+      "risk_level": "低",
+      "reason": "国内技能变现里需求明确、可沉淀为模板的路径。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "Notion",
+        "飞书",
+        "模板"
+      ],
+      "sources": [
+        {
+          "title": "闲鱼社区卖家服务协议",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
+          "publisher": "terms.alicdn.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
+    },
+    {
+      "rank": 10,
+      "name": "案例拆解：AgentaOS 两月达约 $9.5k MRR——作者自述只拆方法",
+      "type": "案例拆解",
+      "summary": "Indie Hackers 访谈：Panche 做全球收款 Merchant of Record，称用 AI Agent 跑运营，约两月到约 $9.5k MRR。",
+      "cost": "0 起；时间成本为主",
+      "difficulty": 4,
+      "threshold": "有支付/SaaS 或垂直领域经验，或能把服务做成按用量收费的产品",
+      "time": "方法复盘1天；做出可收费最小产品需数周到数月",
+      "fit": "做过外包/工具、想转到可复利 SaaS 或按用量收费产品的人；预估投入：每周6–10小时",
+      "why": "据 Indie Hackers 访谈作者自述（发布于 2026-10-06）：2026年8月上线后约两月，作者称约 $9.5k MRR、400+ SaaS 创始人注册、处理 1400+ 笔支付；自述零雇员、用 AI Agent 做入驻与支持（个人说法，未核实）。可借鉴的方法：先谈大量潜客再改产品；写问题不写广告再私信跟进；第一天就收费并与客户成交额挂钩；钱相关代码保留人工复核。上榜理由：近期公开的「问题内容→按用量收费」样本，和数字产品/出海小站路径可对照。",
+      "steps": [
+        "读原文公开部分，记下「先问题后产品」「个人跟进」「按用量收费」「人机复核」四条做法",
+        "从近半年客户痛点里抽出一个可计费闭环，做出最小可收费版本",
+        "用公开写作获询盘，人工完成首批入驻，再逐步把重复流程交给工具/Agent"
+      ],
+      "risk": "风险等级：低。收入为作者自述，不代表可复制；支付类产品合规与资金安全要求高。不承诺收益。",
+      "risk_level": "低",
+      "reason": "方法可落地，适合正从服务转产品、想对照「按用量收费」路径的人。",
+      "tags": [
+        "案例拆解",
+        "Indie Hackers",
+        "SaaS",
+        "Merchant of Record"
+      ],
+      "sources": [
+        {
+          "title": "Starting from scratch and hitting $9.5k MRR in two months",
+          "url": "https://www.indiehackers.com/post/tech/starting-from-scratch-and-hitting-9-5k-mrr-in-two-months-j5pMaED5FEbKw8qmeyj9",
+          "publisher": "Indie Hackers",
+          "published": "2026-10-06",
+          "kind": "media",
+          "checked": "2026-10-28"
+        }
+      ],
+      "source_url": "https://www.indiehackers.com/post/tech/starting-from-scratch-and-hitting-9-5k-mrr-in-two-months-j5pMaED5FEbKw8qmeyj9"
+    }
+  ]
+}
