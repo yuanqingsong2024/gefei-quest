@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T02:51:56.707Z",
-  "latestId": 57,
+  "generatedAt": "2026-10-28T05:44:09.862Z",
+  "latestId": 58,
   "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 58,
+      "date": "2026-10-28",
+      "tag": "内容",
+      "title": "AI生活合集新增「订阅刺客猎手」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：翻账单揪闲置自动续费，扣费前三天提醒；含公众号结构、家庭订阅审计提示词、小红书与闲鱼模板角度",
+        "附中国日报网 / IT之家 / 阿里云开发者社区 / 21经济网来源；授权可撤、误报人审、退订自己点；不代查不代停，不承诺收益"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 57,
       "date": "2026-10-28",
@@ -114,17 +125,6 @@
         "No.3 B站「不普通影视计划2026」：影视区挂话题投稿，每周开奖可叠加子活动激励"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 48,
-      "date": "2026-10-25",
-      "tag": "新功能",
-      "title": "攻略详情与作战页可生成闲鱼方案上架卡",
-      "items": [
-        "手册详情页和作战日程可折叠「生成闲鱼上架卡」：根据站内手册本地生成标题、3 条卖点、交付物和原文来源链接",
-        "各段一键复制，也可复制全部（含固定合规提示）。草稿只存在本机浏览器，不调用外部 AI"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#guides"
     }
   ],
   "rank": {
