@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-27T05:59:00.862Z",
-  "latestId": 53,
-  "latestDate": "2026-10-27",
+  "generatedAt": "2026-10-28T00:31:41.770Z",
+  "latestId": 54,
+  "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 54,
+      "date": "2026-10-28",
+      "tag": "改进",
+      "title": "三套主题首页背景图焕新：水墨 / 海岸 / 像素",
+      "items": [
+        "首页首屏背景按「水墨纸 / 海岸青 / 像素暖沙」重新绘制，左侧留白给标题，右侧放景",
+        "顶栏「换风格」可切换；强刷或等 SW v28 生效后可见"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 53,
       "date": "2026-10-27",
@@ -115,18 +126,6 @@
         "首页只保留今日赚钱榜 Top 3，完整榜去每日赚钱榜。常见问题和「为什么做」默认折叠"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 44,
-      "date": "2026-10-24",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-24",
-      "items": [
-        "No.1 OpenCV AI Competition 2026（AWS）：视觉项目现金约2万美元，10月26日截止",
-        "No.2 ReSO AI / GEO：生成式引擎优化新词，做 AI 搜索可见度内容或咨询实验",
-        "No.3 DigitalOcean Affiliates：云主机/开发者内容挂合规链接，合资格成交拿分成"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 54, date: '2026-10-28', title: '三套主题首页背景图焕新：水墨 / 海岸 / 像素', tag: '改进', href: '#home',
+      items: ['首页首屏背景按「水墨纸 / 海岸青 / 像素暖沙」重新绘制，左侧留白给标题，右侧放景', '顶栏「换风格」可切换；强刷或等 SW v28 生效后可见'] },
     { id: 53, date: '2026-10-27', title: '平台变现详情改为大弹窗：列表只留摘要', tag: '改进', href: '#pm-cn-media',
       items: ['平台卡不再「展开：分成规则…」折叠；短卡只留变现方式/门槛（海外含大陆可用性）与「查看详情」', '详情弹窗对齐赚钱榜大尺寸：分成规则、实操步骤路线图、适合谁、红线、来源；对比表深链 #pm-<分类>/<id> 直接打开弹窗'] },
     { id: 52, date: '2026-10-27', title: '新增「Agent 赚钱」榜：用 Agent 合法进账的可执行方案', tag: '新功能', href: '#war-rank-agent',
