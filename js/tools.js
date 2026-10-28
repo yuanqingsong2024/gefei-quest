@@ -303,6 +303,7 @@
         '<dt>&lt;title&gt; <small>' + g.title.length + '/60</small></dt><dd id="kit-title">' + esc(g.title) + '</dd>' +
         '<dt>meta description <small>' + g.desc.length + ' · 建议 120–160</small></dt><dd id="kit-desc">' + esc(g.desc) + '</dd>' +
         '<dt>h1</dt><dd id="kit-h1">' + esc(g.h1) + '</dd><dt>slug / 网址</dt><dd>https://' + esc(g.domain) + '/ <small>（内页可用 /' + esc(g.slug) + '/）</small></dd></dl>' +
+        '<p class="kit-frame-label">生成页预览（可滚动）</p>' +
         '<iframe id="kit-frame" class="kit-frame" sandbox="allow-scripts allow-forms" title="生成页面预览"></iframe>' +
         '<ul class="kit-rules">' + r.map(function (x) { return '<li class="' + (x.ok ? 'ok' : 'warn') + '">' + (x.ok ? '✓ ' : '! ') + esc(x.t) + '</li>'; }).join('') + '</ul>' +
         '<p class="kit-files" id="kit-files">文件：' + list.map(function (f) { return '<code>' + esc(f.name) + '</code>'; }).join(' ') + '</p>';

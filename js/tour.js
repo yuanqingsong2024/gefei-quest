@@ -1,6 +1,7 @@
 /** 首次访问导览。自动只在 #home、且 onboarding.tourDone 不为 true 时出现。
  *  navigator.webdriver 时不自动弹出，除非 localStorage gefei-quest-tour-test=1。
- *  QuestTour.start() 可从 #start 与页脚重播。 */
+ *  QuestTour.start() / open() 可从 #start 与页脚重播：非首页时先 location.hash='#home' 再开，
+ *  避免在 #war-kit 等工具页把聚光灯叠在生成页预览上。tour-root 为全屏 fixed。 */
 (function (global) {
   var STEPS = [
     { sel: '[data-tour="nav"]', title: '顶栏四个入口', body: '首页、学习、实施、赚钱。手机上同样的入口在底部栏。「我的」在右侧头像菜单。' },
@@ -272,6 +273,12 @@
   }
   function open() {
     if (openNow) { place(); return; }
+    /* 非首页绝不开导览：先回 #home，等 afterRender 再开，避免叠在 #war-kit 预览带上 */
+    if (!isHome()) {
+      forced = true;
+      if ((location.hash || '') !== '#home') location.hash = '#home';
+      return;
+    }
     forced = false;
     prepare();
     var src = customSteps || STEPS;
@@ -321,5 +328,5 @@
     start();
   }, true);
 
-  global.QuestTour = { STEPS: STEPS, start: start, close: function () { hide(true); }, afterRender: afterRender, isOpen: function () { return openNow; } };
+  global.QuestTour = { STEPS: STEPS, start: start, open: start, close: function () { hide(true); }, afterRender: afterRender, isOpen: function () { return openNow; } };
 })(typeof window !== 'undefined' ? window : globalThis);

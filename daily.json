@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T06:05:40.560Z",
-  "latestId": 59,
+  "generatedAt": "2026-10-28T12:09:33.417Z",
+  "latestId": 60,
   "latestDate": "2026-10-28",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 60,
+      "date": "2026-10-28",
+      "tag": "修复",
+      "title": "站一预览加高 + 重播导览先回首页",
+      "items": [
+        "实操助手「生成页预览」从约 96px 加高到桌面 360px / 窄屏 220px，并加「生成页预览（可滚动）」说明，避免被当成坏顶栏",
+        "页脚/按钮重播新手导览时若在非首页，先回到 #home 再开；tour-root 全屏叠层提高，避免叠在工具页预览上"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
+    },
     {
       "id": 59,
       "date": "2026-10-28",
@@ -113,17 +124,6 @@
         "No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 50,
-      "date": "2026-10-26",
-      "tag": "内容",
-      "title": "AI生活合集新增「早晨出门秘书」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：7:30 一句话搞定日历冲突、通勤预估、今日重点；含公众号结构、可复制提示词、小红书与闲鱼模板角度",
-        "附 Digital Today / Engadget / Google Gemini 帮助来源；不承诺收益，不卖账号代开通代领"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {

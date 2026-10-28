@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 60, date: '2026-10-28', title: '站一预览加高 + 重播导览先回首页', tag: '修复', href: '#war-kit',
+      items: ['实操助手「生成页预览」从约 96px 加高到桌面 360px / 窄屏 220px，并加「生成页预览（可滚动）」说明，避免被当成坏顶栏', '页脚/按钮重播新手导览时若在非首页，先回到 #home 再开；tour-root 全屏叠层提高，避免叠在工具页预览上'] },
     { id: 59, date: '2026-10-28', title: '长列表统一分页：合集 / 更新日志对齐赚钱榜控件', tag: '改进', href: '#changelog',
       items: ['合集（闲鱼零成本 / AI生活起号）改为 cx-pager 每页 6 条，去掉「展开更多」', '更新日志改为每页 8 条；赚钱榜 / Agent 赚钱 / 工具发掘 / 平台变现原本已分页。深链与弹窗仍可翻到对应页'] },
     { id: 58, date: '2026-10-28', title: 'AI生活合集新增「订阅刺客猎手」场景文选题', tag: '内容', href: '#war-rank-ai-life',
