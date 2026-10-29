@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-29T00:36:23.302Z",
-  "latestId": 63,
+  "generatedAt": "2026-10-29T01:12:48.029Z",
+  "latestId": 64,
   "latestDate": "2026-10-29",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 64,
+      "date": "2026-10-29",
+      "tag": "内容",
+      "title": "Agent 赚钱榜更新到 10-29",
+      "items": [
+        "内嵌兜底同步今日榜（TaskBounty / Swarms / Gravity 等）；file:// 与 fetch 失败时也是 10-29"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-agent"
+    },
     {
       "id": 63,
       "date": "2026-10-29",
@@ -113,17 +123,6 @@
         "No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 54,
-      "date": "2026-10-28",
-      "tag": "改进",
-      "title": "三套主题首页背景图焕新：水墨 / 海岸 / 像素",
-      "items": [
-        "首页首屏背景按「水墨纸 / 海岸青 / 像素暖沙」重新绘制，左侧留白给标题，右侧放景",
-        "顶栏「换风格」可切换；强刷或等 SW v28 生效后可见"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
