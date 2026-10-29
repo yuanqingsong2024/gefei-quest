@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 65, date: '2026-10-29', title: 'AI生活合集新增「生活后台」场景文选题', tag: '内容', href: '#war-rank-ai-life',
+      items: ['「AI生活起号选题方案」合集置顶新增：保修卡、账单、日记一句话进腾讯文档；含公众号结构、凭证/记账预览确认提示词、小红书与闲鱼模板角度', '附人人都是产品经理 / GitHub z-skills / 21经济网 / 新浪财经来源；先装1模块、敏感号后4位、健康只归档；不卖账号不开通代配，不承诺收益'] },
     { id: 64, date: '2026-10-29', title: 'Agent 赚钱榜更新到 10-29', tag: '内容', href: '#war-rank-agent',
       items: ['内嵌兜底同步今日榜（TaskBounty / Swarms / Gravity 等）；file:// 与 fetch 失败时也是 10-29'] },
     { id: 63, date: '2026-10-29', title: '每日赚钱榜 · 2026-10-29', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Mergetober × Cognee：为开源 AI Agent 记忆层写集成 PR，奖池约5000美元，10月31日截止","No.2 Kiroween 2026：明天起可正式提交，今天只报名与选题，现金奖池约10万美元","No.3 Hostinger Affiliate：写建站/主机教程，合资格首购可达约40%佣金（协议以官网为准）"] },
