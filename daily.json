@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-29T01:12:48.029Z",
-  "latestId": 64,
+  "generatedAt": "2026-10-29T04:12:26.970Z",
+  "latestId": 65,
   "latestDate": "2026-10-29",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 65,
+      "date": "2026-10-29",
+      "tag": "内容",
+      "title": "AI生活合集新增「生活后台」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：保修卡、账单、日记一句话进腾讯文档；含公众号结构、凭证/记账预览确认提示词、小红书与闲鱼模板角度",
+        "附人人都是产品经理 / GitHub z-skills / 21经济网 / 新浪财经来源；先装1模块、敏感号后4位、健康只归档；不卖账号不开通代配，不承诺收益"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 64,
       "date": "2026-10-29",
@@ -111,18 +122,6 @@
         "数据 data/github-finds/YYYY-MM-DD.json + latest.json；工具发掘大师推 main 即可上线。不承诺收益"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-tools"
-    },
-    {
-      "id": 55,
-      "date": "2026-10-28",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-28",
-      "items": [
-        "No.1 Kiroween 2026：用 Kiro 做全新项目，现金奖池约10万美元，现可报名，10月30日起可提交",
-        "No.2 B站「AI创造公开赛S2」：用大模型做出可运行产品并投稿，一等奖税前100万元",
-        "No.3 Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

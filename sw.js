@@ -6,7 +6,7 @@
  * 图片和字体走缓存优先。只缓存同源 GET 且 status === 200 的响应。
  * 新版本 install 后自动 skipWaiting；页面在 controllerchange 时刷新一次。
  * 仍接受页面 postMessage {type:'SKIP_WAITING'}。 */
-const CACHE_VERSION = 36;
+const CACHE_VERSION = 37;
 const CACHE_NAME = 'gefei-quest-v' + CACHE_VERSION;
 
 const PRECACHE = [
