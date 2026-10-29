@@ -1,8 +1,16 @@
 {
-  "updated": "2026-10-28T10:38:00+08:00",
+  "updated": "2026-10-29T09:26:51+08:00",
   "start_date": "2026-10-28",
-  "count": 1,
+  "count": 2,
   "packs": [
+    {
+      "date": "2026-10-29",
+      "title": "每日执行包｜Vercel 工具站续作 + Trends 选词 + 闲鱼封面定制",
+      "updated": "2026-10-29T09:26:51+08:00",
+      "path": "data/daily-packs/2026-10-29/",
+      "manifest": "data/daily-packs/2026-10-29/manifest.json",
+      "file_count": 10
+    },
     {
       "date": "2026-10-28",
       "title": "每日执行包｜Cloudflare Pages 工具站续作 + 闲鱼 Notion/飞书模板",
