@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Stacked Discount Calculator – Coupon Stacking &amp; Sequential % Off Final Price | Black Friday</title>
+<meta name="description" content="Free stacked discount calculator for coupon stacking and sequential discounts. Enter price plus sale % + coupon (e.g. 20% off then 15% off, or % off then $10 off) to see the real final price and total percent saved. Built for Black Friday and everyday multi-discount checkouts.">
+<link rel="canonical" href="https://yuanqingsong2024.github.io/stacked-discount-calculator/">
+<!-- After Vercel go-live, change canonical to your *.vercel.app or custom domain. (Also fine if you keep GH Pages / CF Pages / Netlify as the live URL.) -->
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:720px;margin:0 auto;padding:24px;color:#1f2937;line-height:1.6;background:#fafafa}
+h1{font-size:1.7rem;margin-bottom:4px}.sub{color:#6b7280;margin-top:0}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:20px 0}
+label{display:block;font-weight:600;margin-top:12px}input,select{width:100%;padding:10px;font-size:1rem;border:1px solid #d1d5db;border-radius:8px;box-sizing:border-box}
+.row{display:flex;gap:8px;margin-top:8px}.row input{flex:2}.row select{flex:1}
+button{margin-top:12px;padding:10px 16px;border:0;border-radius:8px;background:#2563eb;color:#fff;font-size:1rem;cursor:pointer}button.secondary{background:#e5e7eb;color:#111}
+.result{font-size:1.2rem}.big{font-size:2rem;font-weight:700;color:#059669}
+table{width:100%;border-collapse:collapse;margin-top:12px}td,th{border-bottom:1px solid #eee;padding:6px;text-align:left}
+nav{font-size:.9rem;margin:8px 0 0}nav a{color:#2563eb;margin-right:12px;text-decoration:none}nav a:hover{text-decoration:underline}
+footer{color:#9ca3af;font-size:.85rem;margin-top:40px}
+.note{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 12px;margin:12px 0;font-size:.95rem;color:#1e3a8a}
+.tip{background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:10px 12px;margin:12px 0;font-size:.95rem;color:#78350f}
+.examples{font-size:.95rem}.examples th{background:#f3f4f6}
+</style>
+</head>
+<body>
+<h1>Stacked Discount Calculator</h1>
+<p class="sub">See the real price with <b>coupon stacking</b> and <b>sequential</b> discounts: "30% off + extra 20% off" is <b>not</b> 50% off. Free tool for Black Friday deals and everyday multi-discount checkouts.</p>
+<nav>
+  <a href="#calculator">Calculator</a>
+  <a href="#how">How it works</a>
+  <a href="#about">About</a>
+  <a href="#privacy">Privacy</a>
+</nav>
+
+<div class="card" id="calculator">
+<p class="note">Black Friday tip: stores often stack a sale % with a coupon or membership extra %. Use this coupon stacking / sequential discount calculator before you checkout so you know the true final price.</p>
+<label for="price">Original price</label>
+<input id="price" type="number" min="0" step="0.01" value="100">
+<label>Discounts (applied in order)</label>
+<div id="discounts"></div>
+<button class="secondary" type="button" onclick="addRow()">+ Add discount</button>
+<p class="tip"><b>Discount stacking order tip:</b> Percentage-only discounts give the same result in any order. Once a fixed-amount coupon (e.g. $10 off) is mixed in, order matters — applying the % first then $ off usually saves more than $ off first then %. Match the order your store applies at checkout.</p>
+<label for="tax">Sales tax % (optional)</label>
+<input id="tax" type="number" min="0" step="0.01" value="0">
+<button type="button" onclick="calc()">Calculate</button>
+</div>
+
+<div class="card result" id="out" aria-live="polite"></div>
+
+<div class="card" id="how">
+<h2>How stacked discounts work</h2>
+<p>Try the calculator with Black Friday-style stacks (sale % + code % or $ off).</p>
+<p>Each extra discount applies to the <i>already reduced</i> price. For $100 with 30% off and then an extra 20% off: $100 × 0.70 = $70, then $70 × 0.80 = $56. You save 44%, not 50%.</p>
+<p>Example: <b>20% off plus 15% off</b> on $100 → $100 × 0.80 = $80, then $80 × 0.85 = $68 (32% total off, not 35%).</p>
+<p>Formula: <code>final = price × (1 − d1) × (1 − d2) × … − fixed coupons</code> (fixed amounts subtract at the step you place them).</p>
+
+<h3>Order of discounts — worked examples</h3>
+<p>Same cart, different sequential order. Try these rows in the calculator above.</p>
+<table class="examples">
+<tr><th>#</th><th>Order of discounts</th><th>On $100</th><th>Final (before tax)</th><th>Total % off</th></tr>
+<tr><td>A</td><td>20% off → then 15% off</td><td>$100 → $80 → $68</td><td>$68.00</td><td>32%</td></tr>
+<tr><td>B</td><td>15% off → then 20% off</td><td>$100 → $85 → $68</td><td>$68.00</td><td>32% (same; % only)</td></tr>
+<tr><td>C</td><td>20% off → then $10 coupon</td><td>$100 → $80 → $70</td><td>$70.00</td><td>30%</td></tr>
+<tr><td>D</td><td>$10 coupon → then 20% off</td><td>$100 → $90 → $72</td><td>$72.00</td><td>28% (worse than C)</td></tr>
+<tr><td>E</td><td>Sale 25% → coupon 10% → $5 off</td><td>$100 → $75 → $67.50 → $62.50</td><td>$62.50</td><td>37.5%</td></tr>
+</table>
+<p>Takeaway for coupon stacking: when a fixed $ coupon is involved, applying percentage discounts first usually leaves you better off — if the store’s checkout order allows it.</p>
+
+<h2>FAQ</h2>
+<h3>Is 20% off plus 20% off the same as 40% off?</h3>
+<p>No. It equals 36% off, because the second 20% is taken from the price that is already 20% lower.</p>
+<h3>What is coupon stacking?</h3>
+<p>Coupon stacking means using more than one discount on the same order — for example a sitewide sale percent plus a promo code, or a membership extra % after a clearance price. Stores decide which codes can combine; this calculator only shows the math if they do stack in the order you enter.</p>
+<h3>Can I stack a percentage sale with a dollar-off coupon?</h3>
+<p>Often yes when the retailer allows it, but the order of discounts changes the final price (see rows C vs D above). Enter the steps in the same sequence as the checkout screen for a sequential discount estimate.</p>
+<h3>Does the order of percentage discounts matter?</h3>
+<p>For percentages only, no: multiplication gives the same result in any order. Order matters once a fixed-amount coupon (like $10 off) is involved. Taking $10 off before a percentage discount usually saves less than taking the percentage first, then $10 off.</p>
+<h3>How do I use this for Black Friday coupon stacking?</h3>
+<p>Enter the listed price, then add each deal in the same order as checkout: usually the sale % first, then a promo code % or a fixed $ off. Compare a couple of orders if the store lets you rearrange. The result is an estimate — the store’s final total always wins.</p>
+<h3>Should tax be added before or after discounts?</h3>
+<p>In most US states sales tax is calculated on the discounted price. Check your local rules; this tool applies tax after all discounts.</p>
+</div>
+
+<div class="card" id="about">
+<h2>About</h2>
+<p>This free stacked discount calculator supports coupon stacking and sequential discount math (also useful as a Black Friday discount calculator). It is a single-page static tool for shoppers who want a quick, honest final price when deals stack (sale + coupon + membership extras). No account required.</p>
+<p>Author site: <a href="https://yuanqingsong2024.github.io/gefei-quest/">gefei-quest learning notes</a>.</p>
+</div>
+
+<div class="card" id="privacy">
+<h2>Privacy</h2>
+<p>Everything runs in your browser. We do not collect personal data, do not set cookies, and do not load third-party analytics or tracking scripts. Your price and discount numbers never leave this page.</p>
+</div>
+
+<footer>Free tool, no sign-up, nothing is stored. Results are estimates; the store's checkout price is final.</footer>
+
+<script>
+function addRow(v='',t='pct'){const d=document.createElement('div');d.className='row';
+d.innerHTML='<input type="number" min="0" step="0.01" placeholder="e.g. 20" value="'+v+'"><select><option value="pct"'+(t=='pct'?' selected':'')+'>% off</option><option value="amt"'+(t=='amt'?' selected':'')+'>$ off</option></select>';
+document.getElementById('discounts').appendChild(d)}
+function calc(){let p=parseFloat(document.getElementById('price').value)||0,orig=p,rows=[];
+document.querySelectorAll('#discounts .row').forEach((r,i)=>{const v=parseFloat(r.querySelector('input').value);if(isNaN(v)||v<=0)return;
+const t=r.querySelector('select').value,before=p;p=t=='pct'?p*(1-Math.min(v,100)/100):Math.max(0,p-v);
+rows.push('<tr><td>'+(i+1)+'</td><td>'+(t=='pct'?v+'% off':'$'+v.toFixed(2)+' off')+'</td><td>$'+before.toFixed(2)+' → $'+p.toFixed(2)+'</td></tr>')});
+const tax=parseFloat(document.getElementById('tax').value)||0,withTax=p*(1+tax/100),saved=orig?(1-p/orig)*100:0;
+document.getElementById('out').innerHTML='Final price: <span class="big">$'+withTax.toFixed(2)+'</span>'+(tax?' (incl. '+tax+'% tax; $'+p.toFixed(2)+' before tax)':'')+
+'<br>You save $'+(orig-p).toFixed(2)+' = <b>'+saved.toFixed(1)+'% total off</b><table><tr><th>#</th><th>Discount</th><th>Price</th></tr>'+rows.join('')+'</table>'}
+addRow(20);addRow(15);calc();
+</script>
+</body>
+</html>

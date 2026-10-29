@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-29",
+  "timezone": "Asia/Shanghai",
+  "updated": "2026-10-29T09:26:51+08:00",
+  "title": "每日执行包｜Vercel 工具站续作 + Trends 选词 + 闲鱼封面定制",
+  "source": "attachments/2026-10-29",
+  "primary": [
+    "Vercel 英文工具小站（Stacked Discount Calculator）",
+    "Google Trends 上升查询选词手填"
+  ],
+  "side": [
+    "闲鱼小红书/短视频封面与信息图定制（文案+接单表）"
+  ],
+  "deferred": [
+    "Mergetober/Cognee",
+    "Kiroween（10/30 前勿写代码）",
+    "Hostinger Affiliate",
+    "Gumroad",
+    "B站 AI 创造公开赛 S2",
+    "Canva Creators",
+    "CodedThemes 案例（仅方法对照）"
+  ],
+  "files": [
+    {
+      "path": "今日执行卡-2026-10-29.md",
+      "kind": "exec-card",
+      "note": "当日步骤与时长"
+    },
+    {
+      "path": "Trends选词清单-上升查询-工具站.md",
+      "kind": "worksheet",
+      "note": "出海新词 Trends 手填表"
+    },
+    {
+      "path": "闲鱼上架文案-小红书短视频封面信息图.md",
+      "kind": "xianyu-copy",
+      "note": "可公开上架文案模板"
+    },
+    {
+      "path": "闲鱼封面信息图定制-交付与接单清单.xlsx",
+      "kind": "xianyu-sheet",
+      "note": "封面/信息图接单字段清单"
+    },
+    {
+      "path": "stacked-discount-calculator/index.html",
+      "kind": "tool-draft",
+      "note": "英文单页工具草稿（Vercel 向改动）"
+    },
+    {
+      "path": "stacked-discount-calculator/vercel-notes.md",
+      "kind": "deploy-notes",
+      "note": "Vercel 部署备忘（今日主推）"
+    },
+    {
+      "path": "stacked-discount-calculator/vercel.json",
+      "kind": "deploy-notes",
+      "note": "极简静态托管配置"
+    },
+    {
+      "path": "stacked-discount-calculator/wrangler-notes.md",
+      "kind": "deploy-notes",
+      "note": "CF Pages 备选备忘"
+    },
+    {
+      "path": "stacked-discount-calculator/netlify-notes.md",
+      "kind": "deploy-notes",
+      "note": "Netlify 备选备忘"
+    },
+    {
+      "path": "stacked-discount-calculator/_redirects",
+      "kind": "deploy-notes",
+      "note": "Netlify redirects"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "money-rank-2026-10-29.json",
+      "reason": "榜单已在 data/money-rank/，同步脚本跳过；勿列入 files"
+    }
+  ],
+  "privacy": "仅收录可公开交付物（执行卡、选词表、闲鱼文案、工具草稿与上线笔记）。不含客户私聊、账号凭证、真实订单隐私。"
+}
