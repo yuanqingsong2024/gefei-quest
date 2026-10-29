@@ -44,7 +44,7 @@
     root.innerHTML = `
       <div class="panel-head">
         <h2>成就墙</h2>
-        <p class="panel-sub">已解锁 <strong>${have.size}</strong> / ${list.length}</p>
+        <p class="panel-sub">已解锁 <strong>${have.size}</strong> / ${list.length} · 一旦获得不随取消勾选消失</p>
       </div>
       <div class="ach-grid">
         ${list

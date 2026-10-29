@@ -119,7 +119,7 @@
       '<div class="stat"><span class="card-ico">' + I('trophy') + '</span><b id="st-long">' + s.longest + ' 天</b><small>最长连续</small></div>' +
       '<div class="stat"><span class="card-ico">' + I('calendar') + '</span><b id="st-days">' + s.total + ' 天</b><small>累计学习天数</small></div>' +
       '<div class="stat"><span class="card-ico">' + I('list') + '</span><b>' + wkTotal + '</b><small>本周完成任务</small></div></div>' +
-      '<p class="hint">' + (s.today ? '今天已打卡，保持住。' : '今天还没有记录：勾一个任务或在工具里保存一次，就算打卡。') + '</p></section>' +
+      '<p class="hint">' + (s.today ? '今天已打卡，保持住。' : '今天还没有记录：勾一个任务或在工具里保存一次，就算打卡。') + ' 学习路线顶栏的「连击 / 成就」一旦获得，不随取消勾选消失（取消只撤回 XP）。</p></section>' +
       '<section class="block glass"><h2 class="block-title">' + I('calendar') + '打卡热力图 <small>近 26 周</small></h2>' + heatmap(state.activity) + '</section>' +
       '<section class="block glass"><h2 class="block-title">' + navI('#me-stats', 'bar-chart') + '每周完成任务 <small>近 12 周</small></h2>' + bars(wk) +
       (undated ? '<p class="hint">有 ' + undated + ' 个任务是在统计功能上线前完成的，没有日期，不计入柱状图。</p>' : '') + '</section>' +

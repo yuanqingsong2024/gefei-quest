@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 66, date: '2026-10-29', title: '选词删除改为页内确认 + 文案与灰锁提示修补', tag: '修复', href: '#war-keywords',
+      items: ['选词练习板删除改为页内确认（避免自动化静默取消 window.confirm）；删后 toast，刷新后计数为 0', '成就/连击旁注明「一旦获得不随取消勾选消失」；每周补给统一为已暂停；下载页按邮箱实填显示「已填/未填」', '作战室灰锁任务显示解锁条件；首页挖词候选卡注明与选词练习板分属两套计数'] },
     { id: 65, date: '2026-10-29', title: 'AI生活合集新增「生活后台」场景文选题', tag: '内容', href: '#war-rank-ai-life',
       items: ['「AI生活起号选题方案」合集置顶新增：保修卡、账单、日记一句话进腾讯文档；含公众号结构、凭证/记账预览确认提示词、小红书与闲鱼模板角度', '附人人都是产品经理 / GitHub z-skills / 21经济网 / 新浪财经来源；先装1模块、敏感号后4位、健康只归档；不卖账号不开通代配，不承诺收益'] },
     { id: 64, date: '2026-10-29', title: 'Agent 赚钱榜更新到 10-29', tag: '内容', href: '#war-rank-agent',

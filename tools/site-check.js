@@ -71,7 +71,8 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
   T(rows.length === 3 && rows.includes('pdf merge for mac|70|适合练手') && rows.includes('best vpn|12|先换长尾') && rows.includes('csv to json offline|38|先换长尾'), 'add 3 keywords + scoring labels');
   await p.click('.kw-item[data-kw="csv to json offline"] [data-kw-act="edit"]'); await p.selectOption('#kw-big', '2'); await p.click('#kw-save'); await p.waitForTimeout(80);
   T(await p.$eval('.kw-item[data-kw="csv to json offline"] .kw-label', e => e.textContent) === '可以试', 'edit keyword -> 50 可以试');
-  p.once('dialog', d => d.accept()); await p.click('.kw-item[data-kw="best vpn"] [data-kw-act="del"]'); await p.waitForTimeout(80);
+  await p.click('.kw-item[data-kw="best vpn"] [data-kw-act="del"]'); await p.waitForTimeout(80);
+  await p.click('#modal-root button[data-confirm-ok]'); await p.waitForTimeout(120);
   T((await p.$$('.kw-item')).length === 2, 'delete keyword');
   await p.click('.kw-item[data-kw="pdf merge for mac"] [data-kw-act="star"]'); await p.waitForTimeout(50);
   await p.click('.kw-item[data-kw="pdf merge for mac"] [data-kw-act="s1"]'); await p.waitForTimeout(50);

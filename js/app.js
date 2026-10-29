@@ -120,8 +120,8 @@
       <div class="stat-grid">
         <div class="stat"><span class="card-ico">${I('map')}</span><b>${activeCh ? activeCh.name : '—'}</b><small>当前章节</small></div>
         <div class="stat"><span class="card-ico">${I('list')}</span><b>${(state.done || []).length}</b><small>已完成任务</small></div>
-        <div class="stat"><span class="card-ico">${I('fire')}</span><b>${state.streak || 0} 天</b><small>连击</small></div>
-        <div class="stat"><span class="card-ico">${I('trophy')}</span><b>${achHave}/${achTotal}</b><small>成就</small></div>
+        <div class="stat" title="一旦获得不随取消勾选消失"><span class="card-ico">${I('fire')}</span><b>${state.streak || 0} 天</b><small>连击</small></div>
+        <div class="stat" title="一旦获得不随取消勾选消失"><span class="card-ico">${I('trophy')}</span><b>${achHave}/${achTotal}</b><small>成就</small></div>
         ${energy}
       </div>`;
   }
