@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 63, date: '2026-10-29', title: '每日赚钱榜 · 2026-10-29', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Mergetober × Cognee：为开源 AI Agent 记忆层写集成 PR，奖池约5000美元，10月31日截止","No.2 Kiroween 2026：明天起可正式提交，今天只报名与选题，现金奖池约10万美元","No.3 Hostinger Affiliate：写建站/主机教程，合资格首购可达约40%佣金（协议以官网为准）"] },
     { id: 62, date: '2026-10-28', title: '顶栏下拉选中态改成整颗胶囊', tag: '修复', href: '#home',
       items: ['学习 / 实施 / 赚钱选中或展开时，图标+文案+箭头共用同一背景与描边，不再左右拆成两个圆角框', '悬停同样整颗高亮；首页等无下拉项与「我的 / 换风格」按钮保持原样'] },
     { id: 61, date: '2026-10-28', title: '站一生成页预览改为大弹窗', tag: '改进', href: '#war-kit',

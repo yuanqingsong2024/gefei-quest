@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-28T12:30:40.662Z",
-  "latestId": 62,
-  "latestDate": "2026-10-28",
+  "generatedAt": "2026-10-29T00:36:23.302Z",
+  "latestId": 63,
+  "latestDate": "2026-10-29",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 63,
+      "date": "2026-10-29",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-29",
+      "items": [
+        "No.1 Mergetober × Cognee：为开源 AI Agent 记忆层写集成 PR，奖池约5000美元，10月31日截止",
+        "No.2 Kiroween 2026：明天起可正式提交，今天只报名与选题，现金奖池约10万美元",
+        "No.3 Hostinger Affiliate：写建站/主机教程，合资格首购可达约40%佣金（协议以官网为准）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 62,
       "date": "2026-10-28",
@@ -112,41 +124,30 @@
         "顶栏「换风格」可切换；强刷或等 SW v28 生效后可见"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 53,
-      "date": "2026-10-27",
-      "tag": "改进",
-      "title": "平台变现详情改为大弹窗：列表只留摘要",
-      "items": [
-        "平台卡不再「展开：分成规则…」折叠；短卡只留变现方式/门槛（海外含大陆可用性）与「查看详情」",
-        "详情弹窗对齐赚钱榜大尺寸：分成规则、实操步骤路线图、适合谁、红线、来源；对比表深链 #pm-<分类>/<id> 直接打开弹窗"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#pm-cn-media"
     }
   ],
   "rank": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Kiroween 2026：用 Kiro 做全新项目，现金奖池约10万美元，现可报名，10月30日起可提交",
+        "name": "Mergetober × Cognee：为开源 AI Agent 记忆层写集成 PR，奖池约5000美元，10月31日截止",
+        "type": "奖金赛/悬赏",
+        "source_url": "https://www.wemakedevs.org/hackathons/mergetober"
+      },
+      {
+        "rank": 2,
+        "name": "Kiroween 2026：明天起可正式提交，今天只报名与选题，现金奖池约10万美元",
         "type": "奖金赛/悬赏",
         "source_url": "https://kiroween.devpost.com/"
       },
       {
-        "rank": 2,
-        "name": "B站「AI创造公开赛S2」：用大模型做出可运行产品并投稿，一等奖税前100万元",
-        "type": "平台激励",
-        "source_url": "https://www.bilibili.com/opus/1262431200618741810"
-      },
-      {
         "rank": 3,
-        "name": "Nebius × NVIDIA 全球 AI 黑客松：用 Nemotron + Nebius 做可运行 AI 项目，现金奖约5万美元，10月30日截止",
-        "type": "奖金赛/悬赏",
-        "source_url": "https://nebiusglobalaihackathon.devpost.com/"
+        "name": "Hostinger Affiliate：写建站/主机教程，合资格首购可达约40%佣金（协议以官网为准）",
+        "type": "联盟营销",
+        "source_url": "https://www.hostinger.com/affiliates"
       }
     ]
   }
