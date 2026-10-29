@@ -62,20 +62,33 @@
     return Math.max(0, days.length - 1);
   }
 
-  function renderQuestRow(state, q, locked) {
+  function chapterLockReason(chapterId) {
+    const map = {
+      'ch-prologue': '序章任务可勾选',
+      'ch-stage1': '需先完成序章 Boss，才解锁站一任务',
+      'ch-stage2': '需先完成站一 Boss，才解锁站二任务',
+      'ch-stage3': '需先完成站二 Boss，才解锁站三任务',
+      'ch-monetize': '需先完成站三 Boss，才解锁变现任务',
+      'ch-scale': '需先完成变现 Boss，才解锁放大任务',
+    };
+    return map[chapterId] || '需先解锁对应章节';
+  }
+
+  function renderQuestRow(state, q, locked, lockReason) {
     if (!q) return '';
     const checked = isDone(state, q.id);
     const tags = [];
     if (q.boss) tags.push('<span class="tag tag-boss">BOSS</span>');
     if (q.side) tags.push('<span class="tag">支线</span>');
+    const reason = locked ? (lockReason || chapterLockReason(q.chapterId)) : '';
     return `
-      <label class="war-quest ${locked ? 'is-locked' : ''} ${checked ? 'is-done' : ''}">
+      <label class="war-quest ${locked ? 'is-locked' : ''} ${checked ? 'is-done' : ''}"${reason ? ` title="${esc(reason)}"` : ''}>
         <input type="checkbox" data-quest-id="${esc(q.id)}"
           ${checked ? 'checked' : ''} ${locked ? 'disabled' : ''} />
         <span class="war-quest-body">
           <span class="war-quest-title">${esc(q.title)} ${tags.join(' ')}</span>
           <span class="war-quest-action">${esc(q.action || '')}</span>
-          <span class="war-quest-meta"><code>${esc(q.id)}</code> · ${q.xp || 0} XP</span>
+          <span class="war-quest-meta"><code>${esc(q.id)}</code> · ${q.xp || 0} XP${reason ? ` · <em class="war-lock-hint">${esc(reason)}</em>` : ''}</span>
         </span>
       </label>`;
   }
@@ -91,7 +104,10 @@
             const q = global.QuestData.getQuest(id);
             const chapterLock = q ? !chapterUnlocked(state, q.chapterId) : true;
             const locked = stationLocked || chapterLock;
-            return renderQuestRow(state, q, locked);
+            const reason = stationLocked
+              ? '本站勾选已灰锁：请先完成上一站 Boss（见上方提示）'
+              : (chapterLock && q ? chapterLockReason(q.chapterId) : '');
+            return renderQuestRow(state, q, locked, reason);
           })
           .join('');
         const opt = (day.optionalQuestIds || [])
@@ -99,7 +115,10 @@
             const q = global.QuestData.getQuest(id);
             const chapterLock = q ? !chapterUnlocked(state, q.chapterId) : true;
             const locked = stationLocked || chapterLock;
-            return renderQuestRow(state, q, locked);
+            const reason = stationLocked
+              ? '本站勾选已灰锁：请先完成上一站 Boss（见上方提示）'
+              : (chapterLock && q ? chapterLockReason(q.chapterId) : '');
+            return renderQuestRow(state, q, locked, reason);
           })
           .join('');
         let countLabel;

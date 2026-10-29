@@ -971,6 +971,8 @@ a.btn:hover {
   font-size: 0.78rem;
   color: var(--muted);
 }
+.war-quest.is-locked .war-lock-hint { font-style: normal; opacity: 0.9; color: var(--muted, #94a3b8); }
+
 .war-optional {
   margin-top: 10px;
 }

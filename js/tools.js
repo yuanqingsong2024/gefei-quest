@@ -275,7 +275,7 @@
       '</div>' + tplPicker(cur) + (s2 ? '<p class="hint">站二目标词（来自选词板）：<b>' + esc(s2) + '</b></p>' : '') + '</section>' +
       '<section class="block glass tool-card" data-tab="2 · 预览与规则"><h2 class="block-title">' + I('search') + '2 · 实时预览与规则</h2><div id="kit-preview" aria-live="polite"></div></section>' +
       '<section class="block glass tool-card" data-tab="3 · 下载 / 发布"><h2 class="block-title">' + I('download') + '3 · 下载我的站一页面</h2>' +
-      '<p class="hint">当前模板：<b id="kit-tpl-name">' + esc(templateMeta(kit).name) + '</b>。生成 index.html（已填好 title / description / h1 / 联系邮箱 / canonical）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。</p>' +
+      '<p class="hint" id="kit-dl-hint">当前模板：<b id="kit-tpl-name">' + esc(templateMeta(kit).name) + '</b>。生成 index.html（title / description / h1 / 联系邮箱 / canonical）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。</p>' +
       '<p class="kit-files" id="kit-dl-files"></p>' +
       '<div class="tool-actions"><button type="button" class="btn btn-primary btn-sm" id="kit-dl">' + I('download') + '下载我的站一页面（ZIP）</button>' + '<a class="btn btn-sm" id="kit-publish" href="#war-publish">' + navI('#war-publish', 'rocket') + '直接发布到 GitHub</a>' +
       '<button type="button" class="btn btn-sm" data-dl="index.html">只下 index.html</button><button type="button" class="btn btn-sm" data-dl="robots.txt">robots.txt</button><button type="button" class="btn btn-sm" data-dl="sitemap.xml">sitemap.xml</button></div></section>' +
@@ -292,6 +292,12 @@
       if (row) row.hidden = !extra;
       var nameEl = root.querySelector('#kit-tpl-name');
       if (nameEl) nameEl.textContent = templateMeta(kit).name;
+      var hint = root.querySelector('#kit-dl-hint');
+      if (hint) {
+        var emailFilled = !!(kit.email && String(kit.email).trim());
+        var emailBit = emailFilled ? ('联系邮箱已填：' + String(kit.email).trim()) : '联系邮箱：未填（可后补）';
+        hint.innerHTML = '当前模板：<b id="kit-tpl-name">' + esc(templateMeta(kit).name) + '</b>。生成 index.html（含 title / description / h1 / canonical；' + esc(emailBit) + '）+ robots.txt + sitemap.xml，解压后整个文件夹拖到 GitHub Pages 或 Cloudflare Pages 即可。';
+      }
       var doneN = CHECKS.filter(function (c) { return kit.checks[c.id]; }).length + (extra && kit.templateDone ? 1 : 0);
       var cnt = root.querySelector('#kit-count');
       if (cnt) cnt.textContent = doneN + '/' + (CHECKS.length + (extra ? 1 : 0));
@@ -485,9 +491,35 @@
     });
     root.querySelectorAll('[data-kw-act]').forEach(function (b) {
       b.addEventListener('click', function () {
-        var id = b.getAttribute('data-id'), act = b.getAttribute('data-kw-act'), k = items.filter(function (x) { return x.id === id; })[0]; if (!k) return;
+        var id = String(b.getAttribute('data-id') || '');
+        var act = b.getAttribute('data-kw-act');
+        var k = items.filter(function (x) { return String(x.id) === id; })[0];
+        if (!k) {
+          if (global.QuestModal) QuestModal.showToast('找不到这条候选词，请刷新后再试');
+          return;
+        }
         if (act === 'edit') { renderKeywords(state, root, ctx, id); root.querySelector('#kw-kw').focus(); return; }
-        if (act === 'del') { if (!global.confirm || global.confirm('删除「' + k.kw + '」？')) { items.splice(items.indexOf(k), 1); } }
+        if (act === 'del') {
+          var doDel = function () {
+            var ix = items.indexOf(k);
+            if (ix < 0) {
+              items = items.filter(function (x) { return String(x.id) !== id; });
+              K.items = items;
+            } else {
+              items.splice(ix, 1);
+            }
+            ctx.save();
+            renderKeywords(state, root, ctx);
+            if (global.QuestModal) QuestModal.showToast('已删除「' + k.kw + '」');
+          };
+          if (global.QuestModal && typeof QuestModal.confirmAsk === 'function') {
+            QuestModal.confirmAsk('删除「' + k.kw + '」？删除后可再重新添加。', doDel, { title: '删除候选词', okLabel: '删除' });
+            return;
+          }
+          if (!global.confirm || global.confirm('删除「' + k.kw + '」？')) doDel();
+          else return;
+          return;
+        }
         if (act === 'star') k.star = !k.star;
         if (act === 's1') { state.kit.keyword = k.kw; global.QuestModal && QuestModal.showToast('已设为站一主词，去实操助手生成页面'); }
         if (act === 's2') { K.s2Target = k.kw; global.QuestModal && QuestModal.showToast('已设为站二目标词'); }

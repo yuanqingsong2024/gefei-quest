@@ -217,7 +217,7 @@
         '<details class="cx-details kw-card"' + (store.open ? ' open' : '') + '>' +
           '<summary>' + ico('search') + ' 挖词候选卡 <small class="kw-badge">' + n + '</small></summary>' +
           '<div class="kw-card-body">' +
-            '<p class="kw-hint">把挖到的词收成小卡，可复制当闲鱼方案素材；草稿只存本机。</p>' +
+            '<p class="kw-hint">把挖到的词收成小卡，可复制当闲鱼方案素材；草稿只存本机。计数只含本卡，不含「选词练习板」里的候选词。</p>' +
             '<form class="kw-form" data-kw-form>' +
               field('word', '词', '例：pdf merge for mac') +
               field('intent', '搜索意图', '例：找免费在线合并工具') +

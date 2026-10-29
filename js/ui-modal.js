@@ -110,10 +110,51 @@
     setTimeout(() => input.focus(), 50);
   }
 
+  /** 通用确认：页内对话框，避免 window.confirm 被自动化静默取消。message/title 按文本写入。 */
+  function confirmAsk(message, onConfirm, opts) {
+    opts = opts || {};
+    const { modal } = ensureRoots();
+    modal.hidden = false;
+    const title = opts.title || '请确认';
+    const okLabel = opts.okLabel || '确认';
+    const danger = opts.danger !== false;
+    modal.innerHTML = `
+      <div class="modal-backdrop" data-cancel="1"></div>
+      <div class="modal-card" role="dialog" aria-modal="true">
+        <h2 data-confirm-title></h2>
+        <p data-confirm-msg></p>
+        <div class="modal-actions">
+          <button type="button" class="btn" data-cancel="1">取消</button>
+          <button type="button" class="btn ${danger ? 'btn-danger' : 'btn-primary'}" data-confirm-ok="1"></button>
+        </div>
+      </div>`;
+    const titleEl = modal.querySelector('[data-confirm-title]');
+    const msgEl = modal.querySelector('[data-confirm-msg]');
+    const ok = modal.querySelector('[data-confirm-ok]');
+    if (titleEl) titleEl.textContent = title;
+    if (msgEl) msgEl.textContent = String(message == null ? '' : message);
+    if (ok) ok.textContent = okLabel;
+    const card = modal.querySelector('.modal-card');
+    if (card) card.setAttribute('aria-label', title);
+    const close = () => {
+      modal.hidden = true;
+      modal.innerHTML = '';
+    };
+    modal.onclick = (e) => {
+      if (e.target.closest('[data-cancel]')) close();
+      if (e.target.closest('[data-confirm-ok]')) {
+        close();
+        if (onConfirm) onConfirm();
+      }
+    };
+    if (ok) setTimeout(() => ok.focus(), 50);
+  }
+
   global.QuestModal = {
     showToast,
     showBossVictory,
     confirmReset,
+    confirmAsk,
     ensureRoots,
   };
 })(typeof window !== 'undefined' ? window : globalThis);

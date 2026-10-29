@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-29T04:12:26.970Z",
-  "latestId": 65,
+  "generatedAt": "2026-10-29T09:13:04.490Z",
+  "latestId": 66,
   "latestDate": "2026-10-29",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 66,
+      "date": "2026-10-29",
+      "tag": "修复",
+      "title": "选词删除改为页内确认 + 文案与灰锁提示修补",
+      "items": [
+        "选词练习板删除改为页内确认（避免自动化静默取消 window.confirm）；删后 toast，刷新后计数为 0",
+        "成就/连击旁注明「一旦获得不随取消勾选消失」；每周补给统一为已暂停；下载页按邮箱实填显示「已填/未填」",
+        "作战室灰锁任务显示解锁条件；首页挖词候选卡注明与选词练习板分属两套计数"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
+    },
     {
       "id": 65,
       "date": "2026-10-29",
@@ -111,17 +123,6 @@
         "一键复制全文（含固定合规提示：只卖教程和方案，不卖账号、兑换码，也不做代领，不承诺收益）。不调用外部 AI"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-today"
-    },
-    {
-      "id": 56,
-      "date": "2026-10-28",
-      "tag": "新功能",
-      "title": "新增「工具发掘」频道：GitHub 项目向 / 生活向",
-      "items": [
-        "导航「赚钱 → 工具发掘」（#war-tools）；短卡摘要 + 详情弹窗；筛选项目/生活",
-        "数据 data/github-finds/YYYY-MM-DD.json + latest.json；工具发掘大师推 main 即可上线。不承诺收益"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-tools"
     }
   ],
   "rank": {

@@ -8,7 +8,7 @@
     root.innerHTML = `
       <div class="panel-head">
         <h2>本周补给卡</h2>
-        <p class="panel-sub">读完一张卡可领一次 XP。每周一追加新卡，不会影响你的存档。</p>
+        <p class="panel-sub">读完一张卡可领一次 XP。当前已暂停每周追加；已有卡片仍可领取，不会影响你的存档。</p>
       </div>
       <div class="ship-list">
         ${
@@ -21,7 +21,7 @@
                     .join('');
                   const link = w.url
                     ? `<a href="${w.url}" target="_blank" rel="noopener noreferrer">阅读详情 →</a>`
-                    : '';
+                    : '<span class="hint">无外链详情（见上方摘要）</span>';
                   return `
               <article class="ship-card ${got ? 'claimed' : ''}">
                 <div class="ship-top">
