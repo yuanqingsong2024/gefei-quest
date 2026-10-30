@@ -1,8 +1,16 @@
 {
-  "updated": "2026-10-29T09:26:51+08:00",
+  "updated": "2026-10-30T09:18:00+08:00",
   "start_date": "2026-10-28",
-  "count": 2,
+  "count": 3,
   "packs": [
+    {
+      "date": "2026-10-30",
+      "title": "每日执行包｜闲鱼电商客服Agent方案 + 卖Agent路线决策卡",
+      "updated": "2026-10-30T09:18:00+08:00",
+      "path": "data/daily-packs/2026-10-30/",
+      "manifest": "data/daily-packs/2026-10-30/manifest.json",
+      "file_count": 5
+    },
     {
       "date": "2026-10-29",
       "title": "每日执行包｜Vercel 工具站续作 + Trends 选词 + 闲鱼封面定制",

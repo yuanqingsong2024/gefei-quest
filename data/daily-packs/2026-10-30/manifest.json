@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-30",
+  "timezone": "Asia/Shanghai",
+  "updated": "2026-10-30T09:18:00+08:00",
+  "title": "每日执行包｜闲鱼电商客服Agent方案 + 卖Agent路线决策卡",
+  "source": "attachments/2026-10-30",
+  "primary": [
+    "闲鱼垂直行业 Agent 搭建+验收方案包（电商客服意图分流）"
+  ],
+  "side": [
+    "卖 Agent 路线决策卡（停做/改做，合成 No.7+No.5）"
+  ],
+  "deferred": [
+    "Apify Store Actor（需开发+KYC）",
+    "Kopai",
+    "Fiverr Claude Code/Agent Gig（英文 Demo 未就绪）",
+    "OmniVibe（早期高风险）",
+    "Kiroween（今日可报名/选题，非主推）",
+    "Mergetober/Cognee（约10/31截止，高投入）"
+  ],
+  "files": [
+    {
+      "path": "今日执行卡-2026-10-30.md",
+      "kind": "exec-card",
+      "note": "当日步骤与时长"
+    },
+    {
+      "path": "闲鱼上架文案-电商客服Agent搭建验收方案.md",
+      "kind": "xianyu-copy",
+      "note": "可公开上架文案模板"
+    },
+    {
+      "path": "方案正文草稿-电商客服Agent搭建验收.md",
+      "kind": "scheme-draft",
+      "note": "随包可卖的方案正文草稿"
+    },
+    {
+      "path": "闲鱼-电商客服Agent搭建验收方案包.xlsx",
+      "kind": "xianyu-sheet",
+      "note": "方案包多表（可由并行任务稍后写入）"
+    },
+    {
+      "path": "卖Agent路线决策卡-停做改做.xlsx",
+      "kind": "decision-sheet",
+      "note": "停做/改做与本周行动（可由并行任务稍后写入）"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "money-rank-2026-10-30.json",
+      "reason": "榜单已在 data/money-rank/，同步脚本跳过；勿列入 files"
+    }
+  ],
+  "privacy": "仅收录可公开交付物（执行卡、闲鱼文案、方案草稿、决策/方案表）。不含客户私聊、账号凭证、真实订单隐私。"
+}
