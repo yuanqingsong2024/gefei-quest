@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T15:19:08.674Z",
-  "latestId": 73,
+  "generatedAt": "2026-10-30T15:55:02.203Z",
+  "latestId": 74,
   "latestDate": "2026-10-30",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 74,
+      "date": "2026-10-30",
+      "tag": "改进",
+      "title": "全站组件统一风格：输入框、下拉、子导航、提示条、进度条、表格、提示气泡按主题美化",
+      "items": [
+        "新增一组主题组件 token（圆角 / 边框 / 强调色 / 焦点环 / 阴影）：输入框与下拉换主题色边框和自绘箭头，勾选框、文件按钮、选中文字、滚动条随主题变色；像素主题统一 2px 硬边、直角与像素投影",
+        "「这个页面是干什么的」提示条加主题色左条（像素为虚线框），子导航与筛选胶囊的选中态三主题统一；经验进度条、Markdown 表格表头与斑马纹、提示气泡、弹窗、骨架屏、空状态同步换肤；新手引导三张截图按当前亮色界面重拍。SW 缓存升到 46"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
+    },
     {
       "id": 73,
       "date": "2026-10-30",
@@ -112,16 +123,6 @@
         "附人人都是产品经理 / GitHub z-skills / 21经济网 / 新浪财经来源；先装1模块、敏感号后4位、健康只归档；不卖账号不开通代配，不承诺收益"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 64,
-      "date": "2026-10-29",
-      "tag": "内容",
-      "title": "Agent 赚钱榜更新到 10-29",
-      "items": [
-        "内嵌兜底同步今日榜（TaskBounty / Swarms / Gravity 等）；file:// 与 fetch 失败时也是 10-29"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-agent"
     }
   ],
   "rank": {

@@ -253,3 +253,4 @@
 - 第三轮（CACHE 43）：ocean / pixel 各 4 张配图（49–105KB）。site-check 结果与上一轮完全一致（P9、P10、P18-lib 既有失败，P19 kit 预览超时既有）；war-rank 2.90 屏。三主题 1280/390 下首页、赚钱榜、Agent 页图片均按主题加载，390 scrollWidth=390，运行时切主题图片随之切换，无 console 错误。
 - 第四轮（CACHE 44）：21 张页面背景（7 场景×3 主题，12–33KB）。site-check 与上一轮一致；war-rank 2.90 屏；三主题 7 类页面 390 scrollWidth=390，无 console 错误。
 - 第五轮（CACHE 45）：顶栏/页头/页脚主题化，3 张页脚图。site-check 与上一轮一致；war-rank 2.90；下拉菜单可点开且在最上层；三主题 390 无横滚。
+- 第六轮（CACHE 46）：组件视觉一致性（Phase UI-polish token：输入/下拉/勾选/文件按钮/子导航/提示条/进度条/表格/toast/弹窗/骨架/空状态/滚动条/焦点），重拍 assets/start 三张引导截图。site-check 与上一轮一致（P9、P10、P18-lib 2.94 既有失败，P19 kit 预览超时既有，consoleErrors=0）；war-rank 2.90；changelog 2.47（新增一条）；下拉在最上层；三主题 10 个路由 390 无横滚。截图 /workspace/gefei-shots/polish-overview.png。
