@@ -65,3 +65,8 @@
 | library | #lib* #pm* #guides* #dev* | 藏书阁+松 | 海边小屋书房圆窗 | 烛光书房 |
 | log | #weekly #me-stats #changelog #sitemap | 卷轴砚台+柳+归雁 | 瞭望台航海日志+铜铃 | 任务公告板+信鸽 |
 | me | #me #me-sites #me-accounts #me-ai #me-analytics | 月门庭院+茶席 | 黄昏海湾吊床 | 像素卧室窗台猫 |
+
+## 第五轮：顶栏 / 页头带 / 页脚主题化（2026-10-30，CACHE 45 / changelog #73）
+- 页头带 `.section-head`：负 margin + 等量 padding 延伸到浮动顶栏背后（不增高），背景 = 左实右透遮罩 + 该页场景图 `--page-art` + 主题底色 `--chrome-tint`；`::after` 底边装饰 `--chrome-edge`（水墨笔触+金点 / 青色波浪+白浪线 / 像素阶梯+粉块）。
+- 顶栏 `--nav-skin` / `--nav-line`：水墨纸色+金色底线；海岸白→浅青渐变+青色底线；像素奶油底+3px 深棕边+4px 硬投影。下拉、吸顶不变。
+- 页脚：`--foot-tint` 主题渐变 + `assets/bg/foot/<theme>.webp` 右下小景（湖畔草亭仙鹤 / 贝壳海岸远帆 / 像素草地宝箱小猫，10–14KB）+ 顶边装饰翻转；栏目标题加主题色短线。手机底栏同皮肤。

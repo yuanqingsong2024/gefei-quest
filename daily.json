@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T13:04:45.049Z",
-  "latestId": 72,
+  "generatedAt": "2026-10-30T15:19:08.674Z",
+  "latestId": 73,
   "latestDate": "2026-10-30",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 73,
+      "date": "2026-10-30",
+      "tag": "改进",
+      "title": "顶栏、页头和页脚按主题美化：场景横幅、笔触/波浪/像素边、页脚小景",
+      "items": [
+        "页头带延伸到浮动顶栏背后，叠该页场景图并加左实右透遮罩；底边水墨笔触 / 海岸波浪 / 像素阶梯；顶栏按主题换底色与描边（像素主题硬边框+投影）",
+        "页脚加主题小景（湖畔仙鹤 / 贝壳海岸 / 像素草地宝箱）与顶边装饰，栏目标题加主题色短线；手机底栏同风格。SW 缓存升到 45"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-analytics"
+    },
     {
       "id": 72,
       "date": "2026-10-30",
@@ -111,18 +122,6 @@
         "内嵌兜底同步今日榜（TaskBounty / Swarms / Gravity 等）；file:// 与 fetch 失败时也是 10-29"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-agent"
-    },
-    {
-      "id": 63,
-      "date": "2026-10-29",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-29",
-      "items": [
-        "No.1 Mergetober × Cognee：为开源 AI Agent 记忆层写集成 PR，奖池约5000美元，10月31日截止",
-        "No.2 Kiroween 2026：明天起可正式提交，今天只报名与选题，现金奖池约10万美元",
-        "No.3 Hostinger Affiliate：写建站/主机教程，合资格首购可达约40%佣金（协议以官网为准）"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

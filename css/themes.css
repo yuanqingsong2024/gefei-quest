@@ -1312,3 +1312,99 @@ html[data-theme="pixel"] body[data-bg="me"] { --page-art: url("../assets/bg/page
 html[data-theme="ink"] body[data-bg="log"] { --page-art: url("../assets/bg/page/log.webp"); }
 html[data-theme="ocean"] body[data-bg="log"] { --page-art: url("../assets/bg/page/ocean/log.webp"); }
 html[data-theme="pixel"] body[data-bg="log"] { --page-art: url("../assets/bg/page/pixel/log.webp"); }
+
+/* ===== Phase UI-art · 顶栏 / 页头带 / 页脚 主题化（2026-10-30）=====
+   页头带向上延伸到浮动顶栏背后，叠该页场景图（--page-art）+ 左实右透遮罩；底边主题装饰（水墨笔触 / 波浪 / 像素阶梯）；
+   页脚加主题小景（assets/bg/foot/<theme>.webp）+ 顶边装饰。均为绝对定位/背景，不增加布局高度。 */
+html[data-theme="ink"] {
+  --chrome-tint: linear-gradient(180deg, #f4efe4 0%, #faf8f2 100%);
+  --chrome-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 14' preserveAspectRatio='none'%3E%3Cpath fill='%231e3a5f' fill-opacity='.6' d='M0 8C140 3 260 12 420 6S720 2 880 8 1080 4 1200 6V9C1060 12 900 7 740 10S440 13 300 9 90 12 0 10Z'/%3E%3Cpath fill='%23d69e2e' fill-opacity='.55' d='M520 9c60-3 140-3 200 0-60 2-140 2-200 0Z'/%3E%3C/svg%3E");
+  --chrome-edge-size: 100% 12px; --chrome-edge-repeat: no-repeat; --chrome-edge-h: 12px;
+  --foot-art: url("../assets/bg/foot/ink.webp");
+  --foot-tint: linear-gradient(180deg, #f6f2e8 0%, #efe9dc 100%);
+  --nav-skin: color-mix(in srgb, #fffdf8 86%, transparent);
+  --nav-line: 0 0 0 1px rgba(30, 58, 95, .12), inset 0 -2px 0 rgba(214, 158, 46, .45), 0 6px 18px -10px rgba(30, 58, 95, .35);
+}
+html[data-theme="ocean"] {
+  --chrome-tint: linear-gradient(120deg, #e0f7ff 0%, #ecfeff 45%, #fef9c3 100%);
+  --chrome-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 12'%3E%3Cpath fill='%230891b2' fill-opacity='.30' d='M0 6Q12 0 24 6T48 6V12H0Z'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-opacity='.9' stroke-width='1.4' d='M0 7Q12 1 24 7T48 7'/%3E%3C/svg%3E");
+  --chrome-edge-size: 48px 12px; --chrome-edge-repeat: repeat-x; --chrome-edge-h: 12px;
+  --foot-art: url("../assets/bg/foot/ocean.webp");
+  --foot-tint: linear-gradient(180deg, #e0f2fe 0%, #ccfbf1 100%);
+  --nav-skin: linear-gradient(90deg, rgba(255, 255, 255, .9), rgba(224, 247, 255, .88));
+  --nav-line: 0 0 0 1px rgba(8, 145, 178, .25), inset 0 -2px 0 rgba(34, 211, 238, .55), 0 8px 22px -12px rgba(8, 100, 140, .45);
+}
+html[data-theme="pixel"] {
+  --chrome-tint: repeating-linear-gradient(0deg, rgba(63, 46, 34, .035) 0 2px, transparent 2px 8px), linear-gradient(180deg, #fde7f0 0%, #f5f0e6 100%);
+  --chrome-edge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 8' shape-rendering='crispEdges'%3E%3Cpath fill='%233f2e22' d='M0 8V4h4V0h8v4h4v4z'/%3E%3Cpath fill='%23db2777' d='M4 4h2V2h4v2h2v1H4z' fill-opacity='.6'/%3E%3C/svg%3E");
+  --chrome-edge-size: 16px 8px; --chrome-edge-repeat: repeat-x; --chrome-edge-h: 8px;
+  --foot-art: url("../assets/bg/foot/pixel.webp");
+  --foot-tint: linear-gradient(180deg, #fbe4ee 0%, #f3eadb 100%);
+  --nav-skin: #fffdf8;
+  --nav-line: 0 0 0 3px #3f2e22, 4px 4px 0 3px #3f2e22;
+}
+/* 顶栏皮肤（保留吸顶浮层与下拉） */
+html[data-theme] .site-nav,
+html[data-theme] body.nav-condensed .site-nav {
+  background: var(--nav-skin);
+  box-shadow: var(--nav-line);
+  border-color: transparent;
+}
+html[data-theme="pixel"] .site-nav { border-radius: 4px; }
+html[data-theme="pixel"] .site-links > a.active,
+html[data-theme="pixel"] .site-links > a:hover { border-radius: 2px; }
+
+/* 页头带：延伸到顶栏背后 + 场景图 */
+html[data-theme] body:not(.is-home)[data-bg] .section-head {
+  position: relative;
+  margin-top: calc(-1 * (var(--nav-float, 8px) + var(--nav-h, 56px)));
+  padding-top: calc(var(--nav-float, 8px) + var(--nav-h, 56px));
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--panel) 94%, transparent) 0%,
+      color-mix(in srgb, var(--panel) 82%, transparent) 34%,
+      color-mix(in srgb, var(--panel) 34%, transparent) 70%,
+      color-mix(in srgb, var(--panel) 8%, transparent) 100%),
+    var(--page-art, none) center 78% / cover no-repeat,
+    var(--chrome-tint);
+  border-bottom: 0;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+html[data-theme="pixel"] body:not(.is-home)[data-bg] .section-head { image-rendering: pixelated; }
+html[data-theme] body:not(.is-home)[data-bg] .section-head::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: var(--chrome-edge-h); pointer-events: none;
+  background: var(--chrome-edge) left bottom / var(--chrome-edge-size) var(--chrome-edge-repeat);
+}
+html[data-theme] body:not(.is-home)[data-bg] .section-head .sh-title { text-shadow: 0 1px 0 color-mix(in srgb, var(--panel) 80%, transparent); }
+
+/* 页脚：主题底色 + 小景 + 顶边装饰 */
+html[data-theme] .site-footer {
+  position: relative;
+  border-top: 0;
+  background:
+    linear-gradient(90deg,
+      color-mix(in srgb, var(--panel) 92%, transparent) 0%,
+      color-mix(in srgb, var(--panel) 80%, transparent) 46%,
+      color-mix(in srgb, var(--panel) 10%, transparent) 100%),
+    var(--foot-art) right bottom / auto 100% no-repeat,
+    var(--foot-tint);
+}
+html[data-theme] .site-footer::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--chrome-edge-h); pointer-events: none;
+  background: var(--chrome-edge) left top / var(--chrome-edge-size) var(--chrome-edge-repeat);
+  transform: scaleY(-1);
+}
+html[data-theme] .site-footer .foot-inner { position: relative; }
+html[data-theme] .site-footer .foot-cols h4 { position: relative; padding-bottom: 4px; }
+html[data-theme] .site-footer .foot-cols h4::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 22px; height: 2px; border-radius: 2px; background: var(--art-accent, var(--gold));
+}
+html[data-theme="pixel"] .site-footer .foot-cols h4::after { height: 4px; border-radius: 0; box-shadow: 4px 0 0 #3f2e22; width: 16px; }
+html[data-theme="pixel"] .site-footer { image-rendering: pixelated; }
+/* 手机底栏同风格 */
+@media (max-width: 860px) {
+  html[data-theme] .bottom-bar { background: var(--nav-skin); box-shadow: 0 -1px 0 var(--line), 0 -6px 16px -10px rgba(0, 0, 0, .25); }
+  html[data-theme="pixel"] .bottom-bar { box-shadow: 0 -3px 0 #3f2e22; }
+  html[data-theme="ocean"] .bottom-bar { box-shadow: inset 0 2px 0 rgba(34, 211, 238, .55), 0 -6px 16px -10px rgba(8, 100, 140, .35); }
+  html[data-theme] .site-footer { background-size: auto, auto 60%, auto; }
+}
