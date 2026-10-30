@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T02:13:55.826Z",
-  "latestId": 67,
+  "generatedAt": "2026-10-30T03:46:52.440Z",
+  "latestId": 68,
   "latestDate": "2026-10-30",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 68,
+      "date": "2026-10-30",
+      "tag": "改进",
+      "title": "借鉴落地页设计规则：字号/间距/浮层导航/滚动显现",
+      "items": [
+        "吸收 ai-design-skills 的字号阶梯、间距 token、嵌套圆角与动效曲线；顶栏轻微浮层毛玻璃；首页与赚钱榜区块滚动显现（IntersectionObserver）",
+        "赚钱页开关与 CTA 文案更具体（今日公开渠道 / 看步骤与来源 / 加入本周实操）；保留不承诺收益口径。不改榜单 JSON"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 67,
       "date": "2026-10-30",
@@ -112,17 +123,6 @@
         "更新日志改为每页 8 条；赚钱榜 / Agent 赚钱 / 工具发掘 / 平台变现原本已分页。深链与弹窗仍可翻到对应页"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#changelog"
-    },
-    {
-      "id": 58,
-      "date": "2026-10-28",
-      "tag": "内容",
-      "title": "AI生活合集新增「订阅刺客猎手」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：翻账单揪闲置自动续费，扣费前三天提醒；含公众号结构、家庭订阅审计提示词、小红书与闲鱼模板角度",
-        "附中国日报网 / IT之家 / 阿里云开发者社区 / 21经济网来源；授权可撤、误报人审、退订自己点；不代查不代停，不承诺收益"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {

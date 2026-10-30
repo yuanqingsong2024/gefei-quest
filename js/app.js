@@ -421,6 +421,11 @@
     rememberRoute();
     if (window.QuestHints) QuestHints.mount(route);
     if (window.QuestTour) QuestTour.afterRender(route);
+    if (window.QuestShell && QuestShell.mountReveal) {
+      requestAnimationFrame(function () {
+        QuestShell.mountReveal(document.getElementById('app') || document);
+      });
+    }
   }
 
   function scrollTopIfChanged() {

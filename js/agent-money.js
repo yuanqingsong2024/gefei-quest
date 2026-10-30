@@ -35,11 +35,11 @@
     var QR = R();
     if (QR && QR.switchHtml) return QR.switchHtml(which);
     return '<nav class="rank-switch" aria-label="榜单内容">' +
-      '<a class="rank-switch-btn" href="#war-rank">每日 Top 10</a>' +
+      '<a class="rank-switch-btn" href="#war-rank">今日公开渠道</a>' +
       '<a class="rank-switch-btn' + (which === 'agent' ? ' active' : '') + '" href="#war-rank-agent"' +
-      (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 赚钱</a>' +
+      (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 进账方案</a>' +
       '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' +
-      (which === 'tools' ? ' aria-current="page"' : '') + '>工具发掘</a></nav>';
+      (which === 'tools' ? ' aria-current="page"' : '') + '>今日工具发掘</a></nav>';
   }
   function disclaimer() {
     var QR = R();
@@ -88,10 +88,11 @@
     }
     QR.ensure(state);
     if (!day || !day.items || !day.items.length) {
-      root.innerHTML = switchHtml('agent') + disclaimer() +
+      root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('agent') + '</div>' + disclaimer() +
         '<div class="empty-illo">' + global.QuestIcons.illo('list') +
-        '<p><b>Agent 赚钱榜还没有发布</b><br>稍后再来看看。</p></div>';
+        '<p><b>Agent 进账方案还没有发布</b><br>稍后再来，或先打开今日公开渠道榜。</p><p><a class="btn btn-primary btn-sm" href="#war-rank">打开今日公开渠道</a></p></div>';
       if (global.QuestNav) global.QuestNav.fixLinks(root);
+      if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
       return;
     }
     var types = typesIn(day);
@@ -99,10 +100,10 @@
       return (view.type === 'all' || i.type === view.type) &&
         (!view.fav || state.rankFav.indexOf(i.name) >= 0);
     });
-    var emptyB = view.fav ? '还没有收藏' : '这个类型今天没有条目';
-    var emptyS = view.fav ? '点卡片右上角的星标收藏感兴趣的方案。' : '切回「全部」看看。';
-    root.innerHTML = switchHtml('agent') + disclaimer() +
-      '<p class="rank-intro">每天整理「怎么用 Agent 合法进账」的可执行方案。不承诺收益；请以各平台官网规则为准。</p>' +
+    var emptyB = view.fav ? '还没有收藏方案' : '这个类型今天没有条目';
+    var emptyS = view.fav ? '点卡片右上角星标收藏；收藏后可从「只看收藏」回看。' : '切回「全部」看看。';
+    root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('agent') + '</div>' + disclaimer() +
+      '<p class="rank-intro" data-reveal>每天整理可执行的 Agent 进账路径（接单、小产品、平台激励等）。点卡片看步骤与来源；不承诺收益，以各平台官网规则为准。</p>' +
       '<section class="rank-bar"><div class="chip-row rank-types" role="group" aria-label="按类型筛选">' +
       '<button type="button" class="chip' + (view.type === 'all' ? ' active' : '') + '" data-amtype="all">全部 ' + day.items.length + '</button>' +
       types.map(function (t) {
@@ -114,7 +115,7 @@
       '<p class="hint" id="am-count">' + esc(day.date) + (day.updated ? ' · 更新 ' + esc(day.updated) : '') +
       ' · 显示 ' + list.length + ' / ' + day.items.length + ' 条</p>' +
       (list.length
-        ? '<div class="rank-grid">' + list.map(function (i) {
+        ? '<div class="rank-grid" data-reveal>' + list.map(function (i) {
             return QR.card(i, state, day.date, { planKey: planKeyFor(i) });
           }).join('') + '</div>'
         : '<div class="empty-illo">' + global.QuestIcons.illo('star') + '<p><b>' + emptyB + '</b><br>' + emptyS + '</p></div>') +
@@ -160,7 +161,7 @@
           });
         }
         ctx.save();
-        if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name);
+        if (global.QuestModal) global.QuestModal.showToast('已加入本周实操：' + it.name);
         paint(state, root, ctx, day);
       });
     });
@@ -173,6 +174,7 @@
       rerender: function () { paint(state, root, ctx, day); },
     });
     if (global.QuestNav) global.QuestNav.fixLinks(root);
+    if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
   }
 
   function render(state, root, ctx) {

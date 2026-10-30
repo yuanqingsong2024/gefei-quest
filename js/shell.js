@@ -6,9 +6,13 @@
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
   /* ---------- 顶栏高度（fixed 后用 --nav-h 垫开正文）+ 收缩 + 回到顶部 ---------- */
+  function navFloat() {
+    var n = parseFloat(getComputedStyle(doc.documentElement).getPropertyValue('--nav-float'));
+    return n > 0 ? n : 0;
+  }
   function navHeight() {
     var n = parseFloat(getComputedStyle(doc.documentElement).getPropertyValue('--nav-h'));
-    return n > 0 ? n : 0;
+    return (n > 0 ? n : 0) + navFloat();
   }
   function syncNavH() {
     var nav = doc.getElementById('site-nav');
@@ -200,6 +204,40 @@
     box.innerHTML = html; mark(box.querySelectorAll('.sr-item'));
   }
 
+
+  /* ---------- 滚动显现（IntersectionObserver，进视口一次） ---------- */
+  function mountReveal(root) {
+    var scope = root && root.querySelectorAll ? root : doc;
+    var nodes = scope.querySelectorAll ? scope.querySelectorAll('[data-reveal]') : [];
+    if (!nodes.length) return;
+    if (reduced() || !global.IntersectionObserver) {
+      Array.prototype.forEach.call(nodes, function (el) { el.classList.add('is-in'); });
+      return;
+    }
+    if (!mountReveal._io) {
+      mountReveal._io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          en.target.classList.add('is-in');
+          mountReveal._io.unobserve(en.target);
+        });
+      }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    }
+    Array.prototype.forEach.call(nodes, function (el) {
+      if (el.classList.contains('is-in')) return;
+      mountReveal._io.observe(el);
+    });
+  }
+  function fadeWithReveal(panelId) {
+    fade(panelId);
+    var el = doc.getElementById(panelId);
+    if (el) {
+      global.requestAnimationFrame(function () { mountReveal(el); });
+    } else {
+      mountReveal(doc);
+    }
+  }
+
   function init() {
     mountToTop();
     var nav = doc.getElementById('site-nav');
@@ -215,8 +253,12 @@
     });
     doc.addEventListener('click', function (e) { if (e.target.closest('[data-open-search]')) { e.preventDefault(); openSearch(); } });
     global.addEventListener('hashchange', closeSearch);
+    global.addEventListener('hashchange', function () {
+      global.requestAnimationFrame(function () { mountReveal(doc.getElementById('app') || doc); });
+    });
+    mountReveal(doc.getElementById('app') || doc);
   }
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
 
-  global.QuestShell = { renderBottomBar: renderBottomBar, fade: fade, openSearch: openSearch, closeSearch: closeSearch, search: search, resetIndex: resetIndex, scrollToEl: scrollToEl, syncNavH: syncNavH };
+  global.QuestShell = { renderBottomBar: renderBottomBar, fade: fade, fadeWithReveal: fadeWithReveal, mountReveal: mountReveal, openSearch: openSearch, closeSearch: closeSearch, search: search, resetIndex: resetIndex, scrollToEl: scrollToEl, syncNavH: syncNavH };
 })(typeof window !== 'undefined' ? window : globalThis);

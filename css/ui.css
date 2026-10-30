@@ -3742,3 +3742,288 @@ body.is-home .home-continue {
 .gf-stars { font-weight: 700; opacity: .85; margin-left: 4px; }
 .gf-sources { margin: 6px 0 0; padding-left: 1.2em; }
 .gf-sources a { word-break: break-all; }
+
+/* ================= Design borrow · ai-design-skills PART B（2026-10-30）=================
+ * 只覆盖首页 + 赚钱榜呈现层；不改主题渐变、不换 CJK 字体。 */
+:root {
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-layout: 500ms;
+  --duration-hover: 220ms;
+  --reveal-distance: 32px;
+  --nav-float: 8px;
+  --radius-card: 16px;
+  --radius-nested: 8px;
+  --lh-tight: 1.25;
+  --lh-body: 1.55;
+}
+
+/* —— 顶栏：轻微浮层 + 毛玻璃（保留选中态） —— */
+body {
+  padding-top: calc(var(--nav-float) + var(--nav-h, 56px));
+}
+.site-nav {
+  top: var(--nav-float);
+  left: 12px;
+  right: 12px;
+  width: auto;
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  border: 1px solid var(--glass-line);
+  border-bottom: 1px solid var(--glass-line);
+  box-shadow: var(--sh-1, 0 1px 2px rgba(28, 25, 23, .08), 0 4px 14px rgba(28, 25, 23, .06));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    background var(--duration-hover) var(--ease),
+    box-shadow var(--duration-layout) var(--ease),
+    transform var(--duration-layout) var(--ease);
+}
+body.nav-condensed .site-nav {
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+  box-shadow: 0 6px 18px rgba(28, 25, 23, .12);
+}
+.site-links a {
+  transition:
+    background var(--duration-hover) var(--ease),
+    color var(--duration-hover) var(--ease),
+    transform var(--duration-hover) var(--ease);
+}
+.tabs {
+  top: calc(var(--nav-float) + var(--nav-h, 56px));
+}
+.doc-aside {
+  top: calc(var(--nav-float) + var(--nav-h, 56px) + 12px);
+  max-height: calc(100vh - var(--nav-float) - var(--nav-h, 56px) - 24px);
+}
+.cx-tabs {
+  top: calc(var(--nav-float) + var(--nav-h, 56px) + 8px);
+}
+h1, h2, h3, h4, h5, h6,
+section,
+[id],
+.md h2, .md h3, .md h4, .md h5,
+.pm-card,
+#home-howto, #home-rank, #home-why, #home-faq, #home-continue, #home-next,
+#home-path, #home-path-today, #hero-top3 {
+  scroll-margin-top: calc(var(--nav-float) + var(--nav-h, 56px) + 12px);
+}
+.nav-menu {
+  max-height: calc(100vh - var(--nav-float) - var(--nav-h, 56px) - 12px);
+  max-height: calc(100dvh - var(--nav-float) - var(--nav-h, 56px) - 12px);
+}
+@media (max-width: 640px) {
+  :root { --nav-float: 6px; }
+  .site-nav { left: 8px; right: 8px; border-radius: 14px; }
+}
+@media print {
+  .site-nav { top: 0; left: 0; right: 0; border-radius: 0; backdrop-filter: none; }
+  body { padding-top: 0; }
+}
+
+/* —— 按钮 / 卡片交互态 —— */
+.btn {
+  transition:
+    transform var(--duration-hover) var(--ease),
+    box-shadow var(--duration-hover) var(--ease),
+    background var(--duration-hover) var(--ease),
+    border-color var(--duration-hover) var(--ease),
+    color var(--duration-hover) var(--ease),
+    opacity var(--duration-hover) var(--ease);
+}
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.btn:focus-visible,
+.rank-fav:focus-visible,
+.rank-switch-btn:focus-visible,
+.chip:focus-visible,
+a.home-card:focus-visible,
+button.home-card:focus-visible,
+.feat-card:focus-visible,
+.hero-top3-row:focus-visible {
+  outline: none;
+  box-shadow: var(--ring, 0 0 0 3px rgba(253, 230, 138, .9));
+}
+.rank-card,
+.feat-card,
+.home-card,
+.hero-top3,
+.home-path-side,
+.rank-switch-btn {
+  transition:
+    transform var(--duration-hover) var(--ease),
+    box-shadow var(--duration-hover) var(--ease),
+    border-color var(--duration-hover) var(--ease),
+    background var(--duration-hover) var(--ease),
+    opacity var(--duration-hover) var(--ease);
+}
+.rank-card:hover,
+.feat-card:hover,
+a.home-card:hover,
+button.home-card:hover {
+  transform: translateY(-2px);
+}
+.rank-card:active,
+.feat-card:active,
+a.home-card:active,
+button.home-card:active {
+  transform: scale(0.98);
+}
+.rank-switch-btn:active {
+  transform: scale(0.98);
+}
+
+/* —— 嵌套圆角（外 16 − gap 8 ≈ 内 8） —— */
+.rank-card,
+.rank-card.glass {
+  border-radius: var(--radius-card);
+  padding: var(--space-200, 16px);
+  gap: var(--space-75, 8px);
+}
+.rank-card--teaser {
+  padding: var(--space-200, 16px) var(--space-200, 16px) var(--space-200, 16px) var(--space-100, 12px);
+}
+.rank-panel,
+.rank-step-card {
+  border-radius: var(--radius-nested);
+}
+.rank-no,
+.rank-fav {
+  border-radius: calc(var(--radius-nested) - 2px);
+}
+.hero-top3,
+.home-path-side,
+#home-continue {
+  border-radius: var(--radius-card);
+}
+.hero-top3-row {
+  border-radius: var(--radius-nested);
+}
+
+/* —— 字号阶梯（首页 + 赚钱页） —— */
+body.is-home .hero.hero-home h1.hero-title {
+  font-size: clamp(1.5rem, 2.4vw, 1.875rem); /* 24–30 */
+  line-height: 1.25;
+  text-wrap: balance;
+}
+body.is-home .hero.hero-home .hero-sub {
+  font-size: var(--fs-md);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+body.is-home .home-band .sec-head h2,
+.home-path-side h2,
+.hero-top3-head h2 {
+  font-size: var(--fs-xl);
+  text-wrap: balance;
+}
+.rank-title h3 {
+  font-size: var(--fs-lg);
+  text-wrap: balance;
+}
+.rank-intro,
+.rank-why,
+.home-path-why,
+.hero-top3-empty {
+  font-size: var(--fs-sm);
+  text-wrap: pretty;
+}
+.rank-disclaimer {
+  border-radius: var(--radius-card);
+  padding: var(--space-200, 16px);
+  margin-bottom: var(--space-300, 24px);
+}
+.rank-switch {
+  gap: var(--space-75, 8px);
+  margin-bottom: var(--space-200, 16px);
+}
+.rank-switch-btn {
+  padding: var(--space-75, 8px) var(--space-100, 12px);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+}
+.rank-grid {
+  gap: var(--space-200, 16px);
+  margin: var(--space-100, 12px) 0 var(--space-400, 32px);
+}
+.home-benefit {
+  margin: var(--space-300, 24px) auto;
+  max-width: 40em;
+  padding: var(--space-300, 24px) var(--space-200, 16px);
+  text-align: center;
+}
+.home-benefit p {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.home-benefit small {
+  display: block;
+  margin-top: var(--space-75, 8px);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* —— 滚动显现 —— */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition:
+    opacity 700ms var(--ease),
+    transform 700ms var(--ease);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .btn:hover:not(:disabled),
+  .btn:active:not(:disabled),
+  .rank-card:hover,
+  .rank-card:active,
+  .feat-card:hover,
+  .feat-card:active,
+  a.home-card:hover,
+  a.home-card:active,
+  button.home-card:hover,
+  button.home-card:active {
+    transform: none;
+  }
+  .site-nav {
+    transition: none;
+  }
+}
+.reduce-motion [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+.reduce-motion .btn:hover:not(:disabled),
+.reduce-motion .btn:active:not(:disabled),
+.reduce-motion .rank-card:hover,
+.reduce-motion .feat-card:hover,
+.reduce-motion a.home-card:hover,
+.reduce-motion button.home-card:hover {
+  transform: none;
+}

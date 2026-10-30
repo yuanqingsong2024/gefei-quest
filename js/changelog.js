@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 68, date: '2026-10-30', title: '借鉴落地页设计规则：字号/间距/浮层导航/滚动显现', tag: '改进', href: '#home',
+      items: ['吸收 ai-design-skills 的字号阶梯、间距 token、嵌套圆角与动效曲线；顶栏轻微浮层毛玻璃；首页与赚钱榜区块滚动显现（IntersectionObserver）', '赚钱页开关与 CTA 文案更具体（今日公开渠道 / 看步骤与来源 / 加入本周实操）；保留不承诺收益口径。不改榜单 JSON'] },
     { id: 67, date: '2026-10-30', title: '首页新增「SERP 标题拆解便签」：本机拆解搜索标题', tag: '新功能', href: '#home-today',
       items: ['首页挖词候选卡旁可折叠「SERP 标题拆解便签」：粘贴最多 3 条标题，本机拆解词长/数字年份/修饰词并生成可仿写骨架', '一键填入候选卡「拟标题」。草稿只存本机。不调用外部 AI，也不上传'] },
     { id: 66, date: '2026-10-29', title: '选词删除改为页内确认 + 文案与灰锁提示修补', tag: '修复', href: '#war-keywords',

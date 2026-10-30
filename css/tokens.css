@@ -1,4 +1,6 @@
-/* 默认浅色 Token（与 ink 水墨纸一致）。无 data-theme 时也是浅色。 */
+/* 默认浅色 Token（与 ink 水墨纸一致）。无 data-theme 时也是浅色。
+ * 间距 / 字号阶梯 / 动效曲线借鉴 ai-design-skills landing-page-design PART B；
+ * 字体仍用 CJK 栈，不换 Geist。 */
 :root {
   color-scheme: light;
   --bg: #fafaf8;
@@ -16,7 +18,51 @@
   --boss: #dc2626;
   --locked-opacity: 0.45;
   --radius: 14px;
+  --radius-card: 16px;
+  --radius-nested: 8px; /* 外 16 − gap 8 */
   --font: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+
+  /* 字号阶梯（接近 12/14/16/18/20/24/30/36） */
+  --fs-xs: 0.75rem;   /* 12 */
+  --fs-sm: 0.875rem;  /* 14 */
+  --fs-md: 1rem;      /* 16 */
+  --fs-lg: 1.125rem;  /* 18 */
+  --fs-xl: 1.25rem;   /* 20 */
+  --fs-2xl: 1.5rem;   /* 24 */
+  --fs-3xl: 1.875rem; /* 30 */
+  --fs-4xl: 2.25rem;  /* 36 */
+
+  /* 间距 token B2 */
+  --space-0: 0;
+  --space-25: 2px;
+  --space-50: 4px;
+  --space-75: 8px;
+  --space-100: 12px;
+  --space-200: 16px;
+  --space-300: 24px;
+  --space-400: 32px;
+  --space-500: 40px;
+  --space-600: 48px;
+  --space-700: 64px;
+  --space-800: 80px;
+  --space-900: 96px;
+  /* 兼容旧 --sp-* */
+  --sp-1: var(--space-50);
+  --sp-2: var(--space-75);
+  --sp-3: var(--space-100);
+  --sp-4: var(--space-200);
+  --sp-5: var(--space-300);
+  --sp-6: var(--space-400);
+  --sp-7: var(--space-600);
+  --sp-8: var(--space-700);
+
+  /* 动效 B7 */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-layout: 500ms;
+  --duration-hover: 220ms;
+  --reveal-distance: 32px;
+  --nav-float: 8px;
+
   --tag-bg: #e8eef5;
   --tag-fg: #1e3a5f;
   --focus: #1e3a5f;
@@ -59,6 +105,11 @@ body {
   background: var(--bg);
   color: var(--ink);
   line-height: 1.55;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, .hero-title, .rank-title h3, .sec-head h2, .block-title {
+  text-wrap: balance;
 }
 
 a {

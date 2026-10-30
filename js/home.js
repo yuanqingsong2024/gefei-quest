@@ -536,7 +536,7 @@
     if (!hasReview(save)) {
       return oneStep('赚钱', '写本周复盘', '数据已经有了。花十分钟写下本周做了什么，以及下周 3 件事。', '#work-review', '去每周复盘');
     }
-    return oneStep('赚钱', '看每日赚钱榜，挑一条试一周', '课、站、数据和复盘都有记录了。榜单不保证收益，挑一条加入实操计划即可。', '#war-rank', '去每日赚钱榜');
+    return oneStep('赚钱', '打开每日赚钱榜，挑 1 条试一周', '课、站、数据和复盘都有记录了。榜单不保证收益，挑一条加入本周实操即可。', '#war-rank', '打开每日赚钱榜');
   }
 
   var PATH_DEFS = [
@@ -600,14 +600,18 @@
       : '<p class="hero-top3-empty">今天的赚钱榜还没有发布。稍后再来，或先打开<a href="#war-rank">每日赚钱榜</a>看说明。</p>';
     root.innerHTML =
       '<div class="home-hero-stage">' +
-      '<section class="hero hero-home" aria-label="首页">' +
+      '<section class="hero hero-home" aria-label="首页" data-reveal>' +
       '<div class="hero-inner home-inner"><div class="hero-copy">' +
       '<h1 class="hero-title">做英文出海小站</h1>' +
       '<p class="hero-sub">跟着主线路径，从新手引导做到试渠道。不承诺收入。</p>' +
-      '<p class="hero-playbook"><a class="btn btn-sm" href="#guide-full-method-playbook">完整主线说明：找词→建站→收款</a></p>' +
+      '<p class="hero-playbook"><a class="btn btn-sm" href="#guide-full-method-playbook">打开完整主线：找词→建站→收款</a></p>' +
       (next ? '<aside class="home-continue" id="home-continue"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></aside>' : '') +
       '</div></div></section>' +
-      '<section class="home-band band-a home-path-band" id="home-path" data-tour="path">' +
+      '<section class="home-benefit home-inner" data-reveal aria-label="这一站能帮你做什么">' +
+      '<p>挑一条公开渠道，按步骤试一周。</p>' +
+      '<small>榜单整理公开信息，方便你开工；不构成收益承诺。</small>' +
+      '</section>' +
+      '<section class="home-band band-a home-path-band" id="home-path" data-tour="path" data-reveal>' +
       '<div class="home-inner home-path-layout">' +
       '<ol class="home-path">' + nodesHtml + '</ol>' +
       '<div class="home-path-rail" id="home-rank">' +
@@ -621,16 +625,16 @@
       '<aside class="hero-top3" id="hero-top3" aria-label="今日赚钱榜 Top 3">' +
       '<div class="hero-top3-head"><h2>今日赚钱榜 Top 3</h2>' +
       (date ? '<time class="hero-top3-date" datetime="' + esc(date) + '">' + esc(date) + '</time>' : '') +
-      '<a class="hero-top3-more" href="#war-rank">看完整榜</a></div>' +
+      '<a class="hero-top3-more" href="#war-rank">打开今日完整榜</a></div>' +
       top3Body + '</aside>' +
       '</div></div></section>' +
       '</div>' +
-      '<section class="home-band home-today-band">' +
+      '<section class="home-band home-today-band" data-reveal>' +
       '<div class="home-inner">' +
       (global.QuestStats && typeof QuestStats.todayCard === 'function' ? QuestStats.todayCard(state) : '') +
       '<div class="kw-card-slot home-kw-slot"></div>' +
       '</div></section>' +
-      '<section class="home-band band-b" id="home-split"><div class="home-inner">' +
+      '<section class="home-band band-b" id="home-split" data-reveal><div class="home-inner">' +
       '<details class="home-more">' +
       '<summary>为什么做 · 常见问题</summary>' +
       '<div class="home-pair">' +
@@ -645,6 +649,7 @@
     if (slot && global.QuestKeywordCard && typeof QuestKeywordCard.mount === 'function') {
       QuestKeywordCard.mount(slot);
     }
+    if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
   }
 
   global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep, pathNodes: pathNodes };

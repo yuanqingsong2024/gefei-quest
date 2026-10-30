@@ -86,7 +86,7 @@
           '<small>' + esc(p.type) + ' · 加入于 ' + esc(p.date) + (p.steps && p.steps[0] ? ' · 第一步：' + esc(p.steps[0]) : '') + '</small>' +
           srcHtml(p, true, p.date) +
           '<span class="plan-acts"><button type="button" class="btn btn-sm btn-ghost" data-plan-del="' + i + '" aria-label="移出计划">移出</button></span></li>';
-      }).join('') + '</ul>' : '<div class="tool-empty"><p>还没有计划。下一步：到每日赚钱榜挑 1 条，点「加入实操计划」，先试一周。</p><a class="btn btn-primary btn-sm" href="#war-rank">去每日赚钱榜</a></div>') +
+      }).join('') + '</ul>' : '<div class="tool-empty"><p>还没有计划。下一步：到每日赚钱榜挑 1 条，点「加入本周实操」，先试一周。</p><a class="btn btn-primary btn-sm" href="#war-rank">打开每日赚钱榜</a></div>') +
       '</section>';
   }
   function bindPlan(state, root, ctx) {
@@ -116,8 +116,8 @@
       '<p class="rank-why">' + esc(it.why) + '</p>' +
       '<div class="rank-foot">' +
       '<span class="tool-actions">' +
-      '<button type="button" class="btn btn-sm" data-rank-detail="' + it.rank + '">查看详情</button>' +
-      '<button type="button" class="btn btn-sm ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-plan-add="' + it.rank + '"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在计划中' : '加入实操计划') + '</button></span></div></article>';
+      '<button type="button" class="btn btn-sm" data-rank-detail="' + it.rank + '">看步骤与来源</button>' +
+      '<button type="button" class="btn btn-sm ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-plan-add="' + it.rank + '"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在本周计划' : '加入本周实操') + '</button></span></div></article>';
   }
 
   function closeRankDetail() {
@@ -176,7 +176,7 @@
       (tags ? '<div class="rank-tags" style="margin-top:8px">' + tags + '</div>' : '') + '</section>' +
       '<div class="modal-actions rank-detail-actions">' +
       '<button type="button" class="btn rank-fav-btn' + (fav ? ' on' : '') + '" data-rank-fav-toggle="1" aria-pressed="' + fav + '">' + I('star') + (fav ? ' 已收藏' : ' 收藏') + '</button>' +
-      '<button type="button" class="btn ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-rank-plan-toggle="1"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在计划中' : '加入实操计划') + '</button>' +
+      '<button type="button" class="btn ' + (planned ? 'btn-ghost' : 'btn-primary') + '" data-rank-plan-toggle="1"' + (planned ? ' disabled' : '') + '>' + (planned ? '已在本周计划' : '加入本周实操') + '</button>' +
       '<button type="button" class="btn" data-rank-close="1">关闭</button></div></div>';
 
     function refreshDetailActions() {
@@ -192,7 +192,7 @@
       if (planBtn) {
         planBtn.disabled = planned;
         planBtn.className = 'btn ' + (planned ? 'btn-ghost' : 'btn-primary');
-        planBtn.textContent = planned ? '已在计划中' : '加入实操计划';
+        planBtn.textContent = planned ? '已在本周计划' : '加入本周实操';
       }
     }
 
@@ -235,7 +235,7 @@
         if (planKey) entry.key = planKey;
         state.rankPlan.push(entry);
         if (ctx && ctx.save) ctx.save();
-        if (M.showToast) M.showToast('已加入实操计划：' + it.name);
+        if (M.showToast) M.showToast('已加入本周实操：' + it.name);
         refreshDetailActions();
         if (ctx && ctx.onChanged) ctx.onChanged();
       }
@@ -283,13 +283,13 @@
   }
   function switchHtml(which) {
     var html = '<nav class="rank-switch" aria-label="榜单内容">' +
-      '<a class="rank-switch-btn' + (which === 'top' ? ' active' : '') + '" href="#war-rank"' + (which === 'top' ? ' aria-current="page"' : '') + '>每日 Top 10</a>';
+      '<a class="rank-switch-btn' + (which === 'top' ? ' active' : '') + '" href="#war-rank"' + (which === 'top' ? ' aria-current="page"' : '') + '>今日公开渠道</a>';
     COLS.forEach(function (c) {
       var on = which === c.tab;
       html += '<a class="rank-switch-btn' + (on ? ' active' : '') + '" href="#' + c.hash + '"' + (on ? ' aria-current="page"' : '') + '>' + esc(c.label) + '</a>';
     });
-    html += '<a class="rank-switch-btn' + (which === 'agent' ? ' active' : '') + '" href="#war-rank-agent"' + (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 赚钱</a>';
-    html += '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' + (which === 'tools' ? ' aria-current="page"' : '') + '>工具发掘</a>';
+    html += '<a class="rank-switch-btn' + (which === 'agent' ? ' active' : '') + '" href="#war-rank-agent"' + (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 进账方案</a>';
+    html += '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' + (which === 'tools' ? ' aria-current="page"' : '') + '>今日工具发掘</a>';
     return html + '</nav>';
   }
   function colBundle(id) {
@@ -324,7 +324,7 @@
     root.innerHTML = switchHtml(meta.tab) +
       '<p class="rank-intro">' + esc(data.intro || '') + '</p>' +
       rulesHtml +
-      (items.length ? '<div class="rank-grid" id="col-grid">' + cards + '</div>' : '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>这组合集还没有条目</b></p></div>') +
+      (items.length ? '<div class="rank-grid" id="col-grid" data-reveal>' + cards + '</div>' : '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>这组合集还没有条目</b></p></div>') +
       planHtml(state);
     root.querySelectorAll('[data-fav]').forEach(function (b) { b.addEventListener('click', function (e) {
       e.stopPropagation();
@@ -351,7 +351,7 @@
         });
       }
       ctx.save();
-      if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name);
+      if (global.QuestModal) global.QuestModal.showToast('已加入本周实操：' + it.name);
       paintCollection(state, root, ctx, meta, data);
     }); });
     bindRankCards(root, items, state, data.updated || '', ctx, {
@@ -364,6 +364,7 @@
       else renderRank(state, root, ctx);
     } });
     if (global.QuestNav) global.QuestNav.fixLinks(root);
+    if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
   }
   function renderCollection(state, root, ctx, meta) {
     ensure(state);
@@ -396,11 +397,11 @@
     var meta = colByHash();
     if (meta) { renderCollection(state, root, ctx, meta); return; }
     var r = R();
-    if (!r.latest) { root.innerHTML = switchHtml('top') + DISCLAIMER + '<div class="empty-illo">' + global.QuestIcons.illo('list') + '<p><b>榜单还没有发布</b><br>稍后再来看看。</p></div>'; return; }
+    if (!r.latest) { root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('top') + '</div>' + DISCLAIMER + '<div class="empty-illo" data-reveal>' + global.QuestIcons.illo('list') + '<p><b>今日公开渠道榜还没有发布</b><br>稍后再来，或先看 Agent 进账方案与工具发掘。</p><p><a class="btn btn-primary btn-sm" href="#war-rank-agent">打开 Agent 进账方案</a></p></div>'; return; }
     var date = view.date && r.dates.indexOf(view.date) >= 0 ? view.date : r.latest;
     root.innerHTML = switchHtml('top') + '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
     getDay(date, function (day) {
-      if (!day) { root.innerHTML = DISCLAIMER + '<div class="empty-illo">' + global.QuestIcons.illo('search') + '<p><b>这一天的榜单读取失败</b><br>换个日期试试。</p></div>'; return; }
+      if (!day) { root.innerHTML = DISCLAIMER + '<div class="empty-illo" data-reveal>' + global.QuestIcons.illo('search') + '<p><b>这一天的榜单读取失败</b><br>换个日期，或回到今日公开渠道。</p><p><a class="btn btn-sm" href="#war-rank">回到今日榜</a></p></div>'; return; }
       var types = typesIn(day);
       var resellN = day.items.filter(hasResell).length;
       if (!resellN) view.resell = false;
@@ -410,14 +411,14 @@
       var emptyB = view.resell && view.type !== 'all' ? '这个类型里没有闲鱼方案' : view.resell ? '今天没有闲鱼方案' : view.fav ? '还没有收藏' : '这个类型今天没有上榜';
       var emptyS = view.resell && view.type !== 'all' ? '换个类型，或关掉「闲鱼方案」。' : view.resell ? '关掉「闲鱼方案」看看全部条目。' : view.fav ? '点卡片右上角的星标收藏感兴趣的方案。' : '切回「全部」看看。';
       var resellChip = resellN ? '<button type="button" class="chip chip-resell' + (view.resell ? ' active' : '') + '" id="rank-only-resell" data-rresell="1" aria-pressed="' + (view.resell ? 'true' : 'false') + '">闲鱼方案 ' + resellN + '</button>' : '';
-      root.innerHTML = switchHtml('top') + DISCLAIMER +
+      root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('top') + '</div>' + DISCLAIMER +
         '<section class="rank-bar"><div class="rank-date"><label class="fld"><span>' + I('calendar') + '榜单日期</span><select id="rank-date">' + r.dates.map(function (d) { return '<option value="' + d + '"' + (d === date ? ' selected' : '') + '>' + d + (d === r.latest ? '（最新）' : '') + '</option>'; }).join('') + '</select></label></div>' +
         '<div class="chip-row rank-types" role="group" aria-label="按类型筛选"><button type="button" class="chip' + (view.type === 'all' ? ' active' : '') + '" data-rtype="all">全部 ' + day.items.length + '</button>' +
         types.map(function (t) { var n = day.items.filter(function (i) { return i.type === t; }).length; return '<button type="button" class="chip ' + typeClass(t) + (view.type === t ? ' active' : '') + '" data-rtype="' + esc(t) + '">' + esc(t) + ' ' + n + '</button>'; }).join('') +
         resellChip +
         '<button type="button" class="chip chip-fav' + (view.fav ? ' active' : '') + '" id="rank-only-fav" aria-pressed="' + view.fav + '">' + I('star') + '只看收藏 ' + state.rankFav.length + '</button></div></section>' +
         '<p class="hint" id="rank-count">' + esc(day.date) + ' · 显示 ' + list.length + ' / ' + day.items.length + ' 条 · 每天更新一次</p>' +
-        (list.length ? '<div class="rank-grid">' + list.map(function (i) { return card(i, state, day.date); }).join('') + '</div>'
+        (list.length ? '<div class="rank-grid" data-reveal>' + list.map(function (i) { return card(i, state, day.date); }).join('') + '</div>'
           : '<div class="empty-illo">' + global.QuestIcons.illo('star') + '<p><b>' + emptyB + '</b><br>' + emptyS + '</p></div>') +
         planHtml(state);
       root.querySelector('#rank-date').addEventListener('change', function (e) { view.date = e.target.value; renderRank(state, root, ctx); });
@@ -435,13 +436,14 @@
         e.stopPropagation();
         var it = day.items.filter(function (i) { return i.rank === +b.getAttribute('data-plan-add'); })[0]; if (!it) return;
         if (!state.rankPlan.some(function (p) { return !p.key && p.name === it.name; })) state.rankPlan.push({ name: it.name, type: it.type, date: global.QuestStats ? global.QuestStats.ymd(new Date()) : day.date, steps: it.steps.slice(), source_url: it.source_url, sources: (it.sources && it.sources.slice()) || undefined, done: false });
-        ctx.save(); if (global.QuestModal) global.QuestModal.showToast('已加入实操计划：' + it.name); renderRank(state, root, ctx);
+        ctx.save(); if (global.QuestModal) global.QuestModal.showToast('已加入本周实操：' + it.name); renderRank(state, root, ctx);
       }); });
       bindRankCards(root, day.items, state, day.date, ctx, {
         rerender: function () { renderRank(state, root, ctx); },
       });
       bindPlan(state, root, { save: ctx.save, rerender: function () { renderRank(state, root, ctx); } });
       if (global.QuestNav) global.QuestNav.fixLinks(root);
+      if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
     });
   }
   function latestItems() { var r = R(); return r.latest && r.days[r.latest] ? r.days[r.latest].items : []; }
