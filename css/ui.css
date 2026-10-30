@@ -3698,6 +3698,44 @@ body.is-home .home-continue {
   .home-today-band { padding: 8px 0 12px; }
 }
 
+/* —— SERP 标题拆解便签 —— */
+.serp-note { min-width: 0; }
+.serp-note-body {
+  display: grid; gap: 10px; min-width: 0;
+  color: var(--ink);
+}
+.serp-note textarea {
+  width: 100%; box-sizing: border-box; min-width: 0;
+  padding: 8px 10px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+  font: inherit; line-height: 1.5;
+  resize: vertical; min-height: 4.8em;
+}
+.serp-note textarea:focus { outline: 2px solid var(--focus); outline-offset: 1px; }
+.serp-note > summary .ico, .serp-note > summary svg.ico { width: 18px; height: 18px; flex: none; }
+.serp-list { display: grid; gap: 8px; min-width: 0; list-style: none; margin: 0; padding: 0; }
+.serp-item {
+  display: grid; gap: 8px; min-width: 0;
+  padding: 10px 12px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--panel2); color: var(--ink);
+}
+.serp-item p { margin: 0; font-size: .9rem; line-height: 1.45; overflow-wrap: anywhere; }
+.serp-item p span { color: var(--muted); font-weight: 600; margin-right: 6px; }
+.serp-item-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 10px;
+  color: var(--muted); font-size: .82rem;
+}
+.serp-item-skel { font-size: .9rem; }
+.serp-item-actions { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+.serp-actions { margin-top: 2px; }
+.serp-empty { margin: 0; }
+@media (max-width: 640px) {
+  .serp-note, .serp-note-body, .serp-item { min-width: 0; max-width: 100%; }
+  .serp-note textarea {
+    width: 100%; box-sizing: border-box; min-width: 0;
+  }
+}
+
 /* 工具发掘 · 项目/生活 */
 .pill[data-type="项目"], .chip.gf-cat-proj { background: rgba(56, 189, 248, .2); color: var(--cyan, #38bdf8); }
 .pill[data-type="生活"], .chip.gf-cat-life { background: rgba(74, 222, 128, .18); color: #86efac; }
