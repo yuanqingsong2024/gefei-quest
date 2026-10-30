@@ -39,3 +39,11 @@
 3. 榜单卡：外圆角与内 panel/step 圆角符合外−gap；按钮 hover≥200ms、active 略缩。
 4. 文案：CTA 能看出下一步（看步骤与来源 / 加入本周实操）；免责声明仍在；JSON 条目名与字段未改。
 5. `node tools/site-check.js`（或惯用本地静态预览）关键路由不挂；push `main` 后 Pages 刷新，必要时硬刷新或等 SW CACHE 升级。
+
+## 第二轮：配图与更明显的视觉（2026-10-30，CACHE 42 / changelog #70）
+用户反馈第一轮「看不出变化」。这轮加 4 张统一水墨风配图（`assets/art/*.webp`，均 < 140KB，无文字）：
+- `hero-voyage.webp`：首页 hero 右侧大图（帆船载电脑驶向日出），标题上方加「挖词→上站→SEO→变现→放大」标签；≤860px 改上下排。
+- `today-quest.webp`：首页「今天这一关」卡片右上角圆形插画。
+- `rank-banner.webp`：每日赚钱榜日期行右侧横幅（桌面 92px 细条，守住 P18 的 3 屏上限；手机 2:1 置于日期上方）。
+- `agent-banner.webp`：Agent 赚钱页顶部横幅（桌面 160px，手机 16:9）。
+另加：hero 暖色/青色径向渐变、首页区块水墨分隔线、榜单卡片悬浮上浮。数据、主题切换、整站结构未改。

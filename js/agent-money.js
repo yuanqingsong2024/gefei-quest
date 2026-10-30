@@ -3,6 +3,15 @@
  *  计划 key：agent:<rank>，复用 rankFav / rankPlan，不并进每日赚钱榜。 */
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
+  function pageBanner(kind) {
+    var B = {
+      rank: { src: 'assets/art/rank-banner.webp', alt: '水墨风插画：蜿蜒山路通往山顶一箱金币和卷轴地图，沿途插着小旗', k: '今日公开渠道', t: '挑 1 条，先试一周', s: '每条附官方来源 · 每天整理一次 · 不承诺收益' },
+      agent: { src: 'assets/art/agent-banner.webp', alt: '水墨风插画：竹亭里的小机器人对着笔记本电脑工作，身边漂着工作流节点，金币落进瓷罐', k: 'Agent 进账方案', t: '让 Agent 帮你接单、上架、跑流程', s: '点卡片看步骤与来源 · 以各平台官方规则为准' }
+    }[kind];
+    if (!B) return '';
+    return '<figure class="page-banner page-banner-' + kind + '" data-reveal><img src="' + B.src + '" width="1280" height="720" loading="lazy" decoding="async" alt="' + B.alt + '" />' +
+      '<figcaption><span class="page-banner-k">' + B.k + '</span><b>' + B.t + '</b><small>' + B.s + '</small></figcaption></figure>';
+  }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   var TYPES = ['Agent接单', 'Agent内容变现', 'Agent工具/小产品', 'Agent出海小站', 'Agent闲鱼方案', 'Agent平台激励', 'Agent案例拆解'];
   var view = { type: 'all', fav: false };
@@ -88,7 +97,7 @@
     }
     QR.ensure(state);
     if (!day || !day.items || !day.items.length) {
-      root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('agent') + '</div>' + disclaimer() +
+      root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('agent') + '</div>' + pageBanner('agent') + disclaimer() +
         '<div class="empty-illo">' + global.QuestIcons.illo('list') +
         '<p><b>Agent 进账方案还没有发布</b><br>稍后再来，或先打开今日公开渠道榜。</p><p><a class="btn btn-primary btn-sm" href="#war-rank">打开今日公开渠道</a></p></div>';
       if (global.QuestNav) global.QuestNav.fixLinks(root);
@@ -102,7 +111,7 @@
     });
     var emptyB = view.fav ? '还没有收藏方案' : '这个类型今天没有条目';
     var emptyS = view.fav ? '点卡片右上角星标收藏；收藏后可从「只看收藏」回看。' : '切回「全部」看看。';
-    root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('agent') + '</div>' + disclaimer() +
+    root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('agent') + '</div>' + pageBanner('agent') + disclaimer() +
       '<p class="rank-intro" data-reveal>每天整理可执行的 Agent 进账路径（接单、小产品、平台激励等）。点卡片看步骤与来源；不承诺收益，以各平台官网规则为准。</p>' +
       '<section class="rank-bar"><div class="chip-row rank-types" role="group" aria-label="按类型筛选">' +
       '<button type="button" class="chip' + (view.type === 'all' ? ' active' : '') + '" data-amtype="all">全部 ' + day.items.length + '</button>' +

@@ -6,7 +6,7 @@
  * 图片和字体走缓存优先。只缓存同源 GET 且 status === 200 的响应。
  * 新版本 install 后自动 skipWaiting；页面在 controllerchange 时刷新一次。
  * 仍接受页面 postMessage {type:'SKIP_WAITING'}。 */
-const CACHE_VERSION = 41;
+const CACHE_VERSION = 42;
 const CACHE_NAME = 'gefei-quest-v' + CACHE_VERSION;
 
 const PRECACHE = [
@@ -73,6 +73,10 @@ const PRECACHE = [
   './assets/bg/ink.webp',
   './assets/bg/ocean.webp',
   './assets/bg/pixel.webp',
+  './assets/art/hero-voyage.webp',
+  './assets/art/today-quest.webp',
+  './assets/art/rank-banner.webp',
+  './assets/art/agent-banner.webp',
   './assets/icons/ink/flag.webp',
   './assets/icons/ink/map.webp',
   './assets/icons/ink/calendar-check.webp',

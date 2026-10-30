@@ -5,6 +5,15 @@
  *  合集计划的 key 为 <collection-id>:<rank>，只追加字段，不改已有字段名。 */
 (function (global) {
   var I = function (n) { return global.QuestIcons.svg(n); };
+  function pageBanner(kind) {
+    var B = {
+      rank: { src: 'assets/art/rank-banner.webp', alt: '水墨风插画：蜿蜒山路通往山顶一箱金币和卷轴地图，沿途插着小旗', k: '今日公开渠道', t: '挑 1 条，先试一周', s: '每条附官方来源 · 每天整理一次 · 不承诺收益' },
+      agent: { src: 'assets/art/agent-banner.webp', alt: '水墨风插画：竹亭里的小机器人对着笔记本电脑工作，身边漂着工作流节点，金币落进瓷罐', k: 'Agent 进账方案', t: '让 Agent 帮你接单、上架、跑流程', s: '点卡片看步骤与来源 · 以各平台官方规则为准' }
+    }[kind];
+    if (!B) return '';
+    return '<figure class="page-banner page-banner-' + kind + '" data-reveal><img src="' + B.src + '" width="1280" height="720" loading="lazy" decoding="async" alt="' + B.alt + '" />' +
+      '<figcaption><span class="page-banner-k">' + B.k + '</span><b>' + B.t + '</b><small>' + B.s + '</small></figcaption></figure>';
+  }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
   var TYPES = ['羊毛', '副业', '闲鱼非实物', '出海小站', '工具活动', '出海新词', '开发者羊毛', '奖金赛/悬赏', '平台激励', '联盟营销', '案例拆解', '数字产品/接单'];
   var view = { date: null, type: 'all', fav: false, resell: false };
@@ -397,7 +406,7 @@
     var meta = colByHash();
     if (meta) { renderCollection(state, root, ctx, meta); return; }
     var r = R();
-    if (!r.latest) { root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('top') + '</div>' + DISCLAIMER + '<div class="empty-illo" data-reveal>' + global.QuestIcons.illo('list') + '<p><b>今日公开渠道榜还没有发布</b><br>稍后再来，或先看 Agent 进账方案与工具发掘。</p><p><a class="btn btn-primary btn-sm" href="#war-rank-agent">打开 Agent 进账方案</a></p></div>'; return; }
+    if (!r.latest) { root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('top') + '</div>' + pageBanner('rank') + DISCLAIMER + '<div class="empty-illo" data-reveal>' + global.QuestIcons.illo('list') + '<p><b>今日公开渠道榜还没有发布</b><br>稍后再来，或先看 Agent 进账方案与工具发掘。</p><p><a class="btn btn-primary btn-sm" href="#war-rank-agent">打开 Agent 进账方案</a></p></div>'; return; }
     var date = view.date && r.dates.indexOf(view.date) >= 0 ? view.date : r.latest;
     root.innerHTML = switchHtml('top') + '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
     getDay(date, function (day) {
@@ -412,7 +421,7 @@
       var emptyS = view.resell && view.type !== 'all' ? '换个类型，或关掉「闲鱼方案」。' : view.resell ? '关掉「闲鱼方案」看看全部条目。' : view.fav ? '点卡片右上角的星标收藏感兴趣的方案。' : '切回「全部」看看。';
       var resellChip = resellN ? '<button type="button" class="chip chip-resell' + (view.resell ? ' active' : '') + '" id="rank-only-resell" data-rresell="1" aria-pressed="' + (view.resell ? 'true' : 'false') + '">闲鱼方案 ' + resellN + '</button>' : '';
       root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('top') + '</div>' + DISCLAIMER +
-        '<section class="rank-bar"><div class="rank-date"><label class="fld"><span>' + I('calendar') + '榜单日期</span><select id="rank-date">' + r.dates.map(function (d) { return '<option value="' + d + '"' + (d === date ? ' selected' : '') + '>' + d + (d === r.latest ? '（最新）' : '') + '</option>'; }).join('') + '</select></label></div>' +
+        '<section class="rank-bar has-banner"><div class="rank-date"><label class="fld"><span>' + I('calendar') + '榜单日期</span><select id="rank-date">' + r.dates.map(function (d) { return '<option value="' + d + '"' + (d === date ? ' selected' : '') + '>' + d + (d === r.latest ? '（最新）' : '') + '</option>'; }).join('') + '</select></label></div>' + pageBanner('rank') +
         '<div class="chip-row rank-types" role="group" aria-label="按类型筛选"><button type="button" class="chip' + (view.type === 'all' ? ' active' : '') + '" data-rtype="all">全部 ' + day.items.length + '</button>' +
         types.map(function (t) { var n = day.items.filter(function (i) { return i.type === t; }).length; return '<button type="button" class="chip ' + typeClass(t) + (view.type === t ? ' active' : '') + '" data-rtype="' + esc(t) + '">' + esc(t) + ' ' + n + '</button>'; }).join('') +
         resellChip +

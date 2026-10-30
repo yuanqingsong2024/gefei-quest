@@ -245,3 +245,8 @@
 - 页脚收成品牌说明 + 四列常用链接 + 一行版权。全部页面在 `#sitemap`。页脚「新手引导」和「新手导览」（`#foot-tour`）仍在。
 - 空存档 1280×800：`#home` 3.18 屏（首页不再卡 2.5 屏）。390px `scrollWidth` 390。
 - site-check：`TOTAL fails=0 consoleErrors=0`。P20b 断言首页榜单没有成本/难度，`#war-rank` 仍有。P21 覆盖顶栏下拉、全宽分区、首屏高度与字号、榜单列数、页脚与网站地图。截图 `/tmp/sc-shots/p21-home.png`、`/tmp/sc-shots/p21-home-mobile.png`。
+
+## UI 配图第二轮（2026-10-30）
+- 新增 `assets/art/` 4 张 webp（hero-voyage 93KB / today-quest 64KB / rank-banner 112KB / agent-banner 132KB），SW CACHE 42 并预缓存。
+- site-check：与改动前基线一致（P9、P10、P18-lib 2.93 为既有失败，P19 kit 预览超时为既有问题）；war-rank 2.90 屏（≤3.0），390px 首页/赚钱榜/Agent 页 scrollWidth 均为 390，无 console 错误。
+- 截图：`/workspace/gefei-shots/before-*` 与 `after-*`。

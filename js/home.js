@@ -601,12 +601,15 @@
     root.innerHTML =
       '<div class="home-hero-stage">' +
       '<section class="hero hero-home" aria-label="首页" data-reveal>' +
-      '<div class="hero-inner home-inner"><div class="hero-copy">' +
+      '<div class="hero-inner home-inner hero-has-art"><div class="hero-copy">' +
+      '<p class="hero-steps" aria-label="主线五步：挖词、上站、SEO、变现、放大"><span>挖词</span><i aria-hidden="true">→</i><span>上站</span><i aria-hidden="true">→</i><span>SEO</span><i aria-hidden="true">→</i><span>变现</span><i aria-hidden="true">→</i><span>放大</span></p>' +
       '<h1 class="hero-title">做英文出海小站</h1>' +
       '<p class="hero-sub">跟着主线路径，从新手引导做到试渠道。不承诺收入。</p>' +
       '<p class="hero-playbook"><a class="btn btn-sm" href="#guide-full-method-playbook">打开完整主线：找词→建站→收款</a></p>' +
       (next ? '<aside class="home-continue" id="home-continue"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></aside>' : '') +
-      '</div></div></section>' +
+      '</div>' +
+      '<figure class="hero-art"><img src="assets/art/hero-voyage.webp" width="1280" height="720" decoding="async" fetchpriority="high" alt="水墨风插画：一艘载着笔记本电脑的小帆船从群山驶向海上日出，天空漂着网页卡片" /></figure>' +
+      '</div></section>' +
       '<section class="home-benefit home-inner" data-reveal aria-label="这一站能帮你做什么">' +
       '<p>挑一条公开渠道，按步骤试一周。</p>' +
       '<small>榜单整理公开信息，方便你开工；不构成收益承诺。</small>' +
@@ -616,6 +619,7 @@
       '<ol class="home-path">' + nodesHtml + '</ol>' +
       '<div class="home-path-rail" id="home-rank">' +
       '<aside class="home-path-side" data-tour="cta" aria-label="今天这一关">' +
+      '<img class="home-path-illo" src="assets/art/today-quest.webp" width="640" height="640" loading="lazy" decoding="async" alt="水墨风插画：背包旅人沿灯笼照亮的石阶登山，山顶插着红旗" />' +
       '<p class="home-path-kicker">' + esc(step.stage || '') + '</p>' +
       '<h2>今天这一关</h2>' +
       '<p class="home-path-title">' + esc(step.title) + '</p>' +
