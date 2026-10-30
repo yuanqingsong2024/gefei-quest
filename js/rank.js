@@ -7,11 +7,12 @@
   var I = function (n) { return global.QuestIcons.svg(n); };
   function pageBanner(kind) {
     var B = {
-      rank: { src: 'assets/art/rank-banner.webp', alt: '水墨风插画：蜿蜒山路通往山顶一箱金币和卷轴地图，沿途插着小旗', k: '今日公开渠道', t: '挑 1 条，先试一周', s: '每条附官方来源 · 每天整理一次 · 不承诺收益' },
-      agent: { src: 'assets/art/agent-banner.webp', alt: '水墨风插画：竹亭里的小机器人对着笔记本电脑工作，身边漂着工作流节点，金币落进瓷罐', k: 'Agent 进账方案', t: '让 Agent 帮你接单、上架、跑流程', s: '点卡片看步骤与来源 · 以各平台官方规则为准' }
+      rank: { art: 'rank-banner', k: '今日公开渠道', t: '挑 1 条，先试一周', s: '每条附官方来源 · 每天整理一次 · 不承诺收益' },
+      agent: { art: 'agent-banner', k: 'Agent 进账方案', t: '让 Agent 帮你接单、上架、跑流程', s: '点卡片看步骤与来源 · 以各平台官方规则为准' }
     }[kind];
-    if (!B) return '';
-    return '<figure class="page-banner page-banner-' + kind + '" data-reveal><img src="' + B.src + '" width="1280" height="720" loading="lazy" decoding="async" alt="' + B.alt + '" />' +
+    var T = global.QuestTheme;
+    if (!B || !T) return '';
+    return '<figure class="page-banner page-banner-' + kind + '" data-reveal><img data-art="' + B.art + '" src="' + T.art(B.art) + '" width="1280" height="720" loading="lazy" decoding="async" alt="' + T.artAlt(B.art) + '" />' +
       '<figcaption><span class="page-banner-k">' + B.k + '</span><b>' + B.t + '</b><small>' + B.s + '</small></figcaption></figure>';
   }
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }

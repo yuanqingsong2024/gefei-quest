@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T10:49:38.830Z",
-  "latestId": 70,
+  "generatedAt": "2026-10-30T11:11:23.570Z",
+  "latestId": 71,
   "latestDate": "2026-10-30",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 71,
+      "date": "2026-10-30",
+      "tag": "改进",
+      "title": "海岸青、像素暖沙主题也有专属配图与配色",
+      "items": [
+        "海岸青换成水彩海岸风（白帆船、灯塔、沙洲金币、海边小屋机器人），像素暖沙换成 16-bit 像素风（粉帆小船、沙丘石阶、藏宝箱、遮阳伞机器人）；切换主题时首页 hero、今天这一关、赚钱榜与 Agent 页横幅自动换图",
+        "标签行、hero 渐变、分隔线、横幅标签、卡片悬停按主题配色；像素主题用硬边框与像素阴影。SW 缓存升到 43"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 70,
       "date": "2026-10-30",
@@ -112,17 +123,6 @@
         "悬停同样整颗高亮；首页等无下拉项与「我的 / 换风格」按钮保持原样"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 61,
-      "date": "2026-10-28",
-      "tag": "改进",
-      "title": "站一生成页预览改为大弹窗",
-      "items": [
-        "实操助手不再把完整页面塞进矮 iframe；摘要区只留 title/描述/h1 与「打开预览」",
-        "点击后用 QuestModal 大弹窗展示约 78vh 可滚动 iframe，标题含当前模板与主词；Esc / 遮罩 / 关闭按钮可关"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
     }
   ],
   "rank": {

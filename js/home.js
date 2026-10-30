@@ -571,6 +571,7 @@
   function renderHome(root, state) {
     if (!root) return;
     var I = global.QuestNav.icon;
+    var T = global.QuestTheme;
     var rank = global.QUEST_RANK || {};
     var items = latestRankItems();
     var date = rank.latest || '';
@@ -608,7 +609,7 @@
       '<p class="hero-playbook"><a class="btn btn-sm" href="#guide-full-method-playbook">打开完整主线：找词→建站→收款</a></p>' +
       (next ? '<aside class="home-continue" id="home-continue"><p>继续上次：<b>' + esc(next.text) + '</b></p><a class="btn btn-primary btn-sm" href="' + esc(next.href) + '">' + esc(next.btn) + '</a></aside>' : '') +
       '</div>' +
-      '<figure class="hero-art"><img src="assets/art/hero-voyage.webp" width="1280" height="720" decoding="async" fetchpriority="high" alt="水墨风插画：一艘载着笔记本电脑的小帆船从群山驶向海上日出，天空漂着网页卡片" /></figure>' +
+      '<figure class="hero-art">' + '<img data-art="hero-voyage" src="' + T.art('hero-voyage') + '" alt="' + T.artAlt('hero-voyage') + '" width="1280" height="720" decoding="async" fetchpriority="high" />' + '</figure>' +
       '</div></section>' +
       '<section class="home-benefit home-inner" data-reveal aria-label="这一站能帮你做什么">' +
       '<p>挑一条公开渠道，按步骤试一周。</p>' +
@@ -619,7 +620,7 @@
       '<ol class="home-path">' + nodesHtml + '</ol>' +
       '<div class="home-path-rail" id="home-rank">' +
       '<aside class="home-path-side" data-tour="cta" aria-label="今天这一关">' +
-      '<img class="home-path-illo" src="assets/art/today-quest.webp" width="640" height="640" loading="lazy" decoding="async" alt="水墨风插画：背包旅人沿灯笼照亮的石阶登山，山顶插着红旗" />' +
+      '<img class="home-path-illo" data-art="today-quest" src="' + T.art('today-quest') + '" alt="' + T.artAlt('today-quest') + '" width="640" height="640" loading="lazy" decoding="async" />' +
       '<p class="home-path-kicker">' + esc(step.stage || '') + '</p>' +
       '<h2>今天这一关</h2>' +
       '<p class="home-path-title">' + esc(step.title) + '</p>' +

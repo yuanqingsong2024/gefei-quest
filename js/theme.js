@@ -35,6 +35,45 @@
     }
   }
 
+
+  /** 主题配图：水墨在 assets/art/，其它主题在 assets/art/<theme>/。img 带 data-art="<name>"，切主题时自动换图与 alt。 */
+  var ART_ALT = {
+    ink: {
+      'hero-voyage': '水墨风插画：一艘载着笔记本电脑的小帆船从群山驶向海上日出，天空漂着网页卡片',
+      'today-quest': '水墨风插画：背包旅人沿灯笼照亮的石阶登山，山顶插着红旗',
+      'rank-banner': '水墨风插画：蜿蜒山路通往山顶一箱金币和卷轴地图，沿途插着小旗',
+      'agent-banner': '水墨风插画：竹亭里的小机器人对着笔记本电脑工作，身边漂着工作流节点，金币落进瓷罐'
+    },
+    ocean: {
+      'hero-voyage': '水彩海岸插画：载着笔记本电脑的白色帆船驶过碧蓝海面，岬角上有白色灯塔，天空漂着网页卡片',
+      'today-quest': '水彩海岸插画：背包旅人沿沙丘木栈道走向插着小旗的白色灯塔',
+      'rank-banner': '水彩海岸插画：碧蓝浅海里的踏石小路通往沙洲上的一箱金币和卷轴地图',
+      'agent-banner': '水彩海岸插画：海边小屋门廊上的白色小机器人对着笔记本电脑工作，金币落进玻璃罐'
+    },
+    pixel: {
+      'hero-voyage': '像素风插画：粉色帆的小木船载着发光笔记本电脑驶向晚霞落日，沙滩上有棕榈树',
+      'today-quest': '像素风插画：背包小人沿石阶爬上沙丘，山顶插着粉色旗子，旁边有灯笼和棕榈树',
+      'rank-banner': '像素风插画：沙滩上插着检查点小旗的石板路通往一箱金币和藏宝图',
+      'agent-banner': '像素风插画：沙滩遮阳伞下的小机器人对着笔记本电脑工作，工作流图标漂在空中，金币落进陶罐'
+    }
+  };
+  function art(name, theme) {
+    theme = valid(theme || global.document.documentElement.getAttribute('data-theme'));
+    return 'assets/art/' + (theme === 'ink' ? '' : theme + '/') + name + '.webp';
+  }
+  function artAlt(name, theme) {
+    theme = valid(theme || global.document.documentElement.getAttribute('data-theme'));
+    return (ART_ALT[theme] && ART_ALT[theme][name]) || '';
+  }
+  function refreshArt(root) {
+    var nodes = (root || global.document).querySelectorAll('img[data-art]');
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i].getAttribute('data-art'), src = art(n);
+      if (nodes[i].getAttribute('src') !== src) nodes[i].setAttribute('src', src);
+      nodes[i].setAttribute('alt', artAlt(n));
+    }
+  }
+
   function apply(theme) {
     theme = valid(theme);
     var doc = global.document;
@@ -42,6 +81,7 @@
     var meta = doc.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', COLORS[theme]);
     sync(doc);
+    refreshArt(doc);
     return theme;
   }
 
@@ -73,6 +113,9 @@
     set: set,
     init: init,
     bind: bind,
+    art: art,
+    artAlt: artAlt,
+    refreshArt: refreshArt,
     THEMES: THEMES,
     LABELS: LABELS
   };

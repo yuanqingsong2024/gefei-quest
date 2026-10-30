@@ -1100,7 +1100,29 @@ html[data-theme] .theme-popover {
   border-color: var(--line);
 }
 
-/* ===== Phase UI-art（2026-10-30）：配图 · hero 大图 · 页面横幅 · 区块分隔 ===== */
+/* ===== Phase UI-art（2026-10-30）：配图 · hero 大图 · 页面横幅 · 区块分隔 =====
+   配图按主题换（js/theme.js QuestTheme.art + img[data-art]）；配色走下面 --art-* 变量 */
+html[data-theme="ink"] {
+  --art-warm: rgba(214, 158, 46, .16); --art-cool: rgba(15, 118, 110, .10);
+  --art-accent: #d69e2e; --art-pill-bg: color-mix(in srgb, #1e3a5f 10%, #fff); --art-pill-fg: #1e3a5f; --art-pill-line: color-mix(in srgb, #1e3a5f 30%, transparent);
+  --art-k-rank: linear-gradient(90deg, #b7791f, #d69e2e); --art-k-agent: #0f766e;
+  --art-shadow: 0 24px 60px -24px rgba(15, 30, 60, .45); --art-card-hover: 0 18px 36px -22px rgba(15, 30, 60, .45);
+  --art-divider-ink: rgba(28, 25, 23, .28);
+}
+html[data-theme="ocean"] {
+  --art-warm: rgba(253, 224, 71, .22); --art-cool: rgba(6, 182, 212, .18);
+  --art-accent: #0891b2; --art-pill-bg: rgba(255, 255, 255, .85); --art-pill-fg: #0e7490; --art-pill-line: #67e8f9;
+  --art-k-rank: linear-gradient(90deg, #0891b2, #22d3ee); --art-k-agent: linear-gradient(90deg, #0284c7, #38bdf8);
+  --art-shadow: 0 24px 60px -24px rgba(8, 80, 120, .45); --art-card-hover: 0 18px 36px -20px rgba(8, 100, 140, .45);
+  --art-divider-ink: rgba(8, 145, 178, .35);
+}
+html[data-theme="pixel"] {
+  --art-warm: rgba(244, 114, 182, .18); --art-cool: rgba(167, 139, 250, .18);
+  --art-accent: #db2777; --art-pill-bg: #fffdf8; --art-pill-fg: #9d174d; --art-pill-line: #3f2e22;
+  --art-k-rank: #db2777; --art-k-agent: #7c3aed;
+  --art-shadow: 6px 6px 0 #3f2e22; --art-card-hover: 4px 4px 0 #3f2e22;
+  --art-divider-ink: #3f2e22;
+}
 html[data-theme] body .hero.hero-home .hero-inner.hero-has-art {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
@@ -1114,9 +1136,9 @@ html[data-theme] .hero-steps {
 html[data-theme] .hero-steps span {
   display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px;
   font-size: 12px; font-weight: 700; letter-spacing: .04em;
-  color: var(--gold-text, var(--ink));
-  background: color-mix(in srgb, var(--gold, #c9a227) 16%, var(--panel, #fff));
-  border: 1px solid color-mix(in srgb, var(--gold, #c9a227) 38%, transparent);
+  color: var(--art-pill-fg, var(--ink));
+  background: var(--art-pill-bg, var(--panel));
+  border: 1px solid var(--art-pill-line, var(--line));
 }
 html[data-theme] .hero-steps { align-items: center; }
 html[data-theme] .hero-steps i { font-style: normal; opacity: .4; font-size: 12px; }
@@ -1124,7 +1146,7 @@ html[data-theme] .hero-has-art .hero-title { font-size: clamp(30px, 4.2vw, 48px)
 html[data-theme] .hero-art {
   margin: 0; position: relative; border-radius: 22px; overflow: hidden;
   aspect-ratio: 16 / 9;
-  box-shadow: 0 24px 60px -24px rgba(15, 30, 60, .45), 0 0 0 1px color-mix(in srgb, var(--line, #ddd) 70%, transparent);
+  box-shadow: var(--art-shadow), 0 0 0 1px color-mix(in srgb, var(--line, #ddd) 70%, transparent);
   transform: rotate(-.6deg);
   transition: transform .6s cubic-bezier(.2, .8, .2, 1), box-shadow .6s;
 }
@@ -1138,8 +1160,8 @@ html[data-theme] .hero-art::after {
 html[data-theme] .home-hero-stage::before { opacity: .55; }
 html[data-theme] .home-hero-stage {
   background:
-    radial-gradient(1200px 420px at 85% -10%, rgba(214, 158, 46, .16), transparent 70%),
-    radial-gradient(900px 380px at 0% 0%, color-mix(in srgb, var(--cyan, #0f766e) 10%, transparent), transparent 70%),
+    radial-gradient(1200px 420px at 85% -10%, var(--art-warm), transparent 70%),
+    radial-gradient(900px 380px at 0% 0%, var(--art-cool), transparent 70%),
     var(--bg);
 }
 /* 今天这一关：右上角配图 */
@@ -1157,7 +1179,7 @@ html[data-theme] .home-band { position: relative; }
 html[data-theme] .home-today-band::before,
 html[data-theme] #home-split::before {
   content: ""; display: block; height: 2px; max-width: 520px; margin: 0 auto 28px;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ink, #222) 28%, transparent) 30%, #d69e2e 50%, color-mix(in srgb, var(--ink, #222) 28%, transparent) 70%, transparent);
+  background: linear-gradient(90deg, transparent, var(--art-divider-ink) 30%, var(--art-accent) 50%, var(--art-divider-ink) 70%, transparent);
   border-radius: 2px;
 }
 /* 赚钱页 / Agent 页横幅 */
@@ -1165,7 +1187,7 @@ html[data-theme] .page-banner {
   position: relative; margin: 6px 0 8px; border-radius: 18px; overflow: hidden;
   height: 160px;
   background: var(--panel2, #f4f1ea);
-  box-shadow: 0 18px 44px -26px rgba(15, 30, 60, .5), 0 0 0 1px color-mix(in srgb, var(--line, #ddd) 70%, transparent);
+  box-shadow: var(--art-shadow), 0 0 0 1px color-mix(in srgb, var(--line, #ddd) 70%, transparent);
 }
 html[data-theme] .page-banner img {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 45%;
@@ -1182,7 +1204,7 @@ html[data-theme] .page-banner figcaption {
 }
 html[data-theme] .page-banner-k {
   align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: .06em; padding: 2px 10px; border-radius: 999px;
-  color: #fff; background: var(--cyan, #0f766e);
+  color: #fff; background: var(--art-k-agent, var(--cyan));
 }
 /* 每日赚钱榜有 3 屏高度上限（site-check P18），横幅做成细长条 */
 html[data-theme] .page-banner-rank { height: 92px; }
@@ -1193,14 +1215,28 @@ html[data-theme] .rank-bar.has-banner > .rank-types { flex: 1 1 100%; }
 html[data-theme] .page-banner-rank img { object-position: 70% 30%; }
 html[data-theme] .page-banner-rank figcaption { padding: 10px 22px; gap: 2px; }
 html[data-theme] .page-banner-rank figcaption small { display: none; }
-html[data-theme] .page-banner-rank .page-banner-k { background: linear-gradient(90deg, #b7791f, #d69e2e); }
+html[data-theme] .page-banner-rank .page-banner-k { background: var(--art-k-rank); }
 html[data-theme] .page-banner figcaption b { font-size: clamp(18px, 2.2vw, 26px); line-height: 1.25; color: var(--ink); }
 html[data-theme] .page-banner figcaption small { color: var(--muted); font-size: 13px; }
 /* 卡片：更明显的悬浮与前三名光晕 */
 html[data-theme] .rank-grid > * { transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .35s; }
-html[data-theme] .rank-grid > *:hover { transform: translateY(-3px); box-shadow: 0 18px 36px -22px rgba(15, 30, 60, .45); }
+html[data-theme] .rank-grid > *:hover { transform: translateY(-3px); box-shadow: var(--art-card-hover); }
 html[data-theme="pixel"] .hero-art,
-html[data-theme="pixel"] .page-banner { border-radius: 4px; }
+html[data-theme="pixel"] .page-banner { border-radius: 4px; border: 3px solid #3f2e22; }
+html[data-theme="pixel"] .hero-art { transform: none; }
+html[data-theme="pixel"] .hero-art:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 #3f2e22; }
+html[data-theme="pixel"] .hero-art::after { display: none; }
+html[data-theme="pixel"] .hero-art img, html[data-theme="pixel"] .page-banner img, html[data-theme="pixel"] .home-path-illo { image-rendering: pixelated; }
+html[data-theme="pixel"] .hero-steps span, html[data-theme="pixel"] .page-banner-k { border-radius: 2px; box-shadow: 2px 2px 0 #3f2e22; }
+html[data-theme="pixel"] .home-path-illo { border-radius: 4px; -webkit-mask-image: none; mask-image: none; border: 2px solid #3f2e22; right: 10px; top: 10px; width: 96px; height: 96px; }
+html[data-theme="pixel"] .home-today-band::before, html[data-theme="pixel"] #home-split::before {
+  height: 4px; border-radius: 0;
+  background: repeating-linear-gradient(90deg, var(--art-accent) 0 8px, transparent 8px 12px, #3f2e22 12px 20px, transparent 20px 24px);
+}
+html[data-theme="ocean"] .home-today-band::before, html[data-theme="ocean"] #home-split::before { height: 3px; }
+html[data-theme="ocean"] .page-banner::before {
+  background: linear-gradient(90deg, rgba(255, 255, 255, .92) 0%, rgba(240, 249, 255, .7) 34%, transparent 62%);
+}
 @media (max-width: 860px) {
   html[data-theme] body .hero.hero-home .hero-inner.hero-has-art { grid-template-columns: 1fr; gap: 18px; }
   html[data-theme] .hero-art { transform: none; border-radius: 16px; }
@@ -1221,4 +1257,10 @@ html[data-theme="pixel"] .page-banner { border-radius: 4px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html[data-theme] .hero-art, html[data-theme] .page-banner img, html[data-theme] .rank-grid > * { transition: none; transform: none; }
+}
+/* 主题配图细调（构图位置 / 像素主题在窄屏保持硬边） */
+html[data-theme="pixel"] .page-banner-agent img { object-position: 70% 66%; }
+html[data-theme="ocean"] .page-banner-agent img { object-position: 70% 50%; }
+@media (max-width: 860px) {
+  html[data-theme="pixel"] .hero-art { border-radius: 4px; }
 }

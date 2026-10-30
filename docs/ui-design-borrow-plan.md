@@ -47,3 +47,9 @@
 - `rank-banner.webp`：每日赚钱榜日期行右侧横幅（桌面 92px 细条，守住 P18 的 3 屏上限；手机 2:1 置于日期上方）。
 - `agent-banner.webp`：Agent 赚钱页顶部横幅（桌面 160px，手机 16:9）。
 另加：hero 暖色/青色径向渐变、首页区块水墨分隔线、榜单卡片悬浮上浮。数据、主题切换、整站结构未改。
+
+## 第三轮：每个主题一套配图（2026-10-30，CACHE 43 / changelog #71）
+- 海岸青 `assets/art/ocean/`：水彩海岸风（白帆船+灯塔、沙丘木栈道走向灯塔、浅海踏石通往沙洲宝箱、海边小屋门廊机器人）。
+- 像素暖沙 `assets/art/pixel/`：16-bit 像素风（粉帆小木船驶向晚霞、沙丘石阶插粉旗、检查点小旗通往藏宝箱、遮阳伞下机器人），`image-rendering: pixelated`，硬边框 + 像素投影。
+- 水墨纸仍用 `assets/art/*.webp`。`js/theme.js` 新增 `QuestTheme.art/artAlt/refreshArt`：图片带 `data-art`，切主题时 `apply()` 自动换 src 与 alt。
+- 配色抽成 `--art-*` 变量（暖/冷渐变、标签行、分隔线、横幅标签、卡片悬停阴影），三套主题各一组。SW 只预缓存水墨默认图，其它主题图走运行时缓存。
