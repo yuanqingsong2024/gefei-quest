@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 67, date: '2026-10-30', title: '首页新增「SERP 标题拆解便签」：本机拆解搜索标题', tag: '新功能', href: '#home-today',
+      items: ['首页挖词候选卡旁可折叠「SERP 标题拆解便签」：粘贴最多 3 条标题，本机拆解词长/数字年份/修饰词并生成可仿写骨架', '一键填入候选卡「拟标题」。草稿只存本机。不调用外部 AI，也不上传'] },
     { id: 66, date: '2026-10-29', title: '选词删除改为页内确认 + 文案与灰锁提示修补', tag: '修复', href: '#war-keywords',
       items: ['选词练习板删除改为页内确认（避免自动化静默取消 window.confirm）；删后 toast，刷新后计数为 0', '成就/连击旁注明「一旦获得不随取消勾选消失」；每周补给统一为已暂停；下载页按邮箱实填显示「已填/未填」', '作战室灰锁任务显示解锁条件；首页挖词候选卡注明与选词练习板分属两套计数'] },
     { id: 65, date: '2026-10-29', title: 'AI生活合集新增「生活后台」场景文选题', tag: '内容', href: '#war-rank-ai-life',

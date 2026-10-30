@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-29T09:13:04.490Z",
-  "latestId": 66,
-  "latestDate": "2026-10-29",
+  "generatedAt": "2026-10-30T02:13:55.826Z",
+  "latestId": 67,
+  "latestDate": "2026-10-30",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 67,
+      "date": "2026-10-30",
+      "tag": "新功能",
+      "title": "首页新增「SERP 标题拆解便签」：本机拆解搜索标题",
+      "items": [
+        "首页挖词候选卡旁可折叠「SERP 标题拆解便签」：粘贴最多 3 条标题，本机拆解词长/数字年份/修饰词并生成可仿写骨架",
+        "一键填入候选卡「拟标题」。草稿只存本机。不调用外部 AI，也不上传"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-today"
+    },
     {
       "id": 66,
       "date": "2026-10-29",
@@ -112,17 +123,6 @@
         "附中国日报网 / IT之家 / 阿里云开发者社区 / 21经济网来源；授权可撤、误报人审、退订自己点；不代查不代停，不承诺收益"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 57,
-      "date": "2026-10-28",
-      "tag": "新功能",
-      "title": "首页新增「挖词候选卡」：本机收词并一键复制",
-      "items": [
-        "首页今日任务旁可折叠「挖词候选卡」：词 / 搜索意图 / 拟标题 / 变现方式，增删改只存本机",
-        "一键复制全文（含固定合规提示：只卖教程和方案，不卖账号、兑换码，也不做代领，不承诺收益）。不调用外部 AI"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-today"
     }
   ],
   "rank": {
