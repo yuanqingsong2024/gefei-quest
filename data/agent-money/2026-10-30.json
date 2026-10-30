@@ -1,0 +1,401 @@
+{
+  "date": "2026-10-30",
+  "updated": "2026-10-30T09:20:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Apify Store：上架 Actor / Agent 工具，按次分成约 80%（含 Agent 付款）",
+      "type": "Agent工具/小产品",
+      "summary": "把可复用的抓取、自动化或 AI 工具做成 Apify Actor 上架；用户（及部分 AI Agent）按次付费，官方条款写明创作者拿费用约 80% 再扣平台用量成本；支持 API/MCP，可被 Claude/Cursor 等调用。",
+      "cost": "注册免费；开发与自测消耗自有用量（Creator 计划有试用额度宣传）；KYC 后才能提现；最低提现约 $20（PayPal/Wise）或 $100（其他）",
+      "difficulty": 4,
+      "threshold": "会 Python/JS 或能让 Agent 写出可维护 Actor；愿意做 KYC；优先做「有人已在付钱的窄任务」，避开侵权抓取与刷量",
+      "time": "首个 Actor 从模板到上架约 1 天；获客与迭代按周计",
+      "fit": "会写小工具、想按次被动进账、能接受长尾与维护的开发者",
+      "why": "分成公式、Agentic payments、月结与 KYC 均有官方文档；合作页公开月度打款规模与开发者数，比空谈「卖给 Agent」更可核验。",
+      "steps": [
+        "读 docs.apify.com 的 Monetize Actors 与 Store Publishing Terms，确认 PPE 定价与利润公式",
+        "选一个窄结果（如某公开站点的结构化字段导出），用官方模板写 Actor，先自测成本是否盖住售价",
+        "写清 README：输入、输出、不做清单、免费档限制；开启按事件计费并关掉「usage 转嫁」若要走 agentic payments",
+        "完成身份验证与收款方式；发布后盯 Analytics，用 Agent 修失败分支，你审合规与反爬风险",
+        "勿刷评价/多号刷量；单 Actor 故障超 30 天可能被下架——维护优先于堆数量"
+      ],
+      "risk": "风险等级：高。多数 listing 用户极少；抓取类合规风险自负；利润=0.8*收入-平台成本，定价不当可能月利润被记 0。不承诺收益。",
+      "risk_level": "高",
+      "reason": "今天最硬的「工具一次上架、按次结算」官方闭环，且明确支持 Agent 付款路径。",
+      "tags": [
+        "Apify",
+        "Actor",
+        "MCP",
+        "按次分成",
+        "Agent付款"
+      ],
+      "sources": [
+        {
+          "title": "Monetize Actors — Apify Docs",
+          "url": "https://docs.apify.com/platform/actors/publishing/monetize",
+          "publisher": "Apify",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "Actor pricing and costs",
+          "url": "https://docs.apify.com/actors/monetize/pricing-and-costs",
+          "publisher": "Apify",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "Publish a tool once. Earn every time it runs.",
+          "url": "https://apify.com/partners/actor-developers",
+          "publisher": "Apify",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-30"
+        }
+      ],
+      "source_url": "https://docs.apify.com/platform/actors/publishing/monetize",
+      "agent_howto": "让 Cursor/Claude Code 按 Apify Actor 模板生成主逻辑、input schema 与 README；你本地/平台跑 5 个真实样例，核对单次成本与售价。用 Agent 写事件计费埋点与失败退出文案，你负责 KYC、定价与「是否触碰目标站 ToS」。上线后把失败 run 日志贴回 Agent 迭代，禁止让 Agent 自动改收款信息或伪造指标。",
+      "agent_stack": [
+        "Cursor",
+        "Claude Code",
+        "Apify SDK",
+        "Python/JS"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Kopai：把专长做成按消息计费的 Agent（创作者约留 70%）",
+      "type": "Agent工具/小产品",
+      "summary": "Kopai 把知识库/工作流做成可上架 Agent：用户按消息耗积分付费，Product Hunt 与官网写明创作者可从 Agent 收入中留约 70%；有评测门禁，通过后可上架或嵌到自有站。",
+      "cost": "构建侧宣传「有人用才计费」；需准备可验收知识与场景；平台抽成约 30%；跨境收款视平台规则",
+      "difficulty": 3,
+      "threshold": "有可打包的垂直专长（咨询、对比研究、文档生成等）；能过评测门禁；接受早期目录偏咨询/财务类",
+      "time": "上传知识与调通对话数小时到 2 天；获客另计",
+      "fit": "专家/顾问想用「按条问答」替代约日历，或 builder 想快速上一个可试用 Agent",
+      "why": "PH 产品页与 usekopai.com 对「按消息、评测后上架、自有域导出」描述一致；分成比例在 PH 文案中写清，今日相对新且少与昨日榜重复。",
+      "steps": [
+        "打开 usekopai.com，用对话或表单建一个「单一结果」Agent，上传脱敏知识库",
+        "按站点评测维度（提示词、边界、安全、检索准确性）修到可发布阈值",
+        "设定消息加价与免费试用条数；先站内上架，再视情况嵌到自有域名",
+        "用真实潜客试 10 轮对话，记录幻觉与拒答，再迭代知识而非堆功能",
+        "同步把同一专长做成直客维保报价，避免只靠市场偶然流量"
+      ],
+      "risk": "风险等级：中。早期品类偏薄、流量不确定；专业建议类需合规免责；分成与条款可能变更。不承诺收益。",
+      "risk_level": "中",
+      "reason": "低代码把专长产品化，分成公开，适合今天先上一个可试用的垂直 Agent。",
+      "tags": [
+        "Kopai",
+        "按消息",
+        "知识库",
+        "marketplace",
+        "70%"
+      ],
+      "sources": [
+        {
+          "title": "Kopai · The cloud for AI agents",
+          "url": "https://usekopai.com",
+          "publisher": "Kopai",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "Kopai: The Cloud for AI Agents | Product Hunt",
+          "url": "https://www.producthunt.com/products/kopai-the-marketplace-for-ai-agents",
+          "publisher": "Product Hunt",
+          "published": "2026-09-08",
+          "kind": "other",
+          "checked": "2026-10-30"
+        }
+      ],
+      "source_url": "https://usekopai.com",
+      "agent_howto": "让 Agent 根据你的专长写出：系统提示、拒答边界、评测自检表与上架简介；你上传真实但脱敏的资料并人工过评测失败项。上线后把差评对话导出给 Agent 改知识切片，你决定是否下架或改价。勿让 Agent 承诺医疗/法律结论或保证收益。",
+      "agent_stack": [
+        "Kopai",
+        "Cursor/Claude",
+        "自有知识库"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Fiverr：做「Claude Code / AI Agent 搭建」固定范围 Gig",
+      "type": "Agent接单",
+      "summary": "Fiverr 2026 Business Trends 显示 Claude Code 等相关搜索大幅上升；把交付做成固定范围套餐（如：客服 Agent 20 意图 + 1 个集成），用 Cursor/Claude 加速交付，按 Gig 价进账。",
+      "cost": "平台抽成按 Fiverr 现行规则；Claude/Cursor 订阅自理；前期样例与演示成本",
+      "difficulty": 3,
+      "threshold": "能出示可点开的 Demo/Loom；英文 Gig 文案；严格写清修订次数与不含项",
+      "time": "打磨 Gig 与 Demo 1–2 天；中单后按套餐交付",
+      "fit": "能用 Agent 出活、愿做产品化套餐、可接受平台抽成的接单者",
+      "why": "官方 Trends/新闻页给出 Claude Code 需求暴增的公开信号；相对泛「AI 写手」，专项 Gig 更匹配付费搜索意图。",
+      "steps": [
+        "读 Fiverr Business Trends / Claude Code 相关新闻，记下买家在搜的相邻词（n8n、voice agent、vibe coding）",
+        "做一个可演示的窄 Demo（例如帮助文档→客服 Agent），录 2–3 分钟 Loom",
+        "上架 3 档 Gig：Starter/标准/含 1 次集成；写死修订次数与数据不做清单",
+        "交付时用 Agent 出骨架与测试清单，你做人审、权限交接与验收截图",
+        "结项后报价月维护；拒绝无边界「全公司 Agent 化」"
+      ],
+      "risk": "风险等级：中。搜索增长≠你的订单；竞价与差评压力大；客户数据合规责任在你。不承诺中标或收益。",
+      "risk_level": "中",
+      "reason": "需求侧有平台公开数据背书，产品化 Gig 比拼日薪更能控边际。",
+      "tags": [
+        "Fiverr",
+        "Claude Code",
+        "Gig",
+        "接单",
+        "产品化"
+      ],
+      "sources": [
+        {
+          "title": "Businesses Race to Hire Claude Code Specialists As Demand Surges 938%",
+          "url": "https://www.fiverr.com/news/business-trends-index-ai-2026",
+          "publisher": "Fiverr",
+          "published": "2026-06-09",
+          "kind": "news",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "Business Trends Index | Fiverr",
+          "url": "https://pages.fiverr.com/businesstrendsindex/en",
+          "publisher": "Fiverr",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "AI Automation Experts Cost Guide 2026 | Fiverr",
+          "url": "https://www.fiverr.com/resources/guides/costs/ai-automation-experts",
+          "publisher": "Fiverr",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-30"
+        }
+      ],
+      "source_url": "https://www.fiverr.com/news/business-trends-index-ai-2026",
+      "agent_howto": "让 Agent 根据 Trends 关键词起草 Gig 标题、套餐边界与 FAQ；你改成可签约措辞并配 Demo。实施时用 Cursor/Claude Code 生成工作流与测试，你负责账号权限、UAT 与最终交付。禁止把「938%」写成你的个人业绩承诺。",
+      "agent_stack": [
+        "Cursor",
+        "Claude Code",
+        "n8n/Make可选",
+        "Loom"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "OmniVibe：发布本地 Agent / SKILL，按合格用量分成",
+      "type": "Agent平台激励",
+      "summary": "OmniVibe 是面向创作者的 Agent 市场：可导入已有 Agent/SKILL 发布，用户在统一工作区调用，创作者从合格用量中获得分成；PH 与官网强调「发布即可能被发现并赚钱」。",
+      "cost": "上架门槛低；早期平台，分成细则以站内条款为准；需自备可演示 Agent",
+      "difficulty": 3,
+      "threshold": "已有可导入的 Agent/SKILL；能接受早期流量与规则未完全透明；优先垂直场景",
+      "time": "导入与上架数小时；是否有量看分发",
+      "fit": "本地已有 Skills/Agent、想多一个货架而不自建账单的人",
+      "why": "PH 启动文案与 omnivibe.me 对「创作者发布→用量变现」路径一致，且与昨日 Swarms/BotWork 不重复，可作为实验通道。",
+      "steps": [
+        "打开 omnivibe.me / Studio，导入现有 Agent 或 SKILL.md，写清能力与不含项",
+        "先用自己账号跑通多 Agent 协作场景，修权限与失败提示",
+        "发布后把链接放到你已有流量处（X/博客/客户群），勿只等首页推荐",
+        "记录合格用量与拒付/差评原因，收紧能力声明",
+        "条款与分成比例以站内最新说明为准，上架前截图留存"
+      ],
+      "risk": "风险等级：高。早期市场、公开分成比例不如 Apify/Kopai 细；用量定义与结算以平台为准。不承诺收益。",
+      "risk_level": "高",
+      "reason": "给已有本地 Agent 一个低成本分发实验位，但必须标高风险、不当主业。",
+      "tags": [
+        "OmniVibe",
+        "SKILL",
+        "marketplace",
+        "用量分成"
+      ],
+      "sources": [
+        {
+          "title": "OmniVibe — AI Agent Marketplace",
+          "url": "https://omnivibe.me",
+          "publisher": "OmniVibe",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "OmniVibe: Marketplace for agent creators & users | Product Hunt",
+          "url": "https://www.producthunt.com/products/omnivibe",
+          "publisher": "Product Hunt",
+          "published": "",
+          "kind": "other",
+          "checked": "2026-10-30"
+        }
+      ],
+      "source_url": "https://omnivibe.me",
+      "agent_howto": "让 Agent 把你的本地 SKILL/仓库整理成上架简介、示例对话与安全声明；你在 Studio 导入并人工点一遍敏感工具权限。上线后用 Agent 汇总用量反馈改提示词，你决定是否继续运营该货架。",
+      "agent_stack": [
+        "OmniVibe Studio",
+        "SKILL.md",
+        "Cursor"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "案例拆解：卖 Agent 的四通道——优先「直客搭建费+月维护」",
+      "type": "Agent案例拆解",
+      "summary": "A8gent 公开梳理四条通道：模板店、自由职业市场、平台应用目录、直客结果型销售；价格带从数十美元到五位数不等，结论是多数人应主攻直客维保，市场货架当获客而非主收入。",
+      "cost": "阅读免费；跟做需演示与销售时间",
+      "difficulty": 2,
+      "threshold": "能说清一个行业工作流；愿意做外联；有或可做 Demo",
+      "time": "精读 30–60 分钟；选通道并行动按周",
+      "fit": "已会搭 Agent、卡在「卖给谁、卖什么价」的人",
+      "why": "把通道、价位与决策问题写死，可直接对照昨日平台上架冲动；来源可打开且不含收益承诺。",
+      "steps": [
+        "通读 a8gent.com 四通道文，自己回答：有无受众、能否零配置、懂不懂一个行业",
+        "若答案是「无受众、需配置、懂一行」：本周只做直客名单 10 家 + 1 个 Demo",
+        "Upwork/Fiverr 仅作作品集与接漏单，标题写成垂直句而非「AI 工程师」",
+        "模板店只在已有流量时做；把模板当线索磁铁而非利润中心",
+        "报价用「对比人工成本/损失订单」而不是对比其他 Agent 模板价"
+      ],
+      "risk": "风险等级：中。方法论不能保证成交；直客销售有拒信与账期。不承诺收益。",
+      "risk_level": "中",
+      "reason": "纠正「只上架等买家」偏差，今天最值得用来排优先级的一篇。",
+      "tags": [
+        "案例",
+        "直客",
+        "定价",
+        "四通道",
+        "维保"
+      ],
+      "sources": [
+        {
+          "title": "Where to Sell AI Agents Online: 2026 Marketplaces",
+          "url": "https://a8gent.com/blog/where-to-sell-ai-agents",
+          "publisher": "A8gent",
+          "published": "2026-08-20",
+          "kind": "post",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "Selling custom GPTs, AI agents and agent tools: the full research",
+          "url": "https://doesitpay.org/selling-ai-agents-and-gpts/research/",
+          "publisher": "Does It Pay?",
+          "published": "2026-10-10",
+          "kind": "post",
+          "checked": "2026-10-30"
+        }
+      ],
+      "source_url": "https://a8gent.com/blog/where-to-sell-ai-agents",
+      "agent_howto": "把两篇文章贴给 Agent，要求输出：你的三问答案、本周 10 家潜客话术、Demo 验收清单、不做清单；你改话术并真人外联。Agent 可起草提案，合同价与范围必须人手定。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "Loom Demo",
+        "邮件/LinkedIn"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "闲鱼：卖「垂直行业 Agent 搭建+验收」原创方案包",
+      "type": "Agent闲鱼方案",
+      "summary": "把某一垂直场景（如电商客服、本地生活预约、自媒体选题）的 Agent 搭建步骤、提示词、验收表与禁忌清单做成原创数字方案上架；用 Agent 加速写作与排版，人审后自动/半自动发货。",
+      "cost": "闲鱼账号与少量推广；内容制作时间；可选网盘与自动发货工具",
+      "difficulty": 2,
+      "threshold": "至少完整做过一遍该场景；只卖原创方案/模板，不卖账号、激活码、代领；遵守闲鱼虚拟品规则",
+      "time": "打磨一份可售方案 1–3 天；上架与迭代持续",
+      "fit": "有实操经验、想把经验产品化反复卖的人",
+      "why": "符合「能反复卖的数字产品」偏好；避开卖券/代操作；与接单 SOP 相比更偏「搭建交付包」，可直接进账。",
+      "steps": [
+        "选一个你已跑通的垂直场景，列出输入、工具、验收标准、失败案例",
+        "用 Agent 生成大纲与插图说明，你改成可执行步骤并附空白验收表",
+        "闲鱼标题写清「原创方案/模板」，详情放目录与更新承诺，不写收益承诺",
+        "配置发货：网盘链接或文件，测试拍下→交付全流程",
+        "收集差评只迭代内容；拒绝代部署涉账号密码的需求"
+      ],
+      "risk": "风险等级：中。同质化竞争；虚拟品下架风险；若买家期望你代操作会起纠纷。不承诺销量或收益。",
+      "risk_level": "中",
+      "reason": "门槛低、可今天动手，且契合用户「方案可再包装」的诉求。",
+      "tags": [
+        "闲鱼",
+        "原创方案",
+        "数字产品",
+        "垂直Agent",
+        "验收"
+      ],
+      "sources": [
+        {
+          "title": "AI 接单 7 个小活儿实测报价（需求侧参考）",
+          "url": "https://ai211.vip/posts/7",
+          "publisher": "AI211",
+          "published": "2026-10-18",
+          "kind": "post",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "Where to Sell AI Agents — artifact vs service",
+          "url": "https://a8gent.com/blog/where-to-sell-ai-agents",
+          "publisher": "A8gent",
+          "published": "2026-08-20",
+          "kind": "post",
+          "checked": "2026-10-30"
+        }
+      ],
+      "source_url": "https://ai211.vip/posts/7",
+      "agent_howto": "让 Agent 按你的实操笔记生成方案目录、步骤、验收表与 FAQ；你删掉未验证步骤并补真实截图（脱敏）。上架文案由 Agent 起草，收益与时效承诺必须人手删掉。发货链接与售后话术可用 Agent 模板，密钥与账号绝不写入商品。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "闲鱼",
+        "网盘"
+      ],
+      "resell": "仅原创搭建/验收方案与模板；不转卖账号、卡密、代领或灰产教程"
+    },
+    {
+      "rank": 7,
+      "name": "案例拆解：别押 GPT Store——工具按次与直客项目才站得住",
+      "type": "Agent案例拆解",
+      "summary": "Does It Pay 2026-10 调研指出：个人向 Custom GPT 创建已受限且计划退役；GPT Store 对多数人几乎无分成可证；相对可核验的是 Apify 类按次工具与「≥$1k 的客户 Agent 项目」。用来校正选题，避免跟过时话术。",
+      "cost": "阅读免费；转行动需开发或销售投入",
+      "difficulty": 2,
+      "threshold": "愿意放弃「无代码卖 GPT 躺赚」叙事；能选工具路线或直客路线之一",
+      "time": "精读核心章节 1 小时；本周做一次路线二选一决策",
+      "fit": "仍在考虑卖 Custom GPT / 万能提示词包的人",
+      "why": "有日期、有公式摘录、有平台条款引用；直接否定高噪音路径，帮今天选题「做减法」。",
+      "steps": [
+        "读 Does It Pay 文中 Step 1–4 与「Who makes money」，记下 GPT 退役时间线与 Apify 利润公式",
+        "若你会写工具：本周只立项 1 个 PPE Actor 或付费 MCP，不新建 GPT",
+        "若你更擅沟通：本周只推 5 个直客，报价不低于可覆盖成本的项目制",
+        "把旧的「卖 GPT 教程」库存改成「迁移到插件/自建站」说明或下架",
+        "任何对外文案禁止写保本或「自动赚钱」"
+      ],
+      "risk": "风险等级：低（作决策参考）。文中部分收入为估算；平台政策可能再变。不承诺收益。",
+      "risk_level": "低",
+      "reason": "时效性强的「踩坑校准」，避免把精力耗在即将失效的 GPT Store 叙事上。",
+      "tags": [
+        "案例",
+        "GPT Store",
+        "Apify",
+        "直客",
+        "校准"
+      ],
+      "sources": [
+        {
+          "title": "Selling custom GPTs, AI agents and agent tools: the full research",
+          "url": "https://doesitpay.org/selling-ai-agents-and-gpts/research/",
+          "publisher": "Does It Pay?",
+          "published": "2026-10-10",
+          "kind": "post",
+          "checked": "2026-10-30"
+        },
+        {
+          "title": "OpenAI Help — Building and publishing a GPT",
+          "url": "https://help.openai.com/en/articles/8798878-building-and-publishing-a-gpt",
+          "publisher": "OpenAI",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-10-30"
+        }
+      ],
+      "source_url": "https://doesitpay.org/selling-ai-agents-and-gpts/research/",
+      "agent_howto": "让 Agent 输出一页「停做清单 / 改做清单」对照表，并列出你现有产品里哪些依赖 Custom GPT；你逐项确认后执行下架或迁移。用 Agent 起草给老买家的迁移说明，语气与退款政策必须人手审。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "文档整理"
+      ]
+    }
+  ]
+}
