@@ -1,156 +1,158 @@
 {
-  "date": "2026-10-29",
-  "updated": "2026-10-29T09:15:00+08:00",
+  "date": "2026-10-30",
+  "updated": "2026-10-30T09:08:28+08:00",
   "weekday": "weekday",
   "items": [
     {
-      "id": "oranai-orangeo-ai-visibility-skill",
+      "id": "dageno-agents-geo-content-writer",
       "rank": 1,
-      "name": "OranGEO AI Visibility Skill：免费 GEO/AEO 就绪度审计",
+      "name": "GEO Content Writer",
       "category": "项目",
-      "summary": "零依赖 Python 脚本 + Claude Code/Codex Skill：查 robots/llms.txt/sitemap/schema/引用信号，打出就绪分与 15 条买家 Prompt；不做假「已进答案引擎」声明。",
-      "why": "对 autograph-ai：补 elmo「测真实可见性」之外的 on-site 就绪审计与 llms.txt/FAQ/对比页改造清单；可把 JSON 报告直接接进 FastAPI 内容体检接口。",
-      "url": "https://github.com/OranAi-Ltd/orangeo-ai-visibility-skill",
-      "repo": "OranAi-Ltd/orangeo-ai-visibility-skill",
-      "stars": 142,
+      "summary": "以 backlog 行为生产单元的 GEO 内容流水线：真实 fanout→选题队列→编辑 brief→分段草稿契约→审核契约→终检门禁，输出可发布 Markdown/可选 WordPress。",
+      "why": "直接对标 autograph-ai 的 SEO/GEO 内容生产：可抄「选题队列+契约化写作+质量门禁」三层结构，把一次性生成改成可运营的内容 OS。",
+      "url": "https://github.com/dageno-agents/geo-content-writer",
+      "repo": "dageno-agents/geo-content-writer",
+      "stars": 217,
       "tags": [
         "GEO",
-        "AEO",
-        "llms.txt",
-        "autograph-ai",
-        "Claude-Skill"
+        "SEO",
+        "content-pipeline",
+        "editorial-brief",
+        "autograph-ai"
       ],
       "steps": [
-        "python scripts/check_ai_readiness.py --url <站点> --brand <品牌> --category <品类> --competitors a,b --format json --no-cta",
-        "对照报告补 /llms.txt、FAQ schema、对比/替代页",
-        "把 15 条买家 Prompt 交给 elmo 或自有可见性 worker 做实测"
+        "克隆仓库并 PYTHONPATH=src 跑 CLI：build-fanout-backlog → select-backlog-items → publish-ready-article",
+        "对照 schemas/ 与 examples/ 把 editorial_brief/draft_package/review_package 映射到 autograph-ai 的任务/草稿模型",
+        "若暂无 Dageno，先用 draft-article-from-payload + examples 验证门禁与契约，再决定是否接 Dageno API"
       ],
-      "risk": "只报 readiness 不测真实引用；README 带 OranGEO 商业 CTA（可用 --no-cta）。接入成本：轻。",
+      "risk": "主路径强依赖 DAGENO_API_KEY 与真实 fanout；无 Dageno 时只能走示例/探索性回退，不适合直接当生产选题源。",
       "sources": [
-        {
-          "title": "OranAi-Ltd/orangeo-ai-visibility-skill",
-          "url": "https://github.com/OranAi-Ltd/orangeo-ai-visibility-skill"
-        }
+        "README.md",
+        "README.zh-CN.md",
+        "schemas/",
+        "src/",
+        "examples/"
       ]
     },
     {
-      "id": "montacoder-ai-manga-studio",
+      "id": "ChrisChen667788-wind-comic",
       "rank": 2,
-      "name": "AI Manga Studio：React 漫剧剧本→分镜工作台",
+      "name": "Wind Comic",
       "category": "项目",
-      "summary": "React19+Vite+TS：Gemini 剧本、世界观、角色/姿势、分镜画布编辑、遮罩、PDF/ZIP 导出，并可做视频序列；MIT。",
-      "why": "对 soloforge-storyfactory：同为 React 栈，可直接对照 features/story-generation、character-management、panel-editor 的模块切分与页面状态（usePagesState），比抄 Vue 的 Toonflow 更近。",
-      "url": "https://github.com/MontaCoder/AI-Manga-Studio",
-      "repo": "MontaCoder/AI-Manga-Studio",
-      "stars": 38,
+      "summary": "多 Agent 短剧工作室：一句话→剧本/角色圣经/分镜/配音/时间线/成片 mp4；含导演台、角色一致性、小说分集、口型与成本护栏；Next.js + React，SQLite/Postgres 双驱动。",
+      "why": "对 soloforge-storyfactory 可直接对照「编剧→导演→角色→分镜→成片」角色拆分、一致性契约、分段重拍与发布门禁，省自研全链路编排成本。",
+      "url": "https://github.com/ChrisChen667788/wind-comic",
+      "repo": "ChrisChen667788/wind-comic",
+      "stars": 703,
       "tags": [
-        "漫剧",
-        "分镜",
-        "React",
-        "soloforge-storyfactory",
-        "Gemini"
+        "manga",
+        "short-drama",
+        "storyboard",
+        "multi-agent",
+        "soloforge-storyfactory"
       ],
       "steps": [
-        "npm i && npm run dev，配 Gemini Key 走完「建议故事→角色→一分镜→导出」",
-        "对照 src/features/* 画出与现有 FastAPI 节点的映射表",
-        "只移植分镜状态机与角色姿势字段，不整仓迁"
+        "docker run 演示镜像或 npm install && npm run dev 本地打开创作工坊",
+        "只读对照 Writer/Director/Character/Storyboard 交接契约与 Vision-Audit 重试环",
+        "把「单镜头分段重拍 + 四维发布门禁」抽成 storyfactory 可执行验收清单"
       ],
-      "risk": "星不多、体量小；绑死 Gemini；视频能力偏演示。对照轻，深度融合中。",
+      "risk": "完整成片依赖多家图像/视频/TTS API 额度；仓库体积与依赖重，二次商用需注意部分 npm 二进制 copyleft 再分发条款。",
       "sources": [
-        {
-          "title": "MontaCoder/AI-Manga-Studio",
-          "url": "https://github.com/MontaCoder/AI-Manga-Studio"
-        }
+        "README.md",
+        "README.zh-CN.md",
+        "package.json",
+        "app/",
+        "docs/"
       ]
     },
     {
-      "id": "clawboo-clawboo",
+      "id": "win4r-ClawTeam-OpenClaw",
       "rank": 3,
-      "name": "Clawboo：本地多 runtime AI 团队工作室",
+      "name": "ClawTeam-OpenClaw",
       "category": "项目",
-      "summary": "npx 一键起本地工作室：Boo Zero 拆任务到看板；队友可跑 Built-in / Claude Code / Codex / Hermes / OpenClaw；共享记忆、预算、审批、Routines、MCP Connectors。",
-      "why": "对 clawkit / star-river / 凌霄(Hermes)：比 paperclip「公司 OS」更偏「一次提问→混合 runtime 交付」；可直接把 Hermes+OpenClaw 挂进同一团队验证编排与预算帽。",
-      "url": "https://github.com/clawboo/clawboo",
-      "repo": "clawboo/clawboo",
-      "stars": 63,
+      "summary": "面向 CLI Agent 的多智能体蜂群协调：spawn 工人、git worktree 隔离、inbox/看板协作；默认 OpenClaw，一等公民支持 Hermes（tmux/subprocess）。",
+      "why": "贴合 clawkit / star-river-dev-team / 凌霄(Hermes)：用 clawteam spawn hermes 并行拆任务，比自写编排少一层胶水；可抄 inbox+看板+worktree 隔离。",
+      "url": "https://github.com/win4r/ClawTeam-OpenClaw",
+      "repo": "win4r/ClawTeam-OpenClaw",
+      "stars": 1470,
       "tags": [
-        "Agent编排",
-        "Hermes",
         "OpenClaw",
-        "clawkit",
-        "多runtime"
+        "Hermes",
+        "multi-agent",
+        "swarm",
+        "clawkit"
       ],
       "steps": [
-        "npx clawboo@latest（Node≥22.12），接好 Hermes + OpenClaw runtime",
-        "部署一个小团队跑 3 个真实任务，看看板拆分与预算告警",
-        "对照其 worktree+verify 机制决定是否抄进 star-river 任务完成定义"
+        "git clone 后 pip install -e .（勿 pip install clawteam PyPI 上游包）",
+        "复制 skills/hermes/SKILL.md 到 ~/.hermes/skills/openclaw-imports/clawteam/",
+        "用 clawteam spawn ... hermes 跑一个双工人 demo，对照看板与 inbox 行为"
       ],
-      "risk": "Node 版本门槛高；与 paperclip 能力重叠需避免双控制面；OpenClaw 队友对 Node 更严。接入成本：中。",
+      "risk": "内置模板偏 OpenClaw inbox 协调；Hermes 工人偶发不执行 inbox-send；Hermes≤0.8.0 对 --source tool 存在上游忽略问题。",
       "sources": [
-        {
-          "title": "clawboo/clawboo",
-          "url": "https://github.com/clawboo/clawboo"
-        }
+        "README.md",
+        "README_CN.md",
+        "skills/hermes/",
+        "pyproject.toml"
       ]
     },
     {
-      "id": "julianpoy-recipesage",
+      "id": "JuneYaooo-mediwise-health-suite",
       "rank": 4,
-      "name": "RecipeSage：菜谱+周计划+购物清单 PWA",
+      "name": "MediWise Health Suite",
       "category": "生活",
-      "summary": "可装到手机主屏的菜谱库：URL 一键导入、家庭共享餐计划与购物清单、多端同步；有官方托管 https://recipesage.com，也可自托管。",
-      "why": "饮食/厨房清库存：晚饭前 10 分钟把冰箱余料对应菜谱拖进本周计划并生成采购清单；适合「清冰箱周计划」公众号/闲鱼跟做模板。",
-      "url": "https://github.com/julianpoy/RecipeSage",
-      "repo": "julianpoy/RecipeSage",
-      "stars": 984,
+      "summary": "面向 Hermes/OpenClaw 等 Agent Skills 的家庭健康档案助手：报告拍照/PDF 提取、成员分档、用药与复查提醒、就医前摘要、健康卡片；本地 SQLite。明确不做诊断。",
+      "why": "覆盖「体检报告整理+问诊清单+复查提醒」场景；对话安装约 5 分钟，提示词/模板可直接打包成 AI生活跟做方案。",
+      "url": "https://github.com/JuneYaooo/mediwise-health-suite",
+      "repo": "JuneYaooo/mediwise-health-suite",
+      "stars": 37,
       "tags": [
-        "厨房",
-        "菜谱",
-        "购物清单",
-        "PWA",
-        "AI生活"
+        "health-archive",
+        "family",
+        "OCR",
+        "reminder",
+        "Hermes",
+        "non-diagnostic"
       ],
       "steps": [
-        "打开 recipesage.com 注册，导入 5 个常用菜谱 URL",
-        "做 3 天餐计划并共享购物清单给家人",
-        "整理成「清冰箱→周计划→采购」提示词包"
+        "对 Agent 发送 README 中的安装提示词，完成 Skill 加载验收",
+        "创建本人档案并上传一份脱敏体检/化验图：要求先确认再写入",
+        "生成就医前摘要或 7 天健康卡片，验证提醒条目"
       ],
-      "risk": "托管版需账号；自托管偏重；商业用途要单独授权（AGPL/商用双许可）。上手成本：轻（托管）。",
+      "risk": "不做诊断/治疗/用药建议；主动通知依赖 Agent 调度能力；敏感附件仍受所用 Agent 隐私策略约束，上传前应脱敏。",
       "sources": [
-        {
-          "title": "julianpoy/RecipeSage",
-          "url": "https://github.com/julianpoy/RecipeSage"
-        }
+        "README.md",
+        "SKILL.md",
+        "QUICKSTART.md",
+        "mediwise-health-tracker/"
       ]
     },
     {
-      "id": "surajverma-homehub",
+      "id": "FriesI23-mhabit",
       "rank": 5,
-      "name": "HomeHub：免登录家庭看板（家务/临期/购物）",
+      "name": "Table Habit (mhabit)",
       "category": "生活",
-      "summary": "Docker 一键家庭仪表盘：购物清单、家务、日历提醒、开支、菜谱、临期追踪等；无账号也可按家庭成员切换；可关不需要的功能。",
-      "why": "家务/家庭琐事：把「买菜、家务轮值、牛奶临期、账单」放进一个局域网页；适合「树莓派/旧电脑装完就能用」跟做方案。",
-      "url": "https://github.com/surajverma/homehub",
-      "repo": "surajverma/homehub",
-      "stars": 1252,
+      "summary": "跨平台微习惯追踪：智能计分与成长曲线、习惯分组与配色、离线优先、可选 WebDAV 同步；Android/iOS/桌面均有商店或 F-Droid/Flathub 安装，无需账号。",
+      "why": "早晨/日程效率素材：用「起床仪式+深度工作块」习惯组替代复杂日程系统；10 分钟装上即可打卡，适合做成跟做模板包。",
+      "url": "https://github.com/FriesI23/mhabit",
+      "repo": "FriesI23/mhabit",
+      "stars": 1683,
       "tags": [
-        "家务",
-        "临期",
-        "购物清单",
-        "家庭看板",
-        "AI生活"
+        "habit",
+        "morning-routine",
+        "offline-first",
+        "WebDAV",
+        "Flutter"
       ],
       "steps": [
-        "复制 config-example.yml → config.yml，填家庭成员与 TZ=Asia/Shanghai",
-        "docker compose up -d，浏览器打开 localhost:5000",
-        "只开 chores/shopping/expiry/recipes，做成「周末家庭清点」模板包"
+        "从 GitHub Releases / F-Droid / 应用商店安装对应平台包",
+        "建「早晨例行」分组：起床、拉伸、今日三件事打卡",
+        "可选配置 WebDAV（如 Nextcloud）做多端同步与 JSON 导出备份"
       ],
-      "risk": "需 Docker（非纯网页）；媒体下载等功能建议关掉；数据在自建机需备份。上手成本：中。",
+      "risk": "偏习惯打卡而非日历聚合；自编译需 Flutter 环境，普通用户应走预构建安装包。",
       "sources": [
-        {
-          "title": "surajverma/homehub",
-          "url": "https://github.com/surajverma/homehub"
-        }
+        "README.md",
+        "PRIVACY.md",
+        "docs/"
       ]
     }
   ]

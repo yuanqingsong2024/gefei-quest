@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-30",
+  "updated": "2026-10-30T09:08:28+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "dageno-agents-geo-content-writer",
+      "rank": 1,
+      "name": "GEO Content Writer",
+      "category": "项目",
+      "summary": "以 backlog 行为生产单元的 GEO 内容流水线：真实 fanout→选题队列→编辑 brief→分段草稿契约→审核契约→终检门禁，输出可发布 Markdown/可选 WordPress。",
+      "why": "直接对标 autograph-ai 的 SEO/GEO 内容生产：可抄「选题队列+契约化写作+质量门禁」三层结构，把一次性生成改成可运营的内容 OS。",
+      "url": "https://github.com/dageno-agents/geo-content-writer",
+      "repo": "dageno-agents/geo-content-writer",
+      "stars": 217,
+      "tags": [
+        "GEO",
+        "SEO",
+        "content-pipeline",
+        "editorial-brief",
+        "autograph-ai"
+      ],
+      "steps": [
+        "克隆仓库并 PYTHONPATH=src 跑 CLI：build-fanout-backlog → select-backlog-items → publish-ready-article",
+        "对照 schemas/ 与 examples/ 把 editorial_brief/draft_package/review_package 映射到 autograph-ai 的任务/草稿模型",
+        "若暂无 Dageno，先用 draft-article-from-payload + examples 验证门禁与契约，再决定是否接 Dageno API"
+      ],
+      "risk": "主路径强依赖 DAGENO_API_KEY 与真实 fanout；无 Dageno 时只能走示例/探索性回退，不适合直接当生产选题源。",
+      "sources": [
+        "README.md",
+        "README.zh-CN.md",
+        "schemas/",
+        "src/",
+        "examples/"
+      ]
+    },
+    {
+      "id": "ChrisChen667788-wind-comic",
+      "rank": 2,
+      "name": "Wind Comic",
+      "category": "项目",
+      "summary": "多 Agent 短剧工作室：一句话→剧本/角色圣经/分镜/配音/时间线/成片 mp4；含导演台、角色一致性、小说分集、口型与成本护栏；Next.js + React，SQLite/Postgres 双驱动。",
+      "why": "对 soloforge-storyfactory 可直接对照「编剧→导演→角色→分镜→成片」角色拆分、一致性契约、分段重拍与发布门禁，省自研全链路编排成本。",
+      "url": "https://github.com/ChrisChen667788/wind-comic",
+      "repo": "ChrisChen667788/wind-comic",
+      "stars": 703,
+      "tags": [
+        "manga",
+        "short-drama",
+        "storyboard",
+        "multi-agent",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "docker run 演示镜像或 npm install && npm run dev 本地打开创作工坊",
+        "只读对照 Writer/Director/Character/Storyboard 交接契约与 Vision-Audit 重试环",
+        "把「单镜头分段重拍 + 四维发布门禁」抽成 storyfactory 可执行验收清单"
+      ],
+      "risk": "完整成片依赖多家图像/视频/TTS API 额度；仓库体积与依赖重，二次商用需注意部分 npm 二进制 copyleft 再分发条款。",
+      "sources": [
+        "README.md",
+        "README.zh-CN.md",
+        "package.json",
+        "app/",
+        "docs/"
+      ]
+    },
+    {
+      "id": "win4r-ClawTeam-OpenClaw",
+      "rank": 3,
+      "name": "ClawTeam-OpenClaw",
+      "category": "项目",
+      "summary": "面向 CLI Agent 的多智能体蜂群协调：spawn 工人、git worktree 隔离、inbox/看板协作；默认 OpenClaw，一等公民支持 Hermes（tmux/subprocess）。",
+      "why": "贴合 clawkit / star-river-dev-team / 凌霄(Hermes)：用 clawteam spawn hermes 并行拆任务，比自写编排少一层胶水；可抄 inbox+看板+worktree 隔离。",
+      "url": "https://github.com/win4r/ClawTeam-OpenClaw",
+      "repo": "win4r/ClawTeam-OpenClaw",
+      "stars": 1470,
+      "tags": [
+        "OpenClaw",
+        "Hermes",
+        "multi-agent",
+        "swarm",
+        "clawkit"
+      ],
+      "steps": [
+        "git clone 后 pip install -e .（勿 pip install clawteam PyPI 上游包）",
+        "复制 skills/hermes/SKILL.md 到 ~/.hermes/skills/openclaw-imports/clawteam/",
+        "用 clawteam spawn ... hermes 跑一个双工人 demo，对照看板与 inbox 行为"
+      ],
+      "risk": "内置模板偏 OpenClaw inbox 协调；Hermes 工人偶发不执行 inbox-send；Hermes≤0.8.0 对 --source tool 存在上游忽略问题。",
+      "sources": [
+        "README.md",
+        "README_CN.md",
+        "skills/hermes/",
+        "pyproject.toml"
+      ]
+    },
+    {
+      "id": "JuneYaooo-mediwise-health-suite",
+      "rank": 4,
+      "name": "MediWise Health Suite",
+      "category": "生活",
+      "summary": "面向 Hermes/OpenClaw 等 Agent Skills 的家庭健康档案助手：报告拍照/PDF 提取、成员分档、用药与复查提醒、就医前摘要、健康卡片；本地 SQLite。明确不做诊断。",
+      "why": "覆盖「体检报告整理+问诊清单+复查提醒」场景；对话安装约 5 分钟，提示词/模板可直接打包成 AI生活跟做方案。",
+      "url": "https://github.com/JuneYaooo/mediwise-health-suite",
+      "repo": "JuneYaooo/mediwise-health-suite",
+      "stars": 37,
+      "tags": [
+        "health-archive",
+        "family",
+        "OCR",
+        "reminder",
+        "Hermes",
+        "non-diagnostic"
+      ],
+      "steps": [
+        "对 Agent 发送 README 中的安装提示词，完成 Skill 加载验收",
+        "创建本人档案并上传一份脱敏体检/化验图：要求先确认再写入",
+        "生成就医前摘要或 7 天健康卡片，验证提醒条目"
+      ],
+      "risk": "不做诊断/治疗/用药建议；主动通知依赖 Agent 调度能力；敏感附件仍受所用 Agent 隐私策略约束，上传前应脱敏。",
+      "sources": [
+        "README.md",
+        "SKILL.md",
+        "QUICKSTART.md",
+        "mediwise-health-tracker/"
+      ]
+    },
+    {
+      "id": "FriesI23-mhabit",
+      "rank": 5,
+      "name": "Table Habit (mhabit)",
+      "category": "生活",
+      "summary": "跨平台微习惯追踪：智能计分与成长曲线、习惯分组与配色、离线优先、可选 WebDAV 同步；Android/iOS/桌面均有商店或 F-Droid/Flathub 安装，无需账号。",
+      "why": "早晨/日程效率素材：用「起床仪式+深度工作块」习惯组替代复杂日程系统；10 分钟装上即可打卡，适合做成跟做模板包。",
+      "url": "https://github.com/FriesI23/mhabit",
+      "repo": "FriesI23/mhabit",
+      "stars": 1683,
+      "tags": [
+        "habit",
+        "morning-routine",
+        "offline-first",
+        "WebDAV",
+        "Flutter"
+      ],
+      "steps": [
+        "从 GitHub Releases / F-Droid / 应用商店安装对应平台包",
+        "建「早晨例行」分组：起床、拉伸、今日三件事打卡",
+        "可选配置 WebDAV（如 Nextcloud）做多端同步与 JSON 导出备份"
+      ],
+      "risk": "偏习惯打卡而非日历聚合；自编译需 Flutter 环境，普通用户应走预构建安装包。",
+      "sources": [
+        "README.md",
+        "PRIVACY.md",
+        "docs/"
+      ]
+    }
+  ]
+}
