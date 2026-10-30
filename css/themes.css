@@ -1264,3 +1264,51 @@ html[data-theme="ocean"] .page-banner-agent img { object-position: 70% 50%; }
 @media (max-width: 860px) {
   html[data-theme="pixel"] .hero-art { border-radius: 4px; }
 }
+
+/* ===== Phase UI-art · 页面背景（2026-10-30）=====
+   非首页按 body[data-bg] 场景换底图（js/app.js pageBgScene）：learn 学习 / build 实施 / earn 赚钱榜 / agent Agent·工具 / library 资源·手册 / log 周报·统计·更新日志·网站地图 / me 我的·账号·站点·AI。
+   水墨 assets/bg/page/<scene>.webp，其它主题 assets/bg/page/<theme>/<scene>.webp；图已与底色混合降对比，再叠一层半透明遮罩。 */
+html[data-theme] body:not(.is-home)[data-bg] .page-bg::before,
+html[data-theme] body:not(.is-home)[data-bg] .page-bg::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+}
+html[data-theme] body:not(.is-home)[data-bg] .page-bg::before {
+  background-image: var(--page-art, none);
+  background-repeat: no-repeat; background-size: cover; background-position: center bottom;
+}
+html[data-theme] body:not(.is-home)[data-bg] .page-bg::after {
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--bg) 62%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 34%, transparent) 45%,
+    color-mix(in srgb, var(--bg) 10%, transparent) 100%);
+}
+html[data-theme="pixel"] body:not(.is-home)[data-bg] .page-bg::before { image-rendering: pixelated; }
+/* 区块头带半透明，让页面背景透出一点 */
+html[data-theme] body:not(.is-home)[data-bg] .section-head {
+  background: color-mix(in srgb, var(--panel) 72%, transparent);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+}
+@media (max-width: 640px) {
+  html[data-theme] body:not(.is-home)[data-bg] .page-bg::before { background-position: 30% bottom; }
+}
+html[data-theme="ink"] body[data-bg="learn"] { --page-art: url("../assets/bg/page/learn.webp"); }
+html[data-theme="ink"] body[data-bg="build"] { --page-art: url("../assets/bg/page/build.webp"); }
+html[data-theme="ink"] body[data-bg="earn"] { --page-art: url("../assets/bg/page/earn.webp"); }
+html[data-theme="ink"] body[data-bg="agent"] { --page-art: url("../assets/bg/page/agent.webp"); }
+html[data-theme="ink"] body[data-bg="library"] { --page-art: url("../assets/bg/page/library.webp"); }
+html[data-theme="ink"] body[data-bg="me"] { --page-art: url("../assets/bg/page/me.webp"); }
+html[data-theme="ocean"] body[data-bg="learn"] { --page-art: url("../assets/bg/page/ocean/learn.webp"); }
+html[data-theme="ocean"] body[data-bg="build"] { --page-art: url("../assets/bg/page/ocean/build.webp"); }
+html[data-theme="ocean"] body[data-bg="earn"] { --page-art: url("../assets/bg/page/ocean/earn.webp"); }
+html[data-theme="ocean"] body[data-bg="agent"] { --page-art: url("../assets/bg/page/ocean/agent.webp"); }
+html[data-theme="ocean"] body[data-bg="library"] { --page-art: url("../assets/bg/page/ocean/library.webp"); }
+html[data-theme="ocean"] body[data-bg="me"] { --page-art: url("../assets/bg/page/ocean/me.webp"); }
+html[data-theme="pixel"] body[data-bg="learn"] { --page-art: url("../assets/bg/page/pixel/learn.webp"); }
+html[data-theme="pixel"] body[data-bg="build"] { --page-art: url("../assets/bg/page/pixel/build.webp"); }
+html[data-theme="pixel"] body[data-bg="earn"] { --page-art: url("../assets/bg/page/pixel/earn.webp"); }
+html[data-theme="pixel"] body[data-bg="agent"] { --page-art: url("../assets/bg/page/pixel/agent.webp"); }
+html[data-theme="pixel"] body[data-bg="library"] { --page-art: url("../assets/bg/page/pixel/library.webp"); }
+html[data-theme="pixel"] body[data-bg="me"] { --page-art: url("../assets/bg/page/pixel/me.webp"); }
+html[data-theme="ink"] body[data-bg="log"] { --page-art: url("../assets/bg/page/log.webp"); }
+html[data-theme="ocean"] body[data-bg="log"] { --page-art: url("../assets/bg/page/ocean/log.webp"); }
+html[data-theme="pixel"] body[data-bg="log"] { --page-art: url("../assets/bg/page/pixel/log.webp"); }

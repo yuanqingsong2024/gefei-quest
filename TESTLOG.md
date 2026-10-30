@@ -251,3 +251,4 @@
 - site-check：与改动前基线一致（P9、P10、P18-lib 2.93 为既有失败，P19 kit 预览超时为既有问题）；war-rank 2.90 屏（≤3.0），390px 首页/赚钱榜/Agent 页 scrollWidth 均为 390，无 console 错误。
 - 截图：`/workspace/gefei-shots/before-*` 与 `after-*`。
 - 第三轮（CACHE 43）：ocean / pixel 各 4 张配图（49–105KB）。site-check 结果与上一轮完全一致（P9、P10、P18-lib 既有失败，P19 kit 预览超时既有）；war-rank 2.90 屏。三主题 1280/390 下首页、赚钱榜、Agent 页图片均按主题加载，390 scrollWidth=390，运行时切主题图片随之切换，无 console 错误。
+- 第四轮（CACHE 44）：21 张页面背景（7 场景×3 主题，12–33KB）。site-check 与上一轮一致；war-rank 2.90 屏；三主题 7 类页面 390 scrollWidth=390，无 console 错误。

@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T11:11:23.570Z",
-  "latestId": 71,
+  "generatedAt": "2026-10-30T13:04:45.049Z",
+  "latestId": 72,
   "latestDate": "2026-10-30",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 72,
+      "date": "2026-10-30",
+      "tag": "改进",
+      "title": "其它页面也有主题背景：学习、实施、赚钱、Agent、资源、日志、我的各一张",
+      "items": [
+        "非首页按栏目换淡底背景（水墨：竹林书案 / 水车工坊 / 水乡集市 / 星图梅枝 / 藏书阁 / 卷轴归雁 / 月门庭院；海岸青与像素暖沙各一套对应场景），与首页山水/海滩不重复",
+        "背景已降对比并叠半透明遮罩，文字区仍是实底卡片；切主题即时换图。SW 缓存升到 44，只预缓存水墨默认背景"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 71,
       "date": "2026-10-30",
@@ -112,17 +123,6 @@
         "No.3 Hostinger Affiliate：写建站/主机教程，合资格首购可达约40%佣金（协议以官网为准）"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 62,
-      "date": "2026-10-28",
-      "tag": "修复",
-      "title": "顶栏下拉选中态改成整颗胶囊",
-      "items": [
-        "学习 / 实施 / 赚钱选中或展开时，图标+文案+箭头共用同一背景与描边，不再左右拆成两个圆角框",
-        "悬停同样整颗高亮；首页等无下拉项与「我的 / 换风格」按钮保持原样"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

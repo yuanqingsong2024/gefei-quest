@@ -53,3 +53,15 @@
 - 像素暖沙 `assets/art/pixel/`：16-bit 像素风（粉帆小木船驶向晚霞、沙丘石阶插粉旗、检查点小旗通往藏宝箱、遮阳伞下机器人），`image-rendering: pixelated`，硬边框 + 像素投影。
 - 水墨纸仍用 `assets/art/*.webp`。`js/theme.js` 新增 `QuestTheme.art/artAlt/refreshArt`：图片带 `data-art`，切主题时 `apply()` 自动换 src 与 alt。
 - 配色抽成 `--art-*` 变量（暖/冷渐变、标签行、分隔线、横幅标签、卡片悬停阴影），三套主题各一组。SW 只预缓存水墨默认图，其它主题图走运行时缓存。
+
+## 第四轮：非首页页面背景（2026-10-30，CACHE 44 / changelog #72）
+`js/app.js` `pageBgScene(route)` 给 body 写 `data-bg`，`css/themes.css` 按 `html[data-theme] body[data-bg]` 设 `--page-art`，`.page-bg::before` 铺图、`::after` 叠上浓下淡的底色遮罩；首页不受影响。图已与主题底色 30% 混合降对比（每张 12–33KB）。
+| 场景 | 路由 | 水墨纸 | 海岸青 | 像素暖沙 |
+|---|---|---|---|---|
+| learn | #start #path* | 竹林书案 | 帆船学校码头+读书长椅 | 草地小学堂+路牌 |
+| build | #war* #work* (除下) | 水车工坊+石拱桥 | 港口船坞+吊机 | 铁匠工坊 |
+| earn | #war-rank(-xianyu/-ai-life) | 水乡集市灯笼货船 | 港口条纹集市 | 像素集市摊位 |
+| agent | #war-rank-agent #war-tools | 星图连线+梅枝 | 海底水母光束 | 薰衣草星座+天文台 |
+| library | #lib* #pm* #guides* #dev* | 藏书阁+松 | 海边小屋书房圆窗 | 烛光书房 |
+| log | #weekly #me-stats #changelog #sitemap | 卷轴砚台+柳+归雁 | 瞭望台航海日志+铜铃 | 任务公告板+信鸽 |
+| me | #me #me-sites #me-accounts #me-ai #me-analytics | 月门庭院+茶席 | 黄昏海湾吊床 | 像素卧室窗台猫 |

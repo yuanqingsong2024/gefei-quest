@@ -162,12 +162,27 @@
     }).join('')}</div>`;
   }
 
+  function pageBgScene(r) {
+    var s = r.section, v = r.view;
+    if (s === 'home') return '';
+    if (s === 'start' || s === 'path') return 'learn';
+    if (s === 'war') {
+      if (v === 'rank') return 'earn';
+      if (v === 'rank-agent' || v === 'tools') return 'agent';
+      return 'build';
+    }
+    if (s === 'lib' || s === 'guides' || s === 'dev') return 'library';
+    if (s === 'weekly' || s === 'sitemap' || v === 'changelog' || v === 'stats') return 'log';
+    return 'me';
+  }
   function renderShell(extraCrumb) {
     N.renderTopNav(route.section === 'dev' ? '' : route.section);
     N.renderSectionHead(route, extraCrumb);
     N.renderFooter();
     N.titleFor(route, extraCrumb);
     document.body.classList.toggle('is-home', route.section === 'home');
+    // 非首页的页面背景场景（css/themes.css · Phase UI-art 页面背景）：学习 / 实施 / 赚钱 / Agent / 资源 / 日志 / 我的
+    document.body.setAttribute('data-bg', pageBgScene(route));
     const panel = route.section === 'dev' ? 'guides' : route.section;
     PANELS.forEach((id) => {
       const el = document.getElementById('panel-' + id);
