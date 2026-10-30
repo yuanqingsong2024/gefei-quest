@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T03:46:52.440Z",
-  "latestId": 68,
+  "generatedAt": "2026-10-30T04:11:00.532Z",
+  "latestId": 69,
   "latestDate": "2026-10-30",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 69,
+      "date": "2026-10-30",
+      "tag": "内容",
+      "title": "AI生活合集新增「手搓生活小应用」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：周末搭子投票／购物冷静器／约课页；含脑暴确认边界→单文件H5提示词、小红书与闲鱼模板角度",
+        "附新京报 / 中国经济网来源（后者本机核验 HTTP 500，URL 保留并标 unverified）；不做真实多人后端、不代支付、不收集手机号；不卖账号不代领邀测，不承诺收益"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 68,
       "date": "2026-10-30",
@@ -112,17 +123,6 @@
         "页脚/按钮重播新手导览时若在非首页，先回到 #home 再开；tour-root 全屏叠层提高，避免叠在工具页预览上"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-kit"
-    },
-    {
-      "id": 59,
-      "date": "2026-10-28",
-      "tag": "改进",
-      "title": "长列表统一分页：合集 / 更新日志对齐赚钱榜控件",
-      "items": [
-        "合集（闲鱼零成本 / AI生活起号）改为 cx-pager 每页 6 条，去掉「展开更多」",
-        "更新日志改为每页 8 条；赚钱榜 / Agent 赚钱 / 工具发掘 / 平台变现原本已分页。深链与弹窗仍可翻到对应页"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#changelog"
     }
   ],
   "rank": {

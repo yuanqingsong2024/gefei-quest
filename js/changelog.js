@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 69, date: '2026-10-30', title: 'AI生活合集新增「手搓生活小应用」场景文选题', tag: '内容', href: '#war-rank-ai-life',
+      items: ['「AI生活起号选题方案」合集置顶新增：周末搭子投票／购物冷静器／约课页；含脑暴确认边界→单文件H5提示词、小红书与闲鱼模板角度', '附新京报 / 中国经济网来源（后者本机核验 HTTP 500，URL 保留并标 unverified）；不做真实多人后端、不代支付、不收集手机号；不卖账号不代领邀测，不承诺收益'] },
     { id: 68, date: '2026-10-30', title: '借鉴落地页设计规则：字号/间距/浮层导航/滚动显现', tag: '改进', href: '#home',
       items: ['吸收 ai-design-skills 的字号阶梯、间距 token、嵌套圆角与动效曲线；顶栏轻微浮层毛玻璃；首页与赚钱榜区块滚动显现（IntersectionObserver）', '赚钱页开关与 CTA 文案更具体（今日公开渠道 / 看步骤与来源 / 加入本周实操）；保留不承诺收益口径。不改榜单 JSON'] },
     { id: 67, date: '2026-10-30', title: '首页新增「SERP 标题拆解便签」：本机拆解搜索标题', tag: '新功能', href: '#home-today',
