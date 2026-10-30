@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T16:21:00.868Z",
-  "latestId": 75,
+  "generatedAt": "2026-10-30T16:50:46.025Z",
+  "latestId": 76,
   "latestDate": "2026-10-31",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 76,
+      "date": "2026-10-31",
+      "tag": "改进",
+      "title": "首页主线中间栏补上进度与快捷入口",
+      "items": [
+        "左侧路径与右侧「今天这一关 / 赚钱榜」之间新增主栏：主线进度、下一步行动、快捷入口、今日提示；三主题各配一张书案插画。桌面三栏、窄屏堆叠。SW 缓存 48"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
     {
       "id": 75,
       "date": "2026-10-31",
@@ -109,18 +119,6 @@
         "一键填入候选卡「拟标题」。草稿只存本机。不调用外部 AI，也不上传"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-today"
-    },
-    {
-      "id": 66,
-      "date": "2026-10-29",
-      "tag": "修复",
-      "title": "选词删除改为页内确认 + 文案与灰锁提示修补",
-      "items": [
-        "选词练习板删除改为页内确认（避免自动化静默取消 window.confirm）；删后 toast，刷新后计数为 0",
-        "成就/连击旁注明「一旦获得不随取消勾选消失」；每周补给统一为已暂停；下载页按邮箱实填显示「已填/未填」",
-        "作战室灰锁任务显示解锁条件；首页挖词候选卡注明与选词练习板分属两套计数"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
     }
   ],
   "rank": {

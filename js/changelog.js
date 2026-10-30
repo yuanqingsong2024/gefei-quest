@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 76, date: '2026-10-31', title: '首页主线中间栏补上进度与快捷入口', tag: '改进', href: '#home',
+      items: ['左侧路径与右侧「今天这一关 / 赚钱榜」之间新增主栏：主线进度、下一步行动、快捷入口、今日提示；三主题各配一张书案插画。桌面三栏、窄屏堆叠。SW 缓存 48'] },
     { id: 75, date: '2026-10-31', title: '顶部菜单栏换上主题背景', tag: '改进', href: '#home',
       items: ['水墨纸：宣纸远山+金线云纹；海岸青：浅海水彩+细波纹；像素暖沙：像素云天空+硬边色条。半透明遮罩保证文字与红点清晰，吸顶后阴影加深，手机底栏同款。SW 缓存 47'] },
     { id: 74, date: '2026-10-30', title: '全站组件按主题统一风格', tag: '改进', href: '#war-keywords',

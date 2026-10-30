@@ -965,6 +965,7 @@ html[data-theme] .home-hero-stage > .home-path-band {
 }
 html[data-theme] .home-hero-stage .home-path-side,
 html[data-theme] .home-hero-stage .hero-top3,
+html[data-theme] .home-hero-stage .home-path-mid,
 html[data-theme] .home-hero-stage .home-continue,
 html[data-theme] .home-hero-stage #home-continue {
   background: rgba(255, 255, 255, 0.92);
@@ -1665,4 +1666,45 @@ html[data-theme] .site-nav .nav-dot { box-shadow: 0 0 0 2px var(--panel); }
       var(--panel);
   }
   html[data-theme="pixel"] .bottom-bar { image-rendering: pixelated; }
+}
+
+
+/* ===== Phase UI-home-mid · 首页主线中间栏（2026-10-31）===== */
+html[data-theme] .home-path-mid {
+  border: var(--ui-bw, 1px) solid var(--ui-border-c, var(--line));
+  border-radius: var(--ui-radius, 16px);
+  box-shadow: var(--ui-shadow-sm, none);
+}
+html[data-theme] .home-mid-act a,
+html[data-theme] .home-mid-link {
+  border: var(--ui-bw, 1px) solid var(--ui-border-c, var(--line));
+  border-radius: var(--ui-radius-sm, 10px);
+  background: var(--ui-field-bg, var(--panel2));
+}
+html[data-theme] .home-mid-act.is-now a {
+  background: var(--ui-accent-soft, color-mix(in srgb, var(--gold) 10%, var(--panel)));
+  border-color: color-mix(in srgb, var(--ui-accent, var(--gold)) 45%, var(--ui-border-c, var(--line)));
+}
+html[data-theme] .home-mid-act-k,
+html[data-theme] .home-mid-frac,
+html[data-theme] .home-mid-tip-k { color: var(--ui-accent, var(--gold-text)); }
+html[data-theme] .home-mid-tip {
+  background: var(--ui-accent-soft, color-mix(in srgb, var(--gold) 8%, var(--panel2)));
+  border-color: color-mix(in srgb, var(--ui-accent, var(--gold)) 40%, var(--ui-border-c, var(--line)));
+  border-radius: var(--ui-radius-sm, 10px);
+}
+html[data-theme="pixel"] .home-path-mid,
+html[data-theme="pixel"] .home-mid-act a,
+html[data-theme="pixel"] .home-mid-link,
+html[data-theme="pixel"] .home-mid-tip,
+html[data-theme="pixel"] .home-mid-illo { border-radius: 2px; }
+html[data-theme="pixel"] .home-mid-illo {
+  border: 2px solid #3f2e22; -webkit-mask-image: none; mask-image: none;
+  image-rendering: pixelated; right: 10px; top: 10px;
+}
+html[data-theme="pixel"] .home-mid-act.is-now a { box-shadow: 2px 2px 0 #3f2e22; }
+html[data-theme="ink"] .home-mid-cur { color: #57534e; }
+html[data-theme="ocean"] .home-mid-link:hover,
+html[data-theme="ocean"] .home-mid-act a:hover {
+  border-color: #0891b2;
 }

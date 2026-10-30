@@ -568,6 +568,57 @@
       return { id: n.id, label: n.label, hash: n.hash, icon: n.icon, done: n.done, status: status, current: i === current };
     });
   }
+  
+  function homeMidHtml(state, step, nodes, next) {
+    var T = global.QuestTheme;
+    var doneN = nodes.filter(function (n) { return n.done; }).length;
+    var total = nodes.length || 5;
+    var pct = Math.round((doneN / total) * 100);
+    var current = nodes.filter(function (n) { return n.current; })[0];
+    var doneLabels = nodes.filter(function (n) { return n.done; }).map(function (n) { return n.label; });
+    var upcoming = nodes.filter(function (n) { return !n.done; }).slice(0, 3);
+    var shortcuts = [
+      { href: '#war-keywords', label: '选词练习板', icon: 'tag' },
+      { href: '#war', label: '做站 Day', icon: 'calendar-check' },
+      { href: '#war-rank', label: '赚钱榜', icon: 'trophy' },
+      { href: '#lib', label: '资源库', icon: 'archive' }
+    ];
+    var tip = step && step.why ? step.why : '挑一条公开渠道，按步骤试一周。不承诺收益。';
+    var actions = '';
+    if (step) {
+      actions += '<li class="home-mid-act is-now"><a href="' + esc(step.href) + '"><span class="home-mid-act-k">现在</span><span class="home-mid-act-t">' + esc(step.title) + '</span></a></li>';
+    }
+    upcoming.forEach(function (n) {
+      if (step && n.hash === step.href) return;
+      actions += '<li class="home-mid-act"><a href="' + n.hash + '"><span class="home-mid-act-k">接着</span><span class="home-mid-act-t">' + pageSvg(n.hash, n.icon) + esc(n.label) + '</span></a></li>';
+    });
+    if (next) {
+      actions += '<li class="home-mid-act is-cont"><a href="' + esc(next.href) + '"><span class="home-mid-act-k">继续</span><span class="home-mid-act-t">' + esc(next.text) + '</span></a></li>';
+    }
+    var doneLine = doneLabels.length
+      ? '最近完成：' + doneLabels.map(esc).join('、')
+      : '还没有完成主线节点。从左侧路径或「今天这一关」开始。';
+    return '<aside class="home-path-mid" aria-label="主线进度与快捷入口">' +
+      '<img class="home-mid-illo" data-art="home-mid" src="' + T.art('home-mid') + '" alt="' + T.artAlt('home-mid') + '" width="480" height="480" loading="lazy" decoding="async" />' +
+      '<div class="home-mid-card home-mid-progress">' +
+      '<div class="home-mid-head"><h2>主线进度</h2><span class="home-mid-frac">' + doneN + ' / ' + total + '</span></div>' +
+      '<p class="home-mid-cur">当前：<b>' + esc((current && current.label) || (step && step.stage) || '主线') + '</b>' +
+      (step ? ' · ' + esc(step.title) : '') + '</p>' +
+      '<div class="bar bar-xp home-mid-bar" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100"><i style="width:' + pct + '%"></i></div>' +
+      '<p class="home-mid-done">' + doneLine + '</p>' +
+      '</div>' +
+      '<div class="home-mid-card home-mid-actions">' +
+      '<h2>下一步行动</h2><ol class="home-mid-act-list">' + actions + '</ol></div>' +
+      '<div class="home-mid-card home-mid-shortcuts">' +
+      '<h2>快捷入口</h2><div class="home-mid-links">' +
+      shortcuts.map(function (x) {
+        return '<a class="home-mid-link" href="' + x.href + '">' + pageSvg(x.href, x.icon) + '<span>' + esc(x.label) + '</span></a>';
+      }).join('') +
+      '</div></div>' +
+      '<p class="home-mid-tip"><span class="home-mid-tip-k">今日提示</span> ' + esc(tip) + '</p>' +
+      '</aside>';
+  }
+
   function renderHome(root, state) {
     if (!root) return;
     var I = global.QuestNav.icon;
@@ -618,6 +669,7 @@
       '<section class="home-band band-a home-path-band" id="home-path" data-tour="path" data-reveal>' +
       '<div class="home-inner home-path-layout">' +
       '<ol class="home-path">' + nodesHtml + '</ol>' +
+      homeMidHtml(state, step, nodes, next) +
       '<div class="home-path-rail" id="home-rank">' +
       '<aside class="home-path-side" data-tour="cta" aria-label="今天这一关">' +
       '<img class="home-path-illo" data-art="today-quest" src="' + T.art('today-quest') + '" alt="' + T.artAlt('today-quest') + '" width="640" height="640" loading="lazy" decoding="async" />' +
@@ -657,5 +709,5 @@
     if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
   }
 
-  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep, pathNodes: pathNodes };
+  global.QuestHome = { renderHome: renderHome, SECTIONS: SECTIONS, FAQ: HOME_FAQ, nextStep: nextStep, pathNodes: pathNodes, homeMidHtml: homeMidHtml };
 })(typeof window !== 'undefined' ? window : globalThis);
