@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T15:55:02.203Z",
-  "latestId": 74,
-  "latestDate": "2026-10-30",
+  "generatedAt": "2026-10-30T16:21:00.868Z",
+  "latestId": 75,
+  "latestDate": "2026-10-31",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -14,13 +14,22 @@
   },
   "entries": [
     {
+      "id": 75,
+      "date": "2026-10-31",
+      "tag": "改进",
+      "title": "顶部菜单栏换上主题背景",
+      "items": [
+        "水墨纸：宣纸远山+金线云纹；海岸青：浅海水彩+细波纹；像素暖沙：像素云天空+硬边色条。半透明遮罩保证文字与红点清晰，吸顶后阴影加深，手机底栏同款。SW 缓存 47"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
+    },
+    {
       "id": 74,
       "date": "2026-10-30",
       "tag": "改进",
-      "title": "全站组件统一风格：输入框、下拉、子导航、提示条、进度条、表格、提示气泡按主题美化",
+      "title": "全站组件按主题统一风格",
       "items": [
-        "新增一组主题组件 token（圆角 / 边框 / 强调色 / 焦点环 / 阴影）：输入框与下拉换主题色边框和自绘箭头，勾选框、文件按钮、选中文字、滚动条随主题变色；像素主题统一 2px 硬边、直角与像素投影",
-        "「这个页面是干什么的」提示条加主题色左条（像素为虚线框），子导航与筛选胶囊的选中态三主题统一；经验进度条、Markdown 表格表头与斑马纹、提示气泡、弹窗、骨架屏、空状态同步换肤；新手引导三张截图按当前亮色界面重拍。SW 缓存升到 46"
+        "输入框、下拉、勾选框、子导航、提示条、进度条、表格、提示气泡、弹窗按主题换肤，像素主题统一硬边；新手引导截图按亮色界面重拍。SW 缓存 46"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
     },
@@ -112,17 +121,6 @@
         "作战室灰锁任务显示解锁条件；首页挖词候选卡注明与选词练习板分属两套计数"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
-    },
-    {
-      "id": 65,
-      "date": "2026-10-29",
-      "tag": "内容",
-      "title": "AI生活合集新增「生活后台」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：保修卡、账单、日记一句话进腾讯文档；含公众号结构、凭证/记账预览确认提示词、小红书与闲鱼模板角度",
-        "附人人都是产品经理 / GitHub z-skills / 21经济网 / 新浪财经来源；先装1模块、敏感号后4位、健康只归档；不卖账号不开通代配，不承诺收益"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {

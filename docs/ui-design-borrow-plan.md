@@ -96,3 +96,12 @@
 - 工具页 iframe 预览、用户模板内容：属于内容，不跟站点主题。
 - 主按钮 `.btn-primary`、顶栏、页头、页脚：前几轮已主题化，本轮不动。
 - 数据、路由、文案与站点结构不变；不新增装饰图（新手引导截图为界面截图，按原用途重拍）。
+
+## 第七轮：顶部菜单栏主题背景（2026-10-31，CACHE 47 / changelog #75）
+`css/themes.css` 末尾「Phase UI-navbar」：`.site-nav` 背景 = `--nav-orn`（装饰线）+ `--nav-veil`（半透明遮罩）+ `--nav-art`（`assets/bg/nav/<theme>.webp`）+ `--panel` 底色；吸顶（`body.nav-condensed`）换 `--nav-veil-condensed`（更不透明）+ `--nav-shadow-condensed`（更深阴影）。
+- 水墨纸 `ink.webp`（12.8KB）：宣纸纤维 + 两侧淡远山；CSS 叠金色细线（中段渐显）+ 右侧淡云纹 SVG。
+- 海岸青 `ocean.webp`（4.5KB）：浅海水彩 + 白色细波纹；CSS 叠青/白双线小波浪 repeat-x。
+- 像素暖沙 `pixel.webp`（3KB）：像素粉云天空（降采样 + 20 色量化 + 最近邻放大，保持硬边）；`image-rendering: pixelated`，底边粉/蓝/黄像素色条 + 深棕虚线，3px 硬边框与硬投影保留。
+- 顶栏悬停/选中胶囊加 `--nav-pill` 实底，红点加底色描边，品牌名加浅色文字阴影，保证在纹理上可读。
+- 没给 `.site-nav` 本身加 `backdrop-filter`：它会让 fixed 元素变成下拉菜单的定位容器，有破坏下拉的风险；遮罩本身已足够不透明，毛玻璃效果几乎看不出。
+- 手机底栏（≤860px）用同一纹理 + 吸顶遮罩。SW 只预缓存 `ink.webp`，其它主题运行时缓存。

@@ -1588,3 +1588,81 @@ html[data-theme] .tour-card { border: var(--ui-bw) solid var(--ui-border-c); bor
 html[data-theme="pixel"] .tour-card { box-shadow: 6px 6px 0 #3f2e22; }
 html[data-theme="pixel"] .heatmap rect { rx: 0; ry: 0; }
 html[data-theme="pixel"] .hm-cell, html[data-theme="pixel"] .hm-legend i { border-radius: 0; }
+
+/* ===== Phase UI-navbar · 顶栏主题背景（2026-10-31）=====
+   纹理图 assets/bg/nav/<theme>.webp（无字，<10KB），叠半透明遮罩保证菜单文字/图标/红点清晰。
+   只改 background/box-shadow，不加 backdrop-filter 到 .site-nav 本身（避免改变下拉菜单的定位上下文）。 */
+html[data-theme="ink"] {
+  --nav-art: url("../assets/bg/nav/ink.webp");
+  --nav-veil: linear-gradient(90deg, rgba(255, 253, 248, .12) 0%, rgba(255, 253, 248, .42) 36%, rgba(255, 253, 248, .42) 72%, rgba(255, 253, 248, .1) 100%);
+  --nav-veil-condensed: linear-gradient(90deg, rgba(255, 253, 248, .22) 0%, rgba(255, 253, 248, .52) 38%, rgba(255, 253, 248, .52) 72%, rgba(255, 253, 248, .2) 100%);
+  --nav-art-pos: left 88%; --nav-art-size: cover;
+  --nav-orn: linear-gradient(90deg, transparent 4%, rgba(214, 158, 46, .0) 6%, rgba(214, 158, 46, .85) 30%, rgba(214, 158, 46, .85) 70%, rgba(214, 158, 46, 0) 94%) left bottom 5px / 100% 1px no-repeat,
+             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cg fill='none' stroke='%231e3a5f' stroke-opacity='.3' stroke-width='1.4' stroke-linecap='round'%3E%3Cpath d='M8 30c0-8 10-12 16-6 2-10 18-12 22-2 6-6 16-2 14 6'/%3E%3Cpath d='M22 24c2-3 6-3 7 0M44 22c3-4 8-3 9 1'/%3E%3Cpath d='M64 32c0-6 8-9 12-4 2-7 13-8 16-1 4-4 12-1 10 5'/%3E%3C/g%3E%3C/svg%3E") right 18% center / auto 70% no-repeat;
+  --nav-pill: color-mix(in srgb, #fffdf8 82%, transparent);
+  --nav-shadow-condensed: 0 0 0 1px rgba(30, 58, 95, .14), inset 0 -2px 0 rgba(214, 158, 46, .55), 0 10px 26px -12px rgba(30, 58, 95, .45);
+  --bar-art-pos: left bottom;
+}
+html[data-theme="ocean"] {
+  --nav-art: url("../assets/bg/nav/ocean.webp");
+  --nav-veil: linear-gradient(90deg, rgba(255, 255, 255, .5) 0%, rgba(255, 255, 255, .58) 40%, rgba(240, 253, 255, .42) 100%);
+  --nav-veil-condensed: linear-gradient(90deg, rgba(255, 255, 255, .68) 0%, rgba(255, 255, 255, .74) 40%, rgba(240, 253, 255, .6) 100%);
+  --nav-art-pos: center 60%; --nav-art-size: cover;
+  --nav-orn: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 8'%3E%3Cpath fill='none' stroke='%230891b2' stroke-opacity='.45' stroke-width='1.2' d='M0 5Q10 1 20 5T40 5'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-opacity='.9' stroke-width='1' d='M0 7Q10 3 20 7T40 7'/%3E%3C/svg%3E") left bottom 1px / 40px 8px repeat-x;
+  --nav-pill: color-mix(in srgb, #ffffff 80%, transparent);
+  --nav-shadow-condensed: 0 0 0 1px rgba(8, 145, 178, .3), inset 0 -2px 0 rgba(34, 211, 238, .6), 0 12px 28px -12px rgba(8, 100, 140, .55);
+  --bar-art-pos: center top;
+}
+html[data-theme="pixel"] {
+  --nav-art: url("../assets/bg/nav/pixel.webp");
+  --nav-veil: linear-gradient(180deg, rgba(255, 253, 248, .38) 0 50%, rgba(255, 253, 248, .5) 50% 100%);
+  --nav-veil-condensed: linear-gradient(180deg, rgba(255, 253, 248, .55) 0 50%, rgba(255, 253, 248, .66) 50% 100%);
+  --nav-art-pos: center center; --nav-art-size: auto 100%;
+  --nav-orn: repeating-linear-gradient(90deg, #3f2e22 0 4px, transparent 4px 8px) left bottom 3px / 100% 2px no-repeat,
+             repeating-linear-gradient(90deg, #db2777 0 8px, #f9a8d4 8px 16px, #0284c7 16px 24px, #fde68a 24px 32px) left bottom / 100% 3px no-repeat;
+  --nav-pill: #fffdf8;
+  --nav-shadow-condensed: 0 0 0 3px #3f2e22, 6px 6px 0 3px #3f2e22;
+  --bar-art-pos: center top;
+}
+html[data-theme] .site-nav {
+  background:
+    var(--nav-orn),
+    var(--nav-veil),
+    var(--nav-art) var(--nav-art-pos) / var(--nav-art-size) repeat-x,
+    var(--panel);
+  transition: box-shadow var(--duration-layout, .3s) var(--ease, ease), transform var(--duration-layout, .3s) var(--ease, ease);
+}
+html[data-theme] body.nav-condensed .site-nav {
+  background:
+    var(--nav-orn),
+    var(--nav-veil-condensed),
+    var(--nav-art) var(--nav-art-pos) / var(--nav-art-size) repeat-x,
+    var(--panel);
+  box-shadow: var(--nav-shadow-condensed);
+}
+html[data-theme="pixel"] .site-nav { image-rendering: pixelated; }
+html[data-theme="pixel"] .site-nav .brand img, html[data-theme="pixel"] .site-nav .nav-mine-btn img { image-rendering: auto; }
+/* 菜单项落在纹理上：悬停/选中胶囊加实底，保证可读 */
+html[data-theme] .site-links > a:hover,
+html[data-theme] .site-links > a.active,
+html[data-theme] .site-links > a.nav-top.active,
+html[data-theme] .nav-drop:not(.nav-mine):not(.nav-theme):hover,
+html[data-theme] .nav-drop.is-active:not(.nav-mine):not(.nav-theme), html[data-theme] .nav-drop.is-open:not(.nav-mine):not(.nav-theme),
+html[data-theme] .nav-drop.is-active:not(.nav-mine):not(.nav-theme) {
+  background-color: var(--nav-pill);
+  background-image: linear-gradient(color-mix(in srgb, var(--gold) 14%, transparent), color-mix(in srgb, var(--gold) 14%, transparent));
+}
+html[data-theme="pixel"] .site-links > a.active,
+html[data-theme="pixel"] .nav-drop.is-active:not(.nav-mine):not(.nav-theme) { box-shadow: 0 0 0 2px #3f2e22, 2px 2px 0 2px #3f2e22; }
+html[data-theme] .site-nav .brand span { text-shadow: 0 1px 0 rgba(255, 255, 255, .7); }
+html[data-theme] .site-nav .nav-dot { box-shadow: 0 0 0 2px var(--panel); }
+/* 手机底栏：同一纹理，横向铺 */
+@media (max-width: 860px) {
+  html[data-theme] .bottom-bar {
+    background:
+      var(--nav-veil-condensed),
+      var(--nav-art) var(--bar-art-pos) / var(--nav-art-size) repeat-x,
+      var(--panel);
+  }
+  html[data-theme="pixel"] .bottom-bar { image-rendering: pixelated; }
+}
