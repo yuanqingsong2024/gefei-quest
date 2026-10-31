@@ -359,7 +359,7 @@
     (root || document).querySelectorAll('.nav-drop.is-open').forEach(closeDrop);
   }
   function menuItems(drop) {
-    return [].slice.call(drop.querySelectorAll('.nav-menu a, .nav-menu [data-theme-set], .nav-theme-group [data-theme-set]')).filter(function (node) {
+    return [].slice.call(drop.querySelectorAll('.nav-menu a, .nav-menu [data-theme-set]')).filter(function (node) {
       return node.getClientRects().length > 0;
     });
   }
@@ -451,7 +451,7 @@
       '<button type="button" class="nav-caret nav-mine-btn" aria-expanded="false" aria-haspopup="true" aria-controls="' + menuId + '" aria-label="' + esc(n.label) + '"' + (on ? ' aria-current="page"' : '') + '>' +
         I(n.icon) + (dot ? '<span class="red-dot nav-dot" aria-label="有新更新"></span>' : '') +
       '</button>' +
-      '<div class="nav-menu" id="' + menuId + '" role="menu" hidden>' + themeMenuGroupHtml() + (n.children || []).map(function (c) {
+      '<div class="nav-menu" id="' + menuId + '" role="menu" hidden>' + (n.children || []).map(function (c) {
         var cur = loc.page && loc.page.id === c.id;
         return '<a role="menuitem" href="' + c.hash + '"' + (cur ? ' class="active" aria-current="page"' : '') + '><span class="nav-ico' + tint + '">' + I(c.icon) + '</span><span class="nav-item-text"><b>' + esc(c.label) + '</b><small>' + esc(c.desc || '') + '</small></span></a>';
       }).join('') + '</div></div>';
@@ -497,12 +497,6 @@
       THEME_CHOICES.map(function (t) { return themeChipHtml(t, true); }).join('') +
       '</div></div>';
   }
-  function themeMenuGroupHtml() {
-    return '<div class="nav-theme-group" role="group" aria-label="风格">' +
-      '<span class="nav-theme-kicker" aria-hidden="true">风格</span>' +
-      THEME_CHOICES.map(function (t) { return themeChipHtml(t, true); }).join('') + '</div>';
-  }
-
   /** 区块头带：页面名（不是分组名）+ 面包屑 首页 / 分组 / 页面 */
   function renderSectionHead(route, extraCrumb) {
     var el = document.getElementById('section-head');

@@ -883,31 +883,6 @@ html[data-theme="pixel"] .home-path-node.is-done:not(:last-child)::after {
 .theme-swatch-ocean { background: linear-gradient(135deg, #e0f2fe 40%, #0891b2 41%); }
 .theme-swatch-pixel { background: linear-gradient(135deg, #f5f0e6 30%, #38bdf8 31% 62%, #f9a8d4 63%); }
 .theme-short { display: none; }
-.nav-theme-group {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 4px;
-  padding: 4px 4px 8px;
-  margin: 0 0 6px;
-  border-bottom: 1px solid var(--line);
-}
-.nav-theme-kicker {
-  margin: 2px 4px 4px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-}
-.nav-theme-group .theme-chip {
-  width: 100%;
-  justify-content: flex-start;
-  padding: 8px 10px;
-  border-radius: 10px;
-}
-.nav-theme-group .theme-name { display: inline; }
-.nav-theme-group .theme-short { display: none; }
-
 @media (max-width: 640px) {
   #theme-switcher { display: flex; }
   .nav-theme-btn { padding: 6px 10px; font-size: 12px; }

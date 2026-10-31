@@ -256,3 +256,9 @@
 - 第六轮（CACHE 46）：组件视觉一致性（Phase UI-polish token：输入/下拉/勾选/文件按钮/子导航/提示条/进度条/表格/toast/弹窗/骨架/空状态/滚动条/焦点），重拍 assets/start 三张引导截图。site-check 与上一轮一致（P9、P10、P18-lib 2.94 既有失败，P19 kit 预览超时既有，consoleErrors=0）；war-rank 2.90；changelog 2.47（新增一条）；下拉在最上层；三主题 10 个路由 390 无横滚。截图 /workspace/gefei-shots/polish-overview.png。
 - 第七轮（CACHE 47）：顶栏主题背景（assets/bg/nav/{ink,ocean,pixel}.webp 12.8/4.5/3KB + 遮罩/装饰线，吸顶更深阴影，手机底栏同款）。site-check 与基线一致（P9、P10、P18-lib 2.94 既有失败，P19 kit 预览超时既有，consoleErrors=0）；war-rank 2.90；changelog 2.38（精简 #74/#75 文案，第六轮一度 2.47→2.54 已修）；下拉在最上层；三主题 390 无横滚。截图 /workspace/gefei-shots/navbar-overview.png。
 - 第八轮（CACHE 48）：首页主线中间栏（进度/下一步/快捷入口/提示 + 三主题书案插画 8–20KB）。site-check 与基线一致（P9、P10、P18-lib 2.94 既有失败，P19 kit 预览超时既有，consoleErrors=0）；war-rank 2.90；home 2.94（uncapped）；changelog 2.35；下拉在最上层；三主题 390 无横滚。截图 /workspace/gefei-shots/home-mid-overview.png。
+
+
+## 头像菜单去掉换风格（2026-10-31，CACHE 50）
+- 「我的」下拉不再注入 themeMenuGroupHtml；风格只经由顶栏「🎨 换风格」。
+- node --check js/nav.js js/changelog.js js/theme.js；smoke：头像菜单无 data-theme-set，换风格菜单仍有三项。
+- changelog #79；build-daily 已跑。

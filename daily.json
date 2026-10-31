@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-31T04:05:42.694Z",
-  "latestId": 78,
+  "generatedAt": "2026-10-31T07:04:49.306Z",
+  "latestId": 79,
   "latestDate": "2026-10-31",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 79,
+      "date": "2026-10-31",
+      "tag": "修复",
+      "title": "头像菜单不再带换风格，风格只走顶栏按钮",
+      "items": [
+        "「我的」头像下拉只保留进度/统计/设置等入口；换风格只留顶栏「🎨 换风格」。SW 缓存 50"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me"
+    },
     {
       "id": 78,
       "date": "2026-10-31",
@@ -109,17 +119,6 @@
         "每日赚钱榜与 Agent 赚钱页顶部加主题横幅（金币山路 / 竹亭小机器人），卡片悬浮更明显；配图均为 webp（每张 < 140KB），SW 缓存升到 42"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 69,
-      "date": "2026-10-30",
-      "tag": "内容",
-      "title": "AI生活合集新增「手搓生活小应用」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：周末搭子投票／购物冷静器／约课页；含脑暴确认边界→单文件H5提示词、小红书与闲鱼模板角度",
-        "附新京报 / 中国经济网来源（后者本机核验 HTTP 500，URL 保留并标 unverified）；不做真实多人后端、不代支付、不收集手机号；不卖账号不代领邀测，不承诺收益"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
