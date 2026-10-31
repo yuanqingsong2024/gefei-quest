@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-31",
+  "timezone": "Asia/Shanghai",
+  "updated": "2026-10-31T09:35:00+08:00",
+  "title": "每日执行包｜闲鱼 AI 单页落地页固定套餐 + 搭建费月维护报价",
+  "source": "attachments/2026-10-31",
+  "primary": ["闲鱼 AI 单页落地页固定范围交付（榜单 No.4）"],
+  "side": ["搭建费＋月维护报价结构（榜单 No.5，已并入 Excel）"],
+  "deferred": ["VibeBay（大陆未列收款地区）", "NEAR Agent Market（需可用 Agent＋Stripe/USDC）", "MCP Marketplace（需 Stripe＋开发）", "OpenAI Safety Bug Bounty（安全研究门槛）", "Gumroad 模板（收款与分发未就绪）"],
+  "files": [
+    {"path": "今日执行卡-2026-10-31.md", "kind": "exec-card", "note": "当日 45–50 分钟步骤、工具、合规"},
+    {"path": "闲鱼上架文案-AI落地页固定套餐.md", "kind": "xianyu-copy", "note": "标题、详情、交付边界"},
+    {"path": "闲鱼-AI落地页固定套餐交付包.xlsx", "kind": "xianyu-sheet", "note": "八表：说明/报价/需求表单/SOP/验收/提示词/禁区/接单记录"},
+    {"path": "样例落地页-脱敏Demo.html", "kind": "page-draft", "note": "虚构咖啡店单页样例，可截图当主图"}
+  ],
+  "excluded": [{"path": "money-rank-2026-10-31.json", "reason": "榜单已在 data/money-rank/，同步脚本跳过；勿列入 files"}],
+  "privacy": "仅收录可公开交付物；不含客户私聊、账号凭证、真实订单隐私。"
+}
