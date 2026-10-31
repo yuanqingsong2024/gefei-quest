@@ -1,158 +1,90 @@
 {
-  "date": "2026-10-30",
-  "updated": "2026-10-30T09:08:28+08:00",
-  "weekday": "weekday",
+  "date": "2026-10-31",
+  "updated": "2026-10-31T10:04:24+08:00",
+  "weekday": "weekend",
   "items": [
     {
-      "id": "dageno-agents-geo-content-writer",
+      "id": "jameskokoska-cashew",
       "rank": 1,
-      "name": "GEO Content Writer",
-      "category": "项目",
-      "summary": "以 backlog 行为生产单元的 GEO 内容流水线：真实 fanout→选题队列→编辑 brief→分段草稿契约→审核契约→终检门禁，输出可发布 Markdown/可选 WordPress。",
-      "why": "直接对标 autograph-ai 的 SEO/GEO 内容生产：可抄「选题队列+契约化写作+质量门禁」三层结构，把一次性生成改成可运营的内容 OS。",
-      "url": "https://github.com/dageno-agents/geo-content-writer",
-      "repo": "dageno-agents/geo-content-writer",
-      "stars": 217,
+      "name": "Cashew",
+      "category": "生活",
+      "summary": "免费开源的记账/预算 App（Flutter），iOS/安卓/网页 PWA 都能直接用：自定义预算周期、分类限额、订阅与周期账单、借出/借入、存钱目标、多币种，支持 CSV 导入与 Google Drive 备份。",
+      "why": "消费决策/轻理财场景：装完即用，不用自托管。可做「月底查订阅+设旅行专项预算」跟做方案，配一套分类模板与 CSV 导入表头模板，适合做成小红书教程或闲鱼记账模板包。",
+      "url": "https://github.com/jameskokoska/Cashew",
+      "repo": "jameskokoska/Cashew",
+      "stars": 4768,
       "tags": [
-        "GEO",
-        "SEO",
-        "content-pipeline",
-        "editorial-brief",
-        "autograph-ai"
+        "消费决策",
+        "轻理财",
+        "记账",
+        "订阅管理",
+        "PWA",
+        "开源免费"
       ],
       "steps": [
-        "克隆仓库并 PYTHONPATH=src 跑 CLI：build-fanout-backlog → select-backlog-items → publish-ready-article",
-        "对照 schemas/ 与 examples/ 把 editorial_brief/draft_package/review_package 映射到 autograph-ai 的任务/草稿模型",
-        "若暂无 Dageno，先用 draft-article-from-payload + examples 验证门禁与契约，再决定是否接 Dageno API"
+        "打开网页版 budget-track.web.app 或应用商店安装 Cashew",
+        "按模板建 8 个常用分类，把每月固定订阅录成「订阅」类型并开到期提醒",
+        "为一次出行或大促建自定义周期预算，按分类设上限，结束后看历史对比"
       ],
-      "risk": "主路径强依赖 DAGENO_API_KEY 与真实 fanout；无 Dageno 时只能走示例/探索性回退，不适合直接当生产选题源。",
+      "risk": "云同步与备份依赖 Google 登录，国内网络可能需额外处理；界面以英文为主（有社区翻译）；国内银行账单需自己整理成 CSV 再导入；仓库最近推送在 2026-03，更新节奏放缓。",
       "sources": [
         "README.md",
-        "README.zh-CN.md",
-        "schemas/",
-        "src/",
-        "examples/"
+        "https://cashewapp.web.app/faq.html#automation"
       ]
     },
     {
-      "id": "ChrisChen667788-wind-comic",
+      "id": "caspii-dinkydash",
       "rank": 2,
-      "name": "Wind Comic",
-      "category": "项目",
-      "summary": "多 Agent 短剧工作室：一句话→剧本/角色圣经/分镜/配音/时间线/成片 mp4；含导演台、角色一致性、小说分集、口型与成本护栏；Next.js + React，SQLite/Postgres 双驱动。",
-      "why": "对 soloforge-storyfactory 可直接对照「编剧→导演→角色→分镜→成片」角色拆分、一致性契约、分段重拍与发布门禁，省自研全链路编排成本。",
-      "url": "https://github.com/ChrisChen667788/wind-comic",
-      "repo": "ChrisChen667788/wind-comic",
-      "stars": 703,
+      "name": "DinkyDash",
+      "category": "生活",
+      "summary": "把旧电视/旧平板/树莓派变成家庭看板：合并多个 Google/iCloud/Outlook 日历（只需贴 iCal 链接），自动按天轮换「今天谁做家务」，倒数生日与纪念日，每天用 Claude 写一句当日标题。",
+      "why": "家务/家庭琐事+早晨日程场景：家务轮值自动按日期轮换不用打卡，早上全家看一眼就知道今天安排。可包装成「旧平板变家庭看板」跟做方案，附 config.yaml 家务轮值模板。",
+      "url": "https://github.com/caspii/dinkydash",
+      "repo": "caspii/dinkydash",
+      "stars": 99,
       "tags": [
-        "manga",
-        "short-drama",
-        "storyboard",
-        "multi-agent",
-        "soloforge-storyfactory"
+        "家务轮值",
+        "家庭日历",
+        "早晨日程",
+        "旧设备再利用",
+        "MIT"
       ],
       "steps": [
-        "docker run 演示镜像或 npm install && npm run dev 本地打开创作工坊",
-        "只读对照 Writer/Director/Character/Storyboard 交接契约与 Vision-Audit 重试环",
-        "把「单镜头分段重拍 + 四维发布门禁」抽成 storyfactory 可执行验收清单"
+        "git clone 后建 venv 安装依赖，复制 config.example.yaml，运行 sample_board.py 和 app.py，约 2 分钟在 localhost:5000 看到看板（无需 API Key）",
+        "在手机打开 /settings 填家庭成员、家务和生日，看轮值是否正确",
+        "需要时再贴入 iCal 链接与 Anthropic Key，放到旧平板浏览器全屏"
       ],
-      "risk": "完整成片依赖多家图像/视频/TTS API 额度；仓库体积与依赖重，二次商用需注意部分 npm 二进制 copyleft 再分发条款。",
+      "risk": "本地版没有登录，绝不能把 5000 端口暴露到公网；需要会一点终端；AI 标题需 Anthropic Key（不填也能用）；托管版 14 天后付费 $39/年；国内用 Google 日历需网络条件。",
       "sources": [
         "README.md",
-        "README.zh-CN.md",
-        "package.json",
-        "app/",
-        "docs/"
+        "config.example.yaml"
       ]
     },
     {
-      "id": "win4r-ClawTeam-OpenClaw",
+      "id": "madeinpierre-cuicuit",
       "rank": 3,
-      "name": "ClawTeam-OpenClaw",
-      "category": "项目",
-      "summary": "面向 CLI Agent 的多智能体蜂群协调：spawn 工人、git worktree 隔离、inbox/看板协作；默认 OpenClaw，一等公民支持 Hermes（tmux/subprocess）。",
-      "why": "贴合 clawkit / star-river-dev-team / 凌霄(Hermes)：用 clawteam spawn hermes 并行拆任务，比自写编排少一层胶水；可抄 inbox+看板+worktree 隔离。",
-      "url": "https://github.com/win4r/ClawTeam-OpenClaw",
-      "repo": "win4r/ClawTeam-OpenClaw",
-      "stars": 1470,
-      "tags": [
-        "OpenClaw",
-        "Hermes",
-        "multi-agent",
-        "swarm",
-        "clawkit"
-      ],
-      "steps": [
-        "git clone 后 pip install -e .（勿 pip install clawteam PyPI 上游包）",
-        "复制 skills/hermes/SKILL.md 到 ~/.hermes/skills/openclaw-imports/clawteam/",
-        "用 clawteam spawn ... hermes 跑一个双工人 demo，对照看板与 inbox 行为"
-      ],
-      "risk": "内置模板偏 OpenClaw inbox 协调；Hermes 工人偶发不执行 inbox-send；Hermes≤0.8.0 对 --source tool 存在上游忽略问题。",
-      "sources": [
-        "README.md",
-        "README_CN.md",
-        "skills/hermes/",
-        "pyproject.toml"
-      ]
-    },
-    {
-      "id": "JuneYaooo-mediwise-health-suite",
-      "rank": 4,
-      "name": "MediWise Health Suite",
+      "name": "Cuicuit",
       "category": "生活",
-      "summary": "面向 Hermes/OpenClaw 等 Agent Skills 的家庭健康档案助手：报告拍照/PDF 提取、成员分档、用药与复查提醒、就医前摘要、健康卡片；本地 SQLite。明确不做诊断。",
-      "why": "覆盖「体检报告整理+问诊清单+复查提醒」场景；对话安装约 5 分钟，提示词/模板可直接打包成 AI生活跟做方案。",
-      "url": "https://github.com/JuneYaooo/mediwise-health-suite",
-      "repo": "JuneYaooo/mediwise-health-suite",
-      "stars": 37,
+      "summary": "「先定菜、再出清单」的厨房助手：从网页导入菜谱并由 AI 补全细节，把菜拖进本周计划自动生成购物清单并按历史推荐常买项，支持家庭共享空间、PWA 和 MCP/API 接入。",
+      "why": "饮食/厨房场景：一周菜单直接变购物清单，少买重复食材；带 MCP 接口，可让 AI 助手代为导入菜谱、排菜单。适合做「一周家常菜单+自动购物清单」提示词跟做方案。",
+      "url": "https://github.com/MadeInPierre/cuicuit",
+      "repo": "MadeInPierre/cuicuit",
+      "stars": 164,
       "tags": [
-        "health-archive",
-        "family",
-        "OCR",
-        "reminder",
-        "Hermes",
-        "non-diagnostic"
+        "饮食",
+        "菜单计划",
+        "购物清单",
+        "家庭共享",
+        "MCP",
+        "alpha"
       ],
       "steps": [
-        "对 Agent 发送 README 中的安装提示词，完成 Skill 加载验收",
-        "创建本人档案并上传一份脱敏体检/化验图：要求先确认再写入",
-        "生成就医前摘要或 7 天健康卡片，验证提醒条目"
+        "在托管版 cuicuit.laclau.dev 注册，导入 3~5 个常做菜谱网页，拖进本周计划，检查自动生成的购物清单"
       ],
-      "risk": "不做诊断/治疗/用药建议；主动通知依赖 Agent 调度能力；敏感附件仍受所用 Agent 隐私策略约束，上传前应脱敏。",
+      "risk": "仍是 alpha，暂无自托管发布；托管版在海外，国内访问与中文菜谱导入效果未验证；食材库存与临期提醒还在路线图上，暂时做不到清库存；AGPL-3.0 许可。",
       "sources": [
         "README.md",
-        "SKILL.md",
-        "QUICKSTART.md",
-        "mediwise-health-tracker/"
-      ]
-    },
-    {
-      "id": "FriesI23-mhabit",
-      "rank": 5,
-      "name": "Table Habit (mhabit)",
-      "category": "生活",
-      "summary": "跨平台微习惯追踪：智能计分与成长曲线、习惯分组与配色、离线优先、可选 WebDAV 同步；Android/iOS/桌面均有商店或 F-Droid/Flathub 安装，无需账号。",
-      "why": "早晨/日程效率素材：用「起床仪式+深度工作块」习惯组替代复杂日程系统；10 分钟装上即可打卡，适合做成跟做模板包。",
-      "url": "https://github.com/FriesI23/mhabit",
-      "repo": "FriesI23/mhabit",
-      "stars": 1683,
-      "tags": [
-        "habit",
-        "morning-routine",
-        "offline-first",
-        "WebDAV",
-        "Flutter"
-      ],
-      "steps": [
-        "从 GitHub Releases / F-Droid / 应用商店安装对应平台包",
-        "建「早晨例行」分组：起床、拉伸、今日三件事打卡",
-        "可选配置 WebDAV（如 Nextcloud）做多端同步与 JSON 导出备份"
-      ],
-      "risk": "偏习惯打卡而非日历聚合；自编译需 Flutter 环境，普通用户应走预构建安装包。",
-      "sources": [
-        "README.md",
-        "PRIVACY.md",
-        "docs/"
+        "src/routes/mcp/README.md"
       ]
     }
   ]

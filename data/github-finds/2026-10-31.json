@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-31",
+  "updated": "2026-10-31T10:04:24+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "jameskokoska-cashew",
+      "rank": 1,
+      "name": "Cashew",
+      "category": "生活",
+      "summary": "免费开源的记账/预算 App（Flutter），iOS/安卓/网页 PWA 都能直接用：自定义预算周期、分类限额、订阅与周期账单、借出/借入、存钱目标、多币种，支持 CSV 导入与 Google Drive 备份。",
+      "why": "消费决策/轻理财场景：装完即用，不用自托管。可做「月底查订阅+设旅行专项预算」跟做方案，配一套分类模板与 CSV 导入表头模板，适合做成小红书教程或闲鱼记账模板包。",
+      "url": "https://github.com/jameskokoska/Cashew",
+      "repo": "jameskokoska/Cashew",
+      "stars": 4768,
+      "tags": [
+        "消费决策",
+        "轻理财",
+        "记账",
+        "订阅管理",
+        "PWA",
+        "开源免费"
+      ],
+      "steps": [
+        "打开网页版 budget-track.web.app 或应用商店安装 Cashew",
+        "按模板建 8 个常用分类，把每月固定订阅录成「订阅」类型并开到期提醒",
+        "为一次出行或大促建自定义周期预算，按分类设上限，结束后看历史对比"
+      ],
+      "risk": "云同步与备份依赖 Google 登录，国内网络可能需额外处理；界面以英文为主（有社区翻译）；国内银行账单需自己整理成 CSV 再导入；仓库最近推送在 2026-03，更新节奏放缓。",
+      "sources": [
+        "README.md",
+        "https://cashewapp.web.app/faq.html#automation"
+      ]
+    },
+    {
+      "id": "caspii-dinkydash",
+      "rank": 2,
+      "name": "DinkyDash",
+      "category": "生活",
+      "summary": "把旧电视/旧平板/树莓派变成家庭看板：合并多个 Google/iCloud/Outlook 日历（只需贴 iCal 链接），自动按天轮换「今天谁做家务」，倒数生日与纪念日，每天用 Claude 写一句当日标题。",
+      "why": "家务/家庭琐事+早晨日程场景：家务轮值自动按日期轮换不用打卡，早上全家看一眼就知道今天安排。可包装成「旧平板变家庭看板」跟做方案，附 config.yaml 家务轮值模板。",
+      "url": "https://github.com/caspii/dinkydash",
+      "repo": "caspii/dinkydash",
+      "stars": 99,
+      "tags": [
+        "家务轮值",
+        "家庭日历",
+        "早晨日程",
+        "旧设备再利用",
+        "MIT"
+      ],
+      "steps": [
+        "git clone 后建 venv 安装依赖，复制 config.example.yaml，运行 sample_board.py 和 app.py，约 2 分钟在 localhost:5000 看到看板（无需 API Key）",
+        "在手机打开 /settings 填家庭成员、家务和生日，看轮值是否正确",
+        "需要时再贴入 iCal 链接与 Anthropic Key，放到旧平板浏览器全屏"
+      ],
+      "risk": "本地版没有登录，绝不能把 5000 端口暴露到公网；需要会一点终端；AI 标题需 Anthropic Key（不填也能用）；托管版 14 天后付费 $39/年；国内用 Google 日历需网络条件。",
+      "sources": [
+        "README.md",
+        "config.example.yaml"
+      ]
+    },
+    {
+      "id": "madeinpierre-cuicuit",
+      "rank": 3,
+      "name": "Cuicuit",
+      "category": "生活",
+      "summary": "「先定菜、再出清单」的厨房助手：从网页导入菜谱并由 AI 补全细节，把菜拖进本周计划自动生成购物清单并按历史推荐常买项，支持家庭共享空间、PWA 和 MCP/API 接入。",
+      "why": "饮食/厨房场景：一周菜单直接变购物清单，少买重复食材；带 MCP 接口，可让 AI 助手代为导入菜谱、排菜单。适合做「一周家常菜单+自动购物清单」提示词跟做方案。",
+      "url": "https://github.com/MadeInPierre/cuicuit",
+      "repo": "MadeInPierre/cuicuit",
+      "stars": 164,
+      "tags": [
+        "饮食",
+        "菜单计划",
+        "购物清单",
+        "家庭共享",
+        "MCP",
+        "alpha"
+      ],
+      "steps": [
+        "在托管版 cuicuit.laclau.dev 注册，导入 3~5 个常做菜谱网页，拖进本周计划，检查自动生成的购物清单"
+      ],
+      "risk": "仍是 alpha，暂无自托管发布；托管版在海外，国内访问与中文菜谱导入效果未验证；食材库存与临期提醒还在路线图上，暂时做不到清库存；AGPL-3.0 许可。",
+      "sources": [
+        "README.md",
+        "src/routes/mcp/README.md"
+      ]
+    }
+  ]
+}
