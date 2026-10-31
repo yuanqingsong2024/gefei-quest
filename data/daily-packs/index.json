@@ -1,12 +1,20 @@
 {
-  "updated": "2026-10-30T09:18:00+08:00",
+  "updated": "2026-10-31T09:35:00+08:00",
   "start_date": "2026-10-28",
-  "count": 3,
+  "count": 4,
   "packs": [
+    {
+      "date": "2026-10-31",
+      "title": "每日执行包｜闲鱼 AI 单页落地页固定套餐 + 搭建费月维护报价",
+      "updated": "2026-10-31T09:35:00+08:00",
+      "path": "data/daily-packs/2026-10-31/",
+      "manifest": "data/daily-packs/2026-10-31/manifest.json",
+      "file_count": 4
+    },
     {
       "date": "2026-10-30",
       "title": "每日执行包｜闲鱼电商客服Agent方案 + 卖Agent路线决策卡",
-      "updated": "2026-10-30T09:18:00+08:00",
+      "updated": "2026-10-30T09:25:00+08:00",
       "path": "data/daily-packs/2026-10-30/",
       "manifest": "data/daily-packs/2026-10-30/manifest.json",
       "file_count": 5
