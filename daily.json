@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-30T16:50:46.025Z",
-  "latestId": 76,
+  "generatedAt": "2026-10-31T00:41:31.634Z",
+  "latestId": 77,
   "latestDate": "2026-10-31",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 77,
+      "date": "2026-10-31",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-10-31",
+      "items": [
+        "No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元，11月2日截止",
+        "No.2 PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万）",
+        "No.3 Kiroween 2026：提交已开，可领约4000免费额度；现金奖池约10万美元（至12月4日）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 76,
       "date": "2026-10-31",
@@ -108,41 +120,30 @@
         "赚钱页开关与 CTA 文案更具体（今日公开渠道 / 看步骤与来源 / 加入本周实操）；保留不承诺收益口径。不改榜单 JSON"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 67,
-      "date": "2026-10-30",
-      "tag": "新功能",
-      "title": "首页新增「SERP 标题拆解便签」：本机拆解搜索标题",
-      "items": [
-        "首页挖词候选卡旁可折叠「SERP 标题拆解便签」：粘贴最多 3 条标题，本机拆解词长/数字年份/修饰词并生成可仿写骨架",
-        "一键填入候选卡「拟标题」。草稿只存本机。不调用外部 AI，也不上传"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home-today"
     }
   ],
   "rank": {
-    "date": "2026-10-29",
+    "date": "2026-10-31",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Mergetober × Cognee：为开源 AI Agent 记忆层写集成 PR，奖池约5000美元，10月31日截止",
+        "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元，11月2日截止",
         "type": "奖金赛/悬赏",
-        "source_url": "https://www.wemakedevs.org/hackathons/mergetober"
+        "source_url": "https://twitchcon-codex.devpost.com/"
       },
       {
         "rank": 2,
-        "name": "Kiroween 2026：明天起可正式提交，今天只报名与选题，现金奖池约10万美元",
+        "name": "PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万）",
         "type": "奖金赛/悬赏",
-        "source_url": "https://kiroween.devpost.com/"
+        "source_url": "https://paypalaihackathon.devpost.com/"
       },
       {
         "rank": 3,
-        "name": "Hostinger Affiliate：写建站/主机教程，合资格首购可达约40%佣金（协议以官网为准）",
-        "type": "联盟营销",
-        "source_url": "https://www.hostinger.com/affiliates"
+        "name": "Kiroween 2026：提交已开，可领约4000免费额度；现金奖池约10万美元（至12月4日）",
+        "type": "奖金赛/悬赏",
+        "source_url": "https://kiroween.devpost.com/"
       }
     ]
   }

@@ -1,0 +1,410 @@
+{
+  "date": "2026-10-31",
+  "publishedAt": "2026-10-31T00:41:31.547Z",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元，11月2日截止",
+      "type": "奖金赛/悬赏",
+      "summary": "面向主播与社群的线上黑客松；须用 OpenAI Codex 并接入 Twitch；官方称现金奖约2.5万美元，截止约 2026-11-02 下午2:00 太平洋时间。",
+      "cost": "0；需 Devpost 账号与可用的 OpenAI Codex / Twitch 开发能力",
+      "difficulty": 4,
+      "threshold": "本国成年；公司/专业组织不可参赛；须做出可演示、真正用到 Codex 与 Twitch 的项目",
+      "time": "紧急：距截止约2天，只适合已有半成品或可极速交付原型的人",
+      "fit": "熟悉 Twitch 生态或能快速接 API、会用 Codex 出可运行原型的开发者；预估投入：今天起全力冲刺",
+      "why": "Devpost 官方页写明：Deadline Nov 2, 2026 @ 2:00pm PST；奖池约 $25,000 in prizes，一等奖现金约1万美元并有机会上 TwitchCon 展台；公司/专业组织排除。上榜理由：相对昨日已截止的 Nebius 赛与仍长窗口的 Kiroween，今天新推「距截止约两天」的 Codex×Twitch 紧急赛，适合立刻收尾提交。",
+      "steps": [
+        "打开 twitchcon-codex.devpost.com 核对完整规则、奖项与提交清单，确认个人资格（公司组织不可参赛）",
+        "在截止前完成可运行演示：项目须有意义地使用 OpenAI Codex 并接入 Twitch；准备公开说明与演示视频（按官网要求）",
+        "若无法在 11 月 2 日前达到可演示标准，改投仍开放的 PayPal AI 或 Kiroween"
+      ],
+      "risk": "风险等级：高。距截止极近；不保证获奖；须同时满足 Codex 与 Twitch 要求。不承诺收益。",
+      "risk_level": "高",
+      "reason": "本周末截止的大额黑客松，适合已有 Twitch/Codex 半成品的最后冲刺。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "OpenAI Codex",
+        "Twitch",
+        "紧急"
+      ],
+      "sources": [
+        {
+          "title": "Codex x TwitchCon Hackathon: Build for streamers and their community on Twitch with OpenAI Codex",
+          "url": "https://twitchcon-codex.devpost.com/",
+          "publisher": "Devpost / Twitch",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://twitchcon-codex.devpost.com/"
+    },
+    {
+      "rank": 2,
+      "name": "PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万）",
+      "type": "奖金赛/悬赏",
+      "summary": "线上公开赛：应用须整合 PayPal 开发者平台（可用免费 sandbox）并配合任一 AI 工具/模型；现金约6.75万美元，截止约 2026-11-12 中午太平洋时间。",
+      "cost": "0；需 Devpost 账号与可跑通的演示",
+      "difficulty": 4,
+      "threshold": "能做出同时调用 PayPal（sandbox 亦可）与 AI 的可交互原型，并按清单交仓库与演示",
+      "time": "约12天窗口；建议本周定题并先打通 sandbox 支付链路",
+      "fit": "会接支付 API、能用大模型做功能增强的全栈/独立开发者；预估投入：每周10小时以上",
+      "why": "Devpost 官方页写明：现金约 $67,500，另有积分等合计约 $69,750；Deadline Nov 12, 2026 @ 12:00pm PST；核心要求是项目须有意义地同时使用 PayPal 与 AI。上榜理由：相对今日紧急的 TwitchCon 赛，本条窗口更长、奖池更大，适合从今天起正经开题。",
+      "steps": [
+        "打开 paypalaihackathon.devpost.com 核对赛道、工具与提交要求，注册并申请 PayPal sandbox",
+        "先打通一笔 sandbox 支付/关键链路，再叠加 AI 能力（推荐、风控说明、客服助手等均可，以官方细则为准）",
+        "11月12日前交可运行演示、公开仓库与说明视频；勿只交幻灯片"
+      ],
+      "risk": "风险等级：中。须同时满足 PayPal+AI；竞争激烈；不保证获奖。不承诺收益。",
+      "risk_level": "中",
+      "reason": "奖池大且窗口仍有约两周，适合本周开题做支付×AI 原型。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "PayPal",
+        "AI",
+        "Sandbox"
+      ],
+      "sources": [
+        {
+          "title": "PayPal AI Hackathon: Build what’s next with PayPal and AI - Devpost",
+          "url": "https://paypalaihackathon.devpost.com/",
+          "publisher": "Devpost / PayPal",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://paypalaihackathon.devpost.com/"
+    },
+    {
+      "rank": 3,
+      "name": "Kiroween 2026：提交已开，可领约4000免费额度；现金奖池约10万美元（至12月4日）",
+      "type": "奖金赛/悬赏",
+      "summary": "Kiro 万圣节主题线上黑客松；提交窗口已开至约 12-04 太平洋时间下午2点；官方称现金奖池约10万美元，Resources 可申请约4000免费 Kiro credits。",
+      "cost": "0；需 Devpost 账号与有效 Kiro 或 AWS 账号 ID",
+      "difficulty": 3,
+      "threshold": "本国成年、排除标准地区；只能提交提交期内新建的项目；团队上限以官网为准",
+      "time": "今天可领额度并新建仓库；完整构建仍有约一个月窗口",
+      "fit": "会用 AI IDE/Agent 做可演示应用的开发者；预估投入：提交期每周8小时以上",
+      "why": "Devpost 官方页写明：Submission Period 约 Oct 30–Dec 4, 2026；现金奖池约 $100,000；可在 Resources 申请约 4,000 free Kiro credits（约至 Dec 1 12:00 pm PT）。上榜理由：相对昨日「今天起可提交」口径，今天强调「已开提交 + 尽快领免费额度」，窗口仍长、适合边领资源边选题。",
+      "steps": [
+        "打开 kiroween.devpost.com，在 Resources 按指引申请约4000免费 Kiro credits（留意额度申请截止），并完成报名",
+        "按赛道主题在提交期内新建仓库动手，勿提交旧项目；可考虑写公开博客争取加分（以官方细则为准）",
+        "12月4日前完成演示与提交；草稿可多次保存"
+      ],
+      "risk": "风险等级：中。须新建项目；竞争人数多；额度申请有截止；不保证获奖。不承诺收益。",
+      "risk_level": "中",
+      "reason": "大额现金赛已开提交，今天适合先领免费额度再定主题开写。",
+      "tags": [
+        "奖金赛",
+        "黑客松",
+        "Kiro",
+        "AWS",
+        "免费额度"
+      ],
+      "sources": [
+        {
+          "title": "Kiroween 2026: Build something wicked and git commit to the darkness. - Devpost",
+          "url": "https://kiroween.devpost.com/",
+          "publisher": "Devpost / Kiro",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://kiroween.devpost.com/"
+    },
+    {
+      "rank": 4,
+      "name": "B站「AI创造公开赛S2」：持续投稿可运行 AI 产品；一等奖税前100万元（评审团报名已结束）",
+      "type": "平台激励",
+      "summary": "官方 AI 造物征集自 2026-10-24 起持续投稿；要求横屏≥1分钟原创视频，展示用大模型做出的可运行产品；一等奖税前100万元。",
+      "cost": "0；需 B站账号与可演示的 AI 产品",
+      "difficulty": 4,
+      "threshold": "能做出可运行、可交互的 AI 产品（非纯 AIGC 成片），并拍达标投稿视频；评审团报名已于10月30日结束",
+      "time": "投稿持续进行，截止以官方后续公告为准；建议本周完成产品与成片",
+      "fit": "会 vibe coding / 大模型应用、能拍清产品演示的创作者或开发者；预估投入：每周10小时以上",
+      "why": "官方活动页与规则动态写明：投稿自 2026-10-24 起；一等奖税前100万元，二等奖3个各30万元，三等奖6个各5万元；须造可运行产品而非纯生成视频。评审团报名期为10月24–30日，今天起勿再推评审团路径。上榜理由：相对昨日「评审团今日截止」，今天只推「持续投稿作品」角度。",
+      "steps": [
+        "打开活动页与规则动态，确认作品须为可运行 AI 产品、横屏≥1分钟、勾选活动标签",
+        "做出可交互演示（软件/硬件原型等），按规则拍原创成片后投稿",
+        "勿再报名评审团；关注官方后续截止与数据统计公告"
+      ],
+      "risk": "风险等级：高。竞争强；须可运行产品；奖金税务与协议以官方为准；不保证入围或获奖。不承诺收益。",
+      "risk_level": "高",
+      "reason": "国内少见的百万级 AI 造物征集，今天起只走作品投稿不走评审团。",
+      "tags": [
+        "平台激励",
+        "B站",
+        "AI创造",
+        "可运行产品",
+        "现金奖"
+      ],
+      "sources": [
+        {
+          "title": "AI创造公开赛S2",
+          "url": "https://www.bilibili.com/blackboard/era/StMnSSLw06phBtHM.html",
+          "publisher": "bilibili.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        },
+        {
+          "title": "B站AI创造公开赛S2 活动规则 - 哔哩哔哩",
+          "url": "https://www.bilibili.com/opus/1262431200618741810",
+          "publisher": "bilibili.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://www.bilibili.com/blackboard/era/StMnSSLw06phBtHM.html"
+    },
+    {
+      "rank": 5,
+      "name": "DigitalOcean Affiliate：写云主机/部署教程，合资格付费用户月消费可拿约10%佣金、持续约12个月",
+      "type": "联盟营销",
+      "summary": "官方云基础设施联盟：成功推荐新付费用户后，按其月消费约拿10%佣金，并持续约一年；经 CJ 网络申请。",
+      "cost": "0；需可写部署/对比内容的站点或社媒",
+      "difficulty": 2,
+      "threshold": "能持续产出真实部署教程或选型对比，并按联盟网络规范披露",
+      "time": "申请通过后即可挂链；见效通常需数周内容与流量积累",
+      "fit": "会写英文或中文技术教程、已有开发者受众或愿意做 SEO 的人；预估投入：每周5小时",
+      "why": "DigitalOcean 官方联盟页写明：推荐新付费用户后，可按其月消费获得约10%佣金，并持续约一整年。上榜理由：相对近日 Hostinger/Railway 条目，今天换回 DO 的「月消费×约12个月」口径，适合部署类内容变现。",
+      "steps": [
+        "打开 digitalocean.com/affiliates，经 CJ 申请并创建推广链接",
+        "写一篇真实的云主机/容器/数据库部署或对比教程，按规范披露联盟关系",
+        "把链接放到小站、文档站或技术社媒，跟踪哪类内容转化更好"
+      ],
+      "risk": "风险等级：低。佣金与合格条件以 CJ/官网协议为准；须真实披露；不保证有转化。不承诺收益。",
+      "risk_level": "低",
+      "reason": "开发者向云主机联盟，条款清晰，适合教程站长期挂链。",
+      "tags": [
+        "联盟营销",
+        "DigitalOcean",
+        "云主机",
+        "教程",
+        "佣金"
+      ],
+      "sources": [
+        {
+          "title": "Affiliate Program | DigitalOcean",
+          "url": "https://www.digitalocean.com/affiliates",
+          "publisher": "DigitalOcean",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://www.digitalocean.com/affiliates"
+    },
+    {
+      "rank": 6,
+      "name": "Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费，成交约抽5%+$0.50（平台作 Merchant of Record）",
+      "type": "数字产品/接单",
+      "summary": "面向数字商品的收款与店铺：官方定价页称电商功能无月费，成交按约5%+$0.50计，并作为 Merchant of Record 代处理销售税。",
+      "cost": "0 起步；平台按成交抽成，具体以定价页为准",
+      "difficulty": 2,
+      "threshold": "有可交付的原创数字文件或轻量订阅内容，能写清使用说明与售后边界",
+      "time": "1–3天可上架首个产品；之后持续导流与迭代",
+      "fit": "有模板、清单、小教程或可订阅资料的创作者；预估投入：每周5小时",
+      "why": "Lemon Squeezy 官方定价页写明：电商功能无月费；交易费约 5% + 50¢；平台作为 Merchant of Record 处理全球销售税合规。上榜理由：相对昨日同平台条目，今天强调「无月费 + MoR 代税」对出海数字商品的便利，换产品角度可卖提示词包/清单而非再推 Notion。",
+      "steps": [
+        "打开 lemonsqueezy.com/pricing 核对当前费率与 MoR 说明，注册店铺",
+        "上架一个解决具体问题的原创数字下载（如工作流清单、模板包），写清授权与售后",
+        "用小站、X/社媒或闲鱼引流到付款页，按数据迭代定价与封面"
+      ],
+      "risk": "风险等级：中。只能卖原创或已获授权内容；费率边缘情形以官网为准；需自行解决支付与税务账户问题。不承诺收益。",
+      "risk_level": "中",
+      "reason": "数字商品收款路径清晰，适合反复卖原创模板与资料。",
+      "tags": [
+        "数字产品",
+        "Lemon Squeezy",
+        "Merchant of Record",
+        "模板",
+        "订阅"
+      ],
+      "sources": [
+        {
+          "title": "Pricing • Lemon Squeezy",
+          "url": "https://www.lemonsqueezy.com/pricing",
+          "publisher": "Lemon Squeezy",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://www.lemonsqueezy.com/pricing"
+    },
+    {
+      "rank": 7,
+      "name": "Netlify：按官方入门路径部署英文工具小站，验证流量后再接广告或联盟",
+      "type": "出海小站",
+      "summary": "用 Netlify Docs 的 Getting Started 把静态/前端站部署上线；免费档适合先验证英文工具页是否有搜索与回访。",
+      "cost": "域名约每年数十美元可选；托管可走免费档",
+      "difficulty": 2,
+      "threshold": "能完成单页英文工具或指南，并接好自定义域名与基础 SEO",
+      "time": "半天到2天可上线首版；流量与变现通常需数月",
+      "fit": "会一点前端或静态站、想先验证出海词再投入的人；预估投入：每周5小时",
+      "why": "Netlify 官方文档提供清晰入门路径，可快速把静态/前端项目推到公网。上榜理由：相对近日 Vercel、Cloudflare Pages 条目，今天换 Netlify 部署角度，同样服务「先上线验证、再接 AdSense/联盟」的出海小站路线。",
+      "steps": [
+        "打开 docs.netlify.com/get-started 选合适入门路径，把英文单页工具或指南部署上线",
+        "接 Google Search Console，补 About/Privacy 与 3–5 篇相关说明",
+        "有稳定访问后再申请 AdSense 或挂相关联盟链接"
+      ],
+      "risk": "风险等级：低。免费档有限额；广告审核会拒空站；前几个月收入可能为0。不承诺收益。",
+      "risk_level": "低",
+      "reason": "低成本验证英文工具站的部署路径，和本站出海小站路线一致。",
+      "tags": [
+        "出海小站",
+        "Netlify",
+        "静态站",
+        "SEO",
+        "AdSense"
+      ],
+      "sources": [
+        {
+          "title": "Choose your path | Netlify Docs",
+          "url": "https://docs.netlify.com/get-started/",
+          "publisher": "Netlify Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        },
+        {
+          "title": "Google AdSense - Earn Money from Your Website with Monetization",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://docs.netlify.com/get-started/"
+    },
+    {
+      "rank": 8,
+      "name": "出海新词：用 Google Trends 找上升英文查询，做单页选购/对比指南再接联盟或广告",
+      "type": "出海新词",
+      "summary": "用 Google Trends 观察上升搜索词，挑有购买或对比意向的长尾做英文单页，有稳定访问后再接联盟或 AdSense。",
+      "cost": "0 起步；可选域名与付费关键词工具",
+      "difficulty": 3,
+      "threshold": "能独立完成英文单页与基础 SEO，并识别「可挂联盟/广告」的查询意图",
+      "time": "选词+上线约3–7天；见效通常需数周到数月",
+      "fit": "愿意做关键词研究、能写清楚对比结构的人；预估投入：每周6小时",
+      "why": "Google Trends 可免费观察查询热度与上升趋势，适合发现尚未被写烂的英文长尾。变现路径：单页指南挂相关联盟，或达标后接 AdSense。上榜理由：相对昨日具体产品词 Navige，今天回到「Trends 选购/对比意图」方法论，强调先验证意图再挂佣。",
+      "steps": [
+        "打开 trends.google.com/trends，对比若干候选英文词的上升趋势与地区分布",
+        "挑一个有对比/选购意图、竞争尚可的长尾，用 Netlify 等部署英文单页",
+        "内容稳定后挂相关联盟或申请 AdSense，用 Search Console 看实际查询"
+      ],
+      "risk": "风险等级：中。趋势会回落；无流量则无收入；联盟与广告均需合规披露与审核。不承诺收益。",
+      "risk_level": "中",
+      "reason": "低成本发现英文上升词，并把单页直接接到联盟或广告变现。",
+      "tags": [
+        "出海新词",
+        "Google Trends",
+        "SEO",
+        "联盟",
+        "单页"
+      ],
+      "sources": [
+        {
+          "title": "Google Trends",
+          "url": "https://trends.google.com/trends/",
+          "publisher": "Google",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        },
+        {
+          "title": "Google AdSense - Earn Money from Your Website with Monetization",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://trends.google.com/trends/"
+    },
+    {
+      "rank": 9,
+      "name": "闲鱼技能服务：短视频口播脚本与标题钩子定制，按条或按套打包接单",
+      "type": "闲鱼非实物",
+      "summary": "在闲鱼发布自有内容技能的信息服务（口播结构、开头钩子、标题备选），按条数或套餐收费，站内交易防纠纷。",
+      "cost": "0；需实名与常用文档/笔记工具",
+      "difficulty": 2,
+      "threshold": "能根据客户选题在数小时内交付可直接录的口播稿与标题选项，并说清修改次数",
+      "time": "每单1–3小时；起步期每天1小时回复咨询",
+      "fit": "写过短视频文案、懂基础完播结构的人；预估投入：每周5小时",
+      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；创作者对「能直接开录」的口播结构与标题有稳定需求，交付物可沉淀成可售模板包。上榜理由：相对近日封面/表格/工作流方向，今天换内容脚本技能，不涉及账号券码代领。",
+      "steps": [
+        "阅读闲鱼卖家服务协议，确认类目与禁发内容，避免违规推广承诺",
+        "准备 3–5 组前后对比样例（选题→钩子→口播大纲），写清条数、修改次数与报价",
+        "全程站内沟通与交易，交付后邀评；把高频结构做成可售模板另行上架"
+      ],
+      "risk": "风险等级：低。不接违禁推广与虚假承诺；注意客户素材版权；站外交易易起纠纷。不承诺收益。",
+      "risk_level": "低",
+      "reason": "国内技能变现里内容脚本需求明确，可沉淀为模板反复卖。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "口播脚本",
+        "标题钩子",
+        "模板"
+      ],
+      "sources": [
+        {
+          "title": "闲鱼社区卖家服务协议",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
+          "publisher": "terms.alicdn.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
+    },
+    {
+      "rank": 10,
+      "name": "案例拆解：Launch Fast 48小时做出产品——作者自述约30天达1万美元MRR、约90天约3万美元（只拆方法）",
+      "type": "案例拆解",
+      "summary": "Indie Hackers 访谈：非技术创始人 Hasaam Bhatti 自述用 AI 编程工具约48小时做出面向亚马逊卖家的工具，并借助已有社群分发。",
+      "cost": "0（阅读公开访谈）；若跟做需自备产品与分发渠道",
+      "difficulty": 3,
+      "threshold": "能从公开案例里抽象「领域痛点 + 现成分发」方法，而不是照抄产品",
+      "time": "阅读与笔记约2小时；验证方法需数周到数月",
+      "fit": "已有垂直领域经验、缺工程背景但会用 AI 编程工具的人；预估投入：先读透再小范围试验",
+      "why": "Indie Hackers 公开访谈写明：公司 Launch Fast，创始人 Hasaam Bhatti；文中作者/报道称约30天达约1万美元MRR，后续增长至约3万美元月经常性收入量级。方法要点（个人说法）：做自己所在领域真正痛的工具，用现成社群谈分发合作，并给自己硬截止。上榜理由：相对近日 HabitKit/CodedThemes，今天换「非技术 + 48小时 + 社群分发」路径，只拆方法不承诺可复现收入。",
+      "steps": [
+        "阅读 Indie Hackers 原文，标注：领域选择、48小时交付承诺、与已有社群的合作方式",
+        "对照自身：你是否已有「自己天天用」的垂直痛点，以及可借力的现成受众",
+        "若试验：先做最小可收费版本验证付费，再谈分发；勿照搬对方品类与报价"
+      ],
+      "risk": "风险等级：中。文中收入为作者/报道个人说法，不可当作你的预期收益；分发合作与品类差异很大。不承诺收益。",
+      "risk_level": "中",
+      "reason": "公开案例里少见的「非技术 + 硬截止 + 借力社群」组合，适合对照自己的领域资产。",
+      "tags": [
+        "案例拆解",
+        "Indie Hackers",
+        "Launch Fast",
+        "AI编程",
+        "分发"
+      ],
+      "sources": [
+        {
+          "title": "Building a product in 48 hours and hitting $30k MRR as a non-technical founder - Indie Hackers",
+          "url": "https://www.indiehackers.com/post/tech/building-a-product-in-48-hours-and-hitting-30k-mrr-as-a-non-technical-founder-wWtWIH5tmwASUbxKaLT9",
+          "publisher": "Indie Hackers",
+          "published": "2026-06-02",
+          "kind": "community",
+          "checked": "2026-10-31"
+        }
+      ],
+      "source_url": "https://www.indiehackers.com/post/tech/building-a-product-in-48-hours-and-hitting-30k-mrr-as-a-non-technical-founder-wWtWIH5tmwASUbxKaLT9"
+    }
+  ]
+}
