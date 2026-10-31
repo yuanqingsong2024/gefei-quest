@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-31T00:41:31.634Z",
-  "latestId": 77,
+  "generatedAt": "2026-10-31T04:05:42.694Z",
+  "latestId": 78,
   "latestDate": "2026-10-31",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 78,
+      "date": "2026-10-31",
+      "tag": "内容",
+      "title": "AI生活合集新增「周末让AI带你断舍离」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：拍一张照出收纳方案（留/捐/二手/扔→动线分层→先试摆再买盒），再一句话收拾手机首页；含分区收纳40分钟版与手机首页分组版提示词、小红书与闲鱼跟做包角度",
+        "附新浪科技（快科技）/ 80aj / Chatday HUB / 硅基AGI 四个来源，本机核验均可访问；照片别拍证件、快递单、门牌；不承诺效果、不代领、不代整理。SW 缓存 49"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 77,
       "date": "2026-10-31",
@@ -109,17 +120,6 @@
         "附新京报 / 中国经济网来源（后者本机核验 HTTP 500，URL 保留并标 unverified）；不做真实多人后端、不代支付、不收集手机号；不卖账号不代领邀测，不承诺收益"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 68,
-      "date": "2026-10-30",
-      "tag": "改进",
-      "title": "借鉴落地页设计规则：字号/间距/浮层导航/滚动显现",
-      "items": [
-        "吸收 ai-design-skills 的字号阶梯、间距 token、嵌套圆角与动效曲线；顶栏轻微浮层毛玻璃；首页与赚钱榜区块滚动显现（IntersectionObserver）",
-        "赚钱页开关与 CTA 文案更具体（今日公开渠道 / 看步骤与来源 / 加入本周实操）；保留不承诺收益口径。不改榜单 JSON"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

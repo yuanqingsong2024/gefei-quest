@@ -1,6 +1,6 @@
 {
   "title": "AI生活起号选题方案",
-  "updated": "2026-10-30",
+  "updated": "2026-10-31",
   "intro": "面向「AI 生活 / 用 AI 提效改日常」公众号与多平台账号的常青合集：场景型选题写法、起号方法、可卖的原创选题日历与提示词包角度。每条附真实来源；收入因人而异，不构成收益承诺。不卖账号、不代写、不代领。",
   "rules": [
     {
@@ -12,7 +12,7 @@
           "publisher": "国家互联网信息办公室",
           "published": "2025-03-14",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "专家解读｜给人工智能生成合成内容贴上数字标识",
@@ -20,7 +20,7 @@
           "publisher": "国家互联网信息办公室",
           "published": "2025-09-05",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
@@ -33,7 +33,7 @@
           "publisher": "中国政府网",
           "published": "2023-07-13",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "打击公众号AI创作？微信团队回应",
@@ -41,7 +41,7 @@
           "publisher": "微信派",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
@@ -54,7 +54,7 @@
           "publisher": "闲鱼",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "平台规则与合规经营",
@@ -62,7 +62,7 @@
           "publisher": "hdu-wiki.cn",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
@@ -75,7 +75,7 @@
           "publisher": "提效录",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "闲鱼《社区信息发布规范》",
@@ -83,7 +83,7 @@
           "publisher": "闲鱼",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
@@ -96,7 +96,7 @@
           "publisher": "观察者网",
           "published": "2026-07-29",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "泛AI号卷死了？普通人做「AI+X」垂直小号，反而容易涨粉变现",
@@ -104,7 +104,7 @@
           "publisher": "aizxs.com",
           "published": "2026-09-22",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
@@ -117,7 +117,7 @@
           "publisher": "AI Expert",
           "published": "",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "民航旅客禁止/限制随身携带和托运物品目录公告",
@@ -125,7 +125,7 @@
           "publisher": "中国民用航空局",
           "published": "2016-12-13",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     }
@@ -133,6 +133,75 @@
   "items": [
     {
       "rank": 1,
+      "name": "场景文：周末让AI带你断舍离——拍一张照出收纳方案，再一句话收拾手机桌面",
+      "type": "AI生活/内容",
+      "cost": "0元（豆包/千问/同类助手免费档即可；一个角落约 40 分钟跟做；手机首页整理 10 分钟；有豆包手机助手的机型可对照实测「一句话整理桌面」）",
+      "difficulty": 1,
+      "fit": "做「AI 生活」号、想发生活向可跟做闭环（非模型测评）；双11快递进门前想先清一个角落、手机首页图标乱成一锅粥的人",
+      "why": "快科技/新浪科技（2026-10-29）：豆包手机助手上线桌面整理与壁纸功能，一句话按图标颜色、类型智能分类排列手机桌面，可结合天气、待办生成壁纸。80aj（2026-10-17）：独立开发者基于 GPT 做的「小满收纳」小程序，拍照即得整理方案与效果图。Chatday HUB（2026-10-20）给出 9 个全屋断舍离提示词；硅基AGI（2026-10-22）实操「拍张照让 AI 出收纳方案」。定位为生活向可跟做：选最小角落→留/捐/二手/扔四分法→按动线分层→先试摆再买收纳盒；数字版顺手整理手机首页。照片只拍物品，别拍证件、快递单、门牌；不代整理、不承诺效果",
+      "steps": [
+        "自己先跑一遍：挑家里最小的一个角落（玄关柜/书桌一角/一层抽屉），整理前拍 1 张全景照发给豆包/千问，按「留/捐/二手/扔」出分区方案，40 分钟内做完并拍对比图；再用一句话把手机首页按用途分组（有豆包手机助手的机型可对照「一句话整理桌面」）",
+        "公众号结构：痛点（双11快递要进门、家里已经没地方放）→ 新闻信号（豆包手机助手一句话整理桌面、「小满收纳」拍照出方案）→ 四步闭环（选最小角落 → 留/捐/二手/扔 → 按动线分层：常用放手边、少用放高处 → 先用现有盒子试摆一周再决定买什么）→ 数字版：10 分钟收拾手机首页 → 翻车点（照片拍到证件/快递单/门牌、一上来先下单收纳盒、一口气清全屋半途而废）→ 结尾",
+        "文内放出可复制提示词①分区收纳40分钟版：「你是一位务实的收纳教练。我会发一张【玄关柜/书桌一角/某层抽屉】的照片（照片里没有证件、快递单和门牌）。请：1）只看这一个角落，列出你识别到的物品；2）按『留／捐／二手／扔』四类分好，每类写一句理由，拿不准的放进『待定箱』，30 天没用到再处理；3）按使用频率和动线给出分层摆放：每天用的放手边一层，每周用的放中层，少用的放高处或深处；4）排成 40 分钟计时清单（每段 10 分钟：清空→分类→擦拭→回放）；5）先用家里现有的盒子、袋子试摆，列出试摆一周后仍缺的收纳件（尺寸写成长×宽×高 cm），不要直接推荐购买链接。语气轻松，不要一次给全屋方案。」",
+        "文内放出可复制提示词②手机首页分组版：「帮我整理手机首页。下面是我首页上的 App 名单（我手动抄写，不含任何账号和聊天内容）：【粘贴名单】。请：1）按『每天必用／生活缴费出行／工作学习／娱乐／低频工具』分成不超过 5 组，每组给一个 2–4 字的文件夹名；2）第一屏只放每天必用的 8 个以内，其余进文件夹或第二屏；3）列出 30 天没打开过、可以考虑卸载的 App，只给建议不替我决定；4）给出 10 分钟按步骤操作清单。若我的手机有『一句话整理桌面』之类的助手功能，也给出一句可以直接说的指令。」",
+        "公众号标题备选：①双11快递进门前，我让AI陪我清了一遍家，先从最小那个角落开始②断舍离卡在「舍不得」？让AI按留/捐/二手/扔帮你拍板③收纳盒先别买！先让AI看一眼照片，试摆一周再下单",
+        "小红书：主标题「双11前先清家｜AI 40分钟救活一个角落」；副文「拍一张照出方案｜留/捐/二手/扔｜手机首页顺手收拾」；6–9 图拆整理前后对比与步骤（只拍物品，勿露证件、快递单、门牌）",
+        "闲鱼可卖《双11前全屋断舍离AI跟做包》（角落分区提示词＋40分钟计时清单＋手机首页分组模板；方法与模板，不承诺效果，不代领、不上门代整理）"
+      ],
+      "risk": "照片只拍物品，勿拍证件、快递单、门牌、家人正脸，发给 AI 前先检查画面；不承诺整理效果与「一次清完全屋」；豆包手机助手桌面整理等功能依机型而定，勿暗示所有手机都能用；收纳件先试摆再买，避免借双11诱导消费；AI 生成内容须标识；不卖账号、不代领、不上门代整理；不承诺收益",
+      "source_url": "https://finance.sina.com.cn/tech/roll/2026-10-29/doc-iniwwyaq6027908.shtml",
+      "tags": [
+        "断舍离",
+        "收纳",
+        "拍照出方案",
+        "手机桌面",
+        "豆包",
+        "双11",
+        "提示词",
+        "场景文"
+      ],
+      "resell": {
+        "product": "《双11前全屋断舍离AI跟做包》",
+        "buyers": "双11前想先清出空间、但一想整理就头大的上班族与家庭；做生活号想要可跟做模板的创作者",
+        "expires": "常青；助手产品名或「整理桌面」入口变更时更新截图与步骤"
+      },
+      "sources": [
+        {
+          "title": "豆包手机助手宣布新功能上线！一句话帮你AI焕新桌面、生成专属壁纸",
+          "url": "https://finance.sina.com.cn/tech/roll/2026-10-29/doc-iniwwyaq6027908.shtml",
+          "publisher": "新浪科技（快科技）",
+          "published": "2026-10-29",
+          "kind": "media",
+          "checked": "2026-10-31"
+        },
+        {
+          "title": "开发者用GPT打造AI收纳小程序：拍照即得整理方案与效果图",
+          "url": "https://www.80aj.com/2026/10/17/ai-organizer-app-gpt/",
+          "publisher": "80aj",
+          "published": "2026-10-17",
+          "kind": "media",
+          "checked": "2026-10-31"
+        },
+        {
+          "title": "9 个 AI 提示词，帮你轻松搞定全屋断舍离",
+          "url": "https://www.hub.chatday.ai/zh-hans/blog/ai-prompts-to-declutter-your-home",
+          "publisher": "Chatday HUB",
+          "published": "2026-10-20",
+          "kind": "community",
+          "checked": "2026-10-31"
+        },
+        {
+          "title": "家里乱成一团？拍张照让 AI 出收纳方案",
+          "url": "https://guijiagi.com/posts/2026-10-22-05-ai-room-organization-plan/",
+          "publisher": "硅基AGI",
+          "published": "2026-10-22",
+          "kind": "community",
+          "checked": "2026-10-31"
+        }
+      ]
+    },
+    {
+      "rank": 2,
       "name": "场景文：让AI手搓生活小应用——周末搭子投票／购物冷静器／约课页，不会写代码也能用",
       "type": "AI生活/内容",
       "cost": "0元（豆包/千问/同类助手免费档即可；约 40–60 分钟写可跟做教程；有千问Go「我的应用」邀测资格可对照实测）",
@@ -171,7 +240,7 @@
           "publisher": "新京报",
           "published": "2026-10-29",
           "kind": "media",
-          "checked": "2026-10-30"
+          "checked": "2026-10-31"
         },
         {
           "title": "把生活需求搓成专属应用，「千问Go!」上线“我的应用”",
@@ -185,7 +254,7 @@
       ]
     },
     {
-      "rank": 2,
+      "rank": 3,
       "name": "场景文：让 AI 搭全家「生活后台」——保修卡、账单、日记，一句话进腾讯文档",
       "type": "AI生活/内容",
       "cost": "0元（有 WorkBuddy 装开源技能；没有也可用豆包/千问+腾讯文档手动跟做；约 40–60 分钟写可跟做教程）",
@@ -223,7 +292,7 @@
           "publisher": "人人都是产品经理",
           "published": "2026-10-28",
           "kind": "media",
-          "checked": "2026-10-29"
+          "checked": "2026-10-31"
         },
         {
           "title": "tjxj/z-skills（z-life-hub 生活后台技能）",
@@ -231,7 +300,7 @@
           "publisher": "GitHub",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-29"
+          "checked": "2026-10-31"
         },
         {
           "title": "文件分散耽误效率？腾讯发布办公套件Buddy One，打通文档、会议等",
@@ -239,7 +308,7 @@
           "publisher": "21经济网",
           "published": "2026-10-29",
           "kind": "media",
-          "checked": "2026-10-29"
+          "checked": "2026-10-31"
         },
         {
           "title": "腾讯发布办公套件 Buddy One（辅证）",
@@ -247,12 +316,12 @@
           "publisher": "新浪财经",
           "published": "2026-10-29",
           "kind": "media",
-          "checked": "2026-10-29"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 3,
+      "rank": 4,
       "name": "场景文：让AI当「订阅刺客猎手」——翻账单揪闲置自动续费（扣费前三天再喊你一声）",
       "type": "AI生活/内容",
       "cost": "0元（有灵光走支付宝授权；没有就账单截图+豆包/千问；约 40–60 分钟写可跟做教程）",
@@ -289,7 +358,7 @@
           "publisher": "中国日报网",
           "published": "2026-10-27",
           "kind": "media",
-          "checked": "2026-10-28"
+          "checked": "2026-10-31"
         },
         {
           "title": "蚂蚁灵光 2.0 发布：全新升级“能管事的 AI 助理”，突破单次对话限制",
@@ -297,7 +366,7 @@
           "publisher": "IT之家",
           "published": "2026-10-27",
           "kind": "media",
-          "checked": "2026-10-28"
+          "checked": "2026-10-31"
         },
         {
           "title": "个人智能体真能管事了：用了三天灵光 2.0，我把盯新闻、盯货、翻账单都交给了它",
@@ -305,7 +374,7 @@
           "publisher": "阿里云开发者社区",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-28"
+          "checked": "2026-10-31"
         },
         {
           "title": "用豆包缴纳水费和燃气费？上海用户说“可以了”，大模型“开抢”生活服务入口",
@@ -313,12 +382,12 @@
           "publisher": "21经济网",
           "published": "2026-10-27",
           "kind": "media",
-          "checked": "2026-10-28"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 4,
+      "rank": 5,
       "name": "场景文：让AI当「早晨出门秘书」——7:30一句话搞定日历冲突、通勤预估、今日重点",
       "type": "AI生活/内容",
       "cost": "0元（免费档 Gemini/同类助手；约 40–60 分钟写可跟做教程）",
@@ -354,7 +423,7 @@
           "publisher": "Digital Today",
           "published": "2026-10-26",
           "kind": "media",
-          "checked": "2026-10-26"
+          "checked": "2026-10-31"
         },
         {
           "title": "Clever ways Gemini can automate everyday tasks",
@@ -362,7 +431,7 @@
           "publisher": "Engadget",
           "published": "",
           "kind": "media",
-          "checked": "2026-10-26"
+          "checked": "2026-10-31"
         },
         {
           "title": "Google Gemini 說明（預約任務 / 相關協助）",
@@ -370,12 +439,12 @@
           "publisher": "Google",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-26"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 5,
+      "rank": 6,
       "name": "场景文：AI 一周菜谱 + 合并购物清单",
       "type": "AI生活/内容",
       "cost": "0元（免费档聊天机器人即可；约 30–60 分钟写一篇可复制教程）",
@@ -408,7 +477,7 @@
           "publisher": "AI 工具指南",
           "published": "2026-05-17",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "用 AI 做一周菜单和采购清单",
@@ -416,7 +485,7 @@
           "publisher": "prompteiro",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "AI智能菜谱与饮食规划指南（2026实测）",
@@ -424,12 +493,12 @@
           "publisher": "FlowPix",
           "published": "2026-06-10",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 6,
+      "rank": 7,
       "name": "场景文：AI 旅行行李清单（含随身/托运）",
       "type": "AI生活/内容",
       "cost": "0元（约 45 分钟；需对照民航禁限带目录人工核对）",
@@ -461,7 +530,7 @@
           "publisher": "AI Expert",
           "published": "",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "ChatGPT travel packing list checklist prompt 2026",
@@ -469,7 +538,7 @@
           "publisher": "HowtoAI",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "民航旅客禁止/限制随身携带和托运物品目录公告",
@@ -477,12 +546,12 @@
           "publisher": "中国民用航空局",
           "published": "2016-12-13",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 7,
+      "rank": 8,
       "name": "场景文：家长群消息 → AI 提炼待办清单",
       "type": "AI生活/内容",
       "cost": "0元（约 40 分钟；注意脱敏截图）",
@@ -510,7 +579,7 @@
           "publisher": "GPT中文网",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "家長的 AI 實戰指南：陪伴、學習、家庭溝通全攻略",
@@ -518,7 +587,7 @@
           "publisher": "Mason AI Lab",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "AI @ Home - OpenAI Academy",
@@ -526,12 +595,12 @@
           "publisher": "OpenAI Academy",
           "published": "2025-12-03",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 8,
+      "rank": 9,
       "name": "场景文：AI 会议录音 → 纪要 + 待办一条龙",
       "type": "AI生活/内容",
       "cost": "0元（可用飞书妙记/通义听悟等免费档试；约 1 小时含实测）",
@@ -558,7 +627,7 @@
           "publisher": "imai.lol",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "AI会议纪要怎么做？转写、纪要与待办一条龙",
@@ -566,7 +635,7 @@
           "publisher": "读懂AI时代",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "会议音视频转文字与智能纪要工具横向测试",
@@ -574,12 +643,12 @@
           "publisher": "IT之家",
           "published": "",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 9,
+      "rank": 10,
       "name": "场景文：AI 家庭月度预算一页纸",
       "type": "AI生活/内容",
       "cost": "0元（约 45 分钟；用虚构或脱敏账本）",
@@ -611,7 +680,7 @@
           "publisher": "Manus",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "用AI处理旅行、食谱和生活事务（生活事务冲刺）",
@@ -619,12 +688,12 @@
           "publisher": "AI Expert",
           "published": "",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 10,
+      "rank": 11,
       "name": "方法论：做「AI+X」垂直生活号，别做泛 AI 测评",
       "type": "AI生活/内容",
       "cost": "0元（约 1 小时写定位文）",
@@ -651,7 +720,7 @@
           "publisher": "aizxs.com",
           "published": "2026-09-22",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "打击公众号AI创作？微信团队回应",
@@ -659,12 +728,12 @@
           "publisher": "微信派",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 11,
+      "rank": 12,
       "name": "方法论：公众号新手第一篇选题法（从抱怨缩小到可写）",
       "type": "AI生活/内容",
       "cost": "0元（约 40 分钟）",
@@ -691,7 +760,7 @@
           "publisher": "AI工具指南",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "打击公众号AI创作？微信团队回应",
@@ -699,12 +768,12 @@
           "publisher": "微信派",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 12,
+      "rank": 13,
       "name": "闲鱼可卖：AI 生活 30 天选题日历（原创信息产品）",
       "type": "闲鱼非实物",
       "cost": "0元（整理约 2–4 小时；免费 AI 辅助扩写大纲）",
@@ -736,7 +805,7 @@
           "publisher": "观察者网",
           "published": "2026-07-29",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "AI订单半年成交近千万，同比激增157%",
@@ -744,7 +813,7 @@
           "publisher": "东方财富网",
           "published": "2026-07-29",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "平台规则与合规经营",
@@ -752,12 +821,12 @@
           "publisher": "hdu-wiki.cn",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 13,
+      "rank": 14,
       "name": "闲鱼可卖：细分场景 AI 生活提示词包",
       "type": "闲鱼非实物",
       "cost": "0元（约 1–2 小时测 20 条留好的）",
@@ -789,7 +858,7 @@
           "publisher": "观察者网",
           "published": "2026-07-29",
           "kind": "media",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "闲鱼《社区信息发布规范》",
@@ -797,12 +866,12 @@
           "publisher": "闲鱼",
           "published": "",
           "kind": "official",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     },
     {
-      "rank": 14,
+      "rank": 15,
       "name": "检查清单：AI 生活公众号起号 14 天动作表",
       "type": "AI生活/内容",
       "cost": "0元（约 1 小时整理成文或 PDF）",
@@ -834,7 +903,7 @@
           "publisher": "aizxs.com",
           "published": "2026-09-22",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "AI写公众号文章赚钱：从选题到变现的完整攻略",
@@ -842,7 +911,7 @@
           "publisher": "提效录",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         },
         {
           "title": "BigPengSays/bigpeng-hot-gzh（爆款标题与选题模板）",
@@ -850,7 +919,7 @@
           "publisher": "GitHub",
           "published": "",
           "kind": "community",
-          "checked": "2026-10-21"
+          "checked": "2026-10-31"
         }
       ]
     }

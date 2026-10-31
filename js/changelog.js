@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 78, date: '2026-10-31', title: 'AI生活合集新增「周末让AI带你断舍离」场景文选题', tag: '内容', href: '#war-rank-ai-life',
+      items: ['「AI生活起号选题方案」合集置顶新增：拍一张照出收纳方案（留/捐/二手/扔→动线分层→先试摆再买盒），再一句话收拾手机首页；含分区收纳40分钟版与手机首页分组版提示词、小红书与闲鱼跟做包角度', '附新浪科技（快科技）/ 80aj / Chatday HUB / 硅基AGI 四个来源，本机核验均可访问；照片别拍证件、快递单、门牌；不承诺效果、不代领、不代整理。SW 缓存 49'] },
     { id: 77, date: '2026-10-31', title: '每日赚钱榜 · 2026-10-31', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元，11月2日截止","No.2 PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万）","No.3 Kiroween 2026：提交已开，可领约4000免费额度；现金奖池约10万美元（至12月4日）"] },
     { id: 76, date: '2026-10-31', title: '首页主线中间栏补上进度与快捷入口', tag: '改进', href: '#home',
       items: ['左侧路径与右侧「今天这一关 / 赚钱榜」之间新增主栏：主线进度、下一步行动、快捷入口、今日提示；三主题各配一张书案插画。桌面三栏、窄屏堆叠。SW 缓存 48'] },
