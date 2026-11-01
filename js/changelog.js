@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 80, date: '2026-11-01', title: '每日赚钱榜 · 2026-11-01', tag: '赚钱榜', href: '#war-rank', items: ["No.1 PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万），约11天窗口","No.2 Kiroween 2026：提交已开；可领约4000免费额度；现金奖池约10万美元（至12月4日）","No.3 Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元——明天截止"] },
     { id: 79, date: '2026-10-31', title: '头像菜单不再带换风格，风格只走顶栏按钮', tag: '修复', href: '#me',
       items: ['「我的」头像下拉只保留进度/统计/设置等入口；换风格只留顶栏「🎨 换风格」。SW 缓存 50'] },
     { id: 78, date: '2026-10-31', title: 'AI生活合集新增「周末让AI带你断舍离」场景文选题', tag: '内容', href: '#war-rank-ai-life',
