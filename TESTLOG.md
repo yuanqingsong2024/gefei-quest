@@ -267,5 +267,5 @@
 - 新增 `#war-rank-ai-wool`：导航「赚钱 → AI 羊毛」；榜单开关条与每日/Agent/工具互通。
 - 数据 `data/ai-wool/latest.json`（今日 stub items:[]）+ 内嵌 `QUEST_AI_WOOL`；空态链到 `#war-rank` / `#war-rank-agent`。不编造优惠。
 - node --check js/ai-wool.js js/ai-wool-data.js js/nav.js js/app.js js/rank.js；本地静态打开空态与开关条。
-- changelog #80；build-daily 已跑。
+- changelog #81（保留雷达 #80 赚钱榜）；build-daily 已跑。
 

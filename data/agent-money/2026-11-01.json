@@ -1,0 +1,377 @@
+{
+  "date": "2026-11-01",
+  "updated": "2026-11-01T09:07:40+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "腾讯 WorkBuddy：上架付费技能/专家（买断或月订阅，内测服务费约 1%）",
+      "type": "Agent工具/小产品",
+      "summary": "腾讯 WorkBuddy 开放平台支持创作者上架付费技能与专家服务，可设买断或月订阅；内测期平台服务费约 1%。适合把办公自动化、文档/表格/企微相关 Agent 能力做成可售技能。媒体报道详述开通收款、审核与微信签约流程，示例定价约 79 元量级。",
+      "cost": "上架需过审；自研技能与演示成本自理；内测期平台服务费约 1%；需可微信签约收款",
+      "difficulty": 3,
+      "threshold": "能做出可演示的办公自动化技能；完成开放平台入驻、审核与收款开通；内容合规不碰灰产",
+      "time": "入驻+打磨 1 个付费技能约 1–3 天；过审与签约视平台节奏",
+      "fit": "熟悉国内办公场景、能用 Agent 做表格/文档/流程自动化、想卖技能而非纯人天的创作者",
+      "why": "国内大厂技能市场+微信收款链路；内测低抽成；素材含官方开放平台、技能市场文档与 10 月下旬媒体/讨论，时效与可信度高。",
+      "steps": [
+        "打开 open.workbuddy.cn 申请创作者/开放平台权限，阅读技能市场上架与审核要求",
+        "选一个窄场景（如周报汇总、会议纪要结构化、表格清洗），用 Agent 做出可演示技能并录屏",
+        "按文档配置买断或月订阅定价，准备简介、权限说明与示例；提交审核",
+        "按媒体所述完成收款开通与微信签约；上架后用真实反馈迭代版本",
+        "只卖自研技能与专家答疑，不卖账号合租或代操作灰产"
+      ],
+      "risk": "风险等级：中。内测规则可能调整；过审与曝光不确定；示例定价来自媒体非官方承诺。不承诺收益。",
+      "risk_level": "中",
+      "reason": "国内可收款的付费技能通道，办公自动化场景清晰，门槛相对可控，适合今天优先动手。",
+      "tags": [
+        "WorkBuddy",
+        "腾讯",
+        "付费技能",
+        "专家服务",
+        "办公自动化"
+      ],
+      "sources": [
+        {
+          "title": "WorkBuddy 开放平台",
+          "url": "https://open.workbuddy.cn/",
+          "publisher": "腾讯 WorkBuddy",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "技能市场功能说明（WorkBuddy 文档）",
+          "url": "https://www.workbuddy.ai/docs/zh/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market",
+          "publisher": "WorkBuddy Docs",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "WorkBuddy 付费技能/专家相关报道（Tech星球转载）",
+          "url": "https://www.woshipm.com/ai/6483146.html",
+          "publisher": "人人都是产品经理",
+          "published": "2026-10-23",
+          "kind": "news",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "国内外 Skill 市场汇总（含 WorkBuddy）",
+          "url": "https://x.com/jamesgao_ai/status/2114215518127198235",
+          "publisher": "X @jamesgao_ai",
+          "published": "2026-10-25",
+          "kind": "post",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://open.workbuddy.cn/",
+      "agent_howto": "让 Agent 根据你的办公场景写出技能说明、权限清单、演示脚本与定价文案草稿；你本地跑通自动化并用真实数据演示。过审材料、收款签约与上架由你人工完成，勿把账号密码交给 Agent 自动操作。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "WorkBuddy 开放平台",
+        "办公 API/表格自动化"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "MyClaude：上架 Skills / Minds / CLAUDE.md，创作者分成约 92%",
+      "type": "Agent工具/小产品",
+      "summary": "MyClaude 官方定价页写明 Creator 约 92%、平台 8%，另有 Stripe 约 2.9%+$0.30；最低付费 $1；经 Stripe Connect 直付创作者。目前以一次性购买为主，可售 Skills、Minds、CLAUDE.md configs 等可安装配置。",
+      "cost": "上架需 Stripe Connect；自研与托管成本自理；平台约 8% + Stripe 手续费",
+      "difficulty": 3,
+      "threshold": "已有可复用的 Claude Skill/配置；能通过 Stripe 收款；英文 listing 更易出海",
+      "time": "整理 1 个可演示 Skill 并上架约半天到 1 天；获客另计",
+      "fit": "已在用 Claude Code/Skills、想把自用配置产品化出海的开发者",
+      "why": "官方公开高分成与 Stripe Connect；品类贴 Agent 可安装能力；比泛技能站点条款更清晰。",
+      "steps": [
+        "阅读 myclaude.sh 定价与创作者说明，确认 92%/8% 与一次性购买规则",
+        "挑一个自用跑通的 Skill 或 CLAUDE.md（如代码评审、研报摘要），去掉私密密钥后打包",
+        "写清适用场景、安装步骤与不含项；设价不低于 $1；接好 Stripe Connect",
+        "上架后用短视频/帖子演示安装效果；根据退款与反馈迭代版本",
+        "勿上架侵权模板或含他人专有提示词库的搬运品"
+      ],
+      "risk": "风险等级：中。流量依赖目录与自传播；分成外仍扣 Stripe；规则可能变更。不承诺收益。",
+      "risk_level": "中",
+      "reason": "分成条款官方可查，适合把已有 Claude 资产快速产品化，门槛低于自建站收款。",
+      "tags": [
+        "MyClaude",
+        "Skills",
+        "CLAUDE.md",
+        "Stripe Connect",
+        "创作者分成"
+      ],
+      "sources": [
+        {
+          "title": "MyClaude Pricing / Creator share",
+          "url": "https://www.myclaude.sh/docs/getting-started/pricing",
+          "publisher": "MyClaude",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://www.myclaude.sh/docs/getting-started/pricing",
+      "agent_howto": "把你现有 Skill/CLAUDE.md 交给 Agent 做脱敏、README 与安装说明润色；你人工检查密钥与版权后上架。定价与 Stripe Connect 由你完成，勿让 Agent 持有支付密钥。",
+      "agent_stack": [
+        "Claude Code",
+        "MyClaude",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "直客：固定范围 Agent 搭建 + 月监控 retainer",
+      "type": "Agent接单",
+      "summary": "AgentHustles 等公开材料给出常见报价带：搭建约 $3k–$15k，监控 retainer 约 $500–$2k/月；先做付费 discovery 约 $1k–$2k；交付采用 draft-and-approve 与验收测试。另有 agency 侧文章将月费包装为约 $1500–$5k 三层。Upwork 公开区间约 $30–$150/h 可作参考，非保证。",
+      "cost": "获客与样例成本自理；工具订阅（Claude/n8n 等）自付；平台抽佣视渠道",
+      "difficulty": 4,
+      "threshold": "能写固定范围 SOW、做 discovery、设验收标准；有至少 1 个可演示集成；能签合同与收款",
+      "time": "打磨套餐与样例 2–5 天；首单销售周期通常数周",
+      "fit": "会交付业务自动化、愿做维保而非一次性脚本的独立开发者/小工作室",
+      "why": "可复核的报价带与交付方法；比纯平台抽佣更能沉淀直客月经常性收入。",
+      "steps": [
+        "定义 1 个固定范围套餐（如：线索跟进 Agent + 仪表盘），写清不含项与修订次数",
+        "先卖付费 discovery（访谈+邮件/流程地图），再报价搭建与 retainer",
+        "交付用 draft-and-approve：Agent 出草稿，客户 yes 后再进生产；附验收测试清单",
+        "上线后按月监控失败率、人工接管次数与改动请求，周报给客户",
+        "可用 Upwork/社群获客，但合同与验收尽量标准化，避免无限改需求"
+      ],
+      "risk": "风险等级：中。销售周期长；报价带为公开区间非承诺；运维不足会导致退订。不承诺收益。",
+      "risk_level": "中",
+      "reason": "搭建费+月监控是当前最稳的 Agent 变现结构之一，适合有交付能力者今天就开始包装套餐。",
+      "tags": [
+        "直客",
+        "retainer",
+        "固定范围",
+        "discovery",
+        "验收测试"
+      ],
+      "sources": [
+        {
+          "title": "AI Agent Building for Clients",
+          "url": "https://www.agenthustles.com/h/ai-agent-building-for-clients/",
+          "publisher": "AgentHustles",
+          "published": "2026-10-17",
+          "kind": "other",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "AI Agent Retainers: Recurring Revenue for Agencies",
+          "url": "https://demg.ai/blog/ai-agent-retainers-recurring-revenue-agencies/",
+          "publisher": "DEMG",
+          "published": "2026-08-31",
+          "kind": "other",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://www.agenthustles.com/h/ai-agent-building-for-clients/",
+      "agent_howto": "让 Agent 根据你的样例生成 SOW、discovery 问卷、验收表与周报模板；你负责报价、合同、生产环境密钥与客户沟通。中单后用 Cursor/Claude 加速实现，人工过集成与安全。",
+      "agent_stack": [
+        "Cursor/Claude",
+        "n8n/Make",
+        "客户 CRM/邮箱 API"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "案例拆解：Lemonbrand 邮箱审计 → 月 retainer",
+      "type": "Agent案例拆解",
+      "summary": "Lemonbrand 以「读邮箱画地图、草稿需人工 yes」切入顾问/代理白标；首张 map 可免费。公开案例称 Simon Bergeron 自述第二客户先付约 $2500 后转约 $1500/月；现 inbox audit 约 $1500、retainer 约 $2500/月起、90 天最低。方法是用 Agent 分类一年邮件找重复任务，再做成 Claude/ChatGPT skills + n8n/Make。数字为当事人自述，非审计营收。",
+      "cost": "学习与样例成本低；真实交付需客户邮箱授权与合规；工具订阅自付",
+      "difficulty": 3,
+      "threshold": "能做邮箱只读分析与人工审批流；懂顾问销售话术；遵守客户数据隐私",
+      "time": "复制流程打磨一页销售页+演示约 1–3 天；首单仍看销售",
+      "fit": "面向顾问/代理机构、擅长流程诊断而非硬核开发的自动化从业者",
+      "why": "路径清晰：免费/低价地图 → 付费审计 → retainer；有官网与公开访谈可核验方法（营收数字需谨慎看待）。",
+      "steps": [
+        "研究 lemonbrand.io 的产品叙事：邮箱地图、人工 yes、白标",
+        "用自己邮箱做演示：Agent 分类重复任务，输出可自动化清单（脱敏）",
+        "设计漏斗：首张 map 免费或低价 → inbox audit 固定价 → 90 天起 retainer",
+        "交付坚持 draft-and-approve，禁止 Agent 自动外发敏感邮件",
+        "把案例当方法参考，对外报价用你自己的成本与验收，勿照抄他人营收数字做承诺"
+      ],
+      "risk": "风险等级：中。案例营收为自述；邮箱权限与隐私合规要求高；白标需合同清晰。不承诺收益。",
+      "risk_level": "中",
+      "reason": "把「审计→自动化→月费」讲清楚，可直接借鉴到顾问类直客，而不必先建大产品。",
+      "tags": [
+        "Lemonbrand",
+        "邮箱审计",
+        "retainer",
+        "白标",
+        "案例"
+      ],
+      "sources": [
+        {
+          "title": "Lemonbrand 官网",
+          "url": "https://lemonbrand.io/",
+          "publisher": "Lemonbrand",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "Simon Bergeron / Lemonbrand AI automation retainers case",
+          "url": "https://aisidehustles.lumexforge.com/case/simon-bergeron-lemonbrand-ai-automation-retainers-2500-a-month",
+          "publisher": "AI Side Hustles",
+          "published": "",
+          "kind": "other",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://lemonbrand.io/",
+      "agent_howto": "让 Agent 在脱敏邮件样本上做分类与「可自动化任务」清单，生成客户可读的地图与提案草稿；你审核隐私、删除敏感信息，并由客户 yes 后再落地 n8n/Make 或 skills。",
+      "agent_stack": [
+        "Claude/ChatGPT",
+        "n8n/Make",
+        "邮箱只读 API"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "案例拆解：周价值账本四层 retainer 包装法",
+      "type": "Agent案例拆解",
+      "summary": "Franklin J Bryant IV 提出把 Agent 服务从「交登录」升级为 Role / Adoption / Reliability / Proof 四层，并用周价值账本五项指标证明持续价值，从而支撑 retainer。可与「搭建+月监控」直客路径配套使用，避免只交钥匙后无法续费。",
+      "cost": "方法论学习成本低；落地需你自建周报模板与指标采集",
+      "difficulty": 2,
+      "threshold": "已有或准备接 Agent 维保客户；能定义可量化指标；愿意每周交付可读报告",
+      "time": "做一版周账本模板约 2–4 小时；与客户对齐指标约 1 次会议",
+      "fit": "已在做或准备做 retainer、缺续费话术与证明材料的接单者",
+      "why": "补上「怎么证明月费值」这一环；与直客搭建路径互补，合规且不依赖灰产流量。",
+      "steps": [
+        "阅读原文，理解 Role/Adoption/Reliability/Proof 四层分别对应什么交付物",
+        "设计周价值账本：如运行次数、失败率、人工接管、节省工时估计、本周改进（五项可自定）",
+        "合同里写清：你交付的是结果与可靠性，而不只是系统登录",
+        "每周用 Agent 汇总日志生成账本草稿，你人工改写后发给客户",
+        "续费前用 4–8 周账本做回顾，再谈加购或涨价，勿空口承诺节省金额"
+      ],
+      "risk": "风险等级：低。属方法论；指标若夸大会被客户质疑；需真实日志支撑。不承诺收益。",
+      "risk_level": "低",
+      "reason": "今天就能做出周账本模板，立刻提升直客 retainer 的续费说服力。",
+      "tags": [
+        "retainer",
+        "周价值账本",
+        "Proof",
+        "方法论",
+        "续费"
+      ],
+      "sources": [
+        {
+          "title": "From Agent to Retainer",
+          "url": "https://franklin.simplifyingbusinesses.com/blog/agent-to-retainer",
+          "publisher": "Franklin J Bryant IV",
+          "published": "2026-08-07",
+          "kind": "other",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://franklin.simplifyingbusinesses.com/blog/agent-to-retainer",
+      "agent_howto": "把运行日志与工单贴给 Agent，生成周价值账本草稿与客户可读摘要；你核对数字真实性后再发送。勿让 Agent 编造节省工时。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "日志/监控导出",
+        "周报模板"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "闲鱼：卖「AI 漫剧工作流/模板」原创数字产品",
+      "type": "Agent闲鱼方案",
+      "summary": "36氪报道称 2026 上半年闲鱼 AI 服务订单约 981.6 万同比+157%，AI 漫剧订单同比约+1425%，模板/工作流占比约 6.6%；并提到有卖家 9.9 元漫剧教程半年约 1.7 万份、流水约 16 万——属媒体案例，不可当作你的保证收益。可售原创分镜提示词、批量出图工作流、字幕/配音衔接清单等数字产品。",
+      "cost": "需自备可演示样片与原创模板；闲鱼服务费按平台规则；素材版权自理",
+      "difficulty": 3,
+      "threshold": "能产出可复现的漫剧工作流；会写买家能跟做的步骤；坚持卖原创不卖账号/卡密/代领",
+      "time": "打磨 1 套可跟做模板+样片约 2–5 天；上架与测款持续迭代",
+      "fit": "会做 AI 漫剧/短剧素材、愿卖模板而非代做全部成片的创作者",
+      "why": "品类增速与模板占比有媒体数据支撑；符合「原创数字产品可反复卖」方向，且可包装为闲鱼方案。",
+      "steps": [
+        "选定细分（如：口播漫剧分镜包、多角色一致性工作流），做出 1 条完整样片",
+        "整理可交付物：提示词表、工具顺序、验收标准、常见翻车清单（原创）",
+        "闲鱼上架写清「模板/工作流，不含代做账号」；定价先测 9.9–49 元档",
+        "用 Agent 批量生成变体提示词与封面文案，你人工质检版权与可跟做性",
+        "售后只答模板使用问题；拒代领、账号合租、刷量等违规需求"
+      ],
+      "risk": "风险等级：中。媒体流水为个案；同质化与版权投诉风险；平台规则变化。不承诺收益。",
+      "risk_level": "中",
+      "reason": "AI 漫剧模板需求有公开增长信号，适合把已跑通工作流产品化上架闲鱼。",
+      "tags": [
+        "闲鱼",
+        "AI漫剧",
+        "工作流模板",
+        "数字产品",
+        "原创"
+      ],
+      "resell": "可售：原创 AI 漫剧工作流/分镜提示词/验收清单模板。不可售：账号、卡密、代领、刷量或他人版权素材包。",
+      "sources": [
+        {
+          "title": "闲鱼 AI 服务与 AI 漫剧订单增长相关报道",
+          "url": "https://www.36kr.com/p/3935841549450374",
+          "publisher": "36氪",
+          "published": "2026-08-12",
+          "kind": "news",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://www.36kr.com/p/3935841549450374",
+      "agent_howto": "让 Agent 根据你的样片流程生成提示词表、步骤说明与封面文案草稿；你负责样片真实性、版权与闲鱼合规上架。勿让 Agent 生成「代做作业/侵权素材」类商品描述。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "AI 绘图/视频工具",
+        "闲鱼"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Loreto / SkillHQ：出海上架 Claude Code Skills（约留 80%–85%）",
+      "type": "Agent内容变现",
+      "summary": "Loreto 创作者页写明可售 Claude Code skills，创作者 keep 80%，并支持 MCP/CLI 安装。SkillHQ 公开讨论称开发者约留 85%（若站点不稳定，分成以公开帖整理为准，需自行再核验）。适合把垂直 Skill 卖给海外开发者，与国内 WorkBuddy/MyClaude 形成互补。",
+      "cost": "上架与收款按各平台规则；英文文案与演示成本自理；平台抽成约 15%–20%",
+      "difficulty": 3,
+      "threshold": "有可安装的 Claude Code Skill；能写英文 listing；能接受海外支付结算",
+      "time": "移植 1 个已有 Skill 并双语说明约半天到 1 天",
+      "fit": "已有 Claude Skills、想同时覆盖海外目录的开发者",
+      "why": "官方/公开渠道给出分成与安装方式；可与今日 MyClaude 并行测款，分散单一目录风险。",
+      "steps": [
+        "打开 loreto.io/creators，确认 keep 80% 与上架要求；SkillHQ 分成以你核实当日页面/帖文为准",
+        "选择非敏感、可公开的垂直 Skill，补英文 README、安装（MCP/CLI）与演示 GIF",
+        "上架后用 X/Discord 开发者社群做一次演示帖；收集安装失败反馈",
+        "同一 Skill 可评估是否同步 MyClaude，注意各平台独家条款",
+        "勿上架含私有密钥或未授权企业内部流程的 Skill"
+      ],
+      "risk": "风险等级：中。SkillHQ 分成来自公开帖整理，页面可能变动；海外流量与税务需自理。不承诺收益。",
+      "risk_level": "中",
+      "reason": "把已有 Skill 多目录分发，边际成本低，适合作为 WorkBuddy/MyClaude 之外的出海补充。",
+      "tags": [
+        "Loreto",
+        "SkillHQ",
+        "Claude Code",
+        "Skills",
+        "出海"
+      ],
+      "sources": [
+        {
+          "title": "Loreto for Creators",
+          "url": "https://loreto.io/creators",
+          "publisher": "Loreto",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "SkillHQ",
+          "url": "https://skillhq.dev/",
+          "publisher": "SkillHQ",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://loreto.io/creators",
+      "agent_howto": "让 Agent 把中文 Skill 说明译成英文 listing，并生成 CLI/MCP 安装步骤与演示脚本；你人工核验分成页与支付开通后再上架。",
+      "agent_stack": [
+        "Claude Code",
+        "Loreto",
+        "SkillHQ"
+      ]
+    }
+  ]
+}

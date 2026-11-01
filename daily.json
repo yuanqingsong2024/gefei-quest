@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-01T01:22:25.076Z",
-  "latestId": 80,
+  "generatedAt": "2026-11-01T01:23:04.885Z",
+  "latestId": 81,
   "latestDate": "2026-11-01",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -14,7 +14,7 @@
   },
   "entries": [
     {
-      "id": 80,
+      "id": 81,
       "date": "2026-11-01",
       "tag": "新功能",
       "title": "新增「AI 羊毛」频道：订阅折扣 / 免费额度 / Token 福利",
@@ -23,6 +23,18 @@
         "数据 data/ai-wool/YYYY-MM-DD.json + latest.json；赚钱榜雷达推 main 即可。优惠以官方为准，可能随时失效；注意绑卡/自动续费，不承诺省钱。SW 缓存 51"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-wool"
+    },
+    {
+      "id": 80,
+      "date": "2026-11-01",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-01",
+      "items": [
+        "No.1 PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万），约11天窗口",
+        "No.2 Kiroween 2026：提交已开；可领约4000免费额度；现金奖池约10万美元（至12月4日）",
+        "No.3 Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元——明天截止"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     },
     {
       "id": 79,
@@ -108,41 +120,30 @@
         "背景已降对比并叠半透明遮罩，文字区仍是实底卡片；切主题即时换图。SW 缓存升到 44，只预缓存水墨默认背景"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 71,
-      "date": "2026-10-30",
-      "tag": "改进",
-      "title": "海岸青、像素暖沙主题也有专属配图与配色",
-      "items": [
-        "海岸青换成水彩海岸风（白帆船、灯塔、沙洲金币、海边小屋机器人），像素暖沙换成 16-bit 像素风（粉帆小船、沙丘石阶、藏宝箱、遮阳伞机器人）；切换主题时首页 hero、今天这一关、赚钱榜与 Agent 页横幅自动换图",
-        "标签行、hero 渐变、分隔线、横幅标签、卡片悬停按主题配色；像素主题用硬边框与像素阴影。SW 缓存升到 43"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-10-31",
+    "date": "2026-11-01",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元，11月2日截止",
-        "type": "奖金赛/悬赏",
-        "source_url": "https://twitchcon-codex.devpost.com/"
-      },
-      {
-        "rank": 2,
-        "name": "PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万）",
+        "name": "PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万），约11天窗口",
         "type": "奖金赛/悬赏",
         "source_url": "https://paypalaihackathon.devpost.com/"
       },
       {
-        "rank": 3,
-        "name": "Kiroween 2026：提交已开，可领约4000免费额度；现金奖池约10万美元（至12月4日）",
+        "rank": 2,
+        "name": "Kiroween 2026：提交已开；可领约4000免费额度；现金奖池约10万美元（至12月4日）",
         "type": "奖金赛/悬赏",
         "source_url": "https://kiroween.devpost.com/"
+      },
+      {
+        "rank": 3,
+        "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元——明天截止",
+        "type": "奖金赛/悬赏",
+        "source_url": "https://twitchcon-codex.devpost.com/"
       }
     ]
   }
