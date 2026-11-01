@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-01",
+  "updated": "2026-11-01T10:10:09+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "shub39-grit",
+      "rank": 1,
+      "name": "Grit",
+      "category": "生活",
+      "summary": "安卓「待办 + 习惯」二合一开源应用：同一 App 里规划今天要做的事，并打卡早起/运动等日常习惯；离线可用，支持小组件与提醒，FOSS 版功能全开。",
+      "why": "早晨/日程效率：把「今天清单」和「长期习惯」放在一个界面，适合做成「工作日早晨 15 分钟启动清单」跟做方案——配一份可复制的任务分类模板 + 5 个可量化习惯模板（喝水 ml、阅读页数等）。",
+      "url": "https://github.com/shub39/Grit",
+      "repo": "shub39/Grit",
+      "stars": 1217,
+      "tags": [
+        "早晨",
+        "日程效率",
+        "待办",
+        "习惯打卡",
+        "Android",
+        "离线"
+      ],
+      "steps": [
+        "从 Google Play 或 GitHub/F-Droid 安装 Grit（要全功能选 FOSS/GitHub 版）",
+        "新建 2–3 个任务列表（如「早晨启动」「出门前」），写入可勾选子任务并设提醒",
+        "再加 3–5 个习惯（含可计量型），把小组件放到桌面，第二天起床先点桌面再进 App"
+      ],
+      "risk": "主要面向 Android；Play 商店有 Grit Plus 内购，但 GitHub/F-Droid 的 FOSS 变体已解锁全部功能。界面语言靠社区翻译，个别文案可能仍是英文。",
+      "sources": [
+        "README.md",
+        "fastlane/metadata/android/en-US/full_description.txt",
+        "https://play.google.com/store/apps/details?id=com.shub39.grit"
+      ]
+    },
+    {
+      "id": "mrzmyr-pixy-mood-tracker-app",
+      "rank": 2,
+      "name": "Pixy Mood Tracker",
+      "category": "生活",
+      "summary": "免费开源的情绪/心情日记 App（iOS/Android）：记录心情、情绪标签、睡眠与笔记，生成「一年像素」总览；无广告、无账号、无 AI，数据留在本机。（仅作个人资料整理，不做诊断）",
+      "why": "家庭健康资料整理（非诊疗）：把情绪与睡眠做成可回顾的私人台账，适合打包「情绪像素日记 21 天跟做」——含每日记录提示词模板、标签词表（工作/家庭/运动等）与月末回顾问题清单，明确声明不做诊断或用药建议。",
+      "url": "https://github.com/mrzmyr/pixy-mood-tracker-app",
+      "repo": "mrzmyr/pixy-mood-tracker-app",
+      "stars": 154,
+      "tags": [
+        "家庭健康资料",
+        "情绪日记",
+        "睡眠记录",
+        "不做诊断",
+        "隐私",
+        "iOS",
+        "Android"
+      ],
+      "steps": [
+        "在 App Store 或 Google Play 安装 Pixy Mood Tracker，打开中文界面",
+        "按模板建一套标签（睡眠、加班、运动、家庭琐事等），连续记录 7 天心情与睡眠",
+        "月末打开「一年像素」与标签高峰，只做自我回顾；若有明显不适请线下就医，App 不做诊断"
+      ],
+      "risk": "情绪与睡眠记录仅供自我观察，绝不替代医疗诊断或心理咨询。从其他 App 迁移可用 Pixy Switch；备份导出请自行保管，换机前先导出。",
+      "sources": [
+        "README.md",
+        "docs/i18n.md",
+        "https://pixy.day"
+      ]
+    },
+    {
+      "id": "danielrendox-grocerygenius",
+      "rank": 3,
+      "name": "Grocery Genius",
+      "category": "生活",
+      "summary": "Material You 风格的安卓购物清单：内置 130+ 常见食材图标与分类，按超市货架逻辑排布；多清单、离线优先，装完就能用来清冰箱/周末采购。",
+      "why": "饮食/厨房清库存：先扫冰箱再下单采购，减少重复买与浪费。可做成「周末清库存→购物清单」闲鱼模板包——附一份按品类（蔬果/乳品/冷冻）的默认清单 + 「临期先吃」勾选规则。",
+      "url": "https://github.com/DanielRendox/GroceryGenius",
+      "repo": "DanielRendox/GroceryGenius",
+      "stars": 144,
+      "tags": [
+        "饮食厨房",
+        "清库存",
+        "购物清单",
+        "Android",
+        "离线",
+        "Material You"
+      ],
+      "steps": [
+        "从 Google Play、IzzyOnDroid 或 GitHub Releases 安装 Grocery Genius",
+        "首次联网拉取预置食材库后即可离线；新建「本周采购」清单，按分类勾选冰箱已有与仍缺的",
+        "出门前把未购项拖到清单顶部，到店按分类区域扫货；回家把已购勾掉，留下临期提醒项"
+      ],
+      "risk": "目前以 Android 为主（路线图有 iOS）；首次需联网下载预置食材与图标。预置图标来自 AI 生成、不可商用二次售卖图标本身；清单文案与用法模板可自用/做成跟做方案。更新节奏中等（最近推送 2026-07）。",
+      "sources": [
+        "README.md",
+        "PRIVACY_POLICY.md",
+        "https://play.google.com/store/apps/details?id=com.rendox.grocerygenius"
+      ]
+    }
+  ]
+}
