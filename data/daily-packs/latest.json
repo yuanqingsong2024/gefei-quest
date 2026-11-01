@@ -1,49 +1,67 @@
 {
-  "date": "2026-10-31",
+  "date": "2026-11-01",
   "timezone": "Asia/Shanghai",
-  "updated": "2026-10-31T09:35:00+08:00",
-  "title": "每日执行包｜闲鱼 AI 单页落地页固定套餐 + 搭建费月维护报价",
-  "source": "attachments/2026-10-31",
+  "updated": "2026-11-01T09:25:05+08:00",
+  "title": "每日执行包｜闲鱼Excel数据看板定制 + Cloudflare Pages计算器续作 + Trends选词",
+  "source": "attachments/2026-11-01",
   "primary": [
-    "闲鱼 AI 单页落地页固定范围交付（榜单 No.4）"
+    "闲鱼 Excel/数据看板模板定制与讲解（榜单 No.9）"
   ],
   "side": [
-    "搭建费＋月维护报价结构（榜单 No.5，已并入 Excel）"
+    "Cloudflare Pages 英文工具小站续作 Stacked Discount Calculator（榜单 No.7）",
+    "Google Trends how-to/对比选词清单（榜单 No.8）"
   ],
   "deferred": [
-    "VibeBay（大陆未列收款地区）",
-    "NEAR Agent Market（需可用 Agent＋Stripe/USDC）",
-    "MCP Marketplace（需 Stripe＋开发）",
-    "OpenAI Safety Bug Bounty（安全研究门槛）",
-    "Gumroad 模板（收款与分发未就绪）"
+    "PayPal AI Hackathon（下周再评）",
+    "Kiroween（可领额度，不占主推）",
+    "TwitchCon（放弃冲刺）",
+    "B站AI创造赛（需成片）",
+    "Hostinger联盟（站未稳）",
+    "Gumroad（收款未就绪）",
+    "ScreenshotOne案例（仅方法对照）"
   ],
   "files": [
     {
-      "path": "今日执行卡-2026-10-31.md",
+      "path": "今日执行卡-2026-11-01.md",
       "kind": "exec-card",
-      "note": "当日 45–50 分钟步骤、工具、合规"
+      "note": "当日30–60分钟步骤、工具、合规、暂缓与反馈问句"
     },
     {
-      "path": "闲鱼上架文案-AI落地页固定套餐.md",
+      "path": "闲鱼上架文案-Excel数据看板定制.md",
       "kind": "xianyu-copy",
-      "note": "标题、详情、交付边界"
+      "note": "标题3候选、正文、交付边界、禁发自检、3条客服模板"
     },
     {
-      "path": "闲鱼-AI落地页固定套餐交付包.xlsx",
+      "path": "闲鱼-Excel数据看板定制交付包.xlsx",
       "kind": "xianyu-sheet",
-      "note": "八表：说明/报价/需求表单/SOP/验收/提示词/禁区/接单记录"
+      "note": "八表+样例每日经营看板（青松文具铺虚构数据）"
     },
     {
-      "path": "样例落地页-脱敏Demo.html",
+      "path": "stacked-discount-calculator/index.html",
       "kind": "page-draft",
-      "note": "虚构咖啡店单页样例，可截图当主图"
+      "note": "黑五2026倒计时约26天；含About/Privacy/FAQ；无跟踪"
+    },
+    {
+      "path": "stacked-discount-calculator/_redirects",
+      "kind": "deploy-helper",
+      "note": "静态站占位，可选"
+    },
+    {
+      "path": "cloudflare-pages-notes.md",
+      "kind": "deploy-notes",
+      "note": "CF Pages Direct Upload/Wrangler/Git 中文简述"
+    },
+    {
+      "path": "Trends选词清单-how-to对比意图.md",
+      "kind": "trends-sheet",
+      "note": "预填8个候选词；趋势/搜索量手填；不编造数字"
     }
   ],
   "excluded": [
     {
-      "path": "money-rank-2026-10-31.json",
+      "path": "money-rank-2026-11-01.json",
       "reason": "榜单已在 data/money-rank/，同步脚本跳过；勿列入 files"
     }
   ],
-  "privacy": "仅收录可公开交付物；不含客户私聊、账号凭证、真实订单隐私。"
+  "privacy": "仅收录可公开交付物；不含客户私聊、账号凭证、真实订单隐私。样例店名为虚构。"
 }
