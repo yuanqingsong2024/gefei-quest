@@ -1182,16 +1182,28 @@ html[data-theme] .page-banner-k {
   align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: .06em; padding: 2px 10px; border-radius: 999px;
   color: #fff; background: var(--art-k-agent, var(--cyan));
 }
-/* 每日赚钱榜有 3 屏高度上限（site-check P18），横幅做成细长条 */
-html[data-theme] .page-banner-rank { height: 92px; }
-/* 主榜：横幅放进日期行右侧的空白里，几乎不加高度 */
+/* 每日赚钱榜横幅：仍在日期行右侧，但改为约 360×144（~2.5:1）限宽高条，
+   避免旧 92px 超宽细条把宝箱裁成一条缝；比全宽 140px 更省高度，守住 P18 ≤3.0 屏。 */
+html[data-theme] .page-banner-rank {
+  height: 144px;
+  width: 360px;
+  max-width: min(380px, 42vw);
+  flex: 0 0 auto;
+  margin: 0;
+}
 html[data-theme] .rank-bar.has-banner { align-items: flex-end; }
-html[data-theme] .rank-bar.has-banner > .page-banner { flex: 1 1 360px; margin: 0; }
+html[data-theme] .rank-bar.has-banner > .page-banner { flex: 0 0 auto; margin: 0; }
 html[data-theme] .rank-bar.has-banner > .rank-types { flex: 1 1 100%; }
-html[data-theme] .page-banner-rank img { object-position: 70% 30%; }
-html[data-theme] .page-banner-rank figcaption { padding: 10px 22px; gap: 2px; }
-html[data-theme] .page-banner-rank figcaption small { display: none; }
+html[data-theme] .page-banner-rank img { object-position: 76% 48%; }
+html[data-theme] .page-banner-rank figcaption { padding: 12px 16px; gap: 3px; max-width: 16em; }
+html[data-theme] .page-banner-rank figcaption small { display: block; font-size: 12px; }
+html[data-theme] .page-banner-rank figcaption b { font-size: clamp(16px, 1.8vw, 22px); }
 html[data-theme] .page-banner-rank .page-banner-k { background: var(--art-k-rank); }
+html[data-theme="ink"] .page-banner-rank img { object-position: 78% 40%; }
+html[data-theme="ocean"] .page-banner-rank img { object-position: 78% 52%; }
+html[data-theme="pixel"] .page-banner-rank img { object-position: 82% 58%; }
+/* 横幅变高后略收日期旁提示行间距，给像素主题硬边框留出 P18 余量 */
+html[data-theme] #rank-count { margin-top: 4px; margin-bottom: 6px; }
 html[data-theme] .page-banner figcaption b { font-size: clamp(18px, 2.2vw, 26px); line-height: 1.25; color: var(--ink); }
 html[data-theme] .page-banner figcaption small { color: var(--muted); font-size: 13px; }
 /* 卡片：更明显的悬浮与前三名光晕 */
@@ -1220,9 +1232,12 @@ html[data-theme="ocean"] .page-banner::before {
 @media (max-width: 640px) {
   html[data-theme] .home-hero-stage::before { opacity: .35; }
   html[data-theme] .page-banner { height: auto; aspect-ratio: 16 / 9; }
-  html[data-theme] .page-banner-rank { height: auto; aspect-ratio: 2 / 1; }
+  html[data-theme] .page-banner-rank {
+    height: auto; width: auto; max-width: none; aspect-ratio: 2 / 1; margin: 0 0 8px;
+  }
+  html[data-theme] .page-banner-rank figcaption { max-width: 30em; padding: 14px 16px; }
   html[data-theme] .page-banner-rank figcaption small { display: block; }
-  html[data-theme] .rank-bar.has-banner > .page-banner { order: -1; flex-basis: 100%; }
+  html[data-theme] .rank-bar.has-banner > .page-banner { order: -1; flex: 1 1 100%; width: auto; max-width: none; }
   html[data-theme] .page-banner::before {
     background: linear-gradient(180deg, transparent 30%, color-mix(in srgb, var(--panel, #fff) 88%, transparent) 72%);
   }

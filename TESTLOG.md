@@ -273,3 +273,9 @@
 - 卡片/详情展示 `origin`；筛选「全部来源 / 官方 / 非官方」；缺省只出现在全部，不回填今日 JSON。
 - node --check js/ai-wool.js；轻量 smoke：缺省包无来源条、带 origin 的样例可筛。
 - changelog #82；build-daily 已跑。
+
+## 2026-11-01 · 赚钱榜横幅裁切修复（CACHE 55 / changelog #84）
+- 问题：`#war-rank` 日期行右侧 `.page-banner-rank` 固定 92px + 超宽 cover，宝箱/踏石/天空被裁成细条。
+- 改动：桌面改为约 360×144 限宽高条（仍在 `.rank-bar.has-banner` 日期旁）；三主题 `object-position` 对准宝箱；figcaption small 桌面也显示；手机全宽 2:1 置顶不变。
+- 高度（1280×800，scrollHeight/800）：ocean/ink 2.97，pixel 3.00（≤3.0）；390 scrollWidth=390。
+- 未新制图；截图 `/workspace/gefei-shots/rank-banner-final-{ocean,ink,pixel}.png`。

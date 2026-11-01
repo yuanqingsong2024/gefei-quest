@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-01T04:12:10.806Z",
-  "latestId": 83,
+  "generatedAt": "2026-11-01T12:13:01.885Z",
+  "latestId": 84,
   "latestDate": "2026-11-01",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 84,
+      "date": "2026-11-01",
+      "tag": "修复",
+      "title": "每日赚钱榜横幅不再裁成细条，宝箱插画完整可见",
+      "items": [
+        "日期行右侧横幅由 92px 超宽细条改为约 360×144（~2.5:1），object-position 按水墨/海岸/像素对准宝箱；手机仍全宽 2:1 置顶",
+        "守住 P18：war-rank 1280×800 约 2.97–3.00 屏；略收 #rank-count 间距。SW 缓存 55"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 83,
       "date": "2026-11-01",
@@ -109,16 +120,6 @@
         "水墨纸：宣纸远山+金线云纹；海岸青：浅海水彩+细波纹；像素暖沙：像素云天空+硬边色条。半透明遮罩保证文字与红点清晰，吸顶后阴影加深，手机底栏同款。SW 缓存 47"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 74,
-      "date": "2026-10-30",
-      "tag": "改进",
-      "title": "全站组件按主题统一风格",
-      "items": [
-        "输入框、下拉、勾选框、子导航、提示条、进度条、表格、提示气泡、弹窗按主题换肤，像素主题统一硬边；新手引导截图按亮色界面重拍。SW 缓存 46"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
     }
   ],
   "rank": {

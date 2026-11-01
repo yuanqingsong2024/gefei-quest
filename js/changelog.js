@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 84, date: '2026-11-01', title: '每日赚钱榜横幅不再裁成细条，宝箱插画完整可见', tag: '修复', href: '#war-rank',
+      items: ['日期行右侧横幅由 92px 超宽细条改为约 360×144（~2.5:1），object-position 按水墨/海岸/像素对准宝箱；手机仍全宽 2:1 置顶', '守住 P18：war-rank 1280×800 约 2.97–3.00 屏；略收 #rank-count 间距。SW 缓存 55'] },
     { id: 83, date: '2026-11-01', title: 'AI生活合集新增「国行Apple智能5个生活闭环」场景文选题', tag: '内容', href: '#war-rank-ai-life',
       items: ['「AI生活起号选题方案」合集置顶新增：国行 iPhone 这周能试 Apple 智能——翻译/相册搜图/邮件优先/通知摘要/写作改文 5 个生活闭环；含相册/写作/通知三条可复制提示词、小红书与闲鱼上手清单角度', '附 Apple 中国新闻稿 / 华龙网 / X 话题 / 新华社英文四个来源，本机核验均可访问；不含 Siri AI；不代装 Beta、不代领测试资格；不承诺效果与收益。SW 缓存 54'] },
     { id: 82, date: '2026-11-01', title: 'AI 羊毛可按官方/非官方筛选', tag: '改进', href: '#war-rank-ai-wool',
