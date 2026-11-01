@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GEO &amp; AI SEO Checklist: What to Fix Before You Chase AI Citations</title>
+    <meta
+      name="description"
+      content="A practical GEO/AI SEO checklist for indie blogs and content teams: vocabulary, crawl and answer-first fixes, agency vs DIY—and a light audit with no fake citation scores."
+    />
+    <!-- Alternate title/meta (not live): AI SEO vs GEO vs AEO—Free Checklist for Indie Publishers | Learn how GEO relates to AEO and classic SEO, then run through an actionable checklist built for publishers who ship their own content. -->
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fafaf8;
+        --card: #fff;
+        --ink: #1c1917;
+        --muted: #57534e;
+        --accent: #0f766e;
+        --accent-soft: #ccfbf1;
+        --line: #e7e5e4;
+        --ok: #15803d;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.55;
+      }
+      header, main, footer {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 24px 20px;
+      }
+      header { padding-top: 40px; }
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.45rem, 4vw, 1.85rem);
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+      }
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1.25rem;
+        letter-spacing: -0.015em;
+      }
+      h3 {
+        margin: 18px 0 8px;
+        font-size: 1.05rem;
+      }
+      .tag { color: var(--muted); margin: 0 0 18px; }
+      .lede { margin: 0 0 16px; }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+      }
+      a { color: var(--accent); }
+      nav a { margin-right: 14px; text-decoration: none; font-size: 0.95rem; }
+      nav a:hover { text-decoration: underline; }
+      footer {
+        color: var(--muted);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--line);
+        margin-top: 32px;
+      }
+      code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; }
+      .cta {
+        display: inline-block;
+        margin: 6px 8px 6px 0;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        font-size: 0.95rem;
+      }
+      .cta:hover { filter: brightness(0.95); }
+      .cta-ghost {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+      }
+      .grid-3 {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 640px) {
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      }
+      .pill-card {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 14px;
+        height: 100%;
+      }
+      .pill-card h3 { margin-top: 0; }
+      .pill-card .label {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+      .checklist label {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--line);
+        cursor: pointer;
+      }
+      .checklist label:last-child { border-bottom: none; }
+      .checklist input { margin-top: 4px; flex-shrink: 0; }
+      .checklist .why {
+        display: block;
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 2px;
+      }
+      .progress {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      .progress strong { color: var(--ok); }
+      table.compare {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      table.compare th, table.compare td {
+        border: 1px solid var(--line);
+        padding: 10px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.compare th { background: var(--bg); }
+      .note {
+        background: var(--accent-soft);
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        margin-top: 12px;
+      }
+      .faq dt { font-weight: 650; margin-top: 14px; }
+      .faq dd { margin: 6px 0 0; color: var(--ink); }
+      .path-note {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 10px;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#vocab">GEO vs SEO</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#agency">Agency vs DIY</a>
+        <a href="#waitlist">Waitlist</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <h1 id="home">GEO &amp; AI SEO Checklist: What to Fix Before You Chase AI Citations</h1>
+      <p class="tag">
+        For indie blogs and content teams who already do classic SEO—and now hear
+        about AI Overviews, answer engines, and generative engine optimization.
+      </p>
+      <p class="lede">
+        <strong>AI SEO</strong> is the practical work of making pages easier for
+        people <em>and</em> AI systems to find, understand, and quote. This page
+        clarifies <strong>GEO</strong>, <strong>AEO</strong>, and classic SEO,
+        then gives you a checklist you can finish today—without fake “official
+        citation rates” or traffic promises.
+      </p>
+      <a class="cta" href="#waitlist">Join the waitlist</a>
+      <a class="cta cta-ghost" href="#checklist">Open the checklist</a>
+      <p class="path-note">
+        Practice path (gefei-quest starter):
+        <code>starters/geo-checklist/</code> · draft route name
+        <code>/geo-checklist</code> · site hosting path still TBD for a production domain.
+      </p>
+    </header>
+
+    <main>
+      <section class="card" id="vocab" aria-labelledby="vocab-h">
+        <h2 id="vocab-h">GEO vs AEO vs classic SEO (plain vocabulary)</h2>
+        <p>
+          These labels overlap. You do not pick one and abandon the others. You
+          reuse crawlability, entities, and clear writing—then you change what
+          you measure and how you structure claims so machines can quote them
+          safely.
+        </p>
+        <div class="grid-3" role="list">
+          <article class="pill-card" role="listitem">
+            <span class="label">Classic SEO</span>
+            <h3>Ranked web results</h3>
+            <p><strong>Surface:</strong> blue links, snippets, classic SERPs.</p>
+            <p><strong>Success signal:</strong> impressions, clicks, rankings you can defend in Search Console.</p>
+            <p><strong>Typical moves:</strong> intent match, technical health, links earned honestly, on-page clarity.</p>
+          </article>
+          <article class="pill-card" role="listitem">
+            <span class="label">AEO</span>
+            <h3>Answer-style surfaces</h3>
+            <p><strong>Surface:</strong> featured / answer-first UI where a short answer sits above the list.</p>
+            <p><strong>Success signal:</strong> being the cited or paraphrased source in that answer box—when it exists.</p>
+            <p><strong>Typical moves:</strong> direct answers up top, FAQ blocks, clear headings machines can lift.</p>
+          </article>
+          <article class="pill-card" role="listitem">
+            <span class="label">GEO</span>
+            <h3>Generative answers</h3>
+            <p><strong>Surface:</strong> AI Overviews and other generative summaries that synthesize many sources.</p>
+            <p><strong>Success signal:</strong> accurate brand/page representation when models answer—checked manually, not a vendor “official score.”</p>
+            <p><strong>Typical moves:</strong> citable claims, entity consistency, schema where it fits, answer-first sections.</p>
+          </article>
+        </div>
+
+        <h3 id="good">What “good” looks like without fake metrics</h3>
+        <p>
+          Search engines and AI vendors do not sell you a public, official GEO
+          score or guaranteed citation rate. Prefer observable proxies you can
+          explain to a teammate:
+        </p>
+        <ul>
+          <li>Important URLs return 200 for people and known crawlers; no accidental blocks of legitimate bots you care about.</li>
+          <li>The first screen answers the query in plain language before the pitch.</li>
+          <li>Brand, product, and author names stay consistent across pages and profiles.</li>
+          <li>Structured data matches visible content (FAQ, Article, HowTo only when the page really is that type).</li>
+          <li>You keep a simple log of AI-answer spot checks plus Search Console—not a screenshot of a made-up “citation %.”</li>
+        </ul>
+      </section>
+
+      <section class="card" id="checklist" aria-labelledby="checklist-h">
+        <h2 id="checklist-h">The actionable GEO / AI SEO checklist</h2>
+        <p class="progress" id="progress" aria-live="polite">Checked <strong>0</strong> of <strong>0</strong></p>
+        <p>
+          Tick items as you finish them. Progress saves in this browser
+          (<span class="mono">localStorage</span>) so you can come back later.
+          Print the page if you prefer paper.
+        </p>
+
+        <h3>Crawl &amp; access</h3>
+        <div class="checklist" data-group="crawl">
+          <label>
+            <input type="checkbox" data-key="crawl-robots" />
+            <span>
+              Confirm robots.txt and meta robots allow the pages you want discovered.
+              <span class="why">Why: if primary crawlers cannot fetch the URL, classic SEO and generative systems both start from a deficit.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="crawl-canonical" />
+            <span>
+              Fix soft-404s, broken canonicals, and orphan URLs for money pages.
+              <span class="why">Why: duplicate or dead paths waste crawl budget and confuse which URL should be cited.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="crawl-perf" />
+            <span>
+              Ship critical content in HTML (not only behind empty shells) and keep load time reasonable on mobile.
+              <span class="why">Why: answer engines and users need text they can read without fragile client-only rendering.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>Answer-first content &amp; entities</h3>
+        <div class="checklist" data-group="answer">
+          <label>
+            <input type="checkbox" data-key="answer-lede" />
+            <span>
+              Put a 2–4 sentence direct answer under the H1 for each key query.
+              <span class="why">Why: AI SEO rewards pages that state the fact before the storytelling—humans skim the same way.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="answer-entity" />
+            <span>
+              Align brand, product, and author names with the same spelling across site, About, and public profiles.
+              <span class="why">Why: inconsistent entities make it harder for systems to attribute claims to you.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="answer-eeat" />
+            <span>
+              Show who wrote it, when it was updated, and what experience backs sensitive claims.
+              <span class="why">Why: citable pages usually look like something a careful editor would trust.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>Structure &amp; schema</h3>
+        <div class="checklist" data-group="structure">
+          <label>
+            <input type="checkbox" data-key="struct-headings" />
+            <span>
+              Use one H1 and a logical H2/H3 outline that mirrors real questions.
+              <span class="why">Why: clear hierarchy helps both readers and extractors find the quotable section.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="struct-schema" />
+            <span>
+              Add FAQ / Article / HowTo / BlogPosting schema only when the visible page matches that type; validate markup.
+              <span class="why">Why: mismatched schema is noise. Honest types support citability without gaming.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="struct-sources" />
+            <span>
+              Cite primary sources and show last-updated dates on evergreen guides.
+              <span class="why">Why: generative answers prefer pages that look current and attributable.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>Measurement you can defend</h3>
+        <div class="checklist" data-group="measure">
+          <label>
+            <input type="checkbox" data-key="meas-gsc" />
+            <span>
+              Keep Search Console (or equivalent) for queries, pages, and coverage issues.
+              <span class="why">Why: AI SEO still sits on classic discovery; you need a baseline you can audit.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="meas-spot" />
+            <span>
+              Once a month, spot-check 5–10 priority queries in AI answer UIs and note whether you appear and whether the claim is accurate.
+              <span class="why">Why: a written method beats inventing an “official citation rate” nobody can verify.</span>
+            </span>
+          </label>
+        </div>
+        <p>
+          <button type="button" class="cta cta-ghost" id="reset-checks">Reset checklist</button>
+        </p>
+      </section>
+
+      <section class="card" id="agency" aria-labelledby="agency-h">
+        <h2 id="agency-h">Agency vs DIY</h2>
+        <p>
+          <strong>Decision line:</strong> DIY with a checklist (and later, product
+          tools) when you ship content weekly and can own technical fixes; hire
+          help when you need strategy across many sites, remediation you cannot
+          staff, or a second pair of eyes on brand risk—not because someone sold
+          you a mysterious GEO score.
+        </p>
+        <div style="overflow-x: auto">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">DIY + checklist / tools</th>
+                <th scope="col">Agency / specialist</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Cost</th>
+                <td>Mostly your time; software you choose</td>
+                <td>Fees; clearer if scoped to audits + fixes</td>
+              </tr>
+              <tr>
+                <th scope="row">Speed</th>
+                <td>Fast on pages you control today</td>
+                <td>Faster when backlog and politics block you</td>
+              </tr>
+              <tr>
+                <th scope="row">Control</th>
+                <td>You keep process and measurement</td>
+                <td>You buy process; insist on transparent methods</td>
+              </tr>
+              <tr>
+                <th scope="row">When it fits</th>
+                <td>Indie publishers, small content teams, learning GEO vocabulary</td>
+                <td>Multi-brand, compliance-heavy, or no in-house SEO time</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card" id="waitlist" aria-labelledby="waitlist-h">
+        <h2 id="waitlist-h">Light audit — join the waitlist</h2>
+        <p>
+          A useful light audit for AI search visibility checks things you can
+          defend: crawl and index hygiene, answer-first openings, entity
+          consistency, and schema that matches the page. Product work in this
+          space also covers citability / GEO-style scoring and schema generation
+          <em>inside</em> a logged-in product—not as a public free-for-all score
+          page, and not as a guaranteed ranking or citation percentage.
+        </p>
+        <p>
+          There is <strong>no public audit URL</strong> to click from this
+          practice page, and we do not link a separate consumer domain as if it
+          were the trial. When early access opens, waitlist members get a path to
+          <strong>apply for a trial</strong> (申请试用) for in-product site audit,
+          citability checks, and schema helpers.
+        </p>
+        <a class="cta" href="#waitlist-form">Join the waitlist</a>
+        <a class="cta cta-ghost" href="#checklist">Finish the checklist first</a>
+
+        <div class="note" id="waitlist-form">
+          <p style="margin: 0 0 8px">
+            <strong>Waitlist (practice landing)</strong> — replace this block with
+            your real form, ESP embed, or Typeform when you deploy your own copy.
+            Until then, treat interest as: email yourself a note with subject
+            “GEO checklist waitlist” and the site you would audit first.
+          </p>
+          <p style="margin: 0" class="path-note">
+            Honest boundary: no fake citation scores, no traffic or revenue
+            promises, no grey-hat tricks. In-product audit paths (when available)
+            require login; this starter only offers Waitlist / 申请试用 CTA copy.
+          </p>
+        </div>
+      </section>
+
+      <section class="card" id="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">FAQ</h2>
+        <dl class="faq">
+          <dt>What is GEO (Generative Engine Optimization)?</dt>
+          <dd>
+            GEO (Generative Engine Optimization) means improving how your brand
+            and pages show up inside AI-generated answers and summaries—not only
+            how they rank in classic blue-link results. It overlaps with strong
+            SEO technicals and clear, citable writing; it is not a separate
+            license or an official “GEO score” sold by search engines.
+          </dd>
+
+          <dt>How is GEO different from AEO and classic SEO?</dt>
+          <dd>
+            Classic SEO optimizes for ranked web results. AEO (Answer Engine
+            Optimization) focuses on winning featured/answer-style surfaces. GEO
+            emphasizes visibility and accurate representation inside generative
+            answers. In practice you reuse crawlability, entities, and
+            answer-first content; you change how you measure success and how you
+            structure claims for machines to quote.
+          </dd>
+
+          <dt>What belongs on a GEO / AI SEO checklist?</dt>
+          <dd>
+            Prioritize crawl/access for people and bots, answer-first sections
+            with consistent entities, appropriate structured data, visible
+            expertise signals, and a measurement routine you can explain (manual
+            AI-answer checks plus Search Console)—not a promised official
+            citation rate.
+          </dd>
+
+          <dt>Will this checklist guarantee AI citations or traffic?</dt>
+          <dd>
+            No. It is a prioritization aid for indie publishers. Results depend
+            on your niche, competition, and product quality. Anyone promising
+            guaranteed generative citations is selling certainty they cannot own.
+          </dd>
+
+          <dt>Is grey-hat cloaking or bot-only content part of AI SEO?</dt>
+          <dd>
+            No. Show the same honest content to users and crawlers. Shortcuts that
+            deceive systems create trust debt you will pay later.
+          </dd>
+        </dl>
+      </section>
+
+      <section class="card" id="about" aria-labelledby="about-h">
+        <h2 id="about-h">About this starter</h2>
+        <p>
+          English practice landing from
+          <a href="https://yuanqingsong2024.github.io/gefei-quest/">gefei-quest</a>
+          · <code>starters/geo-checklist/</code>. Copy the folder, swap waitlist
+          wiring, deploy on your own Pages host. Internal product links and a
+          production domain for this page remain <strong>TBD</strong>.
+        </p>
+        <p class="path-note">
+          Related reading ideas (optional outbound when you publish for real):
+          industry “AI SEO” trend notes, Product Hunt launches in the space—as
+          evidence of interest, not endorsements or income claims.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="y"></span> GEO / AI SEO checklist starter · Practice landing ·
+        No traffic or revenue guarantee · No official citation-rate claims
+      </p>
+    </footer>
+    <script>
+      (function () {
+        document.getElementById('y').textContent = new Date().getFullYear();
+        var STORAGE = 'gefei-geo-checklist-v1';
+        var boxes = Array.prototype.slice.call(
+          document.querySelectorAll('.checklist input[type="checkbox"]')
+        );
+        var progress = document.getElementById('progress');
+        var saved = {};
+        try {
+          saved = JSON.parse(localStorage.getItem(STORAGE) || '{}') || {};
+        } catch (e) {
+          saved = {};
+        }
+
+        function render() {
+          var on = 0;
+          boxes.forEach(function (el) {
+            if (el.checked) on += 1;
+          });
+          progress.innerHTML =
+            'Checked <strong>' + on + '</strong> of <strong>' + boxes.length + '</strong>';
+        }
+
+        function persist() {
+          var next = {};
+          boxes.forEach(function (el) {
+            next[el.getAttribute('data-key')] = !!el.checked;
+          });
+          try {
+            localStorage.setItem(STORAGE, JSON.stringify(next));
+          } catch (e) {}
+          render();
+        }
+
+        boxes.forEach(function (el) {
+          var key = el.getAttribute('data-key');
+          if (saved[key]) el.checked = true;
+          el.addEventListener('change', persist);
+        });
+        render();
+
+        var reset = document.getElementById('reset-checks');
+        if (reset) {
+          reset.addEventListener('click', function () {
+            boxes.forEach(function (el) {
+              el.checked = false;
+            });
+            persist();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

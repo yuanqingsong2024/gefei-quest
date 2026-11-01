@@ -1015,6 +1015,16 @@
     },
 
     {
+      id: 'ch-geo-checklist-starter',
+      cat: 'hosting',
+      name: 'GEO / AI SEO Checklist 英文练站页',
+      blurb: '可勾选 GEO vs AEO vs SEO 清单落地页；CTA 为 Waitlist，无公网假审计链接。',
+      how: '打开 starters/geo-checklist/ → 接自己的 waitlist → 按 README 部署。',
+      caveat: '产品审计在登录后；勿链公网 autograph.ai 当试用。',
+      url: './starters/geo-checklist/',
+    },
+
+    {
       id: 'ch-station-three-playbook',
       cat: 'path',
       name: '站三作战手册 · 扩内页',
@@ -1424,6 +1434,10 @@
     {
       title: '站二 Starter 模板',
       url: './starters/station-two/',
+    },
+    {
+      title: 'GEO / AI SEO Checklist Starter',
+      url: './starters/geo-checklist/',
     },
     {
       title: '站二作战手册',
