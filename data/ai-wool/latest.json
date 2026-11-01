@@ -1,6 +1,6 @@
 {
   "date": "2026-11-01",
-  "updated": "2026-11-01T09:24:30+08:00",
+  "updated": "2026-11-01T09:39:11+08:00",
   "items": [
     {
       "rank": 1,
@@ -70,6 +70,72 @@
     },
     {
       "rank": 2,
+      "name": "OpenAI Codex 学生：$100 ChatGPT Credits（美加）",
+      "type": "学生教育",
+      "provider": "OpenAI / ChatGPT Codex",
+      "region": "教育区域",
+      "summary": "美加高校在读且申领时身在美加的学生，经 SheerID 验证后可获约 $100（显示为 2,500 credits）用于 Codex，自发放日起约 12 个月有效。ChatGPT Back-to-School 四个月 Plus 已于 2026-10-31 截止，本条为当前仍可申领的 Codex 学生额度。需 ChatGPT 账号（Free/Go/Plus/Pro）；非 API 额度。",
+      "value": "约 $100 Codex 可用 ChatGPT Credits（2,500 credits）· 发放后约 12 个月",
+      "deadline": "官方未写申领截止（资格与条款可能调整）",
+      "cost": "SheerID 学生验证；建议用大学邮箱；无需为领取本身单独付费；用尽可自费续购",
+      "difficulty": 2,
+      "threshold": "美加学位授予高校在读；申领时居住美加；每名学生限领一次；验证成功",
+      "time": "验证+到账约 15–40 分钟（审核忙时可更久）",
+      "fit": "美加在读学生，想合法加码 Codex 编码额度的人",
+      "why": "Plus 开学羊毛已过期；Codex $100 仍是官方学生通道，今天优先核资格。",
+      "steps": [
+        "用目标 ChatGPT 账号打开 chatgpt.com/codex/students 或 developers.openai.com/community/students",
+        "按 SheerID 完成在读验证（常用大学邮箱）",
+        "验证通过后到用量页确认约 2,500 credits/$100 已入账",
+        "在 Codex（ChatGPT 登录）内使用，勿指望当 API 额度",
+        "日历标好约 12 个月到期；多工作区时确认 credits 进了 EDU 关联个人工作区"
+      ],
+      "risk": "风险：仅美加；验证失败不可转账；额度仅 Codex/ChatGPT Credits 非 API。优惠以官方为准，不承诺能领到或省多少。",
+      "risk_level": "中",
+      "reason": "开学 Plus 已截止后的主力 OpenAI 学生羊毛，面额清晰、官方文档齐全。",
+      "tags": [
+        "OpenAI",
+        "Codex",
+        "学生",
+        "SheerID",
+        "Credits"
+      ],
+      "sources": [
+        {
+          "title": "Codex for university students",
+          "url": "https://chatgpt.com/codex/students/",
+          "publisher": "OpenAI / ChatGPT",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "Codex for Students",
+          "url": "https://developers.openai.com/community/students",
+          "publisher": "OpenAI Developers",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "Codex credits for Students - Terms of Service",
+          "url": "https://help.openai.com/en/articles/20001147-codex-credits-for-students-terms-of-service",
+          "publisher": "OpenAI Help Center",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://chatgpt.com/codex/students/",
+      "claim_howto": "登录目标 ChatGPT 账号→打开 Codex 学生页→SheerID 验证→用量页核对 credits。Agent 可整理资格清单，验证须本人完成。",
+      "stack": [
+        "ChatGPT",
+        "Codex",
+        "SheerID"
+      ]
+    },
+    {
+      "rank": 3,
       "name": "GitHub Copilot Student：Education 验证后免费",
       "type": "学生教育",
       "provider": "GitHub Copilot",
@@ -127,7 +193,7 @@
       ]
     },
     {
-      "rank": 3,
+      "rank": 4,
       "name": "阿里云百炼新人免费额度：各模型约百万 Token",
       "type": "免费额度",
       "provider": "通义 / 阿里云百炼",
@@ -177,7 +243,65 @@
       ]
     },
     {
-      "rank": 4,
+      "rank": 5,
+      "name": "腾讯云 TokenHub 新人免费体验包：语言模型约百万 Tokens",
+      "type": "免费额度",
+      "provider": "腾讯云 TokenHub / 混元等",
+      "region": "国内",
+      "summary": "TokenHub 主账号可领取新人免费体验：语言模型与多模态理解模型常见约 100 万 Tokens/模型，有效期约 1 年；本期活动文档写明截至约 2026-12-31。可从模型广场「新用户福利」或启用管理领取，部分模型首次调用会自动领。额度用尽后若未开后付费则停服。",
+      "value": "语言模型/多模态理解常见约 100万 Tokens/模型 · 约 1 年（活动期约至 2026-12-31）",
+      "deadline": "2026-12-31",
+      "cost": "需腾讯云账号；领取/开通后付费时部分地域文档提示可能预冻结费用（以控制台与国际站文档为准）；超额按量",
+      "difficulty": 2,
+      "threshold": "腾讯云主账号；每个账号每个模型通常仅领一次；建议只领近期要用的模型以免浪费有效期",
+      "time": "开通+领取约 20–40 分钟",
+      "fit": "国内开发者，想试用混元及 TokenHub 上多模型 API 的人",
+      "why": "国内另一家写清「百万 Tokens + 一年有效期」的官方新人包，活动截止日明确。",
+      "steps": [
+        "开通腾讯云大模型服务平台 TokenHub",
+        "在模型广场点「新用户福利免费体验」，或到启用管理领取免费资源",
+        "只勾选近期要用的模型后领取，核对各模型余量与到期",
+        "创建 API Key，用官方快速入门跑通一次调用",
+        "确认后付费开关：免费用尽前按需决定是否开启，避免意外扣费"
+      ],
+      "risk": "风险：活动期与预冻结规则因站点/文档版本可能不同；过期额度作废。不承诺能领到具体数额或活动延续。",
+      "risk_level": "中",
+      "reason": "官方文档额度与截止日清晰，补国内 Token 渠道多样性。",
+      "tags": [
+        "腾讯云",
+        "TokenHub",
+        "混元",
+        "免费额度",
+        "国内API"
+      ],
+      "sources": [
+        {
+          "title": "大模型服务平台 TokenHub 新人免费体验包",
+          "url": "https://cloud.tencent.com/document/product/1823/130053",
+          "publisher": "腾讯云文档",
+          "published": "2026-09-04",
+          "kind": "official",
+          "checked": "2026-11-01"
+        },
+        {
+          "title": "TokenHub 产品页",
+          "url": "https://cloud.tencent.com/product/tokenhub",
+          "publisher": "腾讯云",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-01"
+        }
+      ],
+      "source_url": "https://cloud.tencent.com/document/product/1823/130053",
+      "claim_howto": "控制台开通 TokenHub→模型广场或启用管理领新人包→只勾近期要用模型。核对预冻结与后付费开关后再调用。",
+      "stack": [
+        "TokenHub",
+        "混元",
+        "腾讯云"
+      ]
+    },
+    {
+      "rank": 6,
       "name": "智谱 GLM-4-Flash：官方免费大模型 API",
       "type": "Token福利",
       "provider": "智谱 BigModel",
@@ -235,7 +359,7 @@
       ]
     },
     {
-      "rank": 5,
+      "rank": 7,
       "name": "Azure for Students：$100 信用+可摸 OpenAI 等服务",
       "type": "学生教育",
       "provider": "Microsoft Azure",
@@ -293,7 +417,7 @@
       ]
     },
     {
-      "rank": 6,
+      "rank": 8,
       "name": "SiliconFlow 新用户赠送额度 + 多款标价免费模型",
       "type": "国内渠道",
       "provider": "硅基流动 SiliconFlow",
@@ -350,7 +474,7 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 9,
       "name": "火山方舟免费推理额度（豆包等模型试用）",
       "type": "免费额度",
       "provider": "火山引擎方舟 / 豆包",
@@ -407,7 +531,7 @@
       ]
     },
     {
-      "rank": 8,
+      "rank": 10,
       "name": "Cursor：Free 起步 + 研究生/教师申请 Credits",
       "type": "学生教育",
       "provider": "Cursor",
@@ -460,117 +584,6 @@
       "claim_howto": "先 Free，再按身份申请 Credits/等活动。Agent 可帮起草申请陈述，但表单须本人提交。",
       "stack": [
         "Cursor"
-      ]
-    },
-    {
-      "rank": 9,
-      "name": "Claude Pro 年付折扣（无个人站立学生价）",
-      "type": "订阅折扣",
-      "provider": "Anthropic Claude",
-      "region": "海外",
-      "summary": "Claude 个人 Pro 月付约 $20；官方定价页提供年付折扣（页面示意约 $17/月等价、年付约 $200）。帮助中心写明个人计划无常规学生折扣，仅偶发限时活动。学校若采购 Claude for Education，师生可能走机构账号免费/低价，需问本校 IT。",
-      "value": "年付相对月付更低（约 $17/月等价，以 claude.com/pricing 为准）",
-      "deadline": "官方未写截止 / 先到先得",
-      "cost": "需支持地区账号与付款方式；年付一次性扣款；取消规则见账单页",
-      "difficulty": 2,
-      "threshold": "所在地区支持 Claude 付费；能接受年付锁定",
-      "time": "比价+升级约 10–20 分钟",
-      "fit": "已确定长期用 Claude、想合法降低订阅单价的海外用户",
-      "why": "在「无学生价」前提下，年付是官方明示的省钱路径；同时提示教育机构通道。",
-      "steps": [
-        "打开 claude.com/pricing 核对当前月付/年付标价",
-        "阅读 Pro 权益与地区可用性",
-        "若在校，先问 IT 是否有 Claude for Education",
-        "无机构席位再考虑个人年付；设续费提醒",
-        "不寻找非官方「学生破解」"
-      ],
-      "risk": "风险：年付灵活性差；价格与税率因地区而异；机构权益因校而异。不承诺总是最便宜或有学生价。",
-      "risk_level": "低",
-      "reason": "补一条「订阅折扣」类型，避免只堆免费额度。",
-      "tags": [
-        "Claude",
-        "年付",
-        "订阅",
-        "Anthropic",
-        "Pro"
-      ],
-      "sources": [
-        {
-          "title": "Plans & pricing",
-          "url": "https://claude.com/pricing",
-          "publisher": "Anthropic",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        },
-        {
-          "title": "What is the Pro plan?",
-          "url": "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan",
-          "publisher": "Claude Help Center",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        }
-      ],
-      "source_url": "https://claude.com/pricing",
-      "claim_howto": "比价月/年→确认地区→升级。Agent 可做成本表，付款须本人。",
-      "stack": [
-        "Claude"
-      ]
-    },
-    {
-      "rank": 10,
-      "name": "Grok / X Subscription：Free 有限用量起步",
-      "type": "免费额度",
-      "provider": "Grok / xAI",
-      "region": "海外",
-      "summary": "Grok 提供免费层（聊天与 Agent 用量有限）；更高用量走 The X Subscription（Plus/Premium 等），含共享用量池。适合先白嫖体验再决定是否升级。注意第三方转售订阅可能违规被封。",
-      "value": "Free 有限聊天/Agent 用量（具体上限以产品内为准）",
-      "deadline": "官方未写截止 / 先到先得",
-      "cost": "Free 无需付费；升级需官方订阅付款",
-      "difficulty": 1,
-      "threshold": "可访问 grok.com / 支持地区；遵守服务条款",
-      "time": "注册即用约 5–15 分钟",
-      "fit": "想先免费试用 Grok 的海外用户",
-      "why": "补齐海外对话模型免费层；官方订阅说明页可核验。",
-      "steps": [
-        "打开 grok.com 注册/登录，确认 Free 可用功能",
-        "阅读 x.ai 定价/订阅说明，了解升级档位",
-        "仅通过官方渠道付费，拒绝账号合租",
-        "用量见顶再评估 Plus/Premium 是否必要"
-      ],
-      "risk": "风险：Free 限额不透明且可调；地区可用性变化。不承诺免费层够日常重度使用。",
-      "risk_level": "低",
-      "reason": "海外免费层占位，类型与厂商多样化。",
-      "tags": [
-        "Grok",
-        "xAI",
-        "Free",
-        "订阅",
-        "海外"
-      ],
-      "sources": [
-        {
-          "title": "Introducing The X Subscription",
-          "url": "https://x.ai/news/x-subscription",
-          "publisher": "xAI",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        },
-        {
-          "title": "Grok",
-          "url": "https://grok.com/",
-          "publisher": "xAI",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        }
-      ],
-      "source_url": "https://grok.com/",
-      "claim_howto": "直接官方注册用 Free。Agent 可帮对比各档权益，勿买非官方号。",
-      "stack": [
-        "Grok"
       ]
     }
   ]
