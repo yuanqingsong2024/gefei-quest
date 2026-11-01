@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-01T03:20:02.199Z",
-  "latestId": 82,
+  "generatedAt": "2026-11-01T04:12:10.806Z",
+  "latestId": 83,
   "latestDate": "2026-11-01",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 83,
+      "date": "2026-11-01",
+      "tag": "内容",
+      "title": "AI生活合集新增「国行Apple智能5个生活闭环」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：国行 iPhone 这周能试 Apple 智能——翻译/相册搜图/邮件优先/通知摘要/写作改文 5 个生活闭环；含相册/写作/通知三条可复制提示词、小红书与闲鱼上手清单角度",
+        "附 Apple 中国新闻稿 / 华龙网 / X 话题 / 新华社英文四个来源，本机核验均可访问；不含 Siri AI；不代装 Beta、不代领测试资格；不承诺效果与收益。SW 缓存 54"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 82,
       "date": "2026-11-01",
@@ -108,17 +119,6 @@
         "输入框、下拉、勾选框、子导航、提示条、进度条、表格、提示气泡、弹窗按主题换肤，像素主题统一硬边；新手引导截图按亮色界面重拍。SW 缓存 46"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-keywords"
-    },
-    {
-      "id": 73,
-      "date": "2026-10-30",
-      "tag": "改进",
-      "title": "顶栏、页头和页脚按主题美化：场景横幅、笔触/波浪/像素边、页脚小景",
-      "items": [
-        "页头带延伸到浮动顶栏背后，叠该页场景图并加左实右透遮罩；底边水墨笔触 / 海岸波浪 / 像素阶梯；顶栏按主题换底色与描边（像素主题硬边框+投影）",
-        "页脚加主题小景（湖畔仙鹤 / 贝壳海岸 / 像素草地宝箱）与顶边装饰，栏目标题加主题色短线；手机底栏同风格。SW 缓存升到 45"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-analytics"
     }
   ],
   "rank": {
