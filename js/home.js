@@ -690,6 +690,7 @@
       '<div class="home-inner">' +
       (global.QuestStats && typeof QuestStats.todayCard === 'function' ? QuestStats.todayCard(state) : '') +
       '<div class="kw-card-slot home-kw-slot"></div>' +
+      '<div class="dig15-card-slot home-dig15-slot"></div>' +
       '</div></section>' +
       '<section class="home-band band-b" id="home-split" data-reveal><div class="home-inner">' +
       '<details class="home-more">' +
@@ -705,6 +706,10 @@
     var slot = root.querySelector('.home-kw-slot');
     if (slot && global.QuestKeywordCard && typeof QuestKeywordCard.mount === 'function') {
       QuestKeywordCard.mount(slot);
+    }
+    var dig15 = root.querySelector('.home-dig15-slot');
+    if (dig15 && global.QuestDig15Card && typeof QuestDig15Card.mount === 'function') {
+      QuestDig15Card.mount(dig15);
     }
     if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
   }

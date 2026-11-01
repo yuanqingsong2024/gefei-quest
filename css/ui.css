@@ -3822,6 +3822,60 @@ body.is-home .home-continue {
   .home-today-band { padding: 8px 0 12px; }
 }
 
+/* —— 挖词 15 分钟卡 —— */
+.dig15-card-slot, .home-dig15-slot { min-width: 0; max-width: 100%; margin-top: 10px; }
+.dig15-card { min-width: 0; }
+.dig15-body {
+  display: grid; gap: 10px; min-width: 0;
+  color: var(--ink);
+}
+.dig15-list {
+  display: grid; gap: 8px; min-width: 0;
+  list-style: none; margin: 0; padding: 0;
+}
+.dig15-item {
+  min-width: 0; padding: 10px 12px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--panel2); color: var(--ink);
+}
+.dig15-item.is-done { border-color: color-mix(in srgb, var(--cyan) 45%, var(--line)); }
+.dig15-check {
+  display: flex; align-items: flex-start; gap: 10px; min-width: 0;
+  cursor: pointer;
+}
+.dig15-check input[type="checkbox"] {
+  margin: 4px 0 0; width: 1.05rem; height: 1.05rem; flex: none;
+  accent-color: var(--cyan);
+}
+.dig15-num {
+  flex: none; width: 1.4rem; height: 1.4rem; margin-top: 1px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 999px; border: 1px solid var(--line);
+  background: var(--panel); color: var(--muted);
+  font-size: .75rem; font-weight: 700;
+}
+.dig15-item.is-done .dig15-num {
+  background: color-mix(in srgb, var(--cyan) 18%, var(--panel));
+  border-color: color-mix(in srgb, var(--cyan) 50%, var(--line));
+  color: var(--cyan);
+}
+.dig15-text {
+  display: grid; gap: 2px; min-width: 0; flex: 1;
+}
+.dig15-text strong {
+  font-size: .92rem; font-weight: 700; line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.dig15-text small {
+  color: var(--muted); font-size: .8rem; line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.dig15-actions { margin-top: 2px; }
+.dig15-card > summary .ico, .dig15-card > summary svg.ico { width: 18px; height: 18px; flex: none; }
+@media (max-width: 640px) {
+  .dig15-card-slot, .dig15-card, .dig15-body, .home-dig15-slot { min-width: 0; max-width: 100%; }
+  .dig15-check { gap: 8px; }
+}
+
 /* —— SERP 标题拆解便签 —— */
 .serp-note { min-width: 0; }
 .serp-note-body {
