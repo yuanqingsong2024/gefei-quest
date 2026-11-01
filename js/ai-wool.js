@@ -1,5 +1,6 @@
 /** AI 订阅 / Token 羊毛 · #war-rank-ai-wool
  *  数据：js/ai-wool-data.js 内嵌兜底 → fetch data/ai-wool/latest.json
+ *  条目字段 origin（明日起必填）：官方 | 非官方；今日及更早包可缺省，缺省只出现在「全部」。
  *  计划 key：aiwool:<rank>，复用 rankFav / rankPlan，不并进每日赚钱榜。 */
 (function (global) {
   var I = function (n) { return global.QuestIcons ? global.QuestIcons.svg(n) : ''; };
@@ -15,7 +16,7 @@
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
   var TYPES = ['免费额度', '订阅折扣', '学生教育', '限时促销', 'Token福利', '国内渠道', '其他'];
-  var view = { type: 'all', fav: false };
+  var view = { type: 'all', origin: 'all', fav: false };
   var cache = null;
   var fetching = false;
 
@@ -30,6 +31,30 @@
   function riskClass(lvl) {
     var m = { '低': 'low', '中': 'mid', '高': 'high' };
     return 'wool-risk-' + (m[lvl] || 'mid');
+  }
+  function originClass(o) {
+    if (o === '官方') return 'wool-origin-official';
+    if (o === '非官方') return 'wool-origin-unofficial';
+    return '';
+  }
+  function originPill(o) {
+    if (o !== '官方' && o !== '非官方') return '';
+    return '<span class="pill wool-origin ' + originClass(o) + '" data-origin="' + esc(o) + '">' + esc(o) + '</span>';
+  }
+  function originsIn(day) {
+    var hasOff = false, hasUnoff = false;
+    (day.items || []).forEach(function (it) {
+      if (!it) return;
+      if (it.origin === '官方') hasOff = true;
+      else if (it.origin === '非官方') hasUnoff = true;
+    });
+    var out = [];
+    if (hasOff) out.push('官方');
+    if (hasUnoff) out.push('非官方');
+    return out;
+  }
+  function countOrigin(day, o) {
+    return (day.items || []).filter(function (i) { return i && i.origin === o; }).length;
   }
   function typesIn(day) {
     var present = {}, i, t, out = [];
@@ -121,7 +146,7 @@
       : '';
     return '<article class="rank-card rank-card--teaser glass ' + typeClass(it.type) + '" data-rank="' + it.rank + '" data-type="' + esc(it.type) + '" data-plan-key="' + esc(planKeyFor(it)) + '">' +
       '<div class="rank-head"><span class="rank-no rank-badge rank-no-' + Math.min(it.rank, 4) + '" aria-label="第' + it.rank + '名">第' + it.rank + '名</span><div class="rank-title"><h3>' + esc(it.name) + '</h3>' +
-      '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + risk +
+      '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' + originPill(it.origin) + ' ' + risk +
       (it.difficulty != null ? ' ' + stars(it.difficulty) : '') + '</p>' +
       (meta ? '<p class="rank-why">' + meta + '</p>' : '') +
       '</div>' +
@@ -179,6 +204,7 @@
       ['门槛', it.threshold],
       ['耗时', it.time],
       ['适合谁', it.fit],
+      ['来源性质', (it.origin === '官方' || it.origin === '非官方') ? it.origin : ''],
       ['风险等级', it.risk_level],
     ].forEach(function (pair) {
       if (pair[1]) metaRows += '<dt>' + esc(pair[0]) + '</dt><dd>' + esc(pair[1]) + '</dd>';
@@ -192,6 +218,7 @@
       '<span class="rank-no rank-badge rank-no-' + Math.min(it.rank, 4) + '" aria-label="第' + it.rank + '名">第' + it.rank + '名</span>' +
       '<div class="rank-title"><h2 id="wool-detail-title">' + esc(it.name) + '</h2>' +
       '<p><span class="pill" data-type="' + esc(it.type) + '">' + esc(it.type) + '</span> ' +
+      originPill(it.origin) + ' ' +
       (it.risk_level ? '<span class="pill wool-risk ' + riskClass(it.risk_level) + '">风险' + esc(it.risk_level) + '</span> ' : '') +
       (it.difficulty != null ? stars(it.difficulty) : '') + '</p></div></div>' +
       (it.summary ? '<section class="rank-detail-section rank-panel"><h3 class="rank-detail-label">摘要</h3><p class="rank-why rank-why-full">' + esc(it.summary) + '</p></section>' : '') +
@@ -282,15 +309,26 @@
       return;
     }
     var types = typesIn(day);
+    var origins = originsIn(day);
     var list = day.items.filter(function (i) {
       return (view.type === 'all' || i.type === view.type) &&
+        (view.origin === 'all' || i.origin === view.origin) &&
         (!view.fav || state.rankFav.indexOf(i.name) >= 0);
     });
-    var emptyB = view.fav ? '还没有收藏条目' : '这个类型今天没有条目';
+    var emptyB = view.fav ? '还没有收藏条目' : (view.origin !== 'all' ? '这个来源今天没有条目' : '这个类型今天没有条目');
     var emptyS = view.fav ? '点卡片右上角星标收藏；收藏后可从「只看收藏」回看。' : '切回「全部」看看。';
+    var originBar = origins.length
+      ? '<div class="chip-row rank-origins" role="group" aria-label="按来源性质筛选">' +
+        '<button type="button" class="chip' + (view.origin === 'all' ? ' active' : '') + '" data-woolorigin="all">全部来源 ' + day.items.length + '</button>' +
+        origins.map(function (o) {
+          return '<button type="button" class="chip ' + originClass(o) + (view.origin === o ? ' active' : '') + '" data-woolorigin="' + esc(o) + '">' + esc(o) + ' ' + countOrigin(day, o) + '</button>';
+        }).join('') +
+        '</div>'
+      : '';
     root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('wool') + '</div>' + pageBanner() + disclaimer() +
       '<p class="rank-intro" data-reveal>每天整理 AI 订阅折扣、免费额度、学生计划和 Token 福利。点卡片看领取步骤与官方来源；优惠可能随时失效，开通前核对绑卡与自动续费。</p>' +
-      '<section class="rank-bar"><div class="chip-row rank-types" role="group" aria-label="按类型筛选">' +
+      '<section class="rank-bar">' + originBar +
+      '<div class="chip-row rank-types" role="group" aria-label="按类型筛选">' +
       '<button type="button" class="chip' + (view.type === 'all' ? ' active' : '') + '" data-wooltype="all">全部 ' + day.items.length + '</button>' +
       types.map(function (t) {
         var n = day.items.filter(function (i) { return i.type === t; }).length;
@@ -308,6 +346,12 @@
     root.querySelectorAll('[data-wooltype]').forEach(function (b) {
       b.addEventListener('click', function () {
         view.type = b.getAttribute('data-wooltype');
+        paint(state, root, ctx, day);
+      });
+    });
+    root.querySelectorAll('[data-woolorigin]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        view.origin = b.getAttribute('data-woolorigin') || 'all';
         paint(state, root, ctx, day);
       });
     });

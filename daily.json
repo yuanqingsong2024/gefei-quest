@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-01T01:23:04.885Z",
-  "latestId": 81,
+  "generatedAt": "2026-11-01T03:20:02.199Z",
+  "latestId": 82,
   "latestDate": "2026-11-01",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,16 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 82,
+      "date": "2026-11-01",
+      "tag": "改进",
+      "title": "AI 羊毛可按官方/非官方筛选",
+      "items": [
+        "卡片与详情展示 origin（官方/非官方）；筛选条：全部来源 / 官方 / 非官方；缺省字段只出现在全部。SW 缓存 53"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-wool"
+    },
     {
       "id": 81,
       "date": "2026-11-01",
@@ -109,17 +119,6 @@
         "页脚加主题小景（湖畔仙鹤 / 贝壳海岸 / 像素草地宝箱）与顶边装饰，栏目标题加主题色短线；手机底栏同风格。SW 缓存升到 45"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#me-analytics"
-    },
-    {
-      "id": 72,
-      "date": "2026-10-30",
-      "tag": "改进",
-      "title": "其它页面也有主题背景：学习、实施、赚钱、Agent、资源、日志、我的各一张",
-      "items": [
-        "非首页按栏目换淡底背景（水墨：竹林书案 / 水车工坊 / 水乡集市 / 星图梅枝 / 藏书阁 / 卷轴归雁 / 月门庭院；海岸青与像素暖沙各一套对应场景），与首页山水/海滩不重复",
-        "背景已降对比并叠半透明遮罩，文字区仍是实底卡片；切主题即时换图。SW 缓存升到 44，只预缓存水墨默认背景"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

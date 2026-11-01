@@ -269,3 +269,7 @@
 - node --check js/ai-wool.js js/ai-wool-data.js js/nav.js js/app.js js/rank.js；本地静态打开空态与开关条。
 - changelog #81（保留雷达 #80 赚钱榜）；build-daily 已跑。
 
+## AI 羊毛 origin 官方/非官方（2026-11-01，CACHE 53）
+- 卡片/详情展示 `origin`；筛选「全部来源 / 官方 / 非官方」；缺省只出现在全部，不回填今日 JSON。
+- node --check js/ai-wool.js；轻量 smoke：缺省包无来源条、带 origin 的样例可筛。
+- changelog #82；build-daily 已跑。

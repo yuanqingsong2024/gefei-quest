@@ -3471,6 +3471,9 @@ body.is-home .home-howto span.home-step-ico > img.ico-img,
 .pill.wool-risk-low { background: rgba(74, 222, 128, .18); color: #bbf7d0; }
 .pill.wool-risk-mid { background: rgba(251, 191, 36, .2); color: var(--gold-text); }
 .pill.wool-risk-high { background: rgba(248, 113, 113, .22); color: #fecaca; }
+.pill.wool-origin-official, .chip.wool-origin-official { background: rgba(74, 222, 128, .18); color: #bbf7d0; }
+.pill.wool-origin-unofficial, .chip.wool-origin-unofficial { background: rgba(148, 163, 184, .28); color: var(--ink); }
+.rank-bar .rank-origins { margin-bottom: 8px; }
 
 .rank-card.rank-type-Agent接单, .rank-detail-card.rank-type-Agent接单 { --rank-accent: 129, 140, 248; }
 .rank-card.rank-type-Agent内容变现, .rank-detail-card.rank-type-Agent内容变现 { --rank-accent: 244, 114, 182; }
