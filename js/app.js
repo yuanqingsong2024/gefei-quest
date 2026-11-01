@@ -168,7 +168,7 @@
     if (s === 'start' || s === 'path') return 'learn';
     if (s === 'war') {
       if (v === 'rank') return 'earn';
-      if (v === 'rank-agent' || v === 'tools') return 'agent';
+      if (v === 'rank-agent' || v === 'rank-ai-wool' || v === 'tools') return 'agent';
       return 'build';
     }
     if (s === 'lib' || s === 'guides' || s === 'dev') return 'library';
@@ -227,6 +227,11 @@
       $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';
       if (window.QuestAgentMoney) QuestAgentMoney.render(state, $('#tool-body'), toolCtx());
       else $('#tool-body').innerHTML = '<div class="empty-illo"><p><b>Agent 赚钱模块未加载</b></p></div>';
+    } else if (sec === 'war' && route.view === 'rank-ai-wool') {
+      crumb = 'AI 羊毛';
+      $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';
+      if (window.QuestAiWool) QuestAiWool.render(state, $('#tool-body'), toolCtx());
+      else $('#tool-body').innerHTML = '<div class="empty-illo"><p><b>AI 羊毛模块未加载</b></p></div>';
     } else if (sec === 'war' && route.view === 'tools') {
       crumb = '工具发掘';
       $('#panel-war').innerHTML = groupTabs(route) + '<div id="tool-body"></div>';

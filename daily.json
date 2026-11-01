@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-10-31T07:04:49.306Z",
-  "latestId": 79,
-  "latestDate": "2026-10-31",
+  "generatedAt": "2026-11-01T01:22:25.076Z",
+  "latestId": 80,
+  "latestDate": "2026-11-01",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 80,
+      "date": "2026-11-01",
+      "tag": "新功能",
+      "title": "新增「AI 羊毛」频道：订阅折扣 / 免费额度 / Token 福利",
+      "items": [
+        "导航「赚钱 → AI 羊毛」（#war-rank-ai-wool）；短卡摘要 + 详情弹窗；筛选类型/收藏",
+        "数据 data/ai-wool/YYYY-MM-DD.json + latest.json；赚钱榜雷达推 main 即可。优惠以官方为准，可能随时失效；注意绑卡/自动续费，不承诺省钱。SW 缓存 51"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-wool"
+    },
     {
       "id": 79,
       "date": "2026-10-31",
@@ -106,17 +117,6 @@
       "items": [
         "海岸青换成水彩海岸风（白帆船、灯塔、沙洲金币、海边小屋机器人），像素暖沙换成 16-bit 像素风（粉帆小船、沙丘石阶、藏宝箱、遮阳伞机器人）；切换主题时首页 hero、今天这一关、赚钱榜与 Agent 页横幅自动换图",
         "标签行、hero 渐变、分隔线、横幅标签、卡片悬停按主题配色；像素主题用硬边框与像素阴影。SW 缓存升到 43"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 70,
-      "date": "2026-10-30",
-      "tag": "改进",
-      "title": "首页与赚钱页加水墨配图：hero 大图、页面横幅、区块分隔",
-      "items": [
-        "首页 hero 右侧加「帆船出海」水墨大图，标题上方加主线五步标签；「今天这一关」卡片加登山小插画；区块之间加水墨分隔线",
-        "每日赚钱榜与 Agent 赚钱页顶部加主题横幅（金币山路 / 竹亭小机器人），卡片悬浮更明显；配图均为 webp（每张 < 140KB），SW 缓存升到 42"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }

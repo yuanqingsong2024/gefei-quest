@@ -3460,6 +3460,17 @@ body.is-home .home-howto span.home-step-ico > img.ico-img,
 .chip.rank-type-Agent闲鱼方案, .pill[data-type="Agent闲鱼方案"] { background: rgba(56, 189, 248, .22); color: #bae6fd; }
 .chip.rank-type-Agent平台激励, .pill[data-type="Agent平台激励"] { background: rgba(251, 146, 60, .22); color: #fed7aa; }
 .chip.rank-type-Agent案例拆解, .pill[data-type="Agent案例拆解"] { background: rgba(148, 163, 184, .25); color: var(--ink); }
+/* AI 羊毛类型 + 风险徽标 */
+.chip.rank-type-免费额度, .pill[data-type="免费额度"] { background: rgba(74, 222, 128, .18); color: #bbf7d0; }
+.chip.rank-type-订阅折扣, .pill[data-type="订阅折扣"] { background: rgba(251, 191, 36, .2); color: var(--gold-text); }
+.chip.rank-type-学生教育, .pill[data-type="学生教育"] { background: rgba(96, 165, 250, .22); color: #bfdbfe; }
+.chip.rank-type-限时促销, .pill[data-type="限时促销"] { background: rgba(248, 113, 113, .2); color: #fecaca; }
+.chip.rank-type-Token福利, .pill[data-type="Token福利"] { background: rgba(167, 139, 250, .22); color: #ddd6fe; }
+.chip.rank-type-国内渠道, .pill[data-type="国内渠道"] { background: rgba(45, 212, 191, .2); color: #99f6e4; }
+.chip.rank-type-其他, .pill[data-type="其他"] { background: rgba(148, 163, 184, .25); color: var(--ink); }
+.pill.wool-risk-low { background: rgba(74, 222, 128, .18); color: #bbf7d0; }
+.pill.wool-risk-mid { background: rgba(251, 191, 36, .2); color: var(--gold-text); }
+.pill.wool-risk-high { background: rgba(248, 113, 113, .22); color: #fecaca; }
 
 .rank-card.rank-type-Agent接单, .rank-detail-card.rank-type-Agent接单 { --rank-accent: 129, 140, 248; }
 .rank-card.rank-type-Agent内容变现, .rank-detail-card.rank-type-Agent内容变现 { --rank-accent: 244, 114, 182; }

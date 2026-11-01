@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 80, date: '2026-11-01', title: '新增「AI 羊毛」频道：订阅折扣 / 免费额度 / Token 福利', tag: '新功能', href: '#war-rank-ai-wool',
+      items: ['导航「赚钱 → AI 羊毛」（#war-rank-ai-wool）；短卡摘要 + 详情弹窗；筛选类型/收藏', '数据 data/ai-wool/YYYY-MM-DD.json + latest.json；赚钱榜雷达推 main 即可。优惠以官方为准，可能随时失效；注意绑卡/自动续费，不承诺省钱。SW 缓存 51'] },
     { id: 79, date: '2026-10-31', title: '头像菜单不再带换风格，风格只走顶栏按钮', tag: '修复', href: '#me',
       items: ['「我的」头像下拉只保留进度/统计/设置等入口；换风格只留顶栏「🎨 换风格」。SW 缓存 50'] },
     { id: 78, date: '2026-10-31', title: 'AI生活合集新增「周末让AI带你断舍离」场景文选题', tag: '内容', href: '#war-rank-ai-life',

@@ -299,6 +299,7 @@
       html += '<a class="rank-switch-btn' + (on ? ' active' : '') + '" href="#' + c.hash + '"' + (on ? ' aria-current="page"' : '') + '>' + esc(c.label) + '</a>';
     });
     html += '<a class="rank-switch-btn' + (which === 'agent' ? ' active' : '') + '" href="#war-rank-agent"' + (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 进账方案</a>';
+    html += '<a class="rank-switch-btn' + (which === 'wool' ? ' active' : '') + '" href="#war-rank-ai-wool"' + (which === 'wool' ? ' aria-current="page"' : '') + '>AI 羊毛</a>';
     html += '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' + (which === 'tools' ? ' aria-current="page"' : '') + '>今日工具发掘</a>';
     return html + '</nav>';
   }
