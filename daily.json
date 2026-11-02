@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-01T12:13:01.885Z",
-  "latestId": 84,
-  "latestDate": "2026-11-01",
+  "generatedAt": "2026-11-02T00:39:11.352Z",
+  "latestId": 85,
+  "latestDate": "2026-11-02",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 85,
+      "date": "2026-11-02",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-02",
+      "items": [
+        "No.1 DigitalOcean Affiliate：写云主机/部署教程，合资格新付费用户月消费可拿约10%佣金、持续约12个月",
+        "No.2 Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
+        "No.3 Netlify：按官方入门路径部署英文工具小站，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 84,
       "date": "2026-11-01",
@@ -110,40 +122,30 @@
         "左侧路径与右侧「今天这一关 / 赚钱榜」之间新增主栏：主线进度、下一步行动、快捷入口、今日提示；三主题各配一张书案插画。桌面三栏、窄屏堆叠。SW 缓存 48"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
-    },
-    {
-      "id": 75,
-      "date": "2026-10-31",
-      "tag": "改进",
-      "title": "顶部菜单栏换上主题背景",
-      "items": [
-        "水墨纸：宣纸远山+金线云纹；海岸青：浅海水彩+细波纹；像素暖沙：像素云天空+硬边色条。半透明遮罩保证文字与红点清晰，吸顶后阴影加深，手机底栏同款。SW 缓存 47"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {
-    "date": "2026-11-01",
+    "date": "2026-11-02",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万），约11天窗口",
-        "type": "奖金赛/悬赏",
-        "source_url": "https://paypalaihackathon.devpost.com/"
+        "name": "DigitalOcean Affiliate：写云主机/部署教程，合资格新付费用户月消费可拿约10%佣金、持续约12个月",
+        "type": "联盟营销",
+        "source_url": "https://www.digitalocean.com/affiliates"
       },
       {
         "rank": 2,
-        "name": "Kiroween 2026：提交已开；可领约4000免费额度；现金奖池约10万美元（至12月4日）",
-        "type": "奖金赛/悬赏",
-        "source_url": "https://kiroween.devpost.com/"
+        "name": "Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
+        "type": "数字产品/接单",
+        "source_url": "https://docs.lemonsqueezy.com/help/getting-started/fees"
       },
       {
         "rank": 3,
-        "name": "Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元——明天截止",
-        "type": "奖金赛/悬赏",
-        "source_url": "https://twitchcon-codex.devpost.com/"
+        "name": "Netlify：按官方入门路径部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "type": "出海小站",
+        "source_url": "https://docs.netlify.com/get-started/"
       }
     ]
   }
