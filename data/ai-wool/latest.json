@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-01",
-  "updated": "2026-11-01T09:39:11+08:00",
+  "date": "2026-11-02",
+  "updated": "2026-11-02T09:41:58+08:00",
   "items": [
     {
       "rank": 1,
@@ -8,14 +8,15 @@
       "type": "学生教育",
       "provider": "Google Gemini / Google One",
       "region": "教育区域",
-      "summary": "符合条件的高校在读学生可通过 SheerID 领取一年 Google AI 计划：美国学生多为 Google AI Pro（含更高 Gemini 用量与大存储），多国非美学生多为 Google AI Plus。需个人 Google 账号与有效付款方式；期满默认转正价，可随时取消。领取截止约 2026-12-31。",
+      "origin": "官方",
+      "summary": "符合条件的高校在读学生可通过 SheerID 领取一年 Google AI 计划：美国学生多为 Google AI Pro（含更高 Gemini 用量与大存储），多国非美学生多为 Google AI Plus。需个人 Google 账号与有效付款方式；期满默认转正价，可随时取消。领取截止约 2026-12-31。今日复核官方博客、条款与领取页仍在线。",
       "value": "美国：约 12 个月 Google AI Pro（标价约 $19.99/月）；非美多市场：约 12 个月 Google AI Plus",
       "deadline": "2026-12-31",
       "cost": "需 SheerID 学生认证；注册时通常要绑付款方式；学校邮箱账号一般不可用，需个人 Google 账号",
       "difficulty": 2,
       "threshold": "年满 18；高等教育在读；所在国家/地区支持对应套餐（港、澳、突尼斯等排除以条款为准）；非家庭组附属成员等限制见官方",
       "time": "认证+开通约 15–40 分钟（文档审核忙时可更久）",
-      "fit": "在读大学生/研究生，想白嫖一年 Gemini 高级用量与 Google AI 套件",
+      "fit": "在读大学生/研究生，想合法领取一年 Gemini 高级用量与 Google AI 套件",
       "why": "窗口到年底仍开；官方博客与帮助文档齐全；比多数月试用更长，今天值得优先核对学生资格。",
       "steps": [
         "用个人 Google 账号打开 one.google.com/ai-student 或 gemini.google/students",
@@ -41,7 +42,7 @@
           "publisher": "Google Blog",
           "published": "2026-08-19",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         },
         {
           "title": "Claim a Google One student offer",
@@ -49,7 +50,7 @@
           "publisher": "Google One Help",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         },
         {
           "title": "Gemini for Students",
@@ -57,11 +58,11 @@
           "publisher": "Google",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         }
       ],
       "source_url": "https://one.google.com/ai-student",
-      "claim_howto": "从官方学生页起跳，登录目标个人账号→SheerID 验证→绑卡激活。Agent 可帮你对照条款做核对清单，但认证与付款须本人完成。",
+      "claim_howto": "从官方学生页起跳，登录目标个人账号→SheerID 验证→绑卡激活。认证与付款须本人完成。",
       "stack": [
         "Gemini",
         "Google One",
@@ -74,7 +75,8 @@
       "type": "学生教育",
       "provider": "OpenAI / ChatGPT Codex",
       "region": "教育区域",
-      "summary": "美加高校在读且申领时身在美加的学生，经 SheerID 验证后可获约 $100（显示为 2,500 credits）用于 Codex，自发放日起约 12 个月有效。ChatGPT Back-to-School 四个月 Plus 已于 2026-10-31 截止，本条为当前仍可申领的 Codex 学生额度。需 ChatGPT 账号（Free/Go/Plus/Pro）；非 API 额度。",
+      "origin": "官方",
+      "summary": "美加高校在读且申领时身在美加的学生，经 SheerID 验证后可获约 $100（显示为 2,500 credits）用于 Codex，自发放日起约 12 个月有效。需 ChatGPT 账号（Free/Go/Plus/Pro）；非 API 额度。今日复核官方 Help Center 条款仍有效（学生领取页部分环境可能返回 403，以帮助中心与 Developers 文档为准）。",
       "value": "约 $100 Codex 可用 ChatGPT Credits（2,500 credits）· 发放后约 12 个月",
       "deadline": "官方未写申领截止（资格与条款可能调整）",
       "cost": "SheerID 学生验证；建议用大学邮箱；无需为领取本身单独付费；用尽可自费续购",
@@ -82,7 +84,7 @@
       "threshold": "美加学位授予高校在读；申领时居住美加；每名学生限领一次；验证成功",
       "time": "验证+到账约 15–40 分钟（审核忙时可更久）",
       "fit": "美加在读学生，想合法加码 Codex 编码额度的人",
-      "why": "Plus 开学羊毛已过期；Codex $100 仍是官方学生通道，今天优先核资格。",
+      "why": "官方学生通道面额清晰；Help Center 条款今日仍可打开核验。",
       "steps": [
         "用目标 ChatGPT 账号打开 chatgpt.com/codex/students 或 developers.openai.com/community/students",
         "按 SheerID 完成在读验证（常用大学邮箱）",
@@ -92,7 +94,7 @@
       ],
       "risk": "风险：仅美加；验证失败不可转账；额度仅 Codex/ChatGPT Credits 非 API。优惠以官方为准，不承诺能领到或省多少。",
       "risk_level": "中",
-      "reason": "开学 Plus 已截止后的主力 OpenAI 学生羊毛，面额清晰、官方文档齐全。",
+      "reason": "主力 OpenAI 学生羊毛，条款页可核验。",
       "tags": [
         "OpenAI",
         "Codex",
@@ -102,12 +104,12 @@
       ],
       "sources": [
         {
-          "title": "Codex for university students",
-          "url": "https://chatgpt.com/codex/students/",
-          "publisher": "OpenAI / ChatGPT",
+          "title": "Codex credits for Students - Terms of Service",
+          "url": "https://help.openai.com/en/articles/20001147-codex-credits-for-students-terms-of-service",
+          "publisher": "OpenAI Help Center",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         },
         {
           "title": "Codex for Students",
@@ -115,19 +117,19 @@
           "publisher": "OpenAI Developers",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         },
         {
-          "title": "Codex credits for Students - Terms of Service",
-          "url": "https://help.openai.com/en/articles/20001147-codex-credits-for-students-terms-of-service",
-          "publisher": "OpenAI Help Center",
+          "title": "Codex for university students",
+          "url": "https://chatgpt.com/codex/students/",
+          "publisher": "OpenAI / ChatGPT",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         }
       ],
       "source_url": "https://chatgpt.com/codex/students/",
-      "claim_howto": "登录目标 ChatGPT 账号→打开 Codex 学生页→SheerID 验证→用量页核对 credits。Agent 可整理资格清单，验证须本人完成。",
+      "claim_howto": "登录目标 ChatGPT 账号→打开 Codex 学生页→SheerID 验证→用量页核对 credits。验证须本人完成。",
       "stack": [
         "ChatGPT",
         "Codex",
@@ -140,14 +142,15 @@
       "type": "学生教育",
       "provider": "GitHub Copilot",
       "region": "全球",
-      "summary": "通过 GitHub Education 学生认证后，可免费使用 Copilot Student：含无限代码补全、一定 GitHub AI Credits，以及 Auto 模型选择下的有限 Chat/Agent。GitHub 会定期复核资格；审批与激活是两步，勿在未生效时误买付费版。",
+      "origin": "官方",
+      "summary": "通过 GitHub Education 学生认证后，可免费使用 Copilot Student：含无限代码补全、一定 GitHub AI Credits，以及 Auto 模型选择下的有限 Chat/Agent。GitHub 会定期复核资格；审批与激活是两步，勿在未生效时误买付费版。今日复核 Education Pack 与学生开通文档仍有效。",
       "value": "Copilot Student 免费（补全无限 + AI Credits 额度；Chat/Agent 有限）",
       "deadline": "官方未写截止 / 先到先得",
       "cost": "需证明在读（学信/学生证/课表等）；部分学校强制学术邮箱；无绑卡要求",
       "difficulty": 2,
       "threshold": "13+；学历/文凭项目在读；有 GitHub 个人账号；能通过 Education 审核",
       "time": "申请约 10–20 分钟；审核可能数小时到数天",
-      "fit": "全球在读学生、想在 IDE 里白嫖合法 AI 补全的人",
+      "fit": "全球在读学生、想在 IDE 里合法使用 AI 补全的人",
       "why": "长期官方学生通道，不靠限时折扣；与开发工作流直接相关。",
       "steps": [
         "打开 github.com/settings/education/benefits，提交学生认证材料",
@@ -173,7 +176,7 @@
           "publisher": "GitHub Education",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         },
         {
           "title": "Access GitHub Copilot for free as a student",
@@ -181,11 +184,11 @@
           "publisher": "GitHub Docs",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         }
       ],
       "source_url": "https://education.github.com/pack",
-      "claim_howto": "先 Education 认证再激活 Copilot。可用 Agent 整理申请材料清单，但证件上传须本人操作。",
+      "claim_howto": "先 Education 认证再激活 Copilot。证件上传须本人操作。",
       "stack": [
         "GitHub Copilot",
         "VS Code",
@@ -194,11 +197,70 @@
     },
     {
       "rank": 4,
+      "name": "Gemini API Free Tier：Flash 系免费 Token（AI Studio）",
+      "type": "免费额度",
+      "provider": "Google Gemini API / AI Studio",
+      "region": "全球",
+      "origin": "官方",
+      "summary": "Gemini Developer API 提供 Free 档：部分 Flash / Flash-Lite / Embedding / Gemma 等模型输入输出 Token 免费（旗舰 Pro/Argon 等不可用），配额按项目限速，可在 AI Studio Rate Limits 查看。免费档内容可能用于改进产品；适合原型与学习。今日核验定价页仍写明 Free of charge。",
+      "value": "多款 Flash/Lite/Embedding 等模型免费 Token（有 RPM/TPM/RPD 限速；以 AI Studio 为准）",
+      "deadline": "官方未写截止 / 先到先得（模型可用性会变）",
+      "cost": "需 Google 账号；Free 档通常无需付费；升级付费档才需绑结算账户",
+      "difficulty": 2,
+      "threshold": "能注册 Google AI Studio / 创建项目；接受免费档限速与数据用于改进产品的条款",
+      "time": "开项目+拿 Key+试调约 15–30 分钟",
+      "fit": "全球开发者/学生，想零成本试 Gemini API 与 Agent 原型",
+      "why": "今天相对「新鲜」的海外官方 Token 入口；定价页明确 Free Tier，适合包装成 API 起步素材。",
+      "steps": [
+        "打开 aistudio.google.com，用 Google 账号登录并创建项目",
+        "在定价页确认目标模型 Free Tier 是否为 Free of charge",
+        "创建 API Key，用官方 SDK/REST 发一条 Flash 请求",
+        "在 Rate Limits 面板查看 RPM/TPM/RPD，避免撞限",
+        "生产流量评估是否升级付费档；勿默认无限额度"
+      ],
+      "risk": "风险：免费模型名单与配额随时调整；免费档数据可用于改进产品；撞限会 429。不承诺具体日配额或长期免费。",
+      "risk_level": "中",
+      "reason": "官方定价页可核验的海外免费 API，补榜单新鲜度。",
+      "tags": [
+        "Gemini API",
+        "AI Studio",
+        "Free Tier",
+        "Flash",
+        "Token"
+      ],
+      "sources": [
+        {
+          "title": "Gemini Developer API pricing",
+          "url": "https://ai.google.dev/gemini-api/docs/pricing",
+          "publisher": "Google AI for Developers",
+          "published": "2026-10-30",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "Rate limits",
+          "url": "https://ai.google.dev/gemini-api/docs/rate-limits",
+          "publisher": "Google AI for Developers",
+          "published": "2026-10-28",
+          "kind": "official",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://ai.google.dev/gemini-api/docs/pricing",
+      "claim_howto": "AI Studio 建项目→读定价 Free 列→建 Key。Agent 可写最小调用与限速检查清单。",
+      "stack": [
+        "Gemini API",
+        "Google AI Studio"
+      ]
+    },
+    {
+      "rank": 5,
       "name": "阿里云百炼新人免费额度：各模型约百万 Token",
       "type": "免费额度",
       "provider": "通义 / 阿里云百炼",
       "region": "国内",
-      "summary": "首次开通阿里云百炼（Model Studio）且完成实名后，华北2（北京）各模型通常自动发放新人免费推理额度（文档举例常见约 100 万 Token/模型，互相独立）。有效期约 90 天；仅抵扣实时推理。建议开启「用完即停」防意外扣费。",
+      "origin": "官方",
+      "summary": "首次开通阿里云百炼（Model Studio）且完成实名后，华北2（北京）各模型通常自动发放新人免费推理额度（文档举例常见约 100 万 Token/模型，互相独立）。有效期约 90 天；仅抵扣实时推理。建议开启「用完即停」防意外扣费。今日复核帮助文档仍在线。",
       "value": "各模型新人免费推理额度（常见约 100万 Token/模型，以控制台为准）· 约 90 天",
       "deadline": "开通后约 90 天内有效（以控制台为准）",
       "cost": "需国内实名认证；开通本身免费；超额默认按量计费",
@@ -231,11 +293,11 @@
           "publisher": "阿里云帮助中心",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         }
       ],
       "source_url": "https://help.aliyun.com/zh/model-studio/new-free-quota",
-      "claim_howto": "实名→开通百炼北京→看免费额度页。Agent 可生成调用脚本与「用完即停」检查清单。",
+      "claim_howto": "实名→开通百炼北京→看免费额度页。可生成调用脚本与「用完即停」检查清单。",
       "stack": [
         "通义千问",
         "阿里云百炼",
@@ -243,12 +305,13 @@
       ]
     },
     {
-      "rank": 5,
+      "rank": 6,
       "name": "腾讯云 TokenHub 新人免费体验包：语言模型约百万 Tokens",
       "type": "免费额度",
       "provider": "腾讯云 TokenHub / 混元等",
       "region": "国内",
-      "summary": "TokenHub 主账号可领取新人免费体验：语言模型与多模态理解模型常见约 100 万 Tokens/模型，有效期约 1 年；本期活动文档写明截至约 2026-12-31。可从模型广场「新用户福利」或启用管理领取，部分模型首次调用会自动领。额度用尽后若未开后付费则停服。",
+      "origin": "官方",
+      "summary": "TokenHub 主账号可领取新人免费体验：语言模型与多模态理解模型常见约 100 万 Tokens/模型，有效期约 1 年；本期活动文档写明截至约 2026-12-31。可从模型广场「新用户福利」或启用管理领取，部分模型首次调用会自动领。额度用尽后若未开后付费则停服。今日复核官方文档仍有效。",
       "value": "语言模型/多模态理解常见约 100万 Tokens/模型 · 约 1 年（活动期约至 2026-12-31）",
       "deadline": "2026-12-31",
       "cost": "需腾讯云账号；领取/开通后付费时部分地域文档提示可能预冻结费用（以控制台与国际站文档为准）；超额按量",
@@ -281,7 +344,7 @@
           "publisher": "腾讯云文档",
           "published": "2026-09-04",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         },
         {
           "title": "TokenHub 产品页",
@@ -289,7 +352,7 @@
           "publisher": "腾讯云",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         }
       ],
       "source_url": "https://cloud.tencent.com/document/product/1823/130053",
@@ -301,57 +364,58 @@
       ]
     },
     {
-      "rank": 6,
-      "name": "智谱 GLM-4-Flash：官方免费大模型 API",
+      "rank": 7,
+      "name": "智谱免费大模型 API：GLM-4.7-Flash（及 Flash 系列）",
       "type": "Token福利",
       "provider": "智谱 BigModel",
       "region": "国内",
-      "summary": "智谱开放平台将 GLM-4-Flash 系列标为免费大模型 API，适合问答、摘要、结构化输出等轻量场景；控制台另有新用户体验/配额入口。有限速与并发限制，适合学习与小流量原型，不适合当无上限生产。",
-      "value": "GLM-4-Flash 免费调用（有速率限制；具体配额以控制台为准）",
+      "origin": "官方",
+      "summary": "智谱开放文档将 GLM-4.7-Flash、GLM-4-Flash-250414 等放在 free 模型路径下，可作免费大模型 API 试用（有速率/并发限制）。GLM-4.7-Flash 强调 Agentic Coding、200K 上下文。适合学习与小流量原型；控制台另有配额入口。今日复核两条 free 文档页均 200。",
+      "value": "GLM-4.7-Flash / GLM-4-Flash 等免费调用（有速率限制；具体配额以控制台为准）",
       "deadline": "官方未写截止 / 先到先得",
       "cost": "需注册开放平台；部分能力可能要求实名；超额或非免费模型另计费",
       "difficulty": 2,
       "threshold": "能注册 bigmodel/open.bigmodel；遵守限速；接受免费模型能力边界",
       "time": "注册+拿 Key+试调约 15–30 分钟",
       "fit": "国内开发者、学生，想零成本试 API/Agent 工具调用",
-      "why": "明确「免费模型」官方文档页，比模糊赠送金更好核验。",
+      "why": "今日更新点：官方 free 目录已突出 GLM-4.7-Flash，比只盯旧 Flash 更贴近当前可用能力。",
       "steps": [
         "注册并登录 open.bigmodel.cn / BigModel 控制台",
-        "在文档中打开 GLM-4-Flash，确认免费与能力列表",
-        "创建 API Key，用官方接口文档发一条流式请求",
+        "打开 docs 中 GLM-4.7-Flash（或 GLM-4-Flash）免费模型页，确认能力与限制",
+        "创建 API Key，用官方示例调用 model=glm-4.7-flash",
         "查看用户中心配额/试用余量，设置用量告警",
         "生产流量评估付费模型，勿默认免费额无限"
       ],
       "risk": "风险：免费策略与限速可变更；高并发会失败。不承诺长期免费或稳定 SLA。",
       "risk_level": "低",
-      "reason": "国内可核验的长期免费 API 入口，适合补国内 Token 组合。",
+      "reason": "国内可核验的长期免费 API 入口，今日模型线有更新。",
       "tags": [
         "智谱",
-        "GLM-4-Flash",
+        "GLM-4.7-Flash",
         "免费API",
         "Token",
         "国内"
       ],
       "sources": [
         {
+          "title": "GLM-4.7-Flash 文档",
+          "url": "https://docs.bigmodel.cn/cn/guide/models/free/glm-4.7-flash",
+          "publisher": "智谱 AI 开放文档",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
           "title": "GLM-4-Flash-250414 文档",
           "url": "https://docs.bigmodel.cn/cn/guide/models/free/glm-4-flash-250414",
           "publisher": "智谱 AI 开放文档",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
-        },
-        {
-          "title": "BigModel 用户配额中心",
-          "url": "https://open.bigmodel.cn/usercenter/quota",
-          "publisher": "智谱开放平台",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         }
       ],
-      "source_url": "https://docs.bigmodel.cn/cn/guide/models/free/glm-4-flash-250414",
-      "claim_howto": "注册→读免费模型页→建 Key。Agent 可帮写最小可运行调用示例。",
+      "source_url": "https://docs.bigmodel.cn/cn/guide/models/free/glm-4.7-flash",
+      "claim_howto": "注册→读免费模型页→建 Key。可写最小可运行调用示例。",
       "stack": [
         "智谱",
         "GLM",
@@ -359,12 +423,129 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 8,
+      "name": "硅基流动实名认证领 16 元通用代金券（社区交叉验证）",
+      "type": "国内渠道",
+      "provider": "硅基流动 SiliconFlow",
+      "region": "国内",
+      "origin": "非官方",
+      "summary": "社区多次分享：国内站完成有效实名后，可在活动中心「认证专享礼」领取 1 张 16 元全平台通用代金券（API/批量/微调可用，含 Pro 模型），活动文档写明持续至约 2026-12-31，券有效约 180 天；新用户另有约 14 元注册赠送额度（计费文档）。主发现来自 X 社区帖，已用官方新闻页交叉核验；勿走灰产/虚假实名。",
+      "value": "实名约 ¥16 通用代金券（180 天）+ 新用户约 ¥14 赠送额度 + 多款标价免费模型（限速）",
+      "deadline": "2026-12-31（推荐官/认证券活动期；以活动页为准）",
+      "cost": "需真实实名；重复认证不发券；邀请奖励另计且须合规",
+      "difficulty": 2,
+      "threshold": "能完成平台真实实名；首次有效认证；遵守活动「重复认证不发奖」规则",
+      "time": "注册+实名+领券约 20–40 分钟",
+      "fit": "国内想低成本试多模型 API 的开发者与学生",
+      "why": "今天新鲜度：社区持续晒可领 + 官方推荐官新闻可交叉验证；比纯赠送金多一层实名券。",
+      "steps": [
+        "打开 siliconflow.cn 注册账号并完成真实实名认证",
+        "进入活动中心 → 认证专享礼 → 手动领取 16 元代金券",
+        "在账单/余额确认赠送金与代金券到账，并查看到期日",
+        "优先调用价格表中的免费模型；付费模型再走代金券",
+        "为账号设消费上限；拒绝虚假实名或买卖账号"
+      ],
+      "risk": "风险：活动与券规则可调整；重复认证不发；邀请链可能有限制。不承诺人人可领或面额不变。禁止虚假认证。",
+      "risk_level": "中",
+      "reason": "非官方主发现但有官方辅证，适合材料向包装「国内聚合 API 起步包」。",
+      "tags": [
+        "SiliconFlow",
+        "实名代金券",
+        "16元",
+        "国内",
+        "社区验证"
+      ],
+      "sources": [
+        {
+          "title": "X：硅基流动实名领 16 元代金券（社区）",
+          "url": "https://x.com/BTClisasa/status/2075613200402583944",
+          "publisher": "X/@BTClisasa",
+          "published": "2026-07-10",
+          "kind": "community",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "硅基流动「推荐官」计划上线（含认证 16 元券）",
+          "url": "https://www.siliconflow.cn/news/od7wj9rr23p95uhihmhrombp",
+          "publisher": "硅基流动",
+          "published": "2026-01-15",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "价格说明（含新用户赠送额度）",
+          "url": "https://docs.siliconflow.com/cn/faqs/billing-rules",
+          "publisher": "SiliconFlow Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://www.siliconflow.cn/news/od7wj9rr23p95uhihmhrombp",
+      "claim_howto": "真实实名→活动中心领认证专享礼→核对券与赠送金。Agent 可写模型白名单防误扣费。",
+      "stack": [
+        "SiliconFlow",
+        "OpenAI兼容API"
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "火山方舟免费推理额度（豆包等模型试用）",
+      "type": "免费额度",
+      "provider": "火山引擎方舟 / 豆包",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "注册火山引擎即可获得方舟各模型的免费在线推理额度（按模型分别计算、主账号共享）。仅抵扣按 token 后付费的在线推理，不抵扣插件/知识库/批量等。可开「安心体验模式」避免超额产生费用；额度在开通管理中查询。今日复核文档页仍有效（更新约 2026-08-24）。",
+      "value": "各模型免费在线推理额度（数量以控制台为准）",
+      "deadline": "官方未写截止 / 先到先得",
+      "cost": "注册免费；额度耗尽后继续用需实名并开通对应模型，可能产生费用",
+      "difficulty": 2,
+      "threshold": "能注册火山引擎；理解在线推理与批量/插件不计免费的区别",
+      "time": "注册+查额度+试调约 20–40 分钟",
+      "fit": "想试用豆包等火山系模型 API 的国内用户",
+      "why": "官方「免费推理额度」文档仍在线，是国内 Token 羊毛固定入口。",
+      "steps": [
+        "注册火山引擎账号并进入方舟控制台",
+        "在开通管理查看各模型免费额度余量",
+        "按需开启安心体验模式，避免超额计费",
+        "创建调用凭证，对目标模型发测试请求",
+        "额度将尽时决定是否实名开通付费推理"
+      ],
+      "risk": "风险：额度耗尽调用失败或转付费；免费规则可调整。不承诺具体 Token 数量。",
+      "risk_level": "中",
+      "reason": "豆包/方舟官方免费试用通道，补国内大厂栈。",
+      "tags": [
+        "火山方舟",
+        "豆包",
+        "免费额度",
+        "国内",
+        "API"
+      ],
+      "sources": [
+        {
+          "title": "免费推理额度",
+          "url": "https://www.volcengine.com/docs/82379/1399514",
+          "publisher": "火山引擎文档",
+          "published": "2026-08-24",
+          "kind": "official",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://www.volcengine.com/docs/82379/1399514",
+      "claim_howto": "注册→开通管理看额度→开安心模式再调。",
+      "stack": [
+        "火山方舟",
+        "豆包"
+      ]
+    },
+    {
+      "rank": 10,
       "name": "Azure for Students：$100 信用+可摸 OpenAI 等服务",
       "type": "学生教育",
       "provider": "Microsoft Azure",
       "region": "教育区域",
-      "summary": "全日制高校学生可用学校邮箱申请 Azure for Students：约 $100 信用额（12 个月内可用）+ 多项免费服务额度，官方页面写明可接触 Azure OpenAI 等 AI 能力。无需信用卡申请；到期可按规则续订学生权益。部分模型配额对学生订阅有限制，以门户为准。",
+      "origin": "官方",
+      "summary": "全日制高校学生可用学校邮箱申请 Azure for Students：约 $100 信用额（12 个月内可用）+ 多项免费服务额度，官方页面写明可接触 Azure OpenAI 等 AI 能力。无需信用卡申请；到期可按规则续订学生权益。部分模型配额对学生订阅有限制，以门户为准。今日复核学生免费页仍 200。",
       "value": "约 $100 Azure 信用（12 个月）+ 多项免费服务额度",
       "deadline": "官方未写截止 / 先到先得（在读可年审续）",
       "cost": "需验证学生身份；通常无需信用卡；信用用完需决定是否转按量",
@@ -397,7 +578,7 @@
           "publisher": "Microsoft Azure",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         },
         {
           "title": "About the Azure for Students program",
@@ -405,185 +586,15 @@
           "publisher": "Microsoft Learn",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-01"
+          "checked": "2026-11-02"
         }
       ],
       "source_url": "https://azure.microsoft.com/en-us/free/students",
-      "claim_howto": "学校邮箱验证→领 $100→先查配额再部署模型。Agent 可写预算告警与配额检查步骤。",
+      "claim_howto": "学校邮箱验证→领 $100→先查配额再部署模型。",
       "stack": [
         "Azure",
         "Azure OpenAI",
         "Foundry"
-      ]
-    },
-    {
-      "rank": 8,
-      "name": "SiliconFlow 新用户赠送额度 + 多款标价免费模型",
-      "type": "国内渠道",
-      "provider": "硅基流动 SiliconFlow",
-      "region": "国内",
-      "summary": "硅基流动文档写明新用户注册即得约 14 元免费额度，并有多款开源对话模型在价格表中标为「免费」（有速率限制）。适合国内聚合调用 Qwen/GLM/Yi 等做原型；价格与赠送金以控制台最新页为准。",
-      "value": "约 ¥14 新用户赠送额度 + 多款免费价模型（限速）",
-      "deadline": "官方未写截止 / 先到先得",
-      "cost": "需注册；部分能力要求实名；付费模型会扣赠送金或余额",
-      "difficulty": 2,
-      "threshold": "可完成平台注册/实名；接受免费模型限速",
-      "time": "注册到首调约 15–30 分钟",
-      "fit": "国内想一个 Key 试多模型的开发者与学生",
-      "why": "官方计费文档直接写新用户赠送金与免费模型列表，易核验。",
-      "steps": [
-        "打开 siliconflow.cn 注册并完成所需实名",
-        "在账单/余额确认赠送额度到账",
-        "在模型价格页筛选免费模型，复制模型 ID",
-        "创建 API Key，用兼容接口跑通最小示例",
-        "为账号设消费上限，避免误调付费模型"
-      ],
-      "risk": "风险：赠送金与免费名单会变；未实名可能无法调用。不承诺额度面额长期不变。",
-      "risk_level": "低",
-      "reason": "国内聚合平台「赠送金+免费模型」组合清晰，适合补一条渠道。",
-      "tags": [
-        "SiliconFlow",
-        "硅基流动",
-        "免费模型",
-        "赠送金",
-        "国内"
-      ],
-      "sources": [
-        {
-          "title": "价格说明（含新用户赠送额度）",
-          "url": "https://docs.siliconflow.com/cn/faqs/billing-rules",
-          "publisher": "SiliconFlow Docs",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        },
-        {
-          "title": "SiliconFlow 官网",
-          "url": "https://www.siliconflow.cn/",
-          "publisher": "硅基流动",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        }
-      ],
-      "source_url": "https://docs.siliconflow.com/cn/faqs/billing-rules",
-      "claim_howto": "注册领赠送金→优先打免费模型。Agent 可生成模型白名单配置防误扣费。",
-      "stack": [
-        "SiliconFlow",
-        "OpenAI兼容API"
-      ]
-    },
-    {
-      "rank": 9,
-      "name": "火山方舟免费推理额度（豆包等模型试用）",
-      "type": "免费额度",
-      "provider": "火山引擎方舟 / 豆包",
-      "region": "国内",
-      "summary": "注册火山引擎即可获得方舟各模型的免费在线推理额度（按模型分别计算、主账号共享）。仅抵扣按 token 后付费的在线推理，不抵扣插件/知识库/批量等。可开「安心体验模式」避免超额产生费用；额度在开通管理中查询。",
-      "value": "各模型免费在线推理额度（数量以控制台为准）",
-      "deadline": "官方未写截止 / 先到先得",
-      "cost": "注册免费；额度耗尽后继续用需实名并开通对应模型，可能产生费用",
-      "difficulty": 2,
-      "threshold": "能注册火山引擎；理解在线推理与批量/插件不计免费的区别",
-      "time": "注册+查额度+试调约 20–40 分钟",
-      "fit": "想试用豆包等火山系模型 API 的国内用户",
-      "why": "官方「免费推理额度」文档仍在线，是国内 Token 羊毛固定入口。",
-      "steps": [
-        "注册火山引擎账号并进入方舟控制台",
-        "在开通管理查看各模型免费额度余量",
-        "按需开启安心体验模式，避免超额计费",
-        "创建调用凭证，对目标模型发测试请求",
-        "额度将尽时决定是否实名开通付费推理"
-      ],
-      "risk": "风险：额度耗尽调用失败或转付费；免费规则可调整。不承诺具体 Token 数量。",
-      "risk_level": "中",
-      "reason": "豆包/方舟官方免费试用通道，补国内大厂栈。",
-      "tags": [
-        "火山方舟",
-        "豆包",
-        "免费额度",
-        "国内",
-        "API"
-      ],
-      "sources": [
-        {
-          "title": "免费推理额度",
-          "url": "https://www.volcengine.com/docs/82379/1399514",
-          "publisher": "火山引擎文档",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        },
-        {
-          "title": "免费推理额度（方舟文档站）",
-          "url": "https://docs.volcengine.com/docs/ark/free-inference-quota?lang=zh",
-          "publisher": "Volcengine Docs",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        }
-      ],
-      "source_url": "https://www.volcengine.com/docs/82379/1399514",
-      "claim_howto": "注册→开通管理看额度→开安心模式再调。Agent 可协助写调用与余量巡检脚本。",
-      "stack": [
-        "火山方舟",
-        "豆包"
-      ]
-    },
-    {
-      "rank": 10,
-      "name": "Cursor：Free 起步 + 研究生/教师申请 Credits",
-      "type": "学生教育",
-      "provider": "Cursor",
-      "region": "全球",
-      "summary": "Cursor 已于 2026-06-25 停止新用户领取旧版学生折扣；本科生改为关注校园/线上活动领 credits，硕士/博士/研究者/教师可填表申请 credits。任何人仍可用 Free 计划有限使用 Agent/Chat。无公开标价的新 Pro 试用时，勿信第三方「免费一年」教程。",
-      "value": "Free 有限用量；研究生/教师可申请 Credits（额度以审批为准）；活动折扣不定期",
-      "deadline": "官方未写截止 / 先到先得",
-      "cost": "Free 无需付费；付费档需绑卡；Credits 申请不保证批准",
-      "difficulty": 2,
-      "threshold": "能用 Cursor 客户端；申请 Credits 需符合研究生/研究者/教师身份",
-      "time": "装客户端+登录约 10 分钟；Credits 申请视审核",
-      "fit": "全球开发者与学生，尤其研究生/教职想合法要额度的人",
-      "why": "澄清「学生折扣已停」现状，避免踩过期攻略；指向仍开放的 Free 与申请表。",
-      "steps": [
-        "阅读 cursor.com/students 与学生折扣帮助页，确认旧折扣已停",
-        "先用 Free 计划评估是否够用",
-        "若为硕博/研究者/教师，按官方表格申请 Credits",
-        "本科生关注校园/线上活动与 newsletter 获取临时折扣",
-        "拒绝非官方共享账号或破解教程"
-      ],
-      "risk": "风险：Credits 数量与审批不透明；定价与套餐结构可能调整。不承诺获批或免费 Pro。",
-      "risk_level": "中",
-      "reason": "IDE Agent 高频用户需要正确羊毛路径，今天值得纠偏。",
-      "tags": [
-        "Cursor",
-        "学生",
-        "Credits",
-        "Free",
-        "IDE"
-      ],
-      "sources": [
-        {
-          "title": "Student discount（已停新注册说明）",
-          "url": "https://cursor.com/help/account-and-billing/student-discount",
-          "publisher": "Cursor Help",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        },
-        {
-          "title": "Cursor · Students",
-          "url": "https://cursor.com/students",
-          "publisher": "Cursor",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-01"
-        }
-      ],
-      "source_url": "https://cursor.com/students",
-      "claim_howto": "先 Free，再按身份申请 Credits/等活动。Agent 可帮起草申请陈述，但表单须本人提交。",
-      "stack": [
-        "Cursor"
       ]
     }
   ]
