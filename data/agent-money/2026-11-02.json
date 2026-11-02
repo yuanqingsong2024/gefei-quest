@@ -1,0 +1,395 @@
+{
+  "date": "2026-11-02",
+  "updated": "2026-11-02T09:09:55+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Agensi：上架付费 SKILL.md（创作者约留 70%）",
+      "type": "Agent工具/小产品",
+      "summary": "Agensi 是面向多 Agent 的 SKILL.md 技能商店；官方写明创作者保留净价约 70%，平台约 30%（含支付成本），payout 经 Stripe Connect 或 USDC。可一次买断或订阅；技能经安全扫描后上架，可通过 MCP 被 Claude/Cursor 等拉取。Shipped&Paid 记录平台侧 TrustMRR 验证 GMV 约 $3,676（约截至 2026-10-26）——须标明为平台总成交而非个人营收。",
+      "cost": "上架免费；需绑定收款；自备制作与模型成本",
+      "difficulty": 3,
+      "threshold": "能写出可复现的 SKILL.md，并完成 Stripe/USDC 绑定",
+      "time": "1–3 天出第一条；审核官方称约 24–48 小时",
+      "fit": "有可复用工作流（代码审查、SEO、获客等）的开发者/运营",
+      "why": "与昨日 MyClaude/Loreto 不同轨；官方分成与收款文档清晰，跨 Agent 分发。",
+      "steps": [
+        "把已跑通流程压成 SKILL.md，并做本地自测与脱敏",
+        "在 Creator Studio 绑定 Stripe Connect 或 USDC 收款",
+        "上传技能、写清适用场景与安装说明，设好买断或订阅价",
+        "提交安全扫描与审核（官方称约 24–48 小时）",
+        "用演示帖/短视频自引流：marketplace checkout≠流量，勿只靠商店曝光",
+        "按安装与退款反馈迭代 SKILL.md",
+        "若为订阅技能，按约定持续更新与维护"
+      ],
+      "risk": "风险等级：中。商店曝光不足时可能 0 安装（公开帖称 marketplace 是收银台不是流量来源）；中位收入可能很低；平台 GMV 不可外推为个人收益。不承诺收益。",
+      "risk_level": "中",
+      "reason": "跨 Agent 分发 + 可核验 70% 分成，适合今天优先试上架。",
+      "tags": [
+        "Agensi",
+        "SKILL.md",
+        "marketplace",
+        "Stripe",
+        "MCP",
+        "出海"
+      ],
+      "sources": [
+        {
+          "title": "About Agensi",
+          "url": "https://www.agensi.io/about",
+          "publisher": "Agensi",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "Earnings and payouts",
+          "url": "https://www.agensi.io/docs/earnings-and-payouts",
+          "publisher": "Agensi Docs",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "How to sell",
+          "url": "https://www.agensi.io/sell",
+          "publisher": "Agensi",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "Agensi GMV case (Shipped&Paid)",
+          "url": "https://shippedandpaid.com/cases/agensi-ai-agent-skills-marketplace-3-7k-total-claude-code-lovable/",
+          "publisher": "Shipped&Paid",
+          "published": "2026-10-26",
+          "kind": "news",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "X post: marketplace 0 uses / checkout≠traffic",
+          "url": "https://x.com/bloodclottq/status/2117026910651973745",
+          "publisher": "X @bloodclottq",
+          "published": "2026-11-01",
+          "kind": "post",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://www.agensi.io/sell",
+      "agent_howto": "用 Claude Code/Cursor 把已跑通流程写成 SKILL.md 并本地自测；你人工完成收款绑定与上架。买方 Agent 经 Agensi MCP 搜索并在授权后加载；勿把支付密钥交给 Agent。",
+      "agent_stack": [
+        "Claude Code/Cursor",
+        "SKILL.md",
+        "Agensi MCP"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "AgentPowers：CLI 发布付费技能/Agent（约留 85%）",
+      "type": "Agent工具/小产品",
+      "summary": "官方创作者页写明保留每笔销售约 85%，平台约 15% 并吸收 Stripe 手续费；最低标价 $5；可用网页或 npx @agentpowers/cli publish；支持 skills 与 multi-step agents；Stripe Connect，按 seller trust-tier 延迟日结（约 2–14 天）。",
+      "cost": "上架免费；最低售价 $5",
+      "difficulty": 2,
+      "threshold": "会写 Claude/Cursor 可用的 markdown skill，能过安全扫描并接 Stripe",
+      "time": "数小时到 1 天",
+      "fit": "已有 .claude/skills 资产、想快速上架的创作者",
+      "why": "昨日未收录；「约 85% 且吸收 Stripe」条款官方可核验。",
+      "steps": [
+        "整理已有 .claude/skills 或 multi-step agents，去掉密钥后打包",
+        "绑定 Stripe Connect，阅读 seller trust-tier 与 payout 延迟说明",
+        "用网页或 npx @agentpowers/cli publish 发布，设价≥$5",
+        "通过安全扫描拿到 Verified 标识",
+        "用免费技能引流 + 付费技能变现；记住 marketplace checkout≠流量，需自建演示流量",
+        "在 Dashboard 按反馈迭代版本"
+      ],
+      "risk": "风险等级：中。新卖家 payout 延迟最长约 14 天；发现量未知；商店≠流量。不承诺收益。",
+      "risk_level": "中",
+      "reason": "分成条款清晰、CLI 友好，边际成本低。",
+      "tags": [
+        "AgentPowers",
+        "Claude skills",
+        "Stripe Connect",
+        "CLI"
+      ],
+      "sources": [
+        {
+          "title": "For Creators - Publish & Earn",
+          "url": "https://agentpowers.ai/sellers/",
+          "publisher": "AgentPowers",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://agentpowers.ai/sellers/",
+      "agent_howto": "在 Claude Code/Cursor 跑通 skill 后，用官方 CLI 扫描发布；你人工完成 Stripe 与定价。勿让 Agent 持有支付密钥。",
+      "agent_stack": [
+        "Claude Code/Cursor",
+        "AgentPowers CLI"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Swarms：上架 Agent/Prompt/Tool/MCP/Skill（直销约留 90%）",
+      "type": "Agent工具/小产品",
+      "summary": "官方 marketplace/pricing 写明刊登免费；直销平台抽成约 10%、卖家约 90%；可用 Stripe 银行卡或 SOL；支持 agents、prompts、tools、MCP servers、SKILL.md。另有代币化/Vault 模式波动与合规风险更高，今日主推直销路径即可。",
+      "cost": "刊登免费；Stripe KYC 或钱包自理；代币化另计且非必选",
+      "difficulty": 3,
+      "threshold": "有可打包的 agent/prompt/MCP；能完成 Stripe 或钱包收款；英文 listing 更佳",
+      "time": "0.5–2 天",
+      "fit": "已有可复用 agent/prompt 资产、接受出海的创作者",
+      "why": "昨日无；约 90% 直销分成官方可核验，品类比纯 skill 店更宽。",
+      "steps": [
+        "注册 Seller，若要收卡则接 Stripe KYC；或配置 SOL 收款",
+        "选择 agents / prompts / tools / MCP / SKILL.md 类型上架",
+        "写清输入输出、安装步骤与不含项（英文 listing 更易获客）",
+        "自建文档/X/社区流量：marketplace checkout≠流量，勿只等目录曝光",
+        "优先走直销路径（约留 90%）；代币化/Vault 仅在能接受合规与波动时再考虑"
+      ],
+      "risk": "风险等级：中。直销仍依赖自流量；若走代币化则监管与波动风险升高（建议避开）。不承诺收益。",
+      "risk_level": "中",
+      "reason": "费率透明、品类全，适合已有 MCP/prompt 资产分发。",
+      "tags": [
+        "Swarms",
+        "MCP",
+        "agent marketplace",
+        "Stripe"
+      ],
+      "sources": [
+        {
+          "title": "Swarms Marketplace",
+          "url": "https://www.swarms.ai/marketplace",
+          "publisher": "Swarms",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "Swarms Pricing",
+          "url": "https://swarms.world/pricing",
+          "publisher": "Swarms",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "How to sell agents/prompts with Stripe/crypto",
+          "url": "https://www.swarms.ai/blog/how-to-sell-agents-prompts-stripe-crypto",
+          "publisher": "Swarms Blog",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://www.swarms.ai/marketplace",
+      "agent_howto": "用 Agent 把可复用能力打成 marketplace 包与安装说明；你人工完成收款与合规审查。买方经 SDK/MCP 拉取；你负责版本。",
+      "agent_stack": [
+        "Swarms 或可导出 MCP/SKILL.md 的 Agent",
+        "Stripe"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "直客：付费审计 + 搭建 + AI-agent integration retainer（媒体价卡）",
+      "type": "Agent接单",
+      "summary": "BetOnAI 2026 retainer/rate-card 文（自称汇总约 54 名运营商发票口径）给出产品化路径：先卖付费审计约 $750–$2,500 → 实施 → 转约 90 天 retainer。文中 AI-agent integration retainer 区间约 $2,500–$6,000/月；Growth Ops 等约 $1,200–$3,800/月。此为媒体汇总区间，非平台官方报价，不可当作你的保证成交价。",
+      "cost": "获客与样例自理；n8n/Make/Zapier 与 API 费用尽量由客户账户承担",
+      "difficulty": 4,
+      "threshold": "能交付可监测工作流与书面 SLA；有演示案例；能签合同收款",
+      "time": "审计约 1–2 周；首个 retainer 转化常需数周",
+      "fit": "会 n8n/Make/Zapier + Claude/ChatGPT 接线的个人或小团队",
+      "why": "直接进账路径；2026 价卡补充了 AI-agent 专项档，可作报价锚点（须声明来源）。",
+      "steps": [
+        "选定垂直行业与可演示痛点，准备 1 个含 AI 分类/摘要的样例链路",
+        "对外卖付费审计（参考媒体区间约 $750–$2,500，须声明来源非保证成交价）",
+        "审计后交付原型：一条含 AI 分类/摘要的可监测工作流",
+        "给出三档报价菜单 Care / Growth / AI-Agent Integration",
+        "签约 90 天 retainer（监控、小改、月报、提示词维护）",
+        "API 与自动化工具费用尽量由客户自开账户承担；你保留书面 SLA"
+      ],
+      "risk": "风险等级：中。媒体价≠你的成交价；范围蔓延与运维不足会导致退订。不承诺收益。",
+      "risk_level": "中",
+      "reason": "产品化菜单清晰，比一次性低价 Zap 更可持续。",
+      "tags": [
+        "retainer",
+        "n8n",
+        "Make",
+        "Zapier",
+        "AI agent",
+        "直客"
+      ],
+      "sources": [
+        {
+          "title": "AI Automation Retainers 2026",
+          "url": "https://betonai.net/ai-automation-retainers-2026/",
+          "publisher": "BetOnAI",
+          "published": "2026-06-26",
+          "kind": "news",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "AI Automation Rate Card 2026 (54 operators)",
+          "url": "https://betonai.net/ai-automation-rate-card-2026-what-to-charge-for-n8n-make-and-zapier-builds-real-rates-from-54-operators/",
+          "publisher": "BetOnAI",
+          "published": "2026-09-20",
+          "kind": "news",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://betonai.net/ai-automation-retainers-2026/",
+      "agent_howto": "让 Agent 生成审计问卷、流程图、提示词与月报草稿；你负责权限、报价、合同、生产密钥与验收。勿让 Agent 自动对外发送未审核内容。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "n8n/Make/Zapier",
+        "客户 CRM/邮箱"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "VibeFuse Marketplace：卖 widget/skill（约 80/20）",
+      "type": "Agent工具/小产品",
+      "summary": "Fuse Intelligence 官方文档：桌面端上传、网站设价；卖家保留付费销售约 80%，平台在 Stripe Checkout 抽约 20%；需账号自带的 VF- license key 与 Stripe Connect；付费价约 $0.50–$500。生态绑定 VibeFuse 桌面，不是通用全 Agent 商店。",
+      "cost": "按文档刊登无另收费；需 VF- key + Stripe",
+      "difficulty": 3,
+      "threshold": "使用 VibeFuse 桌面端，会打 widget/skill 包并完成 Stripe Connect",
+      "time": "1–3 天熟悉上传与 Account 设价",
+      "fit": "已有 VibeFuse 用户或愿绑定该桌面生态的创作者",
+      "why": "昨日未收录；官方约 80/20 可核验，可作差异化补充。",
+      "steps": [
+        "绑定账号自带的 VF- license key",
+        "在对应 Settings 页勾选 List on marketplace，桌面端上传 widget/skill",
+        "到网站 Account 页补齐文案、配图与 Price（约 $0.50–$500）",
+        "开通 Stripe Connect 后再设付费价",
+        "社区带量 + 免费包养信任：marketplace checkout≠流量，勿只等商店",
+        "按下载与反馈迭代版本"
+      ],
+      "risk": "风险等级：中。买家池绑定 VibeFuse；桌面/网页流程易混。不承诺收益。",
+      "risk_level": "中",
+      "reason": "条款清楚，但买家池较窄。",
+      "tags": [
+        "VibeFuse",
+        "Stripe Connect",
+        "widgets",
+        "skills"
+      ],
+      "sources": [
+        {
+          "title": "Sell on the VibeFuse Marketplace",
+          "url": "https://fuseintelligence.org/docs/marketplace-sell",
+          "publisher": "Fuse Intelligence",
+          "published": "",
+          "kind": "docs",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://fuseintelligence.org/docs/marketplace-sell",
+      "agent_howto": "在 VibeFuse 内做好 skill/widget 后桌面上传、网站设价；你人工完成 Stripe。买方 Save 后同步到本地目录由 Agent 使用。",
+      "agent_stack": [
+        "VibeFuse",
+        "SKILL.md/widgets",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "案例拆解：Reception（Agent 一键接入的出海微 SaaS）",
+      "type": "Agent案例拆解",
+      "summary": "MilestoneWins 报道（2026-10-26）：Reception 做 iOS/RN/Expo 原生应用内客服，定位降流失/促评价/聊天内转化，支持用 Claude Code/Cursor/Codex 一条 prompt 接入。称 Product Hunt 约 2026-10-19 上线后约一周公开成绩约 $700 MRR（图约 $717）——为创始人公开自述，未独立审计，不可外推。可学方法：Agent 友好 onboarding + 结果导向定价 + 快速公开 scoreboard。",
+      "cost": "学方法成本低；自建同类微 SaaS 需托管/模型/支付自担",
+      "difficulty": 4,
+      "threshold": "能做垂直微 SaaS 并做英文获客；理解案例数字仅为自述",
+      "time": "拆解学习约 1 天；自建产品通常数周以上",
+      "fit": "想做 Agent 出海小工具、而非只上架 skill 的人",
+      "why": "2026-10 下旬新信号，强调 Agent 分发与结果定价。",
+      "steps": [
+        "选开发者已有痛点的窄楔子（参考 Reception：应用内客服/留存）",
+        "把安装做成可粘贴的一条 prompt（Claude Code/Cursor/Codex 友好）",
+        "卖结果（降流失/促评价/转化）而非功能列表",
+        "发布后尽快公开可核验指标；自述数字须标注来源与未审计",
+        "用 Agent 维护文档与支持草稿，对外文案与营收数字必须人审，勿编造"
+      ],
+      "risk": "风险等级：中。早期 MRR 可能来自个人受众；不可外推为你的收益。不承诺收益。",
+      "risk_level": "中",
+      "reason": "可核验报道 URL，playbook 可迁移到其他垂直微 SaaS。",
+      "tags": [
+        "micro-SaaS",
+        "Product Hunt",
+        "Cursor",
+        "Claude Code",
+        "出海",
+        "案例"
+      ],
+      "sources": [
+        {
+          "title": "One week, $700 MRR: Reception",
+          "url": "https://milestonewins.com/stories/reception-story/",
+          "publisher": "MilestoneWins",
+          "published": "2026-10-26",
+          "kind": "news",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://milestonewins.com/stories/reception-story/",
+      "agent_howto": "用 Agent 生成接入 prompt、文档与 PH/社群文案草稿；核心产品、计费与对外数字由人把关，勿编造营收。",
+      "agent_stack": [
+        "Claude Code/Cursor",
+        "Stripe",
+        "Product Hunt"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Claude 官方 Marketplace 插件：免费分发引流 → 接审计/retainer",
+      "type": "Agent内容变现",
+      "summary": "Anthropic 官方文章说明可为 Claude 构建并提交 plugins/MCP；付费用户可提交，有安装分析。当前公开材料未公布个人创作者「付费技能分成」计划；Marketplace 上的 Buy agents 更偏企业侧。现实用法是：免费插件获安装与信任，外链到你的付费审计/retainer（衔接直客路径），而不是指望官方分成。",
+      "cost": "开发与维护自理；官方提交按文档要求",
+      "difficulty": 3,
+      "threshold": "能做出可安装的 Claude plugin/MCP；有后续变现产品（咨询/retainer）",
+      "time": "打磨并提交 1 个插件约 1–3 天；审核视官方节奏",
+      "fit": "已做直客或工具、需要获客入口的开发者",
+      "why": "官方分发通道可信；适合作为 #4 的获客附件，避免误读为官方分成。",
+      "steps": [
+        "阅读官方 build plugins / marketplace 文章，确认提交资格与规范",
+        "做一个解决窄问题的免费 plugin/MCP（勿宣称官方保证分成）",
+        "提交并观察安装分析",
+        "在文档/主页外链到你的付费审计或 retainer（衔接直客路径）",
+        "用 Agent 维护 changelog 与说明；变现动作（报价、合同）由人完成"
+      ],
+      "risk": "风险等级：中。无官方个人分成可核验；安装量不保证转化为付费客户。不承诺收益。",
+      "risk_level": "中",
+      "reason": "免费分发+自有变现闭环，合规且不依赖未公布的分成。",
+      "tags": [
+        "Claude",
+        "plugin",
+        "MCP",
+        "获客",
+        "官方"
+      ],
+      "sources": [
+        {
+          "title": "Build plugins for Claude",
+          "url": "https://claude.com/resources/articles/build-plugins-for-claude",
+          "publisher": "Anthropic / Claude",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        },
+        {
+          "title": "Claude Marketplace",
+          "url": "https://claude.com/resources/articles/claude-marketplace",
+          "publisher": "Anthropic / Claude",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-02"
+        }
+      ],
+      "source_url": "https://claude.com/resources/articles/build-plugins-for-claude",
+      "agent_howto": "让 Agent 协助写 plugin 说明、示例与 changelog；你负责提交与合规。变现动作（报价、合同）由人完成。",
+      "agent_stack": [
+        "Claude Code",
+        "MCP/plugin",
+        "自有官网或咨询页"
+      ]
+    }
+  ]
+}
