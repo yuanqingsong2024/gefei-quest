@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-02T00:39:11.352Z",
-  "latestId": 85,
+  "generatedAt": "2026-11-02T04:09:08.282Z",
+  "latestId": 86,
   "latestDate": "2026-11-02",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 86,
+      "date": "2026-11-02",
+      "tag": "内容",
+      "title": "AI生活合集新增「退货寄件助理」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI当退货寄件助理——打码截图识址预填→一句话好快省比价→本人确认支付与上门；含决策/多件优先级提示词、小红书与闲鱼跟做包角度",
+        "附新京报 / IT之家 / 21经济网三个来源，本机核验见提交说明；不代寄、不代填真实面单；截图须打码手机号与详细门牌；不承诺运费或收益。SW 缓存 56"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 85,
       "date": "2026-11-02",
@@ -112,16 +123,6 @@
         "No.3 Kiroween 2026：提交已开，可领约4000免费额度；现金奖池约10万美元（至12月4日）"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 76,
-      "date": "2026-10-31",
-      "tag": "改进",
-      "title": "首页主线中间栏补上进度与快捷入口",
-      "items": [
-        "左侧路径与右侧「今天这一关 / 赚钱榜」之间新增主栏：主线进度、下一步行动、快捷入口、今日提示；三主题各配一张书案插画。桌面三栏、窄屏堆叠。SW 缓存 48"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#home"
     }
   ],
   "rank": {

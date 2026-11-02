@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 86, date: '2026-11-02', title: 'AI生活合集新增「退货寄件助理」场景文选题', tag: '内容', href: '#war-rank-ai-life',
+      items: ['「AI生活起号选题方案」合集置顶新增：让AI当退货寄件助理——打码截图识址预填→一句话好快省比价→本人确认支付与上门；含决策/多件优先级提示词、小红书与闲鱼跟做包角度', '附新京报 / IT之家 / 21经济网三个来源，本机核验见提交说明；不代寄、不代填真实面单；截图须打码手机号与详细门牌；不承诺运费或收益。SW 缓存 56'] },
     { id: 85, date: '2026-11-02', title: '每日赚钱榜 · 2026-11-02', tag: '赚钱榜', href: '#war-rank', items: ["No.1 DigitalOcean Affiliate：写云主机/部署教程，合资格新付费用户月消费可拿约10%佣金、持续约12个月","No.2 Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）","No.3 Netlify：按官方入门路径部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 84, date: '2026-11-01', title: '每日赚钱榜横幅不再裁成细条，宝箱插画完整可见', tag: '修复', href: '#war-rank',
       items: ['日期行右侧横幅由 92px 超宽细条改为约 360×144（~2.5:1），object-position 按水墨/海岸/像素对准宝箱；手机仍全宽 2:1 置顶', '守住 P18：war-rank 1280×800 约 2.97–3.00 屏；略收 #rank-count 间距。SW 缓存 55'] },
