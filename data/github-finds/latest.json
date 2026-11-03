@@ -1,149 +1,145 @@
 {
-  "date": "2026-11-02",
-  "updated": "2026-11-02T09:14:23+08:00",
+  "date": "2026-11-03",
+  "updated": "2026-11-03T09:12:28+08:00",
   "weekday": "weekday",
   "items": [
     {
-      "id": "gtm-engineer-skills",
+      "id": "claude-seo",
       "rank": 1,
-      "name": "GTM Engineer Skills",
+      "name": "Claude SEO",
       "category": "项目",
-      "summary": "面向 Claude Code/Codex 的 AEO/GEO/GTM 技能包：品牌调研→关键词/GEO 提示词→内容架构与写作→AEO 站点审计与代码级修复，含零依赖 Node 爬虫与示例报告。",
-      "why": "对 autograph-ai：可直接抄 audit-website-aeo/improve-aeo-geo 的检查清单与修复管线；geo-content-planning + write-seo-geo-content 可对照内容生成流水线；输出物（brand_dna/audit report）可映射为 SaaS 产品步骤。",
-      "url": "https://github.com/onvoyage-ai/gtm-engineer-skills",
-      "repo": "onvoyage-ai/gtm-engineer-skills",
-      "stars": 1346,
+      "summary": "Claude Code 用开源 SEO/GEO/AEO 审计插件：26 个子技能 + 19 名并行专家 agent，覆盖技术 SEO、E-E-A-T、Schema、AI 搜索可见性、内容 brief/cluster，输出 Markdown/PDF/JSON 行动清单。",
+      "why": "对 autograph-ai：可直接对照 /seo geo、/seo agentic、/seo content-brief、/seo schema 的检查维度与报告结构，把「并行审计→优先级修复清单」产品化进 Vue3+FastAPI 流水线；agentic/llms.txt/WebMCP 清单可映射为 GEO 产品步骤。",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "repo": "AgriciDaniel/claude-seo",
+      "stars": 26003,
       "tags": [
-        "AEO",
+        "SEO",
         "GEO",
+        "AEO",
         "Claude-Code",
-        "skills",
-        "SEO-content",
+        "schema",
         "autograph-ai"
       ],
-      "steps": "克隆后把 audit-website-aeo、write-seo-geo-content、geo-content-planning 软链到 ~/.claude/skills，对自家演示站跑一次 AEO 审计，把评分维度表进 autograph 的 GEO 检查模块。",
-      "risk": "依赖 agent 执行质量；部分 Reddit/SERP 能力因环境而异；勿把示例数据当真实指标。",
+      "steps": "在 Claude Code 安装插件后对自家演示站跑一次 /seo audit 与 /seo geo，把评分维度与报告字段映射进 autograph 的 GEO 检查模块。",
+      "risk": "强依赖 Claude Code/API 额度与抓取环境；报告质量随模型波动；部分扩展需第三方 SEO API；勿把示例成效当自身承诺。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/onvoyage-ai/gtm-engineer-skills"
+          "url": "https://github.com/AgriciDaniel/claude-seo"
         }
       ]
     },
     {
-      "id": "manga-editor-desu",
+      "id": "aimangastudio",
       "rank": 2,
-      "name": "Manga Editor Desu",
+      "name": "AIMangaStudio",
       "category": "项目",
-      "summary": "浏览器漫画页编辑器：69 套分镜模板、气泡/竖排文字、图层与滤镜；可选接 ComfyUI/WebUI/Fal/Ollama，支持故事→分格提示词与跨页 Prompt Queue。",
-      "why": "对 soloforge-storyfactory：分镜布局/气泡/多页项目管理可对照前端；Prompt Queue + story-to-panel 可抄批处理与 LLM 分镜；多后端路由（图生/文生分服务）适合 React+FastAPI 工厂拆服务。",
-      "url": "https://github.com/new-sankaku/manga-editor-desu",
-      "repo": "new-sankaku/manga-editor-desu",
-      "stars": 396,
+      "summary": "React+Vite+TypeScript 端到端漫画创作前端：自然语言生成脚本（剧情/对白/旁白）、角色与风格设定、AI 分镜自动排版（对话框/镜头），多页导出 PNG/PDF；对接 Google GenAI。",
+      "why": "对 soloforge-storyfactory：脚本→角色→分镜→导出流水线可直接对照 React 前端状态与页面模型；分镜排版与多页导出可抄 panel 数据结构；GenAI 调用边界清晰，便于后端 FastAPI 拆服务。",
+      "url": "https://github.com/morsoli/aimangastudio",
+      "repo": "morsoli/aimangastudio",
+      "stars": 1499,
       "tags": [
         "manga",
-        "comic-editor",
-        "ComfyUI",
         "storyboard",
+        "React",
+        "Gemini",
         "soloforge-storyfactory"
       ],
-      "steps": "打开官方 Demo 走一遍「模板分镜→连后端出图→气泡排版」，对照 storyfactory 的 panel 数据结构与队列 API。",
-      "risk": "GPL-3.0 商用需合规；云端 AI 会出站；API key 明文存浏览器；完整本地出图需自备 GPU/ComfyUI。",
+      "steps": "克隆后 npm install && npm run dev，走一遍「剧情建议→角色风格→分镜排版→导出」，对照 storyfactory 的 panel/剧本 API。",
+      "risk": "仓库未见独立 LICENSE 文件（README 自称 MIT，商用前需再确认）；强依赖 Google GenAI Key；最近提交偏少，需自行评估维护度。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/new-sankaku/manga-editor-desu"
+          "url": "https://github.com/morsoli/aimangastudio"
         },
         {
           "title": "Demo",
-          "url": "https://new-sankaku.github.io/manga-editor-desu/"
+          "url": "https://aimangastudio.liduos.com/"
         }
       ]
     },
     {
-      "id": "claude-mem",
+      "id": "oh-my-claudecode",
       "rank": 3,
-      "name": "claude-mem",
+      "name": "oh-my-claudecode",
       "category": "项目",
-      "summary": "跨会话持久记忆：自动捕获 agent 工具观测并压缩注入后续会话；支持 Claude Code/OpenClaw/OpenCode/Hermes 等，含 MCP 搜索、SQLite+Chroma、worker 服务。",
-      "why": "对 clawkit / star-river-dev-team / Hermes：OpenClaw 一键安装与多 harness 记忆正是编排痛点；可对照 hooks→观测→压缩→SessionStart 注入链路，补多角色团队「换会话丢上下文」；MCP search/timeline 可接入团队知识回放。",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "repo": "thedotmack/claude-mem",
-      "stars": 109306,
+      "summary": "面向 Claude Code 的 Team-first 多 agent 编排：/team 会话内团队与 omc team tmux CLI workers；autopilot 分阶段流水线；可把会话事件转发到 OpenClaw gateway，文档亦提及 Hermes/Grokbot 类运行时集成路径。",
+      "why": "对 clawkit / star-river-dev-team / Hermes：可抄 team-plan→prd→exec→verify→fix 多角色管线与 tmux 并行 worker；OpenClaw 网关事件转发可对照 clawkit 编排回执；多 provider /ask 合成适合多角色评审。",
+      "url": "https://github.com/Yeachan-Heo/oh-my-claudecode",
+      "repo": "Yeachan-Heo/oh-my-claudecode",
+      "stars": 40521,
       "tags": [
-        "agent-memory",
+        "multi-agent",
+        "Claude-Code",
         "OpenClaw",
+        "team",
         "Hermes",
-        "OpenCode",
-        "MCP",
         "clawkit"
       ],
-      "steps": "在本机对 Hermes/OpenCode 跑 npx claude-mem install（或 OpenClaw 安装脚本），验证跨会话回忆一条决策观测，再对照 hooks 设计画到 clawkit 记忆层。",
-      "risk": "默认安装流程含线上 observer/试用登录（可 --provider 跳过）；体积与依赖重；隐私需善用 private 标签；商业托管与开源边界需分清。",
+      "steps": "安装插件并 /omc-setup 后，用 /team 跑一次小任务，对照 kanban/worker 生命周期画到 clawkit/Hermes 编排层。",
+      "risk": "功能面大、配置多；原生 Team 需开启实验开关；OpenClaw 集成依赖网关与环境变量；CI 勿依赖交互式 slash。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/thedotmack/claude-mem"
-        },
-        {
-          "title": "Docs",
-          "url": "https://docs.claude-mem.ai/"
+          "url": "https://github.com/Yeachan-Heo/oh-my-claudecode"
         }
       ]
     },
     {
-      "id": "android-money-manager-ex",
+      "id": "mediqux",
       "rank": 4,
-      "name": "Money Manager Ex (Android)",
+      "name": "Mediqux",
       "category": "生活",
-      "summary": "本地优先的 Android 开源记账 App：与桌面 MMEX 共用数据库，支持账户余额、分类支出、预算与加密；F-Droid / GitHub / Play 可装，仍在积极维护。",
-      "why": "消费决策/轻理财：10 分钟装上就能记一笔、看本月分类、设预算；本地加密+可自同步，适合「月底复盘劝退」跟做方案，且与已推 Cashew/Actual 形态不同（移动端+桌面同源）。",
-      "url": "https://github.com/moneymanagerex/android-money-manager-ex",
-      "repo": "moneymanagerex/android-money-manager-ex",
-      "stars": 721,
+      "summary": "自托管家庭病历档案：患者档案、医生/机构、预约与处方、化验单 PDF/手工录入、影像等检查文件；多患者账号与角色权限；Docker Compose（React+Express+PostgreSQL+Caddy）。不做诊断。",
+      "why": "家庭健康资料整理：把体检报告 PDF、复查预约、用药状态按人归档，出门就诊前一键翻出既往检查与问诊清单；家人共用一套账号但权限隔离。",
+      "url": "https://github.com/DMJoh/Mediqux",
+      "repo": "DMJoh/Mediqux",
+      "stars": 218,
       "tags": [
-        "expense-tracker",
-        "Android",
-        "local-first",
-        "budget",
-        "FOSS"
+        "family-health",
+        "medical-records",
+        "self-hosted",
+        "docker",
+        "non-diagnostic"
       ],
-      "steps": "从 F-Droid 或 GitHub Releases 装 foss 版，建一个现金账户并记三笔本周支出，导出截图做成「周末 15 分钟复盘」模板。",
-      "risk": "同步可选云端方案需自行评估；功能偏专业，新手要先过用户手册；非投资建议工具。",
+      "steps": "按 README 拉 docker-compose.yml 与 .env.example，改密后 docker compose up -d，建管理员并录入一名家庭成员的体检 PDF 试跑。",
+      "risk": "AGPL-3.0；自托管需维护备份与暴露面；作者声明个人项目、非临床系统——仅档案整理，不做诊断/不替代就医；健康数据本地保管责任自负。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/moneymanagerex/android-money-manager-ex"
-        },
-        {
-          "title": "User Manual",
-          "url": "https://android.moneymanagerex.org/usermanual/"
+          "url": "https://github.com/DMJoh/Mediqux"
         }
       ]
     },
     {
-      "id": "donetick",
+      "id": "dayglance",
       "rank": 5,
-      "name": "Donetick",
+      "name": "dayGLANCE",
       "category": "生活",
-      "summary": "开源家庭任务/家务协作：自然语言建循环任务、轮值分配、子任务、积分与提醒；Docker 自托管，Android APK 在 Releases，可选 Telegram/Discord 通知。",
-      "why": "家务/家庭琐事：把「每周倒垃圾、换滤芯、账单日」写成一句自然语言就能排期并轮流；全家共用看板，适合打包「家庭家务轮值落地」闲鱼跟做方案。",
-      "url": "https://github.com/donetick/donetick",
-      "repo": "donetick/donetick",
-      "stars": 2703,
+      "summary": "隐私优先「今日一览」日程板：可视化时间块、多视图（日/周/月）、CalDAV/iCal 导入、天气与每日摘要、例行事务/习惯与统计；浏览器免账号即可用，也可 Docker 自托管或桌面端。",
+      "why": "早晨/日程效率：打开 dayglance.app 把今日重点块出来，导入日历看冲突，结合天气与 Daily Summary 做早报式开场；避开已推习惯打卡类，更偏「今日时间地图」。",
+      "url": "https://github.com/krelltunez/dayGLANCE",
+      "repo": "krelltunez/dayGLANCE",
+      "stars": 181,
       "tags": [
-        "chores",
-        "family",
-        "recurring-tasks",
-        "docker",
-        "household"
+        "morning",
+        "calendar",
+        "time-blocking",
+        "planner",
+        "privacy"
       ],
-      "steps": "用官方 docker compose 起服务，建家庭组并加 3 条循环家务（含轮值），装 Android APK 试一次提醒。",
-      "risk": "需一台常开机器跑 Docker（上手中等）；完整离线能力仍有限；AGPL-3.0 二次分发需合规；可选 HA 集成，非必须。",
+      "steps": "浏览器打开 https://dayglance.app 导入一份日历或手工排今日三块重点，体验完再决定是否 Docker 自托管。",
+      "risk": "深度同步/桌面能力需自托管或安装客户端；公开实例勿裸奔无鉴权；可选 AI/健康插件需自行 BYO Key。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/donetick/donetick"
+          "url": "https://github.com/krelltunez/dayGLANCE"
+        },
+        {
+          "title": "Live",
+          "url": "https://dayglance.app"
         }
       ]
     }
