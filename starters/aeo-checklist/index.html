@@ -316,6 +316,13 @@
 ## Start here
 - [AEO tools toolchain](https://example.com/aeo-tools): Which files to ship, and which tool shape to use
 - [GEO checklist](https://example.com/geo-checklist): Vocabulary plus an actionable checklist</pre>
+        <p>
+          Prefer an llms.txt that, in short lines, covers a one-line intro, how
+          to use the product, the pricing stance, how you differ from
+          alternatives, and links to core tool URLs — not a dump of every tag
+          page. Same-day rule: a new money or tool URL gets an llms.txt line
+          when it ships. Publishing the file still does not guarantee a citation.
+        </p>
       </section>
 
       <section class="card" id="tools" aria-labelledby="tools-h">
@@ -415,6 +422,11 @@
           <li><strong>The llms.txt entry.</strong> One line, the canonical URL, and a description that matches the H1.</li>
           <li><strong>A measurement note.</strong> Log whether the file is fetched if you want. A crawler hit is not a user, a citation, or revenue.</li>
         </ol>
+        <p>
+          Page type first: ship the <strong>tool/form page</strong> (see the
+          <a href="../geo-checklist/#tool-pages">GEO checklist</a>) before
+          generating files that point at it. Tutorial URLs remain Google-first.
+        </p>
         <p class="note">
           This practice page follows that order on purpose: the job is “which
           AEO tools and files should an indie site ship,” the answer is the file
@@ -433,7 +445,7 @@
           Printing the page works if you would rather use paper.
         </p>
 
-        <h3>Access</h3>
+        <h3 id="access">Access</h3>
         <div class="checklist" data-group="access">
           <label>
             <input type="checkbox" data-key="access-llms" />
@@ -461,6 +473,27 @@
             <span>
               robots.txt does not accidentally disallow llms.txt or the pages you hope will be fetched.
               <span class="why">Why: read current bot documentation before you allow or block. Guessing is not a policy.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="access-search-bots" />
+            <span>
+              In <code>robots.txt</code>, explicitly allow fetch for <strong>OAI-SearchBot</strong> and <strong>ChatGPT-User</strong> if you want ChatGPT search or browse paths. Treat <strong>ClaudeBot</strong> and <strong>PerplexityBot</strong> as optional and follow each vendor's current notes. Decide <strong>GPTBot</strong> (training) separately — allowing search bots is not the same as allowing training crawls.
+              <span class="why">Why: name the bots you mean. A search-path allow is a different decision from a training crawl, and neither decision guarantees a citation.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="access-curl" />
+            <span>
+              Curl key URLs with those User-Agents. Expect HTTP 200 and HTML that already contains an <code>&lt;h1&gt;</code>, body copy, and FAQ text — not an empty client-only shell.
+              <span class="why">Why: sample check only. Confirm the current User-Agent token with the vendor before you rely on it: <code>curl -sS -A "...OAI-SearchBot..." "https://example.com/your-page"</code>. Repeat with the ChatGPT-User token and read the HTML, not only the status line.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="access-cf" />
+            <span>
+              If the site uses Cloudflare, confirm “Block AI Crawlers” and Bot Fight Mode are not blocking the bots you intend to allow.
+              <span class="why">Why: a zone setting can stop a bot that robots.txt allows. Skip this when the site does not use Cloudflare.</span>
             </span>
           </label>
         </div>
@@ -518,6 +551,13 @@
             <span>
               If the build emits an ai-index, you know which file is the source of truth, and you do not treat a demo score as official.
               <span class="why">Why: extra indexes help only when they cannot drift away from the page.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="art-recipe" />
+            <span>
+              llms.txt covers, in short lines, a one-line intro, how to use, the pricing stance, how you differ from alternatives, and links to core tool URLs. Each new money or tool URL gets a line on the day it ships.
+              <span class="why">Why: the map should name live core URLs, not every tag page. The file still does not guarantee a citation.</span>
             </span>
           </label>
         </div>
