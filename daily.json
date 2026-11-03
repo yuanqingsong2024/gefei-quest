@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-02T04:09:08.282Z",
-  "latestId": 86,
-  "latestDate": "2026-11-02",
+  "generatedAt": "2026-11-03T00:17:24.490Z",
+  "latestId": 87,
+  "latestDate": "2026-11-03",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 87,
+      "date": "2026-11-03",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-03",
+      "items": [
+        "No.1 Hostinger Affiliate：写主机/建站教程，合资格首购（约12个月及以上套餐）可拿约至多40%佣金（以协议为准）",
+        "No.2 Gumroad：上架原创数字下载，直连销售约10%+$0.50，Discover 约30%（以官方定价页为准）",
+        "No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 86,
       "date": "2026-11-02",
@@ -111,42 +123,30 @@
         "附新浪科技（快科技）/ 80aj / Chatday HUB / 硅基AGI 四个来源，本机核验均可访问；照片别拍证件、快递单、门牌；不承诺效果、不代领、不代整理。SW 缓存 49"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 77,
-      "date": "2026-10-31",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-10-31",
-      "items": [
-        "No.1 Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元，11月2日截止",
-        "No.2 PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万）",
-        "No.3 Kiroween 2026：提交已开，可领约4000免费额度；现金奖池约10万美元（至12月4日）"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-11-02",
+    "date": "2026-11-03",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "DigitalOcean Affiliate：写云主机/部署教程，合资格新付费用户月消费可拿约10%佣金、持续约12个月",
+        "name": "Hostinger Affiliate：写主机/建站教程，合资格首购（约12个月及以上套餐）可拿约至多40%佣金（以协议为准）",
         "type": "联盟营销",
-        "source_url": "https://www.digitalocean.com/affiliates"
+        "source_url": "https://www.hostinger.com/affiliates"
       },
       {
         "rank": 2,
-        "name": "Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
+        "name": "Gumroad：上架原创数字下载，直连销售约10%+$0.50，Discover 约30%（以官方定价页为准）",
         "type": "数字产品/接单",
-        "source_url": "https://docs.lemonsqueezy.com/help/getting-started/fees"
+        "source_url": "https://gumroad.com/pricing"
       },
       {
         "rank": 3,
-        "name": "Netlify：按官方入门路径部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "name": "Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://docs.netlify.com/get-started/"
+        "source_url": "https://developers.cloudflare.com/pages/get-started/"
       }
     ]
   }

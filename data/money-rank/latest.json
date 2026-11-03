@@ -1,106 +1,132 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "items": [
     {
       "rank": 1,
-      "name": "DigitalOcean Affiliate：写云主机/部署教程，合资格新付费用户月消费可拿约10%佣金、持续约12个月",
+      "name": "Hostinger Affiliate：写主机/建站教程，合资格首购（约12个月及以上套餐）可拿约至多40%佣金（以协议为准）",
       "type": "联盟营销",
-      "summary": "官方云基础设施联盟：推荐新付费用户后，可按其每月消费获得约10%佣金，并持续约一整年（以官网说明为准）。",
-      "cost": "0；需可写部署/云主机内容的站点或社媒",
+      "summary": "官方主机联盟：推荐新用户购买 Shared/Cloud/VPS 等合资格服务的首次订阅（通常需12个月及以上），可获约至多40%佣金；AI Builder 另有特定 offer 口径；续费/升级/单月主机通常不计佣。",
+      "cost": "0；需可写主机/建站真实内容的站点或社媒",
       "difficulty": 2,
-      "threshold": "能持续产出真实部署教程并按联盟规范披露；申请通过后才可挂链",
-      "time": "申请通常数个工作日；见效通常需数周内容与流量积累",
-      "fit": "会写中英文部署/主机对比、已有开发者受众的人；预估投入：每周5小时",
-      "why": "DigitalOcean 官方联盟页写明：Whenever you refer a new paying user，可获得其 monthly spend 约10% commission，for an entire year。上榜理由：相对昨日 Hostinger「首购高比例」口径，今天换回 DO「月消费×约12个月」路径，条款简单、适合教程站挂链。",
+      "threshold": "申请通过后才可挂链；能持续产出真实评测/教程并按规范披露",
+      "time": "申请官方称常见约5个工作日量级审核；见效通常需数周内容与流量",
+      "fit": "会写中英文建站/主机对比、已有站长或新手建站受众的人；预估投入：每周5小时",
+      "why": "Hostinger 官方 Affiliates 页与 Affiliate Program Agreement 写明：Shared/Cloud/VPS/Reach 等合资格首购可获 up to 40% Commission，且通常仅限初始购买约12个月及以上；Revenue Share 单笔佣金示例口径有上限；Cookie 约30天。上榜理由：相对昨日 DigitalOcean「月消费×约12个月」分成，今天换 Hostinger「首购高比例」路径，适合建站教程挂链。",
       "steps": [
-        "打开 digitalocean.com/affiliates 阅读说明后申请，通过后生成推广链接与素材",
-        "写一篇真实的云主机选型、迁移或部署教程，按规范披露联盟关系",
-        "把链接放到文档站、小站或技术社媒，跟踪哪类内容转化更好"
+        "打开 hostinger.com/affiliates 阅读说明并申请，同时核对 legal/affiliate-program-agreement 的合资格产品与禁用项",
+        "写一篇真实的主机选型、迁移或 WordPress 上线教程，按规范披露联盟关系",
+        "把链接放到小站或社媒，跟踪哪类内容转化更好；避免诱导虚假点击"
       ],
-      "risk": "风险等级：低。佣金与合格条件以官网为准；退款与作弊流量可能影响结算；须真实披露；不保证有转化。不承诺收益。",
+      "risk": "风险等级：低。佣金、退款窗口与封号规则以官网协议为准；退款期内可能不计佣；须真实披露。不承诺收益。",
       "risk_level": "低",
-      "reason": "条款清晰的云主机联盟，适合部署教程长期挂「月消费分成」链路。",
-      "tags": ["联盟营销", "DigitalOcean", "云主机", "教程", "佣金"],
+      "reason": "条款清晰的主机首购联盟，适合建站教程长期挂链。",
+      "tags": [
+        "联盟营销",
+        "Hostinger",
+        "主机",
+        "建站",
+        "佣金"
+      ],
       "sources": [
         {
-          "title": "Affiliate Program | DigitalOcean",
-          "url": "https://www.digitalocean.com/affiliates",
-          "publisher": "DigitalOcean",
+          "title": "Hostinger affiliate program",
+          "url": "https://www.hostinger.com/affiliates",
+          "publisher": "Hostinger",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
+        },
+        {
+          "title": "Affiliate program agreement",
+          "url": "https://www.hostinger.com/legal/affiliate-program-agreement",
+          "publisher": "Hostinger",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://www.digitalocean.com/affiliates"
+      "source_url": "https://www.hostinger.com/affiliates"
     },
     {
       "rank": 2,
-      "name": "Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
+      "name": "Gumroad：上架原创数字下载，直连销售约10%+$0.50，Discover 约30%（以官方定价页为准）",
       "type": "数字产品/接单",
-      "summary": "面向创作者的数字商品与订阅收款：官方费率文档说明平台费按订单总额计，示例口径约为 $0.50 + 5%（另有国际/PayPal/订阅等附加费）；平台作 Merchant of Record 处理销售税。",
-      "cost": "0 起步；平台按成交抽成，具体以官方 Fees 页为准",
+      "summary": "创作者数字商品收款：官方 Pricing/Fees 说明直连或个人主页销售约为每笔 10% + $0.50；经 Discover 市场发现的新客约为 30%；无月费，平台作 Merchant of Record 处理销售税。",
+      "cost": "0 起步；平台按成交抽成，另可能有支付通道费（以官方 Fees 为准）",
       "difficulty": 2,
-      "threshold": "有可交付的原创数字文件或轻量订阅内容，能写清授权与售后边界",
+      "threshold": "有可交付的原创数字文件，能写清授权与售后；可合规收款",
       "time": "1–3天可上架首个产品；之后持续导流与迭代",
-      "fit": "有模板、清单、小教程或可订阅资料的创作者；预估投入：每周5小时",
-      "why": "Lemon Squeezy 官方 Fees 文档写明平台费按 total order value 收取，示例为 $0.50 + 5% of total，并可叠加国际约+1.5%、PayPal 约+1.5%、订阅约+0.5% 等；同时强调 Merchant of Record 代处理税。上榜理由：相对昨日 Gumroad「直连约10%+$0.50 / Discover 约30%」口径，今天换 LS 费率与 MoR 路径，适合反复卖原创模板包。",
+      "fit": "有模板、清单、小教程或资料包的创作者；预估投入：每周5小时",
+      "why": "Gumroad 官方 pricing 页写明：profile/direct links 约为 10% + $0.50 per transaction；Discover marketplace 约为 30%；并强调 Merchant of Record。上榜理由：相对昨日 Lemon Squeezy「约5%+$0.50 / MoR」口径，今天换 Gumroad 直连/Discover 双费率路径，适合反复卖原创模板。",
       "steps": [
-        "打开 docs.lemonsqueezy.com 的 Fees 页核对当前费率与附加费，注册店铺",
-        "上架一个解决具体问题的原创数字下载或订阅（如工作流清单、提示词包），写清授权与售后",
-        "用小站、社媒或闲鱼引流到付款页，按数据迭代定价与封面"
+        "打开 gumroad.com/pricing 与帮助中心 Fees 文核对当前费率，注册店铺",
+        "上架一个解决具体问题的原创数字下载（如工作流清单、提示词包），写清授权与售后",
+        "用小站、社媒或闲鱼引流到付款页，优先走直连链接以降低费率口径影响"
       ],
-      "risk": "风险等级：中。只能卖原创或已获授权内容；国际/PayPal/订阅可能加费；需自行解决收款账户问题。不承诺收益。",
+      "risk": "风险等级：中。只能卖原创或已获授权内容；Discover 抽成更高；需自行解决收款与税务配合。不承诺收益。",
       "risk_level": "中",
-      "reason": "数字商品收款与税务路径清晰，适合反复卖原创模板与资料。",
-      "tags": ["数字产品", "Lemon Squeezy", "Merchant of Record", "模板", "订阅"],
+      "reason": "无月费的数字商品平台，直连费率清晰，适合反复卖原创资料。",
+      "tags": [
+        "数字产品",
+        "Gumroad",
+        "模板",
+        "Merchant of Record",
+        "直连销售"
+      ],
       "sources": [
         {
-          "title": "Fees · Lemon Squeezy Docs",
-          "url": "https://docs.lemonsqueezy.com/help/getting-started/fees",
-          "publisher": "Lemon Squeezy Docs",
+          "title": "Gumroad pricing",
+          "url": "https://gumroad.com/pricing",
+          "publisher": "Gumroad",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         },
         {
-          "title": "Lemon Squeezy",
-          "url": "https://lemonsqueezy.com/",
-          "publisher": "Lemon Squeezy",
+          "title": "Gumroad's fees - Help Center",
+          "url": "https://gumroad.com/help/article/66-gumroads-fees",
+          "publisher": "Gumroad Help Center",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://docs.lemonsqueezy.com/help/getting-started/fees"
+      "source_url": "https://gumroad.com/pricing"
     },
     {
       "rank": 3,
-      "name": "Netlify：按官方入门路径部署英文工具小站，验证流量后再接 AdSense 或联盟",
+      "name": "Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
       "type": "出海小站",
-      "summary": "用 Netlify 官方 Get started 把静态/前端站部署上线；适合先验证英文工具页是否有搜索与回访，再接 Google AdSense 或相关联盟。",
-      "cost": "域名约每年数十美元可选；托管可走免费档",
+      "summary": "用 Cloudflare Pages 官方 Get started（Git/Direct Upload/C3）把静态或前端站部署上线；适合先验证英文工具页是否有搜索与回访，再接 Google AdSense 或相关联盟。",
+      "cost": "域名约每年数十美元可选；Pages 可走免费档起步",
       "difficulty": 2,
       "threshold": "能完成单页英文工具或指南，并接好自定义域名与基础 SEO",
       "time": "半天到2天可上线首版；流量与变现通常需数月",
       "fit": "会一点前端或静态站、想先验证出海词再投入的人；预估投入：每周5小时",
-      "why": "Netlify 官方文档提供 Get started 入门路径，可快速把项目推到公网；Google AdSense 官方页说明站点达标后可申请广告变现。上榜理由：相对昨日 Cloudflare Pages 部署角度，今天换 Netlify，同样服务「先上线验证、再接广告/联盟」的出海小站路线。",
+      "why": "Cloudflare Pages 官方 Get started 提供 C3 CLI、Direct Upload 与 Git integration 三条入门路径；Google AdSense 官方页说明站点达标后可申请广告变现。上榜理由：相对昨日 Netlify 部署角度，今天换 Cloudflare Pages，同样服务「先上线验证、再接广告/联盟」的出海小站路线。",
       "steps": [
-        "打开 docs.netlify.com/get-started 按指引把英文单页工具或指南部署上线",
+        "打开 developers.cloudflare.com/pages/get-started 按指引把英文单页工具或指南部署上线",
         "接 Google Search Console，补 About/Privacy 与 3–5 篇相关说明",
         "有稳定访问后再申请 AdSense 或挂相关联盟链接"
       ],
-      "risk": "风险等级：低。免费档有限额；广告审核会拒空站；前几个月收入可能为0。不承诺收益。",
+      "risk": "风险等级：低。免费档与产品边界以官网为准；广告审核会拒空站；前几个月收入可能为0。不承诺收益。",
       "risk_level": "低",
       "reason": "低成本验证英文工具站的部署路径，和本站出海小站路线一致。",
-      "tags": ["出海小站", "Netlify", "静态站", "SEO", "AdSense"],
+      "tags": [
+        "出海小站",
+        "Cloudflare Pages",
+        "静态站",
+        "SEO",
+        "AdSense"
+      ],
       "sources": [
         {
-          "title": "Get started · Netlify Docs",
-          "url": "https://docs.netlify.com/get-started/",
-          "publisher": "Netlify Docs",
+          "title": "Getting started · Cloudflare Pages docs",
+          "url": "https://developers.cloudflare.com/pages/get-started/",
+          "publisher": "Cloudflare Docs",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         },
         {
           "title": "Google AdSense - Earn Money from Your Website with Monetization",
@@ -108,143 +134,175 @@
           "publisher": "Google AdSense",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://docs.netlify.com/get-started/"
+      "source_url": "https://developers.cloudflare.com/pages/get-started/"
     },
     {
       "rank": 4,
-      "name": "YouTube Partner Program：区分完整广告变现与早期粉丝资助门槛，做可复用教程频道",
+      "name": "微信公众号流量主：达标后在公众平台开通广告位，靠文章内广告分成（门槛以后台为准）",
       "type": "平台激励",
-      "summary": "官方 YPP：完整广告分成通常需约1000订阅且近12个月约4000合格观看小时（或近90天约1000万合格 Shorts 观看）；扩展计划在部分地区可更早开粉丝资助等功能（约500订阅等条件，以帮助中心为准）。",
-      "cost": "0；需稳定产出与设备/剪辑时间",
-      "difficulty": 4,
-      "threshold": "所在地区开放 YPP；无有效社区违规处罚；满足官方门槛并完成审核与 AdSense 关联",
-      "time": "达标通常需数月持续更新；审核官方称常见约1个月量级",
-      "fit": "能持续做长视频或 Shorts、愿意把同一主题做成系列的人；预估投入：每周8小时以上",
-      "why": "YouTube 帮助中心写明完整 YPP 广告变现门槛约为：1000 subscribers + 4000 qualified watch hours（近12个月），或 1000 subscribers + 1000万 qualified Shorts views（近90天）。扩展 YPP 帮助页另写：部分地区可在约500订阅 + 近90天3条公开上传，且近12个月约3000合格观看小时（或近90天约300万合格 Shorts 观看）时更早使用粉丝资助等功能，广告分成仍需达到更高门槛。上榜理由：相对昨日黑客松/大赛导向，今天换平台官方激励路径，并明确区分两档门槛避免误读。",
+      "summary": "微信公众平台「收入变现—流量主」路径：账号满足平台当前开通条件后可申请广告位，按展示/点击等规则获得广告分成；具体门槛、广告类型与结算以公众平台后台与官方说明为准。",
+      "cost": "0；需持续原创内容与运营时间",
+      "difficulty": 3,
+      "threshold": "公众号完成主体/实名等平台要求；关注用户数与内容规范满足后台当前开通提示；遵守广告与内容规范",
+      "time": "养号与内容积累通常需数周到数月；开通后见效取决于阅读量",
+      "fit": "已有或愿意做垂直公众号、能稳定更新的人；预估投入：每周6小时以上",
+      "why": "微信广告官方体系（ad.weixin.qq.com）覆盖公众号等广告形态；开放社区官方帖说明流量主开通流程在公众平台「收入变现」入口完成。上榜理由：相对昨日 YouTube Partner Program 海外视频门槛，今天换国内公众号广告分成官方激励路径，类型分散且非比赛。",
       "steps": [
-        "打开 support.google.com/youtube/answer/72851 与扩展 YPP 说明页，核对你所在地区开放的功能与门槛",
-        "选定窄主题（如某类工具教程），按周更新；在 Studio 的 Earn 区跟踪是否达标并可申请",
-        "达标后完成条款与 AdSense for YouTube 关联；未达完整广告门槛前，勿把粉丝资助当成广告分成"
+        "登录微信公众平台，在「收入变现」查看流量主是否可开通及当前条件提示",
+        "按垂直主题稳定更新原创；补齐主体信息与财务资料以免影响结算",
+        "开通后合理配置广告位，优先保证阅读体验，避免违规诱导点击"
       ],
-      "risk": "风险等级：中。门槛高、审核可能拒绝；政策与地区可用性会变；不保证通过或有广告收入。不承诺收益。",
+      "risk": "风险等级：中。门槛与政策会调整；低阅读量时收入可能接近0；违规可能导致关闭变现。不承诺收益。",
       "risk_level": "中",
-      "reason": "平台官方激励路径清晰，适合把教程系列做成可长期变现资产。",
-      "tags": ["平台激励", "YouTube", "YPP", "广告分成", "粉丝资助"],
+      "reason": "国内内容平台官方广告分成入口，适合有稳定更新能力的公众号。",
+      "tags": [
+        "平台激励",
+        "微信公众号",
+        "流量主",
+        "广告分成",
+        "内容"
+      ],
       "sources": [
         {
-          "title": "YouTube Partner Program overview & eligibility",
-          "url": "https://support.google.com/youtube/answer/72851?hl=en",
-          "publisher": "YouTube Help",
+          "title": "微信广告 · 营销指南",
+          "url": "https://ad.weixin.qq.com/guide/1188",
+          "publisher": "微信广告",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         },
         {
-          "title": "Overview of the expanded YouTube Partner Program",
-          "url": "https://support.google.com/youtube/answer/13429240?hl=en",
-          "publisher": "YouTube Help",
+          "title": "流量主开通流程（微信开放社区）",
+          "url": "https://developers.weixin.qq.com/community/develop/doc/000046f02244a041da79753e557009",
+          "publisher": "微信开放社区",
           "published": "",
-          "kind": "official",
-          "checked": "2026-11-02"
+          "kind": "community",
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://support.google.com/youtube/answer/72851?hl=en"
+      "source_url": "https://ad.weixin.qq.com/guide/1188"
     },
     {
       "rank": 5,
-      "name": "Canva Creators：申请成为模板创作者，向 Canva 内容库提交可定制模板赚取版税",
+      "name": "Figma Community：在支持地区上架付费插件/组件，平台代收约15%费用（以官方帮助为准）",
       "type": "副业",
-      "summary": "官方创作者计划：通过作品集申请成为 Template Creator 等身份，向全球 Canva 用户库提交可定制模板/教育资源，按官方规则获得 royalties。",
-      "cost": "0 申请；需设计作品集与可过审的原创模板产能",
-      "difficulty": 3,
-      "threshold": "能提供无需登录即可查看的公开作品集（约5–10个高质量样例），并通过审核；Element Creator 新申请目前暂停",
-      "time": "准备作品集约1–2周；过审后需持续供稿与过内容审核",
-      "fit": "有平面/社媒/演示文稿设计基础、能按规范出可定制模板的人；预估投入：每周6小时",
-      "why": "Canva 官方 Creators 页写明：计划面向设计师、教育者等，可分享作品并 earn royalties；Template Creator 申请需公开作品集约5–10个原创高质量样例；Element Creator 自约2025年起暂停新申请。上榜理由：相对昨日数字商品平台上架路径，今天换成「平台内容库版税」副业，不涉及账号券码。",
+      "summary": "官方 Community 售卖说明：符合条件的创作者可在 Figma Community 销售 plugins/widgets（files 另有准入说明）；平台对成交收取约15%费用并代处理销售税与部分售后；付费插件可支持一次性或订阅（最低价约$2）。",
+      "cost": "0 起步；需 Figma 能力与可过审的原创插件/资源",
+      "difficulty": 4,
+      "threshold": "所在国家在官方 payout 支持列表；能发布可用插件并处理基础支持；付费 files 新创作者准入可能暂停，以帮助中心为准",
+      "time": "开发首个可用插件通常数周；过审与获量另需迭代",
+      "fit": "会写 Figma 插件或有可售设计资源、面向设计师受众的人；预估投入：每周8小时",
+      "why": "Figma 官方帮助文 About selling Community resources 写明：成交收取 flat 15% fee；plugins 可 one-time 或 subscription，最低约 $2；并列出支持 payout 的国家。上榜理由：相对昨日 Canva Creators「内容库版税」，今天换 Figma Community 付费插件路径，面向设计工具生态。",
       "steps": [
-        "打开 canva.com/creators 阅读 Template Creator / Education Specialty 要求，整理可公开访问的作品集链接",
-        "按页面指引提交申请；通过后阅读设计规范，只上传你原创且可证明为你创作的内容（官方不接受以 AI 生成为主、无法证明为你作品的提交）",
-        "按官方指引完善收款信息，持续供稿并关注审核反馈"
+        "打开 Figma 帮助中心「About selling Community resources」核对国家支持、费用与 files/插件差异",
+        "按 Publish plugins 文档发布插件，写清功能边界与隐私说明；只卖你原创或有权售卖的资源",
+        "用演示动图与设计师社群导流；按 Metrics 迭代定价与试用策略"
       ],
-      "risk": "风险等级：中。申请与内容审核均可能拒绝；版税规则与结算以官网为准；不保证过审或有销量。不承诺收益。",
+      "risk": "风险等级：中。付费 files 新创作者可能暂不开放；退款与订阅规则以官网为准；不保证有销量。不承诺收益。",
       "risk_level": "中",
-      "reason": "设计技能可直接接到平台内容库版税，适合有作品集的人副业供稿。",
-      "tags": ["副业", "Canva", "模板", "版税", "设计"],
+      "reason": "设计工具生态内的付费插件路径清晰，适合有开发或组件能力的人副业供稿。",
+      "tags": [
+        "副业",
+        "Figma",
+        "插件",
+        "Community",
+        "设计工具"
+      ],
       "sources": [
         {
-          "title": "Canva Creators: Share your designs with the world",
-          "url": "https://www.canva.com/creators/",
-          "publisher": "Canva",
+          "title": "About selling Community resources – Figma Help",
+          "url": "https://help.figma.com/hc/en-us/articles/12067637274519-About-selling-Community-resources",
+          "publisher": "Figma Help Center",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
+        },
+        {
+          "title": "Publish classic plugins to the Figma Community",
+          "url": "https://help.figma.com/hc/en-us/articles/360042293394-Publish-classic-plugins-to-the-Figma-Community",
+          "publisher": "Figma Help Center",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://www.canva.com/creators/"
+      "source_url": "https://help.figma.com/hc/en-us/articles/12067637274519-About-selling-Community-resources"
     },
     {
       "rank": 6,
-      "name": "Notion 模板创作者：在官方 Template Marketplace 上架原创工作区模板并反复售卖",
+      "name": "Payhip：免费档上架数字下载，平台交易费约5%（Plus/Pro 可降费，以帮助中心为准）",
       "type": "数字产品/接单",
-      "summary": "围绕 Notion 官方模板生态：参考 Creators 目录与模板市场结构，把可复用的工作区（内容日历、客户跟进、知识库等）做成付费模板，在 Notion 生态或外链收款页售卖。",
-      "cost": "0 起步；可选付费推广",
+      "summary": "面向数字商品的收款商店：官方 Billing 说明默认 Free Forever 无月费，Payhip 对成交约收 5%；Plus 约 $29/月可降至约 2%；Pro 约 $99/月可免 Payhip 交易费；PayPal/Stripe 通道费另计。",
+      "cost": "0 起步（Free）；可选付费档降交易费",
       "difficulty": 2,
-      "threshold": "能独立搭出结构清晰、带使用说明的 Notion 工作区，并处理基础售后",
-      "time": "3–7天可做出首个可售模板；之后按反馈迭代",
-      "fit": "已重度使用 Notion、能把个人工作流产品化的人；预估投入：每周5小时",
-      "why": "Notion 官方 templates/creators 页展示 Template Creators 与大量可发现模板，说明官方模板市场是创作者分发入口。上榜理由：相对昨日 Gumroad 泛数字商品，今天聚焦 Notion 工作区模板这一可复用品类，可与闲鱼定制单形成「定制→沉淀模板」闭环。",
+      "threshold": "有可交付的原创数字文件或轻量课程，能写清授权与售后",
+      "time": "1–3天可上架首个产品；之后持续导流",
+      "fit": "想快速开店卖模板/电子书/小课程、暂时不想付月费的人；预估投入：每周5小时",
+      "why": "Payhip 官方帮助 Billing and Upgrading 写明：Free Forever 为 $0/月 + 约5% transaction fee；Plus $29/月约2%；Pro $99/月无 Payhip transaction fee，且 PayPal/Stripe 仍单独收费。上榜理由：相对昨日 Notion Marketplace，今天换独立数字店 Payhip 费率路径，避免与 Gumroad 同构叙述时可作第二条数字产品位。",
       "steps": [
-        "打开 notion.com/templates/creators 与 templates 浏览热门品类与结构，选定一个垂直场景（如内容日历、顾问客户库）",
-        "搭好模板、写清安装与使用说明，先小范围试用再定价上架（Notion 市场或外链收款均可，以你能合规收款的渠道为准）",
-        "用演示动图/短视频引流；把定制需求里的高频结构沉淀为下一版可售模板"
+        "打开 help.payhip.com 的 Billing 文核对费率后注册 Free 店",
+        "上架原创模板、清单或小课程，写清交付格式与授权",
+        "用社媒/小站引流；销量上来后再评估是否升级降费"
       ],
-      "risk": "风险等级：中。模板同质化严重；市场规则与抽成可能调整；勿抄袭他人模板。不承诺收益。",
+      "risk": "风险等级：中。只能卖原创或已获授权内容；国际收款与税务需自行合规。不承诺收益。",
       "risk_level": "中",
-      "reason": "Notion 工作区模板可反复卖，且容易从定制单沉淀产品。",
-      "tags": ["数字产品", "Notion", "模板", "Marketplace", "工作区"],
+      "reason": "免费起步的数字店费率阶梯清晰，适合反复卖模板与资料。",
+      "tags": [
+        "数字产品",
+        "Payhip",
+        "模板",
+        "电子下载",
+        "费率"
+      ],
       "sources": [
         {
-          "title": "Creators · Notion Templates",
-          "url": "https://www.notion.com/templates/creators",
-          "publisher": "Notion",
+          "title": "Billing and Upgrading - Payhip Help Center",
+          "url": "https://help.payhip.com/article/102-billing-and-upgrading",
+          "publisher": "Payhip Help Center",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         },
         {
-          "title": "Notion Templates",
-          "url": "https://www.notion.com/templates",
-          "publisher": "Notion",
+          "title": "Payhip Help Center",
+          "url": "https://help.payhip.com/",
+          "publisher": "Payhip",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://www.notion.com/templates/creators"
+      "source_url": "https://help.payhip.com/article/102-billing-and-upgrading"
     },
     {
       "rank": 7,
-      "name": "闲鱼技能服务：Notion 工作区搭建与使用培训，按场景或按套打包接单",
+      "name": "闲鱼技能服务：Excel/数据看板定制与讲解，按场景套餐接单（不卖券码账号）",
       "type": "闲鱼非实物",
-      "summary": "在闲鱼发布自有技能的信息服务（Notion 数据库结构、视图、权限与短视频培训），按场景套餐收费，站内交易防纠纷。",
-      "cost": "0；需实名与常用 Notion 账号",
+      "summary": "在闲鱼发布自有技能的信息服务：为企业或个人定制 Excel/Sheets 表格、看板与公式，并附短视频或远程讲解；按场景套餐收费，站内交易防纠纷。",
+      "cost": "0；需实名与可用的表格工具账号",
       "difficulty": 2,
-      "threshold": "能根据客户场景在数小时内交付可用工作区与简短使用说明，并说清修改次数",
-      "time": "每单2–5小时；起步期每天1小时回复咨询",
-      "fit": "已帮团队或个人搭过 Notion、能讲清字段与视图的人；预估投入：每周5小时",
-      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；中小商家与个体对「能直接用的 Notion 工作区」有明确需求，交付物可沉淀成可售模板。上榜理由：相对昨日 Excel/数据看板技能，今天换 Notion 工作区搭建+培训，不涉及账号券码代领。",
+      "threshold": "能根据客户场景在数小时内交付可用表格/看板与简短使用说明，并说清修改次数",
+      "time": "每单2–6小时；起步期每天1小时回复咨询",
+      "fit": "已帮团队做过报表或看板、能讲清字段与公式的人；预估投入：每周5小时",
+      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；中小商家对「能直接用的数据表/看板」有明确需求。上榜理由：相对昨日 Notion 工作区搭建，今天换 Excel/数据看板定制+讲解技能，不涉及账号券码代领。",
       "steps": [
         "阅读闲鱼卖家服务协议，确认类目与禁发内容，避免违规收益承诺",
-        "准备 3–5 组前后对比样例（需求→数据库结构→视图示意），写清场景、修改次数与报价",
-        "全程站内沟通与交易，交付后邀评；把高频结构做成可售模板另行上架"
+        "准备 3–5 组前后对比样例（原始表→清洗→看板示意），写清场景、修改次数与报价",
+        "全程站内沟通与交易，交付后邀评；把高频结构沉淀为可售模板另行上架"
       ],
       "risk": "风险等级：低。不接违禁财务承诺；注意客户数据隐私；站外交易易起纠纷。不承诺收益。",
       "risk_level": "低",
-      "reason": "国内技能变现里 Notion 搭建需求明确，可沉淀为模板反复卖。",
-      "tags": ["闲鱼", "技能服务", "Notion", "工作区", "培训"],
+      "reason": "国内技能变现里表格/看板需求明确，可沉淀为模板反复卖。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "Excel",
+        "数据看板",
+        "培训"
+      ],
       "sources": [
         {
           "title": "闲鱼社区卖家服务协议",
@@ -252,39 +310,53 @@
           "publisher": "terms.alicdn.com",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         }
       ],
       "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
     },
     {
       "rank": 8,
-      "name": "出海新词：用 Vercel 部署英文「工具怎么用/对比」单页，验证搜索后再挂联盟或广告",
+      "name": "出海新词：用 Google Trends 找 Rising 查询做英文单页指南，再挂联盟或 AdSense",
       "type": "出海新词",
-      "summary": "围绕新兴英文工具词做 how-to/对比单页，按 Vercel 官方入门部署上线；有稳定访问后再接 Amazon Associates 等联盟或 AdSense。",
-      "cost": "0 起步；可选域名",
+      "summary": "用 Google Trends 官方 Explore/Related queries 的 Rising 信号选有教程或对比意图的英文查询，做单页 how-to/指南并部署上线；有稳定访问后再接 Amazon Associates 等联盟或 AdSense。",
+      "cost": "0 起步；可选域名与托管",
       "difficulty": 3,
       "threshold": "能独立完成英文单页与基础 SEO，并识别「可挂联盟/广告」的查询意图",
       "time": "选词+上线约3–7天；见效通常需数周到数月",
       "fit": "愿意做关键词研究、能写清楚对比或 how-to 结构的人；预估投入：每周6小时",
-      "why": "Vercel 官方 Getting Started 可快速部署前端/静态站；Amazon Associates 官方页说明创作者可通过推荐合资格购买获得佣金。变现路径：单页指南挂相关联盟，或达标后接 AdSense。上榜理由：相对昨日 Google Trends「how-to 选词」口径，今天换「Vercel 部署 + 联盟挂载」执行路径，避免与昨日同构。",
+      "why": "Google Trends 官方帮助说明可用 Related queries 的 Rising 观察相对增速；Amazon Associates 与 AdSense 提供合资格变现入口。变现路径：单页指南挂相关联盟，或达标后接广告。上榜理由：相对昨日 Vercel 部署主路径，今天换「Trends 选词 → 单页 → 联盟/广告」执行链，避免与昨日同构。",
       "steps": [
-        "选定一个有教程/对比意图的英文长尾工具词，用 Vercel 文档把单页部署上线",
-        "补齐对比维度、适用人群与免责声明；接 Search Console 观察真实查询",
+        "打开 trends.google.com 与 Trends 帮助，对目标地区筛选 Rising/Breakout 相关查询，排除纯八卦词",
+        "选定有教程/对比意图的长尾词，做英文单页并部署；接 Search Console 观察真实查询",
         "有稳定访问后申请 Amazon Associates 或 AdSense，按规范披露并只推合资格相关商品"
       ],
       "risk": "风险等级：中。词热度会回落；无流量则无收入；联盟与广告均需合规披露与审核。不承诺收益。",
       "risk_level": "中",
-      "reason": "把「新词单页」直接接到可部署与可挂联盟的执行链上，适合验证出海内容变现。",
-      "tags": ["出海新词", "Vercel", "SEO", "联盟", "单页"],
+      "reason": "把「新词发现」直接接到可挂联盟/广告的内容变现链上。",
+      "tags": [
+        "出海新词",
+        "Google Trends",
+        "SEO",
+        "联盟",
+        "单页"
+      ],
       "sources": [
         {
-          "title": "Getting started with Vercel",
-          "url": "https://vercel.com/docs/getting-started-with-vercel",
-          "publisher": "Vercel Docs",
+          "title": "Google Trends",
+          "url": "https://trends.google.com/trends/",
+          "publisher": "Google",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
+        },
+        {
+          "title": "Find related searches - Trends Help",
+          "url": "https://support.google.com/trends/answer/4355000?hl=en",
+          "publisher": "Google Trends Help",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-03"
         },
         {
           "title": "Amazon Associates Central",
@@ -292,90 +364,94 @@
           "publisher": "Amazon",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://vercel.com/docs/getting-started-with-vercel"
+      "source_url": "https://trends.google.com/trends/"
     },
     {
       "rank": 9,
-      "name": "案例拆解：Polotno——作者/报道称做 SDK 而非拥挤 B2C 应用，约做到约6万美元MRR、逾200付费客户（只拆方法）",
+      "name": "案例拆解：RightBlogger——作者/报道称先养受众再做产品，约做到约2.9万美元MRR（只拆方法）",
       "type": "案例拆解",
-      "summary": "Indie Hackers 访谈：围绕 Polotno（设计编辑 SDK）创始路径；标题与公开报道口径强调「做 SDK 而不是做应用」。",
-      "cost": "0（阅读公开访谈）；若跟做需自备产品与分发渠道",
+      "summary": "Indie Hackers 公开案例：Ryan Robinson / RightBlogger；标题与导语强调先建受众再启动产品。",
+      "cost": "0（阅读公开访谈）；若跟做需自备产品与内容渠道",
       "difficulty": 3,
-      "threshold": "能从公开案例里抽象「避开拥挤 B2C、向 B2B 组件/SDK 收窄」方法，而不是照抄品类",
-      "time": "阅读与笔记约2小时；验证方法需数周到数月",
-      "fit": "已有技术能力、容易扎进同质 C 端卷价格的人；预估投入：先读透再小范围试验",
-      "why": "Indie Hackers 公开文章标题为 Hitting $60k MRR by building an SDK instead of an app（约 2026-09-29）；作者/报道称约 $60k MRR，并有逾200付费客户量级（以原文表述为准）。方法要点（个人说法/报道口径）：不与拥挤的 B2C 设计应用硬刚，改为向其他产品提供可嵌入的设计 SDK。上榜理由：相对昨日 ScreenshotOne「降低野心+窄 API」，今天换「SDK 而非 App」路径，只拆方法不承诺可复现收入。",
+      "threshold": "能从公开案例里抽象「受众先行、产品后发」方法，而不是照抄品类",
+      "time": "阅读与笔记约2小时；验证方法需数周到数年量级的受众积累",
+      "fit": "已有或愿意长期写内容、容易「先做产品再找人」的人；预估投入：先读透再小范围试验",
+      "why": "Indie Hackers 公开文章 Hitting $29k MRR by building an audience first（约 2026-07-01）导语称：Ryan Robinson 养受众逾约12年后启动 RightBlogger，作者/报道称约一周内约 $2k MRR、现约 $29k MRR，并提到博客/YouTube/agency 等其他收入（以原文表述为准）。方法要点（个人说法/报道口径）：先有可触达受众与内容资产，再做自己真正需要的工具。上榜理由：相对昨日 Polotno「SDK 而非 App」，今天换「受众先行」路径，只拆方法不承诺可复现收入。",
       "steps": [
-        "阅读 Indie Hackers 原文，标注：为何放弃/弱化 C 端应用、SDK 边界如何划、客户是谁",
-        "对照自身：你是否在做一个已被巨头或红海应用占满的 C 端品类，是否有可组件化的技术能力",
-        "若试验：先验证有没有开发者/团队愿意为嵌入能力付费，再谈增长；勿照搬对方品类与报价"
+        "阅读 Indie Hackers 原文导语与公开段落，标注：受众从哪来、产品何时启动、如何狗粮化",
+        "对照自身：你是否在零受众时硬推产品；能否先用内容验证需求",
+        "若试验：先选窄主题持续输出，再决定做工具或服务；勿照搬对方品类与收入数字"
       ],
-      "risk": "风险等级：中。文中收入为作者/报道个人说法，不可当作你的预期收益；品类与渠道差异很大。不承诺收益。",
+      "risk": "风险等级：中。文中收入为作者/报道个人说法，不可当作你的预期收益；受众积累周期长。不承诺收益。",
       "risk_level": "中",
-      "reason": "公开案例里清晰的「做 SDK/组件而非拥挤 App」组合，适合对照自己的产品边界。",
-      "tags": ["案例拆解", "Indie Hackers", "Polotno", "SDK", "B2B"],
+      "reason": "公开案例里清晰的「先受众后产品」组合，适合对照自己的启动顺序。",
+      "tags": [
+        "案例拆解",
+        "Indie Hackers",
+        "RightBlogger",
+        "受众",
+        "内容先行"
+      ],
       "sources": [
         {
-          "title": "Hitting $60k MRR by building an SDK instead of an app - Indie Hackers",
-          "url": "https://www.indiehackers.com/post/tech/hitting-60k-mrr-by-building-an-sdk-instead-of-an-app-0B3bsTvvOG0wqf8cAx1v",
+          "title": "Hitting $29k MRR by building an audience first - Indie Hackers",
+          "url": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
           "publisher": "Indie Hackers",
-          "published": "2026-09-29",
+          "published": "2026-07-01",
           "kind": "community",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://www.indiehackers.com/post/tech/hitting-60k-mrr-by-building-an-sdk-instead-of-an-app-0B3bsTvvOG0wqf8cAx1v"
+      "source_url": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47"
     },
     {
       "rank": 10,
-      "name": "AppSumo Affiliates：推荐合资格 Deal 给受众，按联盟条款获得推广佣金",
+      "name": "PartnerStack Marketplace：挑选合资格 B2B SaaS 联盟项目，用内容推荐拿佣金",
       "type": "工具活动",
-      "summary": "官方联盟入口：申请成为 AppSumo Affiliate，用合规内容推荐平台合资格优惠/工具 Deal，按联盟协议结算佣金（具体比例与上限以 Impact 合同/条款为准）。",
+      "summary": "PartnerStack 公开 Program Directory / Marketplace：浏览多家 B2B SaaS 的联盟/合作伙伴计划，申请通过后用合规内容推荐合资格产品，按各项目条款结算佣金。",
       "cost": "0 申请；需有可触达的内容渠道",
       "difficulty": 2,
-      "threshold": "能持续产出真实测评或清单，并按联盟与平台规范披露；申请通过后方可推广",
-      "time": "申请审核常见数个工作日量级；见效取决于内容与受众匹配",
-      "fit": "已有工具测评、效率清单或Newsletter受众的人；预估投入：每周4小时",
-      "why": "AppSumo 官方 Affiliates 页与 Help Center 引导至 appsumo.com/p/affiliates 申请；Affiliate Terms 说明佣金结构以协议/EIO 为准（经 Impact 等追踪）。上榜理由：相对昨日 Hostinger/今日 DO 的主机联盟，今天换「工具 Deal 测评挂链」活动型路径，类型分散。",
+      "threshold": "能持续产出真实测评或清单，并按各项目与 PartnerStack 规范披露；单项需单独申请通过",
+      "time": "注册与申请常见数个工作日量级；见效取决于内容与受众匹配",
+      "fit": "已有工具测评、Newsletter 或垂直社群受众的人；预估投入：每周4小时",
+      "why": "PartnerStack 官方 Marketplace（market.partnerstack.com）提供可浏览的联盟/合作伙伴项目目录；Partners 页说明可加入生态推广软件并获得佣金。上榜理由：相对昨日 AppSumo Deal 路径，今天换「B2B SaaS 联盟目录」工具活动型路径，类型分散。",
       "steps": [
-        "打开 appsumo.com/p/affiliates 阅读说明并申请，同时浏览 Affiliate Terms 了解披露与禁止事项",
-        "只推荐你真正用过或能说清适用边界的工具，在内容中按规范披露联盟关系",
-        "跟踪哪些清单/测评转化更好，淘汰纯噱头 Deal，避免夸大效果"
+        "打开 market.partnerstack.com 浏览品类与佣金说明，注册 Partner 账号",
+        "只申请你真正用过或能说清适用边界的项目，在内容中按规范披露合作关系",
+        "跟踪哪些清单/测评转化更好，淘汰纯噱头产品，避免夸大效果"
       ],
-      "risk": "风险等级：中。佣金比例、Cookie 与上限以当时合同为准；退款与违规推广可能扣佣或封号；不保证有转化。不承诺收益。",
+      "risk": "风险等级：中。各项目佣金、Cookie 与规则不同；退款与违规推广可能扣佣；不保证有转化。不承诺收益。",
       "risk_level": "中",
-      "reason": "工具测评受众与 AppSumo Deal 匹配度高，适合做成可重复的内容挂链动作。",
-      "tags": ["工具活动", "AppSumo", "联盟", "测评", "Deal"],
+      "reason": "工具测评受众与 B2B SaaS 联盟匹配度高，适合做成可重复的内容挂链动作。",
+      "tags": [
+        "工具活动",
+        "PartnerStack",
+        "联盟",
+        "B2B SaaS",
+        "测评"
+      ],
       "sources": [
         {
-          "title": "AppSumo Affiliates",
-          "url": "https://appsumo.com/p/affiliates",
-          "publisher": "AppSumo",
+          "title": "PartnerStack - Program Directory",
+          "url": "https://market.partnerstack.com/",
+          "publisher": "PartnerStack",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         },
         {
-          "title": "AppSumo Affiliate Program - Help Center",
-          "url": "https://help.appsumo.com/article/50-appsumo-affiliate-program",
-          "publisher": "AppSumo Help Center",
+          "title": "PartnerStack Partners",
+          "url": "https://www.partnerstack.com/partners",
+          "publisher": "PartnerStack",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-02"
-        },
-        {
-          "title": "Affiliate Terms of Service",
-          "url": "https://appsumo.com/affiliate-terms-of-service/",
-          "publisher": "AppSumo",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-02"
+          "checked": "2026-11-03"
         }
       ],
-      "source_url": "https://appsumo.com/p/affiliates"
+      "source_url": "https://market.partnerstack.com/"
     }
   ]
 }
