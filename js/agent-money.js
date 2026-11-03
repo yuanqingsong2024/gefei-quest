@@ -50,6 +50,8 @@
       (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 进账方案</a>' +
       '<a class="rank-switch-btn' + (which === 'wool' ? ' active' : '') + '" href="#war-rank-ai-wool"' +
       (which === 'wool' ? ' aria-current="page"' : '') + '>AI 羊毛</a>' +
+      '<a class="rank-switch-btn' + (which === 'opc' ? ' active' : '') + '" href="#war-rank-opc"' +
+      (which === 'opc' ? ' aria-current="page"' : '') + '>OPC 一人公司</a>' +
       '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' +
       (which === 'tools' ? ' aria-current="page"' : '') + '>今日工具发掘</a></nav>';
   }

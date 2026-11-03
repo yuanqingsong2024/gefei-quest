@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 89, date: '2026-11-03', title: '新增「OPC 一人公司」栏目：政策摘要、可做业务、接活渠道与周报', tag: '新功能', href: '#war-rank-opc',
+      items: ['导航「赚钱 → OPC 一人公司」（#war-rank-opc）；政策 / 业务 / 渠道 / 红线常青块 + 周报归档，可按类型筛选', '数据 data/opc-briefs/latest.json，内嵌 js/opc-data.js 兜底。公开整理，非法律或税务意见，不承诺收益，不写灰产。SW 缓存 58'] },
     { id: 88, date: '2026-11-03', title: 'AI生活合集新增「元宝生活办事台」场景文选题', tag: '内容', href: '#war-rank-ai-life',
       items: ['「AI生活起号选题方案」合集置顶新增：让微信里的元宝当生活办事台——一句话点外卖／订电影／查快递（关键步骤本人确认）；含 Hy4 preview、授权边界与支付本人确认；小红书与闲鱼跟做包角度', '附智东西 / 观点网 / 澎湃号·科创板日报 / 同花顺四个来源；须切 Hy4 preview；支付与下单本人确认；不代下单不代授权；不承诺覆盖或收益。SW 缓存 57'] },
     { id: 87, date: '2026-11-03', title: '每日赚钱榜 · 2026-11-03', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Hostinger Affiliate：写主机/建站教程，合资格首购（约12个月及以上套餐）可拿约至多40%佣金（以协议为准）","No.2 Gumroad：上架原创数字下载，直连销售约10%+$0.50，Discover 约30%（以官方定价页为准）","No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
