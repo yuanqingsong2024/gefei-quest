@@ -1023,6 +1023,24 @@
       caveat: '产品审计在登录后；勿链公网 autograph.ai 当试用。',
       url: './starters/geo-checklist/',
     },
+    {
+      id: 'ch-aeo-checklist-starter',
+      cat: 'hosting',
+      name: 'AEO Tools Checklist 英文练站页',
+      blurb: '文件与工具链选型（llms.txt、schema、AI index）；CTA 为 Waitlist，无公网假审计链接。',
+      how: '打开 starters/aeo-checklist/ → 接自己的 waitlist → 按 README 部署。',
+      caveat: '生成文件不等于被引用；产品审计在登录后；勿链公网 autograph.ai 当试用。',
+      url: './starters/aeo-checklist/',
+    },
+    {
+      id: 'ch-ai-image-enhancer-starter',
+      cat: 'hosting',
+      name: 'AI Image Enhancer 英文对比练站页',
+      blurb: '按场景选保真增强、放大或生成式补细节；无上传。CTA 为 Waitlist。',
+      how: '打开 starters/ai-image-enhancer/ → 接自己的 waitlist → 按 README 部署。',
+      caveat: '价格以官网为准；不承诺第一名或流量；本页不做真实增强。',
+      url: './starters/ai-image-enhancer/',
+    },
 
     {
       id: 'ch-station-three-playbook',
@@ -1438,6 +1456,14 @@
     {
       title: 'GEO / AI SEO Checklist Starter',
       url: './starters/geo-checklist/',
+    },
+    {
+      title: 'AEO Checklist / AEO Tools Starter',
+      url: './starters/aeo-checklist/',
+    },
+    {
+      title: 'AI Image Enhancer Starter',
+      url: './starters/ai-image-enhancer/',
     },
     {
       title: '站二作战手册',
