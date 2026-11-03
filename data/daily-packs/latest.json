@@ -1,47 +1,44 @@
 {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "timezone": "Asia/Shanghai",
-  "updated": "2026-11-02T09:26:52+08:00",
-  "title": "每日执行包｜闲鱼Notion工作区搭建培训 + Netlify计算器续作 + 选词备忘",
-  "source": "attachments/2026-11-02",
+  "updated": "2026-11-03T09:31:07+08:00",
+  "title": "每日执行包｜闲鱼Excel看板定制讲解 + Cloudflare计算器续作 + 选词备忘",
+  "source": "attachments/2026-11-03",
   "primary": [
-    "闲鱼 Notion 工作区搭建与使用培训（榜单 No.7）"
+    "闲鱼 Excel/数据看板定制与讲解（榜单 No.7；侧重30分钟讲解加购）"
   ],
   "side": [
-    "Netlify 英文工具小站续作 Stacked Discount Calculator（榜单 No.3）",
+    "Cloudflare Pages 英文工具小站续作 Stacked Discount Calculator（榜单 No.3；黑五约24天）",
     "轻量选词备忘 how-to/对比（呼应榜单 No.8）"
   ],
   "deferred": [
-    "DigitalOcean 联盟（站未稳）",
-    "Lemon Squeezy（大陆收款未就绪）",
-    "YouTube（投入高）",
-    "Canva Creators",
-    "Notion Marketplace（先闲鱼接单再沉淀）",
-    "AppSumo（缺受众）",
-    "PayPal AI 黑客松（本周再评）",
-    "Kiroween（仅额度提醒）",
-    "Polotno 案例（仅方法对照：避开拥挤B2C、做可嵌入组件/SDK）"
+    "Hostinger 联盟（站未稳）",
+    "Gumroad / Payhip（大陆收款未就绪）",
+    "微信流量主（养号周期长）",
+    "Figma（门槛/地区）",
+    "PartnerStack（缺受众）",
+    "RightBlogger 案例（仅方法对照：先养窄受众再做产品；不承诺可复现收入）"
   ],
   "files": [
     {
-      "path": "今日执行卡-2026-11-02.md",
+      "path": "今日执行卡-2026-11-03.md",
       "kind": "exec-card",
-      "note": "当日45–60分钟步骤、周一复盘、工具、合规、暂缓与反馈问句"
+      "note": "当日45–60分钟步骤、工具、合规、暂缓与反馈问句（无周一复盘）"
     },
     {
-      "path": "闲鱼上架文案-Notion工作区搭建培训.md",
+      "path": "闲鱼上架文案-Excel看板定制讲解.md",
       "kind": "xianyu-copy",
-      "note": "标题3候选、正文、交付边界、禁发自检、3条客服模板"
+      "note": "标题3候选、正文、交付边界含30分钟讲解、禁发自检、3条客服模板"
     },
     {
-      "path": "闲鱼-Notion工作区搭建培训交付包.xlsx",
+      "path": "闲鱼-Excel看板定制讲解交付包.xlsx",
       "kind": "xianyu-sheet",
-      "note": "八表+样例内容日历工作区（青松内容工作室虚构）"
+      "note": "九表+讲解大纲；样例青松短视频工作室周报看板"
     },
     {
       "path": "stacked-discount-calculator/index.html",
       "kind": "page-draft",
-      "note": "黑五2026倒计时约25天/动态天数；含About/Privacy/FAQ；无跟踪"
+      "note": "黑五2026倒计时约24天/动态天数；含About/Privacy/FAQ；无跟踪"
     },
     {
       "path": "stacked-discount-calculator/_redirects",
@@ -49,9 +46,9 @@
       "note": "静态站占位，可选"
     },
     {
-      "path": "stacked-discount-calculator/netlify-notes.md",
+      "path": "stacked-discount-calculator/cloudflare-pages-notes.md",
       "kind": "deploy-notes",
-      "note": "Netlify Drop/CLI/Git 中文简述；已有CF/Vercel则无痕复核"
+      "note": "CF Direct Upload/wrangler/Git；已有CF/Netlify/Vercel/GH Pages则无痕复核"
     },
     {
       "path": "选词备忘-how-to对比.md",
@@ -61,7 +58,7 @@
   ],
   "excluded": [
     {
-      "path": "money-rank-2026-11-02.json",
+      "path": "money-rank-2026-11-03.json",
       "reason": "榜单已在 data/money-rank/，同步脚本跳过；勿列入 files"
     }
   ],

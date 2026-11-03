@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-03",
+  "timezone": "Asia/Shanghai",
+  "updated": "2026-11-03T09:31:07+08:00",
+  "title": "每日执行包｜闲鱼Excel看板定制讲解 + Cloudflare计算器续作 + 选词备忘",
+  "source": "attachments/2026-11-03",
+  "primary": [
+    "闲鱼 Excel/数据看板定制与讲解（榜单 No.7；侧重30分钟讲解加购）"
+  ],
+  "side": [
+    "Cloudflare Pages 英文工具小站续作 Stacked Discount Calculator（榜单 No.3；黑五约24天）",
+    "轻量选词备忘 how-to/对比（呼应榜单 No.8）"
+  ],
+  "deferred": [
+    "Hostinger 联盟（站未稳）",
+    "Gumroad / Payhip（大陆收款未就绪）",
+    "微信流量主（养号周期长）",
+    "Figma（门槛/地区）",
+    "PartnerStack（缺受众）",
+    "RightBlogger 案例（仅方法对照：先养窄受众再做产品；不承诺可复现收入）"
+  ],
+  "files": [
+    {
+      "path": "今日执行卡-2026-11-03.md",
+      "kind": "exec-card",
+      "note": "当日45–60分钟步骤、工具、合规、暂缓与反馈问句（无周一复盘）"
+    },
+    {
+      "path": "闲鱼上架文案-Excel看板定制讲解.md",
+      "kind": "xianyu-copy",
+      "note": "标题3候选、正文、交付边界含30分钟讲解、禁发自检、3条客服模板"
+    },
+    {
+      "path": "闲鱼-Excel看板定制讲解交付包.xlsx",
+      "kind": "xianyu-sheet",
+      "note": "九表+讲解大纲；样例青松短视频工作室周报看板"
+    },
+    {
+      "path": "stacked-discount-calculator/index.html",
+      "kind": "page-draft",
+      "note": "黑五2026倒计时约24天/动态天数；含About/Privacy/FAQ；无跟踪"
+    },
+    {
+      "path": "stacked-discount-calculator/_redirects",
+      "kind": "deploy-helper",
+      "note": "静态站占位，可选"
+    },
+    {
+      "path": "stacked-discount-calculator/cloudflare-pages-notes.md",
+      "kind": "deploy-notes",
+      "note": "CF Direct Upload/wrangler/Git；已有CF/Netlify/Vercel/GH Pages则无痕复核"
+    },
+    {
+      "path": "选词备忘-how-to对比.md",
+      "kind": "trends-sheet",
+      "note": "预填8个候选词；趋势/搜索量手填；不编造数字"
+    }
+  ],
+  "excluded": [
+    {
+      "path": "money-rank-2026-11-03.json",
+      "reason": "榜单已在 data/money-rank/，同步脚本跳过；勿列入 files"
+    }
+  ],
+  "privacy": "仅收录可公开交付物；不含客户私聊、账号凭证、真实订单隐私。样例工作室名为虚构。"
+}
