@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AEO Tools Explained: llms.txt, Schema, and AI Index—Without Fake Citation Scores</title>
+    <meta
+      name="description"
+      content="Compare AEO tool shapes—CLI kits like aeo.js, free llms.txt generators, and brief builders—then join the waitlist for in-product audit and schema tools (no public fake audit link)."
+    />
+    <!-- Alternate title/meta (not live): llms.txt Generator vs AEO Toolchain: What Indie Sites Should Ship First | A practical map of the files answer engines look for, how they differ from a GEO checklist, and when DIY generators are enough for indie publishers. -->
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fafaf8;
+        --card: #fff;
+        --ink: #1c1917;
+        --muted: #57534e;
+        --accent: #0f766e;
+        --accent-soft: #ccfbf1;
+        --line: #e7e5e4;
+        --ok: #15803d;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.55;
+        overflow-wrap: break-word;
+      }
+      header, main, footer {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 24px 20px;
+      }
+      header { padding-top: 40px; }
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.45rem, 4vw, 1.85rem);
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+      }
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1.25rem;
+        letter-spacing: -0.015em;
+      }
+      h3 {
+        margin: 18px 0 8px;
+        font-size: 1.05rem;
+      }
+      .tag { color: var(--muted); margin: 0 0 18px; }
+      .lede { margin: 0 0 16px; }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 20px;
+        margin: 16px 0;
+      }
+      a { color: var(--accent); }
+      nav { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+      nav a { text-decoration: none; font-size: 0.95rem; }
+      nav a:hover { text-decoration: underline; }
+      footer {
+        color: var(--muted);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--line);
+        margin-top: 32px;
+      }
+      code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; }
+      pre.sample {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 12px 14px;
+        overflow-x: auto;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.8rem;
+        line-height: 1.45;
+        margin: 12px 0 0;
+      }
+      .cta {
+        display: inline-block;
+        margin: 6px 8px 6px 0;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        font-size: 0.95rem;
+      }
+      .cta:hover { filter: brightness(0.95); }
+      .cta-ghost {
+        background: transparent;
+        color: var(--accent);
+        border: 1px solid var(--accent);
+      }
+      .grid-3, .flow {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr;
+      }
+      @media (min-width: 640px) {
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .flow { grid-template-columns: 1fr auto 1.15fr; align-items: center; }
+      }
+      .pill-card {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 14px;
+        height: 100%;
+      }
+      .pill-card h3 { margin-top: 0; }
+      .pill-card ul { margin: 8px 0 0; padding-left: 1.1rem; }
+      .pill-card .label {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+      .arrow {
+        text-align: center;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 1.35rem;
+        margin: 0;
+      }
+      .checklist label {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--line);
+        cursor: pointer;
+      }
+      .checklist label:last-child { border-bottom: none; }
+      .checklist input { margin-top: 4px; flex-shrink: 0; }
+      .checklist .why {
+        display: block;
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-top: 2px;
+      }
+      .progress {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin: 0 0 8px;
+      }
+      .progress strong { color: var(--ok); }
+      .table-scroll { overflow-x: auto; }
+      table.compare {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+      }
+      table.compare th, table.compare td {
+        border: 1px solid var(--line);
+        padding: 10px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.compare th { background: var(--bg); }
+      .note {
+        background: var(--accent-soft);
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 0.92rem;
+        margin-top: 12px;
+      }
+      .faq dt { font-weight: 650; margin-top: 14px; }
+      .faq dd { margin: 6px 0 0; color: var(--ink); }
+      .path-note {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin-top: 10px;
+      }
+      ol.steps { margin: 8px 0 0; padding-left: 1.2rem; }
+      ol.steps li { margin: 6px 0; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Primary">
+        <a href="#home">Home</a>
+        <a href="#files">Files</a>
+        <a href="#tools">Tools</a>
+        <a href="#brief">Brief</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#geo">GEO checklist</a>
+        <a href="#waitlist">Waitlist</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <h1 id="home">AEO Tools Explained: llms.txt, Schema, and AI Index—Without Fake Citation Scores</h1>
+      <p class="tag">
+        For indie sites and content teams who already know a little SEO and now
+        need to choose a CLI, an online generator, or a logged-in product.
+      </p>
+      <p class="lede">
+        <strong>AEO tools</strong> help you publish and check the machine-readable
+        files answer engines may look for — a curated
+        <strong>llms.txt</strong>, schema that matches the page, a sitemap, crawl
+        notes, and sometimes an <strong>AI index</strong>. Shipping those files
+        does <strong>not</strong> guarantee a citation from ChatGPT, Perplexity,
+        or Google AI Overviews, and it does not promise traffic, rankings, or revenue.
+      </p>
+      <a class="cta" href="#waitlist">Join the waitlist</a>
+      <a class="cta cta-ghost" href="#waitlist">申请试用</a>
+      <a class="cta cta-ghost" href="#checklist">Open the checklist</a>
+      <p class="path-note">
+        Practice path (gefei-quest starter):
+        <code>starters/aeo-checklist/</code> · draft route name
+        <code>/aeo-tools</code> · production site still TBD.
+        Vocabulary and the GEO vs SEO checklist live on a different page — see
+        <a href="#geo">How this relates to our GEO checklist</a>.
+      </p>
+    </header>
+
+    <main>
+      <section class="card" id="files" aria-labelledby="files-h">
+        <h2 id="files-h">AEO toolchain in one diagram</h2>
+        <p>
+          People read a page. Machines also look for a small set of files that
+          point at that page. Build the human page first. Then publish the file
+          layer, and check that both say the same thing.
+        </p>
+        <div class="flow" role="group" aria-label="From a human page to machine-readable files">
+          <article class="pill-card">
+            <span class="label">People read</span>
+            <h3>The page</h3>
+            <p>Answer-first HTML: one job, a direct answer, visible proof, and a stable canonical URL.</p>
+          </article>
+          <p class="arrow" aria-hidden="true">→</p>
+          <article class="pill-card">
+            <span class="label">Machines read</span>
+            <h3>The file layer</h3>
+            <ul>
+              <li>llms.txt / optional llms-full.txt</li>
+              <li>schema (JSON-LD) for AI search</li>
+              <li>sitemap</li>
+              <li>AI-oriented robots notes</li>
+              <li>optional ai-index</li>
+            </ul>
+          </article>
+        </div>
+
+        <h3>What each file is for</h3>
+        <p>
+          Every row below is a delivery, not a promise. None of these files can
+          guarantee that ChatGPT or any other answer engine will quote you.
+        </p>
+        <div class="table-scroll">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col">File</th>
+                <th scope="col">Purpose, in plain English</th>
+                <th scope="col">What it does not do</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">llms.txt</th>
+                <td>A short site summary plus a curated list of important URLs, written so an agent or a person can see where to start.</td>
+                <td>Does not guarantee a citation, a ranking, or that every model fetches it.</td>
+              </tr>
+              <tr>
+                <th scope="row">llms-full.txt</th>
+                <td>A longer markdown-style mirror of key pages, only if you can keep it in sync with the live HTML.</td>
+                <td>Does not mean a model will read the whole file, and a stale mirror can contradict the page.</td>
+              </tr>
+              <tr>
+                <th scope="row">Schema (JSON-LD)</th>
+                <td>Labels such as FAQ or Article when the visible page really is that type. This is schema for AI search only when it matches what a visitor can read.</td>
+                <td>Does not force rich results or citations. Mismatched markup is noise.</td>
+              </tr>
+              <tr>
+                <th scope="row">sitemap.xml</th>
+                <td>A discovery list of canonical URLs you want found.</td>
+                <td>Does not force indexing, ranking, or inclusion in an AI answer.</td>
+              </tr>
+              <tr>
+                <th scope="row">robots.txt</th>
+                <td>Documents which paths crawlers may fetch. Read each vendor’s current bot notes before you allow or block.</td>
+                <td>Does not make every vendor honor the file the same way, and it is not a traffic switch.</td>
+              </tr>
+              <tr>
+                <th scope="row">ai-index (optional)</th>
+                <td>Some CLI kits also emit an extra machine index next to the files above. Useful when your build is the source of truth.</td>
+                <td>Does not create an official industry score. A product demo number is not a ChatGPT or Google grade.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Example llms.txt snippet</h3>
+        <p>
+          A short practice draft. Replace the example.com links with your own
+          canonical URLs, serve the file as text, and then check that each link
+          resolves. Generating this text and hosting it are two different jobs.
+        </p>
+        <pre class="sample"># Practice snippet — not a live specification
+# Publishing a file like this does not guarantee any model will cite you.
+
+&gt; Indie notes on answer-engine files and checklists.
+
+## Start here
+- [AEO tools toolchain](https://example.com/aeo-tools): Which files to ship, and which tool shape to use
+- [GEO checklist](https://example.com/geo-checklist): Vocabulary plus an actionable checklist</pre>
+      </section>
+
+      <section class="card" id="tools" aria-labelledby="tools-h">
+        <h2 id="tools-h">Tool shapes compared (not a paid ranking)</h2>
+        <p>
+          Search results for “llms.txt generator” are crowded with single-file
+          tools. This table is about <em>shape</em>: what gets produced, and who
+          should bother. It is not a sponsor ranking. Prices and plan limits are
+          <strong>unverified — check the vendor site</strong>. We are not
+          affiliated with the projects named here. Notes below reflect a
+          2026-11-03 reading of public pages, which can change.
+        </p>
+        <div class="table-scroll">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col">Tool shape</th>
+                <th scope="col">What you get</th>
+                <th scope="col">Who it fits</th>
+                <th scope="col">Price / scores</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">CLI / framework kit (aeo.js-class)</th>
+                <td>
+                  Build-time output described by
+                  <a href="https://aeojs.org/">aeo.js</a>: robots, llms.txt,
+                  llms-full, sitemap, schema, and an ai-index, plus optional UI
+                  widgets. That is a capability description, not a copied manual.
+                </td>
+                <td>Teams that already ship with Astro, Next, or a similar pipeline and want the file set on every build.</td>
+                <td>Unverified — check the project site. Their “GEO Readiness Score” is a product demo, not an official industry AEO or GEO score.</td>
+              </tr>
+              <tr>
+                <th scope="row">Online llms.txt generator</th>
+                <td>A draft of one llms.txt you can edit. You still have to host it and fix the links.</td>
+                <td>A single page or a small site that wants an editable map before any build tooling.</td>
+                <td>Unverified — check the vendor site. Free tiers and limits change. A draft is not proof the file is crawlable.</td>
+              </tr>
+              <tr>
+                <th scope="row">AEO brief generator</th>
+                <td>
+                  An <strong>answer engine optimization brief</strong> for one
+                  query. The
+                  <a href="https://llmstxtkit.com/tools/answer-engine-optimization-brief-generator.html">llmstxtkit brief generator</a>
+                  pattern covers title, meta, H1, a direct answer, a proof plan,
+                  FAQ schema, an llms.txt entry, and a measurement checklist.
+                </td>
+                <td>Writers who should decide the answer and the proof before they generate files.</td>
+                <td>Unverified — check the vendor site. A brief is a plan, not a citation and not a traffic forecast.</td>
+              </tr>
+              <tr>
+                <th scope="row">Full “audit + fix” platform</th>
+                <td>Logged-in checks and helpers (crawl notes, citability comments, schema). Ours, when it exists, stays inside the product after you sign in.</td>
+                <td>A team that already knows which files it needs and wants a repeatable in-product pass.</td>
+                <td>No public price on this page. Competitor pricing: check their sites. There is no public audit link here, and no official citation score.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>When a free generator is enough</h3>
+        <p>
+          Use a free <strong>llms.txt generator</strong> when the site is small
+          and you only need a curated draft: a summary and a handful of URLs you
+          can edit by hand. After that, serve the file as plain text at the
+          location you advertise (often the site root), open it in a browser, and
+          click every link. If the draft never gets hosted, you do not have an
+          AEO toolchain yet — you have a text file in a tab.
+        </p>
+
+        <h3>When a framework kit wins</h3>
+        <p>
+          Use an aeo.js-class kit when the site already has a build. You want
+          robots, llms.txt, llms-full, sitemap, schema, and an optional ai-index
+          to update when the pages update, instead of pasting one file and
+          forgetting it. That fit is about the pipeline you have, not about a
+          higher “readiness” number. Do not paste a vendor’s demo score on your
+          homepage as if an answer engine had graded you.
+        </p>
+      </section>
+
+      <section class="card" id="brief" aria-labelledby="brief-h">
+        <h2 id="brief-h">From brief → page → files</h2>
+        <p>
+          The useful order is the same shape as a good answer engine optimization
+          brief: one query, one answer, proof a reader can open, then the files
+          that point at the finished page. A generator that skips the answer
+          still leaves you with a thin map.
+        </p>
+        <ol class="steps">
+          <li><strong>One searcher job.</strong> Name the query and the person. Do not blend three products into one H1.</li>
+          <li><strong>A quotable direct answer.</strong> Two to four sentences under the H1, in the HTML, not only in a widget.</li>
+          <li><strong>A proof plan.</strong> Link the claim to a source the reader can check. Visible dates and author names count.</li>
+          <li><strong>The landing page.</strong> Title, meta, H1, and the answer all describe that same job.</li>
+          <li><strong>The llms.txt entry.</strong> One line, the canonical URL, and a description that matches the H1.</li>
+          <li><strong>A measurement note.</strong> Log whether the file is fetched if you want. A crawler hit is not a user, a citation, or revenue.</li>
+        </ol>
+        <p class="note">
+          This practice page follows that order on purpose: the job is “which
+          AEO tools and files should an indie site ship,” the answer is the file
+          list and the tool-shape table, and the checklist is the measurement
+          habit. It does not claim an official score.
+        </p>
+      </section>
+
+      <section class="card" id="checklist" aria-labelledby="checklist-h">
+        <h2 id="checklist-h">Checklist: access, answers, artifacts, proof, measure</h2>
+        <p class="progress" id="progress" aria-live="polite">Checked <strong>0</strong> of <strong>0</strong></p>
+        <p>
+          Tick items as you finish them. This browser stores the ticks in
+          <span class="mono">localStorage</span> under
+          <span class="mono">gefei-aeo-checklist-v1</span>.
+          Printing the page works if you would rather use paper.
+        </p>
+
+        <h3>Access</h3>
+        <div class="checklist" data-group="access">
+          <label>
+            <input type="checkbox" data-key="access-llms" />
+            <span>
+              Open the llms.txt URL you publish and confirm a plain-text 200, not an HTML app shell.
+              <span class="why">Why: a generator preview is not the file crawlers would request.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="access-links" />
+            <span>
+              Every URL inside that file resolves to the canonical page you mean (no soft-404s).
+              <span class="why">Why: a map of broken links teaches nobody the right URL to quote.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="access-sitemap" />
+            <span>
+              sitemap.xml lists those same canonical URLs.
+              <span class="why">Why: the file layer should agree about which URL is real.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="access-robots" />
+            <span>
+              robots.txt does not accidentally disallow llms.txt or the pages you hope will be fetched.
+              <span class="why">Why: read current bot documentation before you allow or block. Guessing is not a policy.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>Answer-first</h3>
+        <div class="checklist" data-group="answer">
+          <label>
+            <input type="checkbox" data-key="answer-lede" />
+            <span>
+              Each important URL answers one searcher job in the first screen.
+              <span class="why">Why: files only point at the page. The page still has to state the fact.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="answer-meta" />
+            <span>
+              Title, meta description, and H1 describe that same job.
+              <span class="why">Why: three different promises make a weak llms.txt line and a weak quote.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="answer-entity" />
+            <span>
+              Product and author names match the About page spelling.
+              <span class="why">Why: inconsistent names make attribution harder for people and for machines.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>Artifacts</h3>
+        <div class="checklist" data-group="artifacts">
+          <label>
+            <input type="checkbox" data-key="art-llms" />
+            <span>
+              llms.txt is a curated map, not a dump of every tag or parameter URL.
+              <span class="why">Why: a short list of real pages is easier to maintain and easier to trust.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="art-full" />
+            <span>
+              If you publish llms-full.txt or a markdown mirror, it matches the live page — or you take it down.
+              <span class="why">Why: a stale mirror can contradict the answer you want quoted.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="art-schema" />
+            <span>
+              JSON-LD matches visible text. Validate it. Skip types the page is not.
+              <span class="why">Why: schema for AI search is only useful when a human can see the same facts.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="art-index" />
+            <span>
+              If the build emits an ai-index, you know which file is the source of truth, and you do not treat a demo score as official.
+              <span class="why">Why: extra indexes help only when they cannot drift away from the page.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>Proof</h3>
+        <div class="checklist" data-group="proof">
+          <label>
+            <input type="checkbox" data-key="proof-sources" />
+            <span>
+              Claims that matter link to a primary source a reader can open.
+              <span class="why">Why: an answer engine optimization brief without proof is a slogan.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="proof-date" />
+            <span>
+              Evergreen guides show a visible updated date.
+              <span class="why">Why: undated instructions about files and bots go stale quietly.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="proof-entry" />
+            <span>
+              The llms.txt line for this page uses the canonical URL and a one-line description that matches the H1.
+              <span class="why">Why: the entry is how the file layer names the page. Keep the names aligned.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3>Measure (a crawler hit is not user traffic)</h3>
+        <div class="checklist" data-group="measure">
+          <label>
+            <input type="checkbox" data-key="measure-logs" />
+            <span>
+              If you read server logs, label llms.txt fetches as crawler fetches — not visits, leads, or revenue.
+              <span class="why">Why: a bot request is evidence the URL responded, nothing more.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="measure-spot" />
+            <span>
+              Once a month, spot-check a few priority queries in answer UIs and note whether any claim about you is accurate.
+              <span class="why">Why: a written spot check beats inventing an official citation rate.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="measure-gsc" />
+            <span>
+              Keep Search Console (or your equivalent) for coverage and queries. Do not publish a homemade “AEO score.”
+              <span class="why">Why: classic discovery is still the baseline you can defend to a teammate.</span>
+            </span>
+          </label>
+        </div>
+        <p>
+          <button type="button" class="cta cta-ghost" id="reset-checks">Reset checklist</button>
+        </p>
+      </section>
+
+      <section class="card" id="geo" aria-labelledby="geo-h">
+        <h2 id="geo-h">How this relates to our GEO checklist</h2>
+        <p>
+          The two practice pages split the work so neither one repeats the other.
+          Vocabulary (GEO vs AEO vs classic SEO) and the general actionable
+          checklist live on the
+          <a href="../geo-checklist/">GEO checklist</a>.
+          Files and tool shapes live on this page. Read that page when you need
+          the words. Stay here when you need to decide what to generate.
+        </p>
+        <div class="table-scroll">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">GEO checklist (already published)</th>
+                <th scope="col">This AEO toolchain page</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Main job</th>
+                <td>Vocabulary plus an actionable checklist, and a plain agency vs DIY line.</td>
+                <td>Which files to generate or validate, and which tool shape fits (CLI, generator, brief, platform).</td>
+              </tr>
+              <tr>
+                <th scope="row">Practice path</th>
+                <td><a href="../geo-checklist/"><code>starters/geo-checklist/</code></a></td>
+                <td><code>starters/aeo-checklist/</code> · draft route <code>/aeo-tools</code> · site TBD</td>
+              </tr>
+              <tr>
+                <th scope="row">Call to action</th>
+                <td>Waitlist / 申请试用</td>
+                <td>Waitlist / 申请试用 — same rule, no public audit link</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="path-note">
+          We do not restate a long GEO vs AEO essay here. If you only remember
+          one split: words and checks on the GEO checklist; files and tool
+          choice on this page.
+        </p>
+      </section>
+
+      <section class="card" id="waitlist" aria-labelledby="waitlist-h">
+        <h2 id="waitlist-h">Waitlist / 申请试用</h2>
+        <p>
+          Site audit, citability or GEO-style notes, and schema helpers — if we
+          ship them — are <strong>in-product capabilities after you sign in</strong>.
+          This practice page has <strong>no public audit URL</strong>. There is
+          nothing to click that scores your domain on the open web, and we do
+          not pretend a third-party demo score is an official AEO grade.
+        </p>
+        <p>
+          The only ask is to join the waitlist and, when a seat exists,
+          <strong>apply for a trial (申请试用)</strong>. Early access is not a
+          ranking boost, a citation guarantee, or a revenue plan.
+        </p>
+        <a class="cta" href="#waitlist-form">Join the waitlist</a>
+        <a class="cta cta-ghost" href="#waitlist-form">申请试用</a>
+
+        <div class="note" id="waitlist-form">
+          <p style="margin: 0 0 8px">
+            <strong>Waitlist (practice landing)</strong> — replace this block with
+            your real form, ESP embed, or Typeform when you deploy your own copy.
+            Until then, treat interest as an email to yourself with the subject
+            “AEO tools waitlist” and the site whose files you would check first.
+          </p>
+          <p style="margin: 0" class="path-note">
+            Honest boundary: no official citation rate, no traffic or revenue
+            promises, no grey-hat cloaking or bot-only text. In-product checks,
+            when they exist, require login. This starter only offers Waitlist /
+            申请试用.
+          </p>
+        </div>
+      </section>
+
+      <section class="card" id="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">FAQ</h2>
+        <dl class="faq">
+          <dt>What are AEO tools?</dt>
+          <dd>
+            AEO tools help you make pages easier for AI answer engines to discover and quote. In practice that usually means generating or validating machine-readable artifacts—such as llms.txt, structured data (schema), sitemaps, and AI-oriented crawl rules—plus planning answer-first pages. They do not issue an official “citation score” from ChatGPT or Google.
+          </dd>
+
+          <dt>Is an llms.txt generator enough?</dt>
+          <dd>
+            An llms.txt generator is a good first step for publishing a curated map of important URLs, but it does not replace clear answers on the page, consistent entities, or measurement. After you publish, verify the file is served as text at the site root and that linked URLs resolve; generating a draft and serving a crawlable file are separate jobs.
+          </dd>
+
+          <dt>How is an AEO brief different from a classic SEO brief?</dt>
+          <dd>
+            An AEO-oriented brief still needs keywords and outline structure, but it prioritizes one searcher job, a quotable direct answer, visible proof links, FAQ/schema candidates, an llms.txt entry, and a measurement plan that does not treat crawler hits as user traffic or promise guaranteed AI citations.
+          </dd>
+
+          <dt>Will this checklist guarantee AI citations, rankings, or revenue?</dt>
+          <dd>
+            No. It is a way to pick files and a tool shape, then check your own
+            work. Anyone promising a guaranteed citation rate or a traffic outcome
+            from an llms.txt file is selling certainty they do not control.
+          </dd>
+        </dl>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        © <span id="y"></span> AEO tools checklist starter · Practice landing ·
+        Draft route <code>/aeo-tools</code> · Site TBD ·
+        No traffic, ranking, or revenue guarantee · No official AEO or GEO score
+      </p>
+      <p>
+        <a href="../../index.html">gefei-quest</a>
+        · <a href="../geo-checklist/">GEO checklist</a>
+        · Further reading (researched 2026-11-03, not endorsements):
+        <a href="https://aeojs.org/">aeo.js</a>,
+        <a href="https://llmstxtkit.com/tools/answer-engine-optimization-brief-generator.html">AEO brief generator</a>
+      </p>
+      <p class="path-note">
+        We are not affiliated with aeo.js or llmstxtkit. Their pages can change
+        after this note. Do not copy a vendor demo score forward as an industry grade.
+      </p>
+    </footer>
+    <script>
+      (function () {
+        document.getElementById('y').textContent = new Date().getFullYear();
+        var STORAGE = 'gefei-aeo-checklist-v1';
+        var boxes = Array.prototype.slice.call(
+          document.querySelectorAll('.checklist input[type="checkbox"]')
+        );
+        var progress = document.getElementById('progress');
+        var saved = {};
+        try {
+          saved = JSON.parse(localStorage.getItem(STORAGE) || '{}') || {};
+        } catch (e) {
+          saved = {};
+        }
+
+        function render() {
+          var on = 0;
+          boxes.forEach(function (el) {
+            if (el.checked) on += 1;
+          });
+          progress.innerHTML =
+            'Checked <strong>' + on + '</strong> of <strong>' + boxes.length + '</strong>';
+        }
+
+        function persist() {
+          var next = {};
+          boxes.forEach(function (el) {
+            next[el.getAttribute('data-key')] = !!el.checked;
+          });
+          try {
+            localStorage.setItem(STORAGE, JSON.stringify(next));
+          } catch (e) {}
+          render();
+        }
+
+        boxes.forEach(function (el) {
+          var key = el.getAttribute('data-key');
+          if (saved[key]) el.checked = true;
+          el.addEventListener('change', persist);
+        });
+        render();
+
+        var reset = document.getElementById('reset-checks');
+        if (reset) {
+          reset.addEventListener('click', function () {
+            boxes.forEach(function (el) {
+              el.checked = false;
+            });
+            persist();
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
