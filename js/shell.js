@@ -86,6 +86,7 @@
       'war-share': '分享 分发 发帖 x 推特 微博 小红书 知乎 公众号 reddit linkedin pinterest facebook medium telegram whatsapp',
       'war-publish': 'github pages 部署 发布 token pat',
       'war-keywords': '灵感 联想 autocomplete trends datamuse wikipedia hn 关键词灵感',
+      'war-rank-opc': '一人公司 一人有限责任公司 OPC 公司法 认缴 年报 小规模 小微 接活 合规 登记',
       pm: '平台变现 流量主 创作激励 分成 副业 新手怎么选',
     };
     function addNav(n) {

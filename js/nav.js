@@ -57,6 +57,8 @@
           desc: '怎么用 Agent 合法进账的每日方案，不保证收益。' },
         { id: 'war-rank-ai-wool', label: 'AI 羊毛', icon: 'tag', hash: '#war-rank-ai-wool', owns: ['war-rank-ai-wool'],
           desc: 'AI 订阅折扣、免费额度与 Token 福利，以官方为准。' },
+        { id: 'war-rank-opc', label: 'OPC 一人公司', short: 'OPC', icon: 'build', hash: '#war-rank-opc', owns: ['war-rank-opc'],
+          desc: '一人公司政策摘要、可做业务与接活渠道；每周3次情报，不承诺收益。' },
         { id: 'war-tools', label: '工具发掘', icon: 'wrench', hash: '#war-tools', owns: ['war-tools'],
           desc: '每天整理的 GitHub 项目向与生活向工具，不保证收益。' },
         { id: 'pm', label: '平台变现', icon: 'wallet', hash: '#pm', owns: ['pm', 'pm-*'],
@@ -163,7 +165,7 @@
     tools: 'lib-tools', hosting: 'lib-hosting', monetize: 'lib-monetize', paths: 'lib-paths',
     xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', dashboard: 'work', 'war-work': 'work', review: 'work-review', 'weekly-review': 'work-review', 'me-review': 'work-review', fupan: 'work-review', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama', 'guide-start': 'start', onboarding: 'start', newbie: 'start',
     'home-progress': 'me', 'home-sections': 'start', 'home-tools': 'war', 'home-steps': 'start', 'home-res': 'pm', 'home-guides': 'guides',
-    learn: 'path', do: 'war', practice: 'war', earn: 'war-rank', money: 'war-rank', 'agent-money': 'war-rank-agent', 'war-agent': 'war-rank-agent', 'ai-wool': 'war-rank-ai-wool', 'war-ai-wool': 'war-rank-ai-wool', 'wool': 'war-rank-ai-wool', 'github-finds': 'war-tools', 'tool-find': 'war-tools', 'tools-find': 'war-tools', 'war-rank-tools': 'war-tools', res: 'lib',
+    learn: 'path', do: 'war', practice: 'war', earn: 'war-rank', money: 'war-rank', 'agent-money': 'war-rank-agent', 'war-agent': 'war-rank-agent', 'ai-wool': 'war-rank-ai-wool', 'war-ai-wool': 'war-rank-ai-wool', 'wool': 'war-rank-ai-wool', opc: 'war-rank-opc', 'github-finds': 'war-tools', 'tool-find': 'war-tools', 'tools-find': 'war-tools', 'war-rank-tools': 'war-tools', res: 'lib',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -268,6 +270,7 @@
     if (h === 'me-analytics') return { section: 'me', view: 'analytics', hash: h };
     if (h === 'war-rank-agent') return { section: 'war', view: 'rank-agent', hash: h };
     if (h === 'war-rank-ai-wool') return { section: 'war', view: 'rank-ai-wool', hash: h };
+    if (h === 'war-rank-opc') return { section: 'war', view: 'rank-opc', hash: h };
     if (h === 'war-tools') return { section: 'war', view: 'tools', hash: h };
     if (h === 'war-rank' || h === 'war-rank-xianyu' || h === 'war-rank-ai-life') return { section: 'war', view: 'rank', param: h === 'war-rank-xianyu' ? 'xianyu' : (h === 'war-rank-ai-life' ? 'ai-life' : ''), hash: h };
     if (h === 'me-sites') return { section: 'me', view: 'sites', hash: h };
@@ -542,10 +545,11 @@
     return '<a href="' + href + '"' + (extra || '') + extAttr(href) + '>' + esc(label) + '</a>';
   }
   function subsOf(page) {
-    if (page.id === 'war-rank') return [{ href: '#war-rank-xianyu', label: '闲鱼零成本方案' }, { href: '#war-rank-ai-life', label: 'AI生活起号选题' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-tools', label: '工具发掘' }];
-    if (page.id === 'war-rank-agent') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-tools', label: '工具发掘' }];
-    if (page.id === 'war-rank-ai-wool') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-tools', label: '工具发掘' }];
-    if (page.id === 'war-tools') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }];
+    if (page.id === 'war-rank') return [{ href: '#war-rank-xianyu', label: '闲鱼零成本方案' }, { href: '#war-rank-ai-life', label: 'AI生活起号选题' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }, { href: '#war-tools', label: '工具发掘' }];
+    if (page.id === 'war-rank-agent') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }, { href: '#war-tools', label: '工具发掘' }];
+    if (page.id === 'war-rank-ai-wool') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }, { href: '#war-tools', label: '工具发掘' }];
+    if (page.id === 'war-rank-opc') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-tools', label: '工具发掘' }];
+    if (page.id === 'war-tools') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }];
     if (page.id === 'war') return STATIONS.filter(function (s) { return s.hash !== page.hash; }).map(function (s) { return { href: s.hash, label: s.name }; });
     if (page.id === 'lib') return LIB_CATS.map(function (c) { return { href: '#lib-' + c.id, label: c.label }; });
     if (page.id === 'pm') return [{ href: '#pm-cn', label: '国内' }, { href: '#pm-global', label: '海外' }];

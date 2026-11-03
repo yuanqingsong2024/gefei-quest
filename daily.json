@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-03T04:23:11.698Z",
-  "latestId": 88,
+  "generatedAt": "2026-11-03T04:38:08.674Z",
+  "latestId": 89,
   "latestDate": "2026-11-03",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 89,
+      "date": "2026-11-03",
+      "tag": "新功能",
+      "title": "新增「OPC 一人公司」栏目：政策摘要、可做业务、接活渠道与周报",
+      "items": [
+        "导航「赚钱 → OPC 一人公司」（#war-rank-opc）；政策 / 业务 / 渠道 / 红线常青块 + 周报归档，可按类型筛选",
+        "数据 data/opc-briefs/latest.json，内嵌 js/opc-data.js 兜底。公开整理，非法律或税务意见，不承诺收益，不写灰产。SW 缓存 58"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-opc"
+    },
     {
       "id": 88,
       "date": "2026-11-03",
@@ -113,16 +124,6 @@
         "No.3 Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元——明天截止"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 79,
-      "date": "2026-10-31",
-      "tag": "修复",
-      "title": "头像菜单不再带换风格，风格只走顶栏按钮",
-      "items": [
-        "「我的」头像下拉只保留进度/统计/设置等入口；换风格只留顶栏「🎨 换风格」。SW 缓存 50"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#me"
     }
   ],
   "rank": {
