@@ -1,0 +1,464 @@
+{
+  "date": "2026-11-04",
+  "updated": "2026-11-04T09:45:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "阿里云双11千问AI会场：新用户超7000万免费 Token + Token Plan 新客首购5折（至11/30）",
+      "type": "限时促销",
+      "provider": "阿里云 / 千问 AI（百炼）",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "阿里云 2026 双11（11/1–11/30）千问 AI 会场：官方活动页写明「多款旗舰模型、应用免费体验，Token Plan 低至5折」；开发者社区解读称新用户可申领累计超 7000 万免费 Tokens，Token Plan 新客首购 5 折（Lite 约 19.5 元/月起），热门库存每日 10:00/15:00 补货。今日官方活动页 200。昨日榜未收录（昨日为常规百炼新人额度，本条为双11专项活动）。",
+      "value": "新用户累计超 7000 万免费 Tokens（以会场领取为准）· Token Plan 新客首购低至5折 · 活动至 2026-11-30",
+      "deadline": "2026-11-30",
+      "cost": "免费额度部分 0 元；Token Plan 需付费（首购折扣）；需阿里云账号实名",
+      "difficulty": 2,
+      "threshold": "阿里云新用户/新客身份；完成实名；部分额度需企业认证；热门项限量",
+      "time": "注册+实名+领额度约 20–30 分钟",
+      "fit": "想在 11 月集中低成本测 Qwen 系列与多模态模型的个人开发者/小团队",
+      "why": "大厂双11一年一次的集中让利窗口，免费额度可直接领、Token Plan 首购折扣有截止，适合写成「双11 AI 省钱清单」素材。",
+      "steps": [
+        "打开阿里云千问 AI 双11会场 aliyun.com/activity/hub/qianwenai1111",
+        "登录并完成实名认证，确认是否为新用户/新客",
+        "在会场领取免费 Tokens 体验额度，记录各模型额度与有效期",
+        "如需长期用，再评估 Token Plan 档位，确认首购折扣与续费价",
+        "日历标好 11/30 截止与每日 10:00/15:00 补货时间"
+      ],
+      "risk": "风险：额度与折扣以会场实时页面为准，限量可能抢完；首购折扣续费恢复原价；勿为凑单多买。不承诺能领到或省多少。",
+      "risk_level": "低",
+      "reason": "官方双11专项、截止明确，补昨日国内大厂活动空白。",
+      "tags": [
+        "阿里云",
+        "双11",
+        "千问",
+        "免费Token",
+        "Token Plan"
+      ],
+      "sources": [
+        {
+          "title": "阿里云千问 AI 双11会场",
+          "url": "https://www.aliyun.com/activity/hub/qianwenai1111",
+          "publisher": "阿里云",
+          "published": "2026-11-01",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "2026阿里云双十一 AI 产品特惠解读（7000万免费Token）",
+          "url": "https://developer.aliyun.com/article/1778642",
+          "publisher": "阿里云开发者社区",
+          "published": "2026-11-01",
+          "kind": "community",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "X：阿里云双11 AI 羊毛汇总",
+          "url": "https://x.com/knightleijun/status/2117598174303187431",
+          "publisher": "X/@knightleijun",
+          "published": "2026-11-03",
+          "kind": "community",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://www.aliyun.com/activity/hub/qianwenai1111",
+      "claim_howto": "会场登录实名→领免费 Tokens；Token Plan 首购按需。",
+      "stack": [
+        "阿里云百炼",
+        "Qwen",
+        "Token Plan"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "商汤 SenseNova Token Plan 公测 Free 档 ¥0/月（6.8 Flash 上线）",
+      "type": "免费额度",
+      "provider": "商汤日日新 SenseNova",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "商汤 11/2 发布 SenseNova 6.8 Flash 并同步开放 Token Plan；官方 Token Plan 页写「公测期完全免费开放，付费档位即将上线」「Free · 公测 限时放量」。社区核验：通用积分每 5 小时 12 万、每周 120 万，最多 20 个 API Key，OpenAI/Anthropic 兼容接口 token.sensenova.cn/v1。官方未写公测截止。昨日榜未收录。",
+      "value": "Free 档 ¥0/月 · 通用积分约 12 万/5 小时、120 万/周（以控制台为准）· 最多 20 个 Key",
+      "deadline": "官方未写公测截止（调整会提前通知）",
+      "cost": "0 元；需注册并验证手机号",
+      "difficulty": 1,
+      "threshold": "国内手机号注册；遵守平台条款；积分与调用换算以控制台为准",
+      "time": "注册+建 Key+试调约 10–15 分钟",
+      "fit": "想零成本试办公/PPT/网页类 Agent 任务、或接 Claude Code/Cline 等工具的国内用户",
+      "why": "新模型首发+公测免费，门槛最低，可做「零元接入国产模型」教程素材。",
+      "steps": [
+        "打开 sensenova.cn/token-plan，点 Free 公测「免费开始」",
+        "注册并验证手机号，进入 platform.sensenova.cn/console",
+        "在 API Keys 页创建 sk- 密钥",
+        "接口地址填 https://token.sensenova.cn/v1，模型名按文档填写（如 sensenova-6.8-flash-lite）试调",
+        "在账户页查看积分余额，记录 5 小时/每周窗口"
+      ],
+      "risk": "风险：公测随时调整或收费；积分换算未公开；新模型稳定性待验证。不承诺额度长期有效。",
+      "risk_level": "低",
+      "reason": "官方公测免费、门槛极低，本周新上线。",
+      "tags": [
+        "商汤",
+        "SenseNova",
+        "Token Plan",
+        "免费额度",
+        "国内API"
+      ],
+      "sources": [
+        {
+          "title": "SenseNova Token Plan 订阅方案",
+          "url": "https://www.sensenova.cn/token-plan",
+          "publisher": "商汤日日新",
+          "published": "2026-11-02",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "商汤 SenseNova 6.8 Flash 公测免费调",
+          "url": "https://mozhenzhen.com/news/sensenova-68-flash-token-plan-free-202611",
+          "publisher": "模真真",
+          "published": "2026-11-02",
+          "kind": "news",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "X：商汤 Token Plan 公测 0 元领取路径",
+          "url": "https://x.com/7eddsi/status/2117372531162173457",
+          "publisher": "X/@7eddsi",
+          "published": "2026-11-02",
+          "kind": "community",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://www.sensenova.cn/token-plan",
+      "claim_howto": "注册验证手机号→控制台建 Key→改 base URL。",
+      "stack": [
+        "SenseNova",
+        "OpenAI兼容API",
+        "Anthropic兼容API"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "AMD Radeon Cloud Token Factory：15 个免费模型 API（DeepSeek/GLM/Qwen Flash）",
+      "type": "免费额度",
+      "provider": "AMD Radeon Cloud（中国站）",
+      "region": "国内",
+      "origin": "非官方",
+      "summary": "X 博主多帖（@aiwaremax、@halozhangyu 等）实测：AMD 中国站 Token Factory 放出一排免费模型 API，免绑卡，复制 rc- Key 即可调用，含 DeepSeek-V4.1-Flash、GLM-5.3-Flash、Qwen3.8 等。已对照官方 Token Factory 页面（今日显示 15 个 Public Free Model APIs）与官方文档（每日 pts 上限北京时间 0 点重置、不消耗积分、禁止转售、不适合生产）交叉核验。热门模型常显示 At capacity。昨日榜未收录。",
+      "value": "15 个免费模型 API · 每日用量上限（pts，非费用）0 点重置 · 免绑卡",
+      "deadline": "官方未写截止（模型列表不定期调整）",
+      "cost": "0 元；需注册 AMD AI 开发者计划中国站账号（少数需审核）",
+      "difficulty": 2,
+      "threshold": "中国站账号；遵守 API 使用条款（禁止转售、OmniVoice 仅非商用）；高峰期可能排队/429",
+      "time": "注册+复制 Key+试调约 10–20 分钟",
+      "fit": "想用 OpenAI 兼容客户端（Cherry Studio 等）零成本跑国产 Flash 模型做练手/小任务的开发者",
+      "why": "多模型一个 Key 全免费，可做「一个 Key 白用 15 个模型」对比测评素材；需提示容量拥挤。",
+      "steps": [
+        "打开 developer.amd.com.cn/radeon/tokenfactory，注册/登录 AMD AI 开发者计划",
+        "在 Token Factory 顶部复制 rc- 开头的 API Key",
+        "客户端 base URL 填 https://developer.amd.com.cn/radeon/api/v1，model 填卡片上的模型 ID",
+        "先调 GET /v1/models 确认当前可用模型，避免写死",
+        "用 /v1/usage 或控制台查看当日剩余额度"
+      ],
+      "risk": "风险：热门模型 At capacity 可能长时间不可用；模型随时下架；仅限试用开发，禁止转售。非官方首发信息，以官方页面为准，不承诺可用性。",
+      "risk_level": "中",
+      "reason": "X 社区首发、官方页与文档可交叉验证的新免费 API 渠道。",
+      "tags": [
+        "AMD",
+        "Token Factory",
+        "免费API",
+        "DeepSeek",
+        "GLM"
+      ],
+      "sources": [
+        {
+          "title": "X：AMD 中国站 Token Factory 免费模型 API",
+          "url": "https://x.com/aiwaremax/status/2117255904362143775",
+          "publisher": "X/@aiwaremax",
+          "published": "2026-11-02",
+          "kind": "community",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "X：Token Factory 免绑卡、OpenAI/Anthropic 兼容实测",
+          "url": "https://x.com/halozhangyu/status/2117233981628563884",
+          "publisher": "X/@halozhangyu",
+          "published": "2026-11-02",
+          "kind": "community",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "Radeon Cloud Token Factory（官方入口）",
+          "url": "https://developer.amd.com.cn/radeon/tokenfactory",
+          "publisher": "AMD",
+          "published": "2026-11-03",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "Token Factory 文档",
+          "url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/guides/token-factory/",
+          "publisher": "AMD Radeon Cloud 文档",
+          "published": "2026-11-03",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://developer.amd.com.cn/radeon/tokenfactory",
+      "claim_howto": "注册→复制 rc- Key→改 base URL；不绑卡。",
+      "stack": [
+        "AMD Radeon Cloud",
+        "OpenAI兼容API"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Claude Max/Ultra/Team 订阅附赠每月 API credits（$100/$200/最高$500）",
+      "type": "Token福利",
+      "provider": "Anthropic（Claude）",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Anthropic 官方文档与帮助中心：Max 每月 $100、Ultra 每月 $200、Team 按席位（Standard $20/Premium $100）合并、上限 $500 的 Claude API credits；新订阅满 7 天可领，需把 Claude Console 组织绑定到订阅，无需绑卡；覆盖 Claude API、Managed Agents、Agent SDK、Playground，不覆盖 Claude Code 交互用量；每周期清零不结转。Free/Pro/Enterprise 不适用。昨日榜未收录。",
+      "value": "Max $100/月 · Ultra $200/月 · Team 最高 $500/月（API 额度，不结转）",
+      "deadline": "官方未写截止",
+      "cost": "需已付费 Max/Ultra/Team 订阅（本身不便宜，不建议为额度专门升级）",
+      "difficulty": 3,
+      "threshold": "订阅满 7 天、状态正常；订阅者/Owner 身份 + Console 组织 Owner/Admin/Billing；一订阅只能绑一个组织且不可自行更改",
+      "time": "绑定约 5–10 分钟",
+      "fit": "已在付费 Max/Ultra/Team、还想用 API 自建应用或 Agent 的用户",
+      "why": "已订阅用户常不知道有这笔「白送」API 额度，适合写成「你的 Claude 订阅里藏着 $100」科普素材。",
+      "steps": [
+        "确认已是 Max/Ultra/Team 订阅且满 7 天",
+        "claude.ai → Settings > Billing（Team 为 Organization settings > Billing）",
+        "在 API credits 区点 Link organization，选择或新建 Console 组织（慎选，不可自改）",
+        "阅读条款后完成绑定",
+        "在 platform.claude.com/settings/billing 的 Promotional credits 查看额度与到期日"
+      ],
+      "risk": "风险：额度不结转、不能用于 Claude Code 交互；绑定组织不可自行更改；地区可用性以官方为准。不承诺适用于所有账号，勿为领额度升级订阅。",
+      "risk_level": "低",
+      "reason": "官方长期福利，信息清晰可复现，昨日榜缺海外 Token 福利。",
+      "tags": [
+        "Claude",
+        "Anthropic",
+        "API额度",
+        "订阅福利",
+        "海外"
+      ],
+      "sources": [
+        {
+          "title": "API credits for Max, Ultra, and Team plans",
+          "url": "https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers",
+          "publisher": "Anthropic",
+          "published": "2026-10-07",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "Monthly API credits for Max, Ultra, and Team plans",
+          "url": "https://support.claude.com/en/articles/17154008-monthly-api-credits-for-max-ultra-and-team-plans",
+          "publisher": "Claude Help Center",
+          "published": "2026-10-07",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers",
+      "claim_howto": "claude.ai Billing → Link organization → Console 查看 Promotional credits。",
+      "stack": [
+        "Claude API",
+        "Claude Console"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "ChatGPT Pro/Business 订阅附赠每月 API credits（最高 $500）",
+      "type": "Token福利",
+      "provider": "OpenAI",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "OpenAI 开发者文档：付费 ChatGPT Pro（$100/$200/$500 档对应 $100/$200/$500 额度）与 Business（Standard 席位 $20、Premium $100，单 workspace 上限 $500）每月可领 API credits；订阅需满 7 天、非试用/赠送，需同时为订阅（或 workspace）与接收 API 组织的 Owner；额度绑定一个 API 组织、周期末过期。昨日榜未收录。",
+      "value": "Pro 按档 $100/$200/$500 每月 · Business 每席位 $20/$100、上限 $500/月",
+      "deadline": "官方未写截止",
+      "cost": "需已付费 ChatGPT Pro 或 Business（不建议为额度专门升级）",
+      "difficulty": 3,
+      "threshold": "付费订阅满 7 天、非试用；同时拥有 API 组织 Owner 权限；地区可用性以官方为准",
+      "time": "绑定约 5–10 分钟",
+      "fit": "已付费 Pro/Business、同时有 API 开发需求的个人或小团队",
+      "why": "与 Claude 同类福利同期出现，可做「两家订阅送 API 额度对比」素材。",
+      "steps": [
+        "确认 ChatGPT Pro/Business 为付费订阅且满 7 天",
+        "打开 developers.openai.com 的 API credits for ChatGPT subscribers 指南核对资格",
+        "按指南把订阅与一个自己拥有的 API 组织关联",
+        "在 API 平台 Billing 查看到账额度与到期时间",
+        "把额度用于测试/批处理，周期末前用完"
+      ],
+      "risk": "风险：额度周期末过期不结转；试用/赠送订阅不适用；规则可能调整。不承诺人人可领，勿为领额度升级订阅。",
+      "risk_level": "低",
+      "reason": "官方新福利、条件清晰，补海外订阅类 Token 福利。",
+      "tags": [
+        "OpenAI",
+        "ChatGPT Pro",
+        "API额度",
+        "订阅福利",
+        "海外"
+      ],
+      "sources": [
+        {
+          "title": "API credits for ChatGPT subscribers",
+          "url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits",
+          "publisher": "OpenAI",
+          "published": "2026-10-30",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "This week in AI credits (Nov 1, 2026)",
+          "url": "https://perq.sh/blog/this-week-in-ai-credits-nov-1-2026",
+          "publisher": "Perq",
+          "published": "2026-11-01",
+          "kind": "news",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits",
+      "claim_howto": "按官方指南关联 API 组织，Billing 查看额度。",
+      "stack": [
+        "OpenAI API",
+        "ChatGPT"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "七牛云 Conatus Free：实名每日 1 亿 Token（至 11/30）",
+      "type": "限时促销",
+      "provider": "七牛云 AI 大模型 / Conatus",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "1024 程序员节限时活动：登录并完成实名后，可用模型 ID qiniu/conatus-free 消耗活动每日免费额度；已认证每日约 1 亿 Token，任意单笔＞100 元到账充值后可提至每日约 10 亿（多笔不累计）。额度每日 00:00 重置、不结转；用尽直接拒请求，不转按量扣费。活动约 2026-10-24 至 2026-11-30 23:59。今日官方活动页 200，社区帖可复现路径并与官方交叉核验。（延续条目，今日官方页复核 200。）",
+      "value": "已认证约 1 亿 Token/日（充值提额后约 10 亿/日）· 1M 上下文 / 128K 最大输出 · 至 2026-11-30",
+      "deadline": "2026-11-30",
+      "cost": "需七牛云账号与真实实名；提额需单笔＞100 元充值（可选，非必须）；用尽不扣余额",
+      "difficulty": 2,
+      "threshold": "能完成国内实名；账号未受风控；活动期内调用；遵守仅免费额度、不转付费规则",
+      "time": "注册+实名+建 Key+试调约 20–40 分钟",
+      "fit": "国内开发者/学生，想在 11 月底前零成本大额度试对话、代码辅助与 Agent 工具调用",
+      "why": "昨日未收录的限时大额 Token；截止近、官方页写清额度与结束规则，今天最值得先实名开通。",
+      "steps": [
+        "打开 qiniu.com/ai/free-models/conatus-2026，登录七牛云并完成实名认证",
+        "在控制台模型页创建 API Key（同账号多 Key 共享日额度）",
+        "用 BaseURL https://api.qnaigc.com/v1，model=qiniu/conatus-free 发一条测试请求",
+        "在 Conatus 入口查看当日余量与下次重置时间，勿为提额冲动充值",
+        "日历标好 2026-11-30 结束；结束后勿指望自动转付费模型"
+      ],
+      "risk": "风险：活动到期停服；日额度不结转；充值提额不等于付费续用；风控可能影响资格。优惠以官方为准，不承诺人人可领或额度长期有效。",
+      "risk_level": "中",
+      "reason": "截止明确的官方限时 Token 促销，补昨日空白且窗口只剩约四周。",
+      "tags": [
+        "七牛",
+        "Conatus",
+        "免费Token",
+        "限时",
+        "国内API"
+      ],
+      "sources": [
+        {
+          "title": "Conatus Free 活动页",
+          "url": "https://www.qiniu.com/ai/free-models/conatus-2026",
+          "publisher": "七牛云",
+          "published": "2026-10-24",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "X：七牛 Conatus 每日 1 亿 Token（社区可复现）",
+          "url": "https://x.com/7eddsi/status/2117372862726295575",
+          "publisher": "X/@7eddsi",
+          "published": "2026-11-02",
+          "kind": "community",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "X：交叉核验七牛 Conatus 领取路径",
+          "url": "https://x.com/GouGeHSLU/status/2117389917357810069",
+          "publisher": "X/@GouGeHSLU",
+          "published": "2026-11-02",
+          "kind": "community",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://www.qiniu.com/ai/free-models/conatus-2026",
+      "claim_howto": "实名→建 Key→调 qiniu/conatus-free。提额充值非必须；额度用尽即停。",
+      "stack": [
+        "七牛云",
+        "Conatus",
+        "OpenAI兼容API"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Google AI Pro/Plus 学生一年免费（SheerID）",
+      "type": "学生教育",
+      "provider": "Google Gemini / Google One",
+      "region": "教育区域",
+      "origin": "官方",
+      "summary": "符合条件的高校在读学生可通过 SheerID 领取一年 Google AI 计划：美国学生多为 Google AI Pro，多国非美学生多为 Google AI Plus。需个人 Google 账号与有效付款方式；期满默认转正价，可随时取消。领取截止约 2026-12-31。今日复核官方博客与领取页仍在线。（延续条目，今日官方页复核 200。）",
+      "value": "美国：约 12 个月 Google AI Pro（标价约 $19.99/月）；非美多市场：约 12 个月 Google AI Plus",
+      "deadline": "2026-12-31",
+      "cost": "需 SheerID 学生认证；注册时通常要绑付款方式；学校邮箱账号一般不可用，需个人 Google 账号",
+      "difficulty": 2,
+      "threshold": "年满 18；高等教育在读；所在国家/地区支持对应套餐（港、澳、突尼斯等排除以条款为准）",
+      "time": "认证+开通约 15–40 分钟",
+      "fit": "在读大学生/研究生，想合法领取一年 Gemini 高级用量",
+      "why": "长周期官方学生羊毛仍开到年底；与今日新增限时 Token 互补。",
+      "steps": [
+        "用个人 Google 账号打开 one.google.com/ai-student 或 gemini.google/students",
+        "选择对应学生优惠，按 SheerID 完成在读验证",
+        "按提示添加付款方式并完成订阅开通（优惠期内通常不扣费）",
+        "在日历标好到期前取消/续订提醒，避免自动转正价",
+        "核对国家、家庭组、第三方订阅冲突等条款后再操作"
+      ],
+      "risk": "风险：期满自动续费；资格与地区随时调整；绑卡存在误扣可能。优惠以官方为准，不承诺能领到或可持续省钱。",
+      "risk_level": "中",
+      "reason": "截止明确的海外学生订阅羊毛，今日链接仍可达。",
+      "tags": [
+        "Gemini",
+        "Google One",
+        "学生",
+        "SheerID",
+        "一年免费"
+      ],
+      "sources": [
+        {
+          "title": "College students get 12 months of Google AI free",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/",
+          "publisher": "Google Blog",
+          "published": "2026-08-19",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "Claim a Google One student offer",
+          "url": "https://support.google.com/googleone/answer/17422238?hl=en",
+          "publisher": "Google One Help",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        },
+        {
+          "title": "Google AI student redeem page",
+          "url": "https://one.google.com/ai-student",
+          "publisher": "Google One",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://one.google.com/ai-student",
+      "claim_howto": "个人账号→SheerID→绑卡激活。认证与付款须本人完成。",
+      "stack": [
+        "Gemini",
+        "Google One",
+        "SheerID"
+      ]
+    }
+  ]
+}
