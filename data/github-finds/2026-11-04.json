@@ -1,0 +1,139 @@
+{
+  "date": "2026-11-04",
+  "updated": "2026-11-04T09:03:50+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "geoinflow",
+      "rank": 1,
+      "name": "GEOInflow",
+      "category": "项目",
+      "summary": "自托管的网站访客 + AI 爬虫分析（GEO 视角）：识别 OpenAI/Anthropic/Perplexity/字节/百度/Kimi/腾讯混元等爬虫身份与用途，对照 sitemap/CSV 内容清单算抓取覆盖与盲区，统计 AI 搜索引荐流量与转化；Next.js+Prisma+PostgreSQL+Redis，MIT。",
+      "why": "对 autograph-ai：可抄它的爬虫目录（UA+官方 IP 段+DNS 分开存证）和「内容清单 vs 实际抓取」覆盖报告，作为 GEO 产品里『发布后有没有被 AI 抓到』的闭环指标；AI 引荐来源识别规则可直接对照做 referral 归因。",
+      "url": "https://github.com/yaojingang/GEOInflow",
+      "repo": "yaojingang/GEOInflow",
+      "stars": 796,
+      "tags": [
+        "GEO",
+        "AI爬虫",
+        "日志分析",
+        "引荐归因",
+        "autograph-ai"
+      ],
+      "steps": "用 scripts/liekan-deploy.sh 在盒子上起示例数据，只读 docs/crawler-recognition.md 与 ai-crawler-analytics.md，列出能搬进 autograph 的爬虫识别字段。",
+      "risk": "源码构建要 6–8GB Docker 内存；生产需域名+HTTPS+可信反代；栈是 Next.js/TS，与 autograph 的 FastAPI 不同，宜抄规则与数据模型而非整体嵌入；默认账号 admin/liekan 必须改。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/yaojingang/GEOInflow"
+        }
+      ]
+    },
+    {
+      "id": "openoii",
+      "rank": 2,
+      "name": "openOii",
+      "category": "项目",
+      "summary": "基于 pi 的 AI 漫剧生成项目：一句故事 → 15 个阶段、6 个审批门（大纲→角色→分镜→角色形象→分镜画面→视频片段→成片），状态机决定下一步而非模型；视觉模型+人脸比对做角色一致性审查；配音/字幕/BGM 合成，FastAPI 网关 + React Flow 画布 + Node 引擎共用 SQLite。",
+      "why": "对 soloforge-storyfactory：同为 React+FastAPI，可直接对照『确定性状态机 + 审批门 + 断点续跑 + 只重跑受影响阶段』的编排；每类服务商带 Fake 测试模式便于跑通 CI；对话助手的写操作全部走确认卡片，可抄成 storyfactory 的安全交互规范。",
+      "url": "https://github.com/xeronsh/openOii",
+      "repo": "xeronsh/openOii",
+      "stars": 412,
+      "tags": [
+        "漫剧",
+        "分镜",
+        "状态机",
+        "审批门",
+        "soloforge-storyfactory"
+      ],
+      "steps": "通读 engine/src/pipeline 的阶段定义与 docs/adr，画一张与 storyfactory 现有流水线的阶段对照表。",
+      "risk": "作者明说是学习/演示项目、不适合生产；仓库未声明开源许可证（只有第三方 NOTICE），只能参考思路，不要直接拷代码；视频/图像阶段依赖付费服务商密钥。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/xeronsh/openOii"
+        }
+      ]
+    },
+    {
+      "id": "cccc",
+      "rank": 3,
+      "name": "CCCC",
+      "category": "项目",
+      "summary": "本地优先的编码 agent 协作层：把 Claude Code/Codex/Pi/OpenCode 会话拉进一个『群聊』，append-only 账本记录消息与事件，送达/已读/回复分开记账；Web UI、终端、CLI、MCP 工具与 IM 桥共享同一守护进程状态，可跨机器 Connect；Rust 单文件，无需数据库或 Docker。",
+      "why": "对 clawkit / star-river-dev-team / Hermes 凌霄：『显式送达回执 + 持久化群账本』正好对应林辰↔凌霄 handoff 目录 + webhook 回执的协作痛点，可直接试用或抄消息状态模型；cccc_task 精简输出（60 个任务从约 9.8 万字降到约 2900 字）可借鉴到多角色团队的上下文瘦身。",
+      "url": "https://github.com/ChesterRa/cccc",
+      "repo": "ChesterRa/cccc",
+      "stars": 1293,
+      "tags": [
+        "多agent编排",
+        "Claude-Code",
+        "Codex",
+        "Pi",
+        "MCP",
+        "clawkit",
+        "star-river"
+      ],
+      "steps": "在盒子上 pip install cccc-pair 跑 cccc --headless，建一个 Group 接入一个 Pi 会话，看消息送达/已读回执是否能替代现有 handoff 文件约定。",
+      "risk": "接入已有会话的功能仍标实验性（主要在 Linux/WSL 测过）；部分 runtime 默认绕过审批提示，需自己收紧；近期刚修过 Web Token 越权，务必用最新版。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/ChesterRa/cccc"
+        }
+      ]
+    },
+    {
+      "id": "food-expiration-dates",
+      "rank": 4,
+      "name": "Food Expiration Dates",
+      "category": "生活",
+      "summary": "开源安卓 App：录入食物和到期日，按临期先后排成清单并推送提醒；支持条码扫描（Open Food Facts）、记录开封日期；Google Play / GitHub Release / IzzyOnDroid 均可装，MIT。",
+      "why": "冰箱清库存：买菜回来 2 分钟录入，App 按到期排序，每晚看前 3 个决定明天先吃什么；配合『临期 3 天内的食材 → 让 AI 出一道菜』提示词，就是一套零浪费跟做方案。",
+      "url": "https://github.com/lorenzovngl/FoodExpirationDates",
+      "repo": "lorenzovngl/FoodExpirationDates",
+      "stars": 227,
+      "tags": [
+        "饮食/厨房",
+        "临期提醒",
+        "清库存",
+        "安卓",
+        "AI生活"
+      ],
+      "steps": "装 App 后把冰箱里 10 样东西录进去，开启通知，第二天截图临期清单做成教程首图。",
+      "risk": "仅安卓；条码库对国产商品覆盖弱，多数需手动输入日期；需要自己坚持录入。上手成本：轻。可做成『冰箱临期清单 + AI 清库存菜谱提示词』跟做模板包。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/lorenzovngl/FoodExpirationDates"
+        }
+      ]
+    },
+    {
+      "id": "wallos",
+      "rank": 5,
+      "name": "Wallos",
+      "category": "生活",
+      "summary": "开源个人订阅管理：记录会员/订阅续费日期与金额，分类、多币种、统计图，续费前通过邮件/Telegram/Webhook 等提醒；可接 ChatGPT/Gemini/本地 Ollama 给出订阅优化建议；有在线 Demo（demo/demo），自用可 Docker 一条命令部署，GPL-3.0。",
+      "why": "订阅瘦身：把视频/音乐/网盘/AI 会员全部录入，按月汇总看到真实月支出，砍掉一个就能直观看到省多少；续费前提醒避免自动扣费，配一张『续不续』判断清单就是消费复盘模板。",
+      "url": "https://github.com/ellite/Wallos",
+      "repo": "ellite/Wallos",
+      "stars": 8787,
+      "tags": [
+        "消费决策",
+        "订阅管理",
+        "续费提醒",
+        "轻理财",
+        "AI生活"
+      ],
+      "steps": "先在官方 Demo 里录 5 个常见会员，截图月度统计页，验证『订阅体检』教程的效果图。",
+      "risk": "长期自用需 Docker 或 PHP 环境（中等门槛），Demo 每 2 小时清空不能存真实数据；AI 建议需自备 API Key；不涉及代扣/账号操作。上手成本：中。适合做成『订阅体检表 + 续费前 3 问清单』闲鱼模板包。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/ellite/Wallos"
+        }
+      ]
+    }
+  ]
+}
