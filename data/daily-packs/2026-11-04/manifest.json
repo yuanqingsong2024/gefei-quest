@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "updated": "2026-11-04T09:45:00+08:00",
+  "title": "每日执行包｜闲鱼公众号排版配图 + Render 计算器续作",
+  "source": "attachments/2026-11-04",
+  "primary": [
+    "闲鱼 公众号文章排版与配图（榜单 No.7）"
+  ],
+  "side": [
+    "Render 静态站部署 / 复核 Stacked Discount Calculator（榜单 No.3；黑五约23天）"
+  ],
+  "deferred": [
+    "Kinsta / Kit 联盟（站与受众未起）",
+    "Podia / Sellfy（月费+海外收款）",
+    "头条号（养号周期长）",
+    "Contra（需英文作品集）",
+    "Show HN 新词、Bulk Mockup 案例（仅记方法）"
+  ],
+  "files": [
+    {
+      "path": "今日执行卡-2026-11-04.md",
+      "kind": "exec-card",
+      "note": "45–60分钟步骤、工具、合规、暂缓与反馈问句"
+    },
+    {
+      "path": "闲鱼上架文案-公众号排版配图.md",
+      "kind": "xianyu-copy",
+      "note": "标题3候选、正文、禁发自检、3条客服模板"
+    },
+    {
+      "path": "闲鱼-公众号排版配图交付包.xlsx",
+      "kind": "xianyu-sheet",
+      "note": "套餐报价/同行调研/访谈提纲/虚构样例青松读书会/验收/接单记录"
+    },
+    {
+      "path": "stacked-discount-calculator/index.html",
+      "kind": "page-draft",
+      "note": "黑五倒计时更新为约23天；无跟踪"
+    },
+    {
+      "path": "stacked-discount-calculator/_redirects",
+      "kind": "deploy-helper",
+      "note": "可选"
+    },
+    {
+      "path": "stacked-discount-calculator/render-static-notes.md",
+      "kind": "deploy-notes",
+      "note": "Render 静态站部署；已有地址则只复核"
+    }
+  ],
+  "excluded": [],
+  "privacy": "仅收录可公开交付物；不含客户私聊、账号凭证、真实订单隐私。样例号名为虚构。"
+}
