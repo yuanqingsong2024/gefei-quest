@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-03T04:38:08.674Z",
-  "latestId": 89,
-  "latestDate": "2026-11-03",
+  "generatedAt": "2026-11-04T00:20:53.927Z",
+  "latestId": 90,
+  "latestDate": "2026-11-04",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 90,
+      "date": "2026-11-04",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-04",
+      "items": [
+        "No.1 Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）",
+        "No.2 Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）",
+        "No.3 Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 89,
       "date": "2026-11-03",
@@ -112,42 +124,30 @@
         "数据 data/ai-wool/YYYY-MM-DD.json + latest.json；赚钱榜雷达推 main 即可。优惠以官方为准，可能随时失效；注意绑卡/自动续费，不承诺省钱。SW 缓存 51"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-wool"
-    },
-    {
-      "id": 80,
-      "date": "2026-11-01",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-01",
-      "items": [
-        "No.1 PayPal AI Hackathon：同时接 PayPal Sandbox 与 AI，现金奖约6.75万美元（总奖约6.975万），约11天窗口",
-        "No.2 Kiroween 2026：提交已开；可领约4000免费额度；现金奖池约10万美元（至12月4日）",
-        "No.3 Codex × TwitchCon 黑客松：用 OpenAI Codex 做 Twitch 相关应用，现金奖池约2.5万美元——明天截止"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-11-03",
+    "date": "2026-11-04",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Hostinger Affiliate：写主机/建站教程，合资格首购（约12个月及以上套餐）可拿约至多40%佣金（以协议为准）",
+        "name": "Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.hostinger.com/affiliates"
+        "source_url": "https://kinsta.com/affiliates/"
       },
       {
         "rank": 2,
-        "name": "Gumroad：上架原创数字下载，直连销售约10%+$0.50，Discover 约30%（以官方定价页为准）",
+        "name": "Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）",
         "type": "数字产品/接单",
-        "source_url": "https://gumroad.com/pricing"
+        "source_url": "https://www.podia.com/pricing"
       },
       {
         "rank": 3,
-        "name": "Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "name": "Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://developers.cloudflare.com/pages/get-started/"
+        "source_url": "https://render.com/docs/static-sites"
       }
     ]
   }

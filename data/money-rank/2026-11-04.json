@@ -1,0 +1,386 @@
+{
+  "date": "2026-11-04",
+  "publishedAt": "2026-11-04T00:20:53.837Z",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）",
+      "type": "联盟营销",
+      "summary": "Kinsta 官方联盟页写明：推荐用户购买其 WordPress 托管，可得一次性奖励（最高约$500）并按月拿约10%的持续分成；适合做建站与性能优化内容的人长期挂链。",
+      "cost": "0；需能产出 WordPress 托管/迁移真实内容的站点或社媒",
+      "difficulty": 2,
+      "threshold": "申请审核通过后挂链；内容需真实评测并披露联盟关系",
+      "time": "申请与首篇内容约1–3天；见效通常需数周到数月",
+      "fit": "做 WordPress 建站、外贸站或站长内容的人；预估投入：每周5小时",
+      "why": "Kinsta Affiliates 官方页写明 one-time bonus of up to $500, plus lifetime monthly commissions of 10%。上榜理由：相对昨日 Hostinger「首购高比例」，今天换成「一次性奖励+按月持续分成」的高客单托管路径。",
+      "steps": [
+        "打开 kinsta.com/affiliates 阅读规则并申请，核对合资格套餐与禁用推广方式",
+        "写一篇真实的 WordPress 迁移或测速对比教程，标明联盟关系",
+        "挂到小站/社媒并跟踪转化，避免品牌词竞价等条款禁止行为"
+      ],
+      "risk": "风险等级：低。奖励档位、结算周期与退款冲销以官方条款为准；高客单产品转化慢。不承诺收益。",
+      "risk_level": "低",
+      "reason": "高客单托管＋持续月分成，适合长期内容挂链。",
+      "tags": [
+        "联盟营销",
+        "Kinsta",
+        "WordPress",
+        "托管",
+        "持续佣金"
+      ],
+      "sources": [
+        {
+          "title": "Kinsta Hosting Affiliate Program",
+          "url": "https://kinsta.com/affiliates/",
+          "publisher": "Kinsta",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://kinsta.com/affiliates/"
+    },
+    {
+      "rank": 2,
+      "name": "Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）",
+      "type": "数字产品/接单",
+      "summary": "Podia 一站式卖课程、数字下载与会员：官方定价页显示 Mover 档（约$42/月按年付）收约5%交易费，Shaker 档（约$84/月按年付）无交易费，适合把教程做成可反复卖的课程。",
+      "cost": "按月订阅（约$42/月起，按年付口径）；可先试用",
+      "difficulty": 2,
+      "threshold": "有能讲清楚的一个技能主题，能录制或写成结构化课程",
+      "time": "3–7天做出首个小课；之后持续更新与引流",
+      "fit": "有成体系技能想做成课程/资料包的创作者；预估投入：每周6小时",
+      "why": "Podia 官方 Pricing 页列出 Mover「5% fees」、Shaker「No fees」及对应月费。上榜理由：相对昨日 Gumroad/Payhip 的按单抽成，今天换成「月费换零交易费」的课程店铺路径，销量起来后费率更可控。",
+      "steps": [
+        "打开 podia.com/pricing 核对各档月费、交易费与功能",
+        "先用试用期上架一个小而具体的课程或资料包，写清适合谁、学完能做什么",
+        "用邮件订阅与社媒导流，销量稳定后再评估是否升级到无交易费档"
+      ],
+      "risk": "风险等级：中。有固定月费，没销量也要付；只能卖原创或已获授权内容。不承诺收益。",
+      "risk_level": "中",
+      "reason": "课程类数字产品可反复卖，费率结构清晰。",
+      "tags": [
+        "数字产品",
+        "Podia",
+        "在线课程",
+        "会员",
+        "原创"
+      ],
+      "sources": [
+        {
+          "title": "Podia Pricing: Plans, Transaction Fees & Free Trial",
+          "url": "https://www.podia.com/pricing",
+          "publisher": "Podia",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://www.podia.com/pricing"
+    },
+    {
+      "rank": 3,
+      "name": "Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟",
+      "type": "出海小站",
+      "summary": "Render 官方文档写明静态站可免费部署，含免费 TLS 与自定义域名；适合先上线单页英文工具或指南，验证搜索与回访后再接广告或联盟。",
+      "cost": "域名约每年数十美元可选；静态站官方称免费部署",
+      "difficulty": 2,
+      "threshold": "能用 Git 仓库发布静态页面，并做好基础 SEO",
+      "time": "半天到1天上线首版；流量与变现通常需数月",
+      "fit": "会一点前端、想做英文工具站的人；预估投入：每周4小时",
+      "why": "Render Static Sites 文档写明 Static sites are fast and free to deploy，并免费提供 TLS 与自定义域名。上榜理由：相对昨日 Cloudflare Pages，今天换 Render 的 Git 部署路径，方便日后同平台加后端服务。",
+      "steps": [
+        "按 render.com/docs/static-sites 连接 Git 仓库并部署一个单页工具",
+        "绑定自定义域名，提交 Search Console 并观察关键词与点击",
+        "有稳定访问后再申请 AdSense 或挂相关联盟链接"
+      ],
+      "risk": "风险等级：低。免费档额度与规则以官方为准；广告与联盟需各自审核。不承诺收益。",
+      "risk_level": "低",
+      "reason": "零服务器费验证出海小站需求，后续可扩展。",
+      "tags": [
+        "出海小站",
+        "Render",
+        "静态站",
+        "SEO",
+        "AdSense"
+      ],
+      "sources": [
+        {
+          "title": "Static Sites",
+          "url": "https://render.com/docs/static-sites",
+          "publisher": "Render",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://render.com/docs/static-sites"
+    },
+    {
+      "rank": 4,
+      "name": "今日头条（头条号）：开通创作收益，靠图文/视频内容拿平台收益（权限与门槛以后台为准）",
+      "type": "平台激励",
+      "summary": "头条号创作者后台设有整体收益、图文创作收益、视频创作收益等模块；持续发布原创图文或视频，满足后台要求后可获得平台收益分成。",
+      "cost": "0；需实名注册头条号",
+      "difficulty": 2,
+      "threshold": "需完成实名并满足后台的收益开通条件（以后台显示为准）；坚持原创",
+      "time": "注册当天可发文；开通收益与有效收益通常需数周持续更新",
+      "fit": "会写实用干货或做解说视频、能稳定更新的人；预估投入：每周5小时",
+      "why": "头条号后台（mp.toutiao.com）导航含「收益数据—整体收益/图文创作收益/视频创作收益」。上榜理由：相对昨日微信公众号流量主，今天换头条号图文/视频双收益路径，国内内容创作者上手门槛低。",
+      "steps": [
+        "在 mp.toutiao.com 注册并实名，查看后台收益开通条件",
+        "选一个垂直方向（如工具教程、职场技巧）连续发布原创内容",
+        "在收益数据里看哪类内容带来收益，持续迭代选题"
+      ],
+      "risk": "风险等级：低。搬运、洗稿或标题党可能被限流或取消收益；收益规则以平台为准。不承诺收益。",
+      "risk_level": "低",
+      "reason": "国内大流量平台官方收益模块，原创内容即可起步。",
+      "tags": [
+        "平台激励",
+        "今日头条",
+        "头条号",
+        "图文",
+        "视频"
+      ],
+      "sources": [
+        {
+          "title": "头条号",
+          "url": "https://mp.toutiao.com/",
+          "publisher": "今日头条",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://mp.toutiao.com/"
+    },
+    {
+      "rank": 5,
+      "name": "Contra：建作品集接远程自由职业单，官方主打 commission-free（对自由职业者不抽佣，以官方说明为准）",
+      "type": "副业",
+      "summary": "Contra 面向独立设计师、开发者等的接单平台，官方首页强调 Get paid commission-free；可建作品集、发提案、签合同与开发票，也可上架数字产品。",
+      "cost": "0 起步；可选付费 Contra Pro 会员",
+      "difficulty": 3,
+      "threshold": "需英文沟通与可展示的作品集；面向海外客户",
+      "time": "1–2天搭好主页；首单通常需数周持续投递",
+      "fit": "有设计、开发、内容等技能、想接海外单的人；预估投入：每周6小时",
+      "why": "Contra 官方首页写有 Get paid commission-free、Sign contracts、Send invoices 等功能。上榜理由：相对之前的 Fiverr/猪八戒等抽佣平台，今天换主打不抽佣的作品集接单路径。",
+      "steps": [
+        "在 contra.com 注册，按技能整理 3–5 个案例做成作品集",
+        "浏览并投递匹配的项目，报价写清范围与交付时间",
+        "用平台合同与发票流程收款，避免站外无保障交易"
+      ],
+      "risk": "风险等级：中。海外客户沟通与收款需自行处理税务；平台政策可能调整。不承诺收益。",
+      "risk_level": "中",
+      "reason": "不抽佣的海外接单渠道，技能可直接变现。",
+      "tags": [
+        "副业",
+        "Contra",
+        "自由职业",
+        "作品集",
+        "海外接单"
+      ],
+      "sources": [
+        {
+          "title": "Contra",
+          "url": "https://contra.com/",
+          "publisher": "Contra",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://contra.com/"
+    },
+    {
+      "rank": 6,
+      "name": "Sellfy：开数字产品店铺，官方称 0% 交易费、订阅约$22/月起（以定价页为准）",
+      "type": "数字产品/接单",
+      "summary": "Sellfy 可卖数字下载、订阅与周边：官方定价页标题写明 Plans From $22/mo, 0% Transaction Fees；适合销量稳定后想压低单笔抽成的创作者。",
+      "cost": "约$22/月起的订阅（以官网为准）",
+      "difficulty": 2,
+      "threshold": "有原创数字商品（模板、素材、电子书等），能写清授权",
+      "time": "1–2天开店上架；之后持续引流",
+      "fit": "已有一定销量或受众、想用固定月费替代抽成的创作者；预估投入：每周4小时",
+      "why": "Sellfy 官方 Pricing 页写明 Plans From $22/mo, 0% Transaction Fees，并称 zero transaction fees。上榜理由：与 Podia 的课程路径互补，Sellfy 偏数字下载与店铺，适合模板类产品反复卖。",
+      "steps": [
+        "打开 sellfy.com/pricing 核对各档月费、产品数与收款方式",
+        "上架一个原创数字商品，写清授权范围与退款规则",
+        "把店铺链接挂到小站与社媒，比较月费与抽成平台的实际成本"
+      ],
+      "risk": "风险等级：中。固定月费需有销量覆盖；支付通道费另计；只卖原创或已授权内容。不承诺收益。",
+      "risk_level": "中",
+      "reason": "零交易费店铺，适合有稳定销量的数字产品。",
+      "tags": [
+        "数字产品",
+        "Sellfy",
+        "店铺",
+        "模板",
+        "0%交易费"
+      ],
+      "sources": [
+        {
+          "title": "Sellfy Pricing",
+          "url": "https://sellfy.com/pricing/",
+          "publisher": "Sellfy",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://sellfy.com/pricing/"
+    },
+    {
+      "rank": 7,
+      "name": "闲鱼技能服务：公众号文章排版与配图，按篇或按月套餐接单（不卖券码账号）",
+      "type": "闲鱼非实物",
+      "summary": "在闲鱼发布自有技能的信息服务：为个人或小商家做公众号文章排版、封面与配图，按篇或按月包收费，站内交易防纠纷。",
+      "cost": "0；需实名与排版/设计工具",
+      "difficulty": 1,
+      "threshold": "能稳定做出整洁统一的排版风格，并说清修改次数与交付时间",
+      "time": "每篇约0.5–2小时；起步期每天1小时回复咨询",
+      "fit": "熟悉公众号编辑器、有审美的人；预估投入：每周5小时",
+      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；大量小商家与个人号有排版外包需求。上榜理由：相对昨日 Excel 看板定制，今天换门槛更低的公众号排版配图技能，可沉淀成排版模板另卖。",
+      "steps": [
+        "阅读闲鱼卖家服务协议，确认类目与禁发内容",
+        "做 3 组排版前后对比样例，写清按篇/按月报价与修改次数",
+        "全程站内沟通交易；配图只用自绘、AI 生成或可商用素材，避免侵权"
+      ],
+      "risk": "风险等级：低。注意图片与字体版权；不接违规内容；站外交易易起纠纷。不承诺收益。",
+      "risk_level": "低",
+      "reason": "需求稳定、门槛低的国内技能单，可复购。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "公众号",
+        "排版",
+        "配图"
+      ],
+      "sources": [
+        {
+          "title": "闲鱼社区卖家服务协议",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
+          "publisher": "terms.alicdn.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
+    },
+    {
+      "rank": 8,
+      "name": "出海新词：每天扫 Show HN 新工具，做英文「X 是什么/怎么用/替代品」单页，再挂联盟或广告",
+      "type": "出海新词",
+      "summary": "Hacker News 的 Show HN 板块每天有开发者发布新工具（如今日的风控开源平台、静默语音输入等）；新词刚出现时竞争小，可做英文介绍、教程或替代品对比页抢早期搜索。",
+      "cost": "0；可配合免费静态站托管",
+      "difficulty": 3,
+      "threshold": "能快速读懂新工具并写出准确英文说明；需判断哪些词有持续搜索",
+      "time": "每页约1–3小时；是否有流量需数周观察",
+      "fit": "懂技术、英文写作还行、想做出海内容站的人；预估投入：每周5小时",
+      "why": "Show HN 页面公开列出最新发布的工具与项目。上榜理由：相对昨日 Google Trends Rising 查询，今天换成从 Show HN 源头抓新词，比搜索趋势更早一步。",
+      "steps": [
+        "每天浏览 news.ycombinator.com/show，记下有明确用途、可能被搜索的新工具名",
+        "用工具官网与 README 核实功能后写英文介绍/教程页，标注信息来源",
+        "观察 Search Console 数据，有流量的页面再挂相关联盟或广告"
+      ],
+      "risk": "风险等级：中。新词可能昙花一现；不要冒充官方或使用对方商标误导用户。不承诺收益。",
+      "risk_level": "中",
+      "reason": "新词源头早，适合低成本试错出海内容。",
+      "tags": [
+        "出海新词",
+        "Hacker News",
+        "Show HN",
+        "英文内容",
+        "SEO"
+      ],
+      "sources": [
+        {
+          "title": "Show HN",
+          "url": "https://news.ycombinator.com/show",
+          "publisher": "Hacker News",
+          "published": "",
+          "kind": "community",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://news.ycombinator.com/show"
+    },
+    {
+      "rank": 9,
+      "name": "案例拆解：Bulk Mockup——作者自述从 Upwork 接单写脚本到做成产品，年收入约$15万（只拆方法）",
+      "type": "案例拆解",
+      "summary": "Indie Hackers 采访：作者在 Upwork 接 Photoshop 单时写脚本批量替换智能对象，后做成 Bulk Mockup 服务 Etsy/Shopify 卖家，自述约$150k ARR；靠 YouTube 获客。只拆方法，不代表可复制收益。",
+      "cost": "0 起步；做工具需一定开发或学习时间",
+      "difficulty": 3,
+      "threshold": "先接单积累对某类重复劳动的理解，再判断能否产品化",
+      "time": "阅读与复盘约1小时；产品化需数月",
+      "fit": "正在接设计/开发单、想从服务转产品的人；预估投入：每周5小时",
+      "why": "Indie Hackers 2026-09-24 文章写明：作者从接单脚本起步，Bulk Mockup 约$150k ARR，并以 YouTube 作为主要分发渠道。上榜理由：相对昨日 RightBlogger「先养受众」，今天拆「从接单的重复劳动里找产品」路径，和今日 Contra/闲鱼接单条目衔接。",
+      "steps": [
+        "阅读原文，记下：接单中哪类重复任务被脚本化、如何定价",
+        "回看自己接过的单，列出 3 个可自动化的重复环节",
+        "先做成内部脚本提效，再用教程视频测试是否有人愿意付费"
+      ],
+      "risk": "风险等级：低。收入为作者自述且全文需订阅；个人结果差异大。不承诺收益。",
+      "risk_level": "低",
+      "reason": "从服务到产品的可借鉴路径，与接单类条目互补。",
+      "tags": [
+        "案例拆解",
+        "Indie Hackers",
+        "Bulk Mockup",
+        "服务转产品",
+        "YouTube"
+      ],
+      "sources": [
+        {
+          "title": "Turning a freelance gig into a $150k/yr product",
+          "url": "https://www.indiehackers.com/post/tech/turning-a-freelance-gig-into-a-150k-yr-product-tDdZGZyiyNTztPfI2wkY",
+          "publisher": "Indie Hackers",
+          "published": "2026-09-24",
+          "kind": "media",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://www.indiehackers.com/post/tech/turning-a-freelance-gig-into-a-150k-yr-product-tDdZGZyiyNTztPfI2wkY"
+    },
+    {
+      "rank": 10,
+      "name": "Kit（原 ConvertKit）Affiliate：推荐创作者用邮件营销工具，官方称首12个月约50%佣金（以条款为准）",
+      "type": "工具活动",
+      "summary": "Kit 官方联盟页写明：推荐的付费用户前12个月可得约50%佣金；一年内推荐10位及以上可在其留存期间获约10%持续分成。适合做创作者变现、邮件营销教程的人。",
+      "cost": "0；需面向创作者的内容渠道",
+      "difficulty": 2,
+      "threshold": "申请通过后挂链；需真实使用经验与披露",
+      "time": "申请与首篇内容1–3天；见效需数周",
+      "fit": "写 Newsletter/创作者变现内容、做邮件营销教程的人；预估投入：每周4小时",
+      "why": "Kit 官方 affiliate 页写明 earn 50% commission on each referral's first 12 months，及 Refer 10 or more creators in a year and earn 10% recurring。上榜理由：相对昨日 PartnerStack 泛 B2B 市场，今天换创作者工具单品联盟，条款清晰。",
+      "steps": [
+        "打开 kit.com/affiliate 阅读条款并申请",
+        "写一篇真实的邮件订阅搭建教程或工具对比，标明联盟关系",
+        "在小站、Newsletter 与社媒放链接，跟踪注册到付费的转化"
+      ],
+      "risk": "风险等级：低。佣金比例、阶梯与结算以官方条款为准；须真实披露。不承诺收益。",
+      "risk_level": "低",
+      "reason": "高比例首年佣金的创作者工具联盟。",
+      "tags": [
+        "工具活动",
+        "Kit",
+        "ConvertKit",
+        "邮件营销",
+        "联盟"
+      ],
+      "sources": [
+        {
+          "title": "Kit affiliate program",
+          "url": "https://kit.com/affiliate",
+          "publisher": "Kit",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-04"
+        }
+      ],
+      "source_url": "https://kit.com/affiliate"
+    }
+  ]
+}

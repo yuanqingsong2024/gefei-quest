@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 90, date: '2026-11-04', title: '每日赚钱榜 · 2026-11-04', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）","No.2 Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）","No.3 Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 89, date: '2026-11-03', title: '新增「OPC 一人公司」栏目：政策摘要、可做业务、接活渠道与周报', tag: '新功能', href: '#war-rank-opc',
       items: ['导航「赚钱 → OPC 一人公司」（#war-rank-opc）；政策 / 业务 / 渠道 / 红线常青块 + 周报归档，可按类型筛选', '数据 data/opc-briefs/latest.json，内嵌 js/opc-data.js 兜底。公开整理，非法律或税务意见，不承诺收益，不写灰产。SW 缓存 58'] },
     { id: 88, date: '2026-11-03', title: 'AI生活合集新增「元宝生活办事台」场景文选题', tag: '内容', href: '#war-rank-ai-life',
