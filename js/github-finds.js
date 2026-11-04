@@ -24,9 +24,6 @@
     return '<nav class="rank-switch" aria-label="榜单内容">' +
       '<a class="rank-switch-btn" href="#war-rank">每日 Top 10</a>' +
       '<a class="rank-switch-btn" href="#war-rank-agent">Agent 赚钱</a>' +
-      '<a class="rank-switch-btn" href="#war-rank-ai-wool">AI 羊毛</a>' +
-      '<a class="rank-switch-btn' + (which === 'opc' ? ' active' : '') + '" href="#war-rank-opc"' +
-      (which === 'opc' ? ' aria-current="page"' : '') + '>OPC 一人公司</a>' +
       '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' +
       (which === 'tools' ? ' aria-current="page"' : '') + '>工具发掘</a></nav>';
   }

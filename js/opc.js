@@ -138,9 +138,6 @@
     return '<nav class="rank-switch" aria-label="榜单内容">' +
       '<a class="rank-switch-btn" href="#war-rank">今日公开渠道</a>' +
       '<a class="rank-switch-btn" href="#war-rank-agent">Agent 进账方案</a>' +
-      '<a class="rank-switch-btn" href="#war-rank-ai-wool">AI 羊毛</a>' +
-      '<a class="rank-switch-btn' + (which === 'opc' ? ' active' : '') + '" href="#war-rank-opc"' +
-      (which === 'opc' ? ' aria-current="page"' : '') + '>OPC 一人公司</a>' +
       '<a class="rank-switch-btn" href="#war-tools">今日工具发掘</a></nav>';
   }
   function disclaimer() {
