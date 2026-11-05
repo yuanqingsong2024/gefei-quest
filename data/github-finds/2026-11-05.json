@@ -1,0 +1,161 @@
+{
+  "date": "2026-11-05",
+  "updated": "2026-11-05T09:20:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "georank",
+      "rank": 1,
+      "name": "GEOrank",
+      "category": "项目",
+      "summary": "开源 GEO 工作台：网站诊断（Schema/Meta/页面结构/可读性/引用信号）→ AI 问答 → 30/60/90 天行动方案 → 拓词 → JSON-LD/llms.txt/AI 友好度评分等工具；后端 FastAPI+SQLAlchemy+Alembic+Celery，前台 Next.js 管理台，Apache-2.0。",
+      "why": "对 autograph-ai：后端同为 FastAPI，可直接对照 backend/app/services 下的 keyword_expansion、diagnostic 模型与 ai_client 的 API 池轮询/故障转移；把『诊断→行动方案→拓词→结构化工具』这条链抄成 autograph 的付费功能分层；JSON-LD/llms.txt 生成器可做成免费引流小工具。",
+      "url": "https://github.com/yaojingang/GEORank",
+      "repo": "yaojingang/GEORank",
+      "stars": 532,
+      "tags": [
+        "GEO",
+        "网站诊断",
+        "拓词",
+        "llms.txt",
+        "FastAPI",
+        "autograph-ai"
+      ],
+      "steps": "只读 backend/app/models/diagnostic.py 与 services/keyword_expansion.py、ai_client.py，列一张『可搬进 autograph 的诊断字段 + API 池策略』对照表。",
+      "risk": "全套依赖 PostgreSQL/Redis/Qdrant/Neo4j/MinIO，整套部署偏重；前台在静态版与 Next.js 2.0 之间迁移中；专家资料/首页内容另有 DATA_LICENSE 限制，不能照搬；不保证任何 AI 推荐效果。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/yaojingang/GEORank"
+        },
+        {
+          "title": "在线演示 GEORankHub",
+          "url": "https://www.georankhub.com/"
+        }
+      ]
+    },
+    {
+      "id": "story-claw",
+      "rank": 2,
+      "name": "Story Claw",
+      "category": "项目",
+      "summary": "开源小说→短剧/漫剧出片管线：每章 5 段（画面预设打标→角色/场景资产归档→分场剧本→分镜导演→TTS+BGM+音效+面板图+视频渲染），角色按『阶段』生成参考图、每角色固定一个音色，VLM 质检自动重渲，支持断点续跑；Node.js+Pi coding agent，视频走自托管 ComfyUI，MIT。",
+      "why": "对 soloforge-storyfactory：可抄『角色阶段图（只在服装/道具变化时新增）』规则降低长篇出图成本；voice_map.json 跨集固定音色和 改编进度.json 分阶段断点续跑可直接对照 storyfactory 的任务状态设计；VLM 首尾帧一致性门禁 + 重试上限可作为质检节点。",
+      "url": "https://github.com/ZC89757/story-claw",
+      "repo": "ZC89757/story-claw",
+      "stars": 31,
+      "tags": [
+        "漫剧",
+        "小说转视频",
+        "角色一致性",
+        "分镜",
+        "storyfactory"
+      ],
+      "steps": "读 README_CN 与『故事模式流程.md』，把 5 段流程和 storyfactory 现有流水线逐段对齐，标出缺的『阶段图』和『音色映射』两个数据结构。",
+      "risk": "星数少（31）、单人维护；视频依赖自有 GPU 跑 ComfyUI + H3 工作流，出图推荐 gpt-image-2 需付费 API；章节文件命名有固定格式；栈是 Node/TS，宜抄设计而非整体嵌入。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/ZC89757/story-claw"
+        },
+        {
+          "title": "项目站",
+          "url": "https://zc89757.github.io/story-claw/"
+        }
+      ]
+    },
+    {
+      "id": "agent-orchestrator",
+      "rank": 3,
+      "name": "Orchestrator.inc（agent-orchestrator）",
+      "category": "项目",
+      "summary": "本地桌面工作台管理一队编码 agent：主 agent 拆任务，每个 worker 独立分支+worktree；看板按 agent/PR/CI/评审状态自动分道；CI 失败、评审意见、冲突自动回派给负责该分支的 worker，可选 reviewer agent 先审；支持 Claude Code/Codex/Cursor/opencode/Pi/Grok 等 30+ agent，有手机端审批，Apache-2.0。",
+      "why": "对 clawkit / star-river-dev-team / 凌霄：『CI 失败与 review 意见回派给原 worker』正是多角色团队最缺的闭环，可照抄状态推导逻辑（docs/architecture.md、scm-observer.md）；看板分道（Working / Needs you / In review / Ready to merge）可直接做成 star-river 的任务面板；手机端推送审批思路可对照 handoff+webhook 回执。",
+      "url": "https://github.com/OrchestratorInc/agent-orchestrator",
+      "repo": "OrchestratorInc/agent-orchestrator",
+      "stars": 14099,
+      "tags": [
+        "多agent编排",
+        "worktree",
+        "CI回派",
+        "看板",
+        "clawkit",
+        "star-river"
+      ],
+      "steps": "只读 docs/architecture.md 与 docs/scm-observer.md，整理一页『会话状态由 PR/CI/评审推导』规则给凌霄对照现有 handoff 流程。",
+      "risk": "默认收集遥测（含 GitHub 用户名，可在设置里关）；Cloud Agents 为托管服务，可能涉及付费；后端 Go + 桌面前端，代码量大，适合抄机制而不是改造接入。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/OrchestratorInc/agent-orchestrator"
+        },
+        {
+          "title": "文档",
+          "url": "https://docs.orchestrator.inc"
+        }
+      ]
+    },
+    {
+      "id": "tasks-org",
+      "rank": 4,
+      "name": "Tasks.org",
+      "category": "生活",
+      "summary": "开源安卓待办与提醒 App（Astrid 后继）：重复任务、通知、位置提醒、自定义筛选、无限层子任务、标签；可离线用，也可同步 Google Tasks/CalDAV/DAVx⁵/EteSync；GPLv3，无广告。",
+      "why": "家务/家庭琐事：把『每月 15 号交电费』『每季度换滤芯』『药箱半年清点一次』设成重复任务，到点提醒；用位置提醒做『到超市就弹出购物清单』『到家提醒收快递』；按家庭成员建清单 + 筛选，做一套『家庭琐事提醒模板』。",
+      "url": "https://github.com/tasks/tasks",
+      "repo": "tasks/tasks",
+      "stars": 5715,
+      "tags": [
+        "家务",
+        "账单提醒",
+        "药箱清点",
+        "重复任务",
+        "位置提醒",
+        "安卓"
+      ],
+      "steps": "装 F-Droid/Play 版，照『账单+换耗材+药箱清点』建 10 条重复任务，截图整理成跟做清单。",
+      "risk": "主要是安卓（桌面版 alpha）；部分功能与 Tasks.org Cloud 同步属订阅项；iPhone 用户不适用；药箱清点只做到期提醒，不提供用药建议。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/tasks/tasks"
+        },
+        {
+          "title": "官方文档",
+          "url": "https://tasks.org/docs"
+        }
+      ]
+    },
+    {
+      "id": "super-productivity",
+      "rank": 5,
+      "name": "Super Productivity",
+      "category": "生活",
+      "summary": "离线优先的开源待办+时间盒+每日规划：计划器把任务排进当天时间线、与日历并排；看板/艾森豪威尔矩阵；番茄钟与专注模式、休息提醒；CalDAV 基础集成；免注册、不收集数据，Web/桌面/安卓/iOS 全平台，MIT。",
+      "why": "早晨/日程效率：每天早上 5 分钟把待办拖进今日时间线，和日历会议并排一眼看出冲突，做成『今日重点早报』；用艾森豪威尔矩阵挑出今天唯一的『先吃青蛙』任务；配番茄钟和休息提醒做『上班族专注一上午』跟做模板。",
+      "url": "https://github.com/super-productivity/super-productivity",
+      "repo": "super-productivity/super-productivity",
+      "stars": 23412,
+      "tags": [
+        "早晨规划",
+        "时间盒",
+        "今日重点",
+        "番茄钟",
+        "全平台",
+        "免注册"
+      ],
+      "steps": "直接打开网页版 app.super-productivity.com，按『早晨 5 分钟规划』流程排一次今天，截图做教程首图。",
+      "risk": "功能多，新手容易被面板劝退，教程要只讲 3 个功能；网页版有部分限制；跨设备同步需自己配 WebDAV/Dropbox 或用官方 SuperSync。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/super-productivity/super-productivity"
+        },
+        {
+          "title": "网页版",
+          "url": "https://app.super-productivity.com"
+        }
+      ]
+    }
+  ]
+}
