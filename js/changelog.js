@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 92, date: '2026-11-05', title: 'AI生活合集新增「周末出游攻略不翻车」场景文选题', tag: '内容', href: '#war-rank-ai-life',
+      items: ['「AI生活起号选题方案」合集置顶新增：深秋周末让AI做出游攻略不翻车——先生成、再核对、后预订；含约束提示词、地图逐项核对与按序预订、路上重排追问；小红书封面与闲鱼模板包角度', '附21经济网（央视新闻客户端）/ IT Yes, OK! / Ai蓝图网 / 人人都是产品经理四个来源；身份证、银行卡、住址别发；票价与闭园以12306/官方/现场公告为准；不代订、不代规划；不承诺省钱。SW 缓存 59'] },
     { id: 91, date: '2026-11-05', title: '每日赚钱榜 · 2026-11-05', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Webflow Affiliate：做建站/无代码教程，官方称新客首个订阅最高12个月50%分成（以条款为准）","No.2 Ko-fi Shop：免月费开小店卖原创数字下载/会员，店铺成交收约5%服务费（以帮助中心为准）","No.3 GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟"] },
     { id: 90, date: '2026-11-04', title: '每日赚钱榜 · 2026-11-04', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）","No.2 Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）","No.3 Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 89, date: '2026-11-03', title: '新增「OPC 一人公司」栏目：政策摘要、可做业务、接活渠道与周报', tag: '新功能', href: '#war-rank-opc',

@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-05T00:20:45.290Z",
-  "latestId": 91,
+  "generatedAt": "2026-11-05T04:25:18.481Z",
+  "latestId": 92,
   "latestDate": "2026-11-05",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 92,
+      "date": "2026-11-05",
+      "tag": "内容",
+      "title": "AI生活合集新增「周末出游攻略不翻车」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：深秋周末让AI做出游攻略不翻车——先生成、再核对、后预订；含约束提示词、地图逐项核对与按序预订、路上重排追问；小红书封面与闲鱼模板包角度",
+        "附21经济网（央视新闻客户端）/ IT Yes, OK! / Ai蓝图网 / 人人都是产品经理四个来源；身份证、银行卡、住址别发；票价与闭园以12306/官方/现场公告为准；不代订、不代规划；不承诺省钱。SW 缓存 59"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 91,
       "date": "2026-11-05",
@@ -115,16 +126,6 @@
         "附 Apple 中国新闻稿 / 华龙网 / X 话题 / 新华社英文四个来源，本机核验均可访问；不含 Siri AI；不代装 Beta、不代领测试资格；不承诺效果与收益。SW 缓存 54"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 82,
-      "date": "2026-11-01",
-      "tag": "改进",
-      "title": "AI 羊毛可按官方/非官方筛选",
-      "items": [
-        "卡片与详情展示 origin（官方/非官方）；筛选条：全部来源 / 官方 / 非官方；缺省字段只出现在全部。SW 缓存 53"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-wool"
     }
   ],
   "rank": {
