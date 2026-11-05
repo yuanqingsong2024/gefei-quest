@@ -1,9 +1,157 @@
 {
-  "date": "2026-11-04",
-  "updated": "2026-11-04T09:45:00+08:00",
+  "date": "2026-11-05",
+  "updated": "2026-11-05T09:50:00+08:00",
   "items": [
     {
       "rank": 1,
+      "name": "美团 LongCat-2.5 上线：实名认证送 1000 万 Tokens（老用户 500 万）",
+      "type": "Token福利",
+      "provider": "美团 LongCat API 开放平台",
+      "region": "国内",
+      "origin": "非官方",
+      "summary": "X 博主多帖（@ai_chuhai、@dragono64v、@fngq171155 等）与社区情报站实测：LongCat-2.5 正式上线后，新用户完成个人实名认证自动到账 1000 万 Tokens、老用户 500 万，命中缓存不扣赠送额度；接口兼容 OpenAI/Anthropic，可接 Claude Code、Codex。已对照官方 API 文档（模型 LongCat-2.5、端点、实名流程）与智东西报道交叉核验；赠送额度官方文档未单列、未公布截止。昨日榜未收录。",
+      "value": "新用户 1000 万 Tokens / 老用户 500 万 Tokens（以「用量管理」页显示为准）",
+      "deadline": "官方未公布截止",
+      "cost": "0 元；需中国大陆个人实名认证（本人真实信息）",
+      "difficulty": 2,
+      "threshold": "本人实名；不绑卡；限时价与赠送规则以平台结算为准",
+      "time": "注册+实名+建 Key 约 10 分钟",
+      "fit": "想零成本试 1M 上下文 Agent 模型、把国产模型接进 Claude Code/Codex 的开发者",
+      "why": "额度大、能接主流 Agent 工具，适合做「LongCat 接入 Claude Code 实操教程」原创素材；需写清实名本人操作。",
+      "steps": [
+        "打开 longcat.chat/platform，手机号登录",
+        "在「账号信息及配置」完成个人实名认证（本人信息）",
+        "在「用量管理」确认赠送额度到账",
+        "在「API Keys」创建 Key（仅显示一次）",
+        "OpenAI 兼容填 https://api.longcat.chat/openai，模型选 LongCat-2.5"
+      ],
+      "risk": "风险：赠送额度来自社区与媒体转述，官方文档未单列条款，可能随时调整；须本人实名，禁止代实名或转卖 Key。不承诺能领到或额度多少。",
+      "risk_level": "中",
+      "reason": "本周新上线、X 社区多帖交叉 + 官方文档 + 媒体报道可核验的新 Token 福利。",
+      "tags": [
+        "美团",
+        "LongCat",
+        "免费Token",
+        "Claude Code",
+        "实名"
+      ],
+      "sources": [
+        {
+          "title": "X：美团 LongCat-2.5 官方送 Token 领取步骤",
+          "url": "https://x.com/ai_chuhai/status/2117853321616670969",
+          "publisher": "X/@ai_chuhai",
+          "published": "2026-11-04",
+          "kind": "community",
+          "checked": "2026-11-05"
+        },
+        {
+          "title": "X：11 月 3 日 AI 福利（LongCat 1000 万 Token）",
+          "url": "https://x.com/dragono64v/status/2117644072617906529",
+          "publisher": "X/@dragono64v",
+          "published": "2026-11-03",
+          "kind": "community",
+          "checked": "2026-11-05"
+        },
+        {
+          "title": "LongCat API 快速开始",
+          "url": "https://longcat.chat/platform/docs/zh/",
+          "publisher": "美团 LongCat",
+          "published": "2026-11-02",
+          "kind": "official",
+          "checked": "2026-11-05"
+        },
+        {
+          "title": "LongCat API 常见问题（实名认证）",
+          "url": "https://longcat.chat/platform/docs/zh/faq",
+          "publisher": "美团 LongCat",
+          "published": "2026-11-02",
+          "kind": "official",
+          "checked": "2026-11-05"
+        },
+        {
+          "title": "美团 LongCat-2.5 上线，新用户实名可得 1000 万 Tokens",
+          "url": "https://www.aipromonow.com/promos/meituan-longcat-25-launch-free-tokens-nov2026",
+          "publisher": "AI 优惠雷达",
+          "published": "2026-11-02",
+          "kind": "community",
+          "checked": "2026-11-05"
+        }
+      ],
+      "source_url": "https://longcat.chat/platform/docs/zh/",
+      "claim_howto": "登录→本人实名→用量管理查额度→建 Key。",
+      "stack": [
+        "LongCat-2.5",
+        "OpenAI兼容API",
+        "Anthropic兼容API"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "IteraCompute：Qwen3.8-27B 免费 API 每月 3000 万 Tokens（至 11/24）",
+      "type": "免费额度",
+      "provider": "IteraCompute",
+      "region": "全球",
+      "origin": "官方",
+      "summary": "官方免费页与文档：Qwen3.8-27B 输入/缓存/输出均 $0，免费档每 UTC 自然月 3000 万 Tokens、128K 上下文、160K TPM，免绑卡免充值，注册验证邮箱即可建 Key；超限返回 429 不自动扣费。免费推广于太平洋时间 11/24 0 点（北京时间 11/24 16:00）结束。昨日榜未收录。",
+      "value": "每月 3000 万 Tokens（Qwen3.8-27B）· 128K 上下文 · 免绑卡",
+      "deadline": "2026-11-24",
+      "cost": "0 元；邮箱或 Google 注册",
+      "difficulty": 1,
+      "threshold": "邮箱验证；共享闲置 GPU 可能排队/变慢，无 SLA",
+      "time": "注册+建 Key 约 5 分钟",
+      "fit": "需要海外可用、OpenAI 兼容免费模型跑脚本/小 Agent 的个人开发者",
+      "why": "门槛最低、额度明确有截止，适合做「免绑卡免费 Qwen API 接入 OpenCode」限时教程素材。",
+      "steps": [
+        "打开 iteracompute.com/free，注册并验证邮箱",
+        "控制台 API Keys 创建允许 qwen/qwen3.8-27b 的 Key",
+        "Base URL 填 https://api.iteracompute.com/v1，模型填 qwen/qwen3.8-27b",
+        "在 11/24 北京时间 16:00 前用完，留意月度重置与 429"
+      ],
+      "risk": "风险：免费容量共享，高峰排队；推广到期后规则可能变更；勿用于生产或转售。不承诺可用性与额度。",
+      "risk_level": "低",
+      "reason": "官方页明示额度、条款与截止日，可直接核验的限时免费 API。",
+      "tags": [
+        "IteraCompute",
+        "Qwen",
+        "免费API",
+        "OpenAI兼容",
+        "限时"
+      ],
+      "sources": [
+        {
+          "title": "Free Qwen API for OpenCode and Your Apps",
+          "url": "https://iteracompute.com/free/",
+          "publisher": "IteraCompute",
+          "published": "2026-11-01",
+          "kind": "official",
+          "checked": "2026-11-05"
+        },
+        {
+          "title": "OpenAI-Compatible API Documentation",
+          "url": "https://iteracompute.com/docs.html",
+          "publisher": "IteraCompute",
+          "published": "2026-11-01",
+          "kind": "official",
+          "checked": "2026-11-05"
+        },
+        {
+          "title": "IteraCompute Qwen3.8-27B 每月 3000 万 Tokens 免费",
+          "url": "https://jidan.si/free/203-iteracompute-qwen38-27b-free-30m-nov2026",
+          "publisher": "赛博鸡蛋",
+          "published": "2026-11-04",
+          "kind": "community",
+          "checked": "2026-11-05"
+        }
+      ],
+      "source_url": "https://iteracompute.com/free/",
+      "claim_howto": "注册验证邮箱→建 Key→改 Base URL。",
+      "stack": [
+        "Qwen3.8-27B",
+        "OpenAI兼容API"
+      ]
+    },
+    {
+      "rank": 3,
       "name": "阿里云双11千问AI会场：新用户超7000万免费 Token + Token Plan 新客首购5折（至11/30）",
       "type": "限时促销",
       "provider": "阿里云 / 千问 AI（百炼）",
@@ -42,7 +190,7 @@
           "publisher": "阿里云",
           "published": "2026-11-01",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "2026阿里云双十一 AI 产品特惠解读（7000万免费Token）",
@@ -50,7 +198,7 @@
           "publisher": "阿里云开发者社区",
           "published": "2026-11-01",
           "kind": "community",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "X：阿里云双11 AI 羊毛汇总",
@@ -58,7 +206,7 @@
           "publisher": "X/@knightleijun",
           "published": "2026-11-03",
           "kind": "community",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://www.aliyun.com/activity/hub/qianwenai1111",
@@ -70,13 +218,13 @@
       ]
     },
     {
-      "rank": 2,
+      "rank": 4,
       "name": "商汤 SenseNova Token Plan 公测 Free 档 ¥0/月（6.8 Flash 上线）",
       "type": "免费额度",
       "provider": "商汤日日新 SenseNova",
       "region": "国内",
       "origin": "官方",
-      "summary": "商汤 11/2 发布 SenseNova 6.8 Flash 并同步开放 Token Plan；官方 Token Plan 页写「公测期完全免费开放，付费档位即将上线」「Free · 公测 限时放量」。社区核验：通用积分每 5 小时 12 万、每周 120 万，最多 20 个 API Key，OpenAI/Anthropic 兼容接口 token.sensenova.cn/v1。官方未写公测截止。昨日榜未收录。",
+      "summary": "商汤 11/2 发布 SenseNova 6.8 Flash 并同步开放 Token Plan；官方 Token Plan 页写「公测期完全免费开放，付费档位即将上线」「Free · 公测 限时放量」。社区核验：通用积分每 5 小时 12 万、每周 120 万，最多 20 个 API Key，OpenAI/Anthropic 兼容接口 token.sensenova.cn/v1。官方未写公测截止。",
       "value": "Free 档 ¥0/月 · 通用积分约 12 万/5 小时、120 万/周（以控制台为准）· 最多 20 个 Key",
       "deadline": "官方未写公测截止（调整会提前通知）",
       "cost": "0 元；需注册并验证手机号",
@@ -109,7 +257,7 @@
           "publisher": "商汤日日新",
           "published": "2026-11-02",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "商汤 SenseNova 6.8 Flash 公测免费调",
@@ -117,7 +265,7 @@
           "publisher": "模真真",
           "published": "2026-11-02",
           "kind": "news",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "X：商汤 Token Plan 公测 0 元领取路径",
@@ -125,7 +273,7 @@
           "publisher": "X/@7eddsi",
           "published": "2026-11-02",
           "kind": "community",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://www.sensenova.cn/token-plan",
@@ -137,13 +285,13 @@
       ]
     },
     {
-      "rank": 3,
+      "rank": 5,
       "name": "AMD Radeon Cloud Token Factory：15 个免费模型 API（DeepSeek/GLM/Qwen Flash）",
       "type": "免费额度",
       "provider": "AMD Radeon Cloud（中国站）",
       "region": "国内",
       "origin": "非官方",
-      "summary": "X 博主多帖（@aiwaremax、@halozhangyu 等）实测：AMD 中国站 Token Factory 放出一排免费模型 API，免绑卡，复制 rc- Key 即可调用，含 DeepSeek-V4.1-Flash、GLM-5.3-Flash、Qwen3.8 等。已对照官方 Token Factory 页面（今日显示 15 个 Public Free Model APIs）与官方文档（每日 pts 上限北京时间 0 点重置、不消耗积分、禁止转售、不适合生产）交叉核验。热门模型常显示 At capacity。昨日榜未收录。",
+      "summary": "X 博主多帖（@aiwaremax、@halozhangyu 等）实测：AMD 中国站 Token Factory 放出一排免费模型 API，免绑卡，复制 rc- Key 即可调用，含 DeepSeek-V4.1-Flash、GLM-5.3-Flash、Qwen3.8 等。已对照官方 Token Factory 页面（今日显示 15 个 Public Free Model APIs）与官方文档（每日 pts 上限北京时间 0 点重置、不消耗积分、禁止转售、不适合生产）交叉核验。热门模型常显示 At capacity。",
       "value": "15 个免费模型 API · 每日用量上限（pts，非费用）0 点重置 · 免绑卡",
       "deadline": "官方未写截止（模型列表不定期调整）",
       "cost": "0 元；需注册 AMD AI 开发者计划中国站账号（少数需审核）",
@@ -176,7 +324,7 @@
           "publisher": "X/@aiwaremax",
           "published": "2026-11-02",
           "kind": "community",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "X：Token Factory 免绑卡、OpenAI/Anthropic 兼容实测",
@@ -184,7 +332,7 @@
           "publisher": "X/@halozhangyu",
           "published": "2026-11-02",
           "kind": "community",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "Radeon Cloud Token Factory（官方入口）",
@@ -192,7 +340,7 @@
           "publisher": "AMD",
           "published": "2026-11-03",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "Token Factory 文档",
@@ -200,7 +348,7 @@
           "publisher": "AMD Radeon Cloud 文档",
           "published": "2026-11-03",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://developer.amd.com.cn/radeon/tokenfactory",
@@ -211,13 +359,13 @@
       ]
     },
     {
-      "rank": 4,
+      "rank": 6,
       "name": "Claude Max/Ultra/Team 订阅附赠每月 API credits（$100/$200/最高$500）",
       "type": "Token福利",
       "provider": "Anthropic（Claude）",
       "region": "海外",
       "origin": "官方",
-      "summary": "Anthropic 官方文档与帮助中心：Max 每月 $100、Ultra 每月 $200、Team 按席位（Standard $20/Premium $100）合并、上限 $500 的 Claude API credits；新订阅满 7 天可领，需把 Claude Console 组织绑定到订阅，无需绑卡；覆盖 Claude API、Managed Agents、Agent SDK、Playground，不覆盖 Claude Code 交互用量；每周期清零不结转。Free/Pro/Enterprise 不适用。昨日榜未收录。",
+      "summary": "Anthropic 官方文档与帮助中心：Max 每月 $100、Ultra 每月 $200、Team 按席位（Standard $20/Premium $100）合并、上限 $500 的 Claude API credits；新订阅满 7 天可领，需把 Claude Console 组织绑定到订阅，无需绑卡；覆盖 Claude API、Managed Agents、Agent SDK、Playground，不覆盖 Claude Code 交互用量；每周期清零不结转。Free/Pro/Enterprise 不适用。",
       "value": "Max $100/月 · Ultra $200/月 · Team 最高 $500/月（API 额度，不结转）",
       "deadline": "官方未写截止",
       "cost": "需已付费 Max/Ultra/Team 订阅（本身不便宜，不建议为额度专门升级）",
@@ -250,7 +398,7 @@
           "publisher": "Anthropic",
           "published": "2026-10-07",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "Monthly API credits for Max, Ultra, and Team plans",
@@ -258,7 +406,7 @@
           "publisher": "Claude Help Center",
           "published": "2026-10-07",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers",
@@ -269,13 +417,13 @@
       ]
     },
     {
-      "rank": 5,
+      "rank": 7,
       "name": "ChatGPT Pro/Business 订阅附赠每月 API credits（最高 $500）",
       "type": "Token福利",
       "provider": "OpenAI",
       "region": "海外",
       "origin": "官方",
-      "summary": "OpenAI 开发者文档：付费 ChatGPT Pro（$100/$200/$500 档对应 $100/$200/$500 额度）与 Business（Standard 席位 $20、Premium $100，单 workspace 上限 $500）每月可领 API credits；订阅需满 7 天、非试用/赠送，需同时为订阅（或 workspace）与接收 API 组织的 Owner；额度绑定一个 API 组织、周期末过期。昨日榜未收录。",
+      "summary": "OpenAI 开发者文档：付费 ChatGPT Pro（$100/$200/$500 档对应 $100/$200/$500 额度）与 Business（Standard 席位 $20、Premium $100，单 workspace 上限 $500）每月可领 API credits；订阅需满 7 天、非试用/赠送，需同时为订阅（或 workspace）与接收 API 组织的 Owner；额度绑定一个 API 组织、周期末过期。",
       "value": "Pro 按档 $100/$200/$500 每月 · Business 每席位 $20/$100、上限 $500/月",
       "deadline": "官方未写截止",
       "cost": "需已付费 ChatGPT Pro 或 Business（不建议为额度专门升级）",
@@ -308,7 +456,7 @@
           "publisher": "OpenAI",
           "published": "2026-10-30",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "This week in AI credits (Nov 1, 2026)",
@@ -316,7 +464,7 @@
           "publisher": "Perq",
           "published": "2026-11-01",
           "kind": "news",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits",
@@ -327,7 +475,7 @@
       ]
     },
     {
-      "rank": 6,
+      "rank": 8,
       "name": "七牛云 Conatus Free：实名每日 1 亿 Token（至 11/30）",
       "type": "限时促销",
       "provider": "七牛云 AI 大模型 / Conatus",
@@ -366,7 +514,7 @@
           "publisher": "七牛云",
           "published": "2026-10-24",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "X：七牛 Conatus 每日 1 亿 Token（社区可复现）",
@@ -374,7 +522,7 @@
           "publisher": "X/@7eddsi",
           "published": "2026-11-02",
           "kind": "community",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "X：交叉核验七牛 Conatus 领取路径",
@@ -382,7 +530,7 @@
           "publisher": "X/@GouGeHSLU",
           "published": "2026-11-02",
           "kind": "community",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://www.qiniu.com/ai/free-models/conatus-2026",
@@ -394,7 +542,7 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 9,
       "name": "Google AI Pro/Plus 学生一年免费（SheerID）",
       "type": "学生教育",
       "provider": "Google Gemini / Google One",
@@ -433,7 +581,7 @@
           "publisher": "Google Blog",
           "published": "2026-08-19",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "Claim a Google One student offer",
@@ -441,7 +589,7 @@
           "publisher": "Google One Help",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         },
         {
           "title": "Google AI student redeem page",
@@ -449,7 +597,7 @@
           "publisher": "Google One",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://one.google.com/ai-student",
