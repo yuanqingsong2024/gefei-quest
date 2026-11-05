@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-04T00:20:53.927Z",
-  "latestId": 90,
-  "latestDate": "2026-11-04",
+  "generatedAt": "2026-11-05T00:20:45.290Z",
+  "latestId": 91,
+  "latestDate": "2026-11-05",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 91,
+      "date": "2026-11-05",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-05",
+      "items": [
+        "No.1 Webflow Affiliate：做建站/无代码教程，官方称新客首个订阅最高12个月50%分成（以条款为准）",
+        "No.2 Ko-fi Shop：免月费开小店卖原创数字下载/会员，店铺成交收约5%服务费（以帮助中心为准）",
+        "No.3 GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 90,
       "date": "2026-11-04",
@@ -113,41 +125,30 @@
         "卡片与详情展示 origin（官方/非官方）；筛选条：全部来源 / 官方 / 非官方；缺省字段只出现在全部。SW 缓存 53"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-wool"
-    },
-    {
-      "id": 81,
-      "date": "2026-11-01",
-      "tag": "新功能",
-      "title": "新增「AI 羊毛」频道：订阅折扣 / 免费额度 / Token 福利",
-      "items": [
-        "导航「赚钱 → AI 羊毛」（#war-rank-ai-wool）；短卡摘要 + 详情弹窗；筛选类型/收藏",
-        "数据 data/ai-wool/YYYY-MM-DD.json + latest.json；赚钱榜雷达推 main 即可。优惠以官方为准，可能随时失效；注意绑卡/自动续费，不承诺省钱。SW 缓存 51"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-wool"
     }
   ],
   "rank": {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）",
+        "name": "Webflow Affiliate：做建站/无代码教程，官方称新客首个订阅最高12个月50%分成（以条款为准）",
         "type": "联盟营销",
-        "source_url": "https://kinsta.com/affiliates/"
+        "source_url": "https://webflow.com/solutions/affiliates"
       },
       {
         "rank": 2,
-        "name": "Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）",
+        "name": "Ko-fi Shop：免月费开小店卖原创数字下载/会员，店铺成交收约5%服务费（以帮助中心为准）",
         "type": "数字产品/接单",
-        "source_url": "https://www.podia.com/pricing"
+        "source_url": "https://ko-fi.com/features"
       },
       {
         "rank": 3,
-        "name": "Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "name": "GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟",
         "type": "出海小站",
-        "source_url": "https://render.com/docs/static-sites"
+        "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
       }
     ]
   }

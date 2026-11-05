@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 91, date: '2026-11-05', title: '每日赚钱榜 · 2026-11-05', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Webflow Affiliate：做建站/无代码教程，官方称新客首个订阅最高12个月50%分成（以条款为准）","No.2 Ko-fi Shop：免月费开小店卖原创数字下载/会员，店铺成交收约5%服务费（以帮助中心为准）","No.3 GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟"] },
     { id: 90, date: '2026-11-04', title: '每日赚钱榜 · 2026-11-04', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）","No.2 Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）","No.3 Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 89, date: '2026-11-03', title: '新增「OPC 一人公司」栏目：政策摘要、可做业务、接活渠道与周报', tag: '新功能', href: '#war-rank-opc',
       items: ['导航「赚钱 → OPC 一人公司」（#war-rank-opc）；政策 / 业务 / 渠道 / 红线常青块 + 周报归档，可按类型筛选', '数据 data/opc-briefs/latest.json，内嵌 js/opc-data.js 兜底。公开整理，非法律或税务意见，不承诺收益，不写灰产。SW 缓存 58'] },

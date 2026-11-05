@@ -1,260 +1,260 @@
 {
-  "date": "2026-11-04",
-  "publishedAt": "2026-11-04T00:20:53.837Z",
+  "date": "2026-11-05",
+  "publishedAt": "2026-11-05T00:20:34.738Z",
   "items": [
     {
       "rank": 1,
-      "name": "Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）",
+      "name": "Webflow Affiliate：做建站/无代码教程，官方称新客首个订阅最高12个月50%分成（以条款为准）",
       "type": "联盟营销",
-      "summary": "Kinsta 官方联盟页写明：推荐用户购买其 WordPress 托管，可得一次性奖励（最高约$500）并按月拿约10%的持续分成；适合做建站与性能优化内容的人长期挂链。",
-      "cost": "0；需能产出 WordPress 托管/迁移真实内容的站点或社媒",
+      "summary": "Webflow 官方联盟页写明：推荐新客户购买首个订阅，可拿约50%收入分成、最长12个月，90天 cookie；面向内容创作者，做外包建站的人需走另一个合作伙伴计划。",
+      "cost": "0；需有真实建站/无代码内容的博客、YouTube 或社媒",
       "difficulty": 2,
-      "threshold": "申请审核通过后挂链；内容需真实评测并披露联盟关系",
-      "time": "申请与首篇内容约1–3天；见效通常需数周到数月",
-      "fit": "做 WordPress 建站、外贸站或站长内容的人；预估投入：每周5小时",
-      "why": "Kinsta Affiliates 官方页写明 one-time bonus of up to $500, plus lifetime monthly commissions of 10%。上榜理由：相对昨日 Hostinger「首购高比例」，今天换成「一次性奖励+按月持续分成」的高客单托管路径。",
+      "threshold": "需申请审核，入选后30天内发布一篇内容；披露联盟关系",
+      "time": "申请审核约1–2周；首篇内容约1–3天",
+      "fit": "做无代码、建站、设计教程的创作者；预估投入：每周5小时",
+      "why": "Webflow Affiliate 官方页写明 earn a 50% commission on a new customer's first subscription for up to 12 months，并注明 90-day cookie window。上榜理由：相对昨日 Kinsta 托管，今天换「无代码建站工具」的高比例年度分成路径。",
       "steps": [
-        "打开 kinsta.com/affiliates 阅读规则并申请，核对合资格套餐与禁用推广方式",
-        "写一篇真实的 WordPress 迁移或测速对比教程，标明联盟关系",
-        "挂到小站/社媒并跟踪转化，避免品牌词竞价等条款禁止行为"
+        "打开 webflow.com/solutions/affiliates 阅读规则与不接受的申请类型（券站、激励流量等）",
+        "准备一篇真实的 Webflow 建站或模板教程，附上已有渠道链接再申请",
+        "入选后按要求30天内发内容，持续做对比与上手教程，注意不能投品牌词广告"
       ],
-      "risk": "风险等级：低。奖励档位、结算周期与退款冲销以官方条款为准；高客单产品转化慢。不承诺收益。",
+      "risk": "风险等级：低。审核可能不通过；只算新客首个合资格订阅；外包客户推荐不计佣。不承诺收益。",
       "risk_level": "低",
-      "reason": "高客单托管＋持续月分成，适合长期内容挂链。",
+      "reason": "高比例分成＋长 cookie，适合设计/建站内容号。",
       "tags": [
         "联盟营销",
-        "Kinsta",
-        "WordPress",
-        "托管",
-        "持续佣金"
+        "Webflow",
+        "无代码",
+        "建站",
+        "PartnerStack"
       ],
       "sources": [
         {
-          "title": "Kinsta Hosting Affiliate Program",
-          "url": "https://kinsta.com/affiliates/",
-          "publisher": "Kinsta",
+          "title": "Join the Webflow Affiliate Program",
+          "url": "https://webflow.com/solutions/affiliates",
+          "publisher": "Webflow",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
-      "source_url": "https://kinsta.com/affiliates/"
+      "source_url": "https://webflow.com/solutions/affiliates"
     },
     {
       "rank": 2,
-      "name": "Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）",
+      "name": "Ko-fi Shop：免月费开小店卖原创数字下载/会员，店铺成交收约5%服务费（以帮助中心为准）",
       "type": "数字产品/接单",
-      "summary": "Podia 一站式卖课程、数字下载与会员：官方定价页显示 Mover 档（约$42/月按年付）收约5%交易费，Shaker 档（约$84/月按年付）无交易费，适合把教程做成可反复卖的课程。",
-      "cost": "按月订阅（约$42/月起，按年付口径）；可先试用",
-      "difficulty": 2,
-      "threshold": "有能讲清楚的一个技能主题，能录制或写成结构化课程",
-      "time": "3–7天做出首个小课；之后持续更新与引流",
-      "fit": "有成体系技能想做成课程/资料包的创作者；预估投入：每周6小时",
-      "why": "Podia 官方 Pricing 页列出 Mover「5% fees」、Shaker「No fees」及对应月费。上榜理由：相对昨日 Gumroad/Payhip 的按单抽成，今天换成「月费换零交易费」的课程店铺路径，销量起来后费率更可控。",
+      "summary": "Ko-fi 帮助中心写明两种模式都免月费：店铺、会员、约稿成交收约5%服务费，免费模式下一次性打赏0%；款项直接进你自己的 PayPal 或 Stripe。",
+      "cost": "0月费；成交约5%服务费＋支付通道费（约3%+$0.30）",
+      "difficulty": 1,
+      "threshold": "有可卖的原创数字内容（模板、笔刷、教程、素材包），能开 PayPal 或 Stripe 收款",
+      "time": "半天开店上架；之后靠社媒持续导流",
+      "fit": "有作品的插画、设计、写作创作者；预估投入：每周3小时",
+      "why": "Ko-fi 官方 Features 页写明 most creators pay a 5% fee per transaction，帮助中心费用说明列出两种模式均 $0/mo。上榜理由：相对昨日 Podia 月费模式，今天换零月费、打赏+小店一体的轻量路径。",
       "steps": [
-        "打开 podia.com/pricing 核对各档月费、交易费与功能",
-        "先用试用期上架一个小而具体的课程或资料包，写清适合谁、学完能做什么",
-        "用邮件订阅与社媒导流，销量稳定后再评估是否升级到无交易费档"
+        "按帮助中心说明选择 Free 或 Standard 模式，绑定 PayPal/Stripe",
+        "上架1–3个原创数字下载，写清用途、格式与授权范围",
+        "把 Ko-fi 链接挂在作品发布渠道，用打赏与会员积累回头客"
       ],
-      "risk": "风险等级：中。有固定月费，没销量也要付；只能卖原创或已获授权内容。不承诺收益。",
-      "risk_level": "中",
-      "reason": "课程类数字产品可反复卖，费率结构清晰。",
+      "risk": "风险等级：低。只能卖原创或已获授权内容；跨境收款需自行处理税务与通道限制。不承诺收益。",
+      "risk_level": "低",
+      "reason": "零月费起步，打赏、会员、小店一站搞定。",
       "tags": [
         "数字产品",
-        "Podia",
-        "在线课程",
+        "Ko-fi",
+        "原创",
         "会员",
+        "打赏"
+      ],
+      "sources": [
+        {
+          "title": "Ko-fi Features",
+          "url": "https://ko-fi.com/features",
+          "publisher": "Ko-fi",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-05"
+        }
+      ],
+      "source_url": "https://ko-fi.com/features"
+    },
+    {
+      "rank": 3,
+      "name": "GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟",
+      "type": "出海小站",
+      "summary": "GitHub 官方文档说明 Pages 是静态站托管服务，直接从仓库发布 HTML/CSS/JS，可用 github.io 或自定义域名；适合先做单页英文工具验证需求。",
+      "cost": "0；自定义域名约每年数十美元可选",
+      "difficulty": 2,
+      "threshold": "会用 Git 和基础前端，懂基础 SEO",
+      "time": "半天上线首版；流量与变现通常需数月",
+      "fit": "会写前端、想低成本试水出海小站的人；预估投入：每周4小时",
+      "why": "GitHub Docs「What is GitHub Pages?」写明 static site hosting service，可 host on your own custom domain。上榜理由：相对昨日 Render，今天换 GitHub Pages，代码与站点同仓管理，适合开源小工具引流。",
+      "steps": [
+        "按 GitHub Pages 文档新建仓库并开启 Pages 发布一个单页工具",
+        "绑定自定义域名，提交 Search Console 观察关键词",
+        "有稳定访问后申请 AdSense 或挂相关联盟链接，遵守 GitHub 使用条款"
+      ],
+      "risk": "风险等级：低。Pages 有使用限制，不适合做商业电商主站；广告与联盟需各自审核。不承诺收益。",
+      "risk_level": "低",
+      "reason": "零成本验证出海小站，和开源工具天然结合。",
+      "tags": [
+        "出海小站",
+        "GitHub Pages",
+        "静态站",
+        "SEO",
+        "开源"
+      ],
+      "sources": [
+        {
+          "title": "What is GitHub Pages?",
+          "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages",
+          "publisher": "GitHub Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-05"
+        }
+      ],
+      "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+    },
+    {
+      "rank": 4,
+      "name": "百家号：开通创作者收益，靠图文/视频在百度搜索与信息流拿平台分成（权限与门槛以后台为准）",
+      "type": "平台激励",
+      "summary": "百家号是百度的内容创作平台，作品可分发到百度搜索与信息流；达到后台要求后可开通收益相关权限，适合写可被长期搜索到的实用教程。",
+      "cost": "0；需实名注册",
+      "difficulty": 2,
+      "threshold": "需实名入驻，持续原创；收益权限以后台规则为准",
+      "time": "注册当天可发文；收益权限通常需持续更新一段时间",
+      "fit": "擅长写实用教程、问答类内容的人；预估投入：每周5小时",
+      "why": "百家号官网为百度官方创作平台入口。上榜理由：相对昨日头条号，今天换百度系，搜索长尾流量更持久，教程类内容可以多年持续带来阅读。",
+      "steps": [
+        "打开 baijiahao.baidu.com 实名入驻，选定一个垂直领域",
+        "围绕「怎么做/怎么选」类搜索需求写原创图文",
+        "按后台指引申请收益权限，避免搬运与标题党"
+      ],
+      "risk": "风险等级：低。搬运、洗稿会被处罚；收益规则会调整，以后台为准。不承诺收益。",
+      "risk_level": "低",
+      "reason": "搜索长尾流量稳，国内门槛低。",
+      "tags": [
+        "平台激励",
+        "百家号",
+        "百度",
+        "图文",
+        "创作收益"
+      ],
+      "sources": [
+        {
+          "title": "百家号——从这里影响世界",
+          "url": "https://baijiahao.baidu.com/",
+          "publisher": "百度",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-05"
+        }
+      ],
+      "source_url": "https://baijiahao.baidu.com/"
+    },
+    {
+      "rank": 5,
+      "name": "Fiverr：发布 Gig 接海外小单，$5 起定价、三档套餐（新卖家最多4个 Gig，以帮助中心为准）",
+      "type": "副业",
+      "summary": "Fiverr 帮助中心写明：Gig 可设 Basic/Standard/Premium 三档，美元定价最低$5，新卖家最多4个活跃 Gig；发布前需完成手机、邮箱与身份信息验证。",
+      "cost": "0；平台按订单抽取服务费（以官方规则为准）",
+      "difficulty": 2,
+      "threshold": "有一项能标准化交付的技能（设计、翻译、剪辑、脚本），英文能沟通，完成 KYC",
+      "time": "1天建好首个 Gig；接首单通常需数周",
+      "fit": "有可交付技能、想赚美元的人；预估投入：每周6小时",
+      "why": "Fiverr Help Center「Creating a Gig」写明 minimum starting price is $5、可设三档套餐，并列出发布前的验证要求。上榜理由：相对昨日 Contra 作品集接单，今天换按套餐卖标准化服务的海外平台。",
+      "steps": [
+        "阅读 Fiverr 禁止服务与 Gig 政策，选一个可标准化的服务",
+        "按帮助中心步骤写标题、三档套餐、FAQ 与需求表，用自有作品做配图",
+        "全程站内沟通交付，按时交付积累评价"
+      ],
+      "risk": "风险等级：中。新号曝光少、竞争激烈；站外交易违规会封号；跨境收款需处理税务。不承诺收益。",
+      "risk_level": "中",
+      "reason": "服务标准化、可复购的海外接单入口。",
+      "tags": [
+        "副业",
+        "Fiverr",
+        "自由职业",
+        "海外接单",
+        "套餐"
+      ],
+      "sources": [
+        {
+          "title": "",
+          "url": "https://www.fiverr.com/start_selling",
+          "publisher": "Fiverr",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-05"
+        }
+      ],
+      "source_url": "https://www.fiverr.com/start_selling"
+    },
+    {
+      "rank": 6,
+      "name": "itch.io：上架原创游戏素材/工具/电子书，可自选平台分成比例（open revenue sharing）",
+      "type": "数字产品/接单",
+      "summary": "itch.io 创作者 FAQ 写明平台免费使用、不放广告，分成比例由创作者自行决定（open revenue sharing）；可卖素材包、工具、漫画、电子书等，可设最低价或随心付。",
+      "cost": "0；平台分成自选＋支付通道费",
+      "difficulty": 2,
+      "threshold": "有原创像素素材、音效、小工具或电子书等可下载作品",
+      "time": "半天上架；之后靠社区与社媒导流",
+      "fit": "做游戏素材、独立游戏、小工具的创作者；预估投入：每周4小时",
+      "why": "itch.io Creator FAQ 写明 itch.io costs nothing to use，并由创作者 choosing what percentage of your sales should go towards our operational costs。上榜理由：相对昨日 Sellfy，今天换独立游戏圈的素材市场，素材包可长期反复卖。",
+      "steps": [
+        "阅读 Creator FAQ 与内容政策，确认作品类型可上架",
+        "上架原创素材包或工具，设置最低价或随心付，写清授权范围",
+        "在游戏开发社区与社媒发布预览，引导到 itch.io 页面"
+      ],
+      "risk": "风险等级：低。只能卖原创或已获授权内容；成人内容有严格限制。不承诺收益。",
+      "risk_level": "低",
+      "reason": "零成本、分成自选，素材类可反复卖。",
+      "tags": [
+        "数字产品",
+        "itch.io",
+        "游戏素材",
+        "独立开发",
         "原创"
       ],
       "sources": [
         {
-          "title": "Podia Pricing: Plans, Transaction Fees & Free Trial",
-          "url": "https://www.podia.com/pricing",
-          "publisher": "Podia",
+          "title": "Creator FAQ - itch.io",
+          "url": "https://itch.io/docs/creators/faq",
+          "publisher": "itch.io",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
-      "source_url": "https://www.podia.com/pricing"
-    },
-    {
-      "rank": 3,
-      "name": "Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟",
-      "type": "出海小站",
-      "summary": "Render 官方文档写明静态站可免费部署，含免费 TLS 与自定义域名；适合先上线单页英文工具或指南，验证搜索与回访后再接广告或联盟。",
-      "cost": "域名约每年数十美元可选；静态站官方称免费部署",
-      "difficulty": 2,
-      "threshold": "能用 Git 仓库发布静态页面，并做好基础 SEO",
-      "time": "半天到1天上线首版；流量与变现通常需数月",
-      "fit": "会一点前端、想做英文工具站的人；预估投入：每周4小时",
-      "why": "Render Static Sites 文档写明 Static sites are fast and free to deploy，并免费提供 TLS 与自定义域名。上榜理由：相对昨日 Cloudflare Pages，今天换 Render 的 Git 部署路径，方便日后同平台加后端服务。",
-      "steps": [
-        "按 render.com/docs/static-sites 连接 Git 仓库并部署一个单页工具",
-        "绑定自定义域名，提交 Search Console 并观察关键词与点击",
-        "有稳定访问后再申请 AdSense 或挂相关联盟链接"
-      ],
-      "risk": "风险等级：低。免费档额度与规则以官方为准；广告与联盟需各自审核。不承诺收益。",
-      "risk_level": "低",
-      "reason": "零服务器费验证出海小站需求，后续可扩展。",
-      "tags": [
-        "出海小站",
-        "Render",
-        "静态站",
-        "SEO",
-        "AdSense"
-      ],
-      "sources": [
-        {
-          "title": "Static Sites",
-          "url": "https://render.com/docs/static-sites",
-          "publisher": "Render",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-04"
-        }
-      ],
-      "source_url": "https://render.com/docs/static-sites"
-    },
-    {
-      "rank": 4,
-      "name": "今日头条（头条号）：开通创作收益，靠图文/视频内容拿平台收益（权限与门槛以后台为准）",
-      "type": "平台激励",
-      "summary": "头条号创作者后台设有整体收益、图文创作收益、视频创作收益等模块；持续发布原创图文或视频，满足后台要求后可获得平台收益分成。",
-      "cost": "0；需实名注册头条号",
-      "difficulty": 2,
-      "threshold": "需完成实名并满足后台的收益开通条件（以后台显示为准）；坚持原创",
-      "time": "注册当天可发文；开通收益与有效收益通常需数周持续更新",
-      "fit": "会写实用干货或做解说视频、能稳定更新的人；预估投入：每周5小时",
-      "why": "头条号后台（mp.toutiao.com）导航含「收益数据—整体收益/图文创作收益/视频创作收益」。上榜理由：相对昨日微信公众号流量主，今天换头条号图文/视频双收益路径，国内内容创作者上手门槛低。",
-      "steps": [
-        "在 mp.toutiao.com 注册并实名，查看后台收益开通条件",
-        "选一个垂直方向（如工具教程、职场技巧）连续发布原创内容",
-        "在收益数据里看哪类内容带来收益，持续迭代选题"
-      ],
-      "risk": "风险等级：低。搬运、洗稿或标题党可能被限流或取消收益；收益规则以平台为准。不承诺收益。",
-      "risk_level": "低",
-      "reason": "国内大流量平台官方收益模块，原创内容即可起步。",
-      "tags": [
-        "平台激励",
-        "今日头条",
-        "头条号",
-        "图文",
-        "视频"
-      ],
-      "sources": [
-        {
-          "title": "头条号",
-          "url": "https://mp.toutiao.com/",
-          "publisher": "今日头条",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-04"
-        }
-      ],
-      "source_url": "https://mp.toutiao.com/"
-    },
-    {
-      "rank": 5,
-      "name": "Contra：建作品集接远程自由职业单，官方主打 commission-free（对自由职业者不抽佣，以官方说明为准）",
-      "type": "副业",
-      "summary": "Contra 面向独立设计师、开发者等的接单平台，官方首页强调 Get paid commission-free；可建作品集、发提案、签合同与开发票，也可上架数字产品。",
-      "cost": "0 起步；可选付费 Contra Pro 会员",
-      "difficulty": 3,
-      "threshold": "需英文沟通与可展示的作品集；面向海外客户",
-      "time": "1–2天搭好主页；首单通常需数周持续投递",
-      "fit": "有设计、开发、内容等技能、想接海外单的人；预估投入：每周6小时",
-      "why": "Contra 官方首页写有 Get paid commission-free、Sign contracts、Send invoices 等功能。上榜理由：相对之前的 Fiverr/猪八戒等抽佣平台，今天换主打不抽佣的作品集接单路径。",
-      "steps": [
-        "在 contra.com 注册，按技能整理 3–5 个案例做成作品集",
-        "浏览并投递匹配的项目，报价写清范围与交付时间",
-        "用平台合同与发票流程收款，避免站外无保障交易"
-      ],
-      "risk": "风险等级：中。海外客户沟通与收款需自行处理税务；平台政策可能调整。不承诺收益。",
-      "risk_level": "中",
-      "reason": "不抽佣的海外接单渠道，技能可直接变现。",
-      "tags": [
-        "副业",
-        "Contra",
-        "自由职业",
-        "作品集",
-        "海外接单"
-      ],
-      "sources": [
-        {
-          "title": "Contra",
-          "url": "https://contra.com/",
-          "publisher": "Contra",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-04"
-        }
-      ],
-      "source_url": "https://contra.com/"
-    },
-    {
-      "rank": 6,
-      "name": "Sellfy：开数字产品店铺，官方称 0% 交易费、订阅约$22/月起（以定价页为准）",
-      "type": "数字产品/接单",
-      "summary": "Sellfy 可卖数字下载、订阅与周边：官方定价页标题写明 Plans From $22/mo, 0% Transaction Fees；适合销量稳定后想压低单笔抽成的创作者。",
-      "cost": "约$22/月起的订阅（以官网为准）",
-      "difficulty": 2,
-      "threshold": "有原创数字商品（模板、素材、电子书等），能写清授权",
-      "time": "1–2天开店上架；之后持续引流",
-      "fit": "已有一定销量或受众、想用固定月费替代抽成的创作者；预估投入：每周4小时",
-      "why": "Sellfy 官方 Pricing 页写明 Plans From $22/mo, 0% Transaction Fees，并称 zero transaction fees。上榜理由：与 Podia 的课程路径互补，Sellfy 偏数字下载与店铺，适合模板类产品反复卖。",
-      "steps": [
-        "打开 sellfy.com/pricing 核对各档月费、产品数与收款方式",
-        "上架一个原创数字商品，写清授权范围与退款规则",
-        "把店铺链接挂到小站与社媒，比较月费与抽成平台的实际成本"
-      ],
-      "risk": "风险等级：中。固定月费需有销量覆盖；支付通道费另计；只卖原创或已授权内容。不承诺收益。",
-      "risk_level": "中",
-      "reason": "零交易费店铺，适合有稳定销量的数字产品。",
-      "tags": [
-        "数字产品",
-        "Sellfy",
-        "店铺",
-        "模板",
-        "0%交易费"
-      ],
-      "sources": [
-        {
-          "title": "Sellfy Pricing",
-          "url": "https://sellfy.com/pricing/",
-          "publisher": "Sellfy",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-04"
-        }
-      ],
-      "source_url": "https://sellfy.com/pricing/"
+      "source_url": "https://itch.io/docs/creators/faq"
     },
     {
       "rank": 7,
-      "name": "闲鱼技能服务：公众号文章排版与配图，按篇或按月套餐接单（不卖券码账号）",
+      "name": "闲鱼技能服务：职场 PPT 汇报美化，按页或按套报价接单（不卖券码账号，只做版式美化）",
       "type": "闲鱼非实物",
-      "summary": "在闲鱼发布自有技能的信息服务：为个人或小商家做公众号文章排版、封面与配图，按篇或按月包收费，站内交易防纠纷。",
-      "cost": "0；需实名与排版/设计工具",
+      "summary": "在闲鱼发布自有技能的信息服务：帮职场人把已有内容的汇报 PPT 做版式美化与图表重排，按页或整套收费；只做美化不替人撰写内容。",
+      "cost": "0；需实名与 PPT/Keynote 工具",
       "difficulty": 1,
-      "threshold": "能稳定做出整洁统一的排版风格，并说清修改次数与交付时间",
-      "time": "每篇约0.5–2小时；起步期每天1小时回复咨询",
-      "fit": "熟悉公众号编辑器、有审美的人；预估投入：每周5小时",
-      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；大量小商家与个人号有排版外包需求。上榜理由：相对昨日 Excel 看板定制，今天换门槛更低的公众号排版配图技能，可沉淀成排版模板另卖。",
+      "threshold": "能做出统一配色与版式，说清页数、修改次数与交付时间",
+      "time": "每套约1–4小时；起步期每天1小时回复咨询",
+      "fit": "擅长 PPT 设计的上班族或学生；预估投入：每周5小时",
+      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；年底述职季职场汇报美化需求集中。上榜理由：相对昨日公众号排版，今天换年底需求旺的 PPT 美化，可沉淀模板另卖。",
       "steps": [
         "阅读闲鱼卖家服务协议，确认类目与禁发内容",
-        "做 3 组排版前后对比样例，写清按篇/按月报价与修改次数",
-        "全程站内沟通交易；配图只用自绘、AI 生成或可商用素材，避免侵权"
+        "做3组美化前后对比样例，写清按页/整套报价与修改次数",
+        "只接职场汇报美化，不接论文、作业类需求；字体与图片用可商用素材"
       ],
-      "risk": "风险等级：低。注意图片与字体版权；不接违规内容；站外交易易起纠纷。不承诺收益。",
+      "risk": "风险等级：低。注意字体与图片版权；不接论文作业类需求；站外交易易起纠纷。不承诺收益。",
       "risk_level": "低",
-      "reason": "需求稳定、门槛低的国内技能单，可复购。",
+      "reason": "年底述职季需求集中、门槛低、可复购。",
       "tags": [
         "闲鱼",
         "技能服务",
-        "公众号",
-        "排版",
-        "配图"
+        "PPT",
+        "美化",
+        "职场"
       ],
       "sources": [
         {
@@ -263,124 +263,124 @@
           "publisher": "terms.alicdn.com",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
       "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
     },
     {
       "rank": 8,
-      "name": "出海新词：每天扫 Show HN 新工具，做英文「X 是什么/怎么用/替代品」单页，再挂联盟或广告",
+      "name": "出海新词：每周看 GitHub Trending 的新开源工具，做英文「是什么/怎么部署/替代品」单页再挂联盟或广告",
       "type": "出海新词",
-      "summary": "Hacker News 的 Show HN 板块每天有开发者发布新工具（如今日的风控开源平台、静默语音输入等）；新词刚出现时竞争小，可做英文介绍、教程或替代品对比页抢早期搜索。",
-      "cost": "0；可配合免费静态站托管",
-      "difficulty": 3,
-      "threshold": "能快速读懂新工具并写出准确英文说明；需判断哪些词有持续搜索",
-      "time": "每页约1–3小时；是否有流量需数周观察",
-      "fit": "懂技术、英文写作还行、想做出海内容站的人；预估投入：每周5小时",
-      "why": "Show HN 页面公开列出最新发布的工具与项目。上榜理由：相对昨日 Google Trends Rising 查询，今天换成从 Show HN 源头抓新词，比搜索趋势更早一步。",
+      "summary": "GitHub Trending 按日/周列出热度上升的仓库；新火的开源工具往往缺少英文部署与对比教程，可抢先做长尾单页，再接托管联盟或广告变现。",
+      "cost": "0；可用免费静态托管",
+      "difficulty": 2,
+      "threshold": "能看懂 README 并实际部署一遍，写清步骤",
+      "time": "每篇约2–4小时；见效通常需数周",
+      "fit": "有技术背景、会写英文教程的人；预估投入：每周4小时",
+      "why": "GitHub Trending 是官方热门仓库榜。上榜理由：相对昨日 Show HN，今天换 GitHub Trending 选题，开源工具的「怎么部署」搜索需求更稳定，适合挂云主机/托管联盟。",
       "steps": [
-        "每天浏览 news.ycombinator.com/show，记下有明确用途、可能被搜索的新工具名",
-        "用工具官网与 README 核实功能后写英文介绍/教程页，标注信息来源",
-        "观察 Search Console 数据，有流量的页面再挂相关联盟或广告"
+        "每周看 github.com/trending，挑2–3个新上榜、无成熟教程的工具",
+        "亲手部署一遍，写英文教程与替代品对比，注明许可证",
+        "挂到小站，按需接云主机联盟或广告，并披露联盟关系"
       ],
-      "risk": "风险等级：中。新词可能昙花一现；不要冒充官方或使用对方商标误导用户。不承诺收益。",
-      "risk_level": "中",
-      "reason": "新词源头早，适合低成本试错出海内容。",
+      "risk": "风险等级：低。热度可能很快消退；只写原创教程，不搬运文档。不承诺收益。",
+      "risk_level": "低",
+      "reason": "选题源稳定，和托管联盟天然搭配。",
       "tags": [
         "出海新词",
-        "Hacker News",
-        "Show HN",
-        "英文内容",
+        "GitHub Trending",
+        "开源",
+        "教程",
         "SEO"
       ],
       "sources": [
         {
-          "title": "Show HN",
-          "url": "https://news.ycombinator.com/show",
-          "publisher": "Hacker News",
+          "title": "Trending repositories on GitHub today",
+          "url": "https://github.com/trending",
+          "publisher": "GitHub",
           "published": "",
-          "kind": "community",
-          "checked": "2026-11-04"
+          "kind": "official",
+          "checked": "2026-11-05"
         }
       ],
-      "source_url": "https://news.ycombinator.com/show"
+      "source_url": "https://github.com/trending"
     },
     {
       "rank": 9,
-      "name": "案例拆解：Bulk Mockup——作者自述从 Upwork 接单写脚本到做成产品，年收入约$15万（只拆方法）",
+      "name": "案例拆解：Shift——作者自述独自运营 Laravel 升级工具十年，约$5万MRR、每天只花几小时（只拆方法）",
       "type": "案例拆解",
-      "summary": "Indie Hackers 采访：作者在 Upwork 接 Photoshop 单时写脚本批量替换智能对象，后做成 Bulk Mockup 服务 Etsy/Shopify 卖家，自述约$150k ARR；靠 YouTube 获客。只拆方法，不代表可复制收益。",
-      "cost": "0 起步；做工具需一定开发或学习时间",
+      "summary": "Indie Hackers 2026-06-30 报道：Jason McCreary 做自动升级 Laravel 项目的工具 Shift，独自运营，自述稳定在约$5万MRR，并承认约第7年才到这个数。",
+      "cost": "视项目而定；方法本身0成本",
       "difficulty": 3,
-      "threshold": "先接单积累对某类重复劳动的理解，再判断能否产品化",
-      "time": "阅读与复盘约1小时；产品化需数月",
-      "fit": "正在接设计/开发单、想从服务转产品的人；预估投入：每周5小时",
-      "why": "Indie Hackers 2026-09-24 文章写明：作者从接单脚本起步，Bulk Mockup 约$150k ARR，并以 YouTube 作为主要分发渠道。上榜理由：相对昨日 RightBlogger「先养受众」，今天拆「从接单的重复劳动里找产品」路径，和今日 Contra/闲鱼接单条目衔接。",
+      "threshold": "需对某个技术生态的痛点有深度理解",
+      "time": "阅读拆解约30分钟；照方法做细分工具需长期投入",
+      "fit": "有技术专长、想做细分开发者工具的人；预估投入：每周3小时研究",
+      "why": "Indie Hackers 文章写明 Shift is at $50k MRR — and it only takes him a few hours per day，作者也提醒这花了多年。上榜理由：相对昨日 Bulk Mockup，今天拆「深耕一个生态、按次收费的开发者工具」的慢增长打法。",
       "steps": [
-        "阅读原文，记下：接单中哪类重复任务被脚本化、如何定价",
-        "回看自己接过的单，列出 3 个可自动化的重复环节",
-        "先做成内部脚本提效，再用教程视频测试是否有人愿意付费"
+        "读原文，记下：痛点选择（框架大版本升级）、按次付费定价、长期留存",
+        "列出你熟悉的生态里重复、耗时又能自动化的升级/迁移任务",
+        "先做最小可用版本，按次收费验证付费意愿"
       ],
-      "risk": "风险等级：低。收入为作者自述且全文需订阅；个人结果差异大。不承诺收益。",
+      "risk": "风险等级：低。收入为作者自述，不可复制；增长受生态变化影响，原文也提到 AI 带来放缓。不承诺收益。",
       "risk_level": "低",
-      "reason": "从服务到产品的可借鉴路径，与接单类条目互补。",
+      "reason": "难得的「慢但稳」真实案例，适合技术人参考。",
       "tags": [
         "案例拆解",
         "Indie Hackers",
-        "Bulk Mockup",
-        "服务转产品",
-        "YouTube"
+        "开发者工具",
+        "SaaS",
+        "Laravel"
       ],
       "sources": [
         {
-          "title": "Turning a freelance gig into a $150k/yr product",
-          "url": "https://www.indiehackers.com/post/tech/turning-a-freelance-gig-into-a-150k-yr-product-tDdZGZyiyNTztPfI2wkY",
+          "title": "Turning a developer tool into a $50k MRR lifestyle business",
+          "url": "https://www.indiehackers.com/post/tech/turning-a-developer-tool-into-a-50k-mrr-lifestyle-business-9GL6b2gcc31LXjx7g3yC",
           "publisher": "Indie Hackers",
-          "published": "2026-09-24",
+          "published": "2026-06-30",
           "kind": "media",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
-      "source_url": "https://www.indiehackers.com/post/tech/turning-a-freelance-gig-into-a-150k-yr-product-tDdZGZyiyNTztPfI2wkY"
+      "source_url": "https://www.indiehackers.com/post/tech/turning-a-developer-tool-into-a-50k-mrr-lifestyle-business-9GL6b2gcc31LXjx7g3yC"
     },
     {
       "rank": 10,
-      "name": "Kit（原 ConvertKit）Affiliate：推荐创作者用邮件营销工具，官方称首12个月约50%佣金（以条款为准）",
+      "name": "beehiiv Partner Program：推荐创作者用 Newsletter 工具，官方称首年按月分成50%起、最高60%（以条款为准）",
       "type": "工具活动",
-      "summary": "Kit 官方联盟页写明：推荐的付费用户前12个月可得约50%佣金；一年内推荐10位及以上可在其留存期间获约10%持续分成。适合做创作者变现、邮件营销教程的人。",
-      "cost": "0；需面向创作者的内容渠道",
+      "summary": "beehiiv 官方合作伙伴页写明：推荐的付费用户在一年内按月给你分成，首单后 Bronze 档50%，Silver 55%，Gold 60%；cookie 60天，每月15日结算。",
+      "cost": "0；需有面向创作者/写作者的内容渠道",
       "difficulty": 2,
-      "threshold": "申请通过后挂链；需真实使用经验与披露",
-      "time": "申请与首篇内容1–3天；见效需数周",
-      "fit": "写 Newsletter/创作者变现内容、做邮件营销教程的人；预估投入：每周4小时",
-      "why": "Kit 官方 affiliate 页写明 earn 50% commission on each referral's first 12 months，及 Refer 10 or more creators in a year and earn 10% recurring。上榜理由：相对昨日 PartnerStack 泛 B2B 市场，今天换创作者工具单品联盟，条款清晰。",
+      "threshold": "注册 beehiiv 账户后获取推广链接；禁止品牌词搜索广告与自推自买",
+      "time": "注册当天可拿链接；见效需数周",
+      "fit": "写副业、Newsletter、创作者工具内容的人；预估投入：每周3小时",
+      "why": "beehiiv Partners 页写明 Earn up to 60% of revenue from your referrals for a full year，并列出 Bronze 50%、Silver 55%、Gold 60%。上榜理由：相对昨日 Kit 邮件营销联盟，今天换分成比例更高的 Newsletter 平台。",
       "steps": [
-        "打开 kit.com/affiliate 阅读条款并申请",
-        "写一篇真实的邮件订阅搭建教程或工具对比，标明联盟关系",
-        "在小站、Newsletter 与社媒放链接，跟踪注册到付费的转化"
+        "打开 beehiiv.com/partners 阅读规则并申请",
+        "写一篇真实的 Newsletter 搭建或平台对比教程，披露联盟关系",
+        "持续发布，遵守不投品牌词广告、不用自己链接注册等条款"
       ],
-      "risk": "风险等级：低。佣金比例、阶梯与结算以官方条款为准；须真实披露。不承诺收益。",
+      "risk": "风险等级：低。分成档位与规则可能调整；被推荐者需付费才计佣。不承诺收益。",
       "risk_level": "低",
-      "reason": "高比例首年佣金的创作者工具联盟。",
+      "reason": "一年按月高比例分成，适合创作者内容号。",
       "tags": [
         "工具活动",
-        "Kit",
-        "ConvertKit",
-        "邮件营销",
-        "联盟"
+        "beehiiv",
+        "Newsletter",
+        "联盟",
+        "持续佣金"
       ],
       "sources": [
         {
-          "title": "Kit affiliate program",
-          "url": "https://kit.com/affiliate",
-          "publisher": "Kit",
+          "title": "beehiiv Partner Program",
+          "url": "https://www.beehiiv.com/partners",
+          "publisher": "beehiiv",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-04"
+          "checked": "2026-11-05"
         }
       ],
-      "source_url": "https://kit.com/affiliate"
+      "source_url": "https://www.beehiiv.com/partners"
     }
   ]
 }
