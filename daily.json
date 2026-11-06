@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-05T04:25:18.481Z",
-  "latestId": 92,
-  "latestDate": "2026-11-05",
+  "generatedAt": "2026-11-06T00:15:35.453Z",
+  "latestId": 93,
+  "latestDate": "2026-11-06",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 93,
+      "date": "2026-11-06",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-06",
+      "items": [
+        "No.1 Shopify Affiliate：写电商开店/选型内容，合资格全价 Basic/Grow/Advanced 推荐可拿约至多150美元（地区约25美元档，以帮助中心为准）",
+        "No.2 Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
+        "No.3 Vercel：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 92,
       "date": "2026-11-05",
@@ -115,41 +127,30 @@
         "守住 P18：war-rank 1280×800 约 2.97–3.00 屏；略收 #rank-count 间距。SW 缓存 55"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 83,
-      "date": "2026-11-01",
-      "tag": "内容",
-      "title": "AI生活合集新增「国行Apple智能5个生活闭环」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：国行 iPhone 这周能试 Apple 智能——翻译/相册搜图/邮件优先/通知摘要/写作改文 5 个生活闭环；含相册/写作/通知三条可复制提示词、小红书与闲鱼上手清单角度",
-        "附 Apple 中国新闻稿 / 华龙网 / X 话题 / 新华社英文四个来源，本机核验均可访问；不含 Siri AI；不代装 Beta、不代领测试资格；不承诺效果与收益。SW 缓存 54"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
-    "date": "2026-11-05",
+    "date": "2026-11-06",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Webflow Affiliate：做建站/无代码教程，官方称新客首个订阅最高12个月50%分成（以条款为准）",
+        "name": "Shopify Affiliate：写电商开店/选型内容，合资格全价 Basic/Grow/Advanced 推荐可拿约至多150美元（地区约25美元档，以帮助中心为准）",
         "type": "联盟营销",
-        "source_url": "https://webflow.com/solutions/affiliates"
+        "source_url": "https://www.shopify.com/affiliates"
       },
       {
         "rank": 2,
-        "name": "Ko-fi Shop：免月费开小店卖原创数字下载/会员，店铺成交收约5%服务费（以帮助中心为准）",
+        "name": "Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
         "type": "数字产品/接单",
-        "source_url": "https://ko-fi.com/features"
+        "source_url": "https://www.lemonsqueezy.com/pricing"
       },
       {
         "rank": 3,
-        "name": "GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟",
+        "name": "Vercel：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+        "source_url": "https://vercel.com/docs/getting-started-with-vercel"
       }
     ]
   }
