@@ -1,0 +1,162 @@
+{
+  "date": "2026-11-06",
+  "updated": "2026-11-06T09:13:08+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "searchstack-aeo",
+      "rank": 1,
+      "name": "Searchstack",
+      "category": "项目",
+      "summary": "面向 AI 原生创始人的开源 AEO/GEO/SEO CLI：一条命令检查 ChatGPT/Perplexity/Claude/Grok/Gemini 是否引用你的站点，并生成 llms.txt、Markdown 报告，可 cron。",
+      "why": "autograph-ai 做 SEO/GEO 内容 SaaS，缺的是可脚本化的「AI 搜索可见性」监测与 llms.txt 产物。Searchstack 用 pip 安装即可跑 AEO Monitor、GEO（AI Overview）、GSC、技术审计与 report，能直接对照产品能力清单并接入内容发布后的自动化巡检。",
+      "url": "https://github.com/alexpospekhov/searchstack-aeo",
+      "repo": "alexpospekhov/searchstack-aeo",
+      "stars": 114,
+      "tags": [
+        "GEO",
+        "AEO",
+        "llms.txt",
+        "CLI",
+        "AI-SEO",
+        "autograph-ai"
+      ],
+      "steps": "对照 autograph-ai 的可见性指标，把 citation snapshot 与 Markdown report 接到发布流水线",
+      "risk": "完整 AI 引用检测依赖多家 API Key 与 DataForSEO 等成本；本地 Ollama 可降本但结果与线上模型不一致。包最近一次代码推送约 2026-09，需自行验证当前模型/API 兼容性。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/alexpospekhov/searchstack-aeo"
+        },
+        {
+          "title": "PyPI searchstack",
+          "url": "https://pypi.org/project/searchstack/"
+        }
+      ]
+    },
+    {
+      "id": "stockedge-manga-generator",
+      "rank": 2,
+      "name": "Manga Generator",
+      "category": "项目",
+      "summary": "从小说/原文到脚本→分镜→出图→文字排版→检品→PDF 的 Codex/Claude 驱动漫画流水线；文字气泡与画面分离，含 Agent Skills 与 quality/economy 模式。",
+      "why": "soloforge-storyfactory 的核心痛点是「故事→漫剧面板」的可复现流水线与角色一致性。本仓库把 novel-to-comic 拆成可检品的阶段（seal/reopen、子代理评审、排版与 PDF），且可 npx skills 引入 manga-production/review/art-direction，非常适合对照 StoryFactory 的阶段机与技能包设计。",
+      "url": "https://github.com/stockedge/manga-generator",
+      "repo": "stockedge/manga-generator",
+      "stars": 166,
+      "tags": [
+        "manga",
+        "novel-to-comic",
+        "storyboard",
+        "character-consistency",
+        "agent-skills",
+        "storyfactory"
+      ],
+      "steps": "对照 StoryFactory：抽取「脚本/基准图/分镜图/检品/组版」状态机与 manga-* skills 结构",
+      "risk": "全自动依赖图像生成+视觉检品+子代理评审额度；Claude 路径需自备 ComfyUI/GPU。面向日文漫画排版场景多，中文竖排/字体需额外验证。非即插即用 SaaS，接入成本中偏重。",
+      "sources": [
+        {
+          "title": "简体中文 README",
+          "url": "https://raw.githubusercontent.com/stockedge/manga-generator/HEAD/README.zh.md"
+        },
+        {
+          "title": "AUTOMATIC.md",
+          "url": "https://github.com/stockedge/manga-generator/blob/HEAD/docs/AUTOMATIC.md"
+        }
+      ]
+    },
+    {
+      "id": "chipping-orchestrator",
+      "rank": 3,
+      "name": "chipping-orchestrator",
+      "category": "项目",
+      "summary": "自托管的「GitHub Issue → 隔离 worktree 实现 → 独立评审 → PR」编码编排器；支持 Claude Code / Codex / Antigravity，工作流状态落在 Issue 标签上，不自动合并。",
+      "why": "clawkit 与 star-river-dev-team / Hermes 多角色团队需要对齐「分解→实现→验证→文档→人工终审」的门禁与 worktree 隔离。chipping 把 decomposer/implementer/reviewer 角色、VERIFY_COMMANDS 证据门槛和 systemd 常驻轮询做成可跑通的参考实现，适合直接对照编排状态机与安全边界设计。",
+      "url": "https://github.com/chippingway/chipping-orchestrator",
+      "repo": "chippingway/chipping-orchestrator",
+      "stars": 18,
+      "tags": [
+        "multi-agent",
+        "worktree",
+        "orchestrator",
+        "claude-code",
+        "codex",
+        "clawkit",
+        "hermes"
+      ],
+      "steps": "把 stages/transitions 与 clawkit Hermes 角色表做差异清单（只对照，不急着生产接入）",
+      "risk": "Agent 以宿主账号为安全边界且关闭审批沙箱，不适合公仓/不可信 Issue；依赖 Linux+systemd+Python≥3.12 与已登录 CLI。星数尚不高，需读 SECURITY 清单。接入成本：中到重。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/chippingway/chipping-orchestrator"
+        },
+        {
+          "title": "PyPI chipping-orchestrator",
+          "url": "https://pypi.org/project/chipping-orchestrator/"
+        }
+      ]
+    },
+    {
+      "id": "envelo-budget",
+      "rank": 4,
+      "name": "Envelo",
+      "category": "生活",
+      "summary": "AI 信封预算：用大白话描述月收入与固定支出，自动生成信封；「Spend Check」在下单前回答买不买得起、该从哪个信封扣。",
+      "why": "对齐今日「消费决策/轻理财」轮换：普通人先打开演示站或自建，用一句「房租/吃饭/想买 XX」生成预算，再用 Spend Check 做购买闸门；可把 plan + spend-check 提示词拆成公众号/小红书/闲鱼跟做模板，不绑死 Firebase。",
+      "url": "https://github.com/IsraelChidera/envelo",
+      "repo": "IsraelChidera/envelo",
+      "stars": 23,
+      "tags": [
+        "envelope-budget",
+        "spend-check",
+        "Gemini",
+        "消费决策",
+        "AI生活"
+      ],
+      "steps": "把「月度描述→信封表」和「预算文本+购买提问→yes/careful/no」固化成可复用提示词模板包",
+      "risk": "仓库未声明开源许可证；依赖 Firebase Auth/Firestore 与 Gemini，数据在云端。不做投资建议，仅作记账决策辅助。上手成本：轻（演示）到中（自建）。",
+      "sources": [
+        {
+          "title": "GitHub README",
+          "url": "https://github.com/IsraelChidera/envelo"
+        },
+        {
+          "title": "演示站",
+          "url": "https://envelo-budget.netlify.app/"
+        }
+      ]
+    },
+    {
+      "id": "chef-agentic-skills",
+      "rank": 5,
+      "name": "Chef Agentic Skills",
+      "category": "生活",
+      "summary": "给烹饪 AI Agent 用的高密度技能库（约 40 个）：chef-router 调度，含 pantry-improviser / zero-waste 等，强调机制解释与「按感官熟度」而非盲计时。",
+      "why": "对齐「饮食/厨房清库存」：把冰箱剩余食材列表丢给 Agent，路由到 chef-pantry-improviser / chef-zero-waste，10 分钟内得到可执行菜谱与替换表；整库可打包成闲鱼「清冰箱提示词/技能包」跟做方案，无需自建菜谱服务器。",
+      "url": "https://github.com/DedInc/chef-agentic-skills",
+      "repo": "DedInc/chef-agentic-skills",
+      "stars": 5,
+      "tags": [
+        "cooking",
+        "pantry",
+        "zero-waste",
+        "agent-skills",
+        "清库存",
+        "AI生活"
+      ],
+      "steps": "用「冰箱里有：鸡蛋、剩米饭、青菜、蒜…今晚清库存」触发 router/pantry-improviser，产出一道今晚菜",
+      "risk": "星数低、偏 Agent 技能而非完整 App；含饮食相关技能但 README/DISCLAIMER 明确非医疗诊断。勿一次载入全部 40 个技能防上下文风暴。上手成本：轻。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/DedInc/chef-agentic-skills"
+        },
+        {
+          "title": "chef-pantry-improviser",
+          "url": "https://github.com/DedInc/chef-agentic-skills/tree/HEAD/skills/chef-pantry-improviser"
+        }
+      ]
+    }
+  ]
+}
