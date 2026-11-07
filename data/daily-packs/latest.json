@@ -1,52 +1,55 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-07",
   "timezone": "Asia/Shanghai",
-  "updated": "2026-11-04T09:45:00+08:00",
-  "title": "每日执行包｜闲鱼公众号排版配图 + Render 计算器续作",
-  "source": "attachments/2026-11-04",
+  "updated": "2026-11-07T09:17:45+08:00",
+  "title": "周末执行包｜闲鱼公众号排版首条上架（不换新项目）",
+  "source": "attachments/2026-11-07",
   "primary": [
-    "闲鱼 公众号文章排版与配图（榜单 No.7）"
+    "闲鱼 公众号文章排版与配图 · 上架 1 条（续 11/04 素材）"
   ],
   "side": [
-    "Render 静态站部署 / 复核 Stacked Discount Calculator（榜单 No.3；黑五约23天）"
+    "Stacked Discount Calculator 复核/部署（黑五约20天；仅主线完成后）"
   ],
   "deferred": [
-    "Kinsta / Kit 联盟（站与受众未起）",
-    "Podia / Sellfy（月费+海外收款）",
-    "头条号（养号周期长）",
-    "Contra（需英文作品集）",
-    "Show HN 新词、Bulk Mockup 案例（仅记方法）"
+    "本周榜新闲鱼位（简历优化等）— 首条未上架不换",
+    "海外联盟/店铺（Shopify/Lemon/Etsy/YouTube/Canva/Semrush）",
+    "HN 新词对照（站未起）"
   ],
   "files": [
-    {
-      "path": "今日执行卡-2026-11-04.md",
-      "kind": "exec-card",
-      "note": "45–60分钟步骤、工具、合规、暂缓与反馈问句"
-    },
-    {
-      "path": "闲鱼上架文案-公众号排版配图.md",
-      "kind": "xianyu-copy",
-      "note": "标题3候选、正文、禁发自检、3条客服模板"
-    },
-    {
-      "path": "闲鱼-公众号排版配图交付包.xlsx",
-      "kind": "xianyu-sheet",
-      "note": "套餐报价/同行调研/访谈提纲/虚构样例青松读书会/验收/接单记录"
-    },
-    {
-      "path": "stacked-discount-calculator/index.html",
-      "kind": "page-draft",
-      "note": "黑五倒计时更新为约23天；无跟踪"
-    },
     {
       "path": "stacked-discount-calculator/_redirects",
       "kind": "deploy-helper",
       "note": "可选"
     },
     {
+      "path": "stacked-discount-calculator/index.html",
+      "kind": "page-draft",
+      "note": "黑五倒计时约20天；无跟踪"
+    },
+    {
       "path": "stacked-discount-calculator/render-static-notes.md",
       "kind": "deploy-notes",
-      "note": "Render 静态站部署；已有地址则只复核"
+      "note": "Render 静态站；有地址则只复核"
+    },
+    {
+      "path": "开闲鱼新号卖原创方案-当天清单.md",
+      "kind": "checklist",
+      "note": "实名开号红线与首发流程备忘"
+    },
+    {
+      "path": "本周末执行单-2026-11-07.md",
+      "kind": "exec-card",
+      "note": "周末2小时内步骤：先问进度、主推上架公众号排版、周复盘"
+    },
+    {
+      "path": "闲鱼-公众号排版配图交付包.xlsx",
+      "kind": "xianyu-sheet",
+      "note": "套餐报价/同行调研/样例青松读书会/验收"
+    },
+    {
+      "path": "闲鱼上架文案-公众号排版配图.md",
+      "kind": "xianyu-copy",
+      "note": "标题3候选、正文、禁发自检、客服模板"
     }
   ],
   "excluded": [],
