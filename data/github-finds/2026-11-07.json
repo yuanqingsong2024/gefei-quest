@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-07",
+  "updated": "2026-11-07T10:13:06+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "krelltunez-lastglance",
+      "rank": 1,
+      "name": "lastGLANCE",
+      "category": "生活",
+      "summary": "隐私优先的「上次什么时候做」家务/维护打卡：不问日程表，只回答「多久没做了」。浏览器 PWA、GitHub 免费 APK、也有商店版，装完就能记拖地、换滤芯、回访亲友。",
+      "why": "家务/家庭琐事自动化：很多家务不适合写进日历（「每 14 天拖一次地」），却适合用颜色看「多久没做」。周末可做成「家庭维护色卡」跟做方案——列出 8–12 项家务+目标间隔模板，全家各点一次「完成」即可。\n另：People 工作区还能记「多久没联系某人」，适合做成「亲友回访清单」闲鱼模板包。",
+      "url": "https://github.com/krelltunez/lastGLANCE",
+      "repo": "krelltunez/lastGLANCE",
+      "stars": 103,
+      "tags": [
+        "家务",
+        "家庭琐事",
+        "recency",
+        "PWA",
+        "Android",
+        "iOS",
+        "离线",
+        "隐私"
+      ],
+      "steps": [
+        "打开 https://lastglance.app 或从 GitHub Releases / Obtainium 装免费 APK（商店版可能付费）",
+        "清掉示例数据后，按房间建分类（厨房/卫浴/公共区），每项设目标间隔天数",
+        "本周先只录入 8 项高频家务，做完点一次；可选开逾期提醒或 Household 共享"
+      ],
+      "risk": "与同作者 dayGLANCE 是不同产品（上次推过 dayGLANCE，本条是 lastGLANCE）。Play/App Store 商业包可能收费；要免费全功能请用官网 PWA 或 GitHub APK。自托管 Docker 可选，普通人不必上。",
+      "sources": [
+        "README.md",
+        "https://lastglance.app",
+        "https://play.google.com/store/apps/details?id=com.lastglance.app"
+      ]
+    },
+    {
+      "id": "openfoodfacts-smooth-app",
+      "rank": 2,
+      "name": "Open Food Facts（smooth-app）",
+      "category": "生活",
+      "summary": "开源扫码选购助手：对着货架扫条码，按 Nutri-Score、添加剂、过敏原、Eco-Score 和你的偏好给绿/红提示，15 秒内对比同品类几款，帮你做「买不买、买哪款」。",
+      "why": "消费决策/轻理财（购物决策角，不是记账/订阅体检）：超市里最贵的不是单次账单，而是「随手拿了不合适的」。用 OFF 做「货架 15 秒三选一」流程，可打包成小红书/闲鱼跟做——预设过敏原与「少超加工」偏好模板，扫完再决定放不放进购物车。",
+      "url": "https://github.com/openfoodfacts/smooth-app",
+      "repo": "openfoodfacts/smooth-app",
+      "stars": 1448,
+      "tags": [
+        "消费决策",
+        "购物决策",
+        "扫码",
+        "Nutri-Score",
+        "添加剂",
+        "Android",
+        "iOS",
+        "F-Droid"
+      ],
+      "steps": [
+        "从 Google Play / App Store / F-Droid 安装 Open Food Facts",
+        "在偏好里勾选过敏原、少盐/少超加工、Eco-Score 等个人标准",
+        "下次逛超市对同品类扫 2–3 个条码对比，只买绿色匹配或自己设的底线内商品"
+      ],
+      "risk": "依赖社区共建数据库，冷门国产条码可能缺数据（可拍照贡献）。营养与评分是信息公开与启发式，不是医疗建议。需联网查询；隐私偏好本地设置但不等于完全离线。",
+      "sources": [
+        "README.md",
+        "https://wiki.openfoodfacts.org/Mobile_App/Features",
+        "https://world.openfoodfacts.org/open-food-facts-mobile-app"
+      ]
+    },
+    {
+      "id": "j-shw-menstrudel",
+      "rank": 3,
+      "name": "Menstrudel",
+      "category": "生活",
+      "summary": "免费离线的经期与服药伴侣：本地 SQLite 记录周期、症状、药板与 LARC 续期提醒；无账号无云同步。⚠️ 不做诊断，仅作个人健康资料整理。",
+      "why": "家庭健康资料整理（不做诊断）：把「纸质小本/散落备忘」收成手机本地档案——周期日志、药板打卡、卫生用品更换提醒、LARC 到期日，方便自己查阅或就医时口述病史。可打包「第一次整理经期资料 10 分钟清单」跟做模板（字段表+提醒节奏），明确声明不做诊断、不替代就医。",
+      "url": "https://github.com/J-shw/Menstrudel",
+      "repo": "J-shw/Menstrudel",
+      "stars": 114,
+      "tags": [
+        "家庭健康资料",
+        "经期记录",
+        "服药提醒",
+        "不做诊断",
+        "离线",
+        "隐私",
+        "Android",
+        "iOS"
+      ],
+      "steps": [
+        "从 Google Play 或 App Store 安装 Menstrudel",
+        "录入最近一次经期起止与常见症状标签；按需设置药板方案与每日提醒",
+        "打开 LARC/续期日期提醒（如有），导出或截图备份关键节点到自己的加密相册（App 本身强调数据不出设备）"
+      ],
+      "risk": "⚠️ 不做诊断、不做用药建议；预测与洞察仅供个人记录参考，异常请就医。敏感健康数据仅存本机，换机前请自行做好备份策略。部分功能文案/商店地区可能因审核而有差异。",
+      "sources": [
+        "README.md",
+        "https://menstrudel.app/",
+        "https://menstrudel.app/privacy/"
+      ]
+    }
+  ]
+}
