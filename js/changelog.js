@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 95, date: '2026-11-07', title: '赚钱区去掉重复的二级切换条', tag: '改进', href: '#war-rank',
+      items: ['每日赚钱榜族（#war-rank / 闲鱼 / AI生活）二级只留三个入口：每日赚钱榜、闲鱼零成本方案、AI生活起号选题', 'Agent 进账方案 / AI 羊毛 / OPC 一人公司 / 工具发掘页去掉整排 rank-switch，只靠顶栏大标签切换。SW 缓存 61'] },
     { id: 94, date: '2026-11-07', title: 'AI生活合集新增「家庭事务盯梢员」场景文选题', tag: '内容', href: '#war-rank-ai-life',
       items: ['「AI生活起号选题方案」合集置顶新增：让AI当家庭事务盯梢员——班级群待办／机票降价／宠物复查／疫苗年检（授权后持续跟进）；含授权边界、关键节点本人确认、小红书与闲鱼跟做包角度', '附温州晚报·温度新闻 / 扬子晚报·紫牛新闻 / IT之家 / 21经济网·红星新闻四个来源；支付/改签/回群须本人确认；不代授权不承诺零漏办；与10-28订阅刺客猎手区分。SW 缓存 60'] },
     { id: 93, date: '2026-11-06', title: '每日赚钱榜 · 2026-11-06', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Shopify Affiliate：写电商开店/选型内容，合资格全价 Basic/Grow/Advanced 推荐可拿约至多150美元（地区约25美元档，以帮助中心为准）","No.2 Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）","No.3 Vercel：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
