@@ -178,7 +178,10 @@
       <nav aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#vocab">GEO vs SEO</a>
+        <a href="#page-types">Google vs ChatGPT</a>
         <a href="#checklist">Checklist</a>
+        <a href="#intent">Intent</a>
+        <a href="#tool-pages">Tool pages</a>
         <a href="#agency">Agency vs DIY</a>
         <a href="#waitlist">Waitlist</a>
         <a href="#faq">FAQ</a>
@@ -252,6 +255,31 @@
         </ul>
       </section>
 
+      <section class="card" id="page-types" aria-labelledby="page-types-h">
+        <h2 id="page-types-h">Google traffic pages ≠ ChatGPT traffic pages</h2>
+        <p>
+          Users who grew up on Google tend to search with keywords. Users who
+          start in chat tend to ask in a full sentence with constraints. Plan
+          the page for the way that person asks.
+        </p>
+        <p>
+          In practice, <strong>tutorial / guide URLs</strong> often win classic
+          search clicks. <strong>Tool / form / generator URLs</strong> are more
+          likely to show up as AI-assistant referrals. Treat them as two page
+          types, not one SEO plan.
+          <em>Sample observation from practitioners — not a traffic forecast.</em>
+        </p>
+        <ul>
+          <li>Do not estimate AI referral volume from Google Search Console clicks or impressions.</li>
+          <li>Keep writing articles for Google. Build an operable tool page when you want AI-assistant visits.</li>
+          <li>
+            Ship the page, then the files. Checks for llms.txt, schema, and the
+            sitemap live on the
+            <a href="../aeo-checklist/#files">AEO checklist</a>.
+          </li>
+        </ul>
+      </section>
+
       <section class="card" id="checklist" aria-labelledby="checklist-h">
         <h2 id="checklist-h">The actionable GEO / AI SEO checklist</h2>
         <p class="progress" id="progress" aria-live="polite">Checked <strong>0</strong> of <strong>0</strong></p>
@@ -284,6 +312,13 @@
               <span class="why">Why: answer engines and users need text they can read without fragile client-only rendering.</span>
             </span>
           </label>
+          <label>
+            <input type="checkbox" data-key="crawl-ai-ua" />
+            <span>
+              If you want ChatGPT search or browse paths, allow <strong>OAI-SearchBot</strong> and <strong>ChatGPT-User</strong> in robots.txt, then curl those User-Agents and confirm HTTP 200 with the h1 and body already in the HTML.
+              <span class="why">Why: the sample curl and the Cloudflare check are in the <a href="../aeo-checklist/#access">AEO checklist Access section</a>. Decide any training crawler separately.</span>
+            </span>
+          </label>
         </div>
 
         <h3>Answer-first content &amp; entities</h3>
@@ -307,6 +342,84 @@
             <span>
               Show who wrote it, when it was updated, and what experience backs sensitive claims.
               <span class="why">Why: citable pages usually look like something a careful editor would trust.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3 id="intent">Match intent to page type</h3>
+        <div class="checklist" data-group="intent">
+          <label>
+            <input type="checkbox" data-key="intent-map" />
+            <span>
+              Map priority questions into five intents: find a tool · find an alternative · how-to · fact/FAQ · worth-it — and assign one primary page type to each.
+              <span class="why">Why: the page type you assign is the one you write, link, and spot-check.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="intent-tool" />
+            <span>
+              “Best free X” / “X tool” intents go to a tool or comparison page with a usable form, not a long essay alone.
+              <span class="why">Why: someone who asks for a tool needs a page they can operate.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="intent-alt" />
+            <span>
+              “X alternatives” goes to an alternatives page. “How to X” goes to a guide (Google-first), plus a link to a tool if you have one.
+              <span class="why">Why: the guide still serves classic search. The tool link is there when a tool exists.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="intent-fact" />
+            <span>
+              Fact questions get a direct answer plus an FAQ on the same URL. “Is X worth it” gets a guide with clear numbers you can defend.
+              <span class="why">Why: a fact and a worth-it judgment need different proof, including figures you can stand behind.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3 id="tool-pages">Tool / generator pages for answer engines</h3>
+        <div class="checklist" data-group="tool-pages">
+          <label>
+            <input type="checkbox" data-key="tool-job" />
+            <span>
+              One concrete job per URL (one question, one operable page).
+              <span class="why">Why: the quote and the form should point at the same task.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="tool-form" />
+            <span>
+              Above-the-fold form or generator — a visitor can start without scrolling past the pitch.
+              <span class="why">Why: the first screen is where the job starts.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="tool-lede" />
+            <span>
+              The first sentence under the H1 states what it is, who it is for, whether it is free or paid, and whether signup is required.
+              <span class="why">Why: those four facts are the sentence a careful summary can lift.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="tool-faq" />
+            <span>
+              About 10 or more FAQ items. Each answer starts with the conclusion in the first sentence.
+              <span class="why">Why: add FAQ schema only when this visible text is real. The Structure group below is that check.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="tool-live" />
+            <span>
+              Ship only features that are already live. Keep price and limits identical on the home page, the pricing page, the FAQ, and the JSON-LD.
+              <span class="why">Why: two prices on two surfaces get repeated as two facts.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="tool-launch" />
+            <span>
+              On launch day, add the URL to the sitemap, add an llms.txt line, and add an internal link from the home page or the tools index.
+              <span class="why">Why: the files should name the page the day it exists. File checks live on the <a href="../aeo-checklist/#files">AEO checklist</a>.</span>
             </span>
           </label>
         </div>
@@ -350,6 +463,27 @@
             <span>
               Once a month, spot-check 5–10 priority queries in AI answer UIs and note whether you appear and whether the claim is accurate.
               <span class="why">Why: a written method beats inventing an “official citation rate” nobody can verify.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="meas-ai-ref" />
+            <span>
+              In analytics, separate AI assistant referrals from generic Direct and Referral. Do not mix them into organic, and do not add Cloudflare and GA4 totals together.
+              <span class="why">Why: the same visit in two dashboards becomes two visits in the report. Use one analytics source when you share a number.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="meas-prompts" />
+            <span>
+              When you spot-check answer UIs, open a new chat with search on and save the raw reply. Sample observation from practitioners — not a traffic forecast, and not an official citation rate. Example prompts:
+              <code>What's the best free [category] tool?</code>
+              ·
+              <code>[Competitor] alternatives</code>
+              ·
+              <code>Can you visit [your domain] and tell me what it does?</code>
+              ·
+              <code>Would you recommend [your domain]? What would it need to improve?</code>
+              <span class="why">Why: a saved reply shows whether the description of you is accurate. Use these prompts on the monthly spot check above.</span>
             </span>
           </label>
         </div>
