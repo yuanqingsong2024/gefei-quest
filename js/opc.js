@@ -132,17 +132,6 @@
     return '<figure class="page-banner page-banner-opc" data-reveal><img data-art="' + art + '" src="' + T.art(art) + '" width="1280" height="720" loading="lazy" decoding="async" alt="' + T.artAlt(art) + '" />' +
       '<figcaption><span class="page-banner-k">OPC 一人公司</span><b>政策、业务、渠道，先核对再动手</b><small>每周约 3 次情报 · 公开整理 · 不承诺收益</small></figcaption></figure>';
   }
-  function switchHtml(which) {
-    var QR = global.QuestRank;
-    if (QR && QR.switchHtml) return QR.switchHtml(which);
-    return '<nav class="rank-switch" aria-label="榜单内容">' +
-      '<a class="rank-switch-btn" href="#war-rank">今日公开渠道</a>' +
-      '<a class="rank-switch-btn" href="#war-rank-agent">Agent 进账方案</a>' +
-      '<a class="rank-switch-btn" href="#war-rank-ai-wool">AI 羊毛</a>' +
-      '<a class="rank-switch-btn' + (which === 'opc' ? ' active' : '') + '" href="#war-rank-opc"' +
-      (which === 'opc' ? ' aria-current="page"' : '') + '>OPC 一人公司</a>' +
-      '<a class="rank-switch-btn" href="#war-tools">今日工具发掘</a></nav>';
-  }
   function disclaimer() {
     return '<div class="rank-disclaimer" role="note"><b>免责声明</b>：本页整理公开的政策与渠道信息，' +
       '<b>不构成法律、税务或投资建议，也不承诺任何收益</b>。登记、税务和社保细则各地不同，以当地登记机关、主管税务机关、社保经办机构当场口径为准。' +
@@ -312,8 +301,7 @@
     });
   }
   function paint(root, pack) {
-    root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('opc') + '</div>' +
-      pageBanner() + disclaimer() +
+    root.innerHTML = pageBanner() + disclaimer() +
       '<p class="opc-banner-note">公开整理，不是法律或税务意见，不承诺收益，不写灰产。</p>' +
       '<p class="rank-intro" data-reveal>一人有限责任公司的政策要点、常见合法业务和接活渠道。周报约每周 3 次，每条都附来源。</p>' +
       evergreen() +
@@ -330,7 +318,7 @@
     if (global.QuestShell && global.QuestShell.mountReveal) global.QuestShell.mountReveal(root);
   }
   function render(state, root) {
-    root.innerHTML = switchHtml('opc') + '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
+    root.innerHTML = '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
     var seq = (render._seq = (render._seq || 0) + 1);
     getPack(function (pack) {
       if (seq !== render._seq) return;

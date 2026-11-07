@@ -66,18 +66,6 @@
     Object.keys(present).forEach(function (k) { out.push(k); });
     return out;
   }
-  function switchHtml(which) {
-    var QR = R();
-    if (QR && QR.switchHtml) return QR.switchHtml(which);
-    return '<nav class="rank-switch" aria-label="榜单内容">' +
-      '<a class="rank-switch-btn" href="#war-rank">今日公开渠道</a>' +
-      '<a class="rank-switch-btn" href="#war-rank-agent">Agent 进账方案</a>' +
-      '<a class="rank-switch-btn' + (which === 'wool' ? ' active' : '') + '" href="#war-rank-ai-wool"' +
-      (which === 'wool' ? ' aria-current="page"' : '') + '>AI 羊毛</a>' +
-      '<a class="rank-switch-btn' + (which === 'opc' ? ' active' : '') + '" href="#war-rank-opc"' +
-      (which === 'opc' ? ' aria-current="page"' : '') + '>OPC 一人公司</a>' +
-      '<a class="rank-switch-btn" href="#war-tools">今日工具发掘</a></nav>';
-  }
   function disclaimer() {
     return '<div class="rank-disclaimer" role="note"><b>免责声明</b>：本频道整理公开的 AI 订阅 / Token 优惠与免费额度信息，' +
       '<b>优惠以各产品官方页面为准，可能随时失效</b>。开通或试用前请自行核对绑卡、自动续费、地区与学生资格等条款；' +
@@ -301,10 +289,10 @@
     }
     QR.ensure(state);
     if (!day || !day.items || !day.items.length) {
-      root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('wool') + '</div>' + pageBanner() + disclaimer() +
+      root.innerHTML = pageBanner() + disclaimer() +
         '<div class="empty-illo">' + (global.QuestIcons ? global.QuestIcons.illo('list') : '') +
-        '<p><b>今天还没有 AI 羊毛条目</b><br>雷达推送后会自动出现。可先看公开渠道或 Agent 进账方案。</p>' +
-        '<p><a class="btn btn-primary btn-sm" href="#war-rank">打开今日公开渠道</a> ' +
+        '<p><b>今天还没有 AI 羊毛条目</b><br>雷达推送后会自动出现。可先看每日赚钱榜或 Agent 进账方案。</p>' +
+        '<p><a class="btn btn-primary btn-sm" href="#war-rank">打开每日赚钱榜</a> ' +
         '<a class="btn btn-sm" href="#war-rank-agent">打开 Agent 进账方案</a></p></div>';
       if (global.QuestNav) global.QuestNav.fixLinks(root);
       if (global.QuestShell && QuestShell.mountReveal) QuestShell.mountReveal(root);
@@ -327,7 +315,7 @@
         }).join('') +
         '</div>'
       : '';
-    root.innerHTML = '<div data-reveal class="rank-switch-wrap">' + switchHtml('wool') + '</div>' + pageBanner() + disclaimer() +
+    root.innerHTML = pageBanner() + disclaimer() +
       '<p class="rank-intro" data-reveal>每天整理 AI 订阅折扣、免费额度、学生计划和 Token 福利。点卡片看领取步骤与官方来源；优惠可能随时失效，开通前核对绑卡与自动续费。</p>' +
       '<section class="rank-bar">' + originBar +
       '<div class="chip-row rank-types" role="group" aria-label="按类型筛选">' +
@@ -419,7 +407,7 @@
   function render(state, root, ctx) {
     var QR = R();
     if (QR) QR.ensure(state);
-    root.innerHTML = switchHtml('wool') + '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
+    root.innerHTML = '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
     var seq = (render._seq = (render._seq || 0) + 1);
     getDay(function (day) {
       if (seq !== render._seq) return;

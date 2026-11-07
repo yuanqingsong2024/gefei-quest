@@ -545,11 +545,8 @@
     return '<a href="' + href + '"' + (extra || '') + extAttr(href) + '>' + esc(label) + '</a>';
   }
   function subsOf(page) {
-    if (page.id === 'war-rank') return [{ href: '#war-rank-xianyu', label: '闲鱼零成本方案' }, { href: '#war-rank-ai-life', label: 'AI生活起号选题' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }, { href: '#war-tools', label: '工具发掘' }];
-    if (page.id === 'war-rank-agent') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }, { href: '#war-tools', label: '工具发掘' }];
-    if (page.id === 'war-rank-ai-wool') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }, { href: '#war-tools', label: '工具发掘' }];
-    if (page.id === 'war-rank-opc') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-tools', label: '工具发掘' }];
-    if (page.id === 'war-tools') return [{ href: '#war-rank', label: '每日赚钱榜' }, { href: '#war-rank-agent', label: 'Agent 赚钱' }, { href: '#war-rank-ai-wool', label: 'AI 羊毛' }, { href: '#war-rank-opc', label: 'OPC 一人公司' }];
+    if (page.id === 'war-rank') return [{ href: '#war-rank-xianyu', label: '闲鱼零成本方案' }, { href: '#war-rank-ai-life', label: 'AI生活起号选题' }];
+    if (page.id === 'war-rank-agent' || page.id === 'war-rank-ai-wool' || page.id === 'war-rank-opc' || page.id === 'war-tools') return [];
     if (page.id === 'war') return STATIONS.filter(function (s) { return s.hash !== page.hash; }).map(function (s) { return { href: s.hash, label: s.name }; });
     if (page.id === 'lib') return LIB_CATS.map(function (c) { return { href: '#lib-' + c.id, label: c.label }; });
     if (page.id === 'pm') return [{ href: '#pm-cn', label: '国内' }, { href: '#pm-global', label: '海外' }];

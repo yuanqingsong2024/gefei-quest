@@ -18,18 +18,6 @@
   function catClass(c) {
     return 'gf-cat-' + (c === '生活' ? 'life' : 'proj');
   }
-  function switchHtml(which) {
-    var QR = global.QuestRank;
-    if (QR && QR.switchHtml) return QR.switchHtml(which);
-    return '<nav class="rank-switch" aria-label="榜单内容">' +
-      '<a class="rank-switch-btn" href="#war-rank">每日 Top 10</a>' +
-      '<a class="rank-switch-btn" href="#war-rank-agent">Agent 赚钱</a>' +
-      '<a class="rank-switch-btn" href="#war-rank-ai-wool">AI 羊毛</a>' +
-      '<a class="rank-switch-btn' + (which === 'opc' ? ' active' : '') + '" href="#war-rank-opc"' +
-      (which === 'opc' ? ' aria-current="page"' : '') + '>OPC 一人公司</a>' +
-      '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' +
-      (which === 'tools' ? ' aria-current="page"' : '') + '>工具发掘</a></nav>';
-  }
   function disclaimer() {
     return '<div class="rank-disclaimer" role="note"><b>说明</b>：本频道整理公开的 GitHub / 开源工具，' +
       '分「项目」与「生活」两类，仅供学习与自用参考。<b>不构成收益承诺，也不保证任何变现结果</b>。' +
@@ -170,7 +158,7 @@
 
   function paint(state, root, ctx, day) {
     if (!day || !day.items || !day.items.length) {
-      root.innerHTML = switchHtml('tools') + disclaimer() +
+      root.innerHTML = disclaimer() +
         '<div class="empty-illo">' + (global.QuestIcons ? global.QuestIcons.illo('list') : '') +
         '<p><b>工具发掘还没有发布</b><br>稍后再来看看。</p></div>';
       if (global.QuestNav) global.QuestNav.fixLinks(root);
@@ -183,7 +171,7 @@
       ? '<p class="hint">当前为<strong>样例数据</strong>（正式发布后由「工具发掘大师」替换）。</p>'
       : '';
     var emptyB = '这个类别今天没有条目';
-    root.innerHTML = switchHtml('tools') + disclaimer() +
+    root.innerHTML = disclaimer() +
       '<p class="rank-intro">每天从 GitHub 等公开仓库里挑「项目向」与「生活向」工具，方便自学与自用。不承诺收益。</p>' +
       sampleNote +
       '<section class="rank-bar"><div class="chip-row rank-types" role="group" aria-label="按类别筛选">' +
@@ -223,8 +211,7 @@
   }
 
   function render(state, root, ctx) {
-    root.innerHTML = switchHtml('tools') +
-      '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
+    root.innerHTML = '<div class="skeleton-doc" aria-busy="true"><i class="sk sk-title"></i><i class="sk"></i><i class="sk sk-short"></i></div>';
     var seq = (render._seq = (render._seq || 0) + 1);
     getDay(function (day) {
       if (seq !== render._seq) return;

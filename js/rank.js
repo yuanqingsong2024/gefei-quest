@@ -292,16 +292,17 @@
     return null;
   }
   function switchHtml(which) {
+    var ok = which === 'top', i;
+    if (!ok) {
+      for (i = 0; i < COLS.length; i++) if (COLS[i].tab === which) { ok = true; break; }
+    }
+    if (!ok) return '';
     var html = '<nav class="rank-switch" aria-label="榜单内容">' +
-      '<a class="rank-switch-btn' + (which === 'top' ? ' active' : '') + '" href="#war-rank"' + (which === 'top' ? ' aria-current="page"' : '') + '>今日公开渠道</a>';
+      '<a class="rank-switch-btn' + (which === 'top' ? ' active' : '') + '" href="#war-rank"' + (which === 'top' ? ' aria-current="page"' : '') + '>每日赚钱榜</a>';
     COLS.forEach(function (c) {
       var on = which === c.tab;
       html += '<a class="rank-switch-btn' + (on ? ' active' : '') + '" href="#' + c.hash + '"' + (on ? ' aria-current="page"' : '') + '>' + esc(c.label) + '</a>';
     });
-    html += '<a class="rank-switch-btn' + (which === 'agent' ? ' active' : '') + '" href="#war-rank-agent"' + (which === 'agent' ? ' aria-current="page"' : '') + '>Agent 进账方案</a>';
-    html += '<a class="rank-switch-btn' + (which === 'wool' ? ' active' : '') + '" href="#war-rank-ai-wool"' + (which === 'wool' ? ' aria-current="page"' : '') + '>AI 羊毛</a>';
-    html += '<a class="rank-switch-btn' + (which === 'opc' ? ' active' : '') + '" href="#war-rank-opc"' + (which === 'opc' ? ' aria-current="page"' : '') + '>OPC 一人公司</a>';
-    html += '<a class="rank-switch-btn' + (which === 'tools' ? ' active' : '') + '" href="#war-tools"' + (which === 'tools' ? ' aria-current="page"' : '') + '>今日工具发掘</a>';
     return html + '</nav>';
   }
   function colBundle(id) {

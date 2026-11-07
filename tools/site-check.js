@@ -3229,7 +3229,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         && cr.height > 40 && cr.top < ih && cr.bottom > navH && cr.top >= rr.top;
       return { w: window.innerWidth, navH, swTop: sr.top, introTop: ir.top, rulesTop: rr.top, cardTop: cr.top, cardH: cr.height, open: !!(rules && rules.open), toast, tabs, inView };
     });
-    T28(shotBox.w === 1366 && shotBox.inView && !shotBox.open && !shotBox.toast && shotBox.tabs.indexOf('每日Top10') >= 0 && shotBox.tabs.indexOf('闲鱼零成本方案') >= 0, 'screenshot frame 1366 ' + JSON.stringify(shotBox));
+    T28(shotBox.w === 1366 && shotBox.inView && !shotBox.open && !shotBox.toast && shotBox.tabs.indexOf('每日赚钱榜') >= 0 && shotBox.tabs.indexOf('闲鱼零成本方案') >= 0, 'screenshot frame 1366 ' + JSON.stringify(shotBox));
     await pg28.screenshot({ path: shot28 + '/p28-xianyu.png' });
     await pg28.setViewportSize({ width: 390, height: 844 });
     await pg28.goto(BASE + 'index.html#war-rank-xianyu', { waitUntil: 'domcontentloaded' });
@@ -3453,7 +3453,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
     T29(first.qs, 'every card has .qs');
     T29(!first.rulesOpen && first.ruleN === 6 && first.ruleSrc, 'rules collapsed with 6 sourced rules');
     T29(first.sorted && first.order.join(',') === '1,2,3,9,11,12,4,5,6,7,8,10', 'sorted by difficulty ' + first.order.join(','));
-    T29(first.tabs.join('|') === '每日 Top 10|闲鱼零成本方案|AI生活起号选题|Agent 赚钱|工具发掘', 'rank switch tabs ' + first.tabs.join('|'));
+    T29(first.tabs.join('|') === '每日赚钱榜|闲鱼零成本方案|AI生活起号选题', 'rank switch tabs ' + first.tabs.join('|'));
     const nav1 = await pg29.evaluate(() => ({
       hash: location.hash,
       parent: ((document.querySelector('a.nav-top.active span') || {}).textContent || '').trim(),
@@ -3484,7 +3484,7 @@ const OLD = { '':'home', map:'path', quest:'path-quests', quests:'path-quests', 
         && cr.height > 40 && cr.top < ih && cr.bottom > navH && cr.top >= rr.top;
       return { w: window.innerWidth, navH, swTop: sr.top, introTop: ir.top, rulesTop: rr.top, cardTop: cr.top, cardH: cr.height, open: !!(rules && rules.open), toast, tabs, inView };
     });
-    T29(shotBox.w === 1366 && shotBox.inView && !shotBox.open && !shotBox.toast && shotBox.tabs.indexOf('每日Top10') >= 0 && shotBox.tabs.indexOf('闲鱼零成本方案') >= 0 && shotBox.tabs.indexOf('AI生活起号选题') >= 0, 'screenshot frame 1366 ' + JSON.stringify(shotBox));
+    T29(shotBox.w === 1366 && shotBox.inView && !shotBox.open && !shotBox.toast && shotBox.tabs.indexOf('每日赚钱榜') >= 0 && shotBox.tabs.indexOf('闲鱼零成本方案') >= 0 && shotBox.tabs.indexOf('AI生活起号选题') >= 0, 'screenshot frame 1366 ' + JSON.stringify(shotBox));
     await pg29.screenshot({ path: shot29 + '/p29-ai-life.png' });
     await pg29.setViewportSize({ width: 390, height: 844 });
     await pg29.goto(BASE + 'index.html#war-rank-ai-life', { waitUntil: 'domcontentloaded' });
