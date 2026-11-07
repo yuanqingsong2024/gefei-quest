@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-06T00:15:35.453Z",
-  "latestId": 93,
-  "latestDate": "2026-11-06",
+  "generatedAt": "2026-11-07T04:23:34.106Z",
+  "latestId": 94,
+  "latestDate": "2026-11-07",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 94,
+      "date": "2026-11-07",
+      "tag": "内容",
+      "title": "AI生活合集新增「家庭事务盯梢员」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI当家庭事务盯梢员——班级群待办／机票降价／宠物复查／疫苗年检（授权后持续跟进）；含授权边界、关键节点本人确认、小红书与闲鱼跟做包角度",
+        "附温州晚报·温度新闻 / 扬子晚报·紫牛新闻 / IT之家 / 21经济网·红星新闻四个来源；支付/改签/回群须本人确认；不代授权不承诺零漏办；与10-28订阅刺客猎手区分。SW 缓存 60"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 93,
       "date": "2026-11-06",
@@ -114,17 +125,6 @@
         "No.1 DigitalOcean Affiliate：写云主机/部署教程，合资格新付费用户月消费可拿约10%佣金、持续约12个月",
         "No.2 Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
         "No.3 Netlify：按官方入门路径部署英文工具小站，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 84,
-      "date": "2026-11-01",
-      "tag": "修复",
-      "title": "每日赚钱榜横幅不再裁成细条，宝箱插画完整可见",
-      "items": [
-        "日期行右侧横幅由 92px 超宽细条改为约 360×144（~2.5:1），object-position 按水墨/海岸/像素对准宝箱；手机仍全宽 2:1 置顶",
-        "守住 P18：war-rank 1280×800 约 2.97–3.00 屏；略收 #rank-count 间距。SW 缓存 55"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
