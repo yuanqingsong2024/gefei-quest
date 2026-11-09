@@ -1,9 +1,173 @@
 {
-  "date": "2026-11-05",
-  "updated": "2026-11-05T09:05:00+08:00",
+  "date": "2026-11-09",
+  "updated": "2026-11-09T09:00:00+08:00",
   "items": [
     {
       "rank": 1,
+      "name": "SkillHQ：上架付费 SKILL.md（Starter 约 80% / Pro 约 85%）",
+      "type": "Agent工具/小产品",
+      "summary": "SkillHQ 官方卖家文档：把工作流打包成 SKILL.md + README，CLI 校验后上架；Starter 默认无需 KYC，按售价约 80% 分成、满 €20 可按需提现到 PayPal（售出后有约 7 天退款冻结）；升级 Pro 后约 85% 分成并走 Stripe Connect 直达银行。付费技能最低约 €2。",
+      "cost": "0 上架费；Stripe/PayPal 通道费已计入分成示意；Pro 需完成 Stripe KYC",
+      "difficulty": 2,
+      "threshold": "有一个可复用、至少 200 字说明的原创技能；能用 CLI 或按文档组织目录",
+      "time": "打包+上架当天可完成；审核与首笔到账视销量与冻结期",
+      "fit": "已用 Claude/Cursor 维护自用技能、想低门槛试卖的个人",
+      "why": "相对上次只收 Sealed/Capafy：条款透明、Starter 无 KYC、PayPal 提现门槛低，适合国内创作者先跑通第一笔。",
+      "steps": [
+        "把常做任务写成 SKILL.md（frontmatter + 步骤）并配 README.md 作为详情页",
+        "本地运行 skillhq validate，修结构与重复检测问题",
+        "skillhq publish 设价（≥€2）与分类标签",
+        "在后台绑定 PayPal，余额满 €20 且过 7 天冻结后按需提现",
+        "销量上来后再升级 Pro，接 Stripe Connect 提高分成并改直达银行",
+        "用免费精简版引流，按退款与转化数据迭代定价"
+      ],
+      "risk": "风险等级：中。平台较新、真实卖家收入未公开；Starter 过 DAC7 阈值需补身份或升 Pro；退款会冲回未结算余额。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手官方卖家文档，分成与提现路径清楚，门槛低于多数技能商店。",
+      "tags": [
+        "SkillHQ",
+        "SKILL.md",
+        "PayPal",
+        "Stripe Connect",
+        "卖技能"
+      ],
+      "sources": [
+        {
+          "title": "How to Sell Skills — SkillHQ Docs",
+          "url": "https://skillhq.dev/docs/selling",
+          "publisher": "SkillHQ",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://skillhq.dev/docs/selling",
+      "agent_howto": "用 Cursor/Claude 把你已跑通的流程写成 SKILL.md 与 README，并生成校验用的示例输入；上架、定价、绑定 PayPal/Stripe 与提现由你本人操作。",
+      "agent_stack": [
+        "Cursor/Claude",
+        "SkillHQ CLI",
+        "PayPal/Stripe"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "AgentAlley：卖自写 Claude skills / prompts（约 70%，条款 2026-11-05 更新）",
+      "type": "Agent工具/小产品",
+      "summary": "AgentAlley 创作者条款（2026-11-05 变更）：只卖自己写的 SKILL.md/提示词，不可转售他人开源；平台作 seller of record，Lemon Squeezy 收款；净收入（扣支付手续费后）约 70% 归创作者，推荐成交另扣约 20% 联盟后再分；售出后冻结约 30 天，每月 10 日前经 PayPal/Payoneer/银行提现，最低约 $50。定价 $1–$500。",
+      "cost": "0 上架费；支付手续费约 5%+$0.50 先从成交额扣除；提现方式各有渠道费",
+      "difficulty": 2,
+      "threshold": "原创技能作者；通过人工创作者申请与单品审核",
+      "time": "申请+审核数天；首笔提现至少经历约 30 天冻结",
+      "fit": "已有 Claude/Cursor 技能包、能接受月结与最低提现额的人",
+      "why": "条款刚更新且可核对分成表；非独家可同时卖其他店，适合作为第二货架。",
+      "steps": [
+        "在创作者页提交展示名、作品链接与上架计划，等人工通过",
+        "上传自写 SKILL.md，核对自动生成的 listing 与封面",
+        "申请定价（$1–$500；$5 以下仅可用平台 credit 购买）",
+        "绑定 PayPal/Payoneer/银行，注意更换收款方式会额外冻结约 14 天",
+        "如实描述能力、不含密钥与危险指令；7 天内退款会冲回分成",
+        "同一技能可保留 GitHub/其他店非独家分发"
+      ],
+      "risk": "风险等级：中。平台年轻、公开卖家收入为示例非实测；30 天冻结+$50 门槛拉长回款；退款/拒付冲回。不承诺收益。",
+      "risk_level": "中",
+      "reason": "官方条款日期新鲜、分成与提现写死，合规边界（只卖自写）清楚。",
+      "tags": [
+        "AgentAlley",
+        "Claude skills",
+        "Lemon Squeezy",
+        "卖技能"
+      ],
+      "sources": [
+        {
+          "title": "Creator terms — AgentAlley",
+          "url": "https://agentalley.io/creator-terms/",
+          "publisher": "AgentAlley",
+          "published": "2026-11-05",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Creator — AgentAlley",
+          "url": "https://agentalley.io/creator/",
+          "publisher": "AgentAlley",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Sell AI skills comparison (facts checked 6 Nov 2026)",
+          "url": "https://www.agenthustles.com/answers/sell-ai-skills/",
+          "publisher": "AgentHustles",
+          "published": "2026-11-06",
+          "kind": "other",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://agentalley.io/creator-terms/",
+      "agent_howto": "用 Agent 整理技能说明、示例对话与 listing 文案；提交申请、定价审批、绑定收款与税务申报由你本人完成。",
+      "agent_stack": [
+        "Claude/Cursor",
+        "AgentAlley",
+        "PayPal/Payoneer"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Agensi：MCP 分发卖 Agent 技能（一次买断或订阅，约 70%）",
+      "type": "Agent工具/小产品",
+      "summary": "Agensi 卖家页：把 SKILL.md 打成 ZIP 上架，经安全扫描+AI+人工审核（通常 24–48 小时）后进入商店与 MCP；买家可在 Claude/ChatGPT/Cursor 等连接器内按需加载，技能不落盘下载；作者拿净价约 70%（平台约 30% 全包），可设一次买断或月订阅；平台作 merchant of record 处理税与退款，Stripe 或 USDC（Solana/Zoneless）打款，待结算满约 $3.50 起付。",
+      "cost": "0 上架费；付费技能上线前需完成收款与 KYC",
+      "difficulty": 3,
+      "threshold": "原创、可被 Agent 调用的技能；能通过安全与意图审核",
+      "time": "审核约 1–2 天；收入取决于曝光与自推",
+      "fit": "希望「卖调用权而非卖文件」、兼顾订阅收入的创作者",
+      "why": "补齐上次 Sealed 对比文里只一笔带过的 Agensi：官方卖家页写清 MCP 分发、防下载与订阅，比纯文件店更可持续。",
+      "steps": [
+        "把垂直工作流写成 SKILL.md（可含 scripts/reference）并打包 ZIP",
+        "上传、设一次价或月订阅价，补全 listing",
+        "等待安全扫描+人工审核通过",
+        "连接 Stripe（或了解 USDC 选项；国内优先合规法币）",
+        "在 X/博客发 before-after 演示引流到创作者主页",
+        "发版更新后买家 Agent 自动用最新版，用 Creator Studio 看转化"
+      ],
+      "risk": "风险等级：中。页面收入数字为示意；USDC 提现涉加密资产，国内用户请优先 Stripe 法币；技能在买家 Agent 内执行，需避免密钥与越权指令。不承诺收益。",
+      "risk_level": "中",
+      "reason": "官方卖家文档完整，模式（MCP+订阅+防下载）相对文件店更清晰。",
+      "tags": [
+        "Agensi",
+        "MCP",
+        "订阅",
+        "SKILL.md",
+        "70%"
+      ],
+      "sources": [
+        {
+          "title": "How to Make Money With AI: Sell Agent Skills | Agensi",
+          "url": "https://www.agensi.io/sell",
+          "publisher": "Agensi",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Agensi home",
+          "url": "https://www.agensi.io/",
+          "publisher": "Agensi",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://www.agensi.io/sell",
+      "agent_howto": "用 Cursor/Claude 编写并自测 SKILL.md，生成演示视频脚本与 listing；KYC、定价与提现由你操作，Agent 不代管密钥。",
+      "agent_stack": [
+        "Cursor/Claude",
+        "Agensi",
+        "Stripe"
+      ]
+    },
+    {
+      "rank": 4,
       "name": "扣子技能商店：上架付费技能（按次/订阅，国内收款）",
       "type": "Agent工具/小产品",
       "summary": "扣子技能商店支持创作者上架付费技能，按次（积分）或月/季/年订阅；商户入驻后经支付宝/抖音支付结算，网页/安卓订单约 30 天后可提现，苹果与积分渠道按月出结算单。收益=订单额×(1-服务费率)，费率以平台公示为准。",
@@ -12,16 +176,15 @@
       "threshold": "能做 API 插件/代码片段/数据检索类技能；完成商户入驻与内容审核",
       "time": "开发 1–2 周；入驻+审核数天；首笔结算约 30 天后",
       "fit": "国内开发者、有垂直数据或工具能力的个人/小团队",
-      "why": "国内少有的「Agent 技能直接收费」官方通道，人民币收款、平台代收，适合不方便用 Stripe 的人。",
+      "why": "仍是国内少有的「Agent 技能直接收费」官方人民币通道；海外店再多也替代不了本地收款。",
       "steps": [
         "在扣子网页端完成商户入驻，开通支付宝/抖音支付收款",
-        "选一个垂直刚需（如行业数据查询、文档格式转换）做成技能",
-        "按文档提交技能并设定按次价或订阅价，等待质量审核",
-        "准备免费试用说明与示例，平台可能对付费技能开放试用",
-        "在「商户管理」看订单，已分账订单手动提现",
-        "按协议自行或由平台代扣申报个税"
+        "选一个垂直刚需做成技能并提交审核",
+        "设定按次价或订阅价，准备试用说明",
+        "在「商户管理」查看已分账订单并手动提现",
+        "按协议自行或配合平台申报个税"
       ],
-      "risk": "风险等级：中。平台对价格有最终审核权、可开展营销调价、规则可调整；需提供实名与商户资料；技能违规会被下架并暂停结算。不承诺收益。",
+      "risk": "风险等级：中。平台可审核价格、调整规则；违规可下架并暂停结算。不承诺收益。",
       "risk_level": "中",
       "reason": "官方文档+服务协议齐全，人民币闭环，可行性与合规度高。",
       "tags": [
@@ -38,7 +201,7 @@
           "publisher": "扣子 Coze 官方文档",
           "published": "2026",
           "kind": "docs",
-          "checked": "2026-11-05"
+          "checked": "2026-11-09"
         },
         {
           "title": "扣子创作者技能服务协议（2026-01-18 生效）",
@@ -46,7 +209,7 @@
           "publisher": "扣子 Coze 官方",
           "published": "2026-01-18",
           "kind": "official",
-          "checked": "2026-11-05"
+          "checked": "2026-11-09"
         },
         {
           "title": "付费技能费用",
@@ -54,11 +217,11 @@
           "publisher": "扣子 Coze 官方文档",
           "published": "2026",
           "kind": "docs",
-          "checked": "2026-11-05"
+          "checked": "2026-11-09"
         }
       ],
       "source_url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
-      "agent_howto": "用 Cursor/Claude 写技能的 API 与参数说明、测试用例和详情页文案；用扣子 Agent 自测技能调用效果。商户资料、定价与提现由你本人操作。",
+      "agent_howto": "用 Cursor/Claude 写技能 API、参数说明、测试用例和详情页文案；用扣子 Agent 自测。商户资料、定价与提现由你本人操作。",
       "agent_stack": [
         "扣子",
         "Cursor/Claude",
@@ -66,32 +229,85 @@
       ]
     },
     {
-      "rank": 2,
-      "name": "NEAR AI Agent Market：Agent 按单接活 + 官方付费造 Agent 任务",
+      "rank": 5,
+      "name": "Tobira Site Agent：给商家做「网站变销售 Agent」搭建+月维护",
       "type": "Agent接单",
-      "summary": "NEAR AI 于 2026-10-16 介绍 Agent Market：买家按单雇 Agent，资金托管、验收后放款（扣平台费），可经 Stripe Connect 提美元。另有官方任务板发布付费「按规格造 Agent」任务，入选且通过测试的开发者获酬并保留该 Agent 继续接单。",
-      "cost": "0 上架；自付 Agent 运行成本；争议需交押金",
-      "difficulty": 4,
-      "threshold": "有一个能稳定交付的单任务 Agent（调研、建站、订票类）；能接 API",
-      "time": "上架数天；任务板竞标周期不定",
-      "fit": "已有可用 Agent、想找第一批付费单的开发者",
-      "why": "托管+自动验收+争议裁决，省掉自建收款与售后；任务板是少见的「先拿钱造 Agent」入口。",
+      "summary": "Tobira 官方站点：把企业网站变成可对 ChatGPT/Claude 等来访 Agent 回答、预约与收款的 Site Agent；免费档可用自备模型 Key（约至 1,000 会话/月），付费 Lite/Start/Business/Premium 约 $49/$169/$399/$799 每月；可选代部署约 $899 起。你可打包「扫描站点+知识库+日历/支付对接+规则」按固定搭建费+月维护向中小商家收费；Premium 还可帮客户卖自有品牌 AI 订阅（Tobira 抽约 15%）。",
+      "cost": "客户付 Tobira 订阅；你收搭建/维护费；自备演示用 Key 成本",
+      "difficulty": 3,
+      "threshold": "能读懂商家业务资料、会配置日历/CRM/支付；有英文或出海客户更好",
+      "time": "单客户 1–3 天可上线草稿；含资料清洗约 1 周",
+      "fit": "做独立站/SaaS/本地服务数字化的一人公司或小团队",
+      "why": "2026-11 产品页与第三方核对价目齐全；需求是「AI 流量到不了表单」的真痛点，可报价交付，不依赖自己先养用户。",
       "steps": [
-        "把现有 Agent 收敛成一个可明确验收的单一任务",
-        "在 market.near.ai 上架并定价，或对买家发布的任务竞标",
-        "接入其 /v1 API 接收任务说明并回传交付物",
-        "验收后在 Stripe Connect 提美元（不建议碰加密货币提现选项）",
-        "关注官方任务板，按规格竞标造 Agent 任务",
-        "积累评价后再提价"
+        "锁定有独立站、已有询盘但表单转化差的商家（SaaS/机构/本地服务）",
+        "用 Tobira 扫站生成草稿 Agent，补价格表/FAQ/安全文档",
+        "写清规则（只报价区间、不承诺折扣等）并接日历与线索通道",
+        "报价：搭建费（或转售官方 assisted setup）+ 月维护（知识库更新）",
+        "交付验收清单：人工提问+用 ChatGPT/Claude 代客提问各测一轮",
+        "可选：帮客户开 Premium 品牌 AI 订阅，说明平台约 15% 抽成"
       ],
-      "risk": "风险等级：中。平台新、需求量未知；争议由自动裁决、可能判退款；USDC 提现涉加密资产，国内用户请只用合规法币通道。不承诺收益。",
+      "risk": "风险等级：中。依赖买家真的派 Agent 来询价（习惯仍早期）；价格与转化数据多为官方口径；你与客户签约收费，与 Tobira 无关。不承诺收益。",
       "risk_level": "中",
-      "reason": "官方博客+可访问站点，模式完整，适合已有 Agent 的人试水。",
+      "reason": "一手官网价目+可核对的第三方价目复述，交付边界清楚，属可报价 B2B。",
+      "tags": [
+        "Tobira",
+        "Site Agent",
+        "接单",
+        "出海",
+        "MCP"
+      ],
+      "sources": [
+        {
+          "title": "Tobira.ai — Site Agent pricing & product",
+          "url": "https://tobira.ai/",
+          "publisher": "Tobira",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Tobira Site Agent Sells to Visiting AI Agents (facts checked 7 Nov 2026)",
+          "url": "https://dirtystatic.com/articles/tobira-site-agent-sells-to-visiting-ai-agents/",
+          "publisher": "Dirty Static",
+          "published": "2026-11-07",
+          "kind": "news",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://tobira.ai/",
+      "agent_howto": "用你的 Agent 整理客户站点资料、起草规则文案与验收测试题；配置、收款签约与后台操作由你完成。也可用 Tobira 的 MCP 从 Claude/ChatGPT 侧管理客户 Agent。",
+      "agent_stack": [
+        "Tobira",
+        "Claude/ChatGPT",
+        "日历/CRM"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "NEAR AI Agent Market：按单雇 Agent + Stripe 提美元（注意银行出金国家）",
+      "type": "Agent接单",
+      "summary": "NEAR AI Agent Market：买家按单雇 Agent，托管验收后放款，平台费约 5%。Builder FAQ（更新至 2026-10-19）：USD 经 Stripe Connect 提现，最低约 $5、新收益等待约 14 天；银行出金目前覆盖美/加/英/瑞士/EEA，其他地区仅 USDC 链上提现。另有任务板可竞标「按规格造 Agent」。",
+      "cost": "0 上架；自付运行成本；争议需从余额扣押金",
+      "difficulty": 4,
+      "threshold": "有可明确验收的单任务 Agent；能接 API；若在国内需评估能否开合规 Stripe 或放弃加密提现",
+      "time": "上架数天；回款视验收与 14 天等待",
+      "fit": "已有可交付 Agent、且能合法收美元的开发者",
+      "why": "相对上次补充了官方 FAQ 的银行出金国家限制，避免国内用户误以为人人都能 Stripe 到账。",
+      "steps": [
+        "把 Agent 收敛成单一可验收任务并上架或竞标",
+        "接入 Market API/MCP 自动领单与回传",
+        "验收后优先走 Stripe 法币（确认所在国是否在支持列表）",
+        "不在支持列表则不要为提现去碰不合规加密通道",
+        "关注官方造 Agent 任务板积累可再出租的资产"
+      ],
+      "risk": "风险等级：中高。银行出金国家有限；USDC 提现涉加密资产与合规风险；平台新、需求未验证。不承诺收益。",
+      "risk_level": "高",
+      "reason": "官方 FAQ 写清费用与出金限制，适合有合规收款能力的人；国内普通个人慎选。",
       "tags": [
         "NEAR AI",
         "Agent Market",
         "接单",
-        "托管",
         "Stripe Connect"
       ],
       "sources": [
@@ -101,7 +317,15 @@
           "publisher": "NEAR AI",
           "published": "2026-10-16",
           "kind": "official",
-          "checked": "2026-11-05"
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Builder FAQ",
+          "url": "https://docs.market.near.ai/builders/faq",
+          "publisher": "NEAR AI",
+          "published": "2026-10-19",
+          "kind": "docs",
+          "checked": "2026-11-09"
         },
         {
           "title": "NEAR AI Agent Market",
@@ -109,143 +333,44 @@
           "publisher": "NEAR AI",
           "published": "2026",
           "kind": "official",
-          "checked": "2026-11-05"
+          "checked": "2026-11-09"
         }
       ],
       "source_url": "https://near.ai/blog/what-is-agent-market",
-      "agent_howto": "让你的 Agent 通过 Agent Market API 自动领取说明、执行并提交交付物；你负责定价、质量抽检、争议应对与提现。",
+      "agent_howto": "让 Agent 经 Market API 自动领说明、执行并提交；你负责定价、抽检、争议与提现合规判断。",
       "agent_stack": [
         "自建 Agent",
-        "NEAR AI Market API",
+        "NEAR AI Market",
         "Stripe Connect"
       ]
     },
     {
-      "rank": 3,
-      "name": "按次计费卖 Skill：Sealed / Capafy 服务端执行（源码不外泄，约 80%）",
-      "type": "Agent工具/小产品",
-      "summary": "Sealed 指南（2026-08 口径）对比卖 SKILL.md 的两种模式：卖文件（Agensi、PromptBase）与卖调用。Sealed、Capafy 在服务端执行技能，买家拿不到源码，作者按每次结算调用分成约 80%；Capafy 有 $0.99 认证费。Sealed 自述目前尚早、买家基数小。",
-      "cost": "Sealed 0 上架；Capafy $0.99 认证费；模型调用成本由平台计价",
-      "difficulty": 3,
-      "threshold": "有一个「方法型」技能（判断、步骤、边界处理），反复调用有价值",
-      "time": "上架 1–3 天；收入取决于调用量",
-      "fit": "担心 SKILL.md 卖一次就被转发的创作者",
-      "why": "补齐上次只收「卖文件」平台的空缺：按调用收费可持续、能防复制。",
-      "steps": [
-        "用「卖文档还是卖方法」区分你的技能：方法型才适合按次",
-        "把技能写成明确输入/输出的 Hosted 形式",
-        "在 Sealed 发布并设每次价格，或在 Capafy 关闭 Download 模式上架",
-        "用免费目录（skills.sh 等）发一个精简版引流",
-        "按调用数据迭代与调价"
-      ],
-      "risk": "风险等级：中。平台早期、买家少；技能内容会发送给模型提供方执行；对比文为 Sealed 自家撰写，有立场。不承诺收益。",
-      "risk_level": "中",
-      "reason": "新模式、门槛低，但需求未验证，适合作第二渠道。",
-      "tags": [
-        "SKILL.md",
-        "按次计费",
-        "Sealed",
-        "Capafy",
-        "防复制"
-      ],
-      "sources": [
-        {
-          "title": "Where to sell AI agent skills in 2026",
-          "url": "https://sealed.run/guides/where-to-sell-ai-agent-skills",
-          "publisher": "Sealed",
-          "published": "2026-08",
-          "kind": "other",
-          "checked": "2026-11-05"
-        }
-      ],
-      "source_url": "https://sealed.run/guides/where-to-sell-ai-agent-skills",
-      "agent_howto": "用 Claude/Cursor 把你的工作方法写成 SKILL.md 并跑测试集；上架后由平台的模型执行，你只维护技能与定价。",
-      "agent_stack": [
-        "Claude/Cursor",
-        "Sealed/Capafy"
-      ]
-    },
-    {
-      "rank": 4,
-      "name": "给实物网店做 ChatGPT 插件（外部结账）的接单服务",
-      "type": "Agent接单",
-      "summary": "OpenAI 官方文档：ChatGPT 插件当前可用且推荐的变现方式是外部结账，用户跳转到商家自有网站完成购买，目前审批仅限实物商品；内嵌支付仍为少数合作方内测。数字商品、订阅、积分暂不能在插件内卖。可据此为有独立站的实物商家做导购插件。",
-      "cost": "0 额外平台费；开发时间与服务器成本",
-      "difficulty": 4,
-      "threshold": "会 MCP 服务器与 Apps SDK；能对接商家商品目录与独立站",
-      "time": "单个项目约 2–4 周（含审核）",
-      "fit": "会写 MCP、服务出海独立站/Shopify 商家的开发者",
-      "why": "规则已明确（只做实物、外跳结账），可打包成固定价的搭建+维护服务。",
-      "steps": [
-        "锁定有独立站的实物品牌商家",
-        "用 Apps SDK/MCP 做商品检索与推荐工具",
-        "「立即购买」外跳到商家自有结账页，不在插件内收款",
-        "按提交指南准备审核材料，避免做试用/演示型插件",
-        "交付后按月收维护费（目录同步、审核更新）"
-      ],
-      "risk": "风险等级：中。只能卖实物、审核可能被拒；不得做金融/虚拟币/礼品卡交易；服务费由你和客户签约，与 OpenAI 无关。不承诺收益。",
-      "risk_level": "中",
-      "reason": "一手官方文档，边界清楚，属可报价的 B2B 服务。",
-      "tags": [
-        "ChatGPT 插件",
-        "Apps SDK",
-        "MCP",
-        "外部结账",
-        "出海电商"
-      ],
-      "sources": [
-        {
-          "title": "Checkout API reference / Monetization",
-          "url": "https://developers.openai.com/plugins/build/monetization",
-          "publisher": "OpenAI",
-          "published": "2026",
-          "kind": "docs",
-          "checked": "2026-11-05"
-        },
-        {
-          "title": "App Developer Terms",
-          "url": "https://openai.com/policies/developer-apps-terms/",
-          "publisher": "OpenAI",
-          "published": "2026",
-          "kind": "official",
-          "checked": "2026-11-05"
-        }
-      ],
-      "source_url": "https://developers.openai.com/plugins/build/monetization",
-      "agent_howto": "用 Cursor/Claude 生成 MCP 服务器骨架、商品检索工具和测试；你负责与商家签约、审核提交和上线验收。",
-      "agent_stack": [
-        "Cursor/Claude",
-        "OpenAI Apps SDK",
-        "MCP",
-        "Shopify/独立站"
-      ]
-    },
-    {
-      "rank": 5,
-      "name": "闲鱼原创方案：《扣子付费技能上架与收款实操手册》",
+      "rank": 7,
+      "name": "闲鱼原创方案：《Skill 商店上架对照手册》（扣子 + SkillHQ/AgentAlley/Agensi）",
       "type": "Agent闲鱼方案",
-      "summary": "基于扣子官方文档自写一份原创图文手册：商户入驻材料清单、技能选题、定价（按次 vs 订阅）、审核要点、结算与提现时间表、个税说明，在闲鱼作为数字资料出售。只卖自己写的内容，不代入驻、不代实名、不卖账号。",
-      "cost": "0–几十元（排版工具）",
+      "summary": "基于各平台官方文档自写对照手册：国内扣子商户入驻与结算，对照 SkillHQ/AgentAlley/Agensi 的分成、提现、审核与「只卖自写」红线；含材料清单、定价区间示意、退款冻结表。闲鱼只卖原创 PDF，不代开店、不代实名、不卖账号。",
+      "cost": "0–几十元排版；需亲自走通至少 1 条上架路径以便截图",
       "difficulty": 2,
-      "threshold": "自己完整走一遍入驻和上架流程，有截图与实测经验",
-      "time": "写作 2–3 天",
-      "fit": "已在扣子做过技能、想多一份收入的人",
-      "why": "国内新开的付费技能通道，入门资料少，原创手册有差异化。",
+      "threshold": "能读英文文档；自己完成一次上架或入驻实测",
+      "time": "写作 2–4 天",
+      "fit": "做过扣子或海外技能、想多一份资料收入的人",
+      "why": "本周海外技能店条款集中更新，对照手册比单讲扣子更有时效差异化。",
       "steps": [
-        "亲自完成一次商户入驻与技能上架，记录截图",
-        "按官方文档整理流程、费用与结算周期，标注来源与日期",
-        "加入选题清单与定价建议（注明非保证收益）",
-        "排版成 PDF，闲鱼以「原创教程资料」上架",
-        "规则变动时更新版本并告知买家"
+        "亲自完成扣子或任一海外店的上架/入驻并截图",
+        "按官方文档整理分成、冻结、最低提现与禁售项，标注日期与链接",
+        "加选题与定价建议（标明非收益承诺）",
+        "排版 PDF，闲鱼以原创教程资料上架",
+        "平台改版时出修订版并通知买家"
       ],
-      "risk": "风险等级：低。须原创、注明信息来源与时效；不得承诺收益、不得提供代入驻/代实名服务；平台规则变更可能使内容过时。不承诺收益。",
+      "risk": "风险等级：低。须原创并标注时效；不得承诺收益、不得提供代实名/代开店。不承诺收益。",
       "risk_level": "低",
-      "reason": "门槛低、合规清晰，与第 1 条形成「做+教」组合。",
+      "reason": "门槛低、合规清晰，与本周新商店条目形成「做+教」。",
       "tags": [
         "闲鱼",
         "原创教程",
-        "扣子",
-        "付费技能"
+        "SkillHQ",
+        "AgentAlley",
+        "扣子"
       ],
       "sources": [
         {
@@ -254,24 +379,40 @@
           "publisher": "扣子 Coze 官方文档",
           "published": "2026",
           "kind": "docs",
-          "checked": "2026-11-05"
+          "checked": "2026-11-09"
         },
         {
-          "title": "扣子创作者技能服务协议（2026-01-18 生效）",
-          "url": "https://docs.coze.cn/guides_skills_creator_service_terms",
-          "publisher": "扣子 Coze 官方",
-          "published": "2026-01-18",
+          "title": "How to Sell Skills — SkillHQ Docs",
+          "url": "https://skillhq.dev/docs/selling",
+          "publisher": "SkillHQ",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Creator terms — AgentAlley",
+          "url": "https://agentalley.io/creator-terms/",
+          "publisher": "AgentAlley",
+          "published": "2026-11-05",
           "kind": "official",
-          "checked": "2026-11-05"
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Agensi sell page",
+          "url": "https://www.agensi.io/sell",
+          "publisher": "Agensi",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
-      "agent_howto": "用 Agent 把官方文档整理成章节大纲、FAQ 与图示初稿，再由你按亲身实测改写与核对；Agent 不代操作任何账号。",
+      "source_url": "https://skillhq.dev/docs/selling",
+      "agent_howto": "用 Agent 生成大纲、对照表与 FAQ 初稿，再按你的实测截图改写；Agent 不代操作任何账号。",
       "agent_stack": [
         "Claude/ChatGPT",
         "排版工具"
       ],
-      "resell": "原创 PDF 手册，闲鱼数字资料；不卖账号/码/代领/代入驻"
+      "resell": "原创 PDF 手册，闲鱼数字资料；不卖账号/码/代领/代开店"
     }
   ]
 }
