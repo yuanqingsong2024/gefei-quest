@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-07T15:50:41.184Z",
-  "latestId": 95,
-  "latestDate": "2026-11-07",
+  "generatedAt": "2026-11-09T00:25:50.161Z",
+  "latestId": 96,
+  "latestDate": "2026-11-09",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 96,
+      "date": "2026-11-09",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-09",
+      "items": [
+        "No.1 Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）",
+        "No.2 Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）",
+        "No.3 Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 95,
       "date": "2026-11-07",
@@ -115,41 +127,30 @@
         "No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 86,
-      "date": "2026-11-02",
-      "tag": "内容",
-      "title": "AI生活合集新增「退货寄件助理」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：让AI当退货寄件助理——打码截图识址预填→一句话好快省比价→本人确认支付与上门；含决策/多件优先级提示词、小红书与闲鱼跟做包角度",
-        "附新京报 / IT之家 / 21经济网三个来源，本机核验见提交说明；不代寄、不代填真实面单；截图须打码手机号与详细门牌；不承诺运费或收益。SW 缓存 56"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
-    "date": "2026-11-06",
+    "date": "2026-11-09",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Shopify Affiliate：写电商开店/选型内容，合资格全价 Basic/Grow/Advanced 推荐可拿约至多150美元（地区约25美元档，以帮助中心为准）",
+        "name": "Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）",
         "type": "联盟营销",
-        "source_url": "https://www.shopify.com/affiliates"
+        "source_url": "https://www.namecheap.com/support/knowledgebase/article.aspx/9933/55/what-are-the-namecheap-commission-rates/"
       },
       {
         "rank": 2,
-        "name": "Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
+        "name": "Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）",
         "type": "数字产品/接单",
-        "source_url": "https://www.lemonsqueezy.com/pricing"
+        "source_url": "https://www.teachable.com/pricing"
       },
       {
         "rank": 3,
-        "name": "Vercel：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "name": "Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://vercel.com/docs/getting-started-with-vercel"
+        "source_url": "https://firebase.google.com/docs/hosting/quickstart"
       }
     ]
   }

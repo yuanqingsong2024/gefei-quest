@@ -1,124 +1,124 @@
 {
-  "date": "2026-11-06",
+  "date": "2026-11-09",
   "items": [
     {
       "rank": 1,
-      "name": "Shopify Affiliate：写电商开店/选型内容，合资格全价 Basic/Grow/Advanced 推荐可拿约至多150美元（地区约25美元档，以帮助中心为准）",
+      "name": "Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）",
       "type": "联盟营销",
-      "summary": "官方 Affiliate：新商家经你的链接注册并购买合资格全价店方案后结算佣金；官方页口径至多约150美元/合资格推荐（因地而异，以申请后 Impact 合同为准）；试用期通常不计佣。",
-      "cost": "0；需有电商/创业相关内容渠道",
+      "summary": "Namecheap 官方联盟：新客户经你的链接完成首单后，按品类结算佣金。官方知识库写明域名注册/转移约20%，主机套餐（Stellar、Reseller、VPS、独立服务器）与 SSL 约35%，Private Email 与 PremiumDNS 约20%；经 Impact 或 Commission Junction 跟踪，Impact 最低提现约合 10 美元。",
+      "cost": "0；需有域名/建站/主机相关内容渠道",
       "difficulty": 2,
-      "threshold": "申请通过；能持续产出真实开店教程/对比并按规范披露；对方需付满约一个月全价方案才计佣",
-      "time": "申请官方称常见约24小时量级；见效取决于内容与转化周期（试用到全价可能数月）",
-      "fit": "会写中英文开店、选品或 Shopify 实操教程、已有站长或创业受众的人；预估投入：每周5小时",
-      "why": "Shopify 官方 Affiliates 页写明：可 Earn up to $150 USD per qualified referral，佣金在商家购买合资格全价店方案后结算，金额因推荐地区而异，并提供 Impact 仪表盘跟踪。上榜理由：相对基线 Hostinger「主机首购高比例」，今天换 Shopify「电商平台按单定额」联盟路径。",
+      "threshold": "在 Impact 或 CJ 申请通过；能持续产出真实的域名选购、解析或主机对比内容并按规范披露",
+      "time": "申请与链接配置通常数天量级；见效取决于内容与转化周期",
+      "fit": "会写中英文建站、域名选型或主机对比、已有站长或独立开发者受众的人；预估投入：每周4小时",
+      "why": "Namecheap 官方知识库「What are the Namecheap commission rates?」按品类列出新客户首单佣金：域名约20%、主机与SSL约35%、邮箱与 PremiumDNS 约20%，并说明优惠站/子联盟可能适用更低比例。Affiliates 页说明现由 Impact 驱动、最低提现约合10美元。上榜理由：相对基线 Shopify「电商平台按单定额」，今天换 Namecheap「域名/主机按品类百分比」联盟路径。",
       "steps": [
-        "打开 shopify.com/affiliates 阅读说明并申请，核对 help.shopify.com/en/affiliates/earnings 的地区与全价计佣规则",
-        "写一篇真实的开店选型、主题迁移或支付配置教程，按规范披露联盟关系",
-        "把链接放到小站或社媒，跟踪哪类内容转化更好；避免诱导虚假点击与未披露推广"
+        "打开 namecheap.com 知识库佣金页核对当前品类比例，再经官方 Affiliates 入口选择 Impact 或 CJ 申请",
+        "写一篇真实的域名注册、DNS 解析或入门主机对比教程，按规范披露联盟关系",
+        "把链接放到小站或社媒，跟踪哪类内容转化更好；避免未披露推广与诱导虚假点击"
       ],
-      "risk": "风险等级：中。仅全价合资格方案计佣；退款/欺诈订单可能被冲回；须真实披露。不承诺收益。",
+      "risk": "风险等级：中。通常仅新客户首单计佣；退款/违规优惠码可能被冲回；优惠站可能适用更低比例。不承诺收益。",
       "risk_level": "中",
-      "reason": "条款清晰的电商平台联盟，适合开店教程长期挂链。",
+      "reason": "条款公开的域名与主机联盟，适合建站教程长期挂链。",
       "tags": [
         "联盟营销",
-        "Shopify",
-        "电商",
-        "开店",
+        "Namecheap",
+        "域名",
+        "主机",
         "佣金"
       ],
       "sources": [
         {
-          "title": "Shopify Affiliate Program",
-          "url": "https://www.shopify.com/affiliates",
-          "publisher": "Shopify",
+          "title": "What are the Namecheap commission rates? - Affiliates - Namecheap.com",
+          "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/9933/55/what-are-the-namecheap-commission-rates/",
+          "publisher": "Namecheap",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Namecheap Affiliate Program Beginners Guide - Affiliates - Namecheap.com",
+          "url": "https://www.namecheap.com/support/knowledgebase/article.aspx/10143/55/namecheap-affiliate-program-beginners-guide/",
+          "publisher": "Namecheap",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://www.shopify.com/affiliates"
+      "source_url": "https://www.namecheap.com/support/knowledgebase/article.aspx/9933/55/what-are-the-namecheap-commission-rates/"
     },
     {
       "rank": 2,
-      "name": "Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
+      "name": "Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）",
       "type": "数字产品/接单",
-      "summary": "面向数字商品与订阅的 Merchant of Record 收款：官方 Pricing/Fees 说明电商功能无月费，平台费约为每笔 5% + $0.50；国际/PayPal/订阅等场景可能另有小额附加费；平台代处理销售税与 VAT。",
-      "cost": "0 起步；平台按成交抽成，国际或 PayPal 等可能另计附加费（以官方 Fees 为准）",
-      "difficulty": 2,
-      "threshold": "有可交付的原创数字文件或轻量订阅产品，能写清授权与售后；可合规收款",
-      "time": "1–3天可上架首个产品；之后持续导流与迭代",
-      "fit": "有模板、清单、小工具或课程资料包、希望平台代管销售税的创作者；预估投入：每周5小时",
-      "why": "Lemon Squeezy 官方 pricing 写明电商功能约 5% + 50¢、无月费，并强调 Merchant of Record；Fees 文档补充国际约+1.5%、PayPal 约+1.5%、订阅约+0.5% 等附加情形。上榜理由：相对基线 Gumroad 直连/Discover 双费率，今天换 Lemon Squeezy「统一平台费 + MoR」路径。",
+      "summary": "面向课程、辅导与数字下载的网校平台：官方定价页写明无长期免费档，提供约7天试用与约30天退款保证；Starter 月付约39美元（年付展示约29美元/月），平台交易费约7.5%、最多约5个已发布产品；Builder 月付约89美元（年付展示约69美元/月）起平台交易费约0%。另计支付处理费。",
+      "cost": "Starter 约39美元/月起（年付展示更低）；成交另计平台交易费与支付处理费（以官网为准）",
+      "difficulty": 3,
+      "threshold": "有可交付的原创课程、辅导服务或数字下载，能写清大纲、授权与售后；接受付费起步",
+      "time": "准备首个产品约数天到两周；上架后持续招生与迭代",
+      "fit": "有一项能讲清楚的技能（软件操作、语言、职场方法等）、希望做成可反复卖的课程或资料包的人；预估投入：每周6小时",
+      "why": "Teachable 官方 Pricing 写明 Starter 约39美元/月、交易费约7.5%，Builder 及以上在使用 Teachable Payments 时平台交易费约0%，并说明标准支付处理费仍可能另计；产品可以是课程、辅导或数字下载。上榜理由：相对基线 Lemon Squeezy「无月费文件/订阅抽成」，今天换 Teachable「付费网校 + 课程/辅导交付」路径。",
       "steps": [
-        "打开 lemonsqueezy.com/pricing 与 docs Fees 文核对当前费率，注册店铺",
-        "上架一个解决具体问题的原创数字下载或订阅，写清授权、交付与售后",
-        "用小站、社媒或闲鱼引流到付款页；关注国际收款与退款规则"
+        "打开 teachable.com/pricing 核对当前档位、产品数量上限与交易费后，用试用期建学校",
+        "上架一个解决具体问题的原创课程或数字下载，写清目录、交付方式与退款规则",
+        "用小站、社媒或邮件列表导流；关注支付处理费、税务处理与退款政策"
       ],
-      "risk": "风险等级：中。只能卖原创或已获授权内容；附加费与退款规则以官网为准；需配合平台税务披露。不承诺收益。",
+      "risk": "风险等级：中。有月费，前期成交少时可能入不敷出；只能卖原创或已获授权内容；费率与处理费以官网为准。不承诺收益。",
       "risk_level": "中",
-      "reason": "无月费的数字商品 MoR 收款，费率口径清晰，适合反复卖原创资料。",
+      "reason": "适合把一项讲得清的技能做成可反复卖的课程或资料，费率分档公开。",
       "tags": [
         "数字产品",
-        "Lemon Squeezy",
-        "Merchant of Record",
-        "订阅",
-        "模板"
+        "Teachable",
+        "课程",
+        "网校",
+        "数字下载"
       ],
       "sources": [
         {
-          "title": "Pricing • Lemon Squeezy",
-          "url": "https://www.lemonsqueezy.com/pricing",
-          "publisher": "Lemon Squeezy",
+          "title": "Teachable Pricing: Compare Plans and Start Your Free Trial",
+          "url": "https://www.teachable.com/pricing",
+          "publisher": "Teachable",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
-        },
-        {
-          "title": "Fees • Lemon Squeezy Docs",
-          "url": "https://docs.lemonsqueezy.com/help/getting-started/fees",
-          "publisher": "Lemon Squeezy Docs",
-          "published": "",
-          "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://www.lemonsqueezy.com/pricing"
+      "source_url": "https://www.teachable.com/pricing"
     },
     {
       "rank": 3,
-      "name": "Vercel：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
+      "name": "Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
       "type": "出海小站",
-      "summary": "用 Vercel 官方 Getting started（CLI / Git 仪表盘）把静态或前端站部署上线；适合先验证英文工具页是否有搜索与回访，再接 Google AdSense 或相关联盟。",
-      "cost": "域名约每年数十美元可选；Hobby 档可走免费起步（以官网配额为准）",
+      "summary": "用 Firebase Hosting 官方 Get started（安装 Firebase CLI、init hosting、deploy）把静态或前端站部署上线，默认可获得 web.app / firebaseapp.com 域名；适合先验证英文工具页是否有搜索与回访，再接 Google AdSense 或相关联盟。免费档配额以官网定价页为准。",
+      "cost": "域名约每年数十美元可选；Hosting 可走免费档起步（存储与流量配额以 firebase.google.com/pricing 为准）",
       "difficulty": 2,
-      "threshold": "能完成单页英文工具或指南，并接好自定义域名与基础 SEO",
+      "threshold": "能完成单页英文工具或指南，并按文档完成 CLI 部署与基础 SEO",
       "time": "半天到2天可上线首版；流量与变现通常需数月",
-      "fit": "会一点前端或静态站、想先验证出海词再投入的人；预估投入：每周5小时",
-      "why": "Vercel 官方 Getting started 提供 CLI 登录部署与 Git 连接仪表盘两条入门路径；Google AdSense 官方页说明站点达标后可申请广告变现。上榜理由：相对基线 Cloudflare Pages，今天换 Vercel 部署路径，同样服务「先上线验证、再接广告/联盟」的出海小站路线。",
+      "fit": "会一点前端或静态站、想换一条与 Vercel/Netlify 不同的部署路径做出海验证的人；预估投入：每周5小时",
+      "why": "Firebase 官方 Hosting Quickstart 提供 CLI 初始化与部署路径；Google AdSense 官方页说明站点达标后可申请广告变现。上榜理由：相对基线 Vercel，今天换 Firebase Hosting 部署路径，同样服务「先上线验证、再接广告/联盟」的出海小站路线。",
       "steps": [
-        "打开 vercel.com/docs/getting-started-with-vercel 按指引把英文单页工具或指南部署上线",
-        "接 Google Search Console，补 About/Privacy 与 3–5 篇相关说明",
+        "打开 firebase.google.com/docs/hosting/quickstart，按指引用 CLI 把英文单页工具或指南部署上线",
+        "接 Google Search Console，补 About/Privacy 与 3–5 篇相关说明；需要时再绑自定义域名",
         "有稳定访问后再申请 AdSense 或挂相关联盟链接"
       ],
-      "risk": "风险等级：低。免费档与产品边界以官网为准；广告审核会拒空站；前几个月收入可能为0。不承诺收益。",
+      "risk": "风险等级：低。免费档配额与计费边界以官网为准；广告审核会拒空站；前几个月收入可能为0。不承诺收益。",
       "risk_level": "低",
-      "reason": "低成本验证英文工具站的另一条主流部署路径，和本站出海小站路线一致。",
+      "reason": "另一条官方文档齐全的静态托管路径，适合低成本验证英文工具站。",
       "tags": [
         "出海小站",
-        "Vercel",
-        "静态站",
+        "Firebase",
+        "Hosting",
         "SEO",
         "AdSense"
       ],
       "sources": [
         {
-          "title": "Getting started with Vercel",
-          "url": "https://vercel.com/docs/getting-started-with-vercel",
-          "publisher": "Vercel Docs",
+          "title": "Get started with Firebase Hosting",
+          "url": "https://firebase.google.com/docs/hosting/quickstart",
+          "publisher": "Firebase Docs",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         },
         {
           "title": "Google AdSense - Earn Money from Your Website with Monetization",
@@ -126,166 +126,182 @@
           "publisher": "Google AdSense",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Firebase Pricing",
+          "url": "https://firebase.google.com/pricing",
+          "publisher": "Firebase",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://vercel.com/docs/getting-started-with-vercel"
+      "source_url": "https://firebase.google.com/docs/hosting/quickstart"
     },
     {
       "rank": 4,
-      "name": "YouTube Partner Program：达标后开通广告与 Premium 分成（当前约1000订阅+4000合格观看小时或Shorts路径）",
+      "name": "小红书蒲公英：走官方内容合作平台接品牌笔记/种草商单（门槛与费率以后台为准）",
       "type": "平台激励",
-      "summary": "YouTube 官方合作伙伴计划：满足订阅与合格观看小时/Shorts 浏览量门槛、无有效社区违规且完成 AdSense 关联后，可申请广告与相关变现模块；2027-02-01 起新申请门槛将上调（以帮助中心为准）。",
-      "cost": "0；需持续原创视频与设备/剪辑时间",
-      "difficulty": 4,
-      "threshold": "所在国家/地区开放 YPP；约1000订阅且近12个月约4000合格长视频观看小时，或近90天约1000万合格 Shorts 浏览；遵守变现政策并开启两步验证",
-      "time": "养号与内容积累通常需数月；申请审核官方称常见约1个月量级",
-      "fit": "愿意做可复用教程/测评长视频或 Shorts、能稳定更新的人；预估投入：每周8小时以上",
-      "why": "YouTube Help「Partner Program overview & eligibility」写明当前入门门槛与政策要求，并提示自 2027-02-01 起新创作者广告/Premium 门槛将上调。上榜理由：相对基线微信公众号流量主，今天换海外视频广告分成官方激励路径，类型分散且非比赛。",
+      "summary": "小红书官方蒲公英是品牌与创作者的内容合作平台：在达到平台当前展示的入驻条件后，可在创作者中心开通内容合作，接笔记、直播等品牌商单，走平台交易与数据。具体粉丝门槛、专业号要求、综合服务费与结算节奏以蒲公英帮助中心和后台为准。",
+      "cost": "0；需持续更新的小红书账号与可过审的原创内容",
+      "difficulty": 3,
+      "threshold": "完成平台要求的实名与创作者侧开通流程，账号符合社区规范；能按品牌 brief 交付真实体验笔记，不虚构使用效果",
+      "time": "养号与垂直内容积累通常需数周到数月；开通后按单交付",
+      "fit": "已有或愿意打磨小红书垂直内容（美妆、职场、工具、生活方式等）、能按 brief 写真实笔记的人；预估投入：每周6小时",
+      "why": "小红书蒲公英官网与帮助中心是官方内容合作入口，用于品牌与创作者撮合笔记/种草等合作。上榜理由：相对基线 YouTube Partner Program「视频广告/Premium 分成」，今天换国内图文种草官方商单路径，类型分散且非比赛。",
       "steps": [
-        "打开 support.google.com/youtube/answer/72851 核对当前门槛与 2027 变更提示",
-        "选定窄主题稳定更新原创长视频或 Shorts，在 Studio「收益」跟踪资格进度",
-        "达标后申请并关联 AdSense；只打开合规广告模块，遵守广告友好内容规范"
+        "打开 pgy.xiaohongshu.com 与帮助中心，核对准入条件、合作类型与结算说明",
+        "在小红书持续发布某一垂直主题的原创笔记，完善主页与联系方式",
+        "达标后在创作者中心开通内容合作，只接你能真实体验并按规定披露的商单"
       ],
-      "risk": "风险等级：中。门槛与政策会调整；审核可能拒绝；低播放时收入可能接近0；长期不活跃可能失去变现。不承诺收益。",
+      "risk": "风险等级：中。入驻条件与费率会调整；商单需按 brief 与社区规范执行；虚构种草可能被处罚。不承诺收益。",
       "risk_level": "中",
-      "reason": "海外视频平台官方广告分成入口，适合有稳定更新能力的教程频道。",
+      "reason": "国内图文平台的官方商单入口，适合有垂直笔记产能的人接合规合作。",
       "tags": [
         "平台激励",
-        "YouTube",
-        "YPP",
-        "广告分成",
-        "内容"
+        "小红书",
+        "蒲公英",
+        "种草",
+        "商单"
       ],
       "sources": [
         {
-          "title": "YouTube Partner Program overview & eligibility",
-          "url": "https://support.google.com/youtube/answer/72851?hl=en",
-          "publisher": "YouTube Help",
+          "title": "小红书蒲公英",
+          "url": "https://pgy.xiaohongshu.com/",
+          "publisher": "小红书蒲公英",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         },
         {
-          "title": "Earn Revenue with Ads & YouTube Premium",
-          "url": "https://www.youtube.com/creators/earn/ads-and-premium/",
-          "publisher": "YouTube for Creators",
+          "title": "帮助中心 - 小红书蒲公英",
+          "url": "https://pgy.xiaohongshu.com/help/home",
+          "publisher": "小红书蒲公英",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://support.google.com/youtube/answer/72851?hl=en"
+      "source_url": "https://pgy.xiaohongshu.com/"
     },
     {
       "rank": 5,
-      "name": "Canva Creators：申请成为模板创作者，向 Canva 内容库提交可定制模板赚取版税",
+      "name": "Adobe Stock 投稿：上传原创照片/矢量/插画/视频，官方称图片版税约33%、视频约35%（非独家）",
       "type": "副业",
-      "summary": "官方 Creators 计划：通过作品集申请成为 Template Creator 后，向全球用户库提交可定制模板；按 Pro 模板导出等用量从版税池分成（具体比例与结算以创作者后台与协议为准）。Element Creators 新申请目前可能暂停。",
-      "cost": "0 起步；需设计能力与可过审的原创模板组合",
+      "summary": "官方 Contributor 计划：年满18岁且为作品唯一权利人，可用 Adobe ID 免费注册投稿；非独家授权给 Adobe Stock 及其生态分发。官方版税页写明照片/矢量/插画约33%、视频约35%，单次下载收益随买家订阅档而变（页面示例按美国客户定价展示）。",
+      "cost": "0 起步；需相机、绘图或视频能力，以及可过审的原创文件",
       "difficulty": 3,
-      "threshold": "提交约5–10个可公开展示的原创设计作品集并通过审核；遵守内容与 AI 使用规范",
-      "time": "准备作品集约1–2周；过审与获量另需持续供稿",
-      "fit": "会做社媒图、演示文稿或印刷类模板、愿意按平台规范批量供稿的人；预估投入：每周6小时",
-      "why": "Canva 官方 Creators 页说明 Template Creators 需提交作品集申请，并可通过内容库触达海量用户赚取 royalties；帮助中心亦说明创作者按版税池与 Pro 导出用量分成。上榜理由：相对基线 Figma Community 付费插件，今天换 Canva 内容库模板版税路径，面向设计工具生态另一侧。",
+      "threshold": "年满18岁，是所提交内容的唯一权利人；作品需符合投稿协议与内容政策；含可识别人物或私产需相应授权",
+      "time": "准备首批素材约数天；审核与积累下载量需持续供稿",
+      "fit": "喜欢拍照、做矢量/插画或短视频素材、愿意按关键词规范批量供稿的人；预估投入：每周5小时",
+      "why": "Adobe Stock 官方投稿页说明可非独家授权并「Earn up to 35% royalties」；版税页进一步列出图片约33%、视频约35%，以及不同买家套餐下的每下载收益示例。上榜理由：相对基线 Canva Creators「设计工具内容库模板版税」，今天换素材库投稿分成路径。",
       "steps": [
-        "打开 canva.com/creators 阅读申请要求，准备可公开访问的作品集链接",
-        "通过后按创作者指南批量上传可定制模板，只提交你原创或有权授权的作品",
-        "关注后台结算与内容审核反馈，迭代高导出题材；勿提交明显整页 AI 代工成品"
+        "打开 contributor.stock.adobe.com 阅读投稿要求与版税说明，用 Adobe ID 注册",
+        "上传你拥有完整权利的原创照片、矢量、插画或视频，写准确英文标题与关键词",
+        "关注审核反馈与下载数据，迭代高需求题材；勿上传含未授权商标、人物或整页生成拼凑"
       ],
-      "risk": "风险等级：中。申请可能被拒；版税取决于导出与池子规模；竞品平台同款模板可能影响过审。不承诺收益。",
+      "risk": "风险等级：中。审核可能拒绝；单张收益随买家套餐变化，需靠数量积累；含人物/地标需授权。不承诺收益。",
       "risk_level": "中",
-      "reason": "设计工具生态内的内容库版税路径清晰，适合有模板产能的人副业供稿。",
+      "reason": "官方版税比例公开的素材投稿路径，适合有持续原创产能的人副业供稿。",
       "tags": [
         "副业",
-        "Canva",
-        "模板",
-        "Creators",
-        "版税"
+        "Adobe Stock",
+        "投稿",
+        "版税",
+        "素材"
       ],
       "sources": [
         {
-          "title": "Canva Creators",
-          "url": "https://www.canva.com/creators/",
-          "publisher": "Canva",
+          "title": "Best Place to Sell Photos Online, Footage Clips, Illustrations, & Vectors – Adobe Stock",
+          "url": "https://contributor.stock.adobe.com/",
+          "publisher": "Adobe Stock",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         },
         {
-          "title": "About the Canva Creators program - Canva Help Centre",
-          "url": "https://www.canva.com/en_gb/help/canva-creators-program/",
-          "publisher": "Canva Help Centre",
+          "title": "Adobe Stock contributor royalties",
+          "url": "https://contributor.stock.adobe.com/royalties",
+          "publisher": "Adobe Stock",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://www.canva.com/creators/"
+      "source_url": "https://contributor.stock.adobe.com/"
     },
     {
       "rank": 6,
-      "name": "Etsy：上架原创数字下载（模板/打印件），上架费约$0.20 + 成交交易费约6.5%（另计支付处理费）",
+      "name": "Amazon KDP：上架原创电子书，可选约70%或35%版税（70%档需扣递送费且视购书人所在地，以帮助页为准）",
       "type": "数字产品/接单",
-      "summary": "在 Etsy 开店售卖原创数字下载：官方 Fees 说明每条 listing 约 $0.20（约4个月有效），成交另收约 6.5% 交易费，并另计 Etsy Payments 处理费与可能的广告/监管费；适合模板、printable、规划表等数字品。",
-      "cost": "开店可能有一次性 setup 费（因地而异）；每条 listing 约 $0.20；成交按费率抽成",
-      "difficulty": 2,
-      "threshold": "所在国家支持开店与收款；有可交付的原创数字文件与清晰授权说明；遵守 Etsy 禁售与原创政策",
-      "time": "1–3天可上架首批 listing；之后持续优化标题关键词与评价",
-      "fit": "有可打印模板、计划表、剪贴簿素材或英文数字品、愿意做客服的人；预估投入：每周5小时",
-      "why": "Etsy Help「Fees and Taxes」写明 listing 约 $0.20、transaction fee 约 6.5% of order，并与支付处理费分开计。上榜理由：相对基线 Payhip 独立数字店费率阶梯，今天换 Etsy 市场内数字下载路径，自带站内搜索曝光。",
+      "summary": "在 Kindle Direct Publishing 自助出版原创电子书（也可做平装/精装按需印刷）：官方称电子书可在约70%与35%两档版税中选择。70%档为不含增值税标价的约70%再减去递送费（官方称平均约每本0.06美元、随文件大小变化），且仅适用于帮助页列出的 70% territories，其他地区按约35%；公有领域或以公有领域为主的作品通常只能选35%。",
+      "cost": "0 起步；无需囤货；广告投放可选",
+      "difficulty": 3,
+      "threshold": "有可出版的原创内容（非公有领域拼凑），能完成封面、简介、分类与定价，并完成税务/收款资料",
+      "time": "写稿与排版视篇幅从数天到数周；官方称上架后约72小时量级可出现在亚马逊商店",
+      "fit": "能把一项方法、教程或故事写成完整电子书、愿意做关键词与简介优化的人；预估投入：每周6小时",
+      "why": "KDP 官网写明电子书可在70%或35%版税中选择（视内容与销售国家），印刷书另有约最高60%口径；eBook Royalties 帮助页给出70%/35%计算公式与递送费说明，并强调公有领域内容通常只能走35%。上榜理由：相对基线 Etsy「市场内数字下载模板」，今天换 Kindle 书店内原创电子书反复售卖路径。",
       "steps": [
-        "打开 help.etsy.com 的 Fees 文核对 listing/交易/支付费率后注册店铺",
-        "上架原创数字下载，写清文件格式、授权范围与售后；准备预览图与关键词",
-        "用站外社媒导流；评估是否开启 Etsy Ads，避免只靠付费获客"
+        "打开 kdp.amazon.com 注册并阅读 eBook Royalties 帮助页，核对70%/35%适用条件与定价要求",
+        "上传原创书稿与封面，写清书名、简介与关键词；不要上架公有领域拼凑或侵权内容",
+        "选择版税档与标价后发布，用简介与分类优化发现；评估是否加入 KDP Select，切勿把他人收入当预期"
       ],
-      "risk": "风险等级：中。只能卖原创或已获授权内容；费用项多且因地而异；同质模板竞争强。不承诺收益。",
+      "risk": "风险等级：中。只能出版你有权发行的原创内容；70%档受地区、定价与递送费约束；同类主题竞争强，前几个月销量可能为0。不承诺收益。",
       "risk_level": "中",
-      "reason": "带站内流量的数字下载市场，适合可打印/模板类原创反复售卖。",
+      "reason": "官方版税公式公开的电子书自助出版路径，一次制作可在书店内反复售卖。",
       "tags": [
         "数字产品",
-        "Etsy",
-        "数字下载",
-        "模板",
-        "费率"
+        "Amazon KDP",
+        "电子书",
+        "版税",
+        "自助出版"
       ],
       "sources": [
         {
-          "title": "What are the Fees and Taxes for Selling on Etsy?",
-          "url": "https://help.etsy.com/hc/en-us/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy",
-          "publisher": "Etsy Help",
+          "title": "Self Publishing | Amazon Kindle Direct Publishing",
+          "url": "https://kdp.amazon.com/en_US/",
+          "publisher": "Amazon KDP",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "eBook Royalties",
+          "url": "https://kdp.amazon.com/en_US/help/topic/G200644210",
+          "publisher": "Amazon KDP Help",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://help.etsy.com/hc/en-us/articles/115014483627-What-are-the-Fees-and-Taxes-for-Selling-on-Etsy"
+      "source_url": "https://kdp.amazon.com/en_US/"
     },
     {
       "rank": 7,
-      "name": "闲鱼技能服务：简历优化/求职材料定制与讲解，按场景套餐接单（不卖券码账号）",
+      "name": "闲鱼技能服务：小红书图文排版与封面设计，按篇或按套餐接单（不卖券码账号）",
       "type": "闲鱼非实物",
-      "summary": "在闲鱼发布自有技能的信息服务：为求职者改简历结构、项目表述与投递策略，并附修改说明或短时讲解；按「改一版/改多轮+模拟提问」套餐收费，站内交易防纠纷。",
-      "cost": "0；需实名与可用的文档工具账号",
+      "summary": "在闲鱼发布自有技能的信息服务：为客户把已有文案排成小红书可用的图文笔记，并设计封面/分页版式；按「单篇排版/封面+内页套餐/多篇包月」收费，站内交易防纠纷。不代运营账号，不卖券码或账号。",
+      "cost": "0；需实名与可用的设计/排版工具",
       "difficulty": 2,
-      "threshold": "能根据目标岗位在数小时内交付可投递版本与修改说明，并说清修改次数与不承诺录用",
-      "time": "每单2–6小时；起步期每天1小时回复咨询",
-      "fit": "有招聘/求职辅导经验或帮同学改过简历、能讲清岗位匹配逻辑的人；预估投入：每周5小时",
-      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；求职季对「可直接投的简历版本」有明确需求。上榜理由：相对基线 Excel/数据看板定制，今天换简历优化/求职材料技能，不涉及账号券码代领。",
+      "threshold": "能根据客户文案在数小时内交付可发布的封面与分页，并说清修改次数；不承诺曝光或涨粉",
+      "time": "每单1–4小时；起步期每天1小时回复咨询",
+      "fit": "熟悉小红书图文结构、会做封面与分页排版、能按规范使用字体与配图的人；预估投入：每周5小时",
+      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；创作者对「可直接发布的笔记版式」有明确需求。上榜理由：相对基线简历优化/求职材料技能，今天换小红书图文排版与封面设计，不涉及账号券码代领。",
       "steps": [
-        "阅读闲鱼卖家服务协议，确认类目与禁发内容，避免违规收益或录用承诺",
-        "准备 3–5 组前后对比样例（脱敏），写清适用岗位、修改次数与报价",
-        "全程站内沟通与交易，交付后邀评；把高频结构沉淀为可售模板另行上架"
+        "阅读闲鱼卖家服务协议，确认类目与禁发内容，避免承诺涨粉、曝光或虚构数据",
+        "准备 3–5 组脱敏前后对比样例，写清适用行业、页数、修改次数与报价",
+        "全程站内沟通与交易，交付源文件与导出图；把高频版式沉淀为可另售的原创模板"
       ],
-      "risk": "风险等级：低。不承诺录用结果；注意客户隐私与敏感信息；站外交易易起纠纷。不承诺收益。",
+      "risk": "风险等级：低。不承诺曝光或涨粉；注意客户文案与图片版权；站外交易易起纠纷。不承诺收益。",
       "risk_level": "低",
-      "reason": "国内技能变现里求职材料需求明确，可沉淀为模板与标准流程。",
+      "reason": "国内技能变现里笔记排版需求明确，可沉淀为标准流程与模板。",
       "tags": [
         "闲鱼",
         "技能服务",
-        "简历",
-        "求职",
-        "培训"
+        "小红书",
+        "排版",
+        "封面"
       ],
       "sources": [
         {
@@ -294,45 +310,53 @@
           "publisher": "terms.alicdn.com",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         }
       ],
       "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
     },
     {
       "rank": 8,
-      "name": "出海新词：盯 Hacker News 新品做英文竞品对比/上手指南，再挂 Amazon Associates 或相关联盟",
+      "name": "出海新词：盯 BetaList 早期创业产品做英文「是什么/替代品」单页，再挂 AdSense 或相关联盟",
       "type": "出海新词",
-      "summary": "用 Hacker News 首页/newest 观察新工具与讨论热度，挑选有教程或对比意图的英文主题做单页 how-to/对比并部署上线；有稳定访问后再接 Amazon Associates 等联盟或 AdSense。",
+      "summary": "用 BetaList 浏览每日早期创业产品与分类（官方自称帮助你在产品做大之前发现 startups），挑选有教程或对比意图的英文主题做「X是什么 / 怎么用 / 替代品」单页并部署上线；有稳定访问后再接 Google AdSense 或相关 SaaS/商品联盟。",
       "cost": "0 起步；可选域名与托管",
       "difficulty": 3,
-      "threshold": "能独立完成英文单页与基础 SEO，并识别「可挂联盟/广告」的查询意图；联盟需申请通过",
+      "threshold": "能独立完成英文单页与基础 SEO，并识别「可挂联盟/广告」的查询意图；联盟与广告均需申请通过",
       "time": "选品+上线约3–7天；见效通常需数周到数月",
-      "fit": "愿意跟踪英文开发者社区、能写清楚对比或 how-to 结构的人；预估投入：每周6小时",
-      "why": "Hacker News 公开 newest/首页可持续观察新品与讨论；Amazon Associates Central 提供合资格商品推荐变现入口。变现路径：对比/上手指南挂相关联盟，或达标后接广告。上榜理由：相对基线 Google Trends Rising 选词链，今天换「HN 新品发现 → 单页对比 → 联盟」执行链。",
+      "fit": "愿意跟踪英文新品目录、能写清楚「是什么/和谁比/适合谁」结构的人；预估投入：每周6小时",
+      "why": "BetaList 公开首页可持续浏览早期创业产品；Google AdSense 与 Amazon Associates 提供达标后的广告或合资格商品推荐入口。变现路径：解释/替代品单页挂相关联盟，或达标后接广告。上榜理由：相对基线 Hacker News 新品发现链，今天换「BetaList 早期产品目录 → 英文解释页 → 广告/联盟」执行链。",
       "steps": [
-        "打开 news.ycombinator.com 与 newest，记录有教程/对比意图的新工具或话题，排除纯八卦",
-        "选定长尾主题做英文单页并部署；接 Search Console 观察真实查询",
-        "有稳定访问后申请 Amazon Associates 或相关 SaaS 联盟，按规范披露并只推合资格相关商品"
+        "打开 betalist.com 记录有教程或对比意图的新品，排除纯噱头与无法核验的项目",
+        "选定长尾主题做英文「是什么/替代品」单页并部署；接 Search Console 观察真实查询",
+        "有稳定访问后申请 AdSense 或相关联盟，按规范披露并只推合资格相关产品"
       ],
-      "risk": "风险等级：中。话题热度会回落；无流量则无收入；联盟与广告均需合规披露与审核。不承诺收益。",
+      "risk": "风险等级：中。早期产品可能很快改名或消失；无流量则无收入；联盟与广告均需合规披露与审核。不承诺收益。",
       "risk_level": "中",
-      "reason": "把社区新品信号接到可挂联盟/广告的内容变现链上。",
+      "reason": "把早期产品目录信号接到可挂联盟/广告的内容变现链上。",
       "tags": [
         "出海新词",
-        "Hacker News",
+        "BetaList",
         "SEO",
         "联盟",
         "单页"
       ],
       "sources": [
         {
-          "title": "Hacker News",
-          "url": "https://news.ycombinator.com/",
-          "publisher": "Y Combinator",
+          "title": "Discover and get early access to tomorrow's startups | BetaList",
+          "url": "https://betalist.com/",
+          "publisher": "BetaList",
           "published": "",
           "kind": "community",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Google AdSense - Earn Money from Your Website with Monetization",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
         },
         {
           "title": "Amazon Associates Central",
@@ -340,86 +364,102 @@
           "publisher": "Amazon",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://news.ycombinator.com/"
+      "source_url": "https://betalist.com/"
     },
     {
       "rank": 9,
-      "name": "案例拆解：ScreenshotOne——作者/报道称降低野心、小步交付，约做到约2.5万美元MRR（只拆方法）",
+      "name": "案例拆解：Slides With Friends——作者/报道称靠口碑与漏斗底部内容做到逾4万美元MRR，后因AI搜索调整策略（只拆方法）",
       "type": "案例拆解",
-      "summary": "Indie Hackers 公开案例：Dmytro Krasun / ScreenshotOne；标题与导语强调多次失败后降低目标门槛，再做到可持续 MRR。",
+      "summary": "Indie Hackers 公开访谈：Cecilia Razak / Slides With Friends（互动演示工具，约2020年推出）。导语称她先为前一份业务的远程协作做工具再独立上线，并借助口碑与 bottom-of-funnel 内容做到约4万美元以上 MRR；作者亦自述约2024年跨过该门槛，目前因 AI 搜索影响流量而调整策略。",
       "cost": "0（阅读公开访谈）；若跟做需自备产品与获客渠道",
       "difficulty": 3,
-      "threshold": "能从公开案例里抽象「降低目标、小步验证」方法，而不是照抄品类",
+      "threshold": "能从公开案例里抽象「先解决自己的问题再产品化、用漏斗底部内容获客、流量变化时改策略」的方法，而不是照抄品类",
       "time": "阅读与笔记约2小时；验证方法需数周到数年量级的迭代",
-      "fit": "容易把产品目标定得过大、迟迟不发布的人；预估投入：先读透再小范围试验",
-      "why": "Indie Hackers 公开文章 Hitting $25k+ MRR by making his goals less ambitious（约 2026-03）导语称：Dmytro Krasun 多次失败后降低标准，现约带来约 $25k/mo（以原文表述为准）。方法要点（个人说法/报道口径）：把目标降到可执行的小步，持续交付而不是追求一次做大。上榜理由：相对基线 RightBlogger「受众先行」，今天换「降低野心、小步交付」路径，只拆方法不承诺可复现收入。",
+      "fit": "正在做小工具、习惯只写泛流量文章、或尚未把内部工具产品化的人；预估投入：先读透再小范围试验",
+      "why": "Indie Hackers 文章 Hitting $40k+ MRR with bottom-of-funnel content until AI search forced her to change tactics（约2026-08-18）导语与公开段落称：Cecilia Razak 把原先服务自身远程工作的工具做成 Slides With Friends，靠口碑与漏斗底部内容做到约40k+ MRR；作者自述约2024年跨过该门槛，并因 AI 搜索影响流量而重新校准。方法要点（个人说法/报道口径）：从真实自身需求出发、用接近购买意图的内容获客，并在发现渠道变化时调整，而不是只追泛流量。上榜理由：相对基线 ScreenshotOne「降低野心、小步交付」，今天换「口碑 + 漏斗底部内容、并应对 AI 搜索」路径，只拆方法不承诺可复现收入。",
       "steps": [
-        "阅读 Indie Hackers 原文导语与公开段落，标注：目标如何下调、产品边界如何收窄、获客从哪来",
-        "对照自身：你是否在零验证时追求过大范围；能否先交付最小可用收费点",
-        "若试验：先选窄 API/工具场景小步上线，再决定扩张；勿照搬对方品类与收入数字"
+        "阅读 Indie Hackers 原文导语与公开段落，标注：产品如何从自身需求来、漏斗底部内容写什么、AI 搜索出现后她如何重新校准",
+        "对照自身：你是否只在写宽泛介绍、而缺少「谁在什么场景该用/不该用」的接近成交内容",
+        "若试验：先选一个你自己用过的窄工具场景，写清使用边界与替代关系；勿照搬对方品类与收入数字"
       ],
-      "risk": "风险等级：中。文中收入为作者/报道个人说法，不可当作你的预期收益；API 品类竞争与获客成本因人而异。不承诺收益。",
+      "risk": "风险等级：中。文中收入为作者/报道个人说法，不可当作你的预期收益；获客渠道与 AI 搜索影响因品类而异。不承诺收益。",
       "risk_level": "中",
-      "reason": "公开案例里清晰的「降低野心再交付」组合，适合对照自己的启动节奏。",
+      "reason": "公开案例里清晰的「自身需求产品化 + 漏斗底部内容」组合，并提示发现渠道会变。",
       "tags": [
         "案例拆解",
         "Indie Hackers",
-        "ScreenshotOne",
-        "小步交付",
-        "API"
+        "Slides With Friends",
+        "内容获客",
+        "SEO"
       ],
       "sources": [
         {
-          "title": "Hitting $25k+ MRR by making his goals less ambitious - Indie Hackers",
-          "url": "https://www.indiehackers.com/post/tech/hitting-25k-mrr-by-making-his-goals-less-ambitious-jQRZDnzwm8DFAaS4Xrq0",
+          "title": "Hitting $40k+ MRR with bottom-of-funnel content until AI search forced her to change tactics - Indie Hackers",
+          "url": "https://www.indiehackers.com/post/tech/hitting-40k-mrr-with-bottom-of-funnel-content-until-ai-search-forced-her-to-change-tactics-4OPu0F9zFGfb3tEJFvrx",
           "publisher": "Indie Hackers",
-          "published": "2026-03-05",
+          "published": "2026-08-18",
           "kind": "community",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://www.indiehackers.com/post/tech/hitting-25k-mrr-by-making-his-goals-less-ambitious-jQRZDnzwm8DFAaS4Xrq0"
+      "source_url": "https://www.indiehackers.com/post/tech/hitting-40k-mrr-with-bottom-of-funnel-content-until-ai-search-forced-her-to-change-tactics-4OPu0F9zFGfb3tEJFvrx"
     },
     {
       "rank": 10,
-      "name": "Semrush Affiliate：写 SEO/可见度工具测评，合资格试用与首购按产品档拿佣金（约$50–$450口径，以官方页为准）",
+      "name": "Framer Creator/Affiliate：写建站或交付教程，合资格推荐订阅可拿约前12个月50%分成（约90天Cookie，以条款为准）",
       "type": "工具活动",
-      "summary": "Semrush 官方联盟：申请通过后用合规内容推荐合资格产品；官方页写明试用激活约$10、首购按产品与 Loyalty 档约$50–$450，Cookie 约120天、last-click；经 Impact 结算。",
-      "cost": "0 申请；需有可触达的营销/SEO 内容渠道",
+      "summary": "Framer 创作者计划附带联盟：官方 Creators 页写明推荐用户升级可拿约50%分成；联盟条款写明，用户在约90天 Cookie 窗口内完成订阅后，可获得其订阅款约50%、为期约前12个月（或直到对方取消）。经审核、在 Community 发布作品或成为 Framer Expert 后可获得联盟链接；最低累计约200美元才按月结算（条款称结算的是约两个月前的佣金），经 Stripe 打款。",
+      "cost": "0 申请；需有建站/无代码或交付相关内容渠道",
       "difficulty": 3,
-      "threshold": "内容渠道需满足官方质量要求（FAQ 举例站点约千级月访或社媒约千粉量级）；单项需单独申请通过；禁止自推与误导优惠",
-      "time": "申请官方称常见约数个工作日量级；见效取决于内容与受众匹配",
-      "fit": "已有 SEO/营销测评、Newsletter 或垂直社群受众的人；预估投入：每周4小时",
-      "why": "Semrush 官方 Affiliate Program 页写明可赚试用与首购佣金，Loyalty 表列出 Semrush One/SEO Toolkit 等约$50–$450 档，并说明约120天 Cookie。上榜理由：相对基线 PartnerStack「多项目目录」，今天换单一 SEO SaaS 官方联盟工具活动路径，类型分散。",
+      "threshold": "进入创作者计划（审核通过、发布 Community 作品或成为 Expert）；只推荐新用户；禁止用付费广告跑联盟链接；按规范披露",
+      "time": "准备作品或内容并获得链接通常需数天到数周；见效取决于内容与受众匹配",
+      "fit": "会做落地页/无代码建站教程、或给客户交付 Framer 站点的人；预估投入：每周4小时",
+      "why": "Framer 官方 Creators 页写明推荐可获约50%分成；Affiliates 条款写明约90天 Cookie、订阅款约50%且持续约前12个月，以及约200美元最低月结门槛。上榜理由：相对基线 Semrush「SEO 工具按产品档一次性佣金」，今天换建站工具「订阅分成」官方联盟路径。",
       "steps": [
-        "打开 semrush.com/lp/affiliate-program/en 阅读佣金表与申请要求并提交",
-        "只写你真正用过或能说清适用边界的测评/对比，在内容中按 FTC/规范披露",
-        "跟踪哪类清单转化更好，淘汰夸大效果与未核实折扣话术"
+        "打开 framer.com/creators 与联盟条款，确认佣金、Cookie 与结算门槛后申请创作者计划",
+        "只写你真正用过的落地页搭建、模板或客户交付教程，在内容中按规范披露联盟关系",
+        "用帮助中心说明的链接跟踪点击与订阅；不要用付费广告投放联盟链接，也不要自推"
       ],
-      "risk": "风险等级：中。申请可能被拒；佣金、锁定与退款规则以 Impact/协议为准；不保证有转化。不承诺收益。",
+      "risk": "风险等级：中。申请可能被拒；仅新用户计佣；退款会扣回；未达约200美元可能延迟打款。不承诺收益。",
       "risk_level": "中",
-      "reason": "营销工具测评受众与 SEO SaaS 联盟匹配度高，适合做成可重复的内容挂链动作。",
+      "reason": "建站工具测评/交付教程与 Framer 订阅联盟匹配度高，条款里的分成周期和结算门槛公开。",
       "tags": [
         "工具活动",
-        "Semrush",
+        "Framer",
         "联盟",
-        "SEO",
-        "测评"
+        "建站",
+        "创作者"
       ],
       "sources": [
         {
-          "title": "Affiliate Program — Semrush",
-          "url": "https://www.semrush.com/lp/affiliate-program/en/",
-          "publisher": "Semrush",
+          "title": "Get paid to create with Framer",
+          "url": "https://www.framer.com/creators",
+          "publisher": "Framer",
           "published": "",
           "kind": "official",
-          "checked": "2026-11-06"
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Framer Affiliate terms",
+          "url": "https://www.framer.com/legal/affiliates",
+          "publisher": "Framer",
+          "published": "2025-03-24",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "How affiliate links work",
+          "url": "https://www.framer.com/help/articles/how-affiliate-links-work/",
+          "publisher": "Framer Help",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
         }
       ],
-      "source_url": "https://www.semrush.com/lp/affiliate-program/en/"
+      "source_url": "https://www.framer.com/creators"
     }
   ]
 }

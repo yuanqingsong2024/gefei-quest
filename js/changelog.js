@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 96, date: '2026-11-09', title: '每日赚钱榜 · 2026-11-09', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）","No.2 Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）","No.3 Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 95, date: '2026-11-07', title: '赚钱区去掉重复的二级切换条', tag: '改进', href: '#war-rank',
       items: ['每日赚钱榜族（#war-rank / 闲鱼 / AI生活）二级只留三个入口：每日赚钱榜、闲鱼零成本方案、AI生活起号选题', 'Agent 进账方案 / AI 羊毛 / OPC 一人公司 / 工具发掘页去掉整排 rank-switch，只靠顶栏大标签切换。SW 缓存 61'] },
     { id: 94, date: '2026-11-07', title: 'AI生活合集新增「家庭事务盯梢员」场景文选题', tag: '内容', href: '#war-rank-ai-life',
