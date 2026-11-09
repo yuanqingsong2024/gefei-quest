@@ -1,0 +1,180 @@
+{
+  "date": "2026-11-09",
+  "updated": "2026-11-09T09:13:20+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "geo-seo-claude",
+      "rank": 1,
+      "name": "GEO-SEO Claude",
+      "category": "项目",
+      "summary": "GEO 优先的 Claude Code 技能包：给网页打 AI 引用可见性分，检查 AI 爬虫、llms.txt 与 Schema，并输出客户向 Markdown/PDF 报告。",
+      "why": "autograph-ai 做 SEO/GEO 内容 SaaS，缺的是可产品化的「AI 可引用度」评分与结构化产物。本仓库把 citability、14+ AI 爬虫、llms.txt、品牌提及、平台专项优化和 JSON-LD 模板拆成 13 个子技能 + 5 个并行子代理，复合 GEO Score（可引用 25%、品牌权威 20%、内容 E-E-A-T 20% 等）可直接对照内容生成质检清单。",
+      "url": "https://github.com/zubair-trabzada/geo-seo-claude",
+      "repo": "zubair-trabzada/geo-seo-claude",
+      "stars": 11581,
+      "tags": [
+        "GEO",
+        "AEO",
+        "citability",
+        "llms.txt",
+        "schema",
+        "Claude-Code",
+        "autograph-ai"
+      ],
+      "steps": "对照 autograph-ai 的内容质检：把 citability_scorer 与 schema/ 下的 Article、SoftwareApplication 模板映射进生成后检查清单",
+      "risk": "依赖 Claude Code CLI 与 Python 3.10+；完整审计会拉网页并可选 Playwright 截图。报告数字是启发式评分，不是各引擎真实引用量。社区旁路有付费 Skool 招生，开源代码本身是 MIT。接入成本：轻（装技能试跑）到中（沉淀进 SaaS）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/zubair-trabzada/geo-seo-claude"
+        },
+        {
+          "title": "仓库结构（skills/agents/schema）",
+          "url": "https://github.com/zubair-trabzada/geo-seo-claude/tree/main/skills"
+        }
+      ]
+    },
+    {
+      "id": "zenstory-drama-skills",
+      "rank": 2,
+      "name": "Drama Skills",
+      "category": "项目",
+      "summary": "开源 AI 短剧/漫剧技能包：12 个 skill 覆盖原著分析、分集剧本、视觉设定、分镜、图片/视频提示词，确认后才调用外部接口花钱生产。",
+      "why": "soloforge-storyfactory 的核心是「故事→分镜→出图/出视频」的可复现流水线与跨镜一致性。Drama Skills 用五份 Markdown（剧本/视觉设定/分镜/图片提示词/视频提示词）加连续性锁和检查脚本约束跨镜造型，静态漫剧可跳过视频提示词直接从关键帧+配音进入生产，非常适合对照 StoryFactory 的阶段机与技能包。",
+      "url": "https://github.com/zenstory-ai/drama-skills",
+      "repo": "zenstory-ai/drama-skills",
+      "stars": 3960,
+      "tags": [
+        "manga",
+        "short-drama",
+        "storyboard",
+        "character-consistency",
+        "agent-skills",
+        "storyfactory"
+      ],
+      "steps": "npx skills add zenstory-ai/drama-skills 后，对照 StoryFactory 抽取「剧本→视觉锁→分镜→提示词→确认再生产」状态机",
+      "risk": "写作依赖你正在用的 Agent 模型额度；真正出图/出视频走外部 adapter（Seedance、MiniMax H3 等）且按次计费。剪辑成片需要本机 ffmpeg。不负责版权：原著须有权改编。接入成本：中。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/zenstory-ai/drama-skills"
+        },
+        {
+          "title": "漫剧创作全流程指引",
+          "url": "https://github.com/zenstory-ai/drama-skills/blob/HEAD/docs/comic-drama-workflow.md"
+        },
+        {
+          "title": "项目主页",
+          "url": "https://zenstory.ai/zh/drama-skills"
+        }
+      ]
+    },
+    {
+      "id": "edict-sansheng",
+      "rank": 3,
+      "name": "Edict（三省六部）",
+      "category": "项目",
+      "summary": "基于三省六部的 OpenClaw 多角色编排：太子分拣、中书规划、门下封驳、尚书派发、六部执行，带实时看板、权限矩阵和完整奏折审计。",
+      "why": "clawkit / star-river-dev-team / Hermes 需要对齐「分拣→规划→专职审核→派发执行→归档」的多角色门禁。Edict 给每个角色独立 SOUL.md、Workspace 与模型，用状态机禁止非法跳转，军机处看板可叫停/取消/恢复，是一套可对照的 Hermes 团队制度，而不是自由群聊。",
+      "url": "https://github.com/cft0808/edict",
+      "repo": "cft0808/edict",
+      "stars": 17049,
+      "tags": [
+        "OpenClaw",
+        "multi-agent",
+        "orchestrator",
+        "SOUL.md",
+        "kanban",
+        "clawkit",
+        "hermes"
+      ],
+      "steps": "先 docker run 看军机处看板 Demo，再把 agents/*/SOUL.md 与权限矩阵对照 Hermes 角色表做差异清单",
+      "risk": "完整运行依赖已安装的 OpenClaw，以及 Python 3.10+ 与（可选）Node 构建前端；12 个 Agent 并行会明显消耗 token。代码最近一次推送约 2026-09-28。看板 Demo 镜像与生产安装不是同一条路径。接入成本：重（生产）/ 中（只对照角色与状态机）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/cft0808/edict"
+        },
+        {
+          "title": "任务分发架构文档",
+          "url": "https://github.com/cft0808/edict/blob/HEAD/docs/task-dispatch-architecture.md"
+        }
+      ]
+    },
+    {
+      "id": "meditrak",
+      "rank": 4,
+      "name": "MediTrak",
+      "category": "生活",
+      "summary": "免费开源的安卓用药记录：可为多名家人分别建档、按不同间隔设提醒，并给每种药写笔记；数据只存在本机，不上传开发者或第三方。",
+      "why": "家庭健康资料整理（非诊疗）：把家里每人在吃什么、什么时候吃、有没有不适笔记收进同一应用，避免纸条和聊天记录散落。可打包「家庭用药档案」跟做——成员、药品名、剂量、提醒点、笔记栏；不做诊断、不判断该不该吃药。闲鱼：适合做成「家庭用药清单+提醒表」模板方案，不一定要改 App。",
+      "url": "https://github.com/AdamGuidarini/MediTrak",
+      "repo": "AdamGuidarini/MediTrak",
+      "stars": 110,
+      "tags": [
+        "家庭健康",
+        "用药记录",
+        "提醒",
+        "Android",
+        "本地存储",
+        "非诊疗"
+      ],
+      "steps": [
+        "从 Google Play、IzzyOnDroid 或 GitHub Releases 安装 MediTrak（Android 10+）",
+        "为每位家人新建档案，录入正在服用的药品、间隔和提醒",
+        "用药后打卡，如有不适只在笔记里记录观察，不自行下诊断"
+      ],
+      "risk": "只做记录和提醒，不做医疗诊断、不建议增减药品或替代就医。界面目前有英/荷/德/意/西/土/阿语，没有简体中文。仅 Android。GPL-2.0。数据在本机，换机需自行备份。上手成本：轻。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/AdamGuidarini/MediTrak"
+        },
+        {
+          "title": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=projects.medicationtracker"
+        },
+        {
+          "title": "IzzyOnDroid",
+          "url": "https://apt.izzysoft.de/fdroid/index/apk/projects.medicationtracker"
+        }
+      ]
+    },
+    {
+      "id": "choresrewards",
+      "rank": 5,
+      "name": "ChoresRewards",
+      "category": "生活",
+      "summary": "家庭家务中枢：孩子完成家务赚积分或零花钱兑换奖励，附带今日看板、一周三餐、购物清单、家庭日历和账单/车辆到期提醒。",
+      "why": "家务/家庭琐事自动化：一条 docker run 加首次向导，就能在冰箱平板或浏览器上看到谁还没做完、今晚吃什么、购物缺什么。即使不部署，也可把「每日重置家务 + 做完奖励 + 全员完成额外奖励 + 家长 PIN」打成家庭积分制度模板。闲鱼：适合做成「家务积分看板规则」跟做方案，Docker 当进阶选项。",
+      "url": "https://github.com/matda59/ChoresRewards",
+      "repo": "matda59/ChoresRewards",
+      "stars": 187,
+      "tags": [
+        "家务",
+        "家庭积分",
+        "用餐计划",
+        "购物清单",
+        "家庭日历",
+        "Docker"
+      ],
+      "steps": [
+        "用官方镜像 docker run 映射 3112 端口和两个数据卷，打开向导建立家庭成员",
+        "为每个孩子设置每日重置家务、积分或零花钱，以及可兑换奖励",
+        "把本周三餐拖进用餐计划，自动生成按商店分组的购物清单"
+      ],
+      "risk": "需要本机能跑 Docker（或 Unraid），不是纯网页免安装。仓库未声明开源许可证。可选 Google 日历和天气会访问外部服务；默认有匿名安装计数，可在设置或环境变量关闭。不做家庭理财建议。上手成本：中。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/matda59/ChoresRewards"
+        },
+        {
+          "title": "Unraid 支持帖",
+          "url": "https://forums.unraid.net/topic/192603-choresrewards-support-thread/"
+        }
+      ]
+    }
+  ]
+}

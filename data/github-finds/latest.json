@@ -1,99 +1,179 @@
 {
-  "date": "2026-11-08",
-  "updated": "2026-11-08T10:10:38+08:00",
-  "weekday": "weekend",
+  "date": "2026-11-09",
+  "updated": "2026-11-09T09:13:20+08:00",
+  "weekday": "weekday",
   "items": [
     {
-      "id": "yunyoujun-cook",
+      "id": "geo-seo-claude",
       "rank": 1,
-      "name": "食用手册（cook）",
-      "category": "生活",
-      "summary": "打开网页、点选冰箱里现有的食材（也能一句话描述），立刻列出今晚能做的家常菜和做法；不用先想菜名，专为「有什么做什么、先清库存」设计。",
-      "why": "饮食/厨房清库存：周末对着冰箱点「土豆、番茄、鸡蛋」，先做「食材齐了」的菜，还差一点的自然变成购物清单。可打包「清冰箱 10 分钟」跟做——固定勾选顺序，外加一句「冰箱里有半颗白菜两个蛋，不要辣」提示词（网页能拆成食材和口味）。另：拿不定主意就随机一道，适合做成「今晚吃什么」小红书跟做。",
-      "url": "https://github.com/YunYouJun/cook",
-      "repo": "YunYouJun/cook",
-      "stars": 6545,
+      "name": "GEO-SEO Claude",
+      "category": "项目",
+      "summary": "GEO 优先的 Claude Code 技能包：给网页打 AI 引用可见性分，检查 AI 爬虫、llms.txt 与 Schema，并输出客户向 Markdown/PDF 报告。",
+      "why": "autograph-ai 做 SEO/GEO 内容 SaaS，缺的是可产品化的「AI 可引用度」评分与结构化产物。本仓库把 citability、14+ AI 爬虫、llms.txt、品牌提及、平台专项优化和 JSON-LD 模板拆成 13 个子技能 + 5 个并行子代理，复合 GEO Score（可引用 25%、品牌权威 20%、内容 E-E-A-T 20% 等）可直接对照内容生成质检清单。",
+      "url": "https://github.com/zubair-trabzada/geo-seo-claude",
+      "repo": "zubair-trabzada/geo-seo-claude",
+      "stars": 11581,
       "tags": [
-        "饮食",
-        "厨房清库存",
-        "食材找菜",
-        "菜谱",
-        "网页",
-        "中文"
+        "GEO",
+        "AEO",
+        "citability",
+        "llms.txt",
+        "schema",
+        "Claude-Code",
+        "autograph-ai"
       ],
-      "steps": [
-        "打开 https://cook.yunyoujun.cn （无需注册）",
-        "点选冰箱/橱柜里现有的食材，或输入一句「冰箱里有半颗白菜两个蛋，不要辣」",
-        "优先做「食材齐了」的菜；还差一点的记成购物清单，喜欢的收藏下次接着做"
-      ],
-      "risk": "网页版不承诺完整离线；微信小程序已下架；iOS「云食册」尚未正式上架（目前仅 TestFlight）。菜谱来自社区与 HowToCook，需按口味和实际情况调整。临期提醒不能判断食材是否安全可食用，不是食品安全检测。不必自行 Docker 部署。",
+      "steps": "对照 autograph-ai 的内容质检：把 citability_scorer 与 schema/ 下的 Article、SoftwareApplication 模板映射进生成后检查清单",
+      "risk": "依赖 Claude Code CLI 与 Python 3.10+；完整审计会拉网页并可选 Playwright 截图。报告数字是启发式评分，不是各引擎真实引用量。社区旁路有付费 Skool 招生，开源代码本身是 MIT。接入成本：轻（装技能试跑）到中（沉淀进 SaaS）。",
       "sources": [
-        "README.md",
-        "https://cook.yunyoujun.cn/about",
-        "https://cook.yunle.fun/",
-        "https://cook.yunyoujun.cn"
+        {
+          "title": "README",
+          "url": "https://github.com/zubair-trabzada/geo-seo-claude"
+        },
+        {
+          "title": "仓库结构（skills/agents/schema）",
+          "url": "https://github.com/zubair-trabzada/geo-seo-claude/tree/main/skills"
+        }
       ]
     },
     {
-      "id": "fossify-calendar",
+      "id": "zenstory-drama-skills",
       "rank": 2,
-      "name": "Fossify Calendar",
-      "category": "生活",
-      "summary": "无广告、无追踪的开源安卓日历：把明早三件事写成带提醒的重复事件，用桌面小组件当家庭晨间看板；也可只把它当本地日程本。",
-      "why": "早晨/日程效率：不和已推过的习惯打卡/GTD 规划叠车，而是把「叫孩子起床、检查作业与钥匙、出门赶车」钉在每天的提醒和桌面周视图上。周末一次录入上学日/周末两套晨间事件，全家看小组件就能知道今天要赶哪个点。",
-      "url": "https://github.com/FossifyOrg/Calendar",
-      "repo": "FossifyOrg/Calendar",
-      "stars": 2269,
+      "name": "Drama Skills",
+      "category": "项目",
+      "summary": "开源 AI 短剧/漫剧技能包：12 个 skill 覆盖原著分析、分集剧本、视觉设定、分镜、图片/视频提示词，确认后才调用外部接口花钱生产。",
+      "why": "soloforge-storyfactory 的核心是「故事→分镜→出图/出视频」的可复现流水线与跨镜一致性。Drama Skills 用五份 Markdown（剧本/视觉设定/分镜/图片提示词/视频提示词）加连续性锁和检查脚本约束跨镜造型，静态漫剧可跳过视频提示词直接从关键帧+配音进入生产，非常适合对照 StoryFactory 的阶段机与技能包。",
+      "url": "https://github.com/zenstory-ai/drama-skills",
+      "repo": "zenstory-ai/drama-skills",
+      "stars": 3960,
       "tags": [
-        "早晨",
-        "日程效率",
-        "家庭日历",
-        "提醒",
-        "小组件",
-        "Android",
-        "无广告"
+        "manga",
+        "short-drama",
+        "storyboard",
+        "character-consistency",
+        "agent-skills",
+        "storyfactory"
       ],
-      "steps": [
-        "从 Google Play、F-Droid 或 IzzyOnDroid 安装 Fossify Calendar",
-        "新建「晨间」分类，录入 3 条带提醒的重复事件（例如 7:00 起床准备、7:20 检查作业与钥匙、7:35 出门）",
-        "把周视图或今日议程小组件放到桌面，明天只看小组件、按提醒行动"
-      ],
-      "risk": "目前是 Android 应用；iPhone 用户可用系统日历套用同一套事件模板。若开启与 Google/Outlook 同步，事件会进入对应云端，在意隐私可只用本地日历。GPL-3.0。",
+      "steps": "npx skills add zenstory-ai/drama-skills 后，对照 StoryFactory 抽取「剧本→视觉锁→分镜→提示词→确认再生产」状态机",
+      "risk": "写作依赖你正在用的 Agent 模型额度；真正出图/出视频走外部 adapter（Seedance、MiniMax H3 等）且按次计费。剪辑成片需要本机 ffmpeg。不负责版权：原著须有权改编。接入成本：中。",
       "sources": [
-        "README.md",
-        "https://www.fossify.org",
-        "https://f-droid.org/packages/org.fossify.calendar/",
-        "https://play.google.com/store/apps/details?id=org.fossify.calendar"
+        {
+          "title": "README",
+          "url": "https://github.com/zenstory-ai/drama-skills"
+        },
+        {
+          "title": "漫剧创作全流程指引",
+          "url": "https://github.com/zenstory-ai/drama-skills/blob/HEAD/docs/comic-drama-workflow.md"
+        },
+        {
+          "title": "项目主页",
+          "url": "https://zenstory.ai/zh/drama-skills"
+        }
       ]
     },
     {
-      "id": "spliit-app-spliit",
+      "id": "edict-sansheng",
       "rank": 3,
-      "name": "Spliit",
-      "category": "生活",
-      "summary": "开源的 AA 分账工具：不用注册、无广告，在官网建一个群组就能记下聚餐、旅行或家庭公共开支，看清谁垫了多少、怎样一次结清。",
-      "why": "消费决策/轻理财（分账角，不是又一个记账 App）：周末聚餐或短途出行后，把小票记进同一群组，按人数、比例或金额分摊，页面会算出大家怎么补差。可打包「聚餐后 5 分钟分账」跟做——群组命名、成员、分类（餐饮/交通/住宿）和结清话术模板。",
-      "url": "https://github.com/spliit-app/spliit",
-      "repo": "spliit-app/spliit",
-      "stars": 3046,
+      "name": "Edict（三省六部）",
+      "category": "项目",
+      "summary": "基于三省六部的 OpenClaw 多角色编排：太子分拣、中书规划、门下封驳、尚书派发、六部执行，带实时看板、权限矩阵和完整奏折审计。",
+      "why": "clawkit / star-river-dev-team / Hermes 需要对齐「分拣→规划→专职审核→派发执行→归档」的多角色门禁。Edict 给每个角色独立 SOUL.md、Workspace 与模型，用状态机禁止非法跳转，军机处看板可叫停/取消/恢复，是一套可对照的 Hermes 团队制度，而不是自由群聊。",
+      "url": "https://github.com/cft0808/edict",
+      "repo": "cft0808/edict",
+      "stars": 17049,
       "tags": [
-        "消费决策",
-        "轻理财",
-        "AA分账",
-        "聚餐",
-        "旅行",
-        "网页",
-        "中文"
+        "OpenClaw",
+        "multi-agent",
+        "orchestrator",
+        "SOUL.md",
+        "kanban",
+        "clawkit",
+        "hermes"
+      ],
+      "steps": "先 docker run 看军机处看板 Demo，再把 agents/*/SOUL.md 与权限矩阵对照 Hermes 角色表做差异清单",
+      "risk": "完整运行依赖已安装的 OpenClaw，以及 Python 3.10+ 与（可选）Node 构建前端；12 个 Agent 并行会明显消耗 token。代码最近一次推送约 2026-09-28。看板 Demo 镜像与生产安装不是同一条路径。接入成本：重（生产）/ 中（只对照角色与状态机）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/cft0808/edict"
+        },
+        {
+          "title": "任务分发架构文档",
+          "url": "https://github.com/cft0808/edict/blob/HEAD/docs/task-dispatch-architecture.md"
+        }
+      ]
+    },
+    {
+      "id": "meditrak",
+      "rank": 4,
+      "name": "MediTrak",
+      "category": "生活",
+      "summary": "免费开源的安卓用药记录：可为多名家人分别建档、按不同间隔设提醒，并给每种药写笔记；数据只存在本机，不上传开发者或第三方。",
+      "why": "家庭健康资料整理（非诊疗）：把家里每人在吃什么、什么时候吃、有没有不适笔记收进同一应用，避免纸条和聊天记录散落。可打包「家庭用药档案」跟做——成员、药品名、剂量、提醒点、笔记栏；不做诊断、不判断该不该吃药。闲鱼：适合做成「家庭用药清单+提醒表」模板方案，不一定要改 App。",
+      "url": "https://github.com/AdamGuidarini/MediTrak",
+      "repo": "AdamGuidarini/MediTrak",
+      "stars": 110,
+      "tags": [
+        "家庭健康",
+        "用药记录",
+        "提醒",
+        "Android",
+        "本地存储",
+        "非诊疗"
       ],
       "steps": [
-        "打开 https://spliit.app 新建群组（无需注册），加上一起吃饭或出行的人",
-        "把账单逐笔记上（可上传小票；官网也提供收据扫描，不需要可不用）",
-        "打开余额页看谁该给谁多少，按建议转账并记一笔还款"
+        "从 Google Play、IzzyOnDroid 或 GitHub Releases 安装 MediTrak（Android 10+）",
+        "为每位家人新建档案，录入正在服用的药品、间隔和提醒",
+        "用药后打卡，如有不适只在笔记里记录观察，不自行下诊断"
       ],
-      "risk": "官方实例免账号，群组链接相当于钥匙，不要发到公开群或朋友圈。账单存在官方服务器（也可自建，普通人不必上）。收据 AI 扫描会把图片送去第三方识别，不需要就别开。界面有简体中文。不做投资建议。",
+      "risk": "只做记录和提醒，不做医疗诊断、不建议增减药品或替代就医。界面目前有英/荷/德/意/西/土/阿语，没有简体中文。仅 Android。GPL-2.0。数据在本机，换机需自行备份。上手成本：轻。",
       "sources": [
-        "README.md",
-        "https://spliit.app"
+        {
+          "title": "README",
+          "url": "https://github.com/AdamGuidarini/MediTrak"
+        },
+        {
+          "title": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=projects.medicationtracker"
+        },
+        {
+          "title": "IzzyOnDroid",
+          "url": "https://apt.izzysoft.de/fdroid/index/apk/projects.medicationtracker"
+        }
+      ]
+    },
+    {
+      "id": "choresrewards",
+      "rank": 5,
+      "name": "ChoresRewards",
+      "category": "生活",
+      "summary": "家庭家务中枢：孩子完成家务赚积分或零花钱兑换奖励，附带今日看板、一周三餐、购物清单、家庭日历和账单/车辆到期提醒。",
+      "why": "家务/家庭琐事自动化：一条 docker run 加首次向导，就能在冰箱平板或浏览器上看到谁还没做完、今晚吃什么、购物缺什么。即使不部署，也可把「每日重置家务 + 做完奖励 + 全员完成额外奖励 + 家长 PIN」打成家庭积分制度模板。闲鱼：适合做成「家务积分看板规则」跟做方案，Docker 当进阶选项。",
+      "url": "https://github.com/matda59/ChoresRewards",
+      "repo": "matda59/ChoresRewards",
+      "stars": 187,
+      "tags": [
+        "家务",
+        "家庭积分",
+        "用餐计划",
+        "购物清单",
+        "家庭日历",
+        "Docker"
+      ],
+      "steps": [
+        "用官方镜像 docker run 映射 3112 端口和两个数据卷，打开向导建立家庭成员",
+        "为每个孩子设置每日重置家务、积分或零花钱，以及可兑换奖励",
+        "把本周三餐拖进用餐计划，自动生成按商店分组的购物清单"
+      ],
+      "risk": "需要本机能跑 Docker（或 Unraid），不是纯网页免安装。仓库未声明开源许可证。可选 Google 日历和天气会访问外部服务；默认有匿名安装计数，可在设置或环境变量关闭。不做家庭理财建议。上手成本：中。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/matda59/ChoresRewards"
+        },
+        {
+          "title": "Unraid 支持帖",
+          "url": "https://forums.unraid.net/topic/192603-choresrewards-support-thread/"
+        }
       ]
     }
   ]
