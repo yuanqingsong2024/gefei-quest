@@ -1,0 +1,355 @@
+{
+  "date": "2026-11-09",
+  "updated": "2026-11-09T09:45:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "智谱 AutoClaw 双十一：国内登录领 5000 万 Tokens、国际版领 1 亿（11/9–11/15）",
+      "type": "Token福利",
+      "provider": "智谱 AutoClaw（澳龙）",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "官方博客今日开窗：国内站 autoclaw.zhipuai.cn 于 11 月 9 日 00:00 至 11 月 15 日 23:59（北京时间）登录即领 50M Tokens（约 5,000 积分），国际站 autoclaw.z.ai 同期领 100M Tokens（约 10,000 积分）；每账号限领一次，额度统一在 11/15 23:59 失效、不结转。免订阅，老用户也能领；国内/国际账号不互通。额度仅在 AutoClaw 客户端内使用，不能导出到智谱 BigModel 通用 API。昨日榜未收录（上期 M11W1 已于 11/8 23:59 结束）。",
+      "value": "国内版 5000 万 Tokens / 国际版 1 亿 Tokens · 登录即领 · 每账号一次 · 11/15 23:59 失效",
+      "deadline": "2026-11-15",
+      "cost": "0 元；需注册 AutoClaw 账号并在活动期内登录领取",
+      "difficulty": 1,
+      "threshold": "活动期内登录对应站点账号；国内版与国际版不互通；额度仅客户端内可用",
+      "time": "下载/更新客户端并登录约 5–10 分钟",
+      "fit": "已经在用或想试智谱桌面 Agent（整理网页、填表、长流程任务）的个人用户",
+      "why": "今天刚开窗、一周后清零，登录成本最低，适合写成「双十一登录领 Token」限时教程；需写清只用在 AutoClaw 里、过期作废。",
+      "steps": [
+        "打开国内站 autoclaw.zhipuai.cn 或国际站 autoclaw.z.ai，下载/更新到最新客户端（两站账号不互通）",
+        "在 11 月 9 日 00:00 至 11 月 15 日 23:59（北京时间）登录自己的个人账号",
+        "按端内双十一弹窗或活动提示领取，国内版核对待到账约 50M Tokens（约 5,000 积分），国际版约 100M（约 10,000 积分）",
+        "在客户端查看积分/Token 余额与到期时间，优先跑长流程任务",
+        "日历标好 2026-11-15 23:59；逾期自动失效，勿指望结转到下周或转到 API"
+      ],
+      "risk": "风险：额度只在 AutoClaw 客户端内有效，不能当通用 API 余额；每账号限领一次且 11/15 23:59 清零不结转；国内/国际到账数字不同，以端内显示为准。不承诺能领到或额度多少。",
+      "risk_level": "低",
+      "reason": "官方博客写明窗口、额度与失效时间，今天开窗、一周后到期，是本轮时效性最强的新福利。",
+      "tags": [
+        "智谱",
+        "AutoClaw",
+        "双十一",
+        "免费Token",
+        "限时"
+      ],
+      "sources": [
+        {
+          "title": "双十一福利已就位：登录即领 50M Tokens",
+          "url": "https://autoclaw.zhipuai.cn/blog/news/M11W2/",
+          "publisher": "智谱 AutoClaw 博客",
+          "published": "2026-11-06",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Weekly Perk: Claim 100M Tokens !",
+          "url": "https://autoclaw.z.ai/blog/news/M11W2/",
+          "publisher": "AutoClaw Blog",
+          "published": "2026-11-06",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "X：11/9 AI 福利核查（AutoClaw 国内站 5000 万）",
+          "url": "https://x.com/yjg954/status/2119594903877435583",
+          "publisher": "X/@yjg954",
+          "published": "2026-11-09",
+          "kind": "community",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://autoclaw.zhipuai.cn/blog/news/M11W2/",
+      "claim_howto": "活动期内登录对应站点客户端，按弹窗领取；国内/国际分开领。",
+      "stack": [
+        "AutoClaw",
+        "GLM"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "火山引擎 11.11 AI 智选：注册领 2500 万 Tokens + Coding/Agent Plan 新客低至 2.5 折（至 11/30）",
+      "type": "限时促销",
+      "provider": "火山引擎 / 火山方舟",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "官方活动页「11.11 AI 智选」写明「注册即可领取 2500 万 Tokens」，并推广豆包旗舰模型与方舟 Coding Plan、Agent Plan、Lite/Pro Plan 等新客首单礼（页面展示限时约 2.5 折）。活动规则写明截止 2026-11-30 23:59:59（北京时间），面向中国大陆、个人或企业实名（部分产品免实名，以页面为准）；新客首单礼同一用户仅一次，续费按原价。领取路径以会场与方舟控制台开通/授权显示为准。昨日榜未收录（昨日为常规订阅送 API 额度，本条为双 11 专项）。",
+      "value": "注册领取累计约 2500 万 Tokens（以会场/控制台为准）· Coding/Agent 等套餐新客首单低至约 2.5 折 · 活动至 2026-11-30",
+      "deadline": "2026-11-30",
+      "cost": "免费额度部分 0 元；套餐折扣需付费；通常需火山引擎账号并完成实名",
+      "difficulty": 2,
+      "threshold": "中国大陆账号；新客首单有关联账号/证件/手机号合并判定；部分热门项限量",
+      "time": "注册+实名+开通模型/领额度约 20–30 分钟",
+      "fit": "想在 11 月低成本调用豆包、DeepSeek、Kimi 等方舟模型，或评估 Coding/Agent Plan 的国内开发者",
+      "why": "大厂双 11 会场有明确截止，免费 Tokens 可直接领、套餐首购折扣不延续到续费，适合做成「火山双 11 省钱清单」。",
+      "steps": [
+        "打开火山引擎 11.11 AI 智选会场 volcengine.com/activity/ai618 并阅读活动规则",
+        "登录或注册火山引擎账号，按页面要求完成个人或企业实名",
+        "在会场或方舟控制台按提示领取免费 Tokens（常见路径是对目标模型开通/授权，以控制台到账为准）",
+        "记录各模型额度与有效期；如需长期用量，再评估 Coding Plan / Agent Plan / Lite·Pro 的首购折扣与续费原价",
+        "建议先确认是否有「安心体验/防止超额扣费」开关；日历标好 11/30 截止，勿为凑单多买"
+      ],
+      "risk": "风险：2500 万是会场累计口径，各模型实际到账以控制台为准；新客资格按关联手机号/证件合并判断；活动价不延续到续费；赠送额度用尽后可能转按量扣费，需自行设置消费保护。不承诺能领到或省多少。",
+      "risk_level": "低",
+      "reason": "官方双 11 专项会场与规则页可核验，补基线里缺失的火山侧限时促销。",
+      "tags": [
+        "火山引擎",
+        "方舟",
+        "双11",
+        "免费Token",
+        "Coding Plan"
+      ],
+      "sources": [
+        {
+          "title": "11.11 AI 智选",
+          "url": "https://www.volcengine.com/activity/ai618",
+          "publisher": "火山引擎",
+          "published": "2026-11-01",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "11.11 AI 智选活动规则",
+          "url": "https://docs.volcengine.com/docs/acitvity-rule/mega-sale?lang=zh",
+          "publisher": "火山引擎文档",
+          "published": "2026-11-01",
+          "kind": "official",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://www.volcengine.com/activity/ai618",
+      "claim_howto": "会场登录实名→按控制台开通/授权领取免费 Tokens；套餐首购按需。",
+      "stack": [
+        "火山方舟",
+        "豆包",
+        "DeepSeek",
+        "Kimi"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "国家超算互联网 11.11 年终钜惠：新用户科学计算智能体额度（11/9 起）+ 0.1 元秒杀 5000 万 Token",
+      "type": "限时促销",
+      "provider": "国家超算互联网（SCNet）",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "IT之家、每日经济新闻等 11/6 报道：国家超算互联网启动「11.11 年终钜惠」——即日起至 11/30 下载最新版客户端可享旗舰模型词元不限量、AI 调用不受限；11 月 9 日起新用户注册可再领 1 亿词元科学计算智能体应用额度，并参与 0.1 元秒杀 5000 万词元包。今日复核官方 MaaS 特惠页（200）：「新客尝鲜」为注册实时到账 1000 万 Tokens（GLM-5.3-Flash，1024K，领取后 30 天有效）；DeepSeek-V4.1-Flash-1017 / GLM-5.3-Flash 等 5000 万包秒杀价 0.10 元，部分截止 11/14。1 亿词元与「不限量」未见官方页逐字列出，属媒体转述官方发布，且 1 亿限科学计算智能体、不限量绑客户端而非任意 API。官方规则写明赠送 Token 用完后将自动扣减现金余额。昨日榜未收录。",
+      "value": "媒体报道：11/9 起新用户 1 亿词元（科学计算智能体专用）· 客户端旗舰模型词元不限量至 11/30；官方页：新客 1000 万 GLM-5.3-Flash（30 天）· 部分 5000 万包 0.1 元秒杀至 11/14",
+      "deadline": "2026-11-30",
+      "cost": "新客免费额度 0 元；0.1 元秒杀需支付且新用户限购；可能需注册/实名",
+      "difficulty": 2,
+      "threshold": "1 亿词元与部分秒杀仅新用户；同一自然人多账号合并判定；赠额用尽可能扣现金；科学计算智能体/客户端与通用 API 不是一回事",
+      "time": "注册+领取+（可选）秒杀约 20–40 分钟",
+      "fit": "做文献梳理、参数试算、科研辅助，或想用国产旗舰模型练手/小规模调用的国内用户",
+      "why": "今天起新客窗口打开，0.1 元秒杀部分只到 11/14，和基线里的阿里云/七牛双 11 不是同一场；适合提醒「别把媒体的 1 亿当成通用聊天额度」。",
+      "steps": [
+        "打开 scnet.cn 活动中心与 MaaS 特惠页，对照页面实时展示的「新客尝鲜 / 秒杀 / Token Plan」",
+        "新用户完成注册（活动期首次注册才算新人），在 MaaS 页领取 1000 万 GLM-5.3-Flash 量包并记下 30 天有效期",
+        "如媒体所述的 1 亿科学计算智能体额度已在官网或客户端显示，再按页面领取；不要把客户端「词元不限量」理解成任意 API",
+        "若参加 0.1 元秒杀（DeepSeek/GLM 等 5000 万包，部分截止 11/14），确认库存、支付时限与「用完是否扣余额」后再下单",
+        "在控制台设置消费保护或在赠额用尽前停止调用；日历标好 11/14 秒杀与 11/30 客户端窗口"
+      ],
+      "risk": "风险：1 亿词元与「旗舰模型不限量」来自多家媒体转述，官方 MaaS 页今日展示的是 1000 万新客包 + 0.1 元秒杀，请以页面为准；赠送 Token 用完后官方写明会扣现金余额；秒杀商品交付后一般不支持无理由退款。不承诺能领到或额度多少。",
+      "risk_level": "中",
+      "reason": "今天开窗的双 11 专项，官方页与主流报道可交叉，但 1 亿/不限量需在领取时再核对页面原文。",
+      "tags": [
+        "超算互联网",
+        "SCNet",
+        "双11",
+        "秒杀",
+        "科学计算"
+      ],
+      "sources": [
+        {
+          "title": "MaaS特惠专场",
+          "url": "https://www.scnet.cn/home/subject/maas/index.html",
+          "publisher": "国家超算互联网",
+          "published": "2026-08-13",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "活动中心",
+          "url": "https://www.scnet.cn/home/subject/center/index.html",
+          "publisher": "国家超算互联网",
+          "published": "2026-11-06",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "词元不限量、调用不受限：国家超算互联网启动双11“年终钜惠”",
+          "url": "https://www.ithome.com/1/023/443.htm",
+          "publisher": "IT之家",
+          "published": "2026-11-06",
+          "kind": "news",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "国家超算互联网：11月9日起新用户注册可领1亿词元科学计算智能体应用额度",
+          "url": "https://www.nbd.com.cn/articles/2026-11-06/4640684.html",
+          "publisher": "每日经济新闻",
+          "published": "2026-11-06",
+          "kind": "news",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "X：11 月 9 日起超算互联网送词元",
+          "url": "https://x.com/665162/status/2119596730941321636",
+          "publisher": "X/@665162",
+          "published": "2026-11-09",
+          "kind": "community",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://www.scnet.cn/home/subject/maas/index.html",
+      "claim_howto": "官网注册领新客包；科学计算智能体/客户端不限量以页面或客户端显示为准；秒杀按需、先看扣费规则。",
+      "stack": [
+        "SCNet",
+        "GLM-5.3-Flash",
+        "DeepSeek"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Qoder / Qoder CN：匿名模型 Qoduck 每日免费额度（11/7 起，极高思考也不扣积分）",
+      "type": "Token福利",
+      "provider": "Qoder / Qoder CN（阿里云）",
+      "region": "全球",
+      "origin": "官方",
+      "summary": "Qoder CN 与 Qoder International 官方活动文档：自 2026-11-07 起，面向所有新老个人用户每日赠送匿名模型 Qoduck 免费额度；额度内计费系数由 0.5× 降为 0.0×，不消耗 Credits，思考强度调到「极高/最大」同样免费。免费账号、试用、会员卡、积分为 0 的个人账号均可，无需领取，选中模型即生效；团队/企业订阅看不到该模型。当日次数用尽后可等次日恢复，或按 0.5× 扣积分继续用。结束时间待定，将提前通知。官方写明本活动适用于 Qoder / Qoder CN 主产品，IDE、JetBrains 插件和 CLI 暂不支持。昨日榜未收录。",
+      "value": "每日免费额度（具体次数未公布，付费用户多于免费用户）· 额度内 0.0× 不扣 Credits · 11/7 起、结束日待官方通知",
+      "deadline": "官方未公布截止（将提前通知）",
+      "cost": "0 元；免费个人账号即可，不强制付费订阅",
+      "difficulty": 1,
+      "threshold": "仅个人用户；须在 Qoder / Qoder CN 主产品内选用，IDE/插件/CLI 暂不支持；高峰可能排队",
+      "time": "更新客户端并切换模型约 5 分钟",
+      "fit": "已有或愿意注册 Qoder 个人账号、想零成本试匿名编程模型的开发者",
+      "why": "11/7 新开的官方限时模型羊毛，免费号也能用，适合做「匿名模型上手测评」素材；须提醒用尽后会扣积分。",
+      "steps": [
+        "注册或登录 Qoder CN（国内）或 Qoder International（国际）个人账号，两站分开",
+        "将对应客户端更新到最新版本",
+        "在模型选择器中选择 Qoduck（企业/团队账号通常看不到）",
+        "在每日免费额度内直接使用，可将思考强度调高；无需额外领取",
+        "若提示今日免费次数已用尽：等次日恢复，或改用其他模型，避免按 0.5× 误扣 Credits"
+      ],
+      "risk": "风险：每日具体次数未公布；用尽后继续调用会按 0.5× 扣积分；活动随时调整，IDE/CLI 暂不可用；高峰可能变慢。不承诺次数、可用性和结束时间。",
+      "risk_level": "低",
+      "reason": "11/7 起的官方新活动，中英文档都写清规则与适用产品，基线未覆盖。",
+      "tags": [
+        "Qoder",
+        "Qoduck",
+        "匿名模型",
+        "免费额度",
+        "AI编程"
+      ],
+      "sources": [
+        {
+          "title": "匿名模型 Qoduck 限时免费体验（Qoder CN）",
+          "url": "https://docs.qoder.cn/events/qoduck-free",
+          "publisher": "Qoder CN",
+          "published": "2026-11-07",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Qoduck: Try the Stealth Model Free for a Limited Time",
+          "url": "https://docs.qoder.com/events/qoduck-free",
+          "publisher": "Qoder",
+          "published": "2026-11-07",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Qoder 开放匿名模型 Qoduck 每日免费体验",
+          "url": "https://mozhenzhen.com/news/qoduck-daily-free-cn-international-20261107",
+          "publisher": "模真真",
+          "published": "2026-11-07",
+          "kind": "news",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://docs.qoder.cn/events/qoduck-free",
+      "claim_howto": "更新客户端→个人账号选 Qoduck，无需领取。",
+      "stack": [
+        "Qoder",
+        "Qoduck"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "腾讯 EdgeOne Makers：免费版内置模型每月 50 万 Token（免绑卡，OpenAI 兼容）",
+      "type": "免费额度",
+      "provider": "腾讯云 EdgeOne Makers",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "官方「免费 LLM API」页与「限制与配额」文档：免费版 Models 内置模型额度为 50 万 token/月，按账号计算、项目共享；新用户获赠 50 万免费 Token（限时赠送），无需信用卡。内置模型包括 @makers/deepseek-v4-flash、@makers/deepseek-v4.1-flash、@makers/minimax-m3、@makers/hy3 等，Base URL 为 https://ai-gateway.edgeone.link/v1。自带其他厂商密钥走网关时仍由原厂计费。官方写明配额在商业化后可能调整；社区报道称付费档预计 11/9–11/11 上线，免费档会保留但额度或变。昨日榜未收录。",
+      "value": "免费版内置模型 50 万 Token/月 · 免绑卡 · OpenAI 兼容网关",
+      "deadline": "官方未写截止（商业化后配额可能调整）",
+      "cost": "0 元；注册 Makers 即可，不需要信用卡",
+      "difficulty": 2,
+      "threshold": "遵守平台条款，禁止滥用/转售；内置模型定位为验证、不保证生产质量；BYOK 外部模型仍计原厂费用",
+      "time": "注册+建 Key+试调约 10–15 分钟",
+      "fit": "想免绑卡、用 OpenAI 兼容接口小规模调用 DeepSeek/MiniMax/混元 做原型的个人开发者",
+      "why": "额度不大但门槛低、是真 API，可补「国内免绑卡网关」这一档；须提示商业化后配额可能变。",
+      "steps": [
+        "打开 makers.edgeone.link 或官方免费 LLM API 页，注册并登录 EdgeOne Makers",
+        "在控制台 Models 菜单创建网关 API Key",
+        "客户端 Base URL 填 https://ai-gateway.edgeone.link/v1，模型名带 @makers/ 前缀（如 @makers/deepseek-v4-flash）",
+        "在 Models 页查看本月剩余免费额度；不要把自带密钥的外部模型当成免费额度",
+        "关注控制台公告：商业化上线后核对免费档是否仍为每月 50 万"
+      ],
+      "risk": "风险：每月 50 万相对有限；商业化后配额可能下调；内置模型官方声明不保证生产质量，异常调用可能被限流。不承诺额度长期不变或一定够用。",
+      "risk_level": "低",
+      "reason": "官方配额文档与免费 API 页交叉确认，11/7 起被社区广泛核验，基线未收录。",
+      "tags": [
+        "腾讯云",
+        "EdgeOne",
+        "免费API",
+        "DeepSeek",
+        "免绑卡"
+      ],
+      "sources": [
+        {
+          "title": "免费 LLM API",
+          "url": "https://pages.edgeone.ai/zh/use-cases/free-llm-api",
+          "publisher": "EdgeOne Makers",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "限制与配额",
+          "url": "https://pages.edgeone.ai/zh/document/limits-and-quotas",
+          "publisher": "EdgeOne Makers",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "Makers Models 概览",
+          "url": "https://pages.edgeone.ai/zh/document/models-vendors-overview",
+          "publisher": "EdgeOne Makers",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-09"
+        },
+        {
+          "title": "腾讯 EdgeOne Makers 免费送每月 50 万 Token",
+          "url": "https://mozhenzhen.com/news/edgeone-makers-free-monthly-500k-tokens-20261107",
+          "publisher": "模真真",
+          "published": "2026-11-07",
+          "kind": "news",
+          "checked": "2026-11-09"
+        }
+      ],
+      "source_url": "https://pages.edgeone.ai/zh/document/limits-and-quotas",
+      "claim_howto": "注册 Makers→Models 建 Key→改 Base URL 调 @makers/ 模型。",
+      "stack": [
+        "EdgeOne Makers",
+        "OpenAI兼容API"
+      ]
+    }
+  ]
+}
