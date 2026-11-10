@@ -8,7 +8,7 @@
     root.innerHTML = `
       <div class="panel-head">
         <h2>本周补给卡</h2>
-        <p class="panel-sub">读完一张卡可领一次 XP。当前已暂停每周追加；已有卡片仍可领取，不会影响你的存档。</p>
+        <p class="panel-sub">读完一张卡可领一次 XP。每周一补充新卡；已有卡片仍可领取，不会影响你的存档。</p>
       </div>
       <div class="ship-list">
         ${

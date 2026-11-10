@@ -931,6 +931,39 @@
       xp: 5,
       addedAt: '2026-10-16',
     },
+    {
+      id: 'w-2026-11-09-a',
+      week: '2026-W46',
+      title: 'GSC：「已抓取 - 目前未编入索引」不等于故障',
+      summary:
+        'Google 刚改了页面编入索引报告里这条状态的说明：已抓取但未编入索引很常见，并不一定代表网站出了问题——搜索并不会收录网上每一页。对首页、核心工具页这类重要 URL，再用网址检查工具看有没有被屏蔽、软 404 或规范网址指错。只有排除完问题、仍怀疑整站收录异常时，才去用官方的编入索引问题反馈表。新站先盯重要页，不必为每条长尾状态反复提交。',
+      url: 'https://support.google.com/webmasters/answer/7440203',
+      tags: ['GSC', '收录'],
+      xp: 5,
+      addedAt: '2026-11-09',
+    },
+    {
+      id: 'w-2026-11-09-b',
+      week: '2026-W46',
+      title: 'URL 用连字符分词，少用下划线',
+      summary:
+        'Search Central 近期同步了可抓取网址结构说明：词与词之间优先用连字符（-），不推荐下划线（_）或直接粘成 greendress。也不要用井号片段来切换页面内容，参数尽量少，网址大小写会被当成不同地址。新站现在定好 /keyword-tool 这类可读路径，比上线后再改、再做跳转省事。',
+      url: 'https://developers.google.com/search/docs/crawling-indexing/url-structure',
+      tags: ['技术', 'URL'],
+      xp: 5,
+      addedAt: '2026-11-09',
+    },
+    {
+      id: 'w-2026-11-09-c',
+      week: '2026-W46',
+      title: 'GSC 效果报告：设备可以多选了',
+      summary:
+        '效果报告的设备筛选现在能同时勾选电脑、手机、平板，看合并数据，不必再分开导出再手工加总。国家和设备都可以多选合并；若要左右对比，仍用比较功能。对同时看桌面和移动流量的小站更省事。',
+      url: 'https://support.google.com/webmasters/answer/17011165',
+      tags: ['GSC', '效果报告'],
+      xp: 5,
+      addedAt: '2026-11-09',
+    },
 ];
 
   const PEER_METHODS = [
