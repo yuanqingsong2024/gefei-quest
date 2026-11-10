@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-09T00:25:50.161Z",
-  "latestId": 96,
-  "latestDate": "2026-11-09",
+  "generatedAt": "2026-11-10T00:25:17.529Z",
+  "latestId": 97,
+  "latestDate": "2026-11-10",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 97,
+      "date": "2026-11-10",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-10",
+      "items": [
+        "No.1 Elementor Affiliate：写 WordPress/建站教程，合资格首购 Editor 或 Host 约45%、One 约55%（One 为限时促销费率，以条款为准）",
+        "No.2 Gumroad：上架原创数字下载/课程/会员，无月费；直连成交约抽10%+$0.50，Discover 约30%（以定价页为准）",
+        "No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 96,
       "date": "2026-11-09",
@@ -115,42 +127,30 @@
         "附智东西 / 观点网 / 澎湃号·科创板日报 / 同花顺四个来源；须切 Hy4 preview；支付与下单本人确认；不代下单不代授权；不承诺覆盖或收益。SW 缓存 57"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 87,
-      "date": "2026-11-03",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-03",
-      "items": [
-        "No.1 Hostinger Affiliate：写主机/建站教程，合资格首购（约12个月及以上套餐）可拿约至多40%佣金（以协议为准）",
-        "No.2 Gumroad：上架原创数字下载，直连销售约10%+$0.50，Discover 约30%（以官方定价页为准）",
-        "No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）",
+        "name": "Elementor Affiliate：写 WordPress/建站教程，合资格首购 Editor 或 Host 约45%、One 约55%（One 为限时促销费率，以条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.namecheap.com/support/knowledgebase/article.aspx/9933/55/what-are-the-namecheap-commission-rates/"
+        "source_url": "https://elementor.com/affiliates/"
       },
       {
         "rank": 2,
-        "name": "Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）",
+        "name": "Gumroad：上架原创数字下载/课程/会员，无月费；直连成交约抽10%+$0.50，Discover 约30%（以定价页为准）",
         "type": "数字产品/接单",
-        "source_url": "https://www.teachable.com/pricing"
+        "source_url": "https://gumroad.com/pricing"
       },
       {
         "rank": 3,
-        "name": "Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "name": "Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://firebase.google.com/docs/hosting/quickstart"
+        "source_url": "https://developers.cloudflare.com/pages/get-started/"
       }
     ]
   }

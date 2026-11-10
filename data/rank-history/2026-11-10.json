@@ -1,0 +1,450 @@
+{
+  "date": "2026-11-10",
+  "publishedAt": "2026-11-10T00:25:17.473Z",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Elementor Affiliate：写 WordPress/建站教程，合资格首购 Editor 或 Host 约45%、One 约55%（One 为限时促销费率，以条款为准）",
+      "type": "联盟营销",
+      "summary": "Elementor 官方联盟：经审核后获得跟踪链接，推荐用户首次购买合资格产品可拿佣金。官方联盟页写明 Editor Pro 与 Elementor Host 首购约45%、Elementor One 在特别上线阶段首购约55%；条款 Exhibit A 进一步写明仅用户首次合格购买计佣，续费、升级与附加项通常不计，One 的55%为可随时调整的限时费率。月付 One 官方 FAQ 称按订阅者前三个成功扣款账期计佣、约从第4个月起记录。Cookie 约45天，最低打款约200美元，付款为月末后约60天（EOM+60）；禁止用品牌词做付费点击广告。",
+      "cost": "0；需有 WordPress、建站或无代码交付相关内容渠道",
+      "difficulty": 2,
+      "threshold": "申请通过并只推荐新用户的首次合资格购买；能按规范披露联盟关系，不使用品牌词 PPC、不自购、不在优惠码站投放",
+      "time": "申请与内容准备通常数天量级；见效取决于内容与转化周期",
+      "fit": "会写中英文 WordPress 建站、主题搭建或客户交付教程、已有站长或独立开发者受众的人；预估投入：每周4小时",
+      "why": "Elementor 官方 Affiliates 页写明首购佣金约45%–55%，并给出45天 Cookie 与约200美元最低打款；条款（Last updated: January 2026）Exhibit A 列明 Editor/Host 约45%、One 约55%（限时），且仅首次合格购买计佣。上榜理由：相对昨日基线 Namecheap「域名/主机按品类百分比」联盟路径，今天换 Elementor「WordPress 建站工具首购分成」路径。",
+      "steps": [
+        "打开 elementor.com/affiliates 与联盟条款，核对当前品类比例、Cookie、最低打款与禁止事项后提交申请",
+        "写一篇你真正用过的 Elementor 建站、主题或 Host 对比/上手教程，按规范披露联盟关系",
+        "用帮助中心或后台提供的跟踪链接放到小站或社媒；不要用品牌词做付费点击广告，也不要自购或在优惠码站投放"
+      ],
+      "risk": "风险等级：中。申请可能被拒；通常仅首次合格购买计佣，退款/拒付可能被扣回；One 的55%为限时费率可能调整；未达约200美元可能延迟打款。不承诺收益。",
+      "risk_level": "中",
+      "reason": "条款公开的 WordPress 建站工具联盟，适合建站教程长期挂链。",
+      "tags": [
+        "联盟营销",
+        "Elementor",
+        "WordPress",
+        "建站",
+        "佣金"
+      ],
+      "sources": [
+        {
+          "title": "Promote Elementor. Earn up to 55% commission.",
+          "url": "https://elementor.com/affiliates/",
+          "publisher": "Elementor",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Affiliate Program Terms and Conditions",
+          "url": "https://elementor.com/terms/affiliate-program-terms-and-conditions/",
+          "publisher": "Elementor",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://elementor.com/affiliates/"
+    },
+    {
+      "rank": 2,
+      "name": "Gumroad：上架原创数字下载/课程/会员，无月费；直连成交约抽10%+$0.50，Discover 约30%（以定价页为准）",
+      "type": "数字产品/接单",
+      "summary": "面向创作者的数字商品平台：官方定价页写明无月费。经个人主页或直链卖给已有客户时，每笔抽成约10%另加约0.50美元；新客户经 Discover 市场发现并购买时，每笔约30%。页面说明自约2025-01-01起 Gumroad 作为 Merchant of Record 代为处理销售税/增值税等义务。可卖数字下载、电子书、课程、教程与会员；禁止实物及侵权、非法等内容。打款方式因国家而异。",
+      "cost": "0 月费；成交另计平台抽成（直连约10%+$0.50，Discover 约30%）与支付处理（以官网为准）",
+      "difficulty": 2,
+      "threshold": "有可交付的原创数字文件、课程或会员内容，能写清授权范围与售后；只上架你拥有完整权利的作品",
+      "time": "准备首个产品约数天；上架后持续导流与迭代",
+      "fit": "有一份可反复交付的模板、清单、小教程或会员内容、希望先低成本开店验证的人；预估投入：每周5小时",
+      "why": "Gumroad 官方 Pricing 写明无月费，直连销售约10%+$0.50、Discover 约30%，并说明作为 Merchant of Record 处理销售税。上榜理由：相对昨日基线 Teachable「付费网校 + 课程/辅导交付」路径，今天换 Gumroad「无月费数字下载/会员店铺」路径。",
+      "steps": [
+        "打开 gumroad.com/pricing 核对当前直连与 Discover 费率后注册创作者账户",
+        "上架一个解决具体问题的原创模板、清单、教程或会员，写清交付方式、授权与退款规则",
+        "用小站、社媒或邮件列表走直链导流以降低 Discover 抽成；关注税务处理与平台禁售类目"
+      ],
+      "risk": "风险等级：中。Discover 抽成更高；只能卖原创或已获授权内容；各国打款方式不同。不承诺收益。",
+      "risk_level": "中",
+      "reason": "无月费的数字商品店铺，适合先验证一份可反复卖的模板或教程。",
+      "tags": [
+        "数字产品",
+        "Gumroad",
+        "数字下载",
+        "课程",
+        "会员"
+      ],
+      "sources": [
+        {
+          "title": "Gumroad pricing: 10% + 50¢ direct, 30% via Discover",
+          "url": "https://gumroad.com/pricing",
+          "publisher": "Gumroad",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://gumroad.com/pricing"
+    },
+    {
+      "rank": 3,
+      "name": "Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
+      "type": "出海小站",
+      "summary": "用 Cloudflare Pages 官方 Getting started（可选 Git 集成、Direct Upload 或 C3 CLI）把静态或前端站部署上线，适合先验证英文工具页是否有搜索与回访，再接 Google AdSense 或相关联盟。官方 Limits 页写明免费档约每月500次构建、同时1个构建、每项目自定义域名约100个、单站文件约2万个、每账户项目约100个；Functions 请求计入 Workers 配额。具体配额以官网为准。",
+      "cost": "域名约每年数十美元可选；Pages 可走免费档起步（构建次数、文件数与项目数等配额以 developers.cloudflare.com/pages/platform/limits 为准）",
+      "difficulty": 2,
+      "threshold": "能完成单页英文工具或指南，并按文档完成 Git 或直接上传部署与基础 SEO",
+      "time": "半天到2天可上线首版；流量与变现通常需数月",
+      "fit": "会一点前端或静态站、想换一条与 Firebase/Vercel 不同的部署路径做出海验证的人；预估投入：每周5小时",
+      "why": "Cloudflare 官方 Pages Getting started 提供 Git 集成、Direct Upload 与 C3 CLI 三条入门路径；Limits 页列出免费档构建与文件等配额；Google AdSense 官方页说明站点达标后可申请广告变现。上榜理由：相对昨日基线 Firebase Hosting，今天换 Cloudflare Pages 部署路径，同样服务「先上线验证、再接广告/联盟」的出海小站路线。",
+      "steps": [
+        "打开 developers.cloudflare.com/pages/get-started，按指引用 Git 集成或 Direct Upload 把英文单页工具或指南部署上线",
+        "接 Google Search Console，补 About/Privacy 与 3–5 篇相关说明；需要时再绑自定义域名",
+        "有稳定访问后再申请 AdSense 或挂相关联盟链接"
+      ],
+      "risk": "风险等级：低。免费档构建次数、文件数与项目数有上限，以官网为准；广告审核会拒空站；前几个月收入可能为0。不承诺收益。",
+      "risk_level": "低",
+      "reason": "另一条官方文档齐全的静态托管路径，适合低成本验证英文工具站。",
+      "tags": [
+        "出海小站",
+        "Cloudflare Pages",
+        "Hosting",
+        "SEO",
+        "AdSense"
+      ],
+      "sources": [
+        {
+          "title": "Getting started · Cloudflare Pages docs",
+          "url": "https://developers.cloudflare.com/pages/get-started/",
+          "publisher": "Cloudflare Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Limits · Cloudflare Pages docs",
+          "url": "https://developers.cloudflare.com/pages/platform/limits/",
+          "publisher": "Cloudflare Docs",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Google AdSense - Earn Money from Your Website with Monetization",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://developers.cloudflare.com/pages/get-started/"
+    },
+    {
+      "rank": 4,
+      "name": "B站创作激励：走官方视频创作激励，靠自制稿件拿基础激励与框下/暂停广告分成（门槛以后台为准）",
+      "type": "平台激励",
+      "summary": "哔哩哔哩客服2026-05-05「UP主创作直通车·视频创作激励篇」写明：创作激励是面向个人 UP 主的长期扶持。前置条件为账号非封禁、非蓝V（企业认证）、非纪念账号；视频激励申请需权益等级不低于3、信用分不低于80。在创作中心「收益管理—创作激励」申请，审核约3个工作日。收益由稿件基础激励与框下/暂停广告分成构成：基础激励另有近6个月平台收入门槛（官方举例低于约每月5000元量级）及单稿上限（官方称约2000元），广告分成官方称无该上限。激励金按月约2日、12日、22日结算为贝壳。更早的 UP 主服务中心规则页还写明稿件须自制、不含商业推广、不得晚于其他平台首发，贝壳账户达到100贝壳后可提现（扣税与手续费以实际到账为准）。具体门槛与口径以创作中心当前展示为准。",
+      "cost": "0；需持续更新的 B 站账号与可过审的自制稿件",
+      "difficulty": 3,
+      "threshold": "账号为个人且非封禁/非蓝V/非纪念号；视频激励需权益等级与信用分达标（官方客服帖写明权益等级不低于3、信用分不低于80）；能持续产出自制、非商单导向的内容",
+      "time": "养号与垂直内容积累通常需数周到数月；达标后申请审核约3个工作日",
+      "fit": "已在或愿意在 B 站做某一垂直主题自制视频、能接受平台对自制与首发要求的人；预估投入：每周6小时",
+      "why": "哔哩哔哩客服2026年5月公开说明视频创作激励的申请路径、权益等级与信用分门槛，以及基础激励加框下/暂停广告分成的收益结构；UP 主服务中心规则页补充自制、非商单与贝壳结算等要求。上榜理由：相对昨日基线小红书蒲公英「品牌笔记/种草商单」，今天换 B 站官方「自制视频创作激励 + 广告分成」路径，类型分散且非比赛。",
+      "steps": [
+        "打开 B 站创作中心「收益管理—创作激励」，对照当前展示的权益等级、信用分与申请条件，阅读签约协议",
+        "持续发布某一垂直主题的自制视频，注意首发与非商业推广要求，完善分区与标题简介",
+        "达标后点击立即加入并等待审核；只把激励当作内容回血，避免虚假互动与搬运，也不把后台数字当预期收益"
+      ],
+      "risk": "风险等级：中。门槛、基础激励上限与结算节奏会调整；商单/转载/晚于其他平台首发可能不计激励；封禁期间可能停计收益。不承诺收益。",
+      "risk_level": "中",
+      "reason": "国内视频平台公开的长期创作激励入口，适合有自制视频产能的人接合规分成。",
+      "tags": [
+        "平台激励",
+        "B站",
+        "创作激励",
+        "视频",
+        "广告分成"
+      ],
+      "sources": [
+        {
+          "title": "【UP主创作直通车】UP主成长系列-视频创作激励篇",
+          "url": "https://www.bilibili.com/opus/1198858284376784900",
+          "publisher": "哔哩哔哩客服",
+          "published": "2026-05-05",
+          "kind": "official",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "“bilibili创作激励计划”规则",
+          "url": "https://www.bilibili.com/opus/77399369418311052",
+          "publisher": "哔哩哔哩UP主服务中心",
+          "published": "2023-01-04",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://www.bilibili.com/opus/1198858284376784900"
+    },
+    {
+      "rank": 5,
+      "name": "Shutterstock 投稿：上传原创照片/插画/矢量/视频，官方称版税按年下载量分档约15%至40%（每年1月1日重置）",
+      "type": "副业",
+      "summary": "官方 Contributor 计划：注册与提交免费。传统授权路径可向全球客户许可照片、视频、矢量与插画。官方「How much will I be paid」页写明，贡献者获得 Shutterstock 就该次授权所收价款的一定百分比；图片与视频各有6档收益等级，约15%至40%，按各类下载量分别升级，等级每年1月1日重置为1档。单次下载收益还随买家套餐/授权类型变化。页面另列出面向 AI 训练等其他合作，本条主路径是传统素材授权。",
+      "cost": "0 起步；需相机、绘图或视频能力，以及可过审的原创文件",
+      "difficulty": 3,
+      "threshold": "能提交你拥有完整权利的原创照片、插画、矢量或视频；作品需符合投稿政策；含可识别人物或私产需相应授权",
+      "time": "准备首批素材约数天；审核与积累下载量需持续供稿",
+      "fit": "喜欢拍照、做矢量/插画或短视频素材、愿意按关键词规范批量供稿的人；预估投入：每周5小时",
+      "why": "Shutterstock 官方投稿页说明注册提交免费，可许可照片、视频、矢量与插画；帮助中心写明收益为授权价款的约15%至40%，图片与视频分档独立计算，且每年1月1日重置等级。上榜理由：相对昨日基线 Adobe Stock「图片约33%、视频约35%非独家分成」，今天换 Shutterstock「按年下载量分档15%–40%」素材库投稿路径。",
+      "steps": [
+        "打开 submit.shutterstock.com 阅读投稿与收益说明，免费注册贡献者账户",
+        "上传你拥有完整权利的原创照片、插画、矢量或视频，写准确英文标题与关键词",
+        "关注审核反馈与下载数据，迭代高需求题材；勿上传含未授权商标、人物或整页生成拼凑"
+      ],
+      "risk": "风险等级：中。审核可能拒绝；单张收益随买家套餐与你所处等级变化，高等级每年重置；含人物/地标需授权。不承诺收益。",
+      "risk_level": "中",
+      "reason": "官方分档比例公开的素材投稿路径，适合有持续原创产能的人副业供稿。",
+      "tags": [
+        "副业",
+        "Shutterstock",
+        "投稿",
+        "版税",
+        "素材"
+      ],
+      "sources": [
+        {
+          "title": "Sell photos, footage clips, illustrations & vectors | Shutterstock",
+          "url": "https://submit.shutterstock.com/",
+          "publisher": "Shutterstock",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "How much will I be paid as a contributor to Shutterstock?",
+          "url": "https://submit.shutterstock.com/help/en/articles/10594604-how-much-will-i-be-paid-as-a-contributor-to-shutterstock",
+          "publisher": "Shutterstock Contributor",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://submit.shutterstock.com/"
+    },
+    {
+      "rank": 6,
+      "name": "Payhip：免费档上架数字下载，平台交易费约5%；Plus 约29美元/月降至约2%，Pro 约99美元/月约0%（另计支付处理费，以帮助中心为准）",
+      "type": "数字产品/接单",
+      "summary": "面向数字下载与在线商店的平台：官方帮助中心「Billing and Upgrading」（更新于约2026-11-04）写明默认 Free Forever 档月费为0，功能、商品数量与销售额均不另设上限，但通过 Payhip 站点成交时平台交易费约5%；升级 Plus 约29美元/月后平台交易费约2%，Pro 约99美元/月则不再收取 Payhip 平台交易费。PayPal、Stripe 等支付处理费仍单独计算。各档功能相同，升级主要是为了降低抽成；可随时改回免费档，付费档有效至当前计费周期结束。",
+      "cost": "0 月费起步（Free Forever 平台交易费约5%）；可选 Plus 约29美元/月或 Pro 约99美元/月以降低抽成；另计支付处理费（以帮助中心为准）",
+      "difficulty": 2,
+      "threshold": "有可交付的原创数字文件或课程内容，能写清授权与售后；只上架你拥有完整权利的作品",
+      "time": "准备首个产品约数天；上架后持续导流与迭代",
+      "fit": "有模板、电子书、课程或数字资料、希望先免月费开店验证、成交变多后再考虑降费档的人；预估投入：每周5小时",
+      "why": "Payhip 官方帮助中心写明免费档平台交易费约5%，Plus 约29美元/月降至约2%，Pro 约99美元/月平台交易费约0%，支付处理费另计，且各档功能相同。上榜理由：相对昨日基线 Amazon KDP「书店内原创电子书版税」，今天换 Payhip「自有店铺卖数字下载、按成交抽成」路径。",
+      "steps": [
+        "打开 Payhip 帮助中心 Billing and Upgrading 页，核对当前免费档与付费档的平台交易费后注册店铺",
+        "上架一个解决具体问题的原创数字下载或课程，写清交付方式、授权与退款规则",
+        "用小站或社媒导流；成交稳定后再对照费率评估是否升级以降低抽成"
+      ],
+      "risk": "风险等级：中。免费档抽成高于部分竞品；只能卖原创或已获授权内容；支付处理费另计。不承诺收益。",
+      "risk_level": "中",
+      "reason": "免月费即可开店卖数字下载，分档费率公开，适合先验证再决定是否付费降抽成。",
+      "tags": [
+        "数字产品",
+        "Payhip",
+        "数字下载",
+        "店铺",
+        "课程"
+      ],
+      "sources": [
+        {
+          "title": "Billing and Upgrading - Help Center",
+          "url": "https://help.payhip.com/article/102-billing-and-upgrading",
+          "publisher": "Payhip",
+          "published": "2026-11-04",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://help.payhip.com/article/102-billing-and-upgrading"
+    },
+    {
+      "rank": 7,
+      "name": "闲鱼技能服务：短视频口播脚本与分镜表定制，按条或按套餐接单（不卖券码账号）",
+      "type": "闲鱼非实物",
+      "summary": "在闲鱼发布自有技能的信息服务：根据客户已有选题或产品卖点，撰写可拍摄的短视频口播脚本，并配分镜表（镜号、画面、台词、字幕提示与时长）；按「单条脚本/脚本+分镜套餐/多条包月」收费，站内交易防纠纷。不代拍、不代运营账号，不承诺播放量或涨粉，不卖券码或账号。",
+      "cost": "0；需实名与可用的文档/表格工具",
+      "difficulty": 2,
+      "threshold": "能根据客户选题在约定时间内交付可拍摄的口播稿与分镜，并说清修改次数；不承诺播放量或涨粉",
+      "time": "每单1–4小时；起步期每天1小时回复咨询",
+      "fit": "熟悉短视频叙事结构、能把卖点写成口语化台词并拆成分镜的人；预估投入：每周5小时",
+      "why": "闲鱼社区卖家服务协议允许发布合法信息服务类商品；创作者对「可直接开拍的口播稿和分镜」有明确需求。上榜理由：相对昨日基线小红书图文排版与封面设计，今天换短视频口播脚本与分镜表定制，不涉及账号券码代领。",
+      "steps": [
+        "阅读闲鱼卖家服务协议，确认类目与禁发内容，避免承诺播放量、涨粉或虚构数据",
+        "准备 3–5 组脱敏前后对比样例（选题→口播稿→分镜表），写清适用行业、时长、修改次数与报价",
+        "全程站内沟通与交易，交付可编辑文档；把高频结构沉淀为可另售的原创脚本框架模板"
+      ],
+      "risk": "风险等级：低。不承诺播放量或涨粉；注意客户提供的产品信息与素材版权；站外交易易起纠纷。不承诺收益。",
+      "risk_level": "低",
+      "reason": "国内技能变现里短视频脚本需求明确，可沉淀为标准流程与模板。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "短视频",
+        "脚本",
+        "分镜"
+      ],
+      "sources": [
+        {
+          "title": "闲鱼社区卖家服务协议",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
+          "publisher": "terms.alicdn.com",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
+    },
+    {
+      "rank": 8,
+      "name": "出海新词：盯 Uneed 每日新品做英文「是什么/替代品」单页，再挂 AdSense 或相关联盟",
+      "type": "出海新词",
+      "summary": "用 Uneed（官方自称 Daily Product Launches，汇集每日新工具）浏览当天发布的产品，挑选有教程或对比意图的英文主题做「X是什么 / 怎么用 / 替代品」单页并部署上线；有稳定访问后再接 Google AdSense 或相关 SaaS/商品联盟。首页以「Best products launching today」列出当日新品，便于持续选词。",
+      "cost": "0 起步；可选域名与托管",
+      "difficulty": 3,
+      "threshold": "能独立完成英文单页与基础 SEO，并识别「可挂联盟/广告」的查询意图；联盟与广告均需申请通过",
+      "time": "选品+上线约3–7天；见效通常需数周到数月",
+      "fit": "愿意跟踪英文新品目录、能写清楚「是什么/和谁比/适合谁」结构的人；预估投入：每周6小时",
+      "why": "Uneed 公开首页可持续浏览每日新产品；Google AdSense 与 Amazon Associates 提供达标后的广告或合资格商品推荐入口。变现路径：解释/替代品单页挂相关联盟，或达标后接广告。上榜理由：相对昨日基线 BetaList 早期产品目录，今天换「Uneed 每日新品 → 英文解释页 → 广告/联盟」执行链。",
+      "steps": [
+        "打开 uneed.best 记录有教程或对比意图的新品，排除纯噱头与无法核验的项目",
+        "选定长尾主题做英文「是什么/替代品」单页并部署；接 Search Console 观察真实查询",
+        "有稳定访问后申请 AdSense 或相关联盟，按规范披露并只推合资格相关产品"
+      ],
+      "risk": "风险等级：中。新品可能很快改名或消失；无流量则无收入；联盟与广告均需合规披露与审核。不承诺收益。",
+      "risk_level": "中",
+      "reason": "把每日新品目录信号接到可挂联盟/广告的内容变现链上。",
+      "tags": [
+        "出海新词",
+        "Uneed",
+        "SEO",
+        "联盟",
+        "单页"
+      ],
+      "sources": [
+        {
+          "title": "Daily Product Launches: Discover the Best New Tools | Uneed",
+          "url": "https://www.uneed.best/",
+          "publisher": "Uneed",
+          "published": "",
+          "kind": "community",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Google AdSense - Earn Money from Your Website with Monetization",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Amazon Associates Central",
+          "url": "https://affiliate-program.amazon.com/",
+          "publisher": "Amazon",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://www.uneed.best/"
+    },
+    {
+      "rank": 9,
+      "name": "案例拆解：AgentOS——作者/报道称从自身收款痛点出发、二次转向后约两个月做到约9500美元MRR（只拆方法）",
+      "type": "案例拆解",
+      "summary": "Indie Hackers 公开访谈（约2026-10-06）：Panche Isajeski / AgentOS（正文亦作 AgentaOS，面向 SaaS 创始人的收款/Merchant of Record 服务）。导语称他因在巴尔干地区收款困难而做解决方案，但第一次过早入场失败，随后按当前市场二次转向重建；2026年8月上线后约两个月，作者自述约9500美元 MRR、400余名 SaaS 创始人注册、处理逾1400笔实际支付，并称目前零雇员运营。公开目录还列出「内容获客与上手陪跑、贴近用户打磨体验」等方法要点。",
+      "cost": "0（阅读公开访谈）；若跟做需自备产品与获客渠道",
+      "difficulty": 3,
+      "threshold": "能从公开导语与目录里抽象「从自身痛点出发、过早则转向、用内容获客并做上手陪跑」的方法，而不是照抄支付牌照或收入数字",
+      "time": "阅读与笔记约2小时；验证方法需数周到数年量级的迭代",
+      "fit": "正在做小工具、曾经因市场未成熟而停摆、或尚未把获客内容与上手陪跑结合起来的人；预估投入：先读透再小范围试验",
+      "why": "Indie Hackers 文章 Starting from scratch and hitting $9.5k MRR in two months（约2026-10-06）导语与公开段落称：Panche Isajeski 从自身收款难题出发做 AgentOS，第一次因过早入场失败后按市场二次转向，2026年8月上线后约两个月自述约9.5k MRR。方法要点（个人说法/报道口径）：从真实自身需求出发、市场未成熟就转向，并把内容获客与上手陪跑、贴近用户打磨体验结合起来，而不是一上来就放大获客。上榜理由：相对昨日基线 Slides With Friends「口碑 + 漏斗底部内容、并应对 AI 搜索」，今天换「自身痛点产品化 + 过早则转向 + 内容与上手陪跑」路径，只拆方法不承诺可复现收入。",
+      "steps": [
+        "阅读 Indie Hackers 原文导语与公开目录，标注：产品如何从自身痛点来、第一次失败后如何转向、内容获客与上手陪跑分别对应什么动作",
+        "对照自身：你是否在市场尚未出现需求时就做深功能，或只写泛介绍、缺少帮助用户真正用起来的陪跑",
+        "若试验：先选一个你自己被卡住过的窄场景，写清问题与使用边界；勿照搬对方牌照、品类与收入数字"
+      ],
+      "risk": "风险等级：中。文中收入为作者/报道个人说法，不可当作你的预期收益；支付合规与获客渠道因品类而异，全文部分段落可能需登录才能阅读。不承诺收益。",
+      "risk_level": "中",
+      "reason": "公开案例里清晰的「自身痛点产品化 + 过早则转向 + 内容与上手陪跑」组合。",
+      "tags": [
+        "案例拆解",
+        "Indie Hackers",
+        "AgentOS",
+        "内容获客",
+        "获客"
+      ],
+      "sources": [
+        {
+          "title": "Starting from scratch and hitting $9.5k MRR in two months - Indie Hackers",
+          "url": "https://www.indiehackers.com/post/tech/starting-from-scratch-and-hitting-9-5k-mrr-in-two-months-j5pMaED5FEbKw8qmeyj9",
+          "publisher": "Indie Hackers",
+          "published": "2026-10-06",
+          "kind": "community",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://www.indiehackers.com/post/tech/starting-from-scratch-and-hitting-9-5k-mrr-in-two-months-j5pMaED5FEbKw8qmeyj9"
+    },
+    {
+      "rank": 10,
+      "name": "systeme.io Affiliate：写营销自动化/漏斗/邮件教程，合资格订阅可拿约60%终身分成（以官方页与协议为准）",
+      "type": "工具活动",
+      "summary": "systeme.io 官方联盟：页面写明推荐用户订阅可拿约60%分成，且在推荐对象保持订阅期间持续计佣；线索经你的链接注册免费账户后会被长期标记。协议写明对每次适用的客户交易支付约60%佣金，客户需保持约30天，约30天内退款可能不计佣；若对方在付款页改用其他人的联盟链接，该次佣金可能改记。官方页称加入免费、无需先成为付费客户，最低打款约30美元，约每月10日经 PayPal 或电汇结算。可推广其免费档及付费套餐。条款与后台展示如有出入，以官方页和协议为准。",
+      "cost": "0 申请；需有营销自动化、漏斗、邮件或课程交付相关内容渠道",
+      "difficulty": 2,
+      "threshold": "年满18岁并同意联盟协议；只推荐真实新客户；按规范披露；不自我推荐或给亲属下单",
+      "time": "注册即可获得联盟链接；见效取决于内容与受众匹配",
+      "fit": "会写获客漏斗、邮件自动化或课程交付教程、受众有建站/营销工具需求的人；预估投入：每周4小时",
+      "why": "systeme.io 官方联盟页写明约60%终身循环分成、长期归属与约30美元最低打款；联盟协议同样写明适用客户交易支付约60%佣金，并列出约30天保持期与退款除外。上榜理由：相对昨日基线 Framer「建站工具前12个月约50%订阅分成」，今天换 systeme.io「营销自动化工具约60%终身分成」官方联盟路径。",
+      "steps": [
+        "打开 systeme.io/affiliate-program 与联盟协议，确认佣金、归属、30天有效期与结算门槛后注册",
+        "只写你真正用过的漏斗、邮件自动化或课程交付教程，在内容中按规范披露联盟关系",
+        "用后台链接跟踪注册与订阅；不要诱导虚假注册，也不要自我推荐"
+      ],
+      "risk": "风险等级：中。客户约30天内退款或不保持订阅可能不计佣；付款页若改点他人链接该次可能改记；佣金比例官方保留调整权。不承诺收益。",
+      "risk_level": "中",
+      "reason": "营销自动化/漏斗教程与 systeme.io 订阅联盟匹配度高，公开页与协议里的分成和结算口径可核对。",
+      "tags": [
+        "工具活动",
+        "systeme.io",
+        "联盟",
+        "营销自动化",
+        "漏斗"
+      ],
+      "sources": [
+        {
+          "title": "Affiliate program | systeme.io",
+          "url": "https://systeme.io/affiliate-program",
+          "publisher": "systeme.io",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        },
+        {
+          "title": "Affiliate Agreement",
+          "url": "https://systeme.io/affiliate-agreement",
+          "publisher": "systeme.io",
+          "published": "",
+          "kind": "official",
+          "checked": "2026-11-10"
+        }
+      ],
+      "source_url": "https://systeme.io/affiliate-program"
+    }
+  ]
+}
