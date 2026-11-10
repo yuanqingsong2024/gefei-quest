@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-10T00:25:17.529Z",
-  "latestId": 97,
+  "generatedAt": "2026-11-10T04:24:56.883Z",
+  "latestId": 98,
   "latestDate": "2026-11-10",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 98,
+      "date": "2026-11-10",
+      "tag": "内容",
+      "title": "AI生活合集新增「双11购物参谋」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：双11让AI当购物参谋——先挑货、再截图算账，结算页本人核对；含先挑后核闭环、提示词两则、小红书与闲鱼跟做包角度",
+        "附锌刻度（人人都是产品经理转载）/ 人人都是产品经理 / IT时报（界面新闻转载）三个来源；以平台结算页为准，AI数字只是草稿；不代下单不代领券不承诺省钱；与订阅审计、退货寄件、购物冷静器区分。SW 缓存 62"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 97,
       "date": "2026-11-10",
@@ -116,17 +127,6 @@
         "数据 data/opc-briefs/latest.json，内嵌 js/opc-data.js 兜底。公开整理，非法律或税务意见，不承诺收益，不写灰产。SW 缓存 58"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-opc"
-    },
-    {
-      "id": 88,
-      "date": "2026-11-03",
-      "tag": "内容",
-      "title": "AI生活合集新增「元宝生活办事台」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：让微信里的元宝当生活办事台——一句话点外卖／订电影／查快递（关键步骤本人确认）；含 Hy4 preview、授权边界与支付本人确认；小红书与闲鱼跟做包角度",
-        "附智东西 / 观点网 / 澎湃号·科创板日报 / 同花顺四个来源；须切 Hy4 preview；支付与下单本人确认；不代下单不代授权；不承诺覆盖或收益。SW 缓存 57"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
