@@ -2,6 +2,8 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 98, date: '2026-11-10', title: 'AI生活合集新增「双11购物参谋」场景文选题', tag: '内容', href: '#war-rank-ai-life',
+      items: ['「AI生活起号选题方案」合集置顶新增：双11让AI当购物参谋——先挑货、再截图算账，结算页本人核对；含先挑后核闭环、提示词两则、小红书与闲鱼跟做包角度', '附锌刻度（人人都是产品经理转载）/ 人人都是产品经理 / IT时报（界面新闻转载）三个来源；以平台结算页为准，AI数字只是草稿；不代下单不代领券不承诺省钱；与订阅审计、退货寄件、购物冷静器区分。SW 缓存 62'] },
     { id: 97, date: '2026-11-10', title: '每日赚钱榜 · 2026-11-10', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Elementor Affiliate：写 WordPress/建站教程，合资格首购 Editor 或 Host 约45%、One 约55%（One 为限时促销费率，以条款为准）","No.2 Gumroad：上架原创数字下载/课程/会员，无月费；直连成交约抽10%+$0.50，Discover 约30%（以定价页为准）","No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 96, date: '2026-11-09', title: '每日赚钱榜 · 2026-11-09', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）","No.2 Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）","No.3 Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 95, date: '2026-11-07', title: '赚钱区去掉重复的二级切换条', tag: '改进', href: '#war-rank',
