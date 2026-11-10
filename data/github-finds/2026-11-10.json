@@ -1,0 +1,188 @@
+{
+  "date": "2026-11-10",
+  "updated": "2026-11-10T09:15:33+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "egeoagents",
+      "rank": 1,
+      "name": "E-GEO / eGEOagents",
+      "category": "项目",
+      "summary": "开源 GEO/AEO 工具包：CLI + Claude Code Skills + MCP，把页面分析→排序预测→重写→JSON-LD Schema 串成一条流水线，让内容更容易被 ChatGPT/Perplexity/Claude/Gemini 引用。",
+      "why": "映射 autograph-ai（Vue3+FastAPI SEO/GEO AI 内容 SaaS）。相对「只看可见性看板」的追踪器，E-GEO 直接改页面：Analyzer 打 10 项 GEO 特征分、Ranker 模拟引擎排序、Rewriter 保品牌语气重写、Indexer 生成 JSON-LD；另有 egeo fix-gaps 把外部可见性报告缺口回灌成改写任务。可抄：①把 10 特征清单做成生成后质检；②把 geo-output/{optimized,schema,checklist} 接进内容发布工单；③用 Claude Skills /geo 命令做运营侧一键试跑。",
+      "url": "https://github.com/mverab/eGEOagents",
+      "repo": "mverab/eGEOagents",
+      "stars": 218,
+      "tags": [
+        "GEO",
+        "AEO",
+        "CLI",
+        "Claude-Code",
+        "JSON-LD",
+        "autograph-ai"
+      ],
+      "steps": "pip install egeo && GEO_EVAL_MOCK=1 egeo optimize 任意.md 看产出结构；再对照 autograph 内容管线映射 report/optimized/schema/checklist 四个产物字段",
+      "risk": "真实改写需 OpenAI 兼容 API Key；section 模式实验性；排名/引用提升是研究启发与自测快照，非保证。MIT。接入成本：轻（CLI/Skills 试跑）到中（嵌进 SaaS 质检与发布）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/mverab/eGEOagents"
+        },
+        {
+          "title": "Getting Started",
+          "url": "https://github.com/mverab/eGEOagents/blob/main/docs/getting-started.md"
+        },
+        {
+          "title": "arXiv:2511.20867",
+          "url": "https://arxiv.org/abs/2511.20867"
+        }
+      ]
+    },
+    {
+      "id": "comicsol",
+      "rank": 2,
+      "name": "Comic Sol",
+      "category": "项目",
+      "summary": "本地优先、提供商无关的漫画制作引擎：把提示/故事变成可编辑计划与分镜，再经出图、视觉 QA、嵌字、组页，导出 PNG/PDF；自带 18 个 comic_* MCP 工具与跨代理 handoff 包。",
+      "why": "映射 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）。它不内置生图，而是把「确定性工程」与「图像能力」拆开：plan/prompts/references/panels/pages/qa 全可落盘恢复，支持 Codex/Claude 等 Skill，以及 .comic-sol-handoff 在不同代理/机器间传任务。可抄：①项目状态机与产物目录规范（project.json + plan/panels/pages/qa）；②嵌字与组页本地化，避免模型画字；③MCP 工具边界与 handoff prepare/export/import/accept-result 流程，接到 StoryFactory 的剧本→分镜→资产确认链路。",
+      "url": "https://github.com/wenn-id/comicsol",
+      "repo": "wenn-id/comicsol",
+      "stars": 17,
+      "tags": [
+        "comic",
+        "storyboard",
+        "MCP",
+        "local-first",
+        "handoff",
+        "storyfactory"
+      ],
+      "steps": "装 Skill 后跑 comic-sol doctor，用一句自然语言要 2 页样例漫画，对照输出目录与 StoryFactory 现有分镜/导出模块做字段映射表",
+      "risk": "星标仍少、里程碑已完成但正式签名发行链未齐；界面英文；PDF 为纯图无文字层；角色一致性依赖外部生图能力。MIT。成本：中（先对照架构）到重（深接 MCP/handoff）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/wenn-id/comicsol"
+        },
+        {
+          "title": "Getting started",
+          "url": "https://github.com/wenn-id/comicsol/blob/main/docs/user/getting-started.md"
+        },
+        {
+          "title": "Surfaces / MCP",
+          "url": "https://github.com/wenn-id/comicsol/blob/main/docs/surfaces.md"
+        }
+      ]
+    },
+    {
+      "id": "niutrans-tofu",
+      "rank": 3,
+      "name": "ToFu",
+      "category": "项目",
+      "summary": "生产级 Agent 内核：可 pip 嵌入、可 sidecar HTTP/SSE 服务、也可跑完整工作空间；统一模型路由、流式、网页搜索/抓取、MCP、代码与文档工具、重试、上下文压缩与结构化事件。",
+      "why": "映射 clawkit / star-river-dev-team / Hermes（凌霄）多角色研发编排。同一套 lib.tasks_pkg orchestrator 覆盖嵌入式与 sidecar，避免「产品里一套循环、CLI 里另一套」。可抄：①tofu.model-routing/v2 把模型与凭据外置，运维可热换；②GET /api/v1/capabilities 暴露能力清单给编排层；③contracts/ 机器可读行为契约 + 任务事件回放/取消，对照 Hermes 角色 handoff 与审计。下一步可试 pip install tofu-agent && tofu-agent serve，用 curl 打 /api/v1/agent/run 做最小烟测。",
+      "url": "https://github.com/NiuTrans/ToFu",
+      "repo": "NiuTrans/ToFu",
+      "stars": 151,
+      "tags": [
+        "agent-runtime",
+        "MCP",
+        "sidecar",
+        "orchestrator",
+        "clawkit",
+        "Hermes"
+      ],
+      "steps": "pip install tofu-agent && tofu-agent serve，浏览器打开 :15001/setup 配好 Provider 后，对照 clawkit/Hermes 列一张「嵌入 vs sidecar vs 全工作空间」接入边界表",
+      "risk": "完整工作空间偏重；浏览器能力依赖插件；镜像/包发布路径与 rangehow 命名并存，跟文档时需核对版本标签。MIT。成本：轻（sidecar 烟测）到中/重（嵌入进编排主链）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/NiuTrans/ToFu"
+        },
+        {
+          "title": "中文 README",
+          "url": "https://github.com/NiuTrans/ToFu/blob/main/README_CN.md"
+        },
+        {
+          "title": "Developer runtime",
+          "url": "https://github.com/NiuTrans/ToFu/blob/main/docs/DEVELOPER_RUNTIME.md"
+        }
+      ]
+    },
+    {
+      "id": "linnet-morning",
+      "rank": 4,
+      "name": "Linnet",
+      "category": "生活",
+      "summary": "个人 AI 早报：夜里自动抓天气、GitHub Trending、Hacker News、arXiv 等，用 LLM 过滤摘要，发布成可搜索的日/周/月 digest 站点；有中文设置向导，走 GitHub Actions + Pages，不用自备服务器。",
+      "why": "早晨/日程效率：把「起床先刷一堆信息源」收成一份自己的晨间简报。普通人可跟做：模板建仓 → 装 Linnet Bridge App → 打开中文向导填来源与 LLM Key → 一键部署。可打包「个人 AI 早报搭建」闲鱼/公众号方案（配置清单+关键词模板+发布检查表）；偏技术向来源可改成天气+自定义 RSS 降门槛。",
+      "url": "https://github.com/Guesswhat-Studio/Linnet",
+      "repo": "Guesswhat-Studio/Linnet",
+      "stars": 9,
+      "tags": [
+        "早晨效率",
+        "AI早报",
+        "GitHub-Actions",
+        "digest",
+        "可打包"
+      ],
+      "steps": [
+        "在 GitHub 用 Use this template 创建自己的仓库（优先模板而非 Fork）",
+        "打开 https://yuyangxueed.github.io/Linnet/setup/zh/ 完成授权、来源与 LLM 配置并部署",
+        "等 Daily Digest + Pages 工作流跑完，把仓库 About 网站改成自己的 Pages 地址"
+      ],
+      "risk": "星标少；默认来源偏开发者（arXiv/HN），普通人需改配置。需要 GitHub 账号 + LLM API Key；依赖 Actions/Pages 权限。不做投资建议或诊疗。MIT。上手：中（向导约 15–20 分钟）。闲鱼跟做：适合。",
+      "sources": [
+        {
+          "title": "README 中文",
+          "url": "https://github.com/Guesswhat-Studio/Linnet/blob/main/README_zh.md"
+        },
+        {
+          "title": "中文设置向导",
+          "url": "https://yuyangxueed.github.io/Linnet/setup/zh/"
+        },
+        {
+          "title": "中文示例站",
+          "url": "https://rasingue.github.io/linnet_new/"
+        }
+      ]
+    },
+    {
+      "id": "wealthfolio",
+      "rank": 5,
+      "name": "Wealthfolio",
+      "category": "生活",
+      "summary": "开源本地优先个人财务应用：投资组合、净资产、支出分类与预算、目标与再平衡；桌面/iOS/Android 可直接下载，数据在本机，可选 CSV 导入，无需账号。",
+      "why": "消费决策/轻理财：相对纯记账，它把「钱花去哪 + 资产家底 + 预算信封式规划」放在同一应用。普通人 10 分钟路径：官网/Releases 下载 → 建账户 → CSV 或手工录几笔支出 → 设预算分类。可打包「家庭轻理财看板」提示词/模板（账户清单、预算信封表、月末复盘三问）；MCP/本地模型可做进阶，但不挡上手。闲鱼跟做：适合（模板方案，不代持账户）。",
+      "url": "https://github.com/wealthfolio/wealthfolio",
+      "repo": "wealthfolio/wealthfolio",
+      "stars": 9399,
+      "tags": [
+        "轻理财",
+        "预算",
+        "净资产",
+        "local-first",
+        "可打包"
+      ],
+      "steps": [
+        "从 https://wealthfolio.app/download 或 GitHub Releases 安装桌面/手机版",
+        "新建账户，用 CSV 或手工录入最近两周支出并设定预算分类",
+        "周末看 Spending & Budgets 与 Net Worth，用「本月超支信封 / 可挪动项」做一次复盘"
+      ],
+      "risk": "AGPL-3.0（改分发需合规）；券商自动同步属可选付费 Connect，非必须。偏投资+预算一体，纯「只记外卖」可能过重。不做荐股/收益承诺。上手：轻（下载即用）。闲鱼跟做：适合。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/wealthfolio/wealthfolio"
+        },
+        {
+          "title": "官网下载",
+          "url": "https://wealthfolio.app/download"
+        },
+        {
+          "title": "Releases",
+          "url": "https://github.com/wealthfolio/wealthfolio/releases"
+        }
+      ]
+    }
+  ]
+}
