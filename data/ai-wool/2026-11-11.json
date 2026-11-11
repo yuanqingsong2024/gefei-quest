@@ -1,0 +1,410 @@
+{
+  "date": "2026-11-11",
+  "updated": "2026-11-11T10:00:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Traycer：Gemini Carbon 上线窗每人 $100 Gemini 额度（限 500 个账号，约至 11/13 凌晨）",
+      "type": "限时促销",
+      "provider": "Traycer",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Traycer 官方活动页：自 2026-11-10 11:30 PST 至 2026-11-12 11:29 PST（北京时间约 11/11 03:30 至 11/13 03:29），个人积分制账号可免费领取 $100 Gemini 额度，全站共 500 份先到先得。额度独立于常规余额、优先用于 Traycer Inference 上的任意 Gemini 模型（含 Gemini 4 Carbon/Argon、3.8 Flash），不覆盖自带 Key 或其他模型。未用完部分在活动结束时作废。Team 账号不可领；曾领过 Gemini Weekend 的账号仍可再领一次。",
+      "value": "每账号 $100 Gemini 额度 · 共 500 份 · 领取免费 · 活动结束未用完即失效",
+      "deadline": "2026-11-13",
+      "cost": "领取 0 元；需已有或新注册 Traycer 个人积分制账号",
+      "difficulty": 2,
+      "threshold": "仅个人积分制账号；Team 不可领；全球仅 500 份可能已满；需能访问 traycer.ai",
+      "time": "登录活动页点击 Claim 约 5–10 分钟",
+      "fit": "已经或准备用 Traycer 跑 Gemini（含 Carbon）的海外个人用户，想在窗口内把额度用掉",
+      "why": "昨天榜没有这条；窗口只到北京时间 11/13 约 03:29，且限 500 份，适合今天先下手领、再写「上线窗别浪费」素材。",
+      "steps": [
+        "打开 traycer.ai/campaigns/free-gemini-carbon，确认活动仍显示 Claim 且未写满额",
+        "用个人积分制账号登录（不要用 Team）",
+        "点击 Claim，到 Billing 页核对 $100 是否到账且独立于常规余额",
+        "在 Traycer 内选用走 Traycer Inference 的 Gemini 模型（含 Carbon）把额度用掉",
+        "日历标北京时间 2026-11-13 03:29 前用完；结束后剩余作废，勿假设可结转"
+      ],
+      "risk": "风险：500 份可能已被领完；未用完额度在截止时刻作废；仅限 Traycer Inference 的 Gemini，自带 Key 和其他模型不计入。不承诺能领到或用完多少。",
+      "risk_level": "中",
+      "reason": "官方活动页写明窗口、份数与适用范围，相对昨日榜是全新且临期的开窗。",
+      "tags": [
+        "Traycer",
+        "Gemini",
+        "Carbon",
+        "限时额度",
+        "海外"
+      ],
+      "sources": [
+        {
+          "title": "Gemini Carbon Launch: 2 days. $100. Any Gemini models.",
+          "url": "https://traycer.ai/campaigns/free-gemini-carbon",
+          "publisher": "Traycer",
+          "published": "2026-11-10",
+          "kind": "official",
+          "checked": "2026-11-11"
+        }
+      ],
+      "source_url": "https://traycer.ai/campaigns/free-gemini-carbon",
+      "claim_howto": "个人积分制账号打开活动页点 Claim，在 Billing 核对后用 Traycer Inference 的 Gemini 模型消耗。",
+      "stack": [
+        "Traycer",
+        "Gemini 4 Carbon"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "百度千帆 Token Plan 个人版双11：积分制新客首购 5 折（Mini 4.9 元起，至 11/23）+ 指定模型闲时 2 折（至 11/30）",
+      "type": "订阅折扣",
+      "provider": "百度智能云 / 千帆",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "千帆官方文档（更新 2026-11-07）与普惠专场页写明：2026-11-06 0:00 至 11-23 23:59，积分制新客首购 5 折——Mini 4.9 元/月（1400 积分）、Lite 19.9、新档 Standard 49.9、Pro 99.9、Max 299.9；老客另有续费活动价。同时 10-12 至 11-30 23:59，每日 22:00–次日 8:00 调用 DeepSeek-V4.1-Flash、DeepSeek-V4-Pro-0813、GLM-5.3 可低至 2 折，官方写可与首购折叠加。套餐不支持退费/降配；仅限兼容编程/智能体工具交互使用，禁止脚本或应用后端。Mini 5 折另可延至 12-31。昨日及本月前几期榜均未收录该双11套餐。",
+      "value": "新客首购 5 折低至 4.9 元/月（至 11/23）· 指定模型闲时 2 折（至 11/30）· 限时取消 7 天限额",
+      "deadline": "2026-11-23",
+      "cost": "至少支付 Mini 首购 4.9 元；续费/更高档按活动页；不支持退款",
+      "difficulty": 2,
+      "threshold": "需百度智能云账号；5 折仅积分制新客首购；Key 只能走 Token Plan 专属地址；不可用于自动化脚本/后端",
+      "time": "注册/实名并完成首购、配置工具约 20–30 分钟",
+      "fit": "国内个人开发者想用 DeepSeek/GLM/Kimi 做编程或 Agent 交互、能接受首月低价试水且会关自动续费",
+      "why": "这是本月榜从未推过的官方双11订阅折扣，窗口到 11/23，适合写成「首购 4.9 试水 + 夜里 2 折」素材。",
+      "steps": [
+        "打开千帆 Token Plan 个人版文档与 AI 大模型普惠专场，核对档位实价与活动截止",
+        "登录百度智能云，进入 Token Plan 个人版选积分制套餐（先看 Mini/Lite 是否仍显示 5 折）",
+        "确认支付页实价后再付款；默关自动续费，因套餐不支持退费或降配",
+        "在「我的订阅」取专属 API Key，使用文档给出的 Token Plan Base URL 接入 Cursor 等兼容工具",
+        "闲时任务尽量放在 22:00–次日 8:00 打指定模型；日历标 11/23（首购折）与 11/30（闲时折）",
+        "不要把专属 Key 接到自动化脚本或应用后端，以免被封"
+      ],
+      "risk": "风险：5 折只针对积分制新客首购，支付页可能已恢复原价；套餐不可退费；违规用于脚本/后端可能封 Key；次月或活动结束后恢复原价。不承诺一定抢到特价或能省多少。",
+      "risk_level": "低",
+      "reason": "官方文档与活动页双源可核，且相对昨日 8 条及本月更早榜都是新的双11订阅窗口。",
+      "tags": [
+        "百度千帆",
+        "Token Plan",
+        "双十一",
+        "订阅折扣",
+        "闲时折扣"
+      ],
+      "sources": [
+        {
+          "title": "Token Plan 个人版（含双十一新客五折与闲时 2 折）",
+          "url": "https://cloud.baidu.com/doc/qianfan/s/Dmrabu8b6",
+          "publisher": "百度智能云文档",
+          "published": "2026-11-07",
+          "kind": "official",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "AI大模型普惠专场",
+          "url": "https://cloud.baidu.com/product/ai_benefit.html",
+          "publisher": "百度智能云",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-11"
+        }
+      ],
+      "source_url": "https://cloud.baidu.com/doc/qianfan/s/Dmrabu8b6",
+      "claim_howto": "控制台选积分制档位，以支付页是否仍显示 5 折为准；用专属 Key 和 Token Plan 地址接入兼容工具。",
+      "stack": [
+        "百度千帆",
+        "Token Plan",
+        "OpenAI/Anthropic 兼容"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "OpenCode Console：Inkling 2 Small Free 等一众限时免费模型（含 GLM/DeepSeek Flash 等）",
+      "type": "免费额度",
+      "provider": "OpenCode / Thinking Machines",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "OpenCode 官方模型与定价页写明：Inkling 2 Small Free、GLM-5.3-Flash Free、DeepSeek V4.1 Flash Free、MiniMax M3.1 Flash Free、Big Pickle、LongCat 2.5 Free 等输入/输出/缓存读取均为 Free，属限时免费、未写死截止日期。免费聊天模型需在 OpenCode 客户端内用（/models 选择带 Free 的模型）。Inkling 2 Small Free 提供方会保留数据并可能用于训练，且不对欧盟、冰岛、列支敦士登、挪威、古巴、伊朗、朝鲜、俄罗斯、乌克兰、委内瑞拉开放。GLM/DeepSeek/MiniMax 免费档官方写零保留、不用于训练；LongCat 2.5 Free 每日 100 次、托管在中国。昨日榜未收录。",
+      "value": "多款编码向模型限时免费（含 1M 上下文的 Inkling 2 Small）· 官方未写死截止日",
+      "cost": "0 元；需注册 OpenCode 并在官方客户端内使用免费聊天模型",
+      "difficulty": 2,
+      "threshold": "免费聊天模型仅限 OpenCode 客户端；Inkling 有地区限制与训练数据条款；政策可能随时结束",
+      "time": "安装/登录客户端并切换模型约 10–20 分钟",
+      "fit": "能访问海外服务、想在 OpenCode 里免费试新模型和 Flash 档编码助手的个人开发者",
+      "why": "Inkling 2 Small 为近日新上的限时免费模型，官方目录可核，和昨日 8 条完全不同，适合做成「客户端内白嫖 + 看清隐私条款」教程。",
+      "steps": [
+        "打开 opencode.ai/v2/docs/console/models/ 阅读 Free models 与 Privacy，确认目标模型仍标 Free",
+        "安装或更新 OpenCode 官方客户端并登录",
+        "输入 /models，选择 Inkling 2 Small Free 或其他仍在清单中的 Free 模型",
+        "把机密代码和个人数据排除在会用于训练的免费模型之外；需要零保留可优先选官方标明的 GLM/DeepSeek/MiniMax Free",
+        "关注官方是否宣布下线（Crouton Alpha、Pulse Alpha 近日已下架），勿默认永久免费"
+      ],
+      "risk": "风险：限时免费无精确截止日，可能突然下架；部分模型会留存/训练数据；Inkling 与 Beam 有地区限制；免费聊天模型不能当通用对外 API。不承诺长期免费或无限量。",
+      "risk_level": "中",
+      "reason": "官方模型目录与定价表可核，Inkling 2 Small Free 为相对昨日榜的新开窗。",
+      "tags": [
+        "OpenCode",
+        "Inkling",
+        "免费模型",
+        "限时",
+        "编码助手"
+      ],
+      "sources": [
+        {
+          "title": "OpenCode Console Models（含 Free models 与定价）",
+          "url": "https://opencode.ai/v2/docs/console/models/",
+          "publisher": "OpenCode",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "Introducing Inkling 2 Small",
+          "url": "https://thinkingmachines.ai/news/inkling-2-small/",
+          "publisher": "Thinking Machines Lab",
+          "published": "2026-11-05",
+          "kind": "official",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "X：OpenCode 限时免费开放 Inkling 2 Small（引用官方帖）",
+          "url": "https://x.com/dragono64v/status/2120329505344762153",
+          "publisher": "X/@dragono64v",
+          "published": "2026-11-11",
+          "kind": "community",
+          "checked": "2026-11-11"
+        }
+      ],
+      "source_url": "https://opencode.ai/v2/docs/console/models/",
+      "claim_howto": "登录 OpenCode 客户端，/models 选带 Free 的模型；先读隐私与地区限制。",
+      "stack": [
+        "OpenCode",
+        "Inkling 2 Small"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Inception Mercury 3：新账号一次性 1 亿免费 Token（免付款信息）+ 上线期 API 刊例 5 折",
+      "type": "免费额度",
+      "provider": "Inception Labs",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Inception 官方 Quick Start 写明：每个新账号初始获 1 亿免费 Token，无需填写付款信息，创建 API Key 即可调用。官方模型页同步写 “New API keys come with 100 million free tokens”。主力模型 Mercury 3 为扩散式 LLM、1M 上下文、OpenAI 兼容；模型页与介绍博文写上线价 5 折，约输入 $0.10 / 输出 $0.35 / 缓存 $0.01 每百万 Token（刊例 $0.20/$0.70）。免费额与五折均未在页上写死截止日期，用完后需在 Billing 添加支付信息按官网价计费。昨日榜未收录。",
+      "value": "新账号一次性 1 亿 Token · 免填支付信息 · Mercury 3 上线刊例 5 折（以模型页为准）",
+      "cost": "注册与申 Key 0 元；免费额用尽后按官网刊例，可能自动转付费需自行看 Billing",
+      "difficulty": 1,
+      "threshold": "需能访问 inceptionlabs.ai / api.inceptionlabs.ai；免费额与五折未写死截止；可能锁区或限速",
+      "time": "注册+建 Key+试调约 10–15 分钟",
+      "fit": "想免绑卡试用快速扩散模型 API、做语音/对话或编码草稿的海外可达用户",
+      "why": "官方文档与模型页可核的新户大额免费 Token，本月榜未出现，适合写成「免卡领 1 亿 + 盯 Billing」教程。",
+      "steps": [
+        "打开 docs.inceptionlabs.ai/get-started 与 inceptionlabs.ai/models，确认新账号 1 亿 Token 与 Mercury 3 现价仍在",
+        "注册 Inception Platform，到 API Keys 创建密钥（无需先填付款信息）",
+        "向 https://api.inceptionlabs.ai/v1/chat/completions 调用 model=mercury-3 做小流量验证",
+        "在控制台关注剩余免费额度；用完前决定是否在 Billing 添加支付，避免意外扣费",
+        "五折与免费额都以页面实时说明为准，勿默认长期"
+      ],
+      "risk": "风险：官方未写免费额有效期与五折结束日；用尽后若绑卡可能按量扣费；服务可用性与地区限制不明。不承诺一定能领满 1 亿或长期半价。",
+      "risk_level": "中",
+      "reason": "官方 Quick Start 与模型页双源确认新账号免费额，相对昨日榜为新信号。",
+      "tags": [
+        "Inception",
+        "Mercury",
+        "免费Token",
+        "免绑卡",
+        "扩散模型"
+      ],
+      "sources": [
+        {
+          "title": "Quick Start（Every new account includes 100 million free tokens）",
+          "url": "https://docs.inceptionlabs.ai/get-started",
+          "publisher": "Inception Docs",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "Our Models（New API keys come with 100 million free tokens）",
+          "url": "https://www.inceptionlabs.ai/models",
+          "publisher": "Inception Labs",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "Diffusion at Scale: Introducing Mercury 3",
+          "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-3",
+          "publisher": "Inception Labs",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-11"
+        }
+      ],
+      "source_url": "https://docs.inceptionlabs.ai/get-started",
+      "claim_howto": "注册后在 API Keys 建 Key，免填支付信息即可调 mercury-3；盯紧免费余额。",
+      "stack": [
+        "Mercury 3",
+        "OpenAI-compatible"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Parallel Decisions Fast：OpenRouter 限时免费 7 天（模型 ID parallel/decisions-fast:free）",
+      "type": "限时促销",
+      "provider": "Parallel / OpenRouter",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Parallel 官方博文：Decisions API 已上架 OpenRouter，可用现有 OpenRouter Key 试用，文中写明 “Try Parallel Decisions free for 7 days”，模型 ID 为 parallel/decisions-fast:free，无需另开 Parallel 账号。该接口按实时网页做结构化决策（单次最多 100 个相关问题、共享一次搜索），不是通用聊天模型。博文未写死日历截止时刻；社区按 11/6 发布「免费 7 天」推算约至 11/13，必须以 OpenRouter 模型页是否仍标 Free 为准。付费刊例博文写约 $1 / 1000 次（含搜索）。昨日榜未收录。",
+      "value": "OpenRouter 上 Decisions Fast 限时免费 7 天 · 联网结构化决策 · 不必另开账号",
+      "deadline": "2026-11-13",
+      "cost": "活动期 0 元（需已有或新注册 OpenRouter 账号）；结束后按官方刊例",
+      "difficulty": 2,
+      "threshold": "需 OpenRouter 账号与可达网络；免费窗口以模型页 Free 标记为准；不适合当普通对话模型",
+      "time": "用现有 Key 改模型名试调约 5–15 分钟",
+      "fit": "已有 OpenRouter Key、需要给 Agent 做「查网页再决策」的开发者",
+      "why": "官方写明 7 天免费且昨天未上榜，窗口可能只剩一两天，适合今天先验证模型是否仍 Free。",
+      "steps": [
+        "打开 Parallel 博文与 openrouter.ai/parallel/decisions-fast:free，确认是否仍显示 Free",
+        "使用已有 OpenRouter API Key，将模型设为 parallel/decisions-fast:free",
+        "按 Decisions 接口/文档构造结构化问题（不要当普通聊天模型用）",
+        "小流量验证返回的答案、概率与引用",
+        "若模型页已去掉 Free 或开始计费，立刻停用；日历按约 11/13 提醒，以页面为准"
+      ],
+      "risk": "风险：官方只写「免费 7 天」未给精确截止时刻，推算日期可能不准；免费结束后按次计费；该模型不是通用 LLM。不承诺仍能免费或准确到哪一分钟。",
+      "risk_level": "中",
+      "reason": "官方博文可核的 7 天免费窗，相对昨日榜为新信号且临期。",
+      "tags": [
+        "Parallel",
+        "OpenRouter",
+        "限时免费",
+        "Agent",
+        "联网决策"
+      ],
+      "sources": [
+        {
+          "title": "Parallel Decisions is now on OpenRouter",
+          "url": "https://parallel.ai/blog/decisions-openrouter",
+          "publisher": "Parallel",
+          "published": "2026-11-06",
+          "kind": "official",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "Decisions Fast (free) on OpenRouter",
+          "url": "https://openrouter.ai/parallel/decisions-fast:free",
+          "publisher": "OpenRouter",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-11"
+        }
+      ],
+      "source_url": "https://parallel.ai/blog/decisions-openrouter",
+      "claim_howto": "用 OpenRouter Key 选择 parallel/decisions-fast:free，先确认模型页仍标 Free。",
+      "stack": [
+        "OpenRouter",
+        "Parallel Decisions"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Google Cloud Express Mode：Gmail 新用户 90 天免费层（免填结算信息，配额内调 Gemini）",
+      "type": "免费额度",
+      "provider": "Google Cloud / Gemini Enterprise Agent Platform",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Google Cloud 官方文档（更新 2026-11-10）：拥有 @gmail.com 账号的 Google Cloud 新用户可注册 Express Mode 免费层，最多 90 天在指定配额内免费使用支持该模式的 Agent Platform / 生成式 API，无需提供结算信息。这与需绑卡的 Cloud 免费试用（$300 赠金）是两条不同路线；已有 Google Cloud 账号或一旦启用结算，即转入付费层。文档列出可用模型与速率（如部分 Gemini 2.5 档 10 RPM，部分型号为 Dynamic）。功能为 Preview/Pre-GA。本月羊毛榜未收录。",
+      "value": "新用户 90 天免费层 · 免填结算信息 · 配额内调用文档所列 Gemini 等模型",
+      "cost": "免费层 0 元；启用结算或 90 天后转按量，需自行决定是否升级",
+      "difficulty": 2,
+      "threshold": "必须是 Google Cloud 新用户且用 @gmail.com；已有 GCP 项目或绑过结算通常没这档；需能访问 Google Cloud 控制台",
+      "time": "按文档进入 Express Mode 注册并取 API Key 约 15–25 分钟",
+      "fit": "还没有 Google Cloud 账号、想免绑卡试用 Gemini API/Agent Studio 的个人开发者",
+      "why": "官方新近更新的免结算 90 天路径，和 $300 试用不是同一批额度，本月未上榜，适合写成「别和试用赠金搞混」说明。",
+      "steps": [
+        "打开官方 Express Mode 概览，确认自己是尚未开过 Google Cloud 的 Gmail 用户",
+        "从控制台进入 Express Mode 按指引注册免费层，不要急着添加结算账号",
+        "在 Credentials 复制 Generative Language API Key，按文档的全球端点与 x-goog-api-key 头试调所列模型",
+        "遵守文档中的 RPM/配额；需要更高配额再考虑启用结算",
+        "日历标注册日起 90 天；到期或升级前评估是否保留项目，避免意外账单"
+      ],
+      "risk": "风险：仅新用户；Preview 功能可能变更；启用结算即离开免费层并开始按量；与 $300 试用不能混用。不承诺审批通过、配额够用或 90 天内政策不变。",
+      "risk_level": "中",
+      "reason": "官方文档 11/10 更新可核，且本月榜未出现过这条与 $300 试用不同的免费层。",
+      "tags": [
+        "Google Cloud",
+        "Express Mode",
+        "Gemini",
+        "免结算",
+        "90天"
+      ],
+      "sources": [
+        {
+          "title": "Gemini Enterprise Agent Platform in express mode overview",
+          "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview",
+          "publisher": "Google Cloud Documentation",
+          "published": "2026-11-10",
+          "kind": "official",
+          "checked": "2026-11-11"
+        }
+      ],
+      "source_url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/express-mode/overview",
+      "claim_howto": "Gmail 新用户走 Express Mode 免费层注册，取 API Key 按全球端点调用文档所列模型。",
+      "stack": [
+        "Google Cloud Express Mode",
+        "Gemini"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "Google Vids：Omni 1.2 Flash 每月最多 3 条 15 秒 AI 视频（个人或 Workspace 账号免费）",
+      "type": "免费额度",
+      "provider": "Google Vids / Gemini",
+      "region": "全球",
+      "origin": "官方",
+      "summary": "Google 官方博客 2026-11-05：Google Vids 已切换到 Omni 1.2 Flash，自即日起任何 Google 账号或 Google Workspace 订阅用户可在 Vids 中每月最多免费生成 3 条、每条最长 15 秒的 AI 视频。入口为 vids.new。这是产品内免费生成额度，不是可导出的 API Token。帮助中心个别页面对个人账号额度表述可能不同，以账号内实际配额和官方博客为准。本月羊毛榜未收录。",
+      "value": "每月最多 3 条、每条最长 15 秒的免费 AI 视频（官方博客口径）",
+      "cost": "0 元；需 Google 账号，可能需登录电脑浏览器",
+      "difficulty": 1,
+      "threshold": "产品与额度可能按地区/账号类型有差异；不是 API；商用与水印规则以产品页为准",
+      "time": "打开 vids.new 登录并生成约 5–15 分钟",
+      "fit": "想免费用 Google 官方工具试做短视频/配音口播素材的个人或 Workspace 用户",
+      "why": "11/5 官方新模型换代后的免费月额度，本月尚未上榜，适合做成「Vids 免费三条怎么用」短教程素材。",
+      "steps": [
+        "阅读 Google 官方博客确认 Omni 1.2 Flash 与每月三条 15 秒的免费说明",
+        "用电脑浏览器打开 vids.new 并登录 Google 账号",
+        "按产品引导用文字或参考图生成短视频，先看用量/配额提示",
+        "不要把产品内额度理解成可导出的 Gemini API Token",
+        "若帮助页或账号内显示的配额与博客不一致，以账号内显示为准"
+      ],
+      "risk": "风险：免费条数与时长可能因地区或账号类型而异；帮助页与博客口径或有出入；内容政策与商用限制以产品为准。不承诺每账号都能生成满 3 条。",
+      "risk_level": "低",
+      "reason": "Google 官方博客可核，且本月羊毛榜尚未收录该免费月额度。",
+      "tags": [
+        "Google Vids",
+        "Omni",
+        "免费视频",
+        "Gemini",
+        "月额度"
+      ],
+      "sources": [
+        {
+          "title": "Create longer AI videos with Omni 1.2 in Google Vids",
+          "url": "https://blog.google/products-and-platforms/products/workspace/omni-1-2-flash-google-vids/",
+          "publisher": "Google Blog",
+          "published": "2026-11-05",
+          "kind": "official",
+          "checked": "2026-11-11"
+        },
+        {
+          "title": "Learn about availability of Gemini features in Google Vids",
+          "url": "https://support.google.com/docs/answer/15609411",
+          "publisher": "Google Docs Editors Help",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-11"
+        }
+      ],
+      "source_url": "https://blog.google/products-and-platforms/products/workspace/omni-1-2-flash-google-vids/",
+      "claim_howto": "登录 vids.new，按账号内配额生成短视频。",
+      "stack": [
+        "Google Vids",
+        "Omni 1.2 Flash"
+      ]
+    }
+  ]
+}
