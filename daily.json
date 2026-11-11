@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-10T04:24:56.883Z",
-  "latestId": 98,
-  "latestDate": "2026-11-10",
+  "generatedAt": "2026-11-11T00:31:24.990Z",
+  "latestId": 99,
+  "latestDate": "2026-11-11",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 99,
+      "date": "2026-11-11",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-11",
+      "items": [
+        "No.1 Wix Affiliate：写建站/店铺教程，日文官方页写明合资格 Premium 注册约100美元（英文页称部分地区费率可能不同，以条款与后台为准）",
+        "No.2 Whop：上架课程、社群或数字产品，官方称无月费、无开通费，境内卡成功收款约2.7%+$0.30（国际卡与兑换另计）",
+        "No.3 Netlify：按官方 Drop 或 Git 入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 98,
       "date": "2026-11-10",
@@ -116,41 +128,30 @@
         "No.3 Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 89,
-      "date": "2026-11-03",
-      "tag": "新功能",
-      "title": "新增「OPC 一人公司」栏目：政策摘要、可做业务、接活渠道与周报",
-      "items": [
-        "导航「赚钱 → OPC 一人公司」（#war-rank-opc）；政策 / 业务 / 渠道 / 红线常青块 + 周报归档，可按类型筛选",
-        "数据 data/opc-briefs/latest.json，内嵌 js/opc-data.js 兜底。公开整理，非法律或税务意见，不承诺收益，不写灰产。SW 缓存 58"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-opc"
     }
   ],
   "rank": {
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Elementor Affiliate：写 WordPress/建站教程，合资格首购 Editor 或 Host 约45%、One 约55%（One 为限时促销费率，以条款为准）",
+        "name": "Wix Affiliate：写建站/店铺教程，日文官方页写明合资格 Premium 注册约100美元（英文页称部分地区费率可能不同，以条款与后台为准）",
         "type": "联盟营销",
-        "source_url": "https://elementor.com/affiliates/"
+        "source_url": "https://www.wix.com/about/affiliates"
       },
       {
         "rank": 2,
-        "name": "Gumroad：上架原创数字下载/课程/会员，无月费；直连成交约抽10%+$0.50，Discover 约30%（以定价页为准）",
+        "name": "Whop：上架课程、社群或数字产品，官方称无月费、无开通费，境内卡成功收款约2.7%+$0.30（国际卡与兑换另计）",
         "type": "数字产品/接单",
-        "source_url": "https://gumroad.com/pricing"
+        "source_url": "https://whop.com/network/pricing/"
       },
       {
         "rank": 3,
-        "name": "Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "name": "Netlify：按官方 Drop 或 Git 入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://developers.cloudflare.com/pages/get-started/"
+        "source_url": "https://docs.netlify.com/start/quickstarts/netlify-drop-quickstart/"
       }
     ]
   }

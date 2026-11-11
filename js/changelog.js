@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 99, date: '2026-11-11', title: '每日赚钱榜 · 2026-11-11', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Wix Affiliate：写建站/店铺教程，日文官方页写明合资格 Premium 注册约100美元（英文页称部分地区费率可能不同，以条款与后台为准）","No.2 Whop：上架课程、社群或数字产品，官方称无月费、无开通费，境内卡成功收款约2.7%+$0.30（国际卡与兑换另计）","No.3 Netlify：按官方 Drop 或 Git 入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 98, date: '2026-11-10', title: 'AI生活合集新增「双11购物参谋」场景文选题', tag: '内容', href: '#war-rank-ai-life',
       items: ['「AI生活起号选题方案」合集置顶新增：双11让AI当购物参谋——先挑货、再截图算账，结算页本人核对；含先挑后核闭环、提示词两则、小红书与闲鱼跟做包角度', '附锌刻度（人人都是产品经理转载）/ 人人都是产品经理 / IT时报（界面新闻转载）三个来源；以平台结算页为准，AI数字只是草稿；不代下单不代领券不承诺省钱；与订阅审计、退货寄件、购物冷静器区分。SW 缓存 62'] },
     { id: 97, date: '2026-11-10', title: '每日赚钱榜 · 2026-11-10', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Elementor Affiliate：写 WordPress/建站教程，合资格首购 Editor 或 Host 约45%、One 约55%（One 为限时促销费率，以条款为准）","No.2 Gumroad：上架原创数字下载/课程/会员，无月费；直连成交约抽10%+$0.50，Discover 约30%（以定价页为准）","No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
