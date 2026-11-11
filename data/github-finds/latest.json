@@ -1,186 +1,190 @@
 {
-  "date": "2026-11-10",
-  "updated": "2026-11-10T09:15:33+08:00",
+  "date": "2026-11-11",
+  "updated": "2026-11-11T09:06:02+08:00",
   "weekday": "weekday",
   "items": [
     {
-      "id": "egeoagents",
+      "id": "omnigeo",
       "rank": 1,
-      "name": "E-GEO / eGEOagents",
+      "name": "OmniGEO",
       "category": "项目",
-      "summary": "开源 GEO/AEO 工具包：CLI + Claude Code Skills + MCP，把页面分析→排序预测→重写→JSON-LD Schema 串成一条流水线，让内容更容易被 ChatGPT/Perplexity/Claude/Gemini 引用。",
-      "why": "映射 autograph-ai（Vue3+FastAPI SEO/GEO AI 内容 SaaS）。相对「只看可见性看板」的追踪器，E-GEO 直接改页面：Analyzer 打 10 项 GEO 特征分、Ranker 模拟引擎排序、Rewriter 保品牌语气重写、Indexer 生成 JSON-LD；另有 egeo fix-gaps 把外部可见性报告缺口回灌成改写任务。可抄：①把 10 特征清单做成生成后质检；②把 geo-output/{optimized,schema,checklist} 接进内容发布工单；③用 Claude Skills /geo 命令做运营侧一键试跑。",
-      "url": "https://github.com/mverab/eGEOagents",
-      "repo": "mverab/eGEOagents",
-      "stars": 218,
+      "summary": "开源 GEO/AEO 审计引擎：对品牌在 ChatGPT、Perplexity、Claude、Gemini、DeepSeek 上的可见度、引用与份额（SOV）做多引擎对照；带 Web 看板、终端 CLI 和 MCP，并能生成 llms.txt、JSON-LD 与回答型摘要草稿。",
+      "why": "映射 autograph-ai（Vue3+FastAPI SEO/GEO AI 内容 SaaS）。相对昨日 eGEOagents 的「改写流水线」，OmniGEO 补的是「先量后改」：多引擎提问→提及/SOV/引用缺口→一键产出可进发布工单的 AEO 修复草稿。可执行：①npm run cli audit <站点> --json 把审计 JSON 接到内容质检；②MCP 工具 omnigeo_audit_brand / omnigeo_generate_llms_txt 给运营或 Claude Code 在编辑器里跑；③把 optimizer 产出的 llms.txt、FAQ/Speakable JSON-LD、倒金字塔回答 nugget 做成发布前检查项。无 Key 可先用内置沙盒看清字段结构。",
+      "url": "https://github.com/moajez/omni_geo",
+      "repo": "moajez/omni_geo",
+      "stars": 35,
       "tags": [
         "GEO",
         "AEO",
         "CLI",
-        "Claude-Code",
+        "MCP",
+        "llms.txt",
         "JSON-LD",
         "autograph-ai"
       ],
-      "steps": "pip install egeo && GEO_EVAL_MOCK=1 egeo optimize 任意.md 看产出结构；再对照 autograph 内容管线映射 report/optimized/schema/checklist 四个产物字段",
-      "risk": "真实改写需 OpenAI 兼容 API Key；section 模式实验性；排名/引用提升是研究启发与自测快照，非保证。MIT。接入成本：轻（CLI/Skills 试跑）到中（嵌进 SaaS 质检与发布）。",
+      "steps": "git clone 后 npm install && npm run dev 看看板；再跑 npm run cli audit https://你的站点 --json --out geo.json，对照 autograph 发布工单映射 score/SOV/citations/llms.txt 字段（生成文案须人工核对，不可原文上线）",
+      "risk": "星标仍少（35），最近推送约在 10-24。无 API Key 时是启发式模拟，不是真引擎结果。llms.txt/JSON-LD/摘要是模板（可能写出未核实的 SLA/合规措辞），上线前必须按站点事实改写。实跑需自备 OpenAI/Perplexity/Anthropic/Gemini Key，按调用计费。文档里 clone 后目录写成 omnigeo，实际仓名是 omni_geo。MIT。接入成本：轻（CLI/沙盒）到中（嵌进质检与 MCP）。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/mverab/eGEOagents"
+          "url": "https://github.com/moajez/omni_geo"
         },
         {
-          "title": "Getting Started",
-          "url": "https://github.com/mverab/eGEOagents/blob/main/docs/getting-started.md"
+          "title": "CLI Usage",
+          "url": "https://github.com/moajez/omni_geo#-%EF%B8%8F-cli-usage"
         },
         {
-          "title": "arXiv:2511.20867",
-          "url": "https://arxiv.org/abs/2511.20867"
+          "title": "MCP Server",
+          "url": "https://github.com/moajez/omni_geo#-model-context-protocol-mcp"
         }
       ]
     },
     {
-      "id": "comicsol",
+      "id": "wind-comic",
       "rank": 2,
-      "name": "Comic Sol",
+      "name": "Wind Comic",
       "category": "项目",
-      "summary": "本地优先、提供商无关的漫画制作引擎：把提示/故事变成可编辑计划与分镜，再经出图、视觉 QA、嵌字、组页，导出 PNG/PDF；自带 18 个 comic_* MCP 工具与跨代理 handoff 包。",
-      "why": "映射 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）。它不内置生图，而是把「确定性工程」与「图像能力」拆开：plan/prompts/references/panels/pages/qa 全可落盘恢复，支持 Codex/Claude 等 Skill，以及 .comic-sol-handoff 在不同代理/机器间传任务。可抄：①项目状态机与产物目录规范（project.json + plan/panels/pages/qa）；②嵌字与组页本地化，避免模型画字；③MCP 工具边界与 handoff prepare/export/import/accept-result 流程，接到 StoryFactory 的剧本→分镜→资产确认链路。",
-      "url": "https://github.com/wenn-id/comicsol",
-      "repo": "wenn-id/comicsol",
-      "stars": 17,
+      "summary": "多 Agent 短剧生产流水线：一句话走到剧本、角色、分镜、视频、配音、嘴型对齐与成片 mp4；提供商可换（OpenAI/Claude、可灵、Seedance、Veo 等），支持导演台、片段重拍、中文字幕和成本护栏。MIT。",
+      "why": "映射 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）。它把「编剧/导演/角色/分镜/锁脸/嘴型/剪辑」拆成有契约的专家角色，产物按 TEXT→JSON→图→视频逐级落盘，单级可重跑。可抄：①types/agents.ts 里各 Agent 的输入输出契约，对照 StoryFactory 剧本→分镜→资产确认；②导演台的构图锁（站位指令+布局草图）与 Vision 质检自愈（低于阈值只重生坏镜）；③分镜表 CSV/Markdown/PDF 往返与角色三视图+DNA 锁，接到现有角色库；④成本按阶段归因和发布门禁（画面/一致性/口型）。可先零 Key 的 Docker demo 看清流水线，再映射模块。",
+      "url": "https://github.com/ChrisChen667788/wind-comic",
+      "repo": "ChrisChen667788/wind-comic",
+      "stars": 712,
       "tags": [
         "comic",
+        "short-drama",
         "storyboard",
-        "MCP",
-        "local-first",
-        "handoff",
+        "multi-agent",
+        "Next.js",
         "storyfactory"
       ],
-      "steps": "装 Skill 后跑 comic-sol doctor，用一句自然语言要 2 页样例漫画，对照输出目录与 StoryFactory 现有分镜/导出模块做字段映射表",
-      "risk": "星标仍少、里程碑已完成但正式签名发行链未齐；界面英文；PDF 为纯图无文字层；角色一致性依赖外部生图能力。MIT。成本：中（先对照架构）到重（深接 MCP/handoff）。",
+      "steps": "docker run -p 3100:3100 -e MOCK_ENGINES=1 -e JWT_SECRET=demo-only-not-for-production -e DEMO_PASSWORD=wind-comic-demo -v wind-comic-demo:/app/data ghcr.io/chrischen667788/wind-comic:latest，用 demo@qfmanju.ai / wind-comic-demo 登录并导入演示工程《雨夜信号》，按环节对照 StoryFactory 做一张字段映射表",
+      "risk": "零 Key demo 用 MOCK_ENGINES，展示流水线形态，不代表真引擎画质。真出片需多个付费 API，默认新账号月预算可能拦下整片生成。工程体量大（Next.js 全栈，SQLite/Postgres 双驱动），深接成本高。MIT。接入成本：轻（demo 对照）到重（嵌入自有管线）。",
       "sources": [
         {
-          "title": "README",
-          "url": "https://github.com/wenn-id/comicsol"
+          "title": "中文 README",
+          "url": "https://github.com/ChrisChen667788/wind-comic/blob/main/README.zh-CN.md"
         },
         {
-          "title": "Getting started",
-          "url": "https://github.com/wenn-id/comicsol/blob/main/docs/user/getting-started.md"
+          "title": "快速开始",
+          "url": "https://github.com/ChrisChen667788/wind-comic/blob/main/README.zh-CN.md#-快速开始"
         },
         {
-          "title": "Surfaces / MCP",
-          "url": "https://github.com/wenn-id/comicsol/blob/main/docs/surfaces.md"
+          "title": "LLM Providers",
+          "url": "https://github.com/ChrisChen667788/wind-comic/blob/main/docs/llm-providers.md"
         }
       ]
     },
     {
-      "id": "niutrans-tofu",
+      "id": "openrig",
       "rank": 3,
-      "name": "ToFu",
+      "name": "OpenRig",
       "category": "项目",
-      "summary": "生产级 Agent 内核：可 pip 嵌入、可 sidecar HTTP/SSE 服务、也可跑完整工作空间；统一模型路由、流式、网页搜索/抓取、MCP、代码与文档工具、重试、上下文压缩与结构化事件。",
-      "why": "映射 clawkit / star-river-dev-team / Hermes（凌霄）多角色研发编排。同一套 lib.tasks_pkg orchestrator 覆盖嵌入式与 sidecar，避免「产品里一套循环、CLI 里另一套」。可抄：①tofu.model-routing/v2 把模型与凭据外置，运维可热换；②GET /api/v1/capabilities 暴露能力清单给编排层；③contracts/ 机器可读行为契约 + 任务事件回放/取消，对照 Hermes 角色 handoff 与审计。下一步可试 pip install tofu-agent && tofu-agent serve，用 curl 打 /api/v1/agent/run 做最小烟测。",
-      "url": "https://github.com/NiuTrans/ToFu",
-      "repo": "NiuTrans/ToFu",
-      "stars": 151,
+      "summary": "用 YAML 定义并一键拉起持久化的编码 Agent 团队：座位（Seat）、吊舱（Pod）、队列与消息；原生跑 Claude Code / Codex，也可接 Pi 与 Oh My Pi；提供 CLI、TUI、MCP 和 starter/workshop/factory 三种团队规格。Apache-2.0。",
+      "why": "映射 clawkit / star-river-dev-team / Hermes（凌霄）多角色研发编排。它管的是「团队这套系统」而不是改写单个 Agent：RigSpec 声明拓扑，daemon+SQLite 保状态，tmux 里跑未改装的会话，重启可快照恢复。可抄：①Seat 稳定地址（如 dev-build@starter）与 Pod 共享上下文，对照凌霄角色 handoff；②rig send / queue / snapshot 的任务投递与恢复，避免终端会话一散就丢工作；③MCP 让 Agent 自管拓扑（rig_up、rig_ps、rig_send）；④内置 builder+reviewer 的 starter，以及 lead/QA/reviewer 的 workshop，对照现有角色分工。官方也写了 Pi / Oh My Pi runner。",
+      "url": "https://github.com/mvschwarz/openrig",
+      "repo": "mvschwarz/openrig",
+      "stars": 8806,
       "tags": [
-        "agent-runtime",
-        "MCP",
-        "sidecar",
+        "multi-agent",
         "orchestrator",
+        "Claude-Code",
+        "Codex",
+        "Pi",
+        "MCP",
         "clawkit",
         "Hermes"
       ],
-      "steps": "pip install tofu-agent && tofu-agent serve，浏览器打开 :15001/setup 配好 Provider 后，对照 clawkit/Hermes 列一张「嵌入 vs sidecar vs 全工作空间」接入边界表",
-      "risk": "完整工作空间偏重；浏览器能力依赖插件；镜像/包发布路径与 rangehow 命名并存，跟文档时需核对版本标签。MIT。成本：轻（sidecar 烟测）到中/重（嵌入进编排主链）。",
+      "steps": "先读完 README 的「What OpenRig changes on your machine」，在本机跑 npm install -g @openrig/cli && rig setup --dry-run 看将写入的 tmux/hooks/信任项；确认后再 setup，并用 rig specs preview starter --kind rig 对照现有角色表",
+      "risk": "会改本机配置：~/.tmux.conf、Claude/Codex hooks 与 workspace trust，kernel 座位默认权限较宽；官方写明不保证能完整回滚，安装前请备份。需 Node.js 22/24 与 tmux，macOS/Linux（Windows 仅 WSL2）。预置团队偏 Claude Code/Codex，Pi 为附加 runtime。Apache-2.0。接入成本：中（dry-run+starter）到重（把 star-river 拓扑迁到 RigSpec）。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/NiuTrans/ToFu"
+          "url": "https://github.com/mvschwarz/openrig"
         },
+        {
+          "title": "Architecture",
+          "url": "https://github.com/mvschwarz/openrig/blob/main/ARCHITECTURE.md"
+        },
+        {
+          "title": "Getting started",
+          "url": "https://github.com/mvschwarz/openrig/blob/main/docs/reference/quickstart.md"
+        }
+      ]
+    },
+    {
+      "id": "kitchenowl",
+      "rank": 4,
+      "name": "KitchenOwl",
+      "category": "生活",
+      "summary": "开源家庭菜谱与购物清单应用：实时同步购物清单、收藏/导入菜谱并一键加购、周菜单规划，也可记家庭开销；有官方 iOS/Android/桌面/网页客户端，也可用官方网页 https://app.kitchenowl.org，不必先自建服务器。",
+      "why": "饮食/厨房（菜谱+采购清单）：把「晚上吃什么、缺什么、谁去买」收进同一个家用空间。普通人 10 分钟路径：应用商店或 F-Droid 安装 → 连官方网页服务并建家庭 → 收藏或从网页导入一道菜 → 生成购物清单，和下班路过超市时勾选（部分离线可用）。可打包「一周菜单+购物清单」跟做模板（7 天菜单表、常购分类、从菜谱一键加购检查表）。支出分摊是附加能力，不是今天的重点。",
+      "url": "https://github.com/TomBursch/kitchenowl",
+      "repo": "TomBursch/kitchenowl",
+      "stars": 3836,
+      "tags": [
+        "饮食厨房",
+        "购物清单",
+        "菜谱",
+        "周菜单",
+        "可打包"
+      ],
+      "steps": [
+        "从 Google Play、App Store、F-Droid 或 https://github.com/TomBursch/kitchenowl/releases 安装客户端，或直接打开 https://app.kitchenowl.org",
+        "创建或加入一个家庭，导入/收藏 1 道常做菜，用「加到购物清单」生成今晚采购项",
+        "在购物清单里按分类勾选；若要完全本地掌控，再按文档改走自托管"
+      ],
+      "risk": "官方云服务需要账号；数据在官方实例上。完全自建需 Docker，属于加码而不是上手门槛。项目仍标 Public Alpha，偶发不兼容可能。AGPL-3.0（改分发需合规）。上手：轻（装官方 App/网页）。闲鱼跟做：适合（模板方案，不代建服务器、不卖账号）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/TomBursch/kitchenowl"
+        },
+        {
+          "title": "官网与 Web App",
+          "url": "https://kitchenowl.org"
+        },
+        {
+          "title": "文档 / 自托管",
+          "url": "https://docs.kitchenowl.org"
+        }
+      ]
+    },
+    {
+      "id": "mirobody",
+      "rank": 5,
+      "name": "Mirobody",
+      "category": "生活",
+      "summary": "本地优先的个人/家庭健康档案引擎：把不同医院、不同写法的体检单与设备数据标准化到同一套指标编码，每条读数可回溯到原件；可用一行命令或 MCP 先体验，也可 Docker 全本地运行。官方明确：不做诊断、不开处方，回答不构成医疗建议。",
+      "why": "家庭健康资料整理（非诊疗）：适合「每年几张体检单、指标写法不统一、想做对照而不是问诊」的场景。可执行：①用 uvx mirobody resolve 把「血红蛋白 / LDL」等名称对到同一编码，先感受标准化；②用仓库 demo 或在线演示看「跨报告趋势+来源虚线」；③家庭真实档案走本地 Docker（或微信小程序/Theta 应用，需注册）。可打包「体检单归档清单+提问模板」（按年收纳、指标对照表、问医生前的问题清单），必须写明不做诊断。",
+      "url": "https://github.com/thetahealth/mirobody",
+      "repo": "thetahealth/mirobody",
+      "stars": 1447,
+      "tags": [
+        "家庭健康资料",
+        "体检报告",
+        "标准化",
+        "MCP",
+        "不做诊断",
+        "可打包"
+      ],
+      "steps": [
+        "先在终端跑：uvx --python 3.12 mirobody resolve \"LDL cholesterol\" 血红蛋白 血脂（无需 API Key）",
+        "再用仓库 demo/合成样例或 https://chat.mirobody.cn/demo 看趋势与来源追溯，不要上传真实病历到云端演示",
+        "若要归档家人真实报告，按中文 README 用 Docker 本地部署，并只把整理结果当作问诊前资料"
+      ],
+      "risk": "不做诊断、不开处方，不能替代就医。云端演示/Codespaces/小程序会把文档交给模型服务商，真实家庭报告优先本地部署。全本地 Docker 建议约 16GB 内存，上手偏中。基因/用药相关只展示公开指南覆盖，不建议改药。Apache-2.0。上手：轻（resolve 命令/演示）到中（本地归档）。闲鱼跟做：适合做归档清单与提示词模板，不可代管病历或承诺疗效。",
+      "sources": [
         {
           "title": "中文 README",
-          "url": "https://github.com/NiuTrans/ToFu/blob/main/README_CN.md"
+          "url": "https://github.com/thetahealth/mirobody/blob/main/README.zh-CN.md"
         },
         {
-          "title": "Developer runtime",
-          "url": "https://github.com/NiuTrans/ToFu/blob/main/docs/DEVELOPER_RUNTIME.md"
-        }
-      ]
-    },
-    {
-      "id": "linnet-morning",
-      "rank": 4,
-      "name": "Linnet",
-      "category": "生活",
-      "summary": "个人 AI 早报：夜里自动抓天气、GitHub Trending、Hacker News、arXiv 等，用 LLM 过滤摘要，发布成可搜索的日/周/月 digest 站点；有中文设置向导，走 GitHub Actions + Pages，不用自备服务器。",
-      "why": "早晨/日程效率：把「起床先刷一堆信息源」收成一份自己的晨间简报。普通人可跟做：模板建仓 → 装 Linnet Bridge App → 打开中文向导填来源与 LLM Key → 一键部署。可打包「个人 AI 早报搭建」闲鱼/公众号方案（配置清单+关键词模板+发布检查表）；偏技术向来源可改成天气+自定义 RSS 降门槛。",
-      "url": "https://github.com/Guesswhat-Studio/Linnet",
-      "repo": "Guesswhat-Studio/Linnet",
-      "stars": 9,
-      "tags": [
-        "早晨效率",
-        "AI早报",
-        "GitHub-Actions",
-        "digest",
-        "可打包"
-      ],
-      "steps": [
-        "在 GitHub 用 Use this template 创建自己的仓库（优先模板而非 Fork）",
-        "打开 https://yuyangxueed.github.io/Linnet/setup/zh/ 完成授权、来源与 LLM 配置并部署",
-        "等 Daily Digest + Pages 工作流跑完，把仓库 About 网站改成自己的 Pages 地址"
-      ],
-      "risk": "星标少；默认来源偏开发者（arXiv/HN），普通人需改配置。需要 GitHub 账号 + LLM API Key；依赖 Actions/Pages 权限。不做投资建议或诊疗。MIT。上手：中（向导约 15–20 分钟）。闲鱼跟做：适合。",
-      "sources": [
-        {
-          "title": "README 中文",
-          "url": "https://github.com/Guesswhat-Studio/Linnet/blob/main/README_zh.md"
+          "title": "一条命令体验",
+          "url": "https://github.com/thetahealth/mirobody/blob/main/README.zh-CN.md#一条命令体验标准化引擎"
         },
         {
-          "title": "中文设置向导",
-          "url": "https://yuyangxueed.github.io/Linnet/setup/zh/"
-        },
-        {
-          "title": "中文示例站",
-          "url": "https://rasingue.github.io/linnet_new/"
-        }
-      ]
-    },
-    {
-      "id": "wealthfolio",
-      "rank": 5,
-      "name": "Wealthfolio",
-      "category": "生活",
-      "summary": "开源本地优先个人财务应用：投资组合、净资产、支出分类与预算、目标与再平衡；桌面/iOS/Android 可直接下载，数据在本机，可选 CSV 导入，无需账号。",
-      "why": "消费决策/轻理财：相对纯记账，它把「钱花去哪 + 资产家底 + 预算信封式规划」放在同一应用。普通人 10 分钟路径：官网/Releases 下载 → 建账户 → CSV 或手工录几笔支出 → 设预算分类。可打包「家庭轻理财看板」提示词/模板（账户清单、预算信封表、月末复盘三问）；MCP/本地模型可做进阶，但不挡上手。闲鱼跟做：适合（模板方案，不代持账户）。",
-      "url": "https://github.com/wealthfolio/wealthfolio",
-      "repo": "wealthfolio/wealthfolio",
-      "stars": 9399,
-      "tags": [
-        "轻理财",
-        "预算",
-        "净资产",
-        "local-first",
-        "可打包"
-      ],
-      "steps": [
-        "从 https://wealthfolio.app/download 或 GitHub Releases 安装桌面/手机版",
-        "新建账户，用 CSV 或手工录入最近两周支出并设定预算分类",
-        "周末看 Spending & Budgets 与 Net Worth，用「本月超支信封 / 可挪动项」做一次复盘"
-      ],
-      "risk": "AGPL-3.0（改分发需合规）；券商自动同步属可选付费 Connect，非必须。偏投资+预算一体，纯「只记外卖」可能过重。不做荐股/收益承诺。上手：轻（下载即用）。闲鱼跟做：适合。",
-      "sources": [
-        {
-          "title": "README",
-          "url": "https://github.com/wealthfolio/wealthfolio"
-        },
-        {
-          "title": "官网下载",
-          "url": "https://wealthfolio.app/download"
-        },
-        {
-          "title": "Releases",
-          "url": "https://github.com/wealthfolio/wealthfolio/releases"
+          "title": "在线演示（合成数据）",
+          "url": "https://chat.mirobody.cn/demo?ref=github-readme&lang=zh-cn"
         }
       ]
     }
