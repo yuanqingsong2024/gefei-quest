@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-12T00:29:02.028Z",
-  "latestId": 100,
+  "generatedAt": "2026-11-12T04:23:20.086Z",
+  "latestId": 101,
   "latestDate": "2026-11-12",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 101,
+      "date": "2026-11-12",
+      "tag": "内容",
+      "title": "AI生活合集新增「家庭健康档案参谋」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI当家庭健康档案参谋——打码整理体检报告和用药清单，问题清单带去门诊；只做参谋，不当大夫；含归档打码闭环、提示词、小红书与闲鱼跟做包角度",
+        "附经济参考报（光明网转载）/ 北京日报（光明网转载）/ 什么值得买三个来源；以报告原文和医生判断为准，不代看报告、不卖药、不承诺替代面诊；与10-29生活后台、11-07家庭事务盯梢员区分。SW 缓存 63"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 100,
       "date": "2026-11-12",
@@ -116,18 +127,6 @@
         "附21经济网（央视新闻客户端）/ IT Yes, OK! / Ai蓝图网 / 人人都是产品经理四个来源；身份证、银行卡、住址别发；票价与闭园以12306/官方/现场公告为准；不代订、不代规划；不承诺省钱。SW 缓存 59"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 91,
-      "date": "2026-11-05",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-05",
-      "items": [
-        "No.1 Webflow Affiliate：做建站/无代码教程，官方称新客首个订阅最高12个月50%分成（以条款为准）",
-        "No.2 Ko-fi Shop：免月费开小店卖原创数字下载/会员，店铺成交收约5%服务费（以帮助中心为准）",
-        "No.3 GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
