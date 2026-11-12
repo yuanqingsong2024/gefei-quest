@@ -1,0 +1,189 @@
+{
+  "date": "2026-11-12",
+  "updated": "2026-11-12T10:20:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "MiniMax H3-Image：4K 及以上生图/编辑整次请求限时 5 折（至北京时间 11/18 00:00）",
+      "type": "限时促销",
+      "provider": "MiniMax",
+      "region": "全球",
+      "origin": "官方",
+      "summary": "MiniMax 官方定价页（国内站与国际站同步）：H3-Image 上线周，即日起至 2026-11-18 00:00（北京时间，结束时刻不含；国际站为 2026-11-17 16:00 UTC 不含），调用 MiniMax-H3-Image 或 MiniMax-H3-Image-Highspeed 时，只要最终交付图片宽×高 ≥ 1660 万像素（如 4096×4096），整次请求费用 5 折。官方参考价：国内站标准版 4K 文生图约 0.4522 元降至约 0.2261 元/张；国际站约 $0.06879 降至约 $0.03439/张。1K、2K 不参加。无需领券或优惠码，账户有余额即可。实际费用按 Token 用量计，同分辨率也会因提示词增强等略有浮动。",
+      "value": "4K 及以上整次请求 5 折 · 国内站标准版 4K 文生图参考约 0.23 元/张 · 国际站约 $0.034/张 · 1K/2K 不打折",
+      "deadline": "2026-11-18",
+      "cost": "按量付费，需先充值；无额外报名费或优惠码",
+      "difficulty": 2,
+      "threshold": "需 MiniMax 开放平台账号并充值；国内用 platform.minimaxi.com，海外用 platform.minimax.io；输出面积必须达到 1660 万像素才打折",
+      "time": "充值、建 Key 并改 size 参数约 15–30 分钟",
+      "fit": "已经或准备用 MiniMax API / MiniMax Code 批量出 4K 图或做多参考图编辑的开发者与创作者",
+      "why": "昨天榜没有这条；官方博文 11/11 宣布上线周 4K 五折，窗口只到北京时间 11/18 00:00，适合今天先核对定价页再调用。",
+      "steps": [
+        "打开国内站 platform.minimaxi.com/docs/pricing/overview 或国际站 platform.minimax.io/docs/pricing/overview，确认「4K 生图限时 5 折」提示仍在",
+        "登录对应站点并完成充值，创建 API Key（两个站点账号与余额不通用，按你所在区域选一个）",
+        "调用文生图或图片编辑接口，模型填 MiniMax-H3-Image 或 MiniMax-H3-Image-Highspeed，输出面积至少 1660 万像素（例如 size=4096x4096 或 area=4K）",
+        "在用量/账单页核对是否按整次请求 5 折结算；1K、2K 出图仍是原价，不要用小图测折扣",
+        "日历标北京时间 2026-11-18 00:00 前用完窗口；结束后恢复原价，勿假设可延期或结转"
+      ],
+      "risk": "风险：折扣只覆盖最终交付面积 ≥ 1660 万像素的请求，1K/2K 不打折；参考价会因文本 Token 与提示词增强浮动；国内站与国际站余额不通用；窗口到期即恢复原价。不承诺能打到参考价或在截止前调通。",
+      "risk_level": "中",
+      "reason": "国内站与国际站官方定价页均写明 5 折条件与截止时刻，相对昨日榜为全新且临期的上线窗。",
+      "tags": [
+        "MiniMax",
+        "H3-Image",
+        "4K",
+        "限时五折",
+        "生图API"
+      ],
+      "sources": [
+        {
+          "title": "定价概览：4K 生图限时 5 折",
+          "url": "https://platform.minimaxi.com/docs/pricing/overview",
+          "publisher": "MiniMax 开放平台（国内站）",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Pricing Overview: 50% Off 4K Image Generation",
+          "url": "https://platform.minimax.io/docs/pricing/overview",
+          "publisher": "MiniMax API Platform",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "MiniMax H3-Image: Bringing 4K Image Generation into the 10-Second Era",
+          "url": "https://www.minimax.io/blog/minimax-h3-image",
+          "publisher": "MiniMax",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://platform.minimaxi.com/docs/pricing/overview",
+      "claim_howto": "在对应区域开放平台充值并创建 Key，调用 H3-Image / Highspeed 且输出面积 ≥ 1660 万像素，账单将自动按整次请求 5 折，无需领券。",
+      "stack": [
+        "MiniMax-H3-Image",
+        "MiniMax API"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Gemini 4 Carbon 付费 API 导入期半价（至 11/30）：Standard 输入 $2 / 输出 $10",
+      "type": "限时促销",
+      "provider": "Google / Gemini API",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Google 官方博文与 Gemini API 定价页：Gemini 4 Carbon（模型 ID gemini-4-carbon）导入期至 2026-11-30，付费档 Standard 为每百万 Token 输入 $2.00、输出 $10.00（含 thinking tokens），上下文缓存 $0.10（仅隐式缓存）；2026-12-01 起恢复为 $4.00 / $20.00 / $0.20。Batch 与 Flex 导入期为 $1.00 / $5.00。免费档不可用该模型，须升级 Paid 并绑付款方式。思考 Token、接地时的工具系统指令与函数声明都计入账单。",
+      "value": "导入期至 11/30 · Standard 输入 $2 / 输出 $10 每百万 Token · 12/1 恢复 $4 / $20 · 免费档不可用",
+      "deadline": "2026-11-30",
+      "cost": "须 Gemini API 付费档并绑定付款方式；按实际 Token 计费，无单独报名费",
+      "difficulty": 3,
+      "threshold": "须能访问 Google AI Studio / Gemini API 付费档并完成绑卡；免费档没有 Carbon；思考 Token 也按输出计价，长推理账单可能明显高于可见回复",
+      "time": "升级付费档、改模型 ID 并做小流量对账约 20–40 分钟",
+      "fit": "已有或准备开通 Gemini API 付费档、要用 Carbon 做复杂编程/科学推理/长程 Agent 的海外开发者，想在导入期把单价锁在半价",
+      "why": "昨天榜只写了 Traycer 上的 Carbon 额度与 Google 其他免费层，没有这条官方 API 导入价；窗口到 11/30，适合今天先核对定价页再决定是否升级付费档。",
+      "steps": [
+        "打开 aistudio.google.com/docs/pricing 的 Gemini 4 Carbon 表，确认导入价与 11/30 截止仍在",
+        "在 Google AI Studio 将 API 升级到 Paid 并绑定付款方式（免费档无法调用 Carbon）",
+        "把模型设为 gemini-4-carbon；批量或可延迟任务可看 Batch / Flex（导入期输入 $1、输出 $5 / 百万 Token）",
+        "先小流量调用并核对应账单：Standard 输入 $2、输出 $10（含 thinking）；注意接地与工具声明也会计费",
+        "日历标 2026-11-30；12/1 起 Standard 恢复 $4 / $20，勿默认导入价会延期"
+      ],
+      "risk": "风险：免费档完全不可用；思考 Token 计入输出费用，长推理成本可能明显高于可见文本；须绑卡，产生费用由账户承担；导入期结束后自动恢复刊例价。不承诺能开通付费档、价格保持到哪一分钟，或实际账单接近参考单价。",
+      "risk_level": "中",
+      "reason": "官方博文与定价页同步写明导入期单价和 11/30 截止，相对昨日榜是未收录的新开窗。",
+      "tags": [
+        "Gemini",
+        "Carbon",
+        "API半价",
+        "导入期",
+        "付费档"
+      ],
+      "sources": [
+        {
+          "title": "Gemini Developer API pricing — Gemini 4 Carbon",
+          "url": "https://aistudio.google.com/docs/pricing",
+          "publisher": "Google AI Studio",
+          "published": "2026-11-12",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Gemini 4 Carbon is now available",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+          "publisher": "Google",
+          "published": "2026-11-10",
+          "kind": "official",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://aistudio.google.com/docs/pricing",
+      "claim_howto": "升级 Gemini API Paid 后将模型设为 gemini-4-carbon，导入期内按定价表自动以半价计费，无需兑换码。",
+      "stack": [
+        "Gemini API",
+        "gemini-4-carbon",
+        "Google AI Studio"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Gemini Decisions API：Decision 1 免费档可原型调用（输出不计费，11/11 上线）",
+      "type": "免费额度",
+      "provider": "Google / Gemini API",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Google 官方博文（2026-11-11）与定价页：新上线 Gemini Decisions API，模型 gemini-decision-1，一次请求可对同一多模态输入（文本/图/音视频/PDF，官方称输入最长约 256K）并行评估最多 1000 个是非、多选或量表问题，返回概率与置信度，不按输出 Token 计费。付费档输入 $0.10 / 百万 Token、输出 $0。定价页写明 Standard 免费档输入 Free of charge，可在 Google AI Studio 做原型；免费档内容可能用于改进产品，付费档则否。官方写明不支持 Batch API。这是决策/路由专用接口，不是通用聊天模型。",
+      "value": "免费档输入免费、输出不计费 · 付费档 $0.10/百万输入 · 单次最多 1000 题 · 官方未写死免费档截止日",
+      "cost": "原型可走免费档（须能访问 AI Studio）；生产或敏感数据建议付费档，按输入 Token 计费",
+      "difficulty": 2,
+      "threshold": "须能访问 Google AI Studio 并创建 API Key；要用 Decisions 接口而非普通 chat completions；免费档有官方限速且内容可能用于改进产品",
+      "time": "申请 Key 并按文档跑通一次决策请求约 15–30 分钟",
+      "fit": "需要低延迟做工具选择、策略检查、模型路由或评分的海外开发者，想先用免费档验证接口",
+      "why": "昨天榜是 Parallel Decisions 的 7 天限免，不是这条 11/11 新上线的 Google 官方 Decisions API 免费档，属于新开窗。",
+      "steps": [
+        "打开官方博文与 aistudio.google.com/docs/pricing 的 Gemini Decision 1 表，确认免费档仍显示 Free of charge",
+        "在 Google AI Studio 创建 API Key，并阅读 Decisions API 文档（/docs/decisions-api）",
+        "使用 google-genai 的 client.decisions.create，模型填 gemini-decision-1，按 noul / choice / score 构造问题，不要把它当聊天模型用",
+        "先在免费档做小流量原型；若涉及生产或敏感数据，改走付费档（输入 $0.10/百万 Token，输出不计费）",
+        "核对官方限速与配额；Batch API 官方写明不支持。免费档截止日未公布，以定价页为准"
+      ],
+      "risk": "风险：免费档有限速，且官方写明内容可能用于改进产品；接口只做封闭集决策，不能当通用 LLM；限速、配额与免费档是否长期保留都以官网为准，可能随时调整。不承诺免费档能一直调用或满足你的并发需求。",
+      "risk_level": "低",
+      "reason": "官方 11/11 博文与定价页可核的新 API 免费档，相对昨日 Parallel 限免是不同产品与来源。",
+      "tags": [
+        "Gemini",
+        "Decisions API",
+        "免费档",
+        "Agent路由",
+        "官方"
+      ],
+      "sources": [
+        {
+          "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+          "publisher": "Google",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Gemini Developer API pricing — Gemini Decision 1",
+          "url": "https://aistudio.google.com/docs/pricing",
+          "publisher": "Google AI Studio",
+          "published": "2026-11-12",
+          "kind": "official",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+      "claim_howto": "在 Google AI Studio 创建 API Key，按 Decisions API 文档调用 gemini-decision-1；原型可走免费档，敏感或生产流量改付费档。",
+      "stack": [
+        "Gemini Decisions API",
+        "gemini-decision-1",
+        "Google AI Studio"
+      ]
+    }
+  ]
+}
