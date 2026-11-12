@@ -1,0 +1,191 @@
+{
+  "date": "2026-11-12",
+  "updated": "2026-11-12T09:02:57+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "aaron-marketing-skills",
+      "rank": 1,
+      "name": "Aaron Marketing Skills",
+      "category": "项目",
+      "summary": "可安装的 AI 营销技能包（v20.2.0）：120 个纯 Markdown 技能，覆盖叙事、SEO/GEO、社交、邮件、投放、达人与上线 7 条线；可当插件、便携技能，或在 Grok Bot / Hermes Bot Mode 里生成 8 个具名员工机器人。Apache-2.0。",
+      "why": "映射 autograph-ai（Vue3+FastAPI SEO/GEO AI 内容 SaaS）。相对昨日 OmniGEO 的「先量后改」，它补的是内容生产与发布门禁：SEO/GEO 的 SITE 循环（Survey→Implement→Tune→Evaluate）带 16 个技能。可执行：①用 geo-content-optimizer 按 ChatGPT / Perplexity / AI Overviews / Gemini / Claude / Copilot 改一篇待发文，再人工核对后进发布工单；②用 content-quality-auditor 的 80 项 CORE-EEAT 门禁产出 SHIP/FIX/BLOCK，接到现有质检（有一票否决项）；③用 serp-markup-builder 生成 title/meta/OG 与 JSON-LD，对照站点事实改写后再上线；④keyword-research / content-gap-analysis / page-play-builder 可做选题与对比页模板。技能在 Hermes、OpenClaw、Cursor 等 70+ 宿主上可用 `npx skills add` 安装，不必先上完整 8 人团队。文档写明不保证排名或 AI 引用。",
+      "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills",
+      "repo": "aaron-he-zhu/aaron-marketing-skills",
+      "stars": 3131,
+      "tags": [
+        "SEO",
+        "GEO",
+        "AEO",
+        "skills",
+        "CORE-EEAT",
+        "JSON-LD",
+        "Hermes",
+        "autograph-ai"
+      ],
+      "steps": "在 autograph 工作目录执行 npx skills add aaron-he-zhu/aaron-marketing-skills -s content-quality-auditor，对一篇待发文章跑 /aaron-marketing:seo-geo <url> --phase tune，把 SHIP/FIX/BLOCK 接到现有质检（文案与结构化数据须按站点事实人工核对，不可原文上线）",
+      "risk": "这是技能/流程包，不是可运行的审计服务；效果取决于你粘贴的数据和所用模型，官方明确不保证排名、引用或流量。审计器在部分宿主（含 Grok 投影）可能返回 NOT_SCORED。索引提交类连接器（IndexNow / 百度普通收录）属于变更操作，需单独评估。完整 120 技能或 8 人员工包会显著增加提示词体积。有简体中文 README。Apache-2.0。接入成本：轻（单技能）到中（整包或 AI Staff）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills"
+        },
+        {
+          "title": "SEO/GEO 学科指南",
+          "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/blob/main/seo-geo/README.md"
+        },
+        {
+          "title": "简体中文 README",
+          "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/blob/main/docs/README.zh.md"
+        }
+      ]
+    },
+    {
+      "id": "nomi",
+      "rank": 2,
+      "name": "Nomi",
+      "category": "项目",
+      "summary": "开源、本地优先的桌面 AI 视频工作台：一句话拆镜头、出关键帧与视频、排进可剪时间轴并导出 MP4；分镜可锁角色/场景参考卡，按镜切换 Seedance / 可灵 / Wan / 海螺等模型或本地 ComfyUI；自带 MCP（24 个工具）供 Cursor / Claude Code / Codex 驱动。AGPL-3.0-only。",
+      "why": "映射 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）。昨日 Wind Comic 看的是多 Agent 短剧全链路；Nomi 补的是「分镜工作台 + 角色锁 + 时间轴 + 用现有编程 Agent 来指挥」。可抄/可对照：①分镜表一镜一行（提示词、首帧、模型、时长）映射 StoryFactory 分镜字段；②角色/场景参考卡锁定同一张脸，对照现有角色库；③项目即本地文件夹（画布、分镜、时间轴、生成文件、成片），便于资产落盘；④MCP 工具 nomi_canvas_edit、nomi_artifact_review、nomi_operation_plan→preview→gate→execute、nomi_timeline_edit、nomi_export_job，可让凌霄/Cursor 在编辑器里改画布和审分镜；⑤前端是 React + Vite，和 StoryFactory 技术栈接近。Nomi 本身免费、不强制账号；模型费用按你自己的供应商原价支付。",
+      "url": "https://github.com/aqm857886159/Nomi",
+      "repo": "aqm857886159/Nomi",
+      "stars": 641,
+      "tags": [
+        "storyboard",
+        "AI-video",
+        "MCP",
+        "character-lock",
+        "ComfyUI",
+        "React",
+        "storyfactory"
+      ],
+      "steps": "在 macOS 或 Windows 从 GitHub Releases 安装官方桌面版，接入一个已有的 OpenAI 兼容或可灵/火山 Key，用一句话让 Agent 拆 4 镜并锁一张角色参考卡，对照 StoryFactory 写下分镜字段映射（镜号/提示词/首帧/模型/时长）",
+      "risk": "官方安装包目前只有 macOS 与 Windows，无 Linux / Windows arm64 包；macOS 包未经 Apple 公证、Windows 包无 Authenticode 签名，须从官方 Releases 下载并按文档绕过系统拦截，不要关全局安全开关。真出片要自备模型 Key 并按量付费；付费生成、粗剪采用和导出仍须在 Nomi 里确认，MCP 不能单独把钱花出去。当前许可证为 AGPL-3.0-only：若把代码嵌进对外提供的网络服务，需遵守开源义务，不适合直接闭源进 SaaS。与 nomi.ai 聊天产品无关。接入成本：轻（桌面对照）到中（MCP）；嵌入自有产品则偏重且受 AGPL 约束。",
+      "sources": [
+        {
+          "title": "中文 README",
+          "url": "https://github.com/aqm857886159/Nomi/blob/main/README.zh-CN.md"
+        },
+        {
+          "title": "CLI + MCP 指南",
+          "url": "https://github.com/aqm857886159/Nomi/blob/main/docs/guide/capability-core-cli-mcp.md"
+        },
+        {
+          "title": "Releases",
+          "url": "https://github.com/aqm857886159/Nomi/releases/latest"
+        }
+      ]
+    },
+    {
+      "id": "aiwg",
+      "rank": 3,
+      "name": "AIWG",
+      "category": "项目",
+      "summary": "给现有 AI 编程工具用的可复用项目上下文与专家工作流：把 Agent、技能、命令、规则和模板部署到 Hermes、OpenClaw、OpenCode、Pi、Grok Bot 等 19 个宿主；产物落在项目的 .aiwg/ 目录，跨会话保留决策。MIT。",
+      "why": "映射 clawkit / star-river-dev-team / Hermes（凌霄）多角色研发编排。昨日 OpenRig 管的是「怎么把团队拉起来」；AIWG 管的是「同一套专家流程和项目记忆如何跟着仓库走」。可执行：①`aiwg use` 可指定 `--provider hermes` / `openclaw` / `opencode` / `pi`，把同一份源拷到各宿主读取的路径，避免角色说明书各写一份；②对照其专家角色（架构、实现、测试、安全等）和阶段门禁，补齐凌霄 handoff 里的评审标准与产物模板（需求、设计决策、审查报告）；③用项目内 `.aiwg/` 工件把决策从前一次会话带到下一次，减少「换窗口就丢上下文」；④规则里有 citation-policy、token-security 等可直接借鉴的约束。先 setup --review 再 apply，不要一上来 `use all`。",
+      "url": "https://github.com/jmagly/aiwg",
+      "repo": "jmagly/aiwg",
+      "stars": 229,
+      "tags": [
+        "multi-agent",
+        "workflows",
+        "Hermes",
+        "OpenClaw",
+        "OpenCode",
+        "Pi",
+        "clawkit"
+      ],
+      "steps": "在 clawkit 或 star-river 的本地副本目录（不要直接对生产仓 apply）执行 npm i -g aiwg && aiwg setup --scope project --providers hermes，先跑 aiwg setup --review 看将写入的路径与框架，确认后再 apply 一个窄框架，而不是 use all",
+      "risk": "需要 Node.js >=24 和一个已能用的 AI 宿主。`use all` 会写入大量技能/规则/框架，可能冲掉或稀释现有角色设定，必须先 review。角色说明书不是独立模型，写成的规则也不等于运行时强制执行。可选的 Cockpit/沙箱、Jev 决策卸载属于加码，默认不必上。星标尚可（229），但文档体量很大，建议按框架按需启用。MIT。接入成本：中（review 后窄部署）到重（全框架+沙箱）。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/jmagly/aiwg"
+        },
+        {
+          "title": "Guided setup",
+          "url": "https://github.com/jmagly/aiwg/blob/main/docs/getting-started/guided-setup.md"
+        },
+        {
+          "title": "Install / Connect / Verify",
+          "url": "https://github.com/jmagly/aiwg/blob/main/docs/getting-started/install-connect-verify.md"
+        }
+      ]
+    },
+    {
+      "id": "flow-expense",
+      "rank": 4,
+      "name": "Flow",
+      "category": "生活",
+      "summary": "免费开源的离线优先记账应用：分类、标签、附件、消费复盘，可导出 CSV/PDF 和可恢复的 ZIP/JSON 备份；有 Google Play / App Store（均标 beta）和 GitHub 安装包，不必先自建服务器。GPL-3.0。",
+      "why": "消费决策/轻理财：适合「想随手记下今天花了什么、周末回头看一眼，不想把流水交给云记账」的场景。可执行：①应用商店或 Obtainium/Releases 安装后，建一个日常开销账户和 4–6 个分类（餐饮、交通、日用等），先记今天 3 笔；②周末用「复盘」看分类占比，对下一周预算做加减；③打开自动备份或手动导出 ZIP/JSON，确认能恢复后再把旧账迁过来。可打包「一周记账分类表 + 周末复盘问题清单」跟做模板。本推荐只用于日常开销，不涉及炒币；应用虽支持多币种（含加密货币计价），不必启用。",
+      "url": "https://github.com/flow-mn/flow",
+      "repo": "flow-mn/flow",
+      "stars": 512,
+      "tags": [
+        "消费决策",
+        "轻理财",
+        "离线记账",
+        "备份",
+        "可打包"
+      ],
+      "steps": [
+        "从 Google Play、App Store 或 https://github.com/flow-mn/flow/releases/latest 安装（商店版目前标 beta）",
+        "创建一个日常开销账户，加 4–6 个分类，先记今天至少 3 笔支出",
+        "导出一次 ZIP/JSON 备份并确认能恢复；可选的 AI 票据识别（Eny）会把小票送到第三方，不需要就不用"
+      ],
+      "risk": "商店版仍是 beta。界面语言有英/法/德/意/西/蒙/俄等，暂无简体中文，国内用户需能接受英文界面或先看分类图标。完全离线记账可以；只有使用多币种时才需要联网拉汇率。可选的 Eny 票据识别不是本仓库功能，会把照片交给外部服务，涉及隐私就不要开。GPL-3.0。上手：轻。闲鱼跟做：适合做分类与复盘模板，不代装、不卖账号。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/flow-mn/flow"
+        },
+        {
+          "title": "官网",
+          "url": "https://flow.gege.mn"
+        },
+        {
+          "title": "Releases",
+          "url": "https://github.com/flow-mn/flow/releases/latest"
+        }
+      ]
+    },
+    {
+      "id": "openchore",
+      "rank": 5,
+      "name": "OpenChore",
+      "category": "生活",
+      "summary": "自托管的家庭家务积分看板：每人独立皮肤与今日清单，家务分 Required / Core / Bonus 三档（先做必做项才给后面的分），带奖励商店、连续打卡、家长审批和可挂厨房平板的常亮墙面；一个 Docker 命令即可起来，数据在本地 SQLite，无云账号。MIT。",
+      "why": "家务/家庭琐事：适合「家务表贴墙上没人看、小孩挑好做的做、积分规则说不清」的家庭。可执行：①用文档示例家庭先跑通「必做做完，核心分才结算，奖励不能提前兑」这条规则；②把家里 6–8 项家务写成 Required/Core/Bonus，配上奖励兑换价，做成一张可打印的规则卡；③有旧平板的话用 PWA 全屏挂在厨房当墙面看板。可打包「家务分级表 + 积分/奖励规则 + 审批清单」跟做模板（材料向，不代建服务器）。AI 照片预检默认关闭，不是上手必需。",
+      "url": "https://github.com/liftedkilt/openchore",
+      "repo": "liftedkilt/openchore",
+      "stars": 34,
+      "tags": [
+        "家务",
+        "家庭积分",
+        "PWA",
+        "可打包"
+      ],
+      "steps": [
+        "git clone https://github.com/liftedkilt/openchore.git 后复制 config/config.example.yaml，先改掉示例里的家长 PIN，再 docker compose up -d",
+        "打开 http://localhost:8080，用示例家庭走一遍 Required/Core/Bonus 与奖励商店",
+        "按自家家务改配置或在管理页调整；若要暴露到家庭网络，务必先改 PIN 并设好时区 TZ"
+      ],
+      "risk": "需要本机 Docker，不是应用商店一键装，普通人上手偏中；星标仍少（34），项目很新。界面目前是英语和德语，暂无中文。示例配置里的 PIN（文档写明 Alex/Jamie 的 1234、5678）上线前必须改掉。可选 AI 预检只给建议、不自动驳回，但把家务照片发给外部模型前要想清楚。MIT。上手：中。闲鱼跟做：适合做规则与清单模板，不代建、不卖服务器或账号。",
+      "sources": [
+        {
+          "title": "README",
+          "url": "https://github.com/liftedkilt/openchore"
+        },
+        {
+          "title": "Signing in",
+          "url": "https://github.com/liftedkilt/openchore/blob/main/docs/authentication.md"
+        },
+        {
+          "title": "AI features",
+          "url": "https://github.com/liftedkilt/openchore/blob/main/docs/ai.md"
+        }
+      ]
+    }
+  ]
+}
