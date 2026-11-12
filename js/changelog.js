@@ -2,6 +2,7 @@
  *  改完运行 node tools/build-daily.js 重新生成 daily.json。 */
 (function (global) {
   global.QUEST_CHANGELOG = [
+    { id: 100, date: '2026-11-12', title: '每日赚钱榜 · 2026-11-12', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Squarespace Affiliate：写建站/店铺教程，官方帮助中心写明合资格 Website 订阅打款约100至200美元（Acuity 约45美元，须约45天内开通；以条款为准）","No.2 Stan Store：上架课程、预约或数字产品，官方称平台成交抽成0%，Creator 约29美元/月或约300美元/年（另计支付处理费）","No.3 GitLab Pages：按官方文档用 CI 发布英文静态工具小站，官方称在 GitLab 提供的基础设施上无额外托管费，验证流量后再接 AdSense 或联盟"] },
     { id: 99, date: '2026-11-11', title: '每日赚钱榜 · 2026-11-11', tag: '赚钱榜', href: '#war-rank', items: ["No.1 Wix Affiliate：写建站/店铺教程，日文官方页写明合资格 Premium 注册约100美元（英文页称部分地区费率可能不同，以条款与后台为准）","No.2 Whop：上架课程、社群或数字产品，官方称无月费、无开通费，境内卡成功收款约2.7%+$0.30（国际卡与兑换另计）","No.3 Netlify：按官方 Drop 或 Git 入门部署英文工具小站，验证流量后再接 AdSense 或联盟"] },
     { id: 98, date: '2026-11-10', title: 'AI生活合集新增「双11购物参谋」场景文选题', tag: '内容', href: '#war-rank-ai-life',
       items: ['「AI生活起号选题方案」合集置顶新增：双11让AI当购物参谋——先挑货、再截图算账，结算页本人核对；含先挑后核闭环、提示词两则、小红书与闲鱼跟做包角度', '附锌刻度（人人都是产品经理转载）/ 人人都是产品经理 / IT时报（界面新闻转载）三个来源；以平台结算页为准，AI数字只是草稿；不代下单不代领券不承诺省钱；与订阅审计、退货寄件、购物冷静器区分。SW 缓存 62'] },

@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-11T00:31:24.990Z",
-  "latestId": 99,
-  "latestDate": "2026-11-11",
+  "generatedAt": "2026-11-12T00:29:02.028Z",
+  "latestId": 100,
+  "latestDate": "2026-11-12",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 100,
+      "date": "2026-11-12",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-12",
+      "items": [
+        "No.1 Squarespace Affiliate：写建站/店铺教程，官方帮助中心写明合资格 Website 订阅打款约100至200美元（Acuity 约45美元，须约45天内开通；以条款为准）",
+        "No.2 Stan Store：上架课程、预约或数字产品，官方称平台成交抽成0%，Creator 约29美元/月或约300美元/年（另计支付处理费）",
+        "No.3 GitLab Pages：按官方文档用 CI 发布英文静态工具小站，官方称在 GitLab 提供的基础设施上无额外托管费，验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 99,
       "date": "2026-11-11",
@@ -116,42 +128,30 @@
         "No.3 GitHub Pages：从仓库直接发布英文工具/指南小站，绑自定义域名后再接广告或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 90,
-      "date": "2026-11-04",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-04",
-      "items": [
-        "No.1 Kinsta Affiliate：写 WordPress 托管/迁移教程，官方称一次性奖励最高约$500＋终身每月约10%分成（以条款为准）",
-        "No.2 Podia：开课程/数字下载店铺，Mover 档约5%交易费、Shaker 档起无交易费（以官方定价页为准）",
-        "No.3 Render Static Sites：免费部署英文工具小站，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-11-11",
+    "date": "2026-11-12",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Wix Affiliate：写建站/店铺教程，日文官方页写明合资格 Premium 注册约100美元（英文页称部分地区费率可能不同，以条款与后台为准）",
+        "name": "Squarespace Affiliate：写建站/店铺教程，官方帮助中心写明合资格 Website 订阅打款约100至200美元（Acuity 约45美元，须约45天内开通；以条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.wix.com/about/affiliates"
+        "source_url": "https://www.squarespace.com/affiliates"
       },
       {
         "rank": 2,
-        "name": "Whop：上架课程、社群或数字产品，官方称无月费、无开通费，境内卡成功收款约2.7%+$0.30（国际卡与兑换另计）",
+        "name": "Stan Store：上架课程、预约或数字产品，官方称平台成交抽成0%，Creator 约29美元/月或约300美元/年（另计支付处理费）",
         "type": "数字产品/接单",
-        "source_url": "https://whop.com/network/pricing/"
+        "source_url": "https://help.stan.store/article/83-stan-stripes-transaction-fees"
       },
       {
         "rank": 3,
-        "name": "Netlify：按官方 Drop 或 Git 入门部署英文工具小站，验证流量后再接 AdSense 或联盟",
+        "name": "GitLab Pages：按官方文档用 CI 发布英文静态工具小站，官方称在 GitLab 提供的基础设施上无额外托管费，验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://docs.netlify.com/start/quickstarts/netlify-drop-quickstart/"
+        "source_url": "https://docs.gitlab.com/user/project/pages/"
       }
     ]
   }
