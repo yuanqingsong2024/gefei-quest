@@ -1,0 +1,499 @@
+{
+  "date": "2026-11-12",
+  "updated": "2026-11-12T09:00:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Skillzy：上架技能 / Agent 整套配置（约 80%，Stripe Connect）",
+      "type": "Agent工具/小产品",
+      "summary": "Skillzy 官方卖家页与条款（Last updated — 18 May 2026）：可上架技能、指南、提示词包、可落地的 Agent 配置与定时 Loop；上架免费。平台抽取约 20%，卖家经 Stripe Connect 获得约 80%，条款写明该 20% 已覆盖 Stripe 手续费，资金不经平台代持、按卖家在 Stripe 中设定的节奏直达。帮助页写上架即时生效、无预审。Stripe 可用国家页面未公示。",
+      "cost": "0 上架费；需完成 Stripe Connect 与身份核验后才开始获得后续销售收入（条款写不追溯连接完成前的订单）",
+      "difficulty": 2,
+      "threshold": "有可交付的原创技能或 Agent 配置；能完成 Stripe 入驻",
+      "time": "打包+上架可当天完成；到账取决于 Stripe 审核与其付款节奏",
+      "fit": "已有自用 SKILL.md 或一行业务的完整 Agent 配置、并能开 Stripe 的人",
+      "why": "11-09 未收录。官方条款把 80/20 与 Stripe Connect 写死，品类比纯 SKILL.md 店更宽（含 Agent Setup），可作新货架。无预审是双刃剑，需自己把住质量与版权。",
+      "steps": [
+        "用邮箱或 GitHub 注册，准备自有 SKILL.md、配置文件或完整 Agent 配置包",
+        "按帮助页区分 Skill / Guide / Prompt Pack / Agent Setup / Loop，只上传你有权出售的文件",
+        "补全 listing（可用其草稿工具，但须你本人核对，不得虚假演示）",
+        "在 Dashboard → Payouts 完成 Stripe Connect，再开始销售",
+        "同一作品可非独家分发到其他店；售出后自行看 Stripe 对账单",
+        "若出现退款或拒付，以 Stripe 余额扣回为准，不承诺销量"
+      ],
+      "risk": "风险等级：中。平台较新、无上架预审，买家可投诉质量或版权问题；Stripe 对部分国家/主体可能无法开户（页面未列名单）；真实卖家收入未公示。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手官方条款+帮助中心，分成与出金轨道清楚，且为 11-09 未收录的在线路径。",
+      "tags": [
+        "Skillzy",
+        "Stripe Connect",
+        "SKILL.md",
+        "Agent Setup",
+        "80%"
+      ],
+      "sources": [
+        {
+          "title": "Sell AI Agent Skills — Skillzy",
+          "url": "https://skillzy.ai/sell",
+          "publisher": "Skillzy",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Terms of Service — Skillzy",
+          "url": "https://skillzy.ai/terms",
+          "publisher": "Skillzy",
+          "published": "2026-05-18",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Help & FAQ — Skillzy",
+          "url": "https://skillzy.ai/help",
+          "publisher": "Skillzy",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://skillzy.ai/terms",
+      "agent_howto": "用 Cursor/Claude 把已跑通的流程写成 SKILL.md 或打包 Agent 配置、补 listing 文案与示例；注册、定价、连接 Stripe 与报税由你本人完成。",
+      "agent_stack": [
+        "Cursor/Claude",
+        "Skillzy",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "MCP Marketplace：上架付费 MCP 服务器（约 85%，Stripe Connect Express）",
+      "type": "Agent工具/小产品",
+      "summary": "MCP Marketplace 官方条款（Last updated: February 24, 2026）与 FAQ：卖的是可供 Claude/ChatGPT/Cursor 等安装的 MCP 插件/服务器（本地或远程），上架前走安全扫描，多数约 24 小时内审核。付费工具销售收入平台留约 15%、创作者约 85%，经 Stripe Connect Express 按 Stripe 常规节奏打款。可同时上免费开源与付费版。Stripe 可用国家页面未公示。",
+      "cost": "0 上架费；付费项需维持有效的 Stripe Connect 账户；远程 MCP 需自备托管",
+      "difficulty": 3,
+      "threshold": "能实现并自测一个真正的 MCP 协议服务（TypeScript/Python 等）；通过安全与协议校验",
+      "time": "开发视复杂度数日到数周；审核官方称多数约 24 小时",
+      "fit": "会做 MCP、希望卖「调用能力」而不是卖文件的开发者",
+      "why": "11-09 清单全是 SKILL.md 文件店或扣子技能。这里是 MCP 服务器货架，分成写在条款里，品类不重复。",
+      "steps": [
+        "用官方或社区 MCP SDK 做一个可演示的垂直工具（本地 stdio 或远程 HTTP）",
+        "自测协议与权限范围，去掉密钥与越权能力",
+        "按 listing 表单提交，等待安全扫描；不通过则根据报告修改",
+        "在创作者后台连接 Stripe Connect Express，再上架付费档",
+        "可同时提供免费开源核心 + 付费 Pro 维护",
+        "上线后用 Claude/Cursor 做安装验收，按反馈发版"
+      ],
+      "risk": "风险等级：中。条款日期较早、平台销量未公示；Stripe 开户资格因国家而异（名单未公示）；MCP 在用户环境执行，安全事故会影响结算与下架。不承诺收益。",
+      "risk_level": "中",
+      "reason": "官方条款写死 85% 与 Stripe Connect Express，且与既有 SKILL.md 店形成品类差。",
+      "tags": [
+        "MCP",
+        "MCP Marketplace",
+        "Stripe Connect",
+        "85%"
+      ],
+      "sources": [
+        {
+          "title": "Terms of Service | MCP Marketplace",
+          "url": "https://mcp-marketplace.io/terms",
+          "publisher": "MCP Marketplace",
+          "published": "2026-02-24",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Frequently Asked Questions About MCP Plugins",
+          "url": "https://mcp-marketplace.io/faq",
+          "publisher": "MCP Marketplace",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://mcp-marketplace.io/terms",
+      "agent_howto": "用 Cursor/Claude 生成 MCP 脚手架、工具描述与测试用例，并在本地/远程自测；提交审核、连接 Stripe 与定价由你本人操作，Agent 不代管密钥。",
+      "agent_stack": [
+        "MCP SDK",
+        "Cursor/Claude",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Toku.agency：上架可雇 Agent 服务（完成后约 85% 入钱包，Stripe Connect 提现）",
+      "type": "Agent接单",
+      "summary": "Toku 官网与 API 文档：把 Agent 注册为可定价的服务，人类或其他 Agent 下单；任务完成后约 85% 计入平台钱包，平台留约 15%（若该 Worker 由推荐而来，推荐人另从平台份额中得约 5%，平台实留约 10–15%）。运营者完成 Stripe Connect Express 入驻后，可随时申请提现到银行。文档写支持 46+ 个国家，示例含日本、欧盟、英国、美国等，完整名单与最低提现额页面未公示。条款（Last updated: January 2025）较简，退款个案处理。",
+      "cost": "0 注册费；需 Stripe KYC；运行 Agent 的模型与托管成本自付",
+      "difficulty": 4,
+      "threshold": "有可验收的单项服务（范围、价、交付物清楚）；运营者能完成 Stripe Connect",
+      "time": "注册与上架可当天；出金取决于 Stripe 入驻与银行到账",
+      "fit": "已有可 API 交付的 Agent、且有合法收美元账户的开发者",
+      "why": "11-09 的接单位主要是 NEAR（银行出金国家更窄）与 Tobira 代搭建。Toku 官方把「85% 入钱包 + Stripe Connect 提现到银行、非法币代币」写进文档，是少见的法币 Agent 雇佣货架。",
+      "steps": [
+        "阅读 https://www.toku.agency/docs 的注册与钱包章节，用 API 注册 Agent 并保存密钥",
+        "把服务写成清晰的范围、分层定价与交付时限，先做可演示的小额档",
+        "配置 webhook，用文档中的 setup checklist 补邮箱等必填项",
+        "由你本人打开 Stripe Connect Express 入驻链接，完成身份与银行绑定",
+        "接单后按描述交付；完成态才会按约 85% 入钱包，再调用提现接口",
+        "不要把推荐返佣或钱包余额当成已到账银行的收入"
+      ],
+      "risk": "风险等级：高。平台与条款都偏新、偏薄，公开成交与卖家收入未核实；中国是否包含在「46+ 国家」之列页面未写明；退款与争议为个案处理。不承诺收益。",
+      "risk_level": "高",
+      "reason": "官方文档与首页一致写明分成和 Stripe 出金，补上与 NEAR 不同的法币雇佣通道；因条款薄、国家名单不全，风险标高。",
+      "tags": [
+        "Toku",
+        "Agent接单",
+        "Stripe Connect",
+        "85%"
+      ],
+      "sources": [
+        {
+          "title": "toku.agency — The AI Agent Marketplace",
+          "url": "https://www.toku.agency/",
+          "publisher": "Toku",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "API Documentation | toku.agency（含 Agent Wallet / Money Flow）",
+          "url": "https://www.toku.agency/docs",
+          "publisher": "Toku",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Terms of Service — toku.agency",
+          "url": "https://www.toku.agency/terms",
+          "publisher": "Toku",
+          "published": "2025-01",
+          "kind": "official",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://www.toku.agency/docs",
+      "agent_howto": "让你的 Agent 按官方 API 注册、报价、接 webhook 并回传交付物；Stripe 入驻、提现、争议与税务由你本人处理，不要把密钥交给第三方。",
+      "agent_stack": [
+        "自建 Agent",
+        "Toku API",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "SkillHQ：上架付费 SKILL.md（Starter 约 80% / Pro 约 85%）",
+      "type": "Agent工具/小产品",
+      "summary": "SkillHQ 官方卖家文档（2026-11-12 复核未改）：把工作流打包成 SKILL.md + README，CLI 校验后上架；Starter 默认无需 KYC，按售价约 80% 分成、满 €20 可按需提现到 PayPal（售出后约 7 天退款冻结）；升级 Pro 后约 85% 分成并走 Stripe Connect 直达银行。付费技能最低约 €2。",
+      "cost": "0 上架费；Stripe/PayPal 通道费已计入分成示意；Pro 需完成 Stripe KYC",
+      "difficulty": 2,
+      "threshold": "有一个可复用、至少 200 字说明的原创技能；能用 CLI 或按文档组织目录",
+      "time": "打包+上架当天可完成；审核与首笔到账视销量与冻结期",
+      "fit": "已用 Claude/Cursor 维护自用技能、想低门槛试卖的个人，尤其需要 PayPal、暂不能开 Stripe 的人",
+      "why": "本周条款未变，但在新店多为 Stripe 的情况下，仍是国内创作者较容易跑通第一笔的货架，故保留。",
+      "steps": [
+        "把常做任务写成 SKILL.md（frontmatter + 步骤）并配 README.md 作为详情页",
+        "本地运行 skillhq validate，修结构与重复检测问题",
+        "skillhq publish 设价（≥€2）与分类标签",
+        "在后台绑定 PayPal，余额满 €20 且过 7 天冻结后按需提现",
+        "销量上来后再升级 Pro，接 Stripe Connect 提高分成并改直达银行",
+        "用免费精简版引流，按退款与转化数据迭代定价"
+      ],
+      "risk": "风险等级：中。平台较新、真实卖家收入未公开；Starter 过 DAC7 阈值需补身份或升 Pro；退款会冲回未结算余额。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手官方卖家文档复核仍成立，PayPal 门槛相对本周新店更低。",
+      "tags": [
+        "SkillHQ",
+        "SKILL.md",
+        "PayPal",
+        "Stripe Connect",
+        "卖技能"
+      ],
+      "sources": [
+        {
+          "title": "How to Sell Skills — SkillHQ Docs",
+          "url": "https://skillhq.dev/docs/selling",
+          "publisher": "SkillHQ",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://skillhq.dev/docs/selling",
+      "agent_howto": "用 Cursor/Claude 把你已跑通的流程写成 SKILL.md 与 README，并生成校验用的示例输入；上架、定价、绑定 PayPal/Stripe 与提现由你本人操作。",
+      "agent_stack": [
+        "Cursor/Claude",
+        "SkillHQ CLI",
+        "PayPal/Stripe"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "扣子技能商店：上架付费技能（按次/订阅，国内收款）",
+      "type": "Agent工具/小产品",
+      "summary": "2026-11-12 复核官方结算文档：仍支持上架付费技能，按次（积分）或月/季/年订阅；商户入驻后经支付宝/抖音支付结算，网页/安卓订单约 30 天后可提现，苹果与积分渠道按月出结算单。微信商户开通仍写「正在审核中」。收益=订单额×(1-服务费率)，费率以平台公示为准。",
+      "cost": "0 上架费；需商户入驻（支付宝实名、商户证件），平台收服务费与渠道费",
+      "difficulty": 3,
+      "threshold": "能做 API 插件/代码片段/数据检索类技能；完成商户入驻与内容审核",
+      "time": "开发 1–2 周；入驻+审核数天；首笔结算约 30 天后",
+      "fit": "国内开发者、有垂直数据或工具能力的个人/小团队",
+      "why": "条款未变，仍是国内少有的「Agent 技能直接收费」官方人民币通道，海外 Stripe 店替代不了本地收款，故保留。",
+      "steps": [
+        "在扣子网页端完成商户入驻，开通支付宝/抖音支付收款",
+        "选一个垂直刚需做成技能并提交审核",
+        "设定按次价或订阅价，准备试用说明",
+        "在「商户管理」查看已分账订单并手动提现",
+        "按协议自行或配合平台申报个税"
+      ],
+      "risk": "风险等级：中。平台可审核价格、调整规则；违规可下架并暂停结算；微信收款通道尚未对商户开放。不承诺收益。",
+      "risk_level": "中",
+      "reason": "官方文档+服务协议仍在线，人民币闭环，可行性与合规度高。",
+      "tags": [
+        "扣子",
+        "Coze",
+        "技能商店",
+        "付费技能",
+        "国内收款"
+      ],
+      "sources": [
+        {
+          "title": "技能收入结算",
+          "url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
+          "publisher": "扣子 Coze 官方文档",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "扣子创作者技能服务协议（2026-01-18 生效）",
+          "url": "https://docs.coze.cn/guides_skills_creator_service_terms",
+          "publisher": "扣子 Coze 官方",
+          "published": "2026-01-18",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "付费技能费用",
+          "url": "https://docs.coze.cn/skill-fee",
+          "publisher": "扣子 Coze 官方文档",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
+      "agent_howto": "用 Cursor/Claude 写技能 API、参数说明、测试用例和详情页文案；用扣子 Agent 自测。商户资料、定价与提现由你本人操作。",
+      "agent_stack": [
+        "扣子",
+        "Cursor/Claude",
+        "支付宝商户"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Agensi：MCP 分发卖技能（约 70%；官方写清 Stripe 仅限部分国家）",
+      "type": "Agent工具/小产品",
+      "summary": "Agensi 卖家页与结算文档：SKILL.md 打包 ZIP 上架，安全扫描+AI+人工审核（通常 24–48 小时）后进入商店与 MCP；作者拿净价约 70%（平台约 30% 全包），可一次买断或月订阅。条款页 Last updated: November 11, 2026。官方 Earnings 文档写明：Stripe Connect 仅适用于 EEA、英国、瑞士、直布罗陀、美国或加拿大，银行卡销售可在成交时入账；其余地区走 Zoneless，以 Solana 上 USDC 结算，单笔约 72 小时后可付、待结算满约 $3.50 发放。国内用户不要再默认能开 Stripe 法币。",
+      "cost": "0 上架费；付费技能上线前需完成收款与 KYC",
+      "difficulty": 3,
+      "threshold": "原创、可被 Agent 调用的技能；能通过安全与意图审核；能接受所在地对应的出金方式",
+      "time": "审核约 1–2 天；法币到账仅限文档列出的国家",
+      "fit": "人在 Stripe 支持名单内、或能自行评估 USDC 合规风险的创作者",
+      "why": "分成未变，但 11-11 条款日之后，出金地理限制被官方文档写死，纠正 11-09「优先走 Stripe 法币」可能造成的误解，必须更新。",
+      "steps": [
+        "先读 Earnings and payouts，确认自己是否在 Stripe 国家名单内",
+        "把垂直工作流写成 SKILL.md 并打包 ZIP，上传并设定一次价或订阅价",
+        "等待安全扫描+人工审核",
+        "在名单内则连接 Stripe；不在名单则不要为收款去走不合规的加密通道，可改投 SkillHQ/扣子等法币店",
+        "用 Connector（官方已取消 Agent API key）在 Claude/ChatGPT/Cursor 侧验证加载",
+        "用 Creator Studio 看转化，按退款与使用数据迭代"
+      ],
+      "risk": "风险等级：中。页面收入数字为示意；不在 Stripe 名单则只剩 USDC/Zoneless，国内涉及加密资产与合规风险。技能在买家 Agent 内执行，需避免密钥与越权指令。不承诺收益。",
+      "risk_level": "中",
+      "reason": "官方条款日期新鲜，且把 Stripe 国家范围写进结算文档，属于出金资格的实质信息披露。",
+      "tags": [
+        "Agensi",
+        "MCP",
+        "Stripe 国家限制",
+        "Zoneless",
+        "70%"
+      ],
+      "sources": [
+        {
+          "title": "Earnings and payouts | Agensi Docs",
+          "url": "https://www.agensi.io/docs/earnings-and-payouts",
+          "publisher": "Agensi",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Terms of Service | Agensi",
+          "url": "https://www.agensi.io/terms",
+          "publisher": "Agensi",
+          "published": "2026-11-11",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "How to Make Money With AI: Sell Agent Skills | Agensi",
+          "url": "https://www.agensi.io/sell",
+          "publisher": "Agensi",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://www.agensi.io/docs/earnings-and-payouts",
+      "agent_howto": "用 Cursor/Claude 编写并自测 SKILL.md，生成演示与 listing；KYC、出金方式选择与提现由你操作，Agent 不代管密钥或钱包。",
+      "agent_stack": [
+        "Cursor/Claude",
+        "Agensi",
+        "Stripe 或（仅在你可合法使用时）Zoneless"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "案例拆解：MimikFlow（TrustMRR/Stripe 核验的 Agent 订阅产品）",
+      "type": "Agent案例拆解",
+      "summary": "MimikFlow 是法国创始人 Mo Alani 做的 LinkedIn 潜客与预约订阅产品。TrustMRR（Revenue is verified with Stripe API key；页写 Last updated: Nov 11, 2026, 04:06 PM，未标时区）显示近 30 天收入 $12,418、MRR $11,550、84 个有效订阅、累计 $38,655。官网标价 Discovery €49 / Pro €97 / Agency €167（含税，月付；季/年付有折扣）。这些是该产品已发生的核验数字，不是你能复制的结果。官方条款第 7 条写明 LinkedIn 禁止第三方自动化，账号限制风险由用户自负——本条只拆「先卖再做、先用 n8n 验证再产品化」的方法，不建议模仿自动私信触达。",
+      "cost": "若只学方法：时间成本；若自做合规小订阅产品，需自备域名、Stripe 与模型费用。不要把该产品的自动触达当作可售方案。",
+      "difficulty": 4,
+      "threshold": "能先用手作或无违规渠道验证付费意愿；能自建结账；理解目标平台服务条款",
+      "time": "公开复盘称：约 3 个月 n8n 原型 + 约 1 个月做成 SaaS（创始人自述，见 MissumAI 整理）",
+      "fit": "想做小订阅产品、需要「先验证再写代码」样本的人；不是想卖 LinkedIn 自动私信工具的人",
+      "why": "11-09 没有带 Stripe/TrustMRR 交叉核验的 Agent 订阅案例。本条补上可核对的收入页，同时把 LinkedIn 条款风险写清楚，避免误当成可复制项目。",
+      "steps": [
+        "只把案例当方法：先向真实买家用手作服务验证愿意付费，再考虑产品化（创始人自述路径）",
+        "核读 TrustMRR 与官网定价页，记录日期；收入数字会变，不以旧截图对外承诺",
+        "若自做产品，选不违反目标平台用户协议的交付方式（文档、站点、邮件、自有数据），不要复制 LinkedIn 第三方自动私信",
+        "可用 n8n 或 Agent 先跑通核心流程，再迁到自有前后端与 Stripe 订阅",
+        "公开报价与退订规则，自己完成税务与隐私合规",
+        "不要在闲鱼或对外材料中承诺「也能做到同样 MRR」"
+      ],
+      "risk": "风险等级：高。官网与条款明确：LinkedIn 仍限制第三方自动化，可能导致账号限制或封禁，责任在使用者。案例收入只描述该产品过去的核验结果，不构成收益预期。不承诺收益。",
+      "risk_level": "高",
+      "reason": "有 TrustMRR/Stripe 核验页与官方定价/条款可交叉核对；必须同时披露自动化条款风险，故只作文案方法拆解。",
+      "tags": [
+        "MimikFlow",
+        "TrustMRR",
+        "案例拆解",
+        "Stripe",
+        "不承诺收益"
+      ],
+      "sources": [
+        {
+          "title": "MimikFlow revenue（Stripe-verified）",
+          "url": "https://trustmrr.com/startup/mimikflow",
+          "publisher": "TrustMRR",
+          "published": "2026-11-11",
+          "kind": "other",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "LinkedIn AI Agent | MimikFlow（定价与 LinkedIn 风险说明）",
+          "url": "https://mimikflow.com/en",
+          "publisher": "MimikFlow",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Terms of Service | MimikFlow（第 7 条 LinkedIn 风险）",
+          "url": "https://mimikflow.com/terms",
+          "publisher": "MimikFlow / Danmind",
+          "published": "2026-10-05",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "How MimikFlow was built with n8n and Claude Code",
+          "url": "https://missumai.com/stories/how-mimikflow-was-built",
+          "publisher": "MissumAI",
+          "published": "2026-11-02",
+          "kind": "news",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://trustmrr.com/startup/mimikflow",
+      "agent_howto": "可用 Agent 整理竞品条款对照、定价页备忘和产品需求稿；支付、合规判断与上线由你本人完成。不要让 Agent 代操他人的社交媒体账号或发送未经允许的自动私信。",
+      "agent_stack": [
+        "n8n 或自建 Agent",
+        "Stripe",
+        "自有站点"
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "闲鱼原创方案：《新 Agent 货架上架对照手册》（Skillzy / MCP Marketplace / Toku / AIMarket24）",
+      "type": "Agent闲鱼方案",
+      "summary": "基于本周新核到的官方文档自写对照手册：Skillzy 约 80% 与无预审、MCP Marketplace 约 85% 与安全扫描、Toku 约 85% 钱包+Stripe 提现及「46+ 国家」、AIMarket24 约 15% 佣金（前 50 名六个月约 5%）与托管至确认/约 3 天（银行出金细节页面未公示）。对比审核、分成、冻结与「只卖自有作品」红线。闲鱼只卖原创 PDF，不代开店、不代实名、不卖账号。与 11-09 已卖的「扣子+SkillHQ/AgentAlley/Agensi」手册选题不同。",
+      "cost": "0–几十元排版；需亲自走通至少 1 条新路径以便截图",
+      "difficulty": 2,
+      "threshold": "能读英文文档；自己完成一次上架、入驻或至少跑通注册+条款阅读并截图",
+      "time": "写作 2–4 天",
+      "fit": "已看过技能店、想把本周新货架差写成资料的人",
+      "why": "11-09 手册覆盖的是旧四店。本周新店条款互不相同（有无预审、MCP 还是雇佣、托管周期），值得单独一本，而不是改标题重卖旧手册。",
+      "steps": [
+        "亲自完成其中至少一家的注册/上架或条款与后台路径截图，注明日期",
+        "按官方原文整理分成、冻结、出金通道与未公示项，每条附链接",
+        "写清禁售项（他人开源、账号、代领）并声明不承诺收益",
+        "排版为原创 PDF，闲鱼以数字资料上架",
+        "平台改版时出修订版并通知已购读者"
+      ],
+      "risk": "风险等级：低。须原创并标注时效；不得承诺收益、不得提供代实名/代开店。不承诺收益。",
+      "risk_level": "低",
+      "reason": "选题与 11-09 手册不重复，材料均为本周已抓取的官方页。",
+      "tags": [
+        "闲鱼",
+        "原创教程",
+        "Skillzy",
+        "MCP Marketplace",
+        "Toku",
+        "AIMarket24"
+      ],
+      "sources": [
+        {
+          "title": "Terms of Service — Skillzy",
+          "url": "https://skillzy.ai/terms",
+          "publisher": "Skillzy",
+          "published": "2026-05-18",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "Terms of Service | MCP Marketplace",
+          "url": "https://mcp-marketplace.io/terms",
+          "publisher": "MCP Marketplace",
+          "published": "2026-02-24",
+          "kind": "official",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "API Documentation | toku.agency",
+          "url": "https://www.toku.agency/docs",
+          "publisher": "Toku",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-12"
+        },
+        {
+          "title": "AIMarket24 Fees for Buyers and Sellers in USD",
+          "url": "https://aimarket24.pro/fees",
+          "publisher": "AIMarket24",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-12"
+        }
+      ],
+      "source_url": "https://skillzy.ai/terms",
+      "agent_howto": "用 Agent 生成大纲、对照表与 FAQ 初稿，再按你的实测截图改写；Agent 不代操作任何账号。",
+      "agent_stack": [
+        "Claude/ChatGPT",
+        "排版工具"
+      ],
+      "resell": "原创 PDF 手册，闲鱼数字资料；不卖账号/码/代领/代开店"
+    }
+  ]
+}
