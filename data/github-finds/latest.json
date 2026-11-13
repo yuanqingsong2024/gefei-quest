@@ -1,189 +1,181 @@
 {
-  "date": "2026-11-12",
-  "updated": "2026-11-12T09:02:57+08:00",
+  "date": "2026-11-13",
+  "updated": "2026-11-13T09:02:30+08:00",
   "weekday": "weekday",
   "items": [
     {
-      "id": "aaron-marketing-skills",
+      "id": "dualmark",
       "rank": 1,
-      "name": "Aaron Marketing Skills",
+      "name": "Dualmark",
       "category": "项目",
-      "summary": "可安装的 AI 营销技能包（v20.2.0）：120 个纯 Markdown 技能，覆盖叙事、SEO/GEO、社交、邮件、投放、达人与上线 7 条线；可当插件、便携技能，或在 Grok Bot / Hermes Bot Mode 里生成 8 个具名员工机器人。Apache-2.0。",
-      "why": "映射 autograph-ai（Vue3+FastAPI SEO/GEO AI 内容 SaaS）。相对昨日 OmniGEO 的「先量后改」，它补的是内容生产与发布门禁：SEO/GEO 的 SITE 循环（Survey→Implement→Tune→Evaluate）带 16 个技能。可执行：①用 geo-content-optimizer 按 ChatGPT / Perplexity / AI Overviews / Gemini / Claude / Copilot 改一篇待发文，再人工核对后进发布工单；②用 content-quality-auditor 的 80 项 CORE-EEAT 门禁产出 SHIP/FIX/BLOCK，接到现有质检（有一票否决项）；③用 serp-markup-builder 生成 title/meta/OG 与 JSON-LD，对照站点事实改写后再上线；④keyword-research / content-gap-analysis / page-play-builder 可做选题与对比页模板。技能在 Hermes、OpenClaw、Cursor 等 70+ 宿主上可用 `npx skills add` 安装，不必先上完整 8 人团队。文档写明不保证排名或 AI 引用。",
-      "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills",
-      "repo": "aaron-he-zhu/aaron-marketing-skills",
-      "stars": 3131,
+      "summary": "开源 AEO 基础设施：同一 URL 同时提供给人看的 HTML 和给 AI 代理看的 Markdown 双胞胎，由 Accept 头或 GPTBot / ClaudeBot / PerplexityBot 等 24 种已知爬虫 UA 自动选择；可生成 llms.txt，并用 CLI 按公开 AEO Spec v1.0 打 0–125 分。Apache-2.0。",
+      "why": "映射 autograph-ai（Vue3+FastAPI SEO/GEO AI 内容 SaaS）。相对昨日 Aaron Marketing Skills 的「内容生产+发布门禁」，以及此前的审计/改写技能包，它补的是已发布页如何被 ChatGPT / Perplexity / Claude 等爬虫读到：同一地址出干净 Markdown，而不是把导航和脚本汤喂给模型。可执行：①对一篇定价/博客/对比页跑 bunx @dualmark/cli verify，把 .md 是否可达、Content-Type、Link rel=\"alternate\"、Bot UA 是否收到 markdown 等分项失败当作上线门禁，不必先改技术栈；②对照公开 spec/（AEO Specification v1.0）在 FastAPI 实现 /path.md 双胞胎、内容协商与自动 llms.txt，@dualmark/core 是与框架无关的对照实现（官方适配 Astro/Next/SvelteKit/Nuxt 及 Cloudflare 等边缘，没有现成的 Vue3+Vite/FastAPI 插件）；③用 compare/blog/glossary/pseo 转换器口径，规范对比页、博客、术语页给 AI 看的 Markdown 结构（标题、摘要、FAQ、相关链接），再按站点事实人工校对。Markdown 双胞胎带 X-Robots-Tag: noindex，避免重复收录。文档写明 Pre-1.0。",
+      "url": "https://github.com/dodopayments/dualmark",
+      "repo": "dodopayments/dualmark",
+      "stars": 124,
       "tags": [
-        "SEO",
-        "GEO",
         "AEO",
-        "skills",
-        "CORE-EEAT",
+        "GEO",
+        "llms.txt",
+        "content-negotiation",
         "JSON-LD",
-        "Hermes",
+        "FastAPI",
         "autograph-ai"
       ],
-      "steps": "在 autograph 工作目录执行 npx skills add aaron-he-zhu/aaron-marketing-skills -s content-quality-auditor，对一篇待发文章跑 /aaron-marketing:seo-geo <url> --phase tune，把 SHIP/FIX/BLOCK 接到现有质检（文案与结构化数据须按站点事实人工核对，不可原文上线）",
-      "risk": "这是技能/流程包，不是可运行的审计服务；效果取决于你粘贴的数据和所用模型，官方明确不保证排名、引用或流量。审计器在部分宿主（含 Grok 投影）可能返回 NOT_SCORED。索引提交类连接器（IndexNow / 百度普通收录）属于变更操作，需单独评估。完整 120 技能或 8 人员工包会显著增加提示词体积。有简体中文 README。Apache-2.0。接入成本：轻（单技能）到中（整包或 AI Staff）。",
+      "steps": "对 autograph 一页公开内容执行 bunx @dualmark/cli verify <url>，记下分项失败后再决定是先补 .md 双胞胎与 llms.txt，还是只把评分接入发布 CI（文案须按站点事实核对，不保证因此获得 AI 引用）",
+      "risk": "最近一次代码推送为 2026-09-15（约两个月前），状态 Pre-1.0，API 在 1.0 前可能变动。没有官方 Vue3+FastAPI 适配器，落地要按规范自写中间件；内容协商若配错，可能把真人做成 markdown 或把双胞胎索引出去（须落实 noindex）。不保证排名或引用。Apache-2.0。接入成本：轻（先跑 verify）到中（按 Spec 在 FastAPI 落地）。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills"
+          "url": "https://github.com/dodopayments/dualmark"
         },
         {
-          "title": "SEO/GEO 学科指南",
-          "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/blob/main/seo-geo/README.md"
+          "title": "AEO Specification v1.0",
+          "url": "https://github.com/dodopayments/dualmark/tree/main/spec"
         },
         {
-          "title": "简体中文 README",
-          "url": "https://github.com/aaron-he-zhu/aaron-marketing-skills/blob/main/docs/README.zh.md"
+          "title": "文档站",
+          "url": "https://dualmark.dev"
         }
       ]
     },
     {
-      "id": "nomi",
+      "id": "penshot-story-shot-agent",
       "rank": 2,
-      "name": "Nomi",
+      "name": "PenShot（story-shot-agent）",
       "category": "项目",
-      "summary": "开源、本地优先的桌面 AI 视频工作台：一句话拆镜头、出关键帧与视频、排进可剪时间轴并导出 MP4；分镜可锁角色/场景参考卡，按镜切换 Seedance / 可灵 / Wan / 海螺等模型或本地 ComfyUI；自带 MCP（24 个工具）供 Cursor / Claude Code / Codex 驱动。AGPL-3.0-only。",
-      "why": "映射 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）。昨日 Wind Comic 看的是多 Agent 短剧全链路；Nomi 补的是「分镜工作台 + 角色锁 + 时间轴 + 用现有编程 Agent 来指挥」。可抄/可对照：①分镜表一镜一行（提示词、首帧、模型、时长）映射 StoryFactory 分镜字段；②角色/场景参考卡锁定同一张脸，对照现有角色库；③项目即本地文件夹（画布、分镜、时间轴、生成文件、成片），便于资产落盘；④MCP 工具 nomi_canvas_edit、nomi_artifact_review、nomi_operation_plan→preview→gate→execute、nomi_timeline_edit、nomi_export_job，可让凌霄/Cursor 在编辑器里改画布和审分镜；⑤前端是 React + Vite，和 StoryFactory 技术栈接近。Nomi 本身免费、不强制账号；模型费用按你自己的供应商原价支付。",
-      "url": "https://github.com/aqm857886159/Nomi",
-      "repo": "aqm857886159/Nomi",
-      "stars": 641,
+      "summary": "开源剧本分镜智能体（仓库 neopen/story-shot-agent，PyPI 包名 penshot）：任意格式剧本切成镜头级片段，输出适配 Sora / Veo / Runway / 可灵的中英双语视频提示词、负面词与音频提示；用多层记忆和 Chroma 维持角色/场景跨镜一致。默认识产出声明式指令，不调用生图/生视频 API。MIT。",
+      "why": "映射 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）。昨日 Nomi 看的是分镜工作台、角色锁与时间轴；PenShot 补的是剧本工程层——长剧本怎么切、角色怎么连续、结果怎么交给现有出片管线。可抄/可对照：①输出 JSON 含 fragment_id、中英 prompt、negative_prompt、duration、audio、main_character，可映射到 StoryFactory 分镜字段；②连续性守护（短期/中期/长期记忆 + 向量检索）可对照现有角色库，抄跨镜着装与场景约束，不必先上完整 LangGraph；③提供 Python SDK、可嵌入 FastAPI 的示例、MCP（breakdown_script / get_task_result）、REST、LangGraph 节点与 A2A，和 StoryFactory 的 FastAPI 后端以及凌霄/Cursor 指挥方式接近；④默认不打生视频 API，资产计划（角色三视图、场景、首帧）交还现有可灵/Seedance/ComfyUI，再经 asset_manifest 回填。LLM 可换 OpenAI / Qwen / DeepSeek / Ollama，环境示例默认阿里云百炼。",
+      "url": "https://github.com/neopen/story-shot-agent",
+      "repo": "neopen/story-shot-agent",
+      "stars": 238,
       "tags": [
         "storyboard",
-        "AI-video",
+        "character-consistency",
+        "LangGraph",
         "MCP",
-        "character-lock",
-        "ComfyUI",
-        "React",
+        "FastAPI",
+        "可灵",
         "storyfactory"
       ],
-      "steps": "在 macOS 或 Windows 从 GitHub Releases 安装官方桌面版，接入一个已有的 OpenAI 兼容或可灵/火山 Key，用一句话让 Agent 拆 4 镜并锁一张角色参考卡，对照 StoryFactory 写下分镜字段映射（镜号/提示词/首帧/模型/时长）",
-      "risk": "官方安装包目前只有 macOS 与 Windows，无 Linux / Windows arm64 包；macOS 包未经 Apple 公证、Windows 包无 Authenticode 签名，须从官方 Releases 下载并按文档绕过系统拦截，不要关全局安全开关。真出片要自备模型 Key 并按量付费；付费生成、粗剪采用和导出仍须在 Nomi 里确认，MCP 不能单独把钱花出去。当前许可证为 AGPL-3.0-only：若把代码嵌进对外提供的网络服务，需遵守开源义务，不适合直接闭源进 SaaS。与 nomi.ai 聊天产品无关。接入成本：轻（桌面对照）到中（MCP）；嵌入自有产品则偏重且受 AGPL 约束。",
+      "steps": "本地 pip install penshot，用一段 StoryFactory 已有剧本跑 examples/integrations/fastapi_web_app.py（或 SDK 示例），记下分镜 JSON 字段与现有分镜表的映射，先不要接生视频 API",
+      "risk": "完整服务的环境示例含 Redis 与 Embedding，不只是三行 SDK；效果取决于自备的 LLM/嵌入 Key 与费用。输出是提示词和资产计划，不是成片，连续性不能替代人工锁参考图。架构偏重，嵌入生产需评估队列与并发。有中文 README 与文档。MIT。接入成本：轻（SDK 对照字段）到中（FastAPI/MCP）；嵌整条记忆层则偏重。",
       "sources": [
         {
           "title": "中文 README",
-          "url": "https://github.com/aqm857886159/Nomi/blob/main/README.zh-CN.md"
+          "url": "https://github.com/neopen/story-shot-agent"
         },
         {
-          "title": "CLI + MCP 指南",
-          "url": "https://github.com/aqm857886159/Nomi/blob/main/docs/guide/capability-core-cli-mcp.md"
+          "title": "FastAPI 集成示例",
+          "url": "https://github.com/neopen/story-shot-agent/blob/main/examples/integrations/fastapi_web_app.py"
         },
         {
-          "title": "Releases",
-          "url": "https://github.com/aqm857886159/Nomi/releases/latest"
+          "title": "文档站",
+          "url": "https://shot.helpenx.com/docs/"
         }
       ]
     },
     {
-      "id": "aiwg",
+      "id": "agentrove",
       "rank": 3,
-      "name": "AIWG",
+      "name": "Agentrove",
       "category": "项目",
-      "summary": "给现有 AI 编程工具用的可复用项目上下文与专家工作流：把 Agent、技能、命令、规则和模板部署到 Hermes、OpenClaw、OpenCode、Pi、Grok Bot 等 19 个宿主；产物落在项目的 .aiwg/ 目录，跨会话保留决策。MIT。",
-      "why": "映射 clawkit / star-river-dev-team / Hermes（凌霄）多角色研发编排。昨日 OpenRig 管的是「怎么把团队拉起来」；AIWG 管的是「同一套专家流程和项目记忆如何跟着仓库走」。可执行：①`aiwg use` 可指定 `--provider hermes` / `openclaw` / `opencode` / `pi`，把同一份源拷到各宿主读取的路径，避免角色说明书各写一份；②对照其专家角色（架构、实现、测试、安全等）和阶段门禁，补齐凌霄 handoff 里的评审标准与产物模板（需求、设计决策、审查报告）；③用项目内 `.aiwg/` 工件把决策从前一次会话带到下一次，减少「换窗口就丢上下文」；④规则里有 citation-policy、token-security 等可直接借鉴的约束。先 setup --review 再 apply，不要一上来 `use all`。",
-      "url": "https://github.com/jmagly/aiwg",
-      "repo": "jmagly/aiwg",
-      "stars": 229,
+      "summary": "自托管 AI 编程工作区：在同一界面经 ACP 运行并编排 Antigravity、Claude Code、Codex、Copilot、Cursor、Grok 与 OpenCode；主会话可通过内置 MCP 把任务派给带人设的子线程（可选独立 git worktree），也支持你与多名 Agent 同在一个 Channel 里改同一仓库。Apache-2.0。",
+      "why": "映射 clawkit 与 star-river-dev-team（本地指挥官「凌霄」）。相对 11-11 OpenRig 的可声明团队拓扑、昨日 AIWG 的项目记忆随仓库走，它补的是可运行的多 Agent 工作区与编排面。可执行：①docker compose up -d 后把已有的 OpenCode / Grok / Cursor CLI 配进 ACP，对照凌霄「主将拆活→角色领取→回收评审」能否用子线程 + persona 落地；②为侦察、实现、质检分别建只读探路、编码、找 bug 人设，主会话按任务选模型与推理档；③Channels 可作为多角色会商对照：同一工作区、先声明改哪些文件、权限提示在对话里批准；④MCP 工具 send_message / get_messages / list_models / list_personas 可研究如何把编排能力暴露给现有 Hermes/OpenClaw 宿主。技术栈为 React 19 + FastAPI，另有已公证的 macOS 桌面版和可自签、连到自有实例的 iOS 瘦客户端。",
+      "url": "https://github.com/Mng-dev-ai/agentrove",
+      "repo": "Mng-dev-ai/agentrove",
+      "stars": 339,
       "tags": [
         "multi-agent",
-        "workflows",
-        "Hermes",
-        "OpenClaw",
         "OpenCode",
-        "Pi",
+        "Grok",
+        "ACP",
+        "MCP",
+        "orchestration",
+        "Hermes",
         "clawkit"
       ],
-      "steps": "在 clawkit 或 star-river 的本地副本目录（不要直接对生产仓 apply）执行 npm i -g aiwg && aiwg setup --scope project --providers hermes，先跑 aiwg setup --review 看将写入的路径与框架，确认后再 apply 一个窄框架，而不是 use all",
-      "risk": "需要 Node.js >=24 和一个已能用的 AI 宿主。`use all` 会写入大量技能/规则/框架，可能冲掉或稀释现有角色设定，必须先 review。角色说明书不是独立模型，写成的规则也不等于运行时强制执行。可选的 Cockpit/沙箱、Jev 决策卸载属于加码，默认不必上。星标尚可（229），但文档体量很大，建议按框架按需启用。MIT。接入成本：中（review 后窄部署）到重（全框架+沙箱）。",
+      "steps": "按官方 Quick Start 复制 .env 并 docker compose up -d，只挂一个非生产仓库，配好 OpenCode 或 Grok，用主会话派一个带 reviewer persona 的子线程，先观察权限提示与 worktree 行为再考虑对接凌霄",
+      "risk": "编排出的无人值守回合以 Agent 的全执行模式运行，工人线程不会再弹权限确认，必须先收紧沙箱与密钥，不能默认对着生产仓库开。需要 Docker；各 Agent 的账号与模型费用自备。iOS 只是远程客户端，桌面包目前是 Apple Silicon。生产部署首个账号可自注册，随后默认关闭注册。Apache-2.0。接入成本：中（本地 Docker 对照）到重（当作凌霄控制面）。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/jmagly/aiwg"
+          "url": "https://github.com/Mng-dev-ai/agentrove"
         },
         {
-          "title": "Guided setup",
-          "url": "https://github.com/jmagly/aiwg/blob/main/docs/getting-started/guided-setup.md"
-        },
-        {
-          "title": "Install / Connect / Verify",
-          "url": "https://github.com/jmagly/aiwg/blob/main/docs/getting-started/install-connect-verify.md"
+          "title": "Releases（桌面版）",
+          "url": "https://github.com/Mng-dev-ai/agentrove/releases/latest"
         }
       ]
     },
     {
-      "id": "flow-expense",
+      "id": "plain-week",
       "rank": 4,
-      "name": "Flow",
+      "name": "Plain Week",
       "category": "生活",
-      "summary": "免费开源的离线优先记账应用：分类、标签、附件、消费复盘，可导出 CSV/PDF 和可恢复的 ZIP/JSON 备份；有 Google Play / App Store（均标 beta）和 GitHub 安装包，不必先自建服务器。GPL-3.0。",
-      "why": "消费决策/轻理财：适合「想随手记下今天花了什么、周末回头看一眼，不想把流水交给云记账」的场景。可执行：①应用商店或 Obtainium/Releases 安装后，建一个日常开销账户和 4–6 个分类（餐饮、交通、日用等），先记今天 3 笔；②周末用「复盘」看分类占比，对下一周预算做加减；③打开自动备份或手动导出 ZIP/JSON，确认能恢复后再把旧账迁过来。可打包「一周记账分类表 + 周末复盘问题清单」跟做模板。本推荐只用于日常开销，不涉及炒币；应用虽支持多币种（含加密货币计价），不必启用。",
-      "url": "https://github.com/flow-mn/flow",
-      "repo": "flow-mn/flow",
-      "stars": 512,
+      "summary": "极简周计划与待办：一屏看完一周，数据在浏览器本地（IndexedDB），免登录、可离线、可装成 PWA；支持快速录入、跨天拖拽、重复规则和「移到明天/下周/Someday」。MIT。官网有中文界面。",
+      "why": "对应今天优先的「早晨/日程效率」。工作日早上打开本周视图（快捷键 T 回到今天），把昨夜未完成项拖到今天或 Someday，用「17:30 接孩子」这类带时间的一行写下通勤与晚间节点，大约 10 分钟完成本日焦点，不必先上完整日历或时间块软件。每周重复的倒垃圾、买菜、晨间运动可设成重复任务，周末再把 Someday 里一件拖进下一周，形成可复用的一周晨间看板。打开 https://plainweek.eu 即可用，无需账号；跨设备同步可自托管单容器 Docker（SQLite，无其它服务），官方托管同步为付费方案。自托管文档还可选配 Google Calendar 与通知，不是开箱必配。",
+      "url": "https://github.com/victor-falcon/plain-week",
+      "repo": "victor-falcon/plain-week",
+      "stars": 68,
       "tags": [
-        "消费决策",
-        "轻理财",
-        "离线记账",
-        "备份",
-        "可打包"
+        "weekly-planner",
+        "morning",
+        "PWA",
+        "offline-first",
+        "MIT",
+        "中文"
       ],
-      "steps": [
-        "从 Google Play、App Store 或 https://github.com/flow-mn/flow/releases/latest 安装（商店版目前标 beta）",
-        "创建一个日常开销账户，加 4–6 个分类，先记今天至少 3 笔支出",
-        "导出一次 ZIP/JSON 备份并确认能恢复；可选的 AI 票据识别（Eny）会把小票送到第三方，不需要就不用"
-      ],
-      "risk": "商店版仍是 beta。界面语言有英/法/德/意/西/蒙/俄等，暂无简体中文，国内用户需能接受英文界面或先看分类图标。完全离线记账可以；只有使用多币种时才需要联网拉汇率。可选的 Eny 票据识别不是本仓库功能，会把照片交给外部服务，涉及隐私就不要开。GPL-3.0。上手：轻。闲鱼跟做：适合做分类与复盘模板，不代装、不卖账号。",
+      "steps": "用浏览器打开 https://plainweek.eu（无需账号），把本周 5 件必做和 2 条带时间的通勤/晚饭安排写进今天与相邻两天，装成 PWA 试用三天再决定要不要自托管",
+      "risk": "项目较新（2026-10-15 建仓），星标一般，功能还在迭代。官网免注册即用；跨设备同步要么自己部署，要么用 plainweek.eu 付费方案。它不是日历订阅中心，也不是新闻早报。MIT。上手成本：轻（官网即用）；自托管为中。适合做成「一周晨间看板用法」模板，不要做成代部署或账号服务。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/flow-mn/flow"
+          "url": "https://github.com/victor-falcon/plain-week"
         },
         {
-          "title": "官网",
-          "url": "https://flow.gege.mn"
+          "title": "在线使用（无需注册）",
+          "url": "https://plainweek.eu"
         },
         {
-          "title": "Releases",
-          "url": "https://github.com/flow-mn/flow/releases/latest"
+          "title": "自托管说明",
+          "url": "https://github.com/victor-falcon/plain-week/blob/main/docs/self-hosting.md"
         }
       ]
     },
     {
-      "id": "openchore",
+      "id": "evershelf",
       "rank": 5,
-      "name": "OpenChore",
+      "name": "EverShelf",
       "category": "生活",
-      "summary": "自托管的家庭家务积分看板：每人独立皮肤与今日清单，家务分 Required / Core / Bonus 三档（先做必做项才给后面的分），带奖励商店、连续打卡、家长审批和可挂厨房平板的常亮墙面；一个 Docker 命令即可起来，数据在本地 SQLite，无云账号。MIT。",
-      "why": "家务/家庭琐事：适合「家务表贴墙上没人看、小孩挑好做的做、积分规则说不清」的家庭。可执行：①用文档示例家庭先跑通「必做做完，核心分才结算，奖励不能提前兑」这条规则；②把家里 6–8 项家务写成 Required/Core/Bonus，配上奖励兑换价，做成一张可打印的规则卡；③有旧平板的话用 PWA 全屏挂在厨房当墙面看板。可打包「家务分级表 + 积分/奖励规则 + 审批清单」跟做模板（材料向，不代建服务器）。AI 照片预检默认关闭，不是上手必需。",
-      "url": "https://github.com/liftedkilt/openchore",
-      "repo": "liftedkilt/openchore",
-      "stars": 34,
+      "summary": "自托管智能库存/清库存应用：扫码入库、按冰箱/冷冻/柜子和保质期管理库存，用现有食材生成菜谱并把缺口写入会扣除库存的购物清单；可订阅临期 ICS。MIT，界面含中文。官方 Demo 免安装。",
+      "why": "对应今天优先的「饮食/厨房清库存」。晚饭前在库存（或 Demo）里录入鸡蛋、剩菜、临期蔬菜，按现有食材问今晚做什么，并把缺的调料加进购物清单——清单会扣除已有库存，避免重复采购。日常用扫码或 CSV 把常备食材放到对应位置，把临期 ICS 订到手机日历，临期前先做一餐清库存。仓库提供 MCP（suggest_recipe、get_expiring_soon 等），也可改成固定问法：「冰箱里还有什么、48 小时内要处理什么」。无模型 Key 时库存与清单仍可用；AI 识别、OCR 保质期和菜谱需自备 Gemini / OpenAI / Llama Key。",
+      "url": "https://github.com/dadaloop82/EverShelf",
+      "repo": "dadaloop82/EverShelf",
+      "stars": 152,
       "tags": [
-        "家务",
-        "家庭积分",
-        "PWA",
-        "可打包"
+        "pantry",
+        "leftovers",
+        "recipes",
+        "shopping-list",
+        "expiry",
+        "MCP",
+        "中文"
       ],
-      "steps": [
-        "git clone https://github.com/liftedkilt/openchore.git 后复制 config/config.example.yaml，先改掉示例里的家长 PIN，再 docker compose up -d",
-        "打开 http://localhost:8080，用示例家庭走一遍 Required/Core/Bonus 与奖励商店",
-        "按自家家务改配置或在管理页调整；若要暴露到家庭网络，务必先改 PIN 并设好时区 TZ"
-      ],
-      "risk": "需要本机 Docker，不是应用商店一键装，普通人上手偏中；星标仍少（34），项目很新。界面目前是英语和德语，暂无中文。示例配置里的 PIN（文档写明 Alex/Jamie 的 1234、5678）上线前必须改掉。可选 AI 预检只给建议、不自动驳回，但把家务照片发给外部模型前要想清楚。MIT。上手：中。闲鱼跟做：适合做规则与清单模板，不代建、不卖服务器或账号。",
+      "steps": "先在 https://evershelf.site/demo 录入冰箱里今晚能用的 8–10 样食材，跑一次「用现有库存推荐菜」并看购物清单如何扣库存；觉得好用再 git clone 后 cp .env.example .env && docker compose up -d，把数据落到自己这边",
+      "risk": "完整自用需要 Docker，比纯网页工具重；官方 Demo 可先试。AI 菜谱与识别须人眼确认，不能当营养或医疗建议。仓库另有 Health / Fuel Mode 桥接，只宜作热量/饮食记录对照，不做诊断、不开药、不替代医嘱。Kiosk 与 Home Assistant 是进阶，不是清库存所必需。与无关的同名 iOS 应用无关系，须从本仓库或 evershelf.site 安装。MIT。上手成本：轻（Demo）到中（Docker 自托管）。适合做成「冰箱清库存一周方案」模板，需写明自托管步骤与「AI 菜谱仅供参考、不做饮食诊疗」。",
       "sources": [
         {
           "title": "README",
-          "url": "https://github.com/liftedkilt/openchore"
+          "url": "https://github.com/dadaloop82/EverShelf"
         },
         {
-          "title": "Signing in",
-          "url": "https://github.com/liftedkilt/openchore/blob/main/docs/authentication.md"
+          "title": "官方 Demo",
+          "url": "https://evershelf.site/demo"
         },
         {
-          "title": "AI features",
-          "url": "https://github.com/liftedkilt/openchore/blob/main/docs/ai.md"
+          "title": "MCP Server 说明",
+          "url": "https://github.com/dadaloop82/EverShelf/blob/main/mcp-server/README.md"
         }
       ]
     }
