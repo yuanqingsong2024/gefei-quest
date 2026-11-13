@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-12T04:23:20.086Z",
-  "latestId": 101,
-  "latestDate": "2026-11-12",
+  "generatedAt": "2026-11-13T00:27:50.381Z",
+  "latestId": 102,
+  "latestDate": "2026-11-13",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 102,
+      "date": "2026-11-13",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-13",
+      "items": [
+        "No.1 SiteGround Affiliate：写主机/WordPress 教程，官方知识库按自然月销售档写明单笔约50至100美元（1–5笔约50美元，6–10笔约75美元，11–20笔约100美元，21笔以上可谈定制；约60天 Cookie，可周结；以条款为准）",
+        "No.2 Polar：上架原创数字下载/订阅，官方费率文档写明新组织 Starter 档无月费、成交约抽5%+50美分（国际卡另计约1.5%；另计 Stripe 打款费；以费率页为准）",
+        "No.3 Azure Static Web Apps：按官方快速入门部署英文静态工具小站，官方定价页写明 Free 档托管约0美元（每订阅约含100GB流量，超额可能停止服务且无 SLA），验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 101,
       "date": "2026-11-12",
@@ -116,41 +128,30 @@
         "No.3 Vercel：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 92,
-      "date": "2026-11-05",
-      "tag": "内容",
-      "title": "AI生活合集新增「周末出游攻略不翻车」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：深秋周末让AI做出游攻略不翻车——先生成、再核对、后预订；含约束提示词、地图逐项核对与按序预订、路上重排追问；小红书封面与闲鱼模板包角度",
-        "附21经济网（央视新闻客户端）/ IT Yes, OK! / Ai蓝图网 / 人人都是产品经理四个来源；身份证、银行卡、住址别发；票价与闭园以12306/官方/现场公告为准；不代订、不代规划；不承诺省钱。SW 缓存 59"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
-    "date": "2026-11-12",
+    "date": "2026-11-13",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Squarespace Affiliate：写建站/店铺教程，官方帮助中心写明合资格 Website 订阅打款约100至200美元（Acuity 约45美元，须约45天内开通；以条款为准）",
+        "name": "SiteGround Affiliate：写主机/WordPress 教程，官方知识库按自然月销售档写明单笔约50至100美元（1–5笔约50美元，6–10笔约75美元，11–20笔约100美元，21笔以上可谈定制；约60天 Cookie，可周结；以条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.squarespace.com/affiliates"
+        "source_url": "https://www.siteground.com/affiliates"
       },
       {
         "rank": 2,
-        "name": "Stan Store：上架课程、预约或数字产品，官方称平台成交抽成0%，Creator 约29美元/月或约300美元/年（另计支付处理费）",
+        "name": "Polar：上架原创数字下载/订阅，官方费率文档写明新组织 Starter 档无月费、成交约抽5%+50美分（国际卡另计约1.5%；另计 Stripe 打款费；以费率页为准）",
         "type": "数字产品/接单",
-        "source_url": "https://help.stan.store/article/83-stan-stripes-transaction-fees"
+        "source_url": "https://polar.sh/docs/merchant-of-record/fees"
       },
       {
         "rank": 3,
-        "name": "GitLab Pages：按官方文档用 CI 发布英文静态工具小站，官方称在 GitLab 提供的基础设施上无额外托管费，验证流量后再接 AdSense 或联盟",
+        "name": "Azure Static Web Apps：按官方快速入门部署英文静态工具小站，官方定价页写明 Free 档托管约0美元（每订阅约含100GB流量，超额可能停止服务且无 SLA），验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://docs.gitlab.com/user/project/pages/"
+        "source_url": "https://learn.microsoft.com/en-us/azure/static-web-apps/getting-started"
       }
     ]
   }
