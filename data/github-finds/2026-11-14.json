@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-14",
+  "updated": "2026-11-14T09:46:44+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "mdeluise-plant-it",
+      "rank": 1,
+      "name": "Plant-it",
+      "category": "生活",
+      "summary": "把家里的盆栽建档、记下浇水施肥、到期提醒的安卓园艺帮手：不替你决定什么时候浇，只帮你记住上次做了什么、该回头看了。数据存在手机本地。",
+      "why": "家务/家庭琐事（阳台养护角，不是又一套家务积分看板）：绿萝、多肉容易凭感觉浇死或旱死。把每盆登记，浇水、施肥记一笔，给最容易忘的一盆设「每 4 天浇水」提醒。换季或搬家时按植物/事件类型翻日志，就知道上次换盆是哪天。可打包「阳台植物养护记录表」跟做——植物命名、事件类型和提醒间隔清单。",
+      "url": "https://github.com/MDeLuise/plant-it",
+      "repo": "MDeLuise/plant-it",
+      "stars": 1380,
+      "tags": [
+        "家务",
+        "家庭琐事",
+        "植物养护",
+        "浇水提醒",
+        "安卓",
+        "本地",
+        "F-Droid"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub Releases 安装 Plant-it（包名 com.github.mdeluise.plantit），无需注册",
+        "把阳台上现有的植物逐盆建档（可自己起名；不必配置外部图鉴）",
+        "浇水或施肥后记一笔事件，给最容易忘的一盆设置间隔提醒（例如每 4 天浇水）"
+      ],
+      "risk": "官方发布以 Android 为主（F-Droid / GitHub APK / Obtainium）。界面目前有英、西、法、意，没有中文，跟做时需要对照按钮位置。项目已进入稳定维护，新功能会放缓，最近正式版是 2026-01-07 的 1.0.1。可选的物种搜索若填写 FloraCodex API Key，会访问 api.floracodex.com；不填也能手动建植物。应用只做记录和提醒，不推荐浇水策略，也不是植物病害诊断。",
+      "sources": [
+        "README.md",
+        "frontend/pubspec.yaml",
+        "frontend/lib/data/service/search/flora_codex_searcher.dart",
+        "frontend/android/fastlane/metadata/android/en-US/full_description.txt",
+        "https://f-droid.org/packages/com.github.mdeluise.plantit/"
+      ]
+    },
+    {
+      "id": "oliexdev-openscale",
+      "rank": 2,
+      "name": "openScale",
+      "category": "生活",
+      "summary": "开源的体重与身体围度档案：可手动记，也可连接部分蓝牙秤；支持多名家庭成员、图表和 CSV 导入导出。无账号、不联网、无广告。不做诊断。",
+      "why": "家庭健康资料整理（体测档案角，不是用药或体检单 OCR）：家里每人建一个档案，每周称一次记下体重或腰围，去体检时带上趋势而不是口头回忆。没有蓝牙秤就手动输入；有小孩或宠物可用辅助称重（抱着称再减去大人重量）。CSV 导出一份备份。可打包「家庭体重/体围档案」跟做——档案字段、记录频率和备份步骤。必须标明不做诊断。",
+      "url": "https://github.com/oliexdev/openScale",
+      "repo": "oliexdev/openScale",
+      "stars": 2667,
+      "tags": [
+        "家庭健康资料",
+        "体重档案",
+        "体围",
+        "蓝牙秤",
+        "本地",
+        "不做诊断",
+        "安卓",
+        "F-Droid",
+        "中文"
+      ],
+      "steps": [
+        "优先从 F-Droid 安装 openScale（包名 com.health.openscale）；Google Play 上是公开测试版",
+        "为每位要用的家人分别建立档案，先手动记下今天的体重或腰围（有已支持的蓝牙秤再连接）",
+        "在设置里关掉暂时不用的指标，定期把数据导出为 CSV 备份到自己的网盘或电脑"
+      ],
+      "risk": "只做记录和归档，不做诊断，也不构成医疗或减重建议。BMI、体脂估算和「推荐范围」提示来自公式或文献粗算，受年龄、身高填写影响，不能当体检或诊疗依据。应用本身无联网权限；位置权限仅用于搜索蓝牙秤，连上后可关掉。蓝牙秤机型支持不一，不在列表里就用手输。界面有简体中文。",
+      "sources": [
+        "README.md",
+        "https://f-droid.org/packages/com.health.openscale/",
+        "https://github.com/oliexdev/openScale/wiki/Supported-scales-in-openScale"
+      ]
+    },
+    {
+      "id": "catima-loyalty-android",
+      "rank": 3,
+      "name": "Catima",
+      "category": "生活",
+      "summary": "把超市、咖啡店会员卡和各类条码收进手机、结账时亮码的安卓钱包：完全离线、无广告、不申请联网权限，也能备份到另一台设备。",
+      "why": "消费决策/轻理财（会员卡数字化角，不是又一个记账 App）：结账时不用再翻卡包找积分卡。先把最常用的超市、咖啡、书店会员卡扫进去，再收家庭共用的停车票、借书证或礼品卡。可从 FidMe 等应用导入，也能把备份分享到家人的手机。可打包「钱包减负：会员卡数字化」跟做——先扫哪几张、怎么分类命名、如何备份。它只保存条码供出示，不会同步商家积分余额。",
+      "url": "https://github.com/CatimaLoyalty/Android",
+      "repo": "CatimaLoyalty/Android",
+      "stars": 1745,
+      "tags": [
+        "消费决策",
+        "会员卡",
+        "条码",
+        "离线",
+        "安卓",
+        "Wear OS",
+        "F-Droid",
+        "中文"
+      ],
+      "steps": [
+        "用 F-Droid 或 Google Play 安装 Catima（包名 me.hackerchick.catima），把系统语言设为简体中文即可",
+        "用相机扫描最常用的 3 张会员卡条码，写上店名并分个颜色或分组",
+        "在应用里导出一份备份，拷到电脑或导入家人的手机；结账时打开对应卡片亮码"
+      ],
+      "risk": "仅 Android（可选 Wear OS / Gadgetbridge 手表）；需要 Android 6.0 及以上。卡片和积分规则仍以商家为准，个别柜台可能不接受手机亮码。备份文件等于卡包钥匙，不要发到公开群。应用不联网、不查积分余额。从 FidMe 导入后可能要手动补选条码类型。",
+      "sources": [
+        "README.md",
+        "fastlane/metadata/android/en-US/full_description.txt",
+        "https://catima.app",
+        "https://f-droid.org/packages/me.hackerchick.catima/"
+      ]
+    }
+  ]
+}
