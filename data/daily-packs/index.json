@@ -1,8 +1,16 @@
 {
-  "updated": "2026-11-07T09:17:45+08:00",
+  "updated": "2026-11-14T09:23:00+08:00",
   "start_date": "2026-10-28",
-  "count": 9,
+  "count": 10,
   "packs": [
+    {
+      "date": "2026-11-14",
+      "title": "周末执行包｜闲鱼公众号排版首条上架（不换新项目）",
+      "updated": "2026-11-14T09:23:00+08:00",
+      "path": "data/daily-packs/2026-11-14/",
+      "manifest": "data/daily-packs/2026-11-14/manifest.json",
+      "file_count": 7
+    },
     {
       "date": "2026-11-07",
       "title": "周末执行包｜闲鱼公众号排版首条上架（不换新项目）",

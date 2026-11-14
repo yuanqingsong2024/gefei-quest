@@ -1,19 +1,20 @@
 {
-  "date": "2026-11-07",
+  "date": "2026-11-14",
   "timezone": "Asia/Shanghai",
-  "updated": "2026-11-07T09:17:45+08:00",
+  "updated": "2026-11-14T09:23:00+08:00",
   "title": "周末执行包｜闲鱼公众号排版首条上架（不换新项目）",
-  "source": "attachments/2026-11-07",
+  "source": "attachments/2026-11-14",
   "primary": [
-    "闲鱼 公众号文章排版与配图 · 上架 1 条（续 11/04 素材）"
+    "闲鱼 公众号文章排版与配图 · 上架 1 条（续 11/04、11/07 素材）"
   ],
   "side": [
-    "Stacked Discount Calculator 复核/部署（黑五约20天；仅主线完成后）"
+    "Stacked Discount Calculator 复核/部署（黑五约13天；仅主线完成后）"
   ],
   "deferred": [
-    "本周榜新闲鱼位（简历优化等）— 首条未上架不换",
-    "海外联盟/店铺（Shopify/Lemon/Etsy/YouTube/Canva/Semrush）",
-    "HN 新词对照（站未起）"
+    "本周榜新闲鱼位（跨境独立站选品调研等）— 首条未上架不换",
+    "海外联盟/店铺（SiteGround/Polar/LearnWorlds/MailerLite 等）",
+    "短视频分成、Freelancer.com",
+    "新托管路径（GitLab Pages / Azure Static Web Apps）— 沿用已有 Render 备忘"
   ],
   "files": [
     {
@@ -24,7 +25,7 @@
     {
       "path": "stacked-discount-calculator/index.html",
       "kind": "page-draft",
-      "note": "黑五倒计时约20天；无跟踪"
+      "note": "黑五倒计时约13天（自 2026-11-14 起）；无跟踪"
     },
     {
       "path": "stacked-discount-calculator/render-static-notes.md",
@@ -37,7 +38,7 @@
       "note": "实名开号红线与首发流程备忘"
     },
     {
-      "path": "本周末执行单-2026-11-07.md",
+      "path": "本周末执行单-2026-11-14.md",
       "kind": "exec-card",
       "note": "周末2小时内步骤：先问进度、主推上架公众号排版、周复盘"
     },
