@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-13T00:27:50.381Z",
-  "latestId": 102,
-  "latestDate": "2026-11-13",
+  "generatedAt": "2026-11-14T04:24:16.986Z",
+  "latestId": 103,
+  "latestDate": "2026-11-14",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 103,
+      "date": "2026-11-14",
+      "tag": "内容",
+      "title": "AI生活合集新增「冰箱清库存参谋」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI当冰箱清库存参谋——先拍照核对、再套约束，剩菜排成今晚或三天菜单；变质的直接扔，别让它当质检员；含跟做闭环、提示词两则、小红书与闲鱼跟做包角度",
+        "附《日常AI》 / IT Yes, OK! / 贝果科技三个来源；AI不能判断食物是否变质，不代做菜，不承诺省钱或减少浪费；与10-31断舍离选题区分。SW 缓存 64"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 102,
       "date": "2026-11-13",
@@ -116,18 +127,6 @@
         "附温州晚报·温度新闻 / 扬子晚报·紫牛新闻 / IT之家 / 21经济网·红星新闻四个来源；支付/改签/回群须本人确认；不代授权不承诺零漏办；与10-28订阅刺客猎手区分。SW 缓存 60"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 93,
-      "date": "2026-11-06",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-06",
-      "items": [
-        "No.1 Shopify Affiliate：写电商开店/选型内容，合资格全价 Basic/Grow/Advanced 推荐可拿约至多150美元（地区约25美元档，以帮助中心为准）",
-        "No.2 Lemon Squeezy：上架原创数字下载/订阅，电商功能无月费；成交平台费约5%+$0.50（以费率文档为准）",
-        "No.3 Vercel：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
