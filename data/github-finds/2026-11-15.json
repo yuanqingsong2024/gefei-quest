@@ -1,0 +1,118 @@
+{
+  "date": "2026-11-15",
+  "updated": "2026-11-15T10:32:00+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "flauschtrud-broccoli",
+      "rank": 1,
+      "name": "Broccoli",
+      "category": "生活",
+      "summary": "把家里的菜谱和收藏的博客食谱收进手机本地的开源菜谱本：做饭时用全屏助手按份数缩放材料，也能按当季食材筛选（目前区域日历不含中国大陆）。无需注册。",
+      "why": "饮食/厨房（家庭菜谱收藏与份量缩放，不是又一套购物清单或清库存）：周末把常做的红烧肉、汤手动建档，用分类和标签分开；逛到带 JSON-LD 的食谱博客，可用系统分享或粘贴链接导入。做饭时打开全屏烹饪助手，把 4 人份改成 2 人份。可打包「家庭菜谱收藏表」跟做——分类、标签和导入步骤清单。",
+      "url": "https://github.com/flauschtrud/broccoli",
+      "repo": "flauschtrud/broccoli",
+      "stars": 164,
+      "tags": [
+        "饮食",
+        "厨房",
+        "家庭菜谱",
+        "烹饪助手",
+        "份量缩放",
+        "当季食材",
+        "安卓",
+        "本地",
+        "F-Droid",
+        "中文"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub Releases 安装 Broccoli（包名 com.flauschcode.broccoli），无需注册",
+        "先把家里常做的 3 道菜手动建档，建好分类和标签（如「家常」「汤」「周末」）",
+        "下次做饭打开全屏烹饪助手，按实际人数调整份量；需要时再从带 JSON-LD 的食谱网页导入"
+      ],
+      "risk": "仅 Android 8.0+（F-Droid / Google Play / GitHub APK）。界面有中文。当季食材日历目前覆盖中欧、北美洲（冷/暖）、日本、地中海，没有中国大陆分区，国内用户不要把它当本地时令依据，菜谱收藏和烹饪助手仍可离线用。用链接导入会访问该网页（应用声明了 INTERNET 权限，且站点需提供 JSON-LD），不是所有博客都能一键导入。可选的 Brassica 网页伴侣需要自托管，跟做不必装。应用本身不做营养建议或诊疗。最新正式版是 2026-09-16 的 1.4.7。",
+      "sources": [
+        "README.md",
+        "fastlane/metadata/android/en-US/full_description.txt",
+        "app/src/main/AndroidManifest.xml",
+        "app/build.gradle",
+        "app/src/main/res/values-zh/strings.xml",
+        "https://f-droid.org/packages/com.flauschcode.broccoli/"
+      ]
+    },
+    {
+      "id": "pool-of-tears-greenstash",
+      "rank": 2,
+      "name": "GreenStash",
+      "category": "生活",
+      "summary": "给每个攒钱目标建一个离线「储蓄罐」：设定金额和截止日期，按日/周/月告诉你该存多少，支持存取记录、提醒、小组件和生物识别锁。无需联网、无需注册。",
+      "why": "消费决策/轻理财（储蓄目标罐，不是又一套记账或订阅管理）：把「明年五一旅行 8000 元」「换手机 3000 元」各建一个目标，设截止日期，看每天或每周该存多少；发了工资就记一笔存入，临时取出也留记录。可打包「储蓄目标卡」跟做——目标名、金额、期限和提醒频率模板。",
+      "url": "https://github.com/Pool-Of-Tears/GreenStash",
+      "repo": "Pool-Of-Tears/GreenStash",
+      "stars": 792,
+      "tags": [
+        "消费决策",
+        "轻理财",
+        "储蓄目标",
+        "离线",
+        "提醒",
+        "安卓",
+        "F-Droid",
+        "中文"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub Releases 安装 GreenStash（包名 com.starry.greenstash），首次打开选人民币",
+        "先建一个具体目标（例如「五一旅行」+ 金额 + 截止日期），可加一张参考图",
+        "打开提醒（按目标优先级选每日或每周），发工资后在目标里记一笔存入"
+      ],
+      "risk": "仅 Android 7.0+。F-Droid 和 GitHub Releases 可免费安装；Google Play 渠道可能需付费支持开发，不要和免费渠道混为一谈。界面有简体/繁体中文。数据完全在本地（无 INTERNET 权限），换机请先用应用内 JSON/CSV 备份。最新正式版是 2026-05-24 的 4.4.0，之后仓库仍有维护提交，但节奏放缓。应用只帮你算「截止日期前还差多少」，不做投资建议，也不是完整记账本。",
+      "sources": [
+        "README.md",
+        "fastlane/metadata/android/en-US/full_description.txt",
+        "app/src/main/AndroidManifest.xml",
+        "app/build.gradle.kts",
+        "app/src/main/res/values-zh-rCN/strings.xml",
+        "https://f-droid.org/packages/com.starry.greenstash/"
+      ]
+    },
+    {
+      "id": "fossify-clock",
+      "rank": 3,
+      "name": "Fossify Clock",
+      "category": "生活",
+      "summary": "无广告的开源时钟：多组闹钟（可按星期重复）、做饭或出门倒计时、秒表和桌面小组件，数据在本地。界面有中文。",
+      "why": "早晨/日程效率（晨间闹钟与出门倒计时，不是又一套日历或待办看板）：工作日设 7:00 起床闹钟（渐强铃音、可贪睡），再设 7:40「出门」倒计时，避免刷完手机误点。周末做饭时用倒计时盯蒸煮。可打包「家庭晨间闹钟+出门倒计时」跟做——闹钟标签、重复日和倒计时清单。这是 Fossify 的时钟，和本月推荐过的 Fossify 日历是不同应用。",
+      "url": "https://github.com/FossifyOrg/Clock",
+      "repo": "FossifyOrg/Clock",
+      "stars": 731,
+      "tags": [
+        "早晨",
+        "日程效率",
+        "闹钟",
+        "倒计时",
+        "小组件",
+        "安卓",
+        "离线",
+        "F-Droid",
+        "中文",
+        "无广告"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub Releases 安装 Fossify Clock（包名 org.fossify.clock），无需注册",
+        "设一组工作日起床闹钟（选重复日、标签、渐强音量），再备用一组周末闹钟",
+        "再加一个「出门」或「蒸煮」倒计时，需要时把时钟小组件放到桌面"
+      ],
+      "risk": "仅 Android 8.0+（F-Droid / Google Play / IzzyOnDroid / GitHub APK）。F-Droid 页面仍可能标为 Beta，当前正式版是 2026-01-30 的 1.6.0，仓库之后仍在更新翻译和依赖。首次使用需授予闹钟和通知权限，部分厂商系统会限制后台，需在系统设置里允许准时闹钟。支持闹钟和倒计时的导入导出。离线运行、无广告。不做睡眠监测或诊疗。",
+      "sources": [
+        "README.md",
+        "CHANGELOG.md",
+        "fastlane/metadata/android/en-US/full_description.txt",
+        "app/src/main/AndroidManifest.xml",
+        "gradle.properties",
+        "gradle/libs.versions.toml",
+        "app/src/main/res/values-zh-rCN/strings.xml",
+        "https://f-droid.org/packages/org.fossify.clock/"
+      ]
+    }
+  ]
+}
