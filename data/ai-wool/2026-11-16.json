@@ -1,0 +1,304 @@
+{
+  "date": "2026-11-16",
+  "updated": "2026-11-16T09:55:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Gemini 4 Hydrogen：API 免费档输入/输出/缓存均免费（11/12 上线）",
+      "type": "免费额度",
+      "provider": "Google / Gemini API",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Google 官方博文（2026-11-12，11/13 更新）与 Gemini API 文档、定价页：新模型 Gemini 4 Hydrogen（模型 ID gemini-4-hydrogen）已在 Google AI Studio 与 Gemini API 的免费档、付费档同步提供，统一 100 万 Token 上下文，思考档默认 high，另有 low / medium / xhigh。定价页写明免费档输入、输出（含 thinking tokens）与上下文缓存均为 Free of charge；付费档为每百万 Token 输入 $1.50、输出 $7.50、缓存 $0.075（仅隐式缓存）。免费档内容可能用于改进产品，付费档则否。Grounding with Google Search / Maps 在免费档为 Not available。官方未公布免费档统一 RPM/TPM，也未写死免费档截止日，限速以项目页为准。",
+      "value": "免费档输入/输出/缓存均免费 · 付费档 $1.50 / $7.50 / 百万 Token · 官方未写死免费档截止日",
+      "cost": "原型可走免费档（须能访问 Google AI Studio）；免费档有限速，生产或敏感数据建议付费档并按量计费",
+      "difficulty": 2,
+      "threshold": "须能访问 Google AI Studio 并创建 API Key；免费档有官方限速且内容可能用于改进产品；接地搜索在免费档不可用；思考 Token 在付费档按输出计价",
+      "time": "申请 Key 并把模型改为 gemini-4-hydrogen、跑一次小流量约 15–30 分钟",
+      "fit": "需要用较新的 Gemini 4 做日常编程、Agent 执行或文档多模态处理，想先在免费档验证接口的海外开发者",
+      "why": "11/12 榜写的是 Carbon 导入半价和 Decisions API 免费档，没有这条 Hydrogen 进入 API 免费层的开窗；今天定价页仍显示 Free of charge。",
+      "steps": [
+        "打开 aistudio.google.com/docs/pricing 的 Gemini 4 Hydrogen 表，确认免费档仍显示 Free of charge，并阅读官方博文与 What’s new 文档",
+        "在 Google AI Studio 创建 API Key（免费档项目即可调用该模型；付费档不是前提）",
+        "调用时将模型设为 gemini-4-hydrogen；默认思考档为 high，成本或延迟敏感可改为 low / medium，需要更深推理再试 xhigh",
+        "先在免费档做小流量原型，并在项目页核对实际 RPM/TPM/RPD；免费档内容可能用于改进产品，敏感或生产流量改走付费档（$1.50 / $7.50）",
+        "不要把免费档当成可承诺的长期额度：官方未公布截止日，限速与是否保留都以定价页和项目配额为准"
+      ],
+      "risk": "风险：免费档有限速，官方未公布统一公开额度，可能随时调整或收回；免费档内容可能用于改进产品；接地搜索在免费档不可用；思考默认 high，付费档长推理账单可能明显高于可见回复。不承诺免费档一定能开通、够用或长期保留。",
+      "risk_level": "低",
+      "reason": "官方博文、模型文档与定价页同步写明 Hydrogen 可走免费档且输入/输出/缓存免费，相对 11/12 榜为未收录的新开窗。",
+      "tags": [
+        "Gemini",
+        "Hydrogen",
+        "免费档",
+        "API",
+        "官方"
+      ],
+      "sources": [
+        {
+          "title": "Gemini Developer API pricing — Gemini 4 Hydrogen",
+          "url": "https://aistudio.google.com/docs/pricing",
+          "publisher": "Google AI Studio",
+          "published": "2026-11-12",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "What's new in Gemini 4 Hydrogen",
+          "url": "https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen",
+          "publisher": "Google AI Studio",
+          "published": "2026-11-12",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Introducing Gemini 4 Hydrogen",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+          "publisher": "Google",
+          "published": "2026-11-12",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://aistudio.google.com/docs/pricing",
+      "claim_howto": "在 Google AI Studio 创建 API Key，将模型设为 gemini-4-hydrogen；免费档按定价表自动免输入/输出/缓存费用，无需兑换码。",
+      "stack": [
+        "Gemini API",
+        "gemini-4-hydrogen",
+        "Google AI Studio"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Google AI Studio：Pro/Ultra 每月 Cloud 积分可在站内领取（Pro $10 / Ultra 5x $40 / 20x $100）",
+      "type": "Token福利",
+      "provider": "Google / Gemini API",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Google 官方博文（2026-11-13）与 AI Studio 指南：Google AI Pro / Ultra 订阅本就通过 Google Developer Program 发放每月 Google Cloud 积分，11/13 起可在 Google AI Studio 内创建资料、绑定结算并领取。官方指南表格：Plus 无积分；Pro 每月 $10；Ultra 5x 每月 $40；Ultra 20x 每月 $100。每笔发放有效 12 个月，可按月累积，优先消耗最早到期的额度。用积分调用 Gemini API 须先预存至少 $5，积分会先于预存余额扣减，且预存余额须保持大于 $0。仅主订阅人可用，不可与家人共享。消费级 Google One AI credits 是另一套体系，不能用于 AI Studio。已订阅数月且已有开发者资料的人，可能已有待领取的积压积分。",
+      "value": "每月 Pro $10、Ultra 5x $40、Ultra 20x $100 · 每笔发放有效 12 个月可累积 · 须预存至少 $5 才能抵扣 API",
+      "cost": "须已是或新开 Google AI Pro / Ultra（本身为付费订阅）；另需至少 $5 预存以激活促销积分，不另收领取手续费",
+      "difficulty": 3,
+      "threshold": "须为 Google AI Pro 或 Ultra 的主订阅人（Plus 没有此项）；须能访问 AI Studio 并完成结算与至少 $5 预存；积分不可与家人共享；消费级 Google One AI credits 不能用在 AI Studio",
+      "time": "若已有合格订阅，开通结算、预存 $5 并领取积分约 20–40 分钟",
+      "fit": "已经在付 Google AI Pro / Ultra、想把随套餐发放的 Cloud 积分接到 Gemini API / AI Studio 使用的海外开发者，尤其是可能有积压未领积分的人",
+      "why": "11/13 官方宣布可在 AI Studio 内一站领取与管理，相对 11/12 榜是新的领取路径；积分本身随套餐发放，不是新发明的红包，但今天仍适合先核对待领余额。",
+      "steps": [
+        "打开 blog.google 这篇 11/13 博文与 aistudio.google.com/learn/use-google-ai-plan-credits-in-ai-studio，核对你所在套餐的月度积分（Pro $10 / Ultra 5x $40 / 20x $100）",
+        "用同一 Google 账号登录 aistudio.google.com；若还没有合格套餐，先到 one.google.com/about/google-ai-plans 确认，不要为领积分而盲目新开订阅",
+        "在 AI Studio Billing 开通预付费结算并预存至少 $5（官方写明这是使用 Cloud 促销积分的最低交易要求）",
+        "按 11/13 起的站内流程领取 Google Developer Program 积分（也可到 me.developers.google.com/benefits 绑定结算账号），然后回到 Billing 刷新，确认积分出现在余额中",
+        "用付费档 API Key 调用需要付费的模型（例如 Carbon / Argon）；积分先于预存余额扣减。仅主订阅人可用，日历留意每笔发放 12 个月滚动到期"
+      ],
+      "risk": "风险：这是已有付费套餐的随附积分，不是无门槛红包；须预存至少 $5，且预存余额为 0 时可能无法继续抵扣；仅主订阅人可用；Plus 没有此项；消费级 Google One AI credits 不能用于 AI Studio；发放额度与领取入口可能调整。不承诺一定能领到、积压金额有多少，或足够覆盖你的用量。",
+      "risk_level": "中",
+      "reason": "11/13 官方博文与 AI Studio 指南给出了月度积分数额、12 个月有效期和 $5 预存条件，相对 11/12 榜为新的可核验领取路径。",
+      "tags": [
+        "Gemini",
+        "AI Studio",
+        "Cloud积分",
+        "Pro/Ultra",
+        "官方"
+      ],
+      "sources": [
+        {
+          "title": "Google Developer Program Cloud credits within AI Studio",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/",
+          "publisher": "Google",
+          "published": "2026-11-13",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Use your Google AI plan credits in AI Studio",
+          "url": "https://aistudio.google.com/learn/use-google-ai-plan-credits-in-ai-studio",
+          "publisher": "Google AI Studio",
+          "published": "2026-11-03",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Plans & Pricing | Google Developer Program",
+          "url": "https://developers.google.com/program/plans-and-pricing",
+          "publisher": "Google for Developers",
+          "published": "2026-11-16",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/google-cloud-credits-gdp-ai-studio/",
+      "claim_howto": "用 Pro/Ultra 主账号登录 AI Studio，预存至少 $5 后在站内或 Google Developer Program 权益页领取每月 Cloud 积分，余额会出现在 Billing。",
+      "stack": [
+        "Google AI Studio",
+        "Google Developer Program",
+        "Gemini API"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "讯飞 SparkAudio 1.0：个人实名可领 200 万 tokens 免费包（有效期 1 年）",
+      "type": "免费额度",
+      "provider": "科大讯飞 / 讯飞开放平台",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "讯飞开放平台官方产品页（今天打开仍可见）与 API 文档：SparkAudio 1.0（spark-audio）已开放 WebSocket API，支持文本/语音输入、文本输出，官方称覆盖 99 种语言、202 种方言。产品价目区标题为「产品价格 限时特惠」，个人认证免费包写明：完成个人认证即可免费领取，服务量 200W tokens，并发 1 路，有效期 1 年，价格免费；企业认证免费包为 500W tokens、1 路、1 年（须企业主体）。页面未公布免费包截止日期。付费五档从 2.5 亿 tokens / ¥3000 到 40 亿 tokens / ¥24000，均为 5 路并发、有效期 1 年。官方文档要求先在产品页领取免费额度或购买套餐，再在控制台取得 AppID / APIKey / APISecret。接口地址为 wss://tokens.xf-yun.com/omni/v1/realtime。本版本输出仅为文本，不生成语音。",
+      "value": "个人认证免费包 200 万 tokens · 1 路并发 · 领取起 1 年 · 企业认证另有 500 万 tokens 包（须企业主体）",
+      "cost": "个人实名后免费领取体验包；超出后需购买套餐。领取本身无额外费用",
+      "difficulty": 2,
+      "threshold": "须在讯飞开放平台完成个人实名认证才能领 200 万包；企业包须企业认证；并发仅 1 路；须按文档用 WebSocket 接入，音频为 16k/16bit/单声道 pcm 或 wav；官方未公布音频时长与 token 换算",
+      "time": "完成个人实名、领取免费包并在控制台建应用取密钥，约 20–40 分钟（视认证审核而定）",
+      "fit": "需要做语音转写之外的音频理解（多方言、情绪、环境音、说话人分离、音频问答）并想先用官方免费包实测 token 消耗的国内开发者",
+      "why": "11/12 才开放 API，11/12 榜未收录；今天官方产品页仍挂着个人认证免费包，适合先领取再测自己的音频扣多少 token。",
+      "steps": [
+        "打开 www.xfyun.cn/services/Spark_Audio_1.0，在「产品价格 限时特惠」区确认「个人认证免费包 / 200W tokens / 1路 / 1年 / 免费」仍在",
+        "注册讯飞开放平台账号并完成个人实名认证（只要个人包，不要误做成企业认证；企业 500W 包须企业主体）",
+        "在个人认证免费包点击「免费领取」（官方领取链会进入 console.xfyun.cn 对应商品页），再在控制台创建应用，保存 AppID、APIKey、APISecret",
+        "按官方文档用 WebSocket 连接 wss://tokens.xf-yun.com/omni/v1/realtime，模型名 spark-audio；先小流量实测 response.done 里的 audio_tokens，不要假设一分钟音频等于固定 token 数",
+        "页面只写「限时特惠」、未给免费包截止日，是否长期可领以产品页为准；本版本只输出文本，若要语音回复需另接合成"
+      ],
+      "risk": "风险：须实名，领到与否取决于认证与库存；标题为限时特惠但未公布截止日，可能随时调整或下架；仅 1 路并发，且官方未公布音频与 token 换算，实际能跑多久要靠自己测；本版本不输出音频。不承诺一定能领到、审核能通过，或 200 万 tokens 够用多久。",
+      "risk_level": "中",
+      "reason": "今天直接核验官方产品页仍展示个人认证免费包 200W tokens / 1 路 / 1 年，API 文档也要求先在产品页领取免费额度，相对 11/12 榜为新开窗。",
+      "tags": [
+        "讯飞",
+        "SparkAudio",
+        "免费包",
+        "语音API",
+        "国内"
+      ],
+      "sources": [
+        {
+          "title": "Spark-Audio-1.0 产品页（个人认证免费包）",
+          "url": "https://www.xfyun.cn/services/Spark_Audio_1.0",
+          "publisher": "讯飞开放平台",
+          "published": "2026-11-12",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Spark-Audio-1.0 API 文档",
+          "url": "https://www.xfyun.cn/doc/spark/spark_audio.html",
+          "publisher": "讯飞开放平台文档中心",
+          "published": "2026-11-12",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://www.xfyun.cn/services/Spark_Audio_1.0",
+      "claim_howto": "完成个人实名后，在官方产品页「个人认证免费包」点击免费领取，再在控制台创建应用获取密钥，按文档用 WebSocket 调用 spark-audio。",
+      "stack": [
+        "讯飞开放平台",
+        "SparkAudio 1.0",
+        "spark-audio"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Vercel AI Gateway：Parallel Decisions Fast 限免至 11/23（无需 Parallel 账号）",
+      "type": "限时促销",
+      "provider": "Vercel / Parallel",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Vercel 官方 changelog（2026-11-13）：Parallel Decisions Fast 已在 Vercel AI Gateway 上线，至 2026-11-23 免费。模型名为 parallel/parallel-decisions-fast，无需单独的 Parallel 账号。它会检索实时网页，对关于公司、产品、政策等变化中的信息回答是非、选择题或量表题，并返回概率与引用证据。可通过 AI SDK、TypeSafe 兼容接口或 OpenAI 兼容的 Decisions API 调用。请求会记入 AI Gateway 日志与预算。这与 11/11 榜收录的 Parallel 官方 7 天限免不是同一领取通道：这次是走 Vercel 网关、并写明免费到 11/23。",
+      "value": "至 2026-11-23 免费调用 parallel/parallel-decisions-fast · 无需单独 Parallel 账号",
+      "deadline": "2026-11-23",
+      "cost": "限免期内按官方说明免费；须已有或能创建 Vercel AI Gateway 凭证。限免结束后计费以当时定价为准",
+      "difficulty": 2,
+      "threshold": "须能使用 Vercel AI Gateway（通常需要 Vercel 账号与 Gateway API Key）；接口是决策/检索型，不能当通用聊天模型；限免到 11/23",
+      "time": "创建 AI Gateway Key 并按 changelog 示例跑通一次请求，约 15–30 分钟",
+      "fit": "已经或准备用 Vercel AI Gateway，想在 11/23 前免费试用网页增强决策（线索富集、资格判断、路由）的海外开发者",
+      "why": "11/13 官方写明在 AI Gateway 限免至 11/23，相对 11/12 榜是新通道和新截止日期，窗口只剩约一周。",
+      "steps": [
+        "打开 vercel.com/changelog 这篇 11/13 条目，确认仍写明 free through November 23, 2026",
+        "在 Vercel 的 AI Gateway 创建 API Key，无需再单独注册 Parallel 账号",
+        "调用模型 parallel/parallel-decisions-fast；可按官方示例用 AI SDK、TypeSafe 兼容接口或 /v1/decisions，构造 boolean / choice / score 类问题",
+        "检查返回的概率与 citations；把不确定的结果转人工，不要把它当通用 LLM 或未核验证据的搜索引擎",
+        "日历标 2026-11-23；限免结束后是否继续免费或如何计费，以当时 Vercel / 模型目录为准，勿默认延期"
+      ],
+      "risk": "风险：限免有明确截止日期，到期可能恢复计费或调整配额；须有 Vercel AI Gateway 凭证，能否开通取决于账号与区域；接口只做带引用的封闭集决策，不能当通用聊天模型。不承诺在截止前一定能开通，或免费额度足够你的并发。",
+      "risk_level": "中",
+      "reason": "Vercel 官方 changelog 写明 11/13 起在 AI Gateway 免费至 11/23，且无需 Parallel 账号，相对既有 Parallel 限免是可核验的新通道。",
+      "tags": [
+        "Vercel",
+        "Parallel",
+        "Decisions",
+        "限免",
+        "AI Gateway"
+      ],
+      "sources": [
+        {
+          "title": "Parallel Decisions now available on AI Gateway for free",
+          "url": "https://vercel.com/changelog/parallel-decisions-now-available-on-ai-gateway-for-free",
+          "publisher": "Vercel",
+          "published": "2026-11-13",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://vercel.com/changelog/parallel-decisions-now-available-on-ai-gateway-for-free",
+      "claim_howto": "用 Vercel AI Gateway API Key 调用 parallel/parallel-decisions-fast，限免期内按官方说明免费，无需另开 Parallel 账号。",
+      "stack": [
+        "Vercel AI Gateway",
+        "parallel/parallel-decisions-fast"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Vercel Token Pass：同价 $30/月额度上调至 $150（精选开源权重模型）",
+      "type": "订阅折扣",
+      "provider": "Vercel",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Vercel 官方 changelog（2026-11-13）与 Token Pass 文档：面向 Pro 团队的 Early Access 附加订阅，价格仍为每团队每月 $30，月度额度从 $80 上调到 $150，用于 AI Gateway 上的精选开源权重模型：Kimi K3、Kimi K3.1 Pro、GLM 5.3、GLM 5.3 Flash、DeepSeek V4.1 Flash，当前由名为 Vercel Token Pass（token-pass）的提供方供应（文档写明目前为 Wafer）。额度按模型刊例价扣减，每个账期结束清零、不结转；用完后，普通 AI Gateway Key / OIDC 会回退到团队的 Gateway 余额，Token Pass 专用 Key 则会直接停请求且不产生超额费用。文档写明零数据保留、提示词不用于训练。Changelog 提示名额有限，满员需等位；Hobby 团队须先升级到 Pro。可用 `vercel token-pass` 或 AI Gateway 控制台订阅。",
+      "value": "$30/团队/月获得 $150 额度（原 $80）· 限精选开源权重模型 · 不结转 · 用满相当于约 2 折刊例价",
+      "cost": "须已有或升级到 Vercel Pro，再另付 $30/团队/月；Hobby 不能直接订阅。不承诺能马上排到 Early Access 名额",
+      "difficulty": 3,
+      "threshold": "须为 Vercel Pro 团队；Token Pass 仍是 Early Access，可能等位；额度只覆盖文档列出的精选模型，其他模型走普通 Gateway 余额；未用完部分期末作废",
+      "time": "若已是 Pro 且有名额，在 AI Gateway 订阅并接好编码 Agent，约 20–40 分钟",
+      "fit": "已经在用 Vercel Pro / AI Gateway，并主要调用 Kimi、GLM 或 DeepSeek 这类精选开源模型的团队，想用固定 $30 换更高月度额度",
+      "why": "11/13 官方把额度从 $80 提到 $150 且价格不变，相对 11/12 榜是新的订阅折扣窗口；适合先看自己是否已是 Pro、以及当前是否还有 Early Access 名额。",
+      "steps": [
+        "打开官方 changelog 与 vercel.com/docs/ai-gateway/token-pass，确认仍是 $30 换 $150，并核对当前精选模型名单",
+        "确认团队已是 Vercel Pro；Hobby 须先评估是否值得升级，不要只为这项附加订阅冲动开通",
+        "在 AI Gateway 的 Token Pass 页订阅；若提示 Early Access 满员，只能排队，不要找非官方代购或合租",
+        "用现有 AI Gateway 凭证或 `vercel token-pass` / Token Pass 专用 Key 把编码 Agent（如 fx、Claude Code、Codex、Cline、OpenCode）接到精选模型",
+        "盯着账期用量：额度不结转。需要封顶不出超额时用 Token Pass 专用 Key；希望用完后自动回退到 Gateway 余额则用普通 Key 或 OIDC"
+      ],
+      "risk": "风险：须先有 Pro 且可能排不上 Early Access；额度不结转，用不完即作废；只覆盖精选模型，刊例价与提供方可能变更；官方可随时结束该计划。不承诺能订阅成功、能用满 $150，或长期维持这一折算。",
+      "risk_level": "中",
+      "reason": "官方 changelog 与文档同步写明 $30 换 $150 及适用模型、不结转和 Early Access 限制，相对 11/12 榜为新的可核验订阅折扣。",
+      "tags": [
+        "Vercel",
+        "Token Pass",
+        "订阅折扣",
+        "AI Gateway",
+        "开源模型"
+      ],
+      "sources": [
+        {
+          "title": "Token Pass now includes $150 in tokens for $30/month",
+          "url": "https://vercel.com/changelog/vercel-token-pass-now-includes-one-hundred-fifty-dollars-of-monthly-tokens",
+          "publisher": "Vercel",
+          "published": "2026-11-13",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Token Pass documentation",
+          "url": "https://vercel.com/docs/ai-gateway/token-pass",
+          "publisher": "Vercel",
+          "published": "2026-11-13",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://vercel.com/changelog/vercel-token-pass-now-includes-one-hundred-fifty-dollars-of-monthly-tokens",
+      "claim_howto": "Vercel Pro 团队在 AI Gateway 的 Token Pass 页订阅（Early Access，满员需等位），用 Gateway 凭证或 `vercel token-pass` 调用精选模型，额度按刊例价自动扣减。",
+      "stack": [
+        "Vercel AI Gateway",
+        "Token Pass",
+        "Kimi / GLM / DeepSeek"
+      ]
+    }
+  ]
+}
