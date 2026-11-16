@@ -1,0 +1,226 @@
+{
+  "date": "2026-11-16",
+  "updated": "2026-11-16T09:40:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "rubenmarcus-aeo-js",
+      "rank": 1,
+      "name": "aeo.js",
+      "category": "项目",
+      "summary": "给网站做 Answer Engine Optimization 的开源工具包：用 CLI 给已上线站点打 0–100 的 GEO 就绪分，并在 Vite / Vue 构建时生成 llms.txt、页面 Markdown、AI 爬虫 robots 和索引文件。",
+      "why": "对 autograph-ai（Vue3 + Vite 前台）最直接：不必再手写一套 AI 可读文件。先对已发布域名跑检查，再把官方 Vite 插件接到构建里，补齐 Dualmark 之外的 llms.txt / 各页 .md / 23 个 AI 爬虫访问矩阵。可执行：1）`npx aeo.js check <域名>` 立刻看到分数、爬虫放行情况和优先修复项，可当发布后门禁；2）在 vite.config 里接入 `aeoVitePlugin`，构建产物自动包含 robots.txt、llms.txt、llms-full.txt、sitemap.xml、ai-index.json 和各路由 .md；3）官方提供 `aeo.js/vue` 组件，若要在页面上放 Human/AI 切换，不必自己写小部件。",
+      "url": "https://github.com/rubenmarcus/aeo.js",
+      "repo": "rubenmarcus/aeo.js",
+      "stars": 147,
+      "tags": [
+        "AEO",
+        "GEO",
+        "llms.txt",
+        "Vite",
+        "Vue",
+        "CLI",
+        "autograph-ai"
+      ],
+      "steps": [
+        "对 autograph 已发布站点运行 npx aeo.js check <域名>，记下 GEO 分数、23 个 AI 爬虫访问矩阵和优先修复项",
+        "若缺 llms.txt 或页面 Markdown，在 Vue3 + Vite 前台的 vite.config 接入 aeoVitePlugin（官方文档写明支持 Vue）",
+        "构建后核对产物里的 robots.txt / llms.txt / 各页 .md；生产环境按需关闭默认注入的 Human/AI widget"
+      ],
+      "risk": "仍是 0.0.x（npm 现为 0.0.17；GitHub 最新 Release 标签是 2026-07 的 0.0.16，之后仓库仍有提交）。README 与 package.json 声明 MIT，但仓库根目录目前没有 LICENSE 文件，接入前再核对。若前台是纯 SPA，构建期可能只抽到壳，要用已发布页的 check 或预渲染来验证正文是否进了 Markdown。插件默认会注入 widget，不需要就关掉。这是构建/检查工具，不是引用量追踪平台。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/README.md"
+        },
+        {
+          "title": "package.json（license: MIT，含 ./vite 与 ./vue 导出）",
+          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/package.json"
+        },
+        {
+          "title": "Vite 框架文档（写明支持 Vue）",
+          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/website/src/content/docs/frameworks/vite.mdx"
+        },
+        {
+          "title": "src/widget/vue.ts",
+          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/src/widget/vue.ts"
+        }
+      ]
+    },
+    {
+      "id": "xuanyustudio-localminidrama",
+      "rank": 2,
+      "name": "本地短剧助手（LocalMiniDrama）",
+      "category": "项目",
+      "summary": "本地优先的开源 AI 短剧 / 漫剧工作台：剧本到角色、场景、分镜再到视频合成都在本机完成，列表与画布双视图同源，可接通义、火山 Seedance 2.0、可灵等自备密钥。",
+      "why": "对 soloforge-storyfactory 最有对照价值（不要整仓移植）。可执行：1）抄「列表精细编辑 + 画布批量编排」双视图（同源数据）和画布上的整组重跑、节点内编辑，减少在分镜表和生成结果之间来回切；2）把场景 / 道具库的「加入本集」复用搬进角色锁和场景一致性流程，避免每集重提资产；3）把分镜上的景别、运镜、灯光、景深以及 16:9 / 9:16 / 1:1 画幅收进 StoryFactory 的分镜 schema；4）对照国内常用视频模型的 BYOK 配置（通义、火山 Seedance 2.0、可灵 Kling）和工程 ZIP 导入导出。",
+      "url": "https://github.com/xuanyustudio/LocalMiniDrama",
+      "repo": "xuanyustudio/LocalMiniDrama",
+      "stars": 2453,
+      "tags": [
+        "漫剧",
+        "短剧",
+        "分镜",
+        "画布",
+        "Vue3",
+        "本地优先",
+        "Seedance",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "用 Node.js 18+ 按 docs/quickstart.md 分别启动 backend-node（5679）和 frontweb（3013），或在 Windows 上下载 Releases 里的安装包 / 便携 exe",
+        "在「AI 配置」填入自备密钥，导入或新建一个短剧，走一遍「剧本 → 角色/场景库 → 画布整组重跑」",
+        "对照列表与画布双视图、场景「加入本集」和分镜专业参数，只记下要搬进 StoryFactory 的交互与字段，不要整仓移植"
+      ],
+      "risk": "MIT 许可。官方 Release 以 Windows exe 为主（最新正式版 1.2.9，2026-10-16；仓库在 2026-11-15 仍有提交）。源码开发可在其他系统用 Node 18 跑前后端，但一键脚本和打包说明偏 Windows。生成图片 / 视频需要自备各家 API Key，会按供应商计费。技术栈是 Vue 3 + Vite + Express + SQLite + Electron，不是 StoryFactory 的 React + FastAPI，适合对照产品流程，不宜整仓搬迁。桌面版体积较大。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/xuanyustudio/LocalMiniDrama/blob/main/README.md"
+        },
+        {
+          "title": "docs/quickstart.md",
+          "url": "https://github.com/xuanyustudio/LocalMiniDrama/blob/main/docs/quickstart.md"
+        },
+        {
+          "title": "LICENSE（MIT）",
+          "url": "https://github.com/xuanyustudio/LocalMiniDrama/blob/main/LICENSE"
+        },
+        {
+          "title": "Release v1.2.9",
+          "url": "https://github.com/xuanyustudio/LocalMiniDrama/releases/tag/v1.2.9"
+        }
+      ]
+    },
+    {
+      "id": "omnigent-ai-omnigent",
+      "rank": 3,
+      "name": "Omnigent",
+      "category": "项目",
+      "summary": "开源的 AI agent meta-harness：把 Hermes、Pi、Grok Build、OpenCode、Claude Code、Codex 等放进同一套编排层，支持同会话协作、审批策略和花费封顶。Apache-2.0。",
+      "why": "对 clawkit、star-river-dev-team 和本机 Hermes「凌霄」最有用。可执行：1）官方把 Hermes / Pi / Grok Build / OpenCode 等列为可切换 harness，不必为每个运行时各写一层编排；2）同一会话里可混合多个 harness，让一个 agent 审查另一个的产出，对照现有多角色分工；3）用策略在危险动作前暂停审批、限制工具或封顶花费，接到凌霄的人工确认门；4）改 harness 时可跑仓库里的 tests/harness_bench，对照能力矩阵。",
+      "url": "https://github.com/omnigent-ai/omnigent",
+      "repo": "omnigent-ai/omnigent",
+      "stars": 11387,
+      "tags": [
+        "multi-agent",
+        "Hermes",
+        "Pi",
+        "OpenCode",
+        "Grok-Build",
+        "orchestrator",
+        "clawkit"
+      ],
+      "steps": [
+        "用官方脚本安装并加上 --no-databricks（避免默认附带 Databricks CLI），或在 Python 3.12+ 环境执行 uv tool install omnigent",
+        "先开一个 Hermes 或 Pi 会话，确认会话能在终端里跑起来",
+        "再试一条审批策略（危险动作先确认或限制工具），只对照门禁，不要一上来替换整个 clawkit"
+      ],
+      "risk": "Apache-2.0。仓库仍标注 alpha，虽然正式版已经到 0.22.0（2026-11-13）且当天仍在更新。默认会收集匿名用量，按官方 Usage Telemetry 文档关闭。安装脚本默认包含 Databricks 支持，不需要就加 --no-databricks。需要 Python 3.12+。云沙箱（Modal、E2B 等）是可选外部服务，试用不必开。这是一层编排，不要当成现有团队配置的一次性替换。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/omnigent-ai/omnigent/blob/main/README.md"
+        },
+        {
+          "title": "LICENSE（Apache-2.0）",
+          "url": "https://github.com/omnigent-ai/omnigent/blob/main/LICENSE"
+        },
+        {
+          "title": "Release v0.22.0",
+          "url": "https://github.com/omnigent-ai/omnigent/releases/tag/v0.22.0"
+        }
+      ]
+    },
+    {
+      "id": "m-i-n-a-r-birday",
+      "rank": 4,
+      "name": "Birday",
+      "category": "生活",
+      "summary": "专门记生日和纪念日的开源安卓应用：当天提醒，也可提前最多 21 天，不必把家庭日子塞进系统日历或依赖社交网络。有简体中文，F-Droid 可装，无需注册。",
+      "why": "家务 / 家庭琐事（家庭生日与纪念日提醒，不是又一套日历）。可执行：1）先手动录入家里 3 个生日或纪念日（不必在通讯录里），打开当天通知，需要时再设提前几天；2）用「未来 10 天速览」和桌面小组件，早上扫一眼本周要准备的礼物或祝福，避免靠记忆或刷社交软件。可打包「家庭生日 / 纪念日清单」跟做——人名、关系、日期、是否收藏、提前几天提醒。",
+      "url": "https://github.com/m-i-n-a-r/birday",
+      "repo": "m-i-n-a-r/birday",
+      "stars": 1213,
+      "tags": [
+        "家务",
+        "家庭琐事",
+        "生日",
+        "纪念日",
+        "提醒",
+        "安卓",
+        "F-Droid",
+        "中文"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub 安装 Birday（包名 com.minar.birday），授予通知权限",
+        "先手动添加 3 个家庭生日或纪念日，打开当天提醒，需要时再勾选提前 1–21 天",
+        "把小组件放到桌面，或打开未来 10 天速览；换机前先做 JSON / CSV 备份"
+      ],
+      "risk": "仅 Android 8.0+（minSdk 26）。GPL-3.0。F-Droid 与 Google Play 均可免费安装；Play 渠道在安装后可能由 Google Play Services 做云备份，想完全留在本地请用 F-Droid 并自己导出备份。界面有简体中文。最新正式版 4.7.2 发布于 2025-10-22，仓库在 2026-10-27 仍有提交，但发行版更新偏慢。部分厂商系统会限制后台，需关闭电池优化才能准时提醒。统计里有星座、平均年龄等本地展示，不是健康评估，也不做诊疗。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/m-i-n-a-r/birday/blob/master/README.md"
+        },
+        {
+          "title": "LICENSE.md（GPL-3.0）",
+          "url": "https://github.com/m-i-n-a-r/birday/blob/master/LICENSE.md"
+        },
+        {
+          "title": "app/build.gradle.kts（minSdk 26）",
+          "url": "https://github.com/m-i-n-a-r/birday/blob/master/app/build.gradle.kts"
+        },
+        {
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/com.minar.birday/"
+        }
+      ]
+    },
+    {
+      "id": "dennisbauer-recurringexpensetracker",
+      "rank": 5,
+      "name": "Recurring Expense Tracker",
+      "category": "生活",
+      "summary": "专门盯房租、保险、订阅等固定开支的开源应用：按日 / 周 / 月 / 年录入，自动折成每月多少钱，支持到期提醒、小组件和本地备份。有简体中文，F-Droid 可装，无需注册。",
+      "why": "消费决策 / 轻理财（固定支出体检，不是又一套全量记账或储蓄罐）。可执行：1）设好人民币后，先录入房租、视频会员、保险等 3 笔固定支出，看它们折成「每月一共多少」；2）打开即将到期页和提醒，续费前先看一眼再决定去留；发工资的话也可用「负数支出」记入账，看扣完固定开支还剩多少（只是算术，不是理财建议）。可打包「家庭固定支出体检表」跟做——项目、周期、金额、标签和提醒时间。",
+      "url": "https://github.com/DennisBauer/RecurringExpenseTracker",
+      "repo": "DennisBauer/RecurringExpenseTracker",
+      "stars": 406,
+      "tags": [
+        "消费决策",
+        "轻理财",
+        "固定支出",
+        "订阅",
+        "提醒",
+        "安卓",
+        "F-Droid",
+        "中文"
+      ],
+      "steps": [
+        "用 F-Droid、IzzyOnDroid 或 GitHub Releases 安装（包名 de.dbauer.expensetracker），首次打开把默认货币设为人民币",
+        "先录入至少 3 笔真实固定支出（如房租、会员、保险），加上标签，并打开到期提醒",
+        "把即将付款小组件放到桌面；换机前先做应用内备份"
+      ],
+      "risk": "GPL-3.0。官方商店安装以 Android 为主（F-Droid / IzzyOnDroid / Google Play / GitHub APK）。iOS 和桌面可以自行编译，但没有正式上架包，跟做请走安卓。界面有简体 / 繁体中文。数据在本地，可开生物识别锁，无广告无追踪。若使用多币种，汇率会联网更新；只用人民币时可当本地账本。最新正式版 0.21.4 发布于 2026-09-26，之后仓库仍有维护提交。这不是全量记账，也不做投资建议。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/DennisBauer/RecurringExpenseTracker/blob/main/README.md"
+        },
+        {
+          "title": "LICENSE（GPL-3.0）",
+          "url": "https://github.com/DennisBauer/RecurringExpenseTracker/blob/main/LICENSE"
+        },
+        {
+          "title": "简体中文文案 values-zh-rCN",
+          "url": "https://github.com/DennisBauer/RecurringExpenseTracker/tree/main/shared/src/commonMain/composeResources/values-zh-rCN"
+        },
+        {
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/de.dbauer.expensetracker/"
+        }
+      ]
+    }
+  ]
+}
