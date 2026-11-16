@@ -1,0 +1,512 @@
+{
+  "date": "2026-11-16",
+  "updated": "2026-11-16T09:00:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "MCPize：上架付费 MCP 服务器（订阅约 80%，每月 1 日 Stripe Connect）",
+      "type": "Agent工具/小产品",
+      "summary": "MCPize 官方变现文档：可用其 SDK/CLI 编写并托管 MCP 服务器，按月/年订阅或按次（Base 上 USDC / x402）收费，也可两种同时开。新上架服务器默认分成约 80%，订阅收入于每月 1 日打入卖家的 Stripe Connect 账户。2026-06-10 前已开通变现的服务器仍走「创始成员」费率（具体比例文档未写数字）。发布本身免费。开发者页另写「上线首月 0% 平台费」，以控制台与结算单为准，本文按文档默认约 80% 陈述。",
+      "cost": "0 上架费；订阅走 Stripe Connect 与身份核验；自付你调用的上游模型/API 成本。按次收款需自备 Base 钱包。",
+      "difficulty": 3,
+      "threshold": "能实现并自测一个有实际工具价值的 MCP；能完成 Stripe 入驻（按次档还需 Base 地址）",
+      "time": "有现成 MCP 可当天部署；订阅到账按文档为每月 1 日，另计 Stripe 打款节奏",
+      "fit": "已有可演示的垂直 MCP、希望卖「调用能力」并用法币订阅收款的开发者",
+      "why": "11-12 清单是 MCP Marketplace / Skill 文件店。MCPize 官方写清托管+订阅 80%+每月 1 日 Stripe Connect，是本周新核到的 MCP 订阅货架，品类不重复。",
+      "steps": [
+        "阅读 https://mcpize.com/docs/monetization 与条款，用官方 SDK/CLI（文档示例为 npx mcpize init / deploy）做并自测一个垂直 MCP",
+        "在控制台配置订阅计划（价格、包含额度、超量费率）；不要照搬营销页的示例收入数字",
+        "由你本人完成 Stripe Connect 入驻与税务信息，再打开付费",
+        "上线后用 Claude/Cursor/ChatGPT 做安装与调用验收，按反馈发版",
+        "若同时开按次 USDC，先在 Base Sepolia 跑通再切主网，钱包密钥只放在你自己的设备",
+        "对账以每月 1 日 Stripe Connect 入账与结算单为准，不承诺安装量或 MRR"
+      ],
+      "risk": "风险等级：中。条款日期为 2026-04-12，平台销量与 Stripe 可用国家未完整公示；托管在平台侧，安全或下架会影响结算；按次档涉及链上 USDC，合规与出金由你自行判断。开发者页「首月 0%」未写入变现文档，不要当已生效条款。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手官方变现文档写死默认约 80% 与每月 1 日 Stripe Connect，且为 11-12 未收录的 MCP 订阅通道。",
+      "tags": [
+        "MCPize",
+        "MCP",
+        "Stripe Connect",
+        "订阅",
+        "80%"
+      ],
+      "sources": [
+        {
+          "title": "Monetize Your MCP Server: Subscriptions and Pay-per-call",
+          "url": "https://mcpize.com/docs/monetization",
+          "publisher": "MCPize",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "https://mcpize.com/terms",
+          "publisher": "Procoders OÜ / MCPize",
+          "published": "2026-04-12",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "MCP Developer Portal",
+          "url": "https://mcpize.com/developers",
+          "publisher": "MCPize",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://mcpize.com/docs/monetization",
+      "agent_howto": "用 Cursor/Claude 按官方 SDK 写工具、测试与 mcpize.yaml 定价；部署、Stripe 入驻和钱包配置由你本人完成，Agent 不代管密钥。",
+      "agent_stack": [
+        "MCP SDK",
+        "Cursor/Claude",
+        "MCPize CLI",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Moltify：上架可雇 Agent（完成后约 88%，Stripe Connect）",
+      "type": "Agent接单",
+      "summary": "Moltify 官方 Payouts 与 Builders 页：把已能交付的 Agent 上架，买家可按任务雇佣。买家预付进入托管，批准交付后，平台抽取约 12%（文档写该费率已覆盖 Stripe 手续费），卖家约留 88%，即时转入你的 Stripe Connect 账户，再按你在 Stripe 设定的节奏打到银行（页写通常约 2–7 天）。Builders 页写满约 100 美元可免费自动出金到银行，也可随时按次提现（页写手续费约 0.25 美元）。无独家限制。另有限时 Founding Builders（约 6% 费率、约 6 个月），名额与资格以官方当时公示为准，不当作默认条件。",
+      "cost": "0 上架费；需完成 Stripe Connect 与身份核验；运行 Agent 的模型与托管成本自付",
+      "difficulty": 3,
+      "threshold": "有范围清楚、可验收的单项 Agent 服务；运营者能完成 Stripe 入驻",
+      "time": "已有可演示 Agent 可当天上架；到账=买家批准后入 Stripe，再加银行 2–7 天（以官方与 Stripe 为准）",
+      "fit": "已有可交付 Agent、能开 Stripe、希望做法币按任务收款的人",
+      "why": "11-12 的接单位是 Toku。Moltify 官方把 12% 平台费、托管、批准后入 Stripe Connect 写进 Payouts 页，是本周新核到的法币雇佣货架。",
+      "steps": [
+        "阅读 https://moltify.ai/docs/payouts 与 https://moltify.ai/builders，开通 Builder 并完成邮箱等必填项",
+        "由你本人走 Stripe Connect 入驻，绑银行或借记卡，并设定 Stripe 出金节奏",
+        "把服务写成清晰的范围、定价、时限与交付物，先上可演示的小额档",
+        "上线后用自己的 Agent 跑通接单→交付→验收；只在描述范围内工作",
+        "批准后核对应入账约 88%；银行到账以 Stripe 为准，不要把平台余额当成已到账",
+        "若选择 Founding 档，以官方当时是否仍开放及后台费率为准，不按宣传页假设"
+      ],
+      "risk": "风险等级：中。平台较新、公开成交与卖家收入未核实；Stripe 对部分国家/主体可能无法开户（名单未公示）；争议由平台审证据，描述不清可能被退款。不承诺接单量或收益。",
+      "risk_level": "中",
+      "reason": "官方 Payouts 页写死 12% 费率、托管与 Stripe Connect 出金，且为 11-12 未收录的法币 Agent 雇佣通道。",
+      "tags": [
+        "Moltify",
+        "Agent接单",
+        "Stripe Connect",
+        "托管",
+        "88%"
+      ],
+      "sources": [
+        {
+          "title": "Payouts | Moltify.ai",
+          "url": "https://moltify.ai/docs/payouts",
+          "publisher": "Moltify",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "For Builders — List Your AI Agent and Keep 88%",
+          "url": "https://moltify.ai/builders",
+          "publisher": "Moltify",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "How it Works | Moltify.ai",
+          "url": "https://moltify.ai/how-it-works",
+          "publisher": "Moltify",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://moltify.ai/docs/payouts",
+      "agent_howto": "用 Cursor/Claude 把已跑通的流程做成可验收的 Agent（输入、步骤、交付物、失败兜底），并写清 listing；Stripe 入驻、定价、争议与税务由你本人处理，不要把密钥交给第三方。",
+      "agent_stack": [
+        "自建 Agent",
+        "Cursor/Claude",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Sigrix：上架自有 Python MCP 安装包（约 80%，售后 14 天到 Stripe）",
+      "type": "Agent工具/小产品",
+      "summary": "Sigrix 2026-10-17 官方更新：MCP 上架已对所有卖家开放。可上架已在 npm/PyPI 的服务器（此类为免费 listing，买家只得客户端配置），或上传自有纯 Python 包，由平台审核后只交付给购买者，一次性定价约 5–49 美元。官方写卖家保留每笔销售额约 80%，无月费与上架费；付费项须先连接 Stripe，打款在购买 14 天后（退款窗口关闭）进入 Stripe 账户。目前只支持买家机器上的 stdio，不支持托管 HTTP，也暂无订阅。条款确认创作者付款走 Stripe Connect，并须完成 KYC。",
+      "cost": "0 上架费与月费；付费 listing 需完成 Stripe Connect；只接受自有纯 Python 包（stdio）",
+      "difficulty": 3,
+      "threshold": "能交付可在 Claude Code / Claude Desktop / Cursor 用的自有 Python MCP，并完成 Stripe 入驻",
+      "time": "有现成包可当天提交；审核时长未写死；付费订单约 14 天后才进入 Stripe",
+      "fit": "已有可本地运行的原创 Python MCP、希望一次买断出售安装包的人",
+      "why": "11-12 的 MCP 货架是 MCP Marketplace（远程/本地、约 85%）。Sigrix 在 10-17 对全员开放、限制 stdio+纯 Python、约 80% 且 14 天后再打款，条款结构不同，值得单列。",
+      "steps": [
+        "阅读 https://sigrix.io/hub/updates/mcp-server-listings-are-open-to-every-seller 与条款中的 Stripe Connect 章节",
+        "只打包你有权出售的纯 Python MCP，在本地对 Claude Code / Cursor 做 stdio 验收",
+        "由你本人先连接 Stripe 并完成身份核验，再提交付费价（约 5–49 美元）",
+        "按页面上传并等待人工审核；不要把他人开源包改价转卖",
+        "售出后等约 14 天退款窗口过后再核 Stripe 入账，不要提前把订单当成已到账",
+        "按条款处理「与描述不符」的退款请求，不承诺销量"
+      ],
+      "risk": "风险等级：中。品类限制严（stdio、纯 Python、无订阅、定价上限约 49 美元）；14 天冻结；审核与 Stripe 开户资格未列国家名单；公开销量未核实。不承诺收益。",
+      "risk_level": "中",
+      "reason": "2026-10-17 官方更新把 80%、14 天打款和全员可上架写死，且为 11-12 未收录的 MCP 安装包通道。",
+      "tags": [
+        "Sigrix",
+        "MCP",
+        "Stripe Connect",
+        "Python",
+        "80%"
+      ],
+      "sources": [
+        {
+          "title": "MCP server listings are open to every seller",
+          "url": "https://sigrix.io/hub/updates/mcp-server-listings-are-open-to-every-seller",
+          "publisher": "Sigrix",
+          "published": "2026-10-17",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Marketplace Terms And Conditions",
+          "url": "https://sigrix.io/legal/terms-and-conditions",
+          "publisher": "Sigrix",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "AI Marketplace FAQ",
+          "url": "https://sigrix.io/faq",
+          "publisher": "Sigrix",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://sigrix.io/hub/updates/mcp-server-listings-are-open-to-every-seller",
+      "agent_howto": "用 Cursor/Claude 把已跑通的工具写成符合 MCP 的 Python 包、README 与安装块，并做本地 stdio 测试；上传、定价和 Stripe 入驻由你本人操作。",
+      "agent_stack": [
+        "Python MCP",
+        "Cursor/Claude",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "AgentGigs：用 API 让 Agent 竞标接单（免费档约 90%，托管+24 小时后 Stripe）",
+      "type": "Agent接单",
+      "summary": "AgentGigs 官网与官方博文：Agent 经 REST API 发现任务、报价、交付并收款。运营者须完成邮箱验证，并一次性走 Stripe Connect KYC 后才能出金。买家先把款项放入托管，批准交付后经约 24 小时防欺诈冷却，再自动转到你的 Stripe Connect，博文写银行通常约 2–3 个工作日。佣金从你的报价中扣除：免费档约 10%、Pro 约 7%、Enterprise 约 5%（即免费档约留 90%）；发单方另付服务费。金额在 API 里以美分计。",
+      "cost": "0 注册费；需 Stripe KYC；运行 Agent 的模型与托管成本自付。付费档费率以官方当时套餐为准。",
+      "difficulty": 4,
+      "threshold": "能按官方 API 接任务并稳定交付；运营者能完成邮箱验证与 Stripe Connect",
+      "time": "接入与上架数天；出金=批准后约 24 小时冷却+Stripe 打款 2–3 个工作日（以官方为准）",
+      "fit": "已有可 API 交付的 Agent、且有合法收美元账户的开发者",
+      "why": "11-12 接单位是 Toku 钱包提现。AgentGigs 官方把 API 全流程、托管、24 小时冷却和分档佣金写进博文与首页，是另一条法币竞标通道。",
+      "steps": [
+        "阅读 https://www.agentgigs.io/llms.txt 与 https://www.agentgigs.io/blog/how-to-build-agent-that-earns-money，注册并完成邮箱验证",
+        "由你本人在 /dashboard/agent/stripe 完成 Stripe Connect KYC，不要把 age_ API 密钥放进 Authorization: Bearer",
+        "用 API 浏览匹配任务，报价单位是美分（例如 5000=50 美元），范围与时限写清楚",
+        "被选中且托管到账后再开工；按接口提交交付物，必要时配合独立校验 Agent",
+        "批准后等约 24 小时冷却再核 Stripe 入账，银行到账另计 2–3 个工作日",
+        "不要把「有岗位可申请」理解成已有稳定单量，不承诺中标或收益"
+      ],
+      "risk": "风险等级：高。平台与公开成交未核实；佣金细节主要来自官方博文而非单独费率条款页；Stripe 开户国家未公示；任务质量与争议依赖托管和校验，描述不清或自动乱投可能被差评/拒付。不承诺收益。",
+      "risk_level": "高",
+      "reason": "官方页面与博文一致写明托管、Stripe Connect 与分档佣金，补上与 Toku 不同的 API 竞标通道；因成交未核实、费率未单列条款，风险标高。",
+      "tags": [
+        "AgentGigs",
+        "Agent接单",
+        "Stripe Connect",
+        "API",
+        "托管"
+      ],
+      "sources": [
+        {
+          "title": "How to Build an AI Agent That Earns Money — AgentGigs",
+          "url": "https://www.agentgigs.io/blog/how-to-build-agent-that-earns-money",
+          "publisher": "AgentGigs",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "AgentGigs — The Autonomous AI Agent Marketplace",
+          "url": "https://www.agentgigs.io/",
+          "publisher": "AgentGigs",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "AgentGigs llms.txt（API 与人工步骤说明）",
+          "url": "https://www.agentgigs.io/llms.txt",
+          "publisher": "AgentGigs",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://www.agentgigs.io/blog/how-to-build-agent-that-earns-money",
+      "agent_howto": "让你的 Agent 按官方 API 浏览、报价、交付并监听 webhook/SSE；邮箱验证、Stripe KYC、税务与争议由你本人处理，密钥只存在你自己的环境。",
+      "agent_stack": [
+        "自建 Agent",
+        "AgentGigs API",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Grexal：发布按次运行的 Agent（约 80%，满 14 天且满 10 美元可提现）",
+      "type": "Agent工具/小产品",
+      "summary": "Grexal 官方 Payments 文档：买家充值积分后按次运行你发布的 Agent。平台抽约 20%，卖家约留 80%；对低于约 0.10 美元的微次订单，手续费有 0.02 美元下限、且不超过该次费用的 30%。沙箱算力、构建、存储与上架已包含在这 20% 里，但你调用的外部模型/API 成本须自付，并建议用 token/页数等计费项转嫁给买家。自测、失败或未开始就被取消的运行不计收入；退款会冲回对应入账。积分兑换即时、无门槛；提现须单笔入账满 14 天且可提现余额至少约 10 美元，后台提交后由平台确认收款信息再打款（不是自动 Stripe Connect 拆分）。",
+      "cost": "0 上架费；外部模型与 API 成本自付。提现门槛约 10 美元，并有 14 天冻结。",
+      "difficulty": 4,
+      "threshold": "能按官方 CLI/文档把 Agent 发布到其沙箱并定价；接受「先积分兑换、提现需满额+满期+人工确认」",
+      "time": "有现成 Agent 可数天内发布；提现最早在首笔入账约 14 天后，到账时间以平台处理为准",
+      "fit": "愿意把可重复运行的工具做成按次商品、并能承担上游 API 成本核算的开发者",
+      "why": "11-12 没有「按次运行、平台托管沙箱」的官方货架。Grexal 把 80% 公式、14 天冻结与 10 美元提现写进 Payments 文档，路径新且条款清楚。",
+      "steps": [
+        "阅读 https://docs.grexal.ai/docs/payments 与定价/发布文档，用官方 CLI 把 Agent 推到沙箱并自测（自测不计收入）",
+        "按「目标净收入+上游成本」/0.80 定价，必要时拆 run_completed 与 token 等计费项",
+        "确认可见性为 public 后再小范围试运行，核对买家实付与你的入账",
+        "在 Dashboard → Earnings 查看 lifetime / 可兑积分 / 可提现三类余额",
+        "满约 10 美元且满 14 天后再点 Cash out，按平台指引确认收款信息；未满额可先兑积分自用",
+        "不要把营销页或估算器数字当成已实现收入，不承诺调用量"
+      ],
+      "risk": "风险等级：中。提现不是即时 Stripe 拆分，须等 14 天并由平台确认收款信息，国家/支付方式名单未公示；上游 API 若未正确转嫁会倒挂成本；公开销量未核实。不承诺收益。",
+      "risk_level": "中",
+      "reason": "官方 Payments 文档把分成公式、不计收入情形和提现条件写死，且为 11-12 未收录的按次运行通道。",
+      "tags": [
+        "Grexal",
+        "按次计费",
+        "Agent运行",
+        "80%",
+        "14天冻结"
+      ],
+      "sources": [
+        {
+          "title": "Payments | Grexal Docs",
+          "url": "https://docs.grexal.ai/docs/payments",
+          "publisher": "Grexal",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Grexal — The Unified Interface for AI Agents",
+          "url": "https://grexal.ai/",
+          "publisher": "Grexal",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://docs.grexal.ai/docs/payments",
+      "agent_howto": "用 Cursor/Claude 按官方清单写 Agent、定价项与失败兜底，并用 CLI 发布到沙箱自测；收款信息确认与提现由你本人在 Earnings 页完成。",
+      "agent_stack": [
+        "Grexal CLI",
+        "Cursor/Claude",
+        "自备模型 API"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "扣子技能商店：上架付费技能（按次/订阅，国内收款）",
+      "type": "Agent工具/小产品",
+      "summary": "2026-11-16 复核官方结算文档：仍支持上架付费技能（按次或订阅）。个人/团队/企业版均可商户入驻（团队与企业须超级管理员操作），收款账户现为支付宝或抖音支付；微信渠道仍写「正在审核中」。抖音、支付宝、微信按用户实际支付金额、购买约 30 天后可手动提现；苹果与积分按次购买于每月 10 日生成上月结算单，确认后打到注册银行账户。苹果渠道另扣约 30% 佣金及代扣个税。最终到账以结算单为准。",
+      "cost": "0 上架费；需商户入驻（实名与商户材料），平台与渠道可能另收手续费，以结算单为准",
+      "difficulty": 3,
+      "threshold": "能做 API 插件/代码片段/数据检索类技能；完成商户入驻与内容审核",
+      "time": "开发 1–2 周；入驻+审核数天；网页/安卓首笔结算约 30 天后",
+      "fit": "国内开发者、有垂直数据或工具能力的个人/小团队",
+      "why": "相对 11-12 结算规则未改，仍是本周唯一已核验的国内人民币官方技能收费通道；本周新货架多为 Stripe 或 USDC，替代不了本地收款，故保留。",
+      "steps": [
+        "在扣子网页端完成商户入驻，开通支付宝或抖音支付收款（微信仍显示审核中则不要等待）",
+        "选一个垂直刚需做成技能并提交内容审核，账户开通不等于技能已上架",
+        "设定按次价或订阅价，准备试用说明",
+        "在订单/结算管理查看已分账订单，第三方支付渠道手动提现；苹果或积分结算单需先确认",
+        "按协议自行申报税务，不承诺销量或到账时间提前"
+      ],
+      "risk": "风险等级：中。平台可审核价格、调整规则；违规可下架并暂停结算；微信收款通道尚未对商户开放。不承诺收益。",
+      "risk_level": "中",
+      "reason": "2026-11-16 复核官方结算文档仍在线且口径未变，人民币闭环，作为国内通道保留。",
+      "tags": [
+        "扣子",
+        "Coze",
+        "技能商店",
+        "付费技能",
+        "国内收款"
+      ],
+      "sources": [
+        {
+          "title": "技能收入结算",
+          "url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
+          "publisher": "扣子 Coze 官方文档",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
+      "agent_howto": "用 Cursor/Claude 写技能 API、参数说明、测试用例和详情页文案；用扣子 Agent 自测。商户资料、定价与提现由你本人操作。",
+      "agent_stack": [
+        "扣子",
+        "Cursor/Claude",
+        "支付宝商户"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "FiatDock：按次出售 MCP 调用（佣金现免、标准约 1%，USDC，可走持牌通道出金）",
+      "type": "Agent工具/小产品",
+      "summary": "FiatDock 官网与卖家页（卖家页写 Last updated: 21 September 2026；2026-11-16 首页仍写现行口径）：免费上架 MCP，按次向其他 Agent 收费，付款经 x402 以 Base 上的 USDC 直接进入你设置的 EVM 钱包，平台不代持。现行网关佣金对所有卖家免除（标准费率约 1%），失败未应答的调用不收费。可选 Verified 标记约 20 美元/月并做一次身份核验。首页与文档写可将 USDC 经持牌通道兑到你自己的银行账户（offramp），具体额度、国家与 KYC 以该通道当时规则为准。",
+      "cost": "0 上架费；现行佣金免除（标准约 1%，可能随时恢复）；自备 Base 钱包与 MCP 托管。Verified 可选，约 20 美元/月。",
+      "difficulty": 3,
+      "threshold": "能提供可稳定应答的 MCP 端点或 npm 包；能保管 EVM 钱包；如需兑法币须完成持牌通道 KYC",
+      "time": "有现成 MCP 可当天上架；链上结算在成功应答后；兑银行的到账取决于持牌通道",
+      "fit": "已有可按次计价的 MCP、能接受先收 USDC、再自行决定是否兑法币的人",
+      "why": "11-12 未收录按次、非托管、佣金现免的 MCP 调用货架。官方把「现免/标准 1%」和银行 offramp 写在首页与文档，时效性强，但出金币种与佣金优惠都要标清楚。",
+      "steps": [
+        "阅读 https://fiatdock.com/sell-mcp-service.html 与 https://fiatdock.com/ ，用邮箱注册并准备 Base 网络收款地址",
+        "在 /sell/new 先跑 Test connection（真实 MCP 握手），再填写名称、类目与按次价格",
+        "只为真正能应答的工具定价；文档写「不喜欢结果但已应答」仍计费，范围必须写清",
+        "自行保管钱包密钥；如需兑银行，走官方 offramp、用你自己的账户完成持牌通道 KYC，不要找代办",
+        "定期核对佣金是否仍免除；恢复 1% 或变更时按当时公示执行",
+        "不要把「356 个在架服务」理解成已有稳定买单，不承诺调用量或汇率"
+      ],
+      "risk": "风险等级：高。先收的是链上 USDC，汇率、钱包安全和出金国家均自负；「佣金现免」可撤销；卖家页更新日期为 2026-09-21，虽首页仍写现行口径，规则可能再变；公开成交额未核实。不承诺收益。",
+      "risk_level": "高",
+      "reason": "官方页面写清非托管按次结算、现行 0% / 标准 1%，以及可走持牌通道出金；因币种与优惠时效，风险标高。",
+      "tags": [
+        "FiatDock",
+        "MCP",
+        "按次计费",
+        "USDC",
+        "x402"
+      ],
+      "sources": [
+        {
+          "title": "Sell your MCP service — get paid per call in USDC",
+          "url": "https://fiatdock.com/sell-mcp-service.html",
+          "publisher": "FiatDock",
+          "published": "2026-09-21",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "FiatDock — the MCP marketplace where AI agents buy services per call",
+          "url": "https://fiatdock.com/",
+          "publisher": "FiatDock",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Documentation — FiatDock",
+          "url": "https://fiatdock.com/docs.html",
+          "publisher": "FiatDock",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://fiatdock.com/sell-mcp-service.html",
+      "agent_howto": "用 Cursor/Claude 把已有工具做成可稳定应答的 MCP，写清价格与失败返回；测试握手、设置收款地址和（如需）银行 offramp 由你本人完成，私钥不要交给 Agent 或任何代办。",
+      "agent_stack": [
+        "自建 MCP",
+        "Cursor/Claude",
+        "Base USDC 钱包"
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "闲鱼原创方案：《新 Agent 货架上架对照手册》（MCPize / Moltify / AgentGigs / Sigrix / Grexal / FiatDock）",
+      "type": "Agent闲鱼方案",
+      "summary": "基于本周新核到的官方文档自写对照手册：MCPize 订阅约 80% 与每月 1 日 Stripe、Moltify 完成后约 88% 与托管、AgentGigs 分档佣金与 24 小时冷却、Sigrix 约 80% 且售后 14 天、Grexal 约 80% 且满 14 天/10 美元再人工确认提现、FiatDock 现行佣金免除（标准约 1%）先收 USDC 再可选持牌通道出金。对比审核、冻结、出金币种与「只卖自有作品」红线。闲鱼只卖原创 PDF，不代开店、不代实名、不卖账号。与 11-12 已卖的 Skillzy/MCP Marketplace/Toku 手册不重复。",
+      "cost": "0–几十元排版；需亲自走通至少 1 条新路径以便截图",
+      "difficulty": 2,
+      "threshold": "能读英文文档；自己完成一次上架、入驻或至少跑通注册+条款阅读并截图",
+      "time": "写作 2–4 天",
+      "fit": "已看过技能店、想把本周新货架差写成资料的人",
+      "why": "11-12 手册覆盖的是旧四店。本周新店在订阅/按次/雇佣、法币/USDC、冻结周期上都不一样，值得单独一本，而不是改标题重卖旧手册。",
+      "steps": [
+        "亲自完成其中至少一家的注册/上架或条款与后台路径截图，注明日期",
+        "按官方原文整理分成、冻结、出金币种/通道与未公示项，每条附链接",
+        "写清禁售项（他人开源、账号、代领、代实名）并声明不承诺收益",
+        "排版为原创 PDF，闲鱼以数字资料上架",
+        "平台改版或「佣金现免」结束时出修订版并通知已购读者"
+      ],
+      "risk": "风险等级：低。须原创并标注时效；不得承诺收益、不得提供代实名/代开店。不承诺收益。",
+      "risk_level": "低",
+      "reason": "选题与 11-12 手册不重复，材料均为本周已抓取的官方页。",
+      "tags": [
+        "闲鱼",
+        "原创教程",
+        "MCPize",
+        "Moltify",
+        "AgentGigs",
+        "Sigrix",
+        "Grexal",
+        "FiatDock"
+      ],
+      "sources": [
+        {
+          "title": "Monetize Your MCP Server: Subscriptions and Pay-per-call",
+          "url": "https://mcpize.com/docs/monetization",
+          "publisher": "MCPize",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Payouts | Moltify.ai",
+          "url": "https://moltify.ai/docs/payouts",
+          "publisher": "Moltify",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "How to Build an AI Agent That Earns Money — AgentGigs",
+          "url": "https://www.agentgigs.io/blog/how-to-build-agent-that-earns-money",
+          "publisher": "AgentGigs",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "MCP server listings are open to every seller",
+          "url": "https://sigrix.io/hub/updates/mcp-server-listings-are-open-to-every-seller",
+          "publisher": "Sigrix",
+          "published": "2026-10-17",
+          "kind": "official",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Payments | Grexal Docs",
+          "url": "https://docs.grexal.ai/docs/payments",
+          "publisher": "Grexal",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-16"
+        },
+        {
+          "title": "Sell your MCP service — get paid per call in USDC",
+          "url": "https://fiatdock.com/sell-mcp-service.html",
+          "publisher": "FiatDock",
+          "published": "2026-09-21",
+          "kind": "official",
+          "checked": "2026-11-16"
+        }
+      ],
+      "source_url": "https://mcpize.com/docs/monetization",
+      "agent_howto": "用 Agent 生成大纲、对照表与 FAQ 初稿，再按你的实测截图改写；Agent 不代操作任何账号。",
+      "agent_stack": [
+        "Claude/ChatGPT",
+        "排版工具"
+      ],
+      "resell": "原创 PDF 手册，闲鱼数字资料；不卖账号/码/代领/代开店"
+    }
+  ]
+}
