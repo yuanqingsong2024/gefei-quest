@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-17T00:40:59.057Z",
-  "latestId": 104,
+  "generatedAt": "2026-11-17T04:31:30.271Z",
+  "latestId": 105,
   "latestDate": "2026-11-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 105,
+      "date": "2026-11-17",
+      "tag": "内容",
+      "title": "AI生活合集新增「豆包找店附近生活参谋」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让豆包「找店」当附近生活参谋——口述人数预算口味，把店一次性标在地图上；营业和价格到店前再核对，下单本人确认；含跟做闭环、提示词两则、小红书与闲鱼跟做包角度",
+        "附人人都是产品经理／读佳、网经社、i黑马（网易）三个来源；功能可能按版本或地区逐步开放；营业和价格到店前需本人核对；支付本人确认，不替用户下单预约，不保证支持或找店准确；与11-03元宝办事台、11-10购物参谋、11-14冰箱清库存、11-05出游攻略区分。SW 缓存 65"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 104,
       "date": "2026-11-17",
@@ -115,17 +126,6 @@
         "No.1 Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）",
         "No.2 Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）",
         "No.3 Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 95,
-      "date": "2026-11-07",
-      "tag": "改进",
-      "title": "赚钱区去掉重复的二级切换条",
-      "items": [
-        "每日赚钱榜族（#war-rank / 闲鱼 / AI生活）二级只留三个入口：每日赚钱榜、闲鱼零成本方案、AI生活起号选题",
-        "Agent 进账方案 / AI 羊毛 / OPC 一人公司 / 工具发掘页去掉整排 rank-switch，只靠顶栏大标签切换。SW 缓存 61"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
