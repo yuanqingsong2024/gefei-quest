@@ -1,224 +1,249 @@
 {
-  "date": "2026-11-16",
-  "updated": "2026-11-16T09:40:00+08:00",
+  "date": "2026-11-17",
+  "updated": "2026-11-17T09:50:00+08:00",
   "weekday": "weekday",
   "items": [
     {
-      "id": "rubenmarcus-aeo-js",
+      "id": "limelit-co-open",
       "rank": 1,
-      "name": "aeo.js",
+      "name": "Limelit Open",
       "category": "项目",
-      "summary": "给网站做 Answer Engine Optimization 的开源工具包：用 CLI 给已上线站点打 0–100 的 GEO 就绪分，并在 Vite / Vue 构建时生成 llms.txt、页面 Markdown、AI 爬虫 robots 和索引文件。",
-      "why": "对 autograph-ai（Vue3 + Vite 前台）最直接：不必再手写一套 AI 可读文件。先对已发布域名跑检查，再把官方 Vite 插件接到构建里，补齐 Dualmark 之外的 llms.txt / 各页 .md / 23 个 AI 爬虫访问矩阵。可执行：1）`npx aeo.js check <域名>` 立刻看到分数、爬虫放行情况和优先修复项，可当发布后门禁；2）在 vite.config 里接入 `aeoVitePlugin`，构建产物自动包含 robots.txt、llms.txt、llms-full.txt、sitemap.xml、ai-index.json 和各路由 .md；3）官方提供 `aeo.js/vue` 组件，若要在页面上放 Human/AI 切换，不必自己写小部件。",
-      "url": "https://github.com/rubenmarcus/aeo.js",
-      "repo": "rubenmarcus/aeo.js",
-      "stars": 147,
+      "summary": "开源的 AI 可见度追踪工具（AEO / GEO / LLMO）：一条 Go 二进制加 SQLite，在本机跟踪 ChatGPT、Claude、Perplexity、Gemini、Google AI Overview / AI Mode、Bing Copilot 是否提到并引用你的品牌；自带仪表盘和 MCP。",
+      "why": "对 autograph-ai 最直接：aeo.js、Dualmark 这类工具负责构建期生成给 AI 爬虫读的文件，Limelit Open 负责发布后用同一组提示词、对照竞品，测量「回答里有没有提到你、引用了谁」。可执行：1）对本站域名跑向导，填最多 5 个竞品和一组提示词，看可见度、声量份额、平均位置和引用份额（每项都带样本数 n）；2）按「自有站 / 竞品 / 社交 / 资讯 / 其他」查看被引用站点，决定下一步该出现在哪些页面；3）用 `limelit mcp` 把同一套数字接到 Claude Code 或其他 MCP 客户端，当作发布后的只读门禁。它比 10/28 推荐过的 Elmo 更轻：单二进制、指标公式开源、数据在本地 SQLite，不是再上一套内容改写平台。",
+      "url": "https://github.com/limelit-co/open",
+      "repo": "limelit-co/open",
+      "stars": 445,
       "tags": [
         "AEO",
         "GEO",
-        "llms.txt",
-        "Vite",
-        "Vue",
-        "CLI",
+        "AI可见度",
+        "引用追踪",
+        "MCP",
+        "Go",
+        "SQLite",
         "autograph-ai"
       ],
       "steps": [
-        "对 autograph 已发布站点运行 npx aeo.js check <域名>，记下 GEO 分数、23 个 AI 爬虫访问矩阵和优先修复项",
-        "若缺 llms.txt 或页面 Markdown，在 Vue3 + Vite 前台的 vite.config 接入 aeoVitePlugin（官方文档写明支持 Vue）",
-        "构建后核对产物里的 robots.txt / llms.txt / 各页 .md；生产环境按需关闭默认注入的 Human/AI widget"
+        "按官方 Quick start 下载 macOS 或 Linux 二进制（也可用 go install 或 Docker），运行 ./limelit serve，打开 http://localhost:1515",
+        "在向导填入 autograph 已发布域名、品类和至多 5 个竞品；优先自备 OpenAI 等密钥。若用官方免费额度，须了解提示词会经 Limelit Cloud 转发",
+        "先跑一轮查看可见度与引用，再按需接入 limelit mcp；设置 runs_per_day 上限，避免定时任务把额度跑光"
       ],
-      "risk": "仍是 0.0.x（npm 现为 0.0.17；GitHub 最新 Release 标签是 2026-07 的 0.0.16，之后仓库仍有提交）。README 与 package.json 声明 MIT，但仓库根目录目前没有 LICENSE 文件，接入前再核对。若前台是纯 SPA，构建期可能只抽到壳，要用已发布页的 check 或预渲染来验证正文是否进了 Markdown。插件默认会注入 widget，不需要就关掉。这是构建/检查工具，不是引用量追踪平台。",
+      "risk": "仍是预发布（README 写明 v0.1 正在公开开发；最新 GitHub Release 是 2026-10-01 的 v0.1.0-rc.14，仓库在 2026-11-14 仍有提交）。当前 Release 只有 macOS / Linux 包，没有 Windows 安装包；从源码编译需要 Go 1.25+。文档写明 11 个供应商适配里当时实现了 6 个；Google AI Overview / AI Mode、Bing Copilot 等消费者界面依赖 DataForSEO、SearchAPI 等抓取服务，需另备密钥并按请求付费。使用官方免费额度时，提示词会经过 Limelit Cloud 再到各引擎，答案仍存在本地 SQLite。支持一键升级到商业版 Limelit Cloud，开源核心与云产品的指标定义相同，但 GSC / GA4、情感分析等能力不在开源核心里。Apache-2.0。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/README.md"
+          "url": "https://github.com/limelit-co/open/blob/main/README.md"
         },
         {
-          "title": "package.json（license: MIT，含 ./vite 与 ./vue 导出）",
-          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/package.json"
+          "title": "docs/tools.md（MCP 工具目录）",
+          "url": "https://github.com/limelit-co/open/blob/main/docs/tools.md"
         },
         {
-          "title": "Vite 框架文档（写明支持 Vue）",
-          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/website/src/content/docs/frameworks/vite.mdx"
+          "title": "docs/providers.md",
+          "url": "https://github.com/limelit-co/open/blob/main/docs/providers.md"
         },
         {
-          "title": "src/widget/vue.ts",
-          "url": "https://github.com/rubenmarcus/aeo.js/blob/main/src/widget/vue.ts"
+          "title": "Release v0.1.0-rc.14",
+          "url": "https://github.com/limelit-co/open/releases/tag/v0.1.0-rc.14"
+        },
+        {
+          "title": "LICENSE（Apache-2.0）",
+          "url": "https://github.com/limelit-co/open/blob/main/LICENSE"
         }
       ]
     },
     {
-      "id": "xuanyustudio-localminidrama",
+      "id": "agions-kineo",
       "rank": 2,
-      "name": "本地短剧助手（LocalMiniDrama）",
+      "name": "Kineo（Kineo AI）",
       "category": "项目",
-      "summary": "本地优先的开源 AI 短剧 / 漫剧工作台：剧本到角色、场景、分镜再到视频合成都在本机完成，列表与画布双视图同源，可接通义、火山 Seedance 2.0、可灵等自备密钥。",
-      "why": "对 soloforge-storyfactory 最有对照价值（不要整仓移植）。可执行：1）抄「列表精细编辑 + 画布批量编排」双视图（同源数据）和画布上的整组重跑、节点内编辑，减少在分镜表和生成结果之间来回切；2）把场景 / 道具库的「加入本集」复用搬进角色锁和场景一致性流程，避免每集重提资产；3）把分镜上的景别、运镜、灯光、景深以及 16:9 / 9:16 / 1:1 画幅收进 StoryFactory 的分镜 schema；4）对照国内常用视频模型的 BYOK 配置（通义、火山 Seedance 2.0、可灵 Kling）和工程 ZIP 导入导出。",
-      "url": "https://github.com/xuanyustudio/LocalMiniDrama",
-      "repo": "xuanyustudio/LocalMiniDrama",
-      "stars": 2453,
+      "summary": "开源桌面端 AI 漫剧 / 动画短剧 Multi-Agent 工作台：剧本、小说或提示词进入后，由主控导演智能体协调剧本识别、角色锁脸、分镜运镜、配音和视频压制，带共享黑板和可扩展 Agent。MIT。技术栈是 Tauri v2 + React 19 + Rust。",
+      "why": "对 soloforge-storyfactory 最有对照价值（不要整仓移植；它也不是 FastAPI）。可执行：1）对照 ProjectBlackboard 共享黑板 + Hub-and-Spoke 导演调度，以及「剧本后 / 分镜后 / 音频后」可挂自定义 Agent 的扩展点，看多角色流水线如何共享角色与分镜状态；2）把角色设定卡（外貌 / 标志 / 参考图）加上文档中的 VLM 一致性门槛（≥ 0.85）和不合格自动重试，收进 StoryFactory 的角色锁；3）分镜字段里的景别（wide / medium / close-up / over-shoulder）、运镜、时长、转场，以及仓库里已实现的正反打 / 180 度轴线和人工审批门，可直接对照现有分镜 schema；4）多音轨 TTS（文档写 EdgeTTS / CosyVoice）与字幕对齐，适合作配音轨道参考，而不是更换渲染引擎。",
+      "url": "https://github.com/Agions/kineo",
+      "repo": "Agions/kineo",
+      "stars": 135,
       "tags": [
         "漫剧",
         "短剧",
         "分镜",
-        "画布",
-        "Vue3",
-        "本地优先",
-        "Seedance",
+        "角色一致性",
+        "Multi-Agent",
+        "Tauri",
+        "React",
         "soloforge-storyfactory"
       ],
       "steps": [
-        "用 Node.js 18+ 按 docs/quickstart.md 分别启动 backend-node（5679）和 frontweb（3013），或在 Windows 上下载 Releases 里的安装包 / 便携 exe",
-        "在「AI 配置」填入自备密钥，导入或新建一个短剧，走一遍「剧本 → 角色/场景库 → 画布整组重跑」",
-        "对照列表与画布双视图、场景「加入本集」和分镜专业参数，只记下要搬进 StoryFactory 的交互与字段，不要整仓移植"
+        "从 GitHub Releases 下载 v0.0.2 桌面包（Windows / macOS / Linux），或用 Node 20 + pnpm + Rust 按 README 执行 pnpm install 后 pnpm tauri dev",
+        "在设置里填入自备模型密钥，导入一段不超过约 5000 字的短剧本或小说节选",
+        "只走「角色锁脸 → 分镜画幅」，记下要搬进 StoryFactory 的字段、一致性和审批门，不要整仓移植"
       ],
-      "risk": "MIT 许可。官方 Release 以 Windows exe 为主（最新正式版 1.2.9，2026-10-16；仓库在 2026-11-15 仍有提交）。源码开发可在其他系统用 Node 18 跑前后端，但一键脚本和打包说明偏 Windows。生成图片 / 视频需要自备各家 API Key，会按供应商计费。技术栈是 Vue 3 + Vite + Express + SQLite + Electron，不是 StoryFactory 的 React + FastAPI，适合对照产品流程，不宜整仓搬迁。桌面版体积较大。",
+      "risk": "MIT。仍是很早期的版本（README 写 Studio v0.0.1，Releases 最新是 2026-10-21 的 v0.0.2，仓库在 2026-11-16 仍有提交）。官方文档有不一致：README 强调已废除线性 SOP、改用黑板多智能体，但用户指南仍写 6 阶 SOP；README 里的 2026 型号名单与入门教程里的推荐模型也不完全相同，接入时以实际设置页为准。生成图 / 视频需要自备各家 API Key，按供应商计费。桌面端依赖较重（文档建议 16 GB 内存），源码构建还要 Rust 工具链。不是 StoryFactory 的 React + FastAPI 栈，只适合对照产品流程与数据结构。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/xuanyustudio/LocalMiniDrama/blob/main/README.md"
+          "url": "https://github.com/Agions/kineo/blob/main/README.md"
         },
         {
-          "title": "docs/quickstart.md",
-          "url": "https://github.com/xuanyustudio/LocalMiniDrama/blob/main/docs/quickstart.md"
+          "title": "docs/developer-guide/architecture.md",
+          "url": "https://github.com/Agions/kineo/blob/main/docs/developer-guide/architecture.md"
         },
         {
-          "title": "LICENSE（MIT）",
-          "url": "https://github.com/xuanyustudio/LocalMiniDrama/blob/main/LICENSE"
+          "title": "docs/user-guide/character-design.md",
+          "url": "https://github.com/Agions/kineo/blob/main/docs/user-guide/character-design.md"
         },
         {
-          "title": "Release v1.2.9",
-          "url": "https://github.com/xuanyustudio/LocalMiniDrama/releases/tag/v1.2.9"
+          "title": "docs/user-guide/storyboard-design.md",
+          "url": "https://github.com/Agions/kineo/blob/main/docs/user-guide/storyboard-design.md"
+        },
+        {
+          "title": "在线文档",
+          "url": "https://agions.github.io/kineo/"
+        },
+        {
+          "title": "Release v0.0.2",
+          "url": "https://github.com/Agions/kineo/releases/tag/v0.0.2"
         }
       ]
     },
     {
-      "id": "omnigent-ai-omnigent",
+      "id": "agentopology-agentopology",
       "rank": 3,
-      "name": "Omnigent",
+      "name": "AgenTopology",
       "category": "项目",
-      "summary": "开源的 AI agent meta-harness：把 Hermes、Pi、Grok Build、OpenCode、Claude Code、Codex 等放进同一套编排层，支持同会话协作、审批策略和花费封顶。Apache-2.0。",
-      "why": "对 clawkit、star-river-dev-team 和本机 Hermes「凌霄」最有用。可执行：1）官方把 Hermes / Pi / Grok Build / OpenCode 等列为可切换 harness，不必为每个运行时各写一层编排；2）同一会话里可混合多个 harness，让一个 agent 审查另一个的产出，对照现有多角色分工；3）用策略在危险动作前暂停审批、限制工具或封顶花费，接到凌霄的人工确认门；4）改 harness 时可跑仓库里的 tests/harness_bench，对照能力矩阵。",
-      "url": "https://github.com/omnigent-ai/omnigent",
-      "repo": "omnigent-ai/omnigent",
-      "stars": 11387,
+      "summary": "「Harness as code」：用一份 .at 声明式文件描述 Agent 团队、流转、质量门和记忆（Company Brain），可校验、可视化，或生成为 Claude Code /（实验性）Cursor、Codex、Claude Workflow 的配置；也可用 plan 在当前会话里直接跑、不写文件。Apache-2.0。npm 当前为 0.11.4。",
+      "why": "对 clawkit、star-river-dev-team 和本机 Hermes「凌霄」最有用。不同于昨天的 Omnigent（运行时 meta-harness）和此前的 OpenRig（团队拓扑），它把「谁做、何时做、交接什么、哪道门」写成单一事实来源。可执行：1）把现有多角色分工写成一份 .at（含 revision 回路和 gate），用 validate 先抓循环未闭合、条件不穷尽等问题；2）对当前任务跑 agentopology plan，得到可交给凌霄或会话内子 Agent 的执行 brief，不必先生成一堆配置文件；3）用 visualize 产出离线 HTML 图，方便对齐流水线；若已有 Claude Code / Cursor 配置，也可用 import 反推 .at。注意：OpenClaw 绑定已在 0.10.0 从正式 targets 移除（源码 bindings/index.ts 写明），不要按过时文档去 scaffold --target openclaw；以后若需要，再对照绑定接口自写 Hermes / OpenClaw 适配。",
+      "url": "https://github.com/agentopology/agentopology",
+      "repo": "agentopology/agentopology",
+      "stars": 108,
       "tags": [
         "multi-agent",
-        "Hermes",
-        "Pi",
-        "OpenCode",
-        "Grok-Build",
-        "orchestrator",
-        "clawkit"
+        "declarative",
+        "Claude-Code",
+        "Cursor",
+        "plan",
+        "OpenClaw",
+        "clawkit",
+        "Hermes"
       ],
       "steps": [
-        "用官方脚本安装并加上 --no-databricks（避免默认附带 Databricks CLI），或在 Python 3.12+ 环境执行 uv tool install omnigent",
-        "先开一个 Hermes 或 Pi 会话，确认会话能在终端里跑起来",
-        "再试一条审批策略（危险动作先确认或限制工具），只对照门禁，不要一上来替换整个 clawkit"
+        "安装 npm install -g agentopology（当前 npm 与 Release 均为 0.11.4，需要 Node 18+）",
+        "参照 examples/simple-pipeline.at，把凌霄或 clawkit 的角色与流转写成一份 .at，先执行 agentopology validate",
+        "再对一个真实小任务执行 agentopology plan <file> --task \"...\"，只对照 brief 与门禁，不要一上来替换整个编排层"
       ],
-      "risk": "Apache-2.0。仓库仍标注 alpha，虽然正式版已经到 0.22.0（2026-11-13）且当天仍在更新。默认会收集匿名用量，按官方 Usage Telemetry 文档关闭。安装脚本默认包含 Databricks 支持，不需要就加 --no-databricks。需要 Python 3.12+。云沙箱（Modal、E2B 等）是可选外部服务，试用不必开。这是一层编排，不要当成现有团队配置的一次性替换。",
+      "risk": "Apache-2.0，版本仍在 0.11.x，2026-11-16 刚发布 0.11.4。真正支持的 scaffold 目标以源码为准：claude-code 为正式支持，claude-workflow / codex / cursor 为实验性；仓库介绍和技能文档仍提到 OpenClaw、Gemini CLI 等，那些绑定已在 0.10.0 移除。README 写 129 条校验规则，入门文档仍写 82 条，以 validate 实际输出为准。plan 不会自己拉起子 Agent，只产出 brief；在无文件模式下，门禁是「证据约定」而非强制 hook。Company Brain / Obsidian 是可选项。不要把它当成现有 clawkit 配置的一次性替换。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/omnigent-ai/omnigent/blob/main/README.md"
+          "url": "https://github.com/agentopology/agentopology/blob/main/README.md"
+        },
+        {
+          "title": "docs/getting-started.md",
+          "url": "https://github.com/agentopology/agentopology/blob/main/docs/getting-started.md"
+        },
+        {
+          "title": "src/bindings/index.ts（实际 targets）",
+          "url": "https://github.com/agentopology/agentopology/blob/main/src/bindings/index.ts"
+        },
+        {
+          "title": "Release v0.11.4",
+          "url": "https://github.com/agentopology/agentopology/releases/tag/v0.11.4"
         },
         {
           "title": "LICENSE（Apache-2.0）",
-          "url": "https://github.com/omnigent-ai/omnigent/blob/main/LICENSE"
-        },
-        {
-          "title": "Release v0.22.0",
-          "url": "https://github.com/omnigent-ai/omnigent/releases/tag/v0.22.0"
+          "url": "https://github.com/agentopology/agentopology/blob/main/LICENSE"
         }
       ]
     },
     {
-      "id": "m-i-n-a-r-birday",
+      "id": "rh-id-a-medic-log",
       "rank": 4,
-      "name": "Birday",
+      "name": "Medic Log",
       "category": "生活",
-      "summary": "专门记生日和纪念日的开源安卓应用：当天提醒，也可提前最多 21 天，不必把家庭日子塞进系统日历或依赖社交网络。有简体中文，F-Droid 可装，无需注册。",
-      "why": "家务 / 家庭琐事（家庭生日与纪念日提醒，不是又一套日历）。可执行：1）先手动录入家里 3 个生日或纪念日（不必在通讯录里），打开当天通知，需要时再设提前几天；2）用「未来 10 天速览」和桌面小组件，早上扫一眼本周要准备的礼物或祝福，避免靠记忆或刷社交软件。可打包「家庭生日 / 纪念日清单」跟做——人名、关系、日期、是否收藏、提前几天提醒。",
-      "url": "https://github.com/m-i-n-a-r/birday",
-      "repo": "m-i-n-a-r/birday",
-      "stars": 1213,
+      "summary": "面向个人和家庭的开源安卓医疗笔记应用：可为每位家人建档案，记录带日期的笔记并附加检查单照片，设置服药提醒和服药记录，数据默认留在本机。F-Droid 可装，无需注册。不做诊断。",
+      "why": "家庭健康资料整理（非诊疗：归档和提醒，不是看报告下结论）。可执行：1）先为家人各建一个 Profile，把最近一次体检单或出院小结拍进笔记附件，用标签（如「体检」「复查」）和日期，方便下次问诊时翻出；2）就诊前用笔记写一份「想问医生的问题」清单，回来再把医嘱原文原样记上（只归档，不解读）；3）若家中已有按医嘱服药的安排，可用提醒和 7/30 天记录当闹钟与打卡，这不是用药建议。可打包「家庭健康档案」跟做方案：档案人、笔记模板（日期 / 科室 / 附件 / 待问问题 / 复查日期）和导出备份步骤。",
+      "url": "https://github.com/rh-id/a-medic-log",
+      "repo": "rh-id/a-medic-log",
+      "stars": 20,
       "tags": [
-        "家务",
-        "家庭琐事",
-        "生日",
-        "纪念日",
-        "提醒",
+        "家庭健康资料",
+        "医疗笔记",
+        "服药提醒",
         "安卓",
         "F-Droid",
-        "中文"
+        "本地",
+        "不做诊断"
       ],
       "steps": [
-        "用 F-Droid 或 GitHub 安装 Birday（包名 com.minar.birday），授予通知权限",
-        "先手动添加 3 个家庭生日或纪念日，打开当天提醒，需要时再勾选提前 1–21 天",
-        "把小组件放到桌面，或打开未来 10 天速览；换机前先做 JSON / CSV 备份"
+        "用 F-Droid 安装 Medic Log（包名 m.co.rh.id.a_medic_log）；若要最新功能，也可安装 GitHub Releases 的 2.4.0 正式包（F-Droid 渠道可能滞后）",
+        "先为家里 1–2 人建档案，各添加一条带附件的笔记，并打开应用锁（指纹或系统锁屏）",
+        "换机前用应用内导出 ZIP（JSON + 附件）；不要依赖系统云备份（应用明确排除了 Auto Backup）"
       ],
-      "risk": "仅 Android 8.0+（minSdk 26）。GPL-3.0。F-Droid 与 Google Play 均可免费安装；Play 渠道在安装后可能由 Google Play Services 做云备份，想完全留在本地请用 F-Droid 并自己导出备份。界面有简体中文。最新正式版 4.7.2 发布于 2025-10-22，仓库在 2026-10-27 仍有提交，但发行版更新偏慢。部分厂商系统会限制后台，需关闭电池优化才能准时提醒。统计里有星座、平均年龄等本地展示，不是健康评估，也不做诊疗。",
+      "risk": "不做诊断，不提供用药或疗效建议；服药提醒只是本地闹钟，剂量与是否服用以医嘱为准。仅 Android 5.0+，没有官方 iOS 版。界面目前有英、德、法、意、印尼等语言，没有简体中文，跟做方案需配中文操作说明。GPL-3.0。无需账号；应用声明没有 INTERNET 权限，数据默认留在本机。首页可能出现可关闭的配套应用推荐卡片。GitHub 星标不多（约 20），但一直在更新（最新正式版 2.4.0，2026-11-15）。部分机型需关闭电池优化才能准时提醒。删除档案或笔记会级联删除其下药品、提醒、附件和服药记录，不可恢复，删除前看清确认框。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/m-i-n-a-r/birday/blob/master/README.md"
-        },
-        {
-          "title": "LICENSE.md（GPL-3.0）",
-          "url": "https://github.com/m-i-n-a-r/birday/blob/master/LICENSE.md"
-        },
-        {
-          "title": "app/build.gradle.kts（minSdk 26）",
-          "url": "https://github.com/m-i-n-a-r/birday/blob/master/app/build.gradle.kts"
+          "url": "https://github.com/rh-id/a-medic-log/blob/master/README.md"
         },
         {
           "title": "F-Droid",
-          "url": "https://f-droid.org/packages/com.minar.birday/"
-        }
-      ]
-    },
-    {
-      "id": "dennisbauer-recurringexpensetracker",
-      "rank": 5,
-      "name": "Recurring Expense Tracker",
-      "category": "生活",
-      "summary": "专门盯房租、保险、订阅等固定开支的开源应用：按日 / 周 / 月 / 年录入，自动折成每月多少钱，支持到期提醒、小组件和本地备份。有简体中文，F-Droid 可装，无需注册。",
-      "why": "消费决策 / 轻理财（固定支出体检，不是又一套全量记账或储蓄罐）。可执行：1）设好人民币后，先录入房租、视频会员、保险等 3 笔固定支出，看它们折成「每月一共多少」；2）打开即将到期页和提醒，续费前先看一眼再决定去留；发工资的话也可用「负数支出」记入账，看扣完固定开支还剩多少（只是算术，不是理财建议）。可打包「家庭固定支出体检表」跟做——项目、周期、金额、标签和提醒时间。",
-      "url": "https://github.com/DennisBauer/RecurringExpenseTracker",
-      "repo": "DennisBauer/RecurringExpenseTracker",
-      "stars": 406,
-      "tags": [
-        "消费决策",
-        "轻理财",
-        "固定支出",
-        "订阅",
-        "提醒",
-        "安卓",
-        "F-Droid",
-        "中文"
-      ],
-      "steps": [
-        "用 F-Droid、IzzyOnDroid 或 GitHub Releases 安装（包名 de.dbauer.expensetracker），首次打开把默认货币设为人民币",
-        "先录入至少 3 笔真实固定支出（如房租、会员、保险），加上标签，并打开到期提醒",
-        "把即将付款小组件放到桌面；换机前先做应用内备份"
-      ],
-      "risk": "GPL-3.0。官方商店安装以 Android 为主（F-Droid / IzzyOnDroid / Google Play / GitHub APK）。iOS 和桌面可以自行编译，但没有正式上架包，跟做请走安卓。界面有简体 / 繁体中文。数据在本地，可开生物识别锁，无广告无追踪。若使用多币种，汇率会联网更新；只用人民币时可当本地账本。最新正式版 0.21.4 发布于 2026-09-26，之后仓库仍有维护提交。这不是全量记账，也不做投资建议。",
-      "sources": [
+          "url": "https://f-droid.org/packages/m.co.rh.id.a_medic_log/"
+        },
         {
-          "title": "README.md",
-          "url": "https://github.com/DennisBauer/RecurringExpenseTracker/blob/main/README.md"
+          "title": "Release v2.4.0",
+          "url": "https://github.com/rh-id/a-medic-log/releases/tag/v2.4.0"
         },
         {
           "title": "LICENSE（GPL-3.0）",
-          "url": "https://github.com/DennisBauer/RecurringExpenseTracker/blob/main/LICENSE"
+          "url": "https://github.com/rh-id/a-medic-log/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "logarex-avocook",
+      "rank": 5,
+      "name": "AvoCook",
+      "category": "生活",
+      "summary": "免费开源的 iOS / Android 厨房应用：本地菜谱、冰箱 / 储物 / 冷冻库存与临期提醒、每日 / 每周菜单（含剩菜）、购物清单和烹饪计时。本地菜谱无需注册即可离线使用。",
+      "why": "饮食 / 厨房清库存（比单纯收藏菜谱或多一步：先看家里有什么，再排一周的饭）。可执行：1）在 My kitchen 把冰箱、储物、冷冻里现有食材和包装日期录进去，打开临期提醒，优先消化快过期的；2）在 Meal plan 排本周午晚餐，可加入菜谱、简单一餐或剩菜（剩菜和外出就餐不会自动加购物项），再对照库存生成购物清单；买回来可把勾选商品放入库存，做完一道菜后也可按配方扣减库存。可打包「清库存周菜单」跟做方案：库存字段、临期处理、一周三餐模板、购物清单核对。",
+      "url": "https://github.com/Logarex/AvoCook",
+      "repo": "Logarex/AvoCook",
+      "stars": 44,
+      "tags": [
+        "饮食",
+        "厨房清库存",
+        "菜谱",
+        "临期提醒",
+        "周菜单",
+        "购物清单",
+        "iOS",
+        "Android"
+      ],
+      "steps": [
+        "从 GitHub Releases 安装 Android APK（最新正式版 v5.0.1），或按仓库 README 给出的 App Store / Google Play 链接安装（若商店页在你所在地区不可用，以 APK 为准）",
+        "先在 My kitchen 录入至少 5 样食材和日期，打开临期提醒",
+        "再在本周菜单里排 3 顿（可包含剩菜），核对库存后生成购物清单；社区和共享清单功能可先不用"
+      ],
+      "risk": "GPL-3.0。界面目前为英 / 法 / 德 / 西 / 意 / 丹麦语，没有简体中文，跟做方案需配中文说明。Android 官方 APK 约 128 MB，体积偏大。本地菜谱、菜单和库存可不上账号使用，但应用启动时会建立匿名 Firebase 会话（即使在本地模式）；社区食谱和共享购物清单会走 Firebase。可选的网页导入、条码商品查询和「冰箱助手」会访问相应外部服务（助手需自备 API Key）。可选 Nextcloud 同步；若手填 HTTP 地址，凭证和菜谱会明文传输，只应在受信局域网使用。不是营养诊疗工具，按现有食材给的点子不能替代饮食医嘱。仓库活跃（2026-11-16 仍有提交），星标还不多（约 44）。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Logarex/AvoCook/blob/main/README.md"
         },
         {
-          "title": "简体中文文案 values-zh-rCN",
-          "url": "https://github.com/DennisBauer/RecurringExpenseTracker/tree/main/shared/src/commonMain/composeResources/values-zh-rCN"
+          "title": "docs/GUIDE.md（厨房指南）",
+          "url": "https://github.com/Logarex/AvoCook/blob/main/docs/GUIDE.md"
         },
         {
-          "title": "F-Droid",
-          "url": "https://f-droid.org/packages/de.dbauer.expensetracker/"
+          "title": "PRIVACY.md",
+          "url": "https://github.com/Logarex/AvoCook/blob/main/PRIVACY.md"
+        },
+        {
+          "title": "Release v5.0.1",
+          "url": "https://github.com/Logarex/AvoCook/releases/tag/v5.0.1"
+        },
+        {
+          "title": "LICENSE（GPL-3.0）",
+          "url": "https://github.com/Logarex/AvoCook/blob/main/LICENSE"
         }
       ]
     }
