@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-14T04:24:16.986Z",
-  "latestId": 103,
-  "latestDate": "2026-11-14",
+  "generatedAt": "2026-11-17T00:40:59.057Z",
+  "latestId": 104,
+  "latestDate": "2026-11-17",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 104,
+      "date": "2026-11-17",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-17",
+      "items": [
+        "No.1 DreamHost Affiliate：写主机/建站教程，官方联盟页按产品与签约年限列出佣金，例如 Web Hosting Launch 年付约50美元、2年约100美元，DreamPress 20 的3年档写明约1,000美元（无最低打款门槛，约97天冻结后按月银行转账；以官方表与条款为准）",
+        "No.2 SendOwl：自建数字下载店，官方定价页写明平台不抽成、Launch 月付约39美元/月（年付展示约32.50美元/月；按近12个月订单和销售额分档，超额会升档；另计 Stripe/PayPal 处理费）",
+        "No.3 AWS Amplify Hosting：按官方入门部署英文静态工具小站；官方定价页写明 Free Tier 下构建约1000分钟/月、CDN 存储约5GB、出站流量约15GB 无额外费用，超出后标准构建约0.01美元/分钟、出站约0.15美元/GB（2025-07-15 起新客户另有最多约200美元积分等说明，以定价页为准），验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 103,
       "date": "2026-11-14",
@@ -116,41 +128,30 @@
         "Agent 进账方案 / AI 羊毛 / OPC 一人公司 / 工具发掘页去掉整排 rank-switch，只靠顶栏大标签切换。SW 缓存 61"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 94,
-      "date": "2026-11-07",
-      "tag": "内容",
-      "title": "AI生活合集新增「家庭事务盯梢员」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：让AI当家庭事务盯梢员——班级群待办／机票降价／宠物复查／疫苗年检（授权后持续跟进）；含授权边界、关键节点本人确认、小红书与闲鱼跟做包角度",
-        "附温州晚报·温度新闻 / 扬子晚报·紫牛新闻 / IT之家 / 21经济网·红星新闻四个来源；支付/改签/回群须本人确认；不代授权不承诺零漏办；与10-28订阅刺客猎手区分。SW 缓存 60"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
-    "date": "2026-11-13",
+    "date": "2026-11-17",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "SiteGround Affiliate：写主机/WordPress 教程，官方知识库按自然月销售档写明单笔约50至100美元（1–5笔约50美元，6–10笔约75美元，11–20笔约100美元，21笔以上可谈定制；约60天 Cookie，可周结；以条款为准）",
+        "name": "DreamHost Affiliate：写主机/建站教程，官方联盟页按产品与签约年限列出佣金，例如 Web Hosting Launch 年付约50美元、2年约100美元，DreamPress 20 的3年档写明约1,000美元（无最低打款门槛，约97天冻结后按月银行转账；以官方表与条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.siteground.com/affiliates"
+        "source_url": "https://www.dreamhost.com/affiliates/"
       },
       {
         "rank": 2,
-        "name": "Polar：上架原创数字下载/订阅，官方费率文档写明新组织 Starter 档无月费、成交约抽5%+50美分（国际卡另计约1.5%；另计 Stripe 打款费；以费率页为准）",
+        "name": "SendOwl：自建数字下载店，官方定价页写明平台不抽成、Launch 月付约39美元/月（年付展示约32.50美元/月；按近12个月订单和销售额分档，超额会升档；另计 Stripe/PayPal 处理费）",
         "type": "数字产品/接单",
-        "source_url": "https://polar.sh/docs/merchant-of-record/fees"
+        "source_url": "https://www.sendowl.com/pricing"
       },
       {
         "rank": 3,
-        "name": "Azure Static Web Apps：按官方快速入门部署英文静态工具小站，官方定价页写明 Free 档托管约0美元（每订阅约含100GB流量，超额可能停止服务且无 SLA），验证流量后再接 AdSense 或联盟",
+        "name": "AWS Amplify Hosting：按官方入门部署英文静态工具小站；官方定价页写明 Free Tier 下构建约1000分钟/月、CDN 存储约5GB、出站流量约15GB 无额外费用，超出后标准构建约0.01美元/分钟、出站约0.15美元/GB（2025-07-15 起新客户另有最多约200美元积分等说明，以定价页为准），验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://learn.microsoft.com/en-us/azure/static-web-apps/getting-started"
+        "source_url": "https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html"
       }
     ]
   }
