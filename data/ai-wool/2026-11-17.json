@@ -1,0 +1,305 @@
+{
+  "date": "2026-11-17",
+  "updated": "2026-11-17T10:10:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "七牛云 Conatus Free：实名每日 1 亿 Token，至 11/30 23:59（单笔充值超 100 元可升每日 10 亿）",
+      "type": "免费额度",
+      "provider": "七牛云",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "七牛云官方模型页写明：Conatus Free（模型 ID qiniu/conatus-free）为 2026-10-24 00:00 至 2026-11-30 23:59 的限时免费融合模型。登录并完成实名认证后，每日免费 1 亿 Token；任意一笔大于 100 元且已到账的充值（多笔不累计）可将每日上限提升至 10 亿 Token。额度按输入+输出计量（缓存输入也计入），每日 00:00（北京时间）重置、不结转；用尽后请求直接被拒绝，不扣账户余额、资源包或积分，也不支持付费续用。活动结束后即使仍有剩余额度也不能继续调用。官方提供 OpenAI 兼容 Completions（https://api.qnaigc.com/v1）与 Messages 接口。这与 11-16 榜的讯飞 SparkAudio、Gemini 免费档不是同一批额度。",
+      "value": "实名认证每日 1 亿 Token · 单笔到账充值＞100 元可升每日 10 亿 · 额度过期不结转 · 活动至 2026-11-30 23:59",
+      "deadline": "2026-11-30",
+      "cost": "认证用户在每日免费额度内按官方说明免费；提升至每日 10 亿须单笔到账充值大于 100 元（多笔不累计，且官方写明购买资源包或订阅不计入该门槛）。不承诺充值后额度立即生效或活动延期。",
+      "difficulty": 2,
+      "threshold": "须有七牛云账号并完成实名认证；未认证无额度。提升每日上限另须符合条件的单笔充值。免费额度用尽或活动结束后不能付费续用该免费模型。",
+      "time": "注册/登录、完成实名、创建 API Key 并按官方示例跑通一次请求，约 20–40 分钟（实名审核可能更久）",
+      "fit": "需要国内、OpenAI/Claude 兼容接口做日常对话、代码辅助或 Agent 工具调用，且能完成实名的开发者或内容创作者；适合在 11/30 前把可复现接入路径整理成闲鱼原创教程素材（不是代领）。",
+      "why": "官方活动页仍写明进行中并截止 11/30 23:59，相对 11-16 榜未收录，窗口只剩约两周，且领取门槛主要是实名。",
+      "steps": [
+        "打开七牛云官方页 https://www.qiniu.com/ai/free-models/conatus-2026 ，确认活动仍标注进行中、截止 2026-11-30 23:59",
+        "登录七牛云账号并在控制台完成实名认证；未认证官方写明不发放免费额度",
+        "在控制台模型页创建 API Key（同一账号下所有 Key 共享额度），使用模型 ID qiniu/conatus-free",
+        "按官方文档用 Completions BaseURL https://api.qnaigc.com/v1 或 Messages 接口发起一次小请求，核对控制台剩余额度",
+        "日历标记 2026-11-30 23:59：当日额度 00:00 重置且不结转；活动结束后服务停止。不要把 Key 发到群里或卖号"
+      ],
+      "risk": "风险：活动有明确截止日，结束后剩余额度作废、不能付费续用该免费模型；每日额度不结转，官方也可按风控或活动配置调整实际额度；融合模型具体路由与质量可能变化。不承诺一定能通过实名、每天用满 1 亿 Token，或活动延期。禁止账号合租、转卖或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "七牛云官方活动页与模型页同步写明实名每日 1 亿 Token、充值提升规则及 11/30 23:59 截止，相对 11-16 榜为可核验的新窗口。",
+      "tags": [
+        "七牛云",
+        "Conatus",
+        "免费额度",
+        "国内API",
+        "限时"
+      ],
+      "sources": [
+        {
+          "title": "Conatus Free 限时活动页",
+          "url": "https://www.qiniu.com/ai/free-models/conatus-2026",
+          "publisher": "七牛云",
+          "published": "2026-10-24",
+          "kind": "official",
+          "checked": "2026-11-17"
+        },
+        {
+          "title": "Conatus Free 模型详情（qiniu/conatus-free）",
+          "url": "https://www.qiniu.com/ai/model/qiniu/conatus-free",
+          "publisher": "七牛云",
+          "published": "2026-10-24",
+          "kind": "official",
+          "checked": "2026-11-17"
+        }
+      ],
+      "source_url": "https://www.qiniu.com/ai/free-models/conatus-2026",
+      "claim_howto": "登录七牛云并完成实名认证，在控制台创建 API Key，使用模型 ID qiniu/conatus-free、BaseURL https://api.qnaigc.com/v1 调用；额度在认证后按官方规则自动发放。",
+      "stack": [
+        "七牛云",
+        "qiniu/conatus-free",
+        "OpenAI 兼容 API"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "腾讯云 TokenHub：Hy4 flash 新模型刊例 5 折至 11/30 12:00（输入约 0.25 元/百万 Token）",
+      "type": "限时促销",
+      "provider": "腾讯云 TokenHub / 混元",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "腾讯云 TokenHub 官方模型价格页（2026-11-16 更新）写明：自该说明发布之日起至 2026-11-30 12:00:00（北京时间），Hy4 flash（模型 ID hy4-flash）调用费用按目录价 50% 结算，届满后恢复目录价。目录价为输入 0.5 元、输出 2 元、缓存命中 0.02 元/百万 Token，故活动期内参考价约为 0.25 / 1 / 0.01 元。同一日更新的 Token Plan 个人版限时优惠页也写明 11/16 起至 11/30 12:00 对该模型按刊例 5 折抵扣（5 / 20 / 0.2 积分，官方按 1 元=20 积分折算为 0.25 / 1 / 0.01 元）。这与 11-10 榜已收录的 Hy4（非 flash）刊例 5 折至 12/31 不是同一模型、同一截止日。社区传闻的 WorkBuddy / OpenCode 客户端限免未在本次核验到可打开的厂商活动页，本条只收录 TokenHub 官方折扣。",
+      "value": "Hy4 flash 按刊例 5 折至 2026-11-30 12:00（北京时间）· 参考约 0.25/1/0.01 元每百万 Token（输入/输出/缓存命中）",
+      "deadline": "2026-11-30",
+      "cost": "须按腾讯云 TokenHub 按量或 Token Plan 个人版规则开通并付费调用；折扣只覆盖活动期内实际用量。不承诺开通一定成功或折扣延期。",
+      "difficulty": 2,
+      "threshold": "须有腾讯云账号并开通 TokenHub（通常需实名与有效的计费/套餐）；折扣只针对 hy4-flash，到期恢复目录价。不要把它与已于 12/31 截止的 Hy4（非 flash）5 折混淆。",
+      "time": "开通 TokenHub 或确认 Token Plan 个人版，改模型 ID 为 hy4-flash 并对照价格页跑通一次请求，约 20–40 分钟",
+      "fit": "已经或准备用腾讯云 TokenHub / Token Plan 做日常办公、Agent 或长上下文任务，想在 11/30 12:00 前按官方 5 折试用新模型 Hy4 flash 的国内开发者。",
+      "why": "官方价格页与 Token Plan 活动页均于 11/16 写明 Hy4 flash 新的 5 折窗口至 11/30 12:00，相对 11-16 榜未收录，且不同于已推过的 Hy4 五折至 12/31。",
+      "steps": [
+        "打开腾讯云官方价格页 https://cloud.tencent.com/document/product/1823/130055 ，确认 Hy4 flash 限时折扣仍写明至 2026-11-30 12:00:00（北京时间）按目录价 50% 结算",
+        "如走套餐，再核对 Token Plan 个人版限时优惠页 https://cloud.tencent.com/document/product/1823/140042 中 hy4-flash 的 5 折积分价",
+        "开通或登录腾讯云 TokenHub，按控制台指引完成实名与计费/套餐设置，避免误用未打折的模型 ID",
+        "调用模型 ID hy4-flash，先用小流量对照账单或积分扣减是否约为目录价一半",
+        "日历标记 2026-11-30 12:00：折扣只适用于期间内实际用量，到期恢复目录价。不要默认与 Hy4 的 12/31 五折同期结束"
+      ],
+      "risk": "风险：折扣截止时间为 11/30 12:00 而非当天 23:59；官方可调整目录价或提前结束活动；须开通腾讯云并承担到期后的原价费用。不承诺一定能开通、一定按 0.25 元/百万结算，或折扣延期。本条未把未经官方活动页核验的客户端限免算进来。",
+      "risk_level": "中",
+      "reason": "腾讯云官方价格页与 Token Plan 优惠页于 11/16 同步写明 Hy4 flash 5 折至 11/30 12:00，相对既有 Hy4 五折是可核验的新模型窗口。",
+      "tags": [
+        "腾讯云",
+        "TokenHub",
+        "Hy4 flash",
+        "限时促销",
+        "国内API"
+      ],
+      "sources": [
+        {
+          "title": "大模型服务平台 TokenHub 模型价格（Hy4 flash 限时折扣说明）",
+          "url": "https://cloud.tencent.com/document/product/1823/130055",
+          "publisher": "腾讯云",
+          "published": "2026-11-16",
+          "kind": "official",
+          "checked": "2026-11-17"
+        },
+        {
+          "title": "Token Plan 个人版限时优惠活动（Hy4 flash 5 折）",
+          "url": "https://cloud.tencent.com/document/product/1823/140042",
+          "publisher": "腾讯云",
+          "published": "2026-11-16",
+          "kind": "official",
+          "checked": "2026-11-17"
+        }
+      ],
+      "source_url": "https://cloud.tencent.com/document/product/1823/130055",
+      "claim_howto": "开通腾讯云 TokenHub 或 Token Plan 个人版后，调用模型 ID hy4-flash；活动期内按官方说明以刊例价 50% 结算，无需单独申请。",
+      "stack": [
+        "腾讯云 TokenHub",
+        "hy4-flash"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "阿里云百炼 Token Plan 个人版：新客 Lite/Essential 首月 5 折至 11/30（19.5 元起）",
+      "type": "订阅折扣",
+      "provider": "阿里云百炼 / Token Plan",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "阿里云帮助中心《Token Plan 个人版订阅与权益》写明：Lite 目录价 39 元/月、新用户限时价 19.5 元/月（20,000 Credits）；Essential 目录价 79 元/月、新用户限时价 39.5 元/月（45,000 Credits）。新用户限时价有效期至 2026-11-30 23:59:59（UTC+8），仅限从未购买过 Token Plan 个人版的账号。同一页的价格表未给 Standard（139 元）、Pro（312 元）标注新用户限时价，不要按五折预算这两档。官方还写明个人版暂不支持退订；同页另有 qwen4-max-preview 预览期（11/11 10:00–11/25 24:00）Credits 低至 2 折、夜间再 4 折，以及部分模型夜间折扣和 decision-model-preview 限时免费（不耗 Credits）。这与 11-10 榜的 Qoder CN 首购、11-11 榜的千帆 Token Plan 不是同一产品。",
+      "value": "新客首月 Lite 19.5 元/2 万 Credits、Essential 39.5 元/4.5 万 Credits · 至 2026-11-30 23:59:59（UTC+8）· 仅从未购买过个人版的账号",
+      "deadline": "2026-11-30",
+      "cost": "须支付首月套餐费（Lite 19.5 元或 Essential 39.5 元起）；官方写明个人版暂不支持退订。次月及 Standard/Pro 按目录价。额度按月重置、不结转。",
+      "difficulty": 2,
+      "threshold": "仅限从未购买过 Token Plan 个人版的账号；通常需阿里云实名与支付方式。Standard/Pro 不在官方新用户限时价列。个人版暂不支持退订，建议先从 Lite 验证链路。",
+      "time": "对照帮助中心确认折扣仍在有效期，开通个人版 Lite 或 Essential 并跑通一次套餐额度调用，约 20–40 分钟",
+      "fit": "还没买过百炼 Token Plan 个人版、想用国内模型做 Agent/对话并在 11/30 前用官方首月五折试水的个人开发者；也可把官方规则整理成选档避坑素材（不是代开通）。",
+      "why": "官方帮助中心仍写明新客限时价至 11/30，且 11-09 至 11-16 羊毛榜未收录该个人版五折窗口。",
+      "steps": [
+        "打开阿里云帮助中心 https://help.aliyun.com/zh/model-studio/token-plan-personal-overview ，确认新用户限时价仍写明至 2026-11-30 23:59:59（UTC+8），且仅适用于从未购买过个人版的账号",
+        "只在 Lite（19.5 元）或 Essential（39.5 元）两档按五折做预算；Standard/Pro 以目录价为准",
+        "用未买过 Token Plan 个人版的实名账号开通对应档位；官方写明个人版暂不支持退订，先用最低档验证链路与额度消耗",
+        "按控制台或帮助中心的个人版接入方式调用，避免把套餐密钥与按量计费密钥混用导致未走套餐额度",
+        "额度按月重置、不结转；需要可再看同页的预览模型与夜间折扣，均以页面最新规则为准。日历标记 11/30"
+      ],
+      "risk": "风险：仅新客首月、且官方写明个人版暂不支持退订；次月恢复目录价，额度不结转；活动内容与有效期官方可调整。不承诺你的账号一定被认定为新客、一定按 19.5 元成交，或续订仍有折扣。禁止用多账号规避限购或转卖账号。",
+      "risk_level": "中",
+      "reason": "阿里云官方帮助中心写明 Lite/Essential 新用户限时价及 11/30 截止条件，相对 11-16 榜为可核验的新订阅折扣窗口。",
+      "tags": [
+        "阿里云",
+        "Token Plan",
+        "订阅折扣",
+        "百炼",
+        "新客"
+      ],
+      "sources": [
+        {
+          "title": "Token Plan 个人版订阅与权益",
+          "url": "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
+          "publisher": "阿里云帮助中心",
+          "published": "2026-11-09",
+          "kind": "official",
+          "checked": "2026-11-17"
+        }
+      ],
+      "source_url": "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
+      "claim_howto": "用从未购买过 Token Plan 个人版的阿里云账号，在有效期内开通 Lite 或 Essential，按控制台个人版方式接入；首月按官方新用户限时价计费。",
+      "stack": [
+        "阿里云百炼",
+        "Token Plan 个人版"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Google AI 学生优惠：符合条件可兑 12 个月免费（美国 AI Pro，其他地区 AI Plus，兑至 12/31）",
+      "type": "学生教育",
+      "provider": "Google / Gemini",
+      "region": "教育区域",
+      "origin": "官方",
+      "summary": "Google 官方学生页与 Google One 优惠条款（2026-08-19 更新）写明：符合条件的高等教育在校生可领取 12 个月免费订阅，且须在 2026-12-31 前兑换。学生页与帮助中心写明美国高校、年满 18 岁的学生可领 Google AI Pro（官方博客称价值 $19.99/月，含 Gemini 4 倍用量、5 TB 存储、Gemini Spark 与 Omni 等）；博客同时写明美国以外符合条件的大学生可领一年 Google AI Plus。须使用个人 Google 账号（帮助中心写明须为个人 Gmail），经 SheerID 验证学籍，并在开通时提供合格支付方式；优惠期结束后除非当地法律要求另行同意，否则会自动转为对应付费月费，须在到期前取消才可避免扣款。条款排除香港、澳门、突尼斯，以及家庭组成员、第三方/Pixel Pass/Google Fi 订阅等情形。此条 11-09 至 11-16 羊毛榜未收录，窗口还在。",
+      "value": "12 个月免费 · 美国高校学生为 Google AI Pro（官方称价值 $19.99/月）· 其他符合条件地区为 Google AI Plus · 须于 2026-12-31 前兑换",
+      "deadline": "2026-12-31",
+      "cost": "优惠期内按官方说明免费，但开通须绑定合格支付方式；到期后按当地常规月费自动续订，除非提前取消。不承诺通过 SheerID 或避免到期扣款。",
+      "difficulty": 3,
+      "threshold": "须年满 18 岁、在支持该计划的国家/地区高校就读（条款排除香港、澳门、突尼斯），用个人 Google 账号通过 SheerID 验证，并提供支付方式。学校发放的 Workspace 账号不可用。家庭组与部分第三方订阅不适用。",
+      "time": "从 one.google.com/ai-student 选档、完成 SheerID 与支付方式，通常 20–40 分钟；材料审核可能数小时到数天",
+      "fit": "年满 18 岁、能通过 SheerID 的在读大学生，希望合法领取一年 Gemini 进阶用量并把官方领取路径整理成原创攻略素材（不是代认证）。",
+      "why": "官方条款仍写明须于 2026-12-31 前兑换，相对 11-16 榜未收录，距离截止约一个半月。",
+      "steps": [
+        "打开官方条款 https://one.google.com/offer/studentoffer8 与学生页 https://gemini.google/students/ ，确认仍须于 2026-12-31 前兑换，并核对自己所在地区是 AI Pro 还是 AI Plus",
+        "用准备领取的个人 Google 账号（帮助中心写明须为个人 Gmail）登录 https://one.google.com/ai-student ，不要用学校 Workspace 账号",
+        "按提示通过 SheerID 验证在读与年龄（须 18 岁以上，生日须与 Google 账号一致）；审核可能数分钟到数天，避免反复提交用尽次数",
+        "完成订阅流程并添加合格支付方式；看清到期后将转为常规付费月费",
+        "日历标记优惠结束日：若不想续费，须在 12 个月优惠期结束前取消。不要做虚假学生认证或代实名"
+      ],
+      "risk": "风险：须通过 SheerID 且绑定支付方式，到期自动转为付费；名额、地区与审核均由 Google / SheerID 决定，官方可调整用量限制。不承诺一定审核通过、美国以外一定能领到 Pro，或 12/31 前仍可兑换。禁止虚假学籍或代认证。",
+      "risk_level": "中",
+      "reason": "Google 官方学生页、帮助中心与优惠条款写明 12 个月免费及 2026-12-31 兑换截止，相对 11-16 榜为尚未收录的可核验学生教育窗口。",
+      "tags": [
+        "Google",
+        "Gemini",
+        "学生教育",
+        "Google AI Pro",
+        "SheerID"
+      ],
+      "sources": [
+        {
+          "title": "Gemini for Students",
+          "url": "https://gemini.google/students/",
+          "publisher": "Google",
+          "published": "2026-08-19",
+          "kind": "official",
+          "checked": "2026-11-17"
+        },
+        {
+          "title": "Google One AI Plan Membership Student Offer Terms",
+          "url": "https://one.google.com/offer/studentoffer8",
+          "publisher": "Google",
+          "published": "2026-08-19",
+          "kind": "official",
+          "checked": "2026-11-17"
+        },
+        {
+          "title": "Claim a Google One student offer",
+          "url": "https://support.google.com/googleone/answer/17422238?hl=en",
+          "publisher": "Google One Help",
+          "published": "2026-08-19",
+          "kind": "official",
+          "checked": "2026-11-17"
+        },
+        {
+          "title": "College students get 12 months of Google AI free",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/student-offer-google-ai/",
+          "publisher": "Google Blog",
+          "published": "2026-08-19",
+          "kind": "official",
+          "checked": "2026-11-17"
+        }
+      ],
+      "source_url": "https://gemini.google/students/",
+      "claim_howto": "用个人 Google 账号打开 one.google.com/ai-student，选择学生优惠，经 SheerID 验证后完成开通并绑定支付方式；须在 2026-12-31 前兑换。",
+      "stack": [
+        "Google One",
+        "Gemini",
+        "SheerID"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "OpenAI：符合条件的 ChatGPT Pro / Business 订阅可领取每月最高 $500 API 积分",
+      "type": "Token福利",
+      "provider": "OpenAI",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "OpenAI 官方文档《API credits for ChatGPT subscribers》及 2026-10-28 changelog 写明：符合条件的付费 ChatGPT Pro 与 Business 订阅可把权益关联到自己拥有的 API organization，按月领取 API 积分。Pro 按档位分别为每月 $100 / $200 / $500；Business Standard 每个付费席位 $20、Premium 每个付费席位 $100，工作区每月合计上限 $500。须为至少已订阅 7 天的付费订阅（免费试用或赠送订阅不算），且 ChatGPT 订阅/工作区所有者与 API organization 所有者为同一邮箱。激活一次后，在权益仍提供且资格仍满足时随订阅续费自动发放；未用完积分在账期结束作废、不结转。首次发放按当前账期剩余时间折算。积分可用于 API Platform 多项用量，但官方写明不覆盖通过 API Key 使用的 Codex，也不会增加 ChatGPT 或登录态 Codex 的用量上限。门槛高于普通免费额度，11-16 榜未收录。",
+      "value": "Pro 每月 $100/$200/$500（对应该档订阅）· Business 每付费席位 $20 或 $100、工作区每月合计上限 $500 · 账期结束不结转",
+      "cost": "须已有合格的付费 ChatGPT Pro 或 Business 订阅（Pro 档官方标 $100/$200/$500）。领取积分本身按官方说明不再另付 API 预存，但订阅本身仍按原价计费。不承诺审批或长期保留该权益。",
+      "difficulty": 4,
+      "threshold": "须已是满 7 天的付费 Pro 或 Business 所有者，并用同一邮箱拥有可关联的 API organization。试用/赠送订阅、非所有者、邮箱不一致不能领。Codex 的 API Key 用量不在覆盖范围。",
+      "time": "在 ChatGPT 账单设置或 API Platform 账单中完成关联，约 10–20 分钟（前提是已经有合格订阅）",
+      "fit": "已经自费订阅 ChatGPT Pro 或管理 Business 工作区、希望把包含的 API 积分用到开发/Agent 上的海外用户；也可把官方领取步骤整理成说明素材（不是代绑账号）。",
+      "why": "官方于 10/28 上线该订阅权益，11-09 至 11-16 羊毛榜未收录，适合已有 Pro/Business 的人立即勾一次领取状态。",
+      "steps": [
+        "打开官方说明 https://developers.openai.com/api/docs/guides/chatgpt-api-credits 确认自己的档位、7 天资格与邮箱/所有者要求仍然有效",
+        "用拥有该订阅的同一邮箱登录 ChatGPT；Pro 走 Settings → Billing，Business 走工作区账单或 Admin Console，找到 API credits 并开始领取",
+        "选择自己拥有的 API organization 完成关联；也可从 API Platform 账单侧反向关联同一订阅",
+        "在 API Platform 账单中核对已发放积分及到期时间；首次发放可能按本账期剩余天数折算，未用完不结转",
+        "按官方范围使用积分（不含 API Key 的 Codex 用量）。不要分享组织所有权或凭证来“共用”积分"
+      ],
+      "risk": "风险：门槛是已在付费的 Pro/Business，不是普适免费额度；积分不结转，官方写明“在这些权益仍提供时”发放，可能调整或取消；不覆盖 Codex API Key 用量。不承诺你的账号一定合格、每月一定到账满额，或该权益长期有效。",
+      "risk_level": "中",
+      "reason": "OpenAI 官方文档与 10/28 changelog 写明 Pro/Business 可领每月最高 $500 API 积分及领取条件，相对 11-16 榜为未收录的可核验订阅权益。",
+      "tags": [
+        "OpenAI",
+        "ChatGPT Pro",
+        "API积分",
+        "Token福利",
+        "订阅权益"
+      ],
+      "sources": [
+        {
+          "title": "API credits for ChatGPT subscribers",
+          "url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits",
+          "publisher": "OpenAI",
+          "published": "2026-10-28",
+          "kind": "official",
+          "checked": "2026-11-17"
+        },
+        {
+          "title": "OpenAI API Changelog（2026-10-28）",
+          "url": "https://developers.openai.com/api/docs/changelog?change=eligible-chatgpt-pro-and-business-subscribers-can-now-claim",
+          "publisher": "OpenAI",
+          "published": "2026-10-28",
+          "kind": "official",
+          "checked": "2026-11-17"
+        }
+      ],
+      "source_url": "https://developers.openai.com/api/docs/guides/chatgpt-api-credits",
+      "claim_howto": "用与订阅相同的邮箱，在 ChatGPT 账单设置或 API Platform 账单中把合格 Pro/Business 订阅关联到自己拥有的 API organization，确认后按账期自动发放。",
+      "stack": [
+        "ChatGPT Pro / Business",
+        "OpenAI API Platform"
+      ]
+    }
+  ]
+}
