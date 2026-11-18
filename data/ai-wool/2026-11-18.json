@@ -1,0 +1,207 @@
+{
+  "date": "2026-11-18",
+  "updated": "2026-11-18T09:50:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Vercel AI Gateway：Hy4 Flash 输入/缓存输入/输出 5 折至 11/29（模型 ID tencent/hy4-flash）",
+      "type": "限时促销",
+      "provider": "Vercel / Tencent Hy4",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Vercel 官方 changelog（2026-11-16）写明：腾讯混元 Hy4 Flash 已上架 AI Gateway，并对输入、缓存输入与输出 Token 提供上线期 50% 折扣，至 2026-11-29。模型 ID 为 tencent/hy4-flash，Base URL 为 https://ai-gateway.vercel.sh/v1；可用 AI SDK、Chat Completions，或运行 npx vercel ai-gateway setup 接入 Claude Code / Codex / Cursor 等。官方称 AI Gateway 对供应商价零加价（含 BYOK），且所有套餐可用。供应商目录页该模型标注 50% off，现价约为输入 $0.04、输出 $0.14、缓存命中 $0.0015 / 百万 Token（模型详情页另标输入 $0.035、输出 $0.1405，以实际结算为准）。这与 11-17 榜的腾讯云 TokenHub Hy4 flash 5 折是同一模型的不同官方通道与账单，截止日为 11/29（TokenHub 为北京时间 11/30 12:00），11-16/11-17 羊毛榜未收录该 Vercel 窗口。",
+      "value": "输入/缓存输入/输出 5 折至 2026-11-29 · 目录现价约 $0.04 / $0.0015 / $0.14 每百万 Token（输入/缓存命中/输出）· 官方称零加价",
+      "deadline": "2026-11-29",
+      "cost": "按 Vercel AI Gateway 结算，活动价以控制台为准；须有 Vercel 账号并创建 AI Gateway API Key（官方写明所有套餐可用）。不承诺折扣在 11/29 前始终按目录现价结算，或与腾讯云活动同步延期。",
+      "difficulty": 2,
+      "threshold": "须注册 Vercel 并创建 AI Gateway API Key；费用走 Vercel/AI Gateway 账单，不是腾讯云 TokenHub 账户。活动结束后恢复未打折供应商价。",
+      "time": "注册/登录 Vercel、创建 AI Gateway Key 并发起一次小请求，约 15–30 分钟",
+      "fit": "已有或打算用 Vercel AI Gateway、海外账单调用 Hy4 Flash 的开发者；也可把官方接入步骤整理成闲鱼原创教程素材（不是代开账号）。",
+      "why": "官方 11/16 才把该上线折扣写进 changelog，窗口至 11/29，相对 11-17 榜的 TokenHub 通道是可核验的新官方入口。",
+      "steps": [
+        "打开 Vercel changelog https://vercel.com/changelog/hy4-flash-now-available-on-ai-gateway-for-50-off ，确认仍写明至 2026-11-29 对输入、缓存输入与输出 5 折",
+        "对照供应商目录 https://vercel.com/ai-gateway/models/providers/tencent 与模型页，核对 tencent/hy4-flash 是否仍标注 50% off 及当前价",
+        "登录 Vercel，在 AI Gateway 创建 API Key；按官方文档用 Base URL https://ai-gateway.vercel.sh/v1、模型 ID tencent/hy4-flash 发一次小请求",
+        "若要在 Claude Code / Codex / Cursor 里用，按官方指引运行 npx vercel ai-gateway setup 并选择该模型",
+        "日历标记 2026-11-29：折扣结束后价格可能恢复约一倍。不要把 API Key 发到群里或转卖账号"
+      ],
+      "risk": "风险：这是 Vercel 通道上的限时折扣，截止日后恢复未打折价格；目录现价与模型详情页略有出入，以实际结算为准；官方也可调整活动或价格。不承诺一定按目录现价成交，或与腾讯云 TokenHub 活动同步延期。禁止账号合租、转卖或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "Vercel 官方 changelog 与模型目录写明 Hy4 Flash 上线期 5 折至 11/29，相对 11-17 榜为未收录的可核验海外通道。",
+      "tags": [
+        "Vercel",
+        "Hy4 Flash",
+        "限时促销",
+        "AI Gateway",
+        "五折"
+      ],
+      "sources": [
+        {
+          "title": "Hy4 Flash now available on AI Gateway for 50% off",
+          "url": "https://vercel.com/changelog/hy4-flash-now-available-on-ai-gateway-for-50-off",
+          "publisher": "Vercel Changelog",
+          "published": "2026-11-16",
+          "kind": "official",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Tencent Hy4 Flash 模型页",
+          "url": "https://vercel.com/ai-gateway/models/hy4-flash",
+          "publisher": "Vercel",
+          "published": "2026-11-16",
+          "kind": "official",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Tencent Cloud models（AI Gateway 供应商目录）",
+          "url": "https://vercel.com/ai-gateway/models/providers/tencent",
+          "publisher": "Vercel",
+          "published": "2026-11-16",
+          "kind": "official",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source_url": "https://vercel.com/changelog/hy4-flash-now-available-on-ai-gateway-for-50-off",
+      "claim_howto": "登录 Vercel 并创建 AI Gateway API Key，使用模型 ID tencent/hy4-flash、Base URL https://ai-gateway.vercel.sh/v1 调用；折扣在活动期内按官方说明自动适用。",
+      "stack": [
+        "Vercel AI Gateway",
+        "tencent/hy4-flash",
+        "OpenAI 兼容 API"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Fireworks：Muse Glimmer 30B LoRA SFT 限时免费至 11/30（UI 与 Serverless Training API，免绑卡）",
+      "type": "限时促销",
+      "provider": "Fireworks AI",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Fireworks 官方定价页与模型页写明：Muse Glimmer 30B 的 SFT（监督微调）在 UI 和 Serverless Training API 上限时免费至 11/30，无需信用卡。官方 cookbook 进一步写明：优惠适用于在 2026-12-01T00:00:00-08:00 之前启动的 LoRA SFT 任务，逾期除非显式允许付费否则拒绝启动；RL、DPO、全参训练、部署，以及训练任务之外的推理不在覆盖范围。同页还提醒：训练过程中的评估采样按已公布的每 Token 价格另计。2026-10-20 的官方博客曾写 SFT、DPO 与 RL 均免费，但以当前定价页、模型页与 cookbook 的 SFT 范围为准。这不是免费推理额度，11-09 至 11-17 羊毛榜未收录该训练窗口。",
+      "value": "LoRA SFT 训练限时免费至 2026-11-30（cookbook 截止为 2026-12-01 00:00 太平洋时间）· 免绑卡 · 不包含训练外推理、部署及 cookbook 写明排除的 RL/DPO/全参训练",
+      "deadline": "2026-11-30",
+      "cost": "官方写明 SFT 本身在活动期内免绑卡、免费；评估采样与训练外的推理/部署按公示单价计费。不承诺任务一定成功启动或活动延期。",
+      "difficulty": 3,
+      "threshold": "须有 Fireworks 账号，并准备对话格式的训练数据（或按 cookbook 下载示例）。免费范围仅限 LoRA SFT，不含日常 API 推理。",
+      "time": "注册、对照 cookbook 跑通一次示例 SFT（含数据准备），约 1–2 小时（排队与训练时长另计）",
+      "fit": "想在 11/30 前用自己的数据试一次 LoRA 微调，并把可复现步骤整理成闲鱼原创教程的开发者（不是代训或代部署）。",
+      "why": "官方仍写明进行中并截止 11/30，且明确免绑卡，相对近日羊毛榜是尚未收录的训练向限时窗口。",
+      "steps": [
+        "打开 https://fireworks.ai/pricing 与模型页 https://fireworks.ai/models/fireworks/muse-glimmer-30b ，确认仍标注 Muse Glimmer 30B SFT 免费至 11/30、免绑卡",
+        "阅读 cookbook https://docs.fireworks.ai/fine-tuning/training-api/cookbook/muse-glimmer ，确认覆盖范围（LoRA SFT）与排除项（RL/DPO/全参/部署/训练外推理）",
+        "注册并登录 Fireworks（官方写明免绑卡），准备 chat JSONL，或按 cookbook 下载公开示例数据集",
+        "在 UI 发起 SFT，或按 cookbook 用 Serverless Training API 先 plan 再 launch；注意评估采样可能按 Token 计费",
+        "日历标记 2026-11-30（cookbook 为 2026-12-01 00:00 太平洋时间，约北京时间当日 16:00）：逾期默认不再免费启动。不要把账号、API Key 或微调后的凭证转卖、合租"
+      ],
+      "risk": "风险：免费的是限时 SFT 训练，不是免费推理 Token；cookbook 已排除 RL/DPO/全参、部署与训练外推理，评估采样可能产生费用；官方可调整范围或提前结束。不承诺训练一定成功、效果一定提升，或活动延期。禁止账号合租、转卖或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "Fireworks 官方定价页、模型页与 cookbook 写明 Muse Glimmer 30B LoRA SFT 免绑卡免费至 11/30，相对 11-17 榜为未收录的可核验限时窗口。",
+      "tags": [
+        "Fireworks",
+        "Muse Glimmer",
+        "SFT微调",
+        "限时促销",
+        "免绑卡"
+      ],
+      "sources": [
+        {
+          "title": "Fireworks Pricing（Muse Glimmer 30B SFT is free through November 30）",
+          "url": "https://fireworks.ai/pricing",
+          "publisher": "Fireworks AI",
+          "published": "2026-10-20",
+          "kind": "official",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Train Muse Glimmer for free",
+          "url": "https://fireworks.ai/blog/train-muse-glimmer-for-free",
+          "publisher": "Fireworks AI Blog",
+          "published": "2026-10-20",
+          "kind": "official",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Muse Glimmer 30B 模型页",
+          "url": "https://fireworks.ai/models/fireworks/muse-glimmer-30b",
+          "publisher": "Fireworks AI",
+          "published": "2026-10-14",
+          "kind": "official",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Cookbook: Muse Glimmer first fine-tune",
+          "url": "https://docs.fireworks.ai/fine-tuning/training-api/cookbook/muse-glimmer",
+          "publisher": "Fireworks Docs",
+          "published": "2026-10-20",
+          "kind": "official",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source_url": "https://fireworks.ai/pricing",
+      "claim_howto": "注册 Fireworks（官方写明免绑卡），在 UI 或 Serverless Training API 对 accounts/fireworks/models/muse-glimmer-30b 发起 LoRA SFT；须在 cookbook 所写 2026-12-01 00:00 太平洋时间前启动。",
+      "stack": [
+        "Fireworks",
+        "muse-glimmer-30b",
+        "LoRA SFT",
+        "Serverless Training API"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Anthropic：符合条件的 Claude Max / Ultra / Team 订阅可领取每月最高 $500 API 积分",
+      "type": "Token福利",
+      "provider": "Anthropic / Claude",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Anthropic 官方文档《API credits for Max, Ultra, and Team plans》及定价页写明：符合条件的付费 Claude Max、Ultra 与 Team（含打折 Team）可把权益关联到 Claude Console organization，按月领取 API 积分。Max 每月 $100，Ultra 每月 $200；Team 为 Standard 席位每席 $20、Premium 席位每席 $100，工作区每月合计上限 $500。须为状态正常的合格订阅，新订阅满 7 天后可领；Free、Pro 与 Enterprise 不合格。积分可用于 Claude API、Managed Agents、Agent SDK 与 Console playground，官方写明不覆盖 Claude Code、应用内额外用量，以及 AWS / Bedrock / Google Cloud / Microsoft Foundry 上的 Claude。未用完积分在账期结束作废、不结转。领取时不强制为 Claude Platform 绑定支付方式。官方约 2026-10-07 上线该权益，11-09 至 11-17 羊毛榜未收录。",
+      "value": "Max 每月 $100 · Ultra 每月 $200 · Team 每席 $20 或 $100、工作区每月合计上限 $500 · 账期结束不结转",
+      "cost": "须已有合格的付费 Claude Max、Ultra 或 Team 订阅（Max 档官方标 $100、Ultra 档 $200）。领取积分本身按官方说明无需为 Claude Platform 另绑支付方式，但订阅仍按原价计费。不承诺审批或长期保留该权益。",
+      "difficulty": 4,
+      "threshold": "须已是满 7 天、状态正常的 Max/Ultra 订阅者，或 Team 的 Primary Owner/Owner，并在 Console organization 具备 Owner、Admin 或 Billing 角色。Free/Pro/Enterprise、未满 7 天不能领。积分不用于 Claude Code 或云上托管的 Claude。",
+      "time": "在 claude.ai 账单设置中关联 Console organization，约 10–20 分钟（前提是已经有合格订阅）",
+      "fit": "已经自费订阅 Claude Max/Ultra 或管理 Team 工作区、希望把包含的 API 积分用到自建应用或 Agent 上的海外用户；也可把官方领取步骤整理成说明素材（不是代绑账号）。",
+      "why": "官方于 10/07 上线该订阅权益，11-09 至 11-17 羊毛榜未收录，适合已有 Max/Ultra/Team 的人立即核对领取状态。",
+      "steps": [
+        "打开官方说明 https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers 确认自己的档位、7 天资格、角色要求及覆盖范围仍然有效",
+        "若还没有 Claude Console organization，先在 platform.claude.com 创建，或在领取流程中创建",
+        "用拥有该订阅的账号登录 claude.ai；Max/Ultra 走 Settings → Billing，Team 走 Organization settings → Billing，在 API credits 中选择要关联的 Console organization 并接受条款",
+        "到 platform.claude.com/settings/billing 的 Promotional credits 核对已发放积分；官方写明每个计划只能关联一个 organization，关联后不能自行更改",
+        "按官方范围使用积分（不含 Claude Code、应用内额外用量及云上托管的 Claude）。不要分享组织所有权或凭证来“共用”积分"
+      ],
+      "risk": "风险：门槛是已在付费的 Max/Ultra/Team，不是普适免费额度；积分不结转，且不覆盖 Claude Code 与云上托管用量；官方可能调整或取消该权益。不承诺你的账号一定合格、每月一定到账满额，或该权益长期有效。禁止代绑、合租或转卖账号。",
+      "risk_level": "中",
+      "reason": "Anthropic 官方文档与定价页写明 Max/Ultra/Team 可领每月最高 $500 API 积分及领取条件，相对 11-17 榜为未收录的可核验订阅权益。",
+      "tags": [
+        "Anthropic",
+        "Claude Max",
+        "API积分",
+        "Token福利",
+        "订阅权益"
+      ],
+      "sources": [
+        {
+          "title": "API credits for Max, Ultra, and Team plans",
+          "url": "https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers",
+          "publisher": "Anthropic / Claude Docs",
+          "published": "2026-10-07",
+          "kind": "official",
+          "checked": "2026-11-18"
+        },
+        {
+          "title": "Plans & pricing | Claude by Anthropic",
+          "url": "https://claude.com/pricing",
+          "publisher": "Anthropic",
+          "published": "2026-10-07",
+          "kind": "official",
+          "checked": "2026-11-18"
+        }
+      ],
+      "source_url": "https://platform.claude.com/docs/en/about-claude/api-credits-for-subscribers",
+      "claim_howto": "在 claude.ai 打开 Settings → Billing（Max/Ultra）或 Organization settings → Billing（Team），在 API credits 中关联自己拥有管理权限的 Claude Console organization 并接受条款；积分出现在 platform.claude.com/settings/billing 的 Promotional credits。",
+      "stack": [
+        "Claude",
+        "Claude Console",
+        "Claude API"
+      ]
+    }
+  ]
+}
