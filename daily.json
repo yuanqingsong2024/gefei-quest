@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-17T04:31:30.271Z",
-  "latestId": 105,
-  "latestDate": "2026-11-17",
+  "generatedAt": "2026-11-18T00:36:57.927Z",
+  "latestId": 106,
+  "latestDate": "2026-11-18",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 106,
+      "date": "2026-11-18",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-18",
+      "items": [
+        "No.1 hosting.com（原 A2 Hosting）Affiliate：写主机/WordPress 教程，官方联盟页写明合资格主机首张账单约50%佣金、单笔上限约400美元（约45天核准，满约100美元后每月15日打款）",
+        "No.2 Leanpub：上架原创电子书、组合包或课程，官方帮助中心写明大多数自出版销售约80%版税（约60天冻结后按月打款，以官方说明为准）",
+        "No.3 Deno Deploy：按官方入门部署英文静态工具小站，官方定价页写明 Free 档约0美元/月（约100万次请求、约20GiB出站、约10小时CPU等额度），验证流量后再接 AdSense 或联盟"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 105,
       "date": "2026-11-17",
@@ -116,42 +128,30 @@
         "No.3 Cloudflare Pages：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 96,
-      "date": "2026-11-09",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-09",
-      "items": [
-        "No.1 Namecheap Affiliate：写域名/主机/SSL 内容，新客户首单域名约20%、主机与SSL约35%佣金（以官方知识库为准）",
-        "No.2 Teachable：开网课/辅导/数字下载学校，Starter 档约39美元/月且平台交易费约7.5%（年付展示约29美元/月，以定价页为准）",
-        "No.3 Firebase Hosting：按官方入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-11-17",
+    "date": "2026-11-18",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "DreamHost Affiliate：写主机/建站教程，官方联盟页按产品与签约年限列出佣金，例如 Web Hosting Launch 年付约50美元、2年约100美元，DreamPress 20 的3年档写明约1,000美元（无最低打款门槛，约97天冻结后按月银行转账；以官方表与条款为准）",
+        "name": "hosting.com（原 A2 Hosting）Affiliate：写主机/WordPress 教程，官方联盟页写明合资格主机首张账单约50%佣金、单笔上限约400美元（约45天核准，满约100美元后每月15日打款）",
         "type": "联盟营销",
-        "source_url": "https://www.dreamhost.com/affiliates/"
+        "source_url": "https://hosting.com/about/affiliate-program/"
       },
       {
         "rank": 2,
-        "name": "SendOwl：自建数字下载店，官方定价页写明平台不抽成、Launch 月付约39美元/月（年付展示约32.50美元/月；按近12个月订单和销售额分档，超额会升档；另计 Stripe/PayPal 处理费）",
+        "name": "Leanpub：上架原创电子书、组合包或课程，官方帮助中心写明大多数自出版销售约80%版税（约60天冻结后按月打款，以官方说明为准）",
         "type": "数字产品/接单",
-        "source_url": "https://www.sendowl.com/pricing"
+        "source_url": "https://help.leanpub.com/en/articles/5468013-what-is-leanpub-s-royalty-rate-are-there-any-restrictions-on-where-i-can-self-publish-my-book-and-what-price-i-can-charge"
       },
       {
         "rank": 3,
-        "name": "AWS Amplify Hosting：按官方入门部署英文静态工具小站；官方定价页写明 Free Tier 下构建约1000分钟/月、CDN 存储约5GB、出站流量约15GB 无额外费用，超出后标准构建约0.01美元/分钟、出站约0.15美元/GB（2025-07-15 起新客户另有最多约200美元积分等说明，以定价页为准），验证流量后再接 AdSense 或联盟",
+        "name": "Deno Deploy：按官方入门部署英文静态工具小站，官方定价页写明 Free 档约0美元/月（约100万次请求、约20GiB出站、约10小时CPU等额度），验证流量后再接 AdSense 或联盟",
         "type": "出海小站",
-        "source_url": "https://docs.aws.amazon.com/amplify/latest/userguide/getting-started.html"
+        "source_url": "https://deno.com/deploy/pricing"
       }
     ]
   }
