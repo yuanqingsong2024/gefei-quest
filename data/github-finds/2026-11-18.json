@@ -1,0 +1,239 @@
+{
+  "date": "2026-11-18",
+  "updated": "2026-11-18T09:40:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "squirrelscan-squirrelscan",
+      "rank": 1,
+      "name": "squirrelscan",
+      "category": "项目",
+      "summary": "给编程 Agent 用的开源网站 QA CLI：300+ 条规则覆盖 22 类（核心 SEO、Agent Experience / llms.txt、结构化数据与实体图、E-E-A-T、可访问性、性能与安全等），输出可直接交给 Agent 的修复说明。可在终端、MCP 或 CI 里跑。MIT。",
+      "why": "对 autograph-ai 最有用：近期已推过构建期 AEO 产物（aeo.js、Dualmark）和发布后引用测量（Limelit Open），squirrelscan 补的是「已发布页到底过不过关」的确定性门禁，尤其是 Agent Experience（GPTBot / Claude-User 是否拿到与浏览器相同的内容、llms.txt、AGENTS.md、Markdown 响应）和 JSON-LD 实体图是否全站同一身份。可执行：1）对 staging 或生产域名跑 `squirrel audit <url> --rule-include ax,seo`（或先 `--level quick`），导出 JSON / LLM 格式报告；2）把 Agent Experience、Core SEO、Structured Data 的失败项当作发版门禁，用官方 `audit-website` skill 做「审计→改源码→复审」循环，不要只改模板不管爬虫看到的 HTML；3）Vue 单页应用若本地爬取看不到渲染结果，再 `squirrel auth login` 使用云端浏览器渲染（README 写明登录后免费按页渲染，云审计与托管仪表盘是独立闭源服务）。它不是又一个可见度追踪器，不要和 Limelit 重复建设。",
+      "url": "https://github.com/squirrelscan/squirrelscan",
+      "repo": "squirrelscan/squirrelscan",
+      "stars": 314,
+      "tags": [
+        "SEO",
+        "AEO",
+        "llms.txt",
+        "Agent-Experience",
+        "CLI",
+        "MCP",
+        "CI",
+        "Vue",
+        "autograph-ai"
+      ],
+      "steps": [
+        "在本机执行 npx squirrelscan audit <autograph已发布或staging域名> --level quick，或 curl -fsSL https://install.squirrelscan.com | bash 后用 squirrel audit",
+        "同一站点再跑 --rule-include ax,seo，把失败项对照页面源码和 llms.txt / 结构化数据",
+        "若要进 CI，使用 -f json 和文档中的 fail-on / 新发现门禁；需要 Agent 自动修时再装 squirrel skills install，只对这一个站点做修复循环"
+      ],
+      "risk": "MIT。未登录即可用本地 CLI（README 演示为免费）。云端真实浏览器渲染、定时审计、分享报告等需 squirrel auth login，托管 API / 仪表盘 / cloud worker 不在本仓库。Vue / FastAPI 前端若是客户端渲染，未开云端渲染时，本地爬取可能看不到访客实际看到的页面。默认开启极简遥测（事件名、版本、随机安装 ID），可用 squirrel self settings set telemetry false 或 NO_TELEMETRY=1 关闭。安全类规则会扫暴露的 .env、密钥和未授权 API，报告请勿公开贴出。不要把它当成 GEO 引用率工具。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/squirrelscan/squirrelscan/blob/main/README.md"
+        },
+        {
+          "title": "文档站点",
+          "url": "https://docs.squirrelscan.com"
+        },
+        {
+          "title": "Agent Experience 规则",
+          "url": "https://docs.squirrelscan.com/rules/ax"
+        },
+        {
+          "title": "CLI 说明",
+          "url": "https://docs.squirrelscan.com/cli"
+        },
+        {
+          "title": "LICENSE（MIT）",
+          "url": "https://github.com/squirrelscan/squirrelscan/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "juneyaooo-rea-toon",
+      "rank": 2,
+      "name": "rea-toon",
+      "category": "项目",
+      "summary": "用 AI 拆解已有短剧（真人、AI 生成、二维/三维动画、漫剧/动态漫）的学习工具：输出「学习报告 / 标准剧本 / 分镜脚本」三页，并写成可供 Agent 逐层阅读的 VIDEO.md 包。需 Python 3.10+、ffmpeg 和视觉模型。许可证为 PolyForm Noncommercial 1.0.0，禁止商用。",
+      "why": "对 soloforge-storyfactory 最有对照价值：近几日推荐的多是「生成流水线」（分镜工作台、角色锁、画布重跑），rea-toon 补的是「拆爆款、沉淀可复用公式」。可执行：1）用仓库 skills/rea-toon，对磁盘上已有的 1 集短剧做拆解，对照 Study 里的钩子、留存理由、可复用公式和节奏曲线，检查自己剧本的开场与信息缺口；2）把 Shot script 的字段（景别、动作、台词、声音、运动、时长）和角色卡（形象、从原片切出的声音样本）对照 StoryFactory 现有分镜 schema，只搬字段与质检标准，不搬生成管线；3）借鉴「情绪台账由代码按镜累计、而不是事后让模型总结」以及 VIDEO.md 分层证据包，作为内部质量门和事后复盘格式。不要把该仓库代码并进商业产品。",
+      "url": "https://github.com/JuneYaooo/rea-toon",
+      "repo": "JuneYaooo/rea-toon",
+      "stars": 255,
+      "tags": [
+        "短剧拆解",
+        "分镜",
+        "剧本",
+        "VIDEO.md",
+        "Claude-Code",
+        "技能",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "准备 Python 3.10+ 和 ffmpeg，在 Claude Code / Codex 等能看图的 Agent 里按 README 安装 https://github.com/JuneYaooo/rea-toon",
+        "只用已经在本地的一集视频文件（仓库写明不下载链接），先拆 1 集看效果和花费，系列剧不要一上来跑完全部",
+        "打开生成的 index.html，只摘学习报告公式和分镜字段，对照 StoryFactory；不要复制源码进商业仓"
+      ],
+      "risk": "PolyForm Noncommercial 1.0.0：个人学习、研究等非商业使用可以修改和分享，任何商业使用需作者书面许可。不能把代码并入 StoryFactory 或其他商用产品；只能当研究方法与格式参考。必须有视觉能力（Claude Code / Codex 自带，或自配 Gemini、豆包、Qwen-VL 等兼容 OpenAI 的接口）。一集大约要看几十张镜网格、约 30 次视觉调用，token 花费高；默认由 Agent 自己看图、不必先配密钥，长系列才建议配 API 并并行。片源必须是本地文件。拆解结果可能有误，README 允许改错后重建页面。演示素材版权归原片方。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/JuneYaooo/rea-toon/blob/main/README.md"
+        },
+        {
+          "title": "中文说明",
+          "url": "https://github.com/JuneYaooo/rea-toon/blob/main/i18n/README_zh.md"
+        },
+        {
+          "title": "skills/rea-toon/SKILL.md",
+          "url": "https://github.com/JuneYaooo/rea-toon/blob/main/skills/rea-toon/SKILL.md"
+        },
+        {
+          "title": "VIDEO.md 格式",
+          "url": "https://videomd.github.io/videomd/"
+        },
+        {
+          "title": "LICENSE（PolyForm Noncommercial 1.0.0）",
+          "url": "https://github.com/JuneYaooo/rea-toon/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "boadij-pi-herdsman",
+      "rank": 3,
+      "name": "Pi Herdsman",
+      "category": "项目",
+      "summary": "Pi 与 herdr 之间的编排层：让当前 Pi 会话把工作委托给后台 Agent，并支持嵌套委派、并行执行，以及 Manager → Lead → Agent 的项目级分工（可选 Chief 监督）。权限、归属和监督由 Herdsman 约束，具体流程由模型在边界内自行拆分。Apache-2.0，目前仍是 pre-1.0。",
+      "why": "对 clawkit、star-river-dev-team 和本机 Hermes「凌霄」最直接——团队已在用 Pi，昨天的 AgenTopology 是声明式拓扑，此前的 Omnigent 是多 harness 运行时，Herdsman 补的是「在 Pi 会话里真正把子任务丢到后台、还不打断对话」。可执行：1）若本机已有 Pi 和 herdr，执行 `pi install npm:pi-herdsman` 与 `herdr integration install pi`，在项目目录先开 herdr、再在其窗格开 pi，用 README 的 scout 例子做一次异步只读侦察；2）对照文档里 Lead / Agent / Manager / Chief 的权限边界，和凌霄现有角色（谁能委派、谁拥有 worktree、结果如何交回）做一张对照表，而不是另起一套角色名；3）需要并行改多个分支时，再试 Manager 把目标分给独立 Lead；先不要上跨机器联邦消息。自定义 Agent 定义和技能可复用现有说明，不要重写领域行为。",
+      "url": "https://github.com/boadij/pi-herdsman",
+      "repo": "boadij/pi-herdsman",
+      "stars": 237,
+      "tags": [
+        "Pi",
+        "herdr",
+        "subagent",
+        "编排",
+        "后台Agent",
+        "clawkit",
+        "Hermes",
+        "凌霄"
+      ],
+      "steps": [
+        "确认本机已能运行 Pi 与 herdr；若已具备，执行 pi install npm:pi-herdsman 和 herdr integration install pi（否则先按官方文档安装这两项，再回来）",
+        "在目标仓库目录启动 herdr，在其窗格运行 pi，用 /herdsman 查看控制项",
+        "先委托一个只读侦察任务（例如让 scout 找出入口并说明如何启动），确认结果回到当前对话后，再考虑是否把一个真实小任务交给后台 Agent"
+      ],
+      "risk": "Apache-2.0。仍是 pre-1.0，版本可能有破坏性变更，升级前看 CHANGELOG。强依赖 Pi 和 herdr，不是单独能跑的编排器。联邦对等消息仍有限制（独立发现与发起需要从发起机器建立 SSH；不同构建之间还不能互发普通消息）。不要用它一次性替换 clawkit / 凌霄现有编排。后台 Agent 会消耗模型和 token，先看用量记录再放大并行。容器部署见仓库 Docker Compose 文档，本地试用不必一上来上容器。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/boadij/pi-herdsman/blob/main/README.md"
+        },
+        {
+          "title": "Getting started",
+          "url": "https://github.com/boadij/pi-herdsman/blob/main/docs/getting-started.md"
+        },
+        {
+          "title": "Project orchestration",
+          "url": "https://github.com/boadij/pi-herdsman/blob/main/docs/guides/project-orchestration.md"
+        },
+        {
+          "title": "Coordination 概念",
+          "url": "https://github.com/boadij/pi-herdsman/blob/main/docs/concepts/coordination.md"
+        },
+        {
+          "title": "LICENSE（Apache-2.0）",
+          "url": "https://github.com/boadij/pi-herdsman/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "alec-wangli-daobanassistantpro",
+      "rank": 4,
+      "name": "倒班助手Pro",
+      "category": "生活",
+      "summary": "面向倒班人群的 Android 本地排班应用：20 种倒班模板（也可自存模板）、按月或周期排班、桌面「本周条 / 今日卡 / 整月」小组件，以及跟班次走的闹钟（每班最多 10 条，可落在前一天、当天或次日）。无账号、无广告、无后端，数据只留在手机。MIT。",
+      "why": "早晨 / 日程效率（不是又一个通用待办：解决「今天上什么班、几点该出门」）。可执行：1）从 GitHub Releases 安装 v0.13.0，在「排班管理 → 新增排班」选最接近的模板（如四班三倒、做二休二、两班倒），改好班次时间和班组起始日，把「今日卡」放到桌面，早上先看一眼今天的班与时间；2）为早班/夜班分别设出门前提醒（可落在前一天），并在「我的 → 权限」按提示打开通知、精确闹钟、自启动和电池优化——小米还要额外开「后台弹出界面」和「锁屏显示」，否则可能只响铃不弹界面。可打包成跟做方案：模板怎么选、今日卡怎么放、闹钟落点表、国产机权限清单。",
+      "url": "https://github.com/Alec-WangLi/DaoBanAssistantPro",
+      "repo": "Alec-WangLi/DaoBanAssistantPro",
+      "stars": 24,
+      "tags": [
+        "早晨",
+        "倒班",
+        "排班",
+        "闹钟",
+        "桌面小组件",
+        "Android",
+        "离线",
+        "本地"
+      ],
+      "steps": [
+        "从 GitHub Releases 下载 v0.13.0 APK 安装（需允许安装未知来源应用）",
+        "打开「我的 → 权限」，按卡片说明打开通知、闹钟、全屏通知、自启动和电池优化；小米用户再开「后台弹出界面」和「锁屏显示」",
+        "在「排班管理」选一个最接近的倒班模板并微调，把「今日卡」加到桌面，为最早那班设一条出门前提醒"
+      ],
+      "risk": "仅 Android 8.0+，没有 iOS 版；需自行从 GitHub 下载 APK 安装，不经过应用商店。星标还不多（24），但仓库在更新，README 写明 v0.13.0 为正式稳定版。国产手机（尤其小米）权限若未开全，锁屏或重启后闹钟可能不准或只响不弹窗。法定节假日内置到 2025/2026 年国务院安排，2027 年及以后尚未覆盖。升级后旧小组件会消失，需重新添加，并先打开一次 App 再看桌面。闹钟是日程提醒，不是健康或安全建议。MIT，无需账号。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Alec-WangLi/DaoBanAssistantPro/blob/main/README.md"
+        },
+        {
+          "title": "Release v0.13.0",
+          "url": "https://github.com/Alec-WangLi/DaoBanAssistantPro/releases"
+        },
+        {
+          "title": "LICENSE（MIT）",
+          "url": "https://github.com/Alec-WangLi/DaoBanAssistantPro/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "sassanix-warracker",
+      "rank": 5,
+      "name": "Warracker",
+      "category": "生活",
+      "summary": "自托管的家庭保修与小票归档应用：记录购买日期、保修期限、序列号和产品照片，上传发票/说明书，在到期前通过邮件或 Apprise（100+ 种推送）提醒一次，也可跟踪保修索赔进度。支持中文（简体 / 香港）。AGPL-3.0。",
+      "why": "家务 / 家庭琐事（也带一点消费决策：过保前先修、别丢小票）。可执行：1）用官方 Docker Compose 在本机或家里的小主机起服务（默认 http://localhost:8005），第一个注册的账号自动成为管理员；2）把最近买的家电、手机、电脑各建一条，上传小票照片，设好到期提醒——作者在 README 里举例：曾靠提醒在汽车保修到期前做完维修。可打包「家庭保修与小票归档」跟做方案：必填字段表、提醒提前量、CSV 导出备份步骤；不要出售镜像、账号或代为部署。",
+      "url": "https://github.com/sassanix/Warracker",
+      "repo": "sassanix/Warracker",
+      "stars": 1571,
+      "tags": [
+        "家务",
+        "保修",
+        "小票",
+        "到期提醒",
+        "Docker",
+        "自托管",
+        "中文"
+      ],
+      "steps": [
+        "安装 Docker 后，按 README 下载 Docker/docker-compose.yml 与 .env.example，填好数据库口令和 SECRET_KEY，执行 docker compose up -d",
+        "打开 http://localhost:8005，注册第一个账号（即管理员），把界面语言设为中文",
+        "先录入 3 件近期购买并上传小票，打开到期提醒；之后用 CSV 导出做备份"
+      ],
+      "risk": "需要 Docker，并自备 PostgreSQL（compose 已带）。要填 .env（数据库凭证、SECRET_KEY 等），不属于「打开就能用」的手机应用，上手成本中等。AGPL-3.0：自己用、改、分享可以，若对外提供网络服务需遵守 AGPL；跟做方案不要把软件改头换面当闭源产品卖。可将实例暴露在公网前先做好 HTTPS 与备份（上传文件和数据库都在 Docker 卷里）。支持 20 种语言，含 zh_CN、zh_HK。可对接 Paperless-ngx、OIDC，家庭自用不是必须。项目声明核心功能已稳定，仍在活跃开发。不要把它理解成维修或消费建议，只是到期提醒和档案。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/sassanix/Warracker/blob/main/README.md"
+        },
+        {
+          "title": "Getting Started（Wiki）",
+          "url": "https://github.com/sassanix/Warracker/wiki/Getting-Started"
+        },
+        {
+          "title": "Notifications（Wiki）",
+          "url": "https://github.com/sassanix/Warracker/wiki/Notifications"
+        },
+        {
+          "title": "LICENSE（AGPL-3.0）",
+          "url": "https://github.com/sassanix/Warracker/blob/main/LICENSE"
+        }
+      ]
+    }
+  ]
+}
