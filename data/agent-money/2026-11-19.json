@@ -1,0 +1,437 @@
+{
+  "date": "2026-11-19",
+  "updated": "2026-11-19T09:00:00+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Gigbotic：按分钟上架可雇 Agent（约 90%，核验银行卡打款）",
+      "type": "Agent接单",
+      "summary": "Gigbotic 官方定价页与 2026-11-13 创作者指南：把已能稳定交付的工作流经 MCP 接上平台，自定每分钟单价（约 0.10–10.00 美元），买家预付至少 1 小时钱包后按「主动执行分钟」计费，等待/提问/验收期间不计费。创作者约留账单分钟的 90%，平台抽约 10%（文档写该费用已覆盖托管、扫描与 Stripe 处理）。收入在每满 60 个主动分钟、买家点接受完成、或买家约 48 小时无操作后从冻结转入可提现余额；在 Earnings → Accounts 核验银行账户（文档列举 ACH、Faster Payments、SEPA、IBAN/RAAST、IFSC、SWIFT，覆盖约 35+ 个国家）后可手动或按周/月自动打款（文档写 14 个工作日）。上架与沙箱测试免费。须通过测试并经审核，且银行账户核验通过后才能开放接单。",
+      "cost": "0 上架费；自付你的模型/API/托管成本；需通过审核并核验银行账户。打款通道与到账天数以 Earnings 页为准。",
+      "difficulty": 4,
+      "threshold": "已有可演示的垂直工作流；能用 MCP 接 runner 并保持在线（文档要求约 10 分钟内接单）；能完成银行账户核验",
+      "time": "有现成工作流可在数日内走完测试与审核；可提现余额按文档为每小时/验收/48 小时后释放，自动打款文档写 14 个工作日",
+      "fit": "已能稳定交付审计、研究、报告类任务，并愿意让 runner 在开放接单期间保持在线的开发者",
+      "why": "11-16 清单是 MCPize/Moltify 等货架。Gigbotic 在 11-13 指南与 11-17 官方博文写清按分钟 90%、银行打款与审核流程，是本周新核到的可雇 Agent 通道，品类不重复。",
+      "steps": [
+        "阅读 https://gigbotic.com/pricing 与创作者指南，确认分成、冻结、接单时限和打款通道后再动手",
+        "用 Gigbotic Assistant（Build Agent 模式）把一个已能交付的小任务写成服务说明、必填输入和交付物，经 MCP 连接 runner 并完成官方测试",
+        "在 Earnings → Accounts 添加并核验你本人的银行账户；测试通过与管理员审核是两步，都通过且账户核验后才能把 Hiring Availability 设为 Open",
+        "开放接单期间保持 runner 在线；关机前先关闭接单并妥善处理进行中的任务，以免超时未接",
+        "对账以可提现余额和银行到账为准，不承诺接单量或到账提前；平台改价以当时定价页为准"
+      ],
+      "risk": "风险等级：中。平台较新，须过测试与人工审核；runner 若不在线可能掉单或被关闭接单；自动打款文档写 14 个工作日，银行通道与国家名单以后台为准，不保证你的所在地可用。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手官方定价页与创作者指南写死约 90%、冻结释放节点和银行卡打款，且为 11-16 未收录的按分钟接单通道。",
+      "tags": [
+        "Gigbotic",
+        "Agent接单",
+        "MCP",
+        "按分钟计费",
+        "90%"
+      ],
+      "sources": [
+        {
+          "title": "AI Agent Pricing and Marketplace Fees",
+          "url": "https://gigbotic.com/pricing",
+          "publisher": "Gigbotic",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "The Gigbotic creator guide: build, test, and launch your first agent",
+          "url": "https://gigbotic.com/guides/complete-gigbotic-creator-and-system-guide",
+          "publisher": "Gigbotic",
+          "published": "2026-11-13",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "The independent AI builder economy: earning 90% of runtime without building SaaS",
+          "url": "https://gigbotic.com/blog/independent-ai-builder-economy-monetize-mcp-workflows",
+          "publisher": "Gigbotic",
+          "published": "2026-11-17",
+          "kind": "official",
+          "checked": "2026-11-19"
+        }
+      ],
+      "source_url": "https://gigbotic.com/pricing",
+      "agent_howto": "用 Cursor/Claude/n8n 做并自测垂直工作流，再用官方 Assistant 生成注册与作业提示，经 MCP 接上 Gigbotic。银行核验、审核提交与开关接单由你本人完成；Agent 不代管密钥或账户。",
+      "agent_stack": [
+        "MCP",
+        "Cursor/Claude 或 n8n",
+        "Gigbotic Assistant",
+        "自备 runner"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "MCPRush：上架付费 MCP 订阅或技能（净销售额约 88%，每周五 Stripe Connect）",
+      "type": "Agent工具/小产品",
+      "summary": "MCPRush 官方定价页与条款第 9 条（最近一次页面标注变更为 2026-10-13）：可上架 MCP 服务器（托管或自托管）按月订阅（售价约 5–999 美元，并设调用额度/速率），或上架 Agent 技能做一次性购买。平台作为销售合同相对方，抽净销售额约 12%，卖家约留 88%，Stripe 处理费另扣。完成 Stripe Connect 入驻后，每周五把当时已清算的份额打入你的 Connect 账户（一笔收款约在扣款 7 天后清算），再由 Stripe 打到其登记的银行账户。新卖家自首笔销售起约 60 天内，每笔打款暂扣约 10%，期满后随下一轮打款全额释放。免费 listing 无上架费也无销售佣金。发布本身不要求购买 Pro。",
+      "cost": "0 上架费；付费 listing 须完成 Stripe Connect 与税务表格（W-9 或 W-8BEN/W-8BEN-E）；处理费另计；自托管则自付服务器成本。托管额度以账号配额为准。",
+      "difficulty": 3,
+      "threshold": "能提供可安装的 MCP（公开仓库、npm/PyPI 或容器）或原创技能；年满 18 岁并能完成 Stripe 入驻；不在美/欧/英全面制裁名单或地区",
+      "time": "有现成 MCP 可当天提交；到账按条款为清算满约 7 天后的每周五，另计 Stripe 出金节奏与新卖家 60 天 10% 暂扣",
+      "fit": "已有可演示的垂直 MCP 或技能、希望用法币订阅/买断收款的开发者",
+      "why": "11-16 是 MCPize/Sigrix 等 MCP 货架。MCPRush 条款把 88%、每周五、7 日清算和新卖家 10% 暂扣写进合同，是本周新核到的、结算节奏更具体的订阅货架。",
+      "steps": [
+        "阅读 https://mcprush.com/pricing 与 https://mcprush.com/terms 第 7–9 条，确认分成、清算、暂扣和制裁/年龄限制",
+        "准备原创 MCP 或技能；若走托管，勿把持久数据只放在实例本地文件或 SQLite",
+        "由你本人完成 Stripe Connect 入驻并提交税务表格后，再为 listing 定价（订阅或一次性）并发布",
+        "用 Claude/Cursor 等客户端做安装与调用验收，按反馈发新版本（文档写可先构建再选择何时发布）",
+        "对账以每周五 Stripe Connect 入账与结算单为准，退款/拒付会在后续打款中净额抵扣。不承诺销量或 MRR"
+      ],
+      "risk": "风险等级：中。Stripe 可用国家未在条款中完整公示；退款、拒付和争议费（条款举例 15 美元争议费）会从后续分成里扣；新卖家有 60 天 10% 暂扣；平台作为销售合同相对方可直接退款。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手条款写死净销售额约 88%、每周五 Stripe Connect、7 日清算与新卖家暂扣，且为 11-16 未收录的 MCP 订阅通道。",
+      "tags": [
+        "MCPRush",
+        "MCP",
+        "Stripe Connect",
+        "订阅",
+        "88%"
+      ],
+      "sources": [
+        {
+          "title": "Pricing: Account Plans & Publisher Fees",
+          "url": "https://mcprush.com/pricing",
+          "publisher": "MCPRush",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "https://mcprush.com/terms",
+          "publisher": "mcprush.com",
+          "published": "2026-10-13",
+          "kind": "official",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Publish & Sell MCP Servers and Agent Skills",
+          "url": "https://mcprush.com/for-publishers",
+          "publisher": "MCPRush",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        }
+      ],
+      "source_url": "https://mcprush.com/pricing",
+      "agent_howto": "用 Cursor/Claude 按官方文档写 MCP 或技能、测试与定价文案；Stripe 入驻、税务表格和发版由你本人完成，Agent 不代管密钥。",
+      "agent_stack": [
+        "MCP",
+        "Cursor/Claude",
+        "MCPRush 网关",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Swarms Marketplace：用法币轨道上架 Agent/提示词（约 90%，Stripe 打入银行）",
+      "type": "Agent工具/小产品",
+      "summary": "Swarms 官方法币支付文档与卖家教程：在 swarms.world 卖家页完成 Stripe Express 入驻（身份核验+银行账户）后，发布时可把定价选为 Paid，收款轨道选 Card / Fiat（Stripe），标美元价格。买家用卡或苹果/谷歌支付等结账后，Stripe 按笔自动拆分，卖家约留 90%，平台抽约 10%，份额按 Stripe 常规出金周期打入你绑定的银行账户，无需再手动请款。发布免费。本条只建议走法币轨道；平台另有 SOL 加密轨道，不作为本条路径。",
+      "cost": "0 上架费；须完成 Stripe Express KYC 与银行绑定；入驻时所选国家文档写事后不可更改。加密轨道另计，不纳入本条。",
+      "difficulty": 3,
+      "threshold": "有可交付的原创 Agent 或提示词；能完成 Stripe Express 入驻（国家以 Stripe 支持范围为准）",
+      "time": "资料齐备可当天发布；到账跟随 Stripe 常规出金周期，以卖家页和 Stripe Express 后台为准",
+      "fit": "希望一次性卖原创 Agent/提示词、并直接收银行打款的开发者，不愿先开加密钱包",
+      "why": "11-16 货架以 MCP 订阅和任务托管为主。Swarms 官方文档把法币 90% 与 Stripe 银行出金写清，是本周新核到的一次性数字产品通道。",
+      "steps": [
+        "阅读 https://docs.swarms.ai/docs/marketplace/fiat-payments 与卖家教程，只走 Card / Fiat 轨道",
+        "在 swarms.world 账户设置的 Seller 页选择国家并完成 Stripe Express 入驻（文档写国家选定后不可改）",
+        "到 /launch 发布原创 Agent 或提示词：Paid + Card / Fiat，自定美元价格；不要把他人作品或侵权内容上架",
+        "在 Seller 页与 Stripe Express 后台核对每笔销售额、平台费和到账，不承诺销量",
+        "不要为了收款去开 SOL 钱包或参与代币化发行；本条只覆盖法币销售"
+      ],
+      "risk": "风险等级：中。Stripe 支持国家与审核时长因地区而异，所选国家不可更改；平台同时提供加密轨道，需自行避免误选；内容须原创且合法，平台或 Stripe 可拒绝入驻或冻结打款。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手官方法币文档写死约 90% 与 Stripe 银行自动出金，且为 11-16 未收录的法币卖 Agent/提示词通道。",
+      "tags": [
+        "Swarms",
+        "Stripe Express",
+        "法币",
+        "Agent",
+        "90%"
+      ],
+      "sources": [
+        {
+          "title": "Fiat Payments Overview",
+          "url": "https://docs.swarms.ai/docs/marketplace/fiat-payments",
+          "publisher": "Swarms Docs",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Vendor Tutorial: Sell with Fiat",
+          "url": "https://docs.swarms.ai/docs/marketplace/fiat-payments-vendor-tutorial",
+          "publisher": "Swarms Docs",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        }
+      ],
+      "source_url": "https://docs.swarms.ai/docs/marketplace/fiat-payments",
+      "agent_howto": "用 Cursor/Claude 打磨 Agent 说明、提示词与示例，再由你本人在 /launch 定价发布。Stripe 入驻和银行信息只在官方托管页填写，Agent 不代填 KYC。",
+      "agent_stack": [
+        "Swarms 发布页",
+        "Cursor/Claude",
+        "Stripe Express"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Kopai：上架知识型 Agent（附加费约 70%，满 50 credits 联系提现）",
+      "type": "Agent工具/小产品",
+      "summary": "Kopai 官方计费文档与条款（条款最近一次标注更新 2026-09-01）：把专业知识做成可公开发布的 Agent，按条消息向用户收「发布者附加费」。运行基础设施费用（模型 token、工具调用等）不计入分成；只有附加费按约 70% 归你的组织、30% 归平台。附加费可设为 0，但那样不会产生收入。免费档即可创建并发布。条款要求为收款绑定 Stripe Connect 并完成身份/税务信息；现行文档写提现目前由团队处理而非自助按钮，须满 50 credits 后从钱包页联系安排。1 credit 在充值表里对应 0.10 美元（例如支付 5 美元得 50 credits），仅作换算参考，实际到账以结算为准。",
+      "cost": "0 上架费；自测会产生模型/工具消耗；提现须满 50 credits 并按条款完成 Stripe Connect 与税务信息。组织付费套餐为可选项，非上架前提。",
+      "difficulty": 3,
+      "threshold": "有可验证的专业知识或文档库；能设定合理附加费；能按条款完成身份/税务信息并联系提现",
+      "time": "内容齐备可在一天内发布；提现需满 50 credits 且走团队安排，周期以当时回复为准，不按自助打款预期",
+      "fit": "适合把咨询经验做成按次问答 Agent、能接受手动提现节奏的个人或小团队",
+      "why": "11-16 以 MCP 与任务市场为主。Kopai 官方把附加费 70/30 与最低 50 credits 提现写清，是本周新核到的知识型 Agent 收费通道。",
+      "steps": [
+        "阅读 https://docs.usekopai.com/docs/features/billing-and-credits 与发布说明，先算清附加费与基础设施费用是两笔账",
+        "上传你有权使用的知识库，设定附加费（不要为 0），在免费档先做私下测试再公开发布",
+        "按条款准备 Stripe Connect 与身份/税务信息；可用余额满 50 credits 后，从钱包页联系 Kopai 安排提现，不要预期有自助按钮",
+        "持续根据对话质量收紧范围与工具开关，避免工具调用把用户侧成本抬到劝退（那部分不计入你的分成）",
+        "对账以钱包中 Available earnings 为准，不承诺对话量或提现到账时间"
+      ],
+      "risk": "风险等级：中。提现目前非自助，周期与是否通过取决于平台；条款允许前瞻性调整分成；Stripe 可用地区未在文档完整公示；知识库须有权使用且内容合法。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手官方计费文档写死附加费约 70% 与 50 credits 起的团队提现，且为 11-16 未收录的知识型 Agent 通道。",
+      "tags": [
+        "Kopai",
+        "知识库 Agent",
+        "按条收费",
+        "70%",
+        "Stripe Connect"
+      ],
+      "sources": [
+        {
+          "title": "Billing & credits",
+          "url": "https://docs.usekopai.com/docs/features/billing-and-credits",
+          "publisher": "Kopai Docs",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Publish an agent",
+          "url": "https://docs.usekopai.com/docs/getting-started/publish-an-agent",
+          "publisher": "Kopai Docs",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "https://usekopai.com/terms-of-service",
+          "publisher": "Kopai",
+          "published": "2026-09-01",
+          "kind": "official",
+          "checked": "2026-11-19"
+        }
+      ],
+      "source_url": "https://docs.usekopai.com/docs/features/billing-and-credits",
+      "agent_howto": "用 Cursor/Claude 整理知识库结构、系统提示和附加费说明，再在 Kopai 发布并自测。Stripe 与提现联系由你本人办理，Agent 不代管账户。",
+      "agent_stack": [
+        "Kopai",
+        "自有知识库",
+        "Cursor/Claude",
+        "Stripe Connect"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "dealwork.ai：用 Agent 竞标或挂服务接单（普通约 90%，双方均为 Agent 约 97%）",
+      "type": "Agent接单",
+      "summary": "dealwork.ai 官方 How it works 与条款：买家先把款项放入托管，批准交付（或争议裁决、或审查期内未回应而自动完成）后释放给服务方。现行费率：普通合同约抽 10%（约留 90%），当客户与服务方都是 AI Agent 时约抽 3%（约留 97%），下单前会展示确切费用。人、Agent 或混合团队都可入驻；Agent 须经核验（文档称 KYA）并有明确的人类或法律实体负责人，负责人对出价、交付和支出负责。钱包以美元计价；充值与出金以钱包页当时展示的方式为准，条款写明可经 Polygon 上的 USDC 链上充值。亦提供 MCP 工具（含 request_withdrawal）供 Agent 在授权下查询余额和发起提现申请。",
+      "cost": "0 上架费（以现行页面为准）；须完成账户与 Agent 核验；出金方式与手续费以钱包页为准；自付你的模型/API 成本。",
+      "difficulty": 4,
+      "threshold": "能让 Agent 按合同准时交付可验收成果；有负责人完成核验；能接受出金方式以钱包页为准（含可能的链上通道）",
+      "time": "核验通过后即可竞标或挂服务；托管释放在验收或自动完成之后，出金时效以钱包页为准",
+      "fit": "已有可自动或半自动交付的垂直能力、并愿意由本人承担 Agent 行为责任的开发者",
+      "why": "11-16 的 AgentGigs/Moltify 是另两套托管接单。dealwork.ai 官方写清 10%/3% 费率、托管与负责人制度，是本周新核到的人机混合接单通道。",
+      "steps": [
+        "阅读 https://dealwork.ai/how-it-works 与 https://dealwork.ai/terms，确认费率、托管、可接受用途和出金表述",
+        "用本人身份开户，为 Agent 完成核验，并在条款意义上承担其出价与交付责任",
+        "先挂一个范围清楚、可验收的固定价服务或竞标匹配任务；交付与修改都走站内，不要引流站外收款",
+        "验收释放后，在钱包页核对该笔入账，再用页面或已授权的 request_withdrawal 申请出金；链上通道的合规与到账由你自行判断",
+        "对账以钱包流水为准，不承诺中标率或出金时效"
+      ],
+      "risk": "风险等级：中。公开条款未写死银行打款的国家与到账天数，出金以钱包页为准，并涉及 Polygon USDC 充值；Agent 行为由负责人承担；违规、站外交易或虚假评价可导致封号。不承诺收益。",
+      "risk_level": "中",
+      "reason": "一手条款写死托管与 10%/3% 费率，且为 11-16 未收录的人机混合接单通道；出金细节以钱包页为准，已在条目中标明。",
+      "tags": [
+        "dealwork.ai",
+        "Agent接单",
+        "托管",
+        "KYA",
+        "90%"
+      ],
+      "sources": [
+        {
+          "title": "How it works",
+          "url": "https://dealwork.ai/how-it-works",
+          "publisher": "dealwork.ai",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Terms of Service",
+          "url": "https://dealwork.ai/terms",
+          "publisher": "dealwork.ai",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "MCP Integration",
+          "url": "https://dealwork.ai/mcp",
+          "publisher": "dealwork.ai",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        }
+      ],
+      "source_url": "https://dealwork.ai/how-it-works",
+      "agent_howto": "用 Cursor/Claude 接官方 MCP，按合同检索任务、起草交付物并提交。开户、核验、出金和密钥由你本人操作；Agent 须在你的授权与监督下运行。",
+      "agent_stack": [
+        "dealwork.ai MCP",
+        "Cursor/Claude",
+        "自备 Agent 运行环境"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "扣子技能商店：上架付费技能（按次/订阅，国内收款）",
+      "type": "Agent工具/小产品",
+      "summary": "2026-11-19 复核官方结算文档：口径相对 11-16 未改。仍支持上架付费技能（按次或订阅）。个人/团队/企业版均可商户入驻（团队与企业须超级管理员操作），收款账户现为支付宝或抖音支付；微信渠道仍写「正在审核中」。抖音、支付宝、微信按用户实际支付金额、购买约 30 天后可手动提现；苹果与积分按次购买于每月 10 日生成上月结算单，确认后打到注册银行账户。苹果渠道另扣约 30% 佣金及代扣个税。最终到账以结算单为准。",
+      "cost": "0 上架费；需商户入驻（实名与商户材料），平台与渠道可能另收手续费，以结算单为准",
+      "difficulty": 3,
+      "threshold": "能做 API 插件/代码片段/数据检索类技能；完成商户入驻与内容审核",
+      "time": "开发 1–2 周；入驻+审核数天；网页/安卓首笔结算约 30 天后",
+      "fit": "国内开发者、有垂直数据或工具能力的个人/小团队",
+      "why": "2026-11-19 复核结算规则未改，仍是本周唯一已核验的国内人民币官方技能收费通道；本周新货架多为 Stripe 或钱包出金，替代不了本地收款，故保留。",
+      "steps": [
+        "在扣子网页端完成商户入驻，开通支付宝或抖音支付收款（微信仍显示审核中则不要等待）",
+        "选一个垂直刚需做成技能并提交内容审核，账户开通不等于技能已上架",
+        "设定按次价或订阅价，准备试用说明",
+        "在订单/结算管理查看已分账订单，第三方支付渠道手动提现；苹果或积分结算单需先确认",
+        "按协议自行申报税务，不承诺销量或到账时间提前"
+      ],
+      "risk": "风险等级：中。平台可审核价格、调整规则；违规可下架并暂停结算；微信收款通道尚未对商户开放。不承诺收益。",
+      "risk_level": "中",
+      "reason": "2026-11-19 复核官方结算文档仍在线且口径未变，人民币闭环，作为国内通道保留。",
+      "tags": [
+        "扣子",
+        "Coze",
+        "技能商店",
+        "付费技能",
+        "国内收款"
+      ],
+      "sources": [
+        {
+          "title": "技能收入结算",
+          "url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
+          "publisher": "扣子 Coze 官方文档",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        }
+      ],
+      "source_url": "https://docs.coze.cn/cozespace_skill_revenue_settlement",
+      "agent_howto": "用 Cursor/Claude 写技能 API、参数说明、测试用例和详情页文案；用扣子 Agent 自测。商户资料、定价与提现由你本人操作。",
+      "agent_stack": [
+        "扣子",
+        "Cursor/Claude",
+        "支付宝商户"
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "闲鱼原创方案：《新 Agent 货架上架对照手册》（Gigbotic / MCPRush / Swarms 法币 / Kopai / dealwork.ai）",
+      "type": "Agent闲鱼方案",
+      "summary": "基于本周新核到的官方文档自写对照手册：Gigbotic 按分钟约 90% 与银行卡打款（自动打款文档写 14 个工作日）、MCPRush 净销售额约 88% 与每周五 Stripe、Swarms 法币轨道约 90% 与 Stripe 银行出金、Kopai 附加费约 70% 与满 50 credits 的团队提现、dealwork.ai 普通约 10%/双方 Agent 约 3% 及钱包页出金。只卖你自己的对照与操作记录，不卖账号、邀请码或代开通。",
+      "cost": "0–几十元排版；需亲自走通至少 1 条新路径以便截图",
+      "difficulty": 2,
+      "threshold": "能读官方条款并做对照表；至少亲自完成其中一家的注册或路径截图",
+      "time": "2–4 天可出第一版；平台改分成或出金规则时需修订",
+      "fit": "能把多平台规则写成可售原创资料、且不提供代办的创作者",
+      "why": "11-16 手册覆盖的是 MCPize/Moltify 等旧货架。本周 5 条新通道的分成、冻结与出金节奏不同，值得单独做一版对照。",
+      "steps": [
+        "亲自完成其中至少一家的注册/上架或条款与后台路径截图，注明日期",
+        "按官方原文整理分成、冻结、出金币种/通道与未公示项，每条附链接",
+        "写清禁售项（他人作品、账号、代领、代实名）并声明不承诺收益",
+        "排版为原创 PDF，闲鱼以数字资料上架",
+        "平台改版或费率调整时出修订版并通知已购读者"
+      ],
+      "risk": "风险等级：低。须原创并标注时效；不得承诺收益、不得提供代实名/代开店。不承诺收益。",
+      "risk_level": "低",
+      "reason": "把本周新核到的 5 条官方通道做成可反复售卖的原创对照，不涉及代办或账号交易。",
+      "tags": [
+        "闲鱼",
+        "原创教程",
+        "Gigbotic",
+        "MCPRush",
+        "Swarms",
+        "Kopai",
+        "dealwork.ai"
+      ],
+      "sources": [
+        {
+          "title": "AI Agent Pricing and Marketplace Fees",
+          "url": "https://gigbotic.com/pricing",
+          "publisher": "Gigbotic",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Pricing: Account Plans & Publisher Fees",
+          "url": "https://mcprush.com/pricing",
+          "publisher": "MCPRush",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Fiat Payments Overview",
+          "url": "https://docs.swarms.ai/docs/marketplace/fiat-payments",
+          "publisher": "Swarms Docs",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "Billing & credits",
+          "url": "https://docs.usekopai.com/docs/features/billing-and-credits",
+          "publisher": "Kopai Docs",
+          "published": "2026",
+          "kind": "docs",
+          "checked": "2026-11-19"
+        },
+        {
+          "title": "How it works",
+          "url": "https://dealwork.ai/how-it-works",
+          "publisher": "dealwork.ai",
+          "published": "2026",
+          "kind": "official",
+          "checked": "2026-11-19"
+        }
+      ],
+      "source_url": "https://gigbotic.com/pricing",
+      "agent_howto": "用 Agent 生成大纲、对照表与 FAQ 初稿，再按你的实测截图改写；Agent 不代操作任何账号。",
+      "agent_stack": [
+        "Cursor/Claude",
+        "闲鱼数字资料"
+      ],
+      "resell": "原创 PDF 手册，闲鱼数字资料；不卖账号/码/代领/代开店"
+    }
+  ]
+}
