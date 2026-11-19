@@ -1,0 +1,237 @@
+{
+  "date": "2026-11-19",
+  "updated": "2026-11-19T09:50:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "agentmarkup-agentmarkup",
+      "rank": 1,
+      "name": "agentmarkup",
+      "category": "项目",
+      "summary": "给 Vite、Astro、Next.js、Nuxt 用的构建期 AEO 工具包：生成 llms.txt（可选 llms-full.txt）、向 HTML 注入并校验 JSON-LD、可选页面 Markdown 镜像，以及 AI 爬虫的 robots.txt / Content-Signal；另有框架无关的 CLI 检查，和按各家 AI 爬虫 UA 抓取线上站点并打 0–100 分的审计命令。MIT。",
+      "why": "对 autograph-ai（Vue3+Vite）最有用：近期已推过构建期生成 llms.txt（aeo.js、Dualmark）和发布后 QA（squirrelscan）、引用测量（Limelit Open），agentmarkup 补的是「同一条 Vite 构建流水线里注入并校验 JSON-LD，再把机器可读产物和门禁一次做完」。可执行：1）先对已发布域名跑 `npx @agentmarkup/audit <url> --score`，看总分以及各 AI 爬虫拿到的内容和浏览器是否一致；2）在 Vite 配置接入官方 `@agentmarkup/vite`，用 webSite / organization 预设注入 JSON-LD，并生成 llms.txt（可选 markdown 镜像）；3）构建后把 `agentmarkup check ./dist` 接到发版门禁。已有手写 llms.txt 或某类 JSON-LD 时默认会保留，不必整页覆盖。它不是又一个 AI 引用率追踪器，不要和 Limelit 重复建设。",
+      "url": "https://github.com/agentmarkup/agentmarkup",
+      "repo": "agentmarkup/agentmarkup",
+      "stars": 27,
+      "tags": [
+        "AEO",
+        "llms.txt",
+        "JSON-LD",
+        "Vite",
+        "schema.org",
+        "CI",
+        "autograph-ai"
+      ],
+      "steps": [
+        "对 autograph 已发布或 staging 域名执行 npx @agentmarkup/audit <url> --score，先看 0–100 分和各 AI 爬虫抓取差异",
+        "在 Vue3+Vite 项目安装 @agentmarkup/vite，于 vite.config 中接入 agentmarkup，先配置 site / llmsTxt 与 globalSchemas（webSite、organization）",
+        "本地构建后执行 npx @agentmarkup/cli check ./dist（或文档中的 agentmarkup check ./dist），把机器可读错误当作发版门禁"
+      ],
+      "risk": "MIT，可免费用于商业项目。仓库仍较新，星标只有 27，接口可能还会变。若 autograph 前台是客户端渲染的 Vue SPA、构建几乎只产出壳 HTML，页面级 JSON-LD 和 .md 镜像可能盖不全，需要预渲染，或在最终 HTML 步骤改用 @agentmarkup/core；文档写明动态 SSR 路由不会自动打补丁。已有的 llms.txt / JSON-LD 默认共存，开启替换前先核对。它不测量模型是否引用你的品牌。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/agentmarkup/agentmarkup/blob/main/README.md"
+        },
+        {
+          "title": "@agentmarkup/vite 说明",
+          "url": "https://github.com/agentmarkup/agentmarkup/blob/main/packages/vite/README.md"
+        },
+        {
+          "title": "项目站点",
+          "url": "https://agentmarkup.dev"
+        },
+        {
+          "title": "LICENSE（MIT）",
+          "url": "https://github.com/agentmarkup/agentmarkup/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "had0yun-cozyclay",
+      "rank": 2,
+      "name": "CozyClay",
+      "category": "项目",
+      "summary": "浏览器里就能用的开源预演（previs）工作台：先在 3D 里搭场景、摆角色、编排运镜和剪辑，再把同一镜头的第一帧、灰模参考片和提示词交给 AI 视频模型。一条 `npx cozyclay` 即可在本地打开工作室，也提供 MCP 和命令行驱动。AGPL-3.0。",
+      "why": "对 soloforge-storyfactory 最有用：近期分镜相关推荐多是文案拆解、画布和角色锁，CozyClay 补的是「机位、站位和运镜先在 3D 里定、改起来便宜，再花钱出片」。可执行：1）本机 Node.js 22.19+ 执行 `npx cozyclay`（无需 GPU、不必下载模型），用灰盒摆一场双人对戏并拉一条轨道镜头；2）导出 keyframe pack（首尾帧、灰模 clip、相机、提示词）或 OTIO 剪辑单，对照现有分镜字段，把「运镜 / 切点 / 镜头极限」补进 StoryFactory 分镜表；3）需要时再用官方 MCP（`npx -y cozyclay mcp`）让凌霄或 Cursor 驱动场景。只作工作流对照，不要把 AGPL 代码并进商业产品。",
+      "url": "https://github.com/HaD0Yun/CozyClay",
+      "repo": "HaD0Yun/CozyClay",
+      "stars": 2015,
+      "tags": [
+        "previs",
+        "分镜",
+        "运镜",
+        "AI视频",
+        "MCP",
+        "StoryFactory"
+      ],
+      "steps": [
+        "本机安装 Node.js 22.19 或更新版本后执行 npx cozyclay，按提示在浏览器打开本地工作室（默认 http://127.0.0.1:5180/app/）",
+        "用灰盒搭一场简单对戏，放两个角色、拉一条轨道镜头，导出该镜的 keyframe pack",
+        "把导出的首尾帧、运镜和提示词对照进 StoryFactory 分镜表字段，只做方法对照，不要复制仓库代码进产品"
+      ],
+      "risk": "AGPL-3.0：可以本地使用和对照流程，但不能把源码并入商业闭源产品（这一点和近日推荐的非商用协议项目一样，必须先看许可）。官方站点与 npm 包有匿名使用遥测，可用 `cclay telemetry off` 关闭。工作室里的 Agent 面板若接云端模型，需要自备密钥，出片费用在视频模型一侧。它不是一条自动生成成片的漫剧流水线，也替代不了角色一致性工具。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/README.md"
+        },
+        {
+          "title": "在线试用",
+          "url": "https://cozyclay.org/#try"
+        },
+        {
+          "title": "给 AI Agent 的安装说明",
+          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/INSTALL_FOR_AGENTS.md"
+        },
+        {
+          "title": "隐私与遥测",
+          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/docs/privacy.md"
+        },
+        {
+          "title": "LICENSE（AGPL-3.0）",
+          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "electricsheephq-lcm-x",
+      "rank": 3,
+      "name": "LCM-X",
+      "category": "项目",
+      "summary": "给 Hermes Agent 用的本地无损记忆上下文引擎：每一轮对话写入插件自己的 SQLite，压缩后变成可回溯的摘要 DAG，Agent 仍可用工具检索并展开被折叠的原文。默认本地运行、不必 API Key。MIT。",
+      "why": "对 clawkit / star-river-dev-team / 凌霄最有用：近期已推过角色拓扑、多 harness 编排和 Pi/herdr 后台任务，缺的是「上下文被摘要之后还能找回收缩前的原话和工具结果」。可执行：1）在 Hermes 0.21.3 或更新版本上执行 `hermes plugins install hermes-lcm-x --enable` 和 `hermes config set context.engine lcm-x`，重启后让 Agent 调用 `lcm_status` 确认引擎已切换；2）用一条足够长、会触发压缩的任务，验证能否搜索并展开被折叠的工具输出（默认本地即可；云端 embedding / rerank 可选）；3）需要跨 harness 时，再按文档把同一套记忆只读接到 Claude Code，或导入 OpenClaw / lossless-claw。v0.24.0 起插件清单名是 `hermes-lcm-x`、运行时引擎名是 `lcm-x`，旧的 `hermes-lcm` 配置必须迁移。",
+      "url": "https://github.com/electricsheephq/lcm-x",
+      "repo": "electricsheephq/lcm-x",
+      "stars": 168,
+      "tags": [
+        "Hermes",
+        "记忆",
+        "上下文",
+        "SQLite",
+        "clawkit",
+        "凌霄"
+      ],
+      "steps": [
+        "确认本机 Hermes 不低于 0.21.3，然后执行 hermes plugins install hermes-lcm-x --enable 与 hermes config set context.engine lcm-x",
+        "重启 Hermes，发一条消息后让 Agent 调用 lcm_status，确认上下文引擎已是 lcm-x",
+        "用一条会触发压缩的长任务，试一次检索并展开被折叠的原文；不要直接把任意 main 分支当作已安装的稳定版"
+      ],
+      "risk": "MIT。需要 Hermes 0.21.3+。插件目录锁定的版本可能比 GitHub 最新 Release 晚几天；写作时仓库最新 Release 为 v0.30.0（2026-11-12），请装稳定发行版，不要随便签出 main。v0.24.0 有破坏性改名（hermes-lcm → hermes-lcm-x / lcm-x）。仓库 issues 数量很多、迭代快，README 也写明已知例外见各 Release 的 Known issues。会话会落在本地库，敏感内容可按文档打开脱敏（默认关闭）。默认安装不必 API Key。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/electricsheephq/lcm-x/blob/main/README.md"
+        },
+        {
+          "title": "最新 Release",
+          "url": "https://github.com/electricsheephq/lcm-x/releases/latest"
+        },
+        {
+          "title": "VISION.md（承诺范围）",
+          "url": "https://github.com/electricsheephq/lcm-x/blob/main/VISION.md"
+        },
+        {
+          "title": "项目站点",
+          "url": "https://losslesscontext.com/"
+        },
+        {
+          "title": "LICENSE（MIT）",
+          "url": "https://github.com/electricsheephq/lcm-x/blob/main/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "tnt-likely-beecount",
+      "rank": 4,
+      "name": "蜜蜂记账（BeeCount）",
+      "category": "生活",
+      "summary": "本地优先的开源跨端记账应用：Android / iOS 可直接安装，支持多账本、多账户、分类预算和超支提醒，并能导入微信 / 支付宝账单 CSV。AI 对话、OCR 和语音记账默认关闭，开启后需自备模型 Key。个人使用免费，商业使用需另获授权。",
+      "why": "消费决策 / 轻理财（不是又一个订阅提醒或储蓄罐：解决「随手记下来，并看这个月有没有超支」）。可执行：1）从 GitHub Releases 安装 4.0.0，或用 App Store / Google Play，先手动记几笔日常开支，并设置月度总预算和一两个分类预算，打开超支提醒；2）若有微信或支付宝账单，用 CSV 导入，按现金 / 银行卡分账户，月底看分类排行和趋势。可打包成「本地记账 + 预算 + 导入账单」跟做方案——分类怎么建、预算怎么设、导入步骤清单。非投资建议。不要二次分发安装包或拿改版当商业产品卖。",
+      "url": "https://github.com/TNT-Likely/BeeCount",
+      "repo": "TNT-Likely/BeeCount",
+      "stars": 2839,
+      "tags": [
+        "消费决策",
+        "记账",
+        "预算",
+        "本地优先",
+        "Android",
+        "iOS",
+        "微信账单"
+      ],
+      "steps": [
+        "从 GitHub Releases 安装 4.0.0（Android APK）或在 App Store / Google Play 搜索蜜蜂记账 / BeeCount",
+        "先不要开 AI：手动记一笔今日开支，设置本月总预算和一个分类预算（例如餐饮）",
+        "如有旧账单，再按文档导入微信或支付宝 CSV，核对账户和分类后看本月分类排行"
+      ],
+      "risk": "自定义许可（非标准开源商用许可）：个人使用、学习和非营利内部使用免费；把本软件作为商业产品或服务提供给客户、或集成进商业软件，需要付费商业授权。AI / OCR / 语音功能默认关闭，开启后会把截图、语音或文字发到你配置的模型（默认智谱 GLM，需自备 API Key），请先看应用内同意提示。同步可选（iCloud / WebDAV / S3 / 自建云等），不是上手前提。不是投资或理财建议。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/TNT-Likely/BeeCount/blob/main/README.md"
+        },
+        {
+          "title": "Release 4.0.0",
+          "url": "https://github.com/TNT-Likely/BeeCount/releases/tag/4.0.0"
+        },
+        {
+          "title": "隐私说明（含 AI 默认关闭）",
+          "url": "https://github.com/TNT-Likely/BeeCount/blob/main/PRIVACY.md"
+        },
+        {
+          "title": "许可协议（个人免费 / 商业需授权）",
+          "url": "https://github.com/TNT-Likely/BeeCount/blob/main/LICENSE"
+        },
+        {
+          "title": "官网与文档",
+          "url": "https://count.beejz.com"
+        }
+      ]
+    },
+    {
+      "id": "davidhealey-waistline",
+      "rank": 5,
+      "name": "Waistline",
+      "category": "生活",
+      "summary": "Android 上的开源饮食与体重记录：用日记记下每天各餐吃了什么，可扫码或在 Open Food Facts / USDA 库里搜，也可完全手动自建食物库。无广告、无内购、不用注册。GPLv3。热量和体重数字只供自己归档，不做营养或医学诊断。",
+      "why": "饮食（不是又一套菜谱或冰箱清库存：解决「今天到底吃了什么，留下可回顾的记录」）。可执行：1）从 F-Droid 或 Google Play 安装，先把家里常吃的 3 样食物手动建进食物库（名称和份量即可），在 Diary 里记今天的一顿午饭；2）遇到有条码的预包装食品再试扫码；国内商品在 Open Food Facts 里经常搜不到，不要把在线库当成前提。可打包成「一周三餐记录表」跟做——餐次、食物名、份量、是否扫码成功。不要承诺减肥或健康效果。",
+      "url": "https://github.com/davidhealey/waistline",
+      "repo": "davidhealey/waistline",
+      "stars": 760,
+      "tags": [
+        "饮食",
+        "饮食记录",
+        "扫码",
+        "Open-Food-Facts",
+        "Android",
+        "本地",
+        "不做诊断"
+      ],
+      "steps": [
+        "从 F-Droid（com.waist.line）或 Google Play 安装 Waistline，允许必要时使用相机（仅扫码需要）",
+        "先手动把 3 种常吃食物加入食物库，在今天的 Diary 记一餐",
+        "有预包装条码时再试一次扫码；若搜不到就继续用手动条目，并导出备份一次"
+      ],
+      "risk": "仅 Android 5.0+，没有 iOS 版。仓库内语言包未见完整简体中文（F-Droid 有中文商店文案，Crowdin 可贡献翻译），界面可能以英文为主，但记一笔主要靠图标和数字，可以先用。国内商品条码在 Open Food Facts 覆盖可能很差，需手动建档；扫码或在线搜索会向 Open Food Facts 或 USDA 发送条码或关键词，日记本身留在本机。体重记录只是资料归档，不做诊断，也不是减肥方案。GPLv3，无账号、无广告。最近一次推送约在 2026-10-21。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/davidhealey/waistline/blob/master/README.md"
+        },
+        {
+          "title": "使用说明 FAQ",
+          "url": "https://github.com/davidhealey/waistline/blob/master/FAQ.md"
+        },
+        {
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/com.waist.line/"
+        },
+        {
+          "title": "许可说明（GPLv3）",
+          "url": "https://github.com/davidhealey/waistline/blob/master/README.md#license"
+        }
+      ]
+    }
+  ]
+}
