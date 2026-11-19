@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-19T00:45:31.789Z",
-  "latestId": 107,
+  "generatedAt": "2026-11-19T04:36:57.022Z",
+  "latestId": 108,
   "latestDate": "2026-11-19",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 108,
+      "date": "2026-11-19",
+      "tag": "内容",
+      "title": "AI生活合集新增「作业陪读教练」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI当作业陪读教练，不代写——先自己想、再问下一步，答案留给孩子写；小学须家长陪同，别把账号直接下放；含跟做闭环、提示词两则、小红书与闲鱼跟做包角度",
+        "附光明日报／邵君（人民网与光明网）、澎湃号「特别家教」、人民日报／新华网徐琳、北京日报／央视网尹传红、北京日报／首都之窗五个来源口径；小学须家长陪同，不代写不代改，不承诺提分；与11-07家庭事务盯梢员、家长群待办区分。SW 缓存 66"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 107,
       "date": "2026-11-19",
@@ -117,17 +128,6 @@
         "No.3 Netlify：按官方 Drop 或 Git 入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 98,
-      "date": "2026-11-10",
-      "tag": "内容",
-      "title": "AI生活合集新增「双11购物参谋」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：双11让AI当购物参谋——先挑货、再截图算账，结算页本人核对；含先挑后核闭环、提示词两则、小红书与闲鱼跟做包角度",
-        "附锌刻度（人人都是产品经理转载）/ 人人都是产品经理 / IT时报（界面新闻转载）三个来源；以平台结算页为准，AI数字只是草稿；不代下单不代领券不承诺省钱；与订阅审计、退货寄件、购物冷静器区分。SW 缓存 62"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
