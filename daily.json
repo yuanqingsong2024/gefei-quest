@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-19T04:36:57.022Z",
-  "latestId": 108,
-  "latestDate": "2026-11-19",
+  "generatedAt": "2026-11-21T04:32:31.617Z",
+  "latestId": 109,
+  "latestDate": "2026-11-21",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 109,
+      "date": "2026-11-21",
+      "tag": "内容",
+      "title": "AI生活合集新增「年终账单复盘员」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI当年终账单复盘员——先脱敏导出流水，再问「今年喝了多少咖啡」，数字用表格核对；改预算本人定，付款别交给它；含跟做闭环、提示词两则、小红书与闲鱼跟做包角度",
+        "附凤凰WEEKLY／章鱼（凤凰网与网易）、IT Yes, OK!、慢复利、ChatExcel方法稿、三月AI、什么值得买来源口径；23笔／1106.13元是凤凰WEEKLY作者实测，ChatExcel金额为示意，《三月AI》测试账单为虚构样例，均不得写成读者账单；官方导出、本机脱敏、公式复核，不代登录导出退订，不承诺省钱；与10-28订阅刺客猎手、11-10双11购物参谋区分。SW 缓存 67"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 108,
       "date": "2026-11-19",
@@ -114,18 +125,6 @@
         "No.1 Squarespace Affiliate：写建站/店铺教程，官方帮助中心写明合资格 Website 订阅打款约100至200美元（Acuity 约45美元，须约45天内开通；以条款为准）",
         "No.2 Stan Store：上架课程、预约或数字产品，官方称平台成交抽成0%，Creator 约29美元/月或约300美元/年（另计支付处理费）",
         "No.3 GitLab Pages：按官方文档用 CI 发布英文静态工具小站，官方称在 GitLab 提供的基础设施上无额外托管费，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 99,
-      "date": "2026-11-11",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-11",
-      "items": [
-        "No.1 Wix Affiliate：写建站/店铺教程，日文官方页写明合资格 Premium 注册约100美元（英文页称部分地区费率可能不同，以条款与后台为准）",
-        "No.2 Whop：上架课程、社群或数字产品，官方称无月费、无开通费，境内卡成功收款约2.7%+$0.30（国际卡与兑换另计）",
-        "No.3 Netlify：按官方 Drop 或 Git 入门部署英文工具小站，验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
