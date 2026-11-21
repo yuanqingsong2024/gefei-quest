@@ -764,17 +764,6 @@
 
   const WEEKLY_UPDATES = [
     {
-      id: 'w-2026-10-13-a',
-      week: '2026-W42',
-      title: 'GSC 新手报到清单',
-      summary:
-        '验证属性 → 提交 sitemap 或 URL 检查 → 用站名/site: 复查是否可见。GSC 只反映搜索表现，全站流量需另装统计。耐心等待收录，提交不等于立刻进索引。',
-      url: 'https://search.google.com/search-console/about',
-      tags: ['GSC', '收录'],
-      xp: 5,
-      addedAt: '2026-10-13',
-    },
-    {
       id: 'w-2026-10-13-b',
       week: '2026-W42',
       title: '新词侦察：intitle 一眼看竞争',
@@ -963,6 +952,39 @@
       tags: ['GSC', '效果报告'],
       xp: 5,
       addedAt: '2026-11-09',
+    },
+    {
+      id: 'w-2026-11-16-a',
+      week: '2026-W47',
+      title: '11 月核心更新正在推送：先观察，别急着改站',
+      summary:
+        'Google 于 2026-11-10（美国太平洋时间）发布 November 2026 核心更新，全球、全语言生效，官方称推送可能持续约两周；截至本周仍在进行中。核心更新面向整体结果质量，不针对某个站点，多数网站不必紧张。若怀疑流量变化与这次更新有关，先等推送结束后再观察至少一周，用 GSC 对比更新前一周和结束后一周。小幅名次波动不必大改；只有持续大幅下滑时，才按官方自查清单评估内容是否对人有用、可靠，不要做听说对 SEO 不好就删元素这类快修。',
+      url: 'https://developers.google.com/search/docs/appearance/core-updates',
+      tags: ['核心更新', 'GSC'],
+      xp: 5,
+      addedAt: '2026-11-16',
+    },
+    {
+      id: 'w-2026-11-16-b',
+      week: '2026-W47',
+      title: '接到 CDN 后，冷缓存可能先把源站打满',
+      summary:
+        'Search Central 11 月 11 日发文：站点切到 CDN 后，边缘节点响应变快，Google 可能把这当成源站能力升级并提高爬取速率。但新 CDN 缓存是空的，每个网址第一次请求仍回源站；爬虫会扫大量长尾 URL，源站可能短时更忙。不要因此打开「拦截所有机器人」或给爬虫出验证码，Googlebot 过不了验证，页面会从搜索里掉下去。应在 CDN/WAF 放行已验证爬虫，上线前预热首页和高频页，源站吃不住时再短时返回 429 或 503；已用 Cloudflare 的小站也要检查有没有误开挑战页。',
+      url: 'https://developers.google.com/search/blog/2026/11/crawling-cdn',
+      tags: ['CDN', '抓取'],
+      xp: 5,
+      addedAt: '2026-11-16',
+    },
+    {
+      id: 'w-2026-11-16-c',
+      week: '2026-W47',
+      title: '用 Referer 识别来自 Google 的访问，但不要拿它对账 GSC',
+      summary:
+        'Search Central 11 月 12 日新增文档：除了 GSC，还可以在统计或服务器日志里看 HTTP Referer，判断访问是否从 Google 点来。Google 只传来源的协议和域名（如 https://www.google.com/ 或各国家域名），不包含搜索词；查询词仍要去 GSC 效果报告看。Discover 和 Google 图片也可能带同样的来源值，单凭 Referer 分不清是搜索、Discover 还是图片。无痕模式、部分新标签页或隐私设置还会去掉 Referer，所以分析数据与 GSC 点击数对不上是常见现象，不必当成故障。',
+      url: 'https://developers.google.com/search/docs/monitor-debug/identify-google-search-traffic',
+      tags: ['GSC', '流量分析'],
+      xp: 5,
+      addedAt: '2026-11-16',
     },
 ];
 
