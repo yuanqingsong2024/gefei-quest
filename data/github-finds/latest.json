@@ -1,235 +1,157 @@
 {
-  "date": "2026-11-19",
-  "updated": "2026-11-19T09:50:00+08:00",
-  "weekday": "weekday",
+  "date": "2026-11-21",
+  "updated": "2026-11-21T10:40:00+08:00",
+  "weekday": "weekend",
   "items": [
     {
-      "id": "agentmarkup-agentmarkup",
+      "id": "derdilla-blood-pressure-monitor-fl",
       "rank": 1,
-      "name": "agentmarkup",
-      "category": "项目",
-      "summary": "给 Vite、Astro、Next.js、Nuxt 用的构建期 AEO 工具包：生成 llms.txt（可选 llms-full.txt）、向 HTML 注入并校验 JSON-LD、可选页面 Markdown 镜像，以及 AI 爬虫的 robots.txt / Content-Signal；另有框架无关的 CLI 检查，和按各家 AI 爬虫 UA 抓取线上站点并打 0–100 分的审计命令。MIT。",
-      "why": "对 autograph-ai（Vue3+Vite）最有用：近期已推过构建期生成 llms.txt（aeo.js、Dualmark）和发布后 QA（squirrelscan）、引用测量（Limelit Open），agentmarkup 补的是「同一条 Vite 构建流水线里注入并校验 JSON-LD，再把机器可读产物和门禁一次做完」。可执行：1）先对已发布域名跑 `npx @agentmarkup/audit <url> --score`，看总分以及各 AI 爬虫拿到的内容和浏览器是否一致；2）在 Vite 配置接入官方 `@agentmarkup/vite`，用 webSite / organization 预设注入 JSON-LD，并生成 llms.txt（可选 markdown 镜像）；3）构建后把 `agentmarkup check ./dist` 接到发版门禁。已有手写 llms.txt 或某类 JSON-LD 时默认会保留，不必整页覆盖。它不是又一个 AI 引用率追踪器，不要和 Limelit 重复建设。",
-      "url": "https://github.com/agentmarkup/agentmarkup",
-      "repo": "agentmarkup/agentmarkup",
-      "stars": 27,
+      "name": "Blood Pressure Monitor",
+      "category": "生活",
+      "summary": "把家用血压计测得的收缩压、舒张压和脉搏记在手机里的开源血压本：打开即可快速录入，可看趋势和白天差异，也能导出 CSV / PDF / SQLite 带去复诊。支持符合 BLE GATT 血压服务的蓝牙设备自动写入，可选与 Health Connect 同步，还能顺手记下体重或服药记录。无广告、不用注册。GPL-3.0。应用本身不做诊断。",
+      "why": "家庭健康资料整理（血压档案，不是又一本用药笔记或体重本）：家里有人按医嘱自行量血压时，打开应用用启动对话框把三个数字记下来，避免写在纸上找不到；复诊前导出 PDF 或 CSV，把近期读数交给医生，而不是让家人凭记忆口述。图表只用来整理自己的记录、方便对照，不能用来判断正不正常或调整用药。可打包「家庭血压本跟做」——录入字段、导出步骤和「不做诊断」声明清单。",
+      "url": "https://github.com/derdilla/blood-pressure-monitor-fl",
+      "repo": "derdilla/blood-pressure-monitor-fl",
+      "stars": 158,
       "tags": [
-        "AEO",
-        "llms.txt",
-        "JSON-LD",
-        "Vite",
-        "schema.org",
-        "CI",
-        "autograph-ai"
+        "家庭健康资料",
+        "血压档案",
+        "导出",
+        "蓝牙",
+        "不做诊断",
+        "安卓",
+        "F-Droid",
+        "中文",
+        "本地"
       ],
       "steps": [
-        "对 autograph 已发布或 staging 域名执行 npx @agentmarkup/audit <url> --score，先看 0–100 分和各 AI 爬虫抓取差异",
-        "在 Vue3+Vite 项目安装 @agentmarkup/vite，于 vite.config 中接入 agentmarkup，先配置 site / llmsTxt 与 globalSchemas（webSite、organization）",
-        "本地构建后执行 npx @agentmarkup/cli check ./dist（或文档中的 agentmarkup check ./dist），把机器可读错误当作发版门禁"
+        "用 F-Droid 或 GitHub Releases 安装 Blood Pressure Monitor（包名 com.derdilla.bloodPressureApp），无需注册",
+        "用家用血压计测完后，打开应用把收缩压、舒张压和脉搏记进去；有支持 BLE GATT 血压服务的设备再考虑蓝牙写入",
+        "复诊前在应用里导出 PDF 或 CSV，把记录交给医生；不要根据趋势图自行判断或改药"
       ],
-      "risk": "MIT，可免费用于商业项目。仓库仍较新，星标只有 27，接口可能还会变。若 autograph 前台是客户端渲染的 Vue SPA、构建几乎只产出壳 HTML，页面级 JSON-LD 和 .md 镜像可能盖不全，需要预渲染，或在最终 HTML 步骤改用 @agentmarkup/core；文档写明动态 SSR 路由不会自动打补丁。已有的 llms.txt / JSON-LD 默认共存，开启替换前先核对。它不测量模型是否引用你的品牌。",
+      "risk": "仅 Android 8.0+。界面有简体中文（商店标题可能仍是英文）。官方明确：这不是医疗器械，不会替你测量血压，也不提供任何医疗建议，必须咨询医生。蓝牙写入只适用于实现 Blood Pressure Service（0x1810）的设备，作者不推荐特定型号；连接时可能申请定位权限。F-Droid 与 Google Play 签名不同，换渠道需卸载重装，请先备份再操作。最新正式版为 2026-10-11 的 v1.8.16，仓库在此后仍有提交。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/agentmarkup/agentmarkup/blob/main/README.md"
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/README.md"
         },
         {
-          "title": "@agentmarkup/vite 说明",
-          "url": "https://github.com/agentmarkup/agentmarkup/blob/main/packages/vite/README.md"
+          "title": "英文商店说明",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/fastlane/metadata/android/en-US/full_description.txt"
         },
         {
-          "title": "项目站点",
-          "url": "https://agentmarkup.dev"
+          "title": "简体中文商店说明",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/fastlane/metadata/android/zh-CN/full_description.txt"
         },
         {
-          "title": "LICENSE（MIT）",
-          "url": "https://github.com/agentmarkup/agentmarkup/blob/main/LICENSE"
+          "title": "蓝牙设备说明",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/docs/bluetooth.md"
+        },
+        {
+          "title": "LICENSE.md（GPL-3.0）",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/LICENSE.md"
+        },
+        {
+          "title": "F-Droid 页面",
+          "url": "https://f-droid.org/packages/com.derdilla.bloodPressureApp/"
         }
       ]
     },
     {
-      "id": "had0yun-cozyclay",
+      "id": "rh-id-a-personal-stuff",
       "rank": 2,
-      "name": "CozyClay",
-      "category": "项目",
-      "summary": "浏览器里就能用的开源预演（previs）工作台：先在 3D 里搭场景、摆角色、编排运镜和剪辑，再把同一镜头的第一帧、灰模参考片和提示词交给 AI 视频模型。一条 `npx cozyclay` 即可在本地打开工作室，也提供 MCP 和命令行驱动。AGPL-3.0。",
-      "why": "对 soloforge-storyfactory 最有用：近期分镜相关推荐多是文案拆解、画布和角色锁，CozyClay 补的是「机位、站位和运镜先在 3D 里定、改起来便宜，再花钱出片」。可执行：1）本机 Node.js 22.19+ 执行 `npx cozyclay`（无需 GPU、不必下载模型），用灰盒摆一场双人对戏并拉一条轨道镜头；2）导出 keyframe pack（首尾帧、灰模 clip、相机、提示词）或 OTIO 剪辑单，对照现有分镜字段，把「运镜 / 切点 / 镜头极限」补进 StoryFactory 分镜表；3）需要时再用官方 MCP（`npx -y cozyclay mcp`）让凌霄或 Cursor 驱动场景。只作工作流对照，不要把 AGPL 代码并进商业产品。",
-      "url": "https://github.com/HaD0Yun/CozyClay",
-      "repo": "HaD0Yun/CozyClay",
-      "stars": 2015,
+      "name": "Personal Stuff",
+      "category": "生活",
+      "summary": "把家里物品建档、记下存放位置、数量、过期时间和提醒的开源家用台账：看板能看到过期、即将过期和低库存，也可扫条码录入、记录外借归还、保养维修，并导出 ZIP 备份、表格或带照片的物品清单 PDF。无需注册，应用声明不申请网络权限，数据留在手机。GPL-3.0。界面含中文。",
+      "why": "家务/家庭琐事（物品归档与到期提醒，不是又一套家务积分或保修夹）：把充电头、户口本、备用药品、厨房余粮等记上「放在哪、还有多少、何时过期」，到日子会收到汇总通知，少翻柜子；把借给邻居或同事的东西录入外借记录并设归还提醒，搬家或出差时用物品清单勾选打包。可打包「家庭物品台账跟做」——分类字段、低库存阈值和备份步骤，不做代装。",
+      "url": "https://github.com/rh-id/a-personal-stuff",
+      "repo": "rh-id/a-personal-stuff",
+      "stars": 46,
       "tags": [
-        "previs",
-        "分镜",
-        "运镜",
-        "AI视频",
-        "MCP",
-        "StoryFactory"
+        "家务",
+        "家庭琐事",
+        "物品台账",
+        "过期提醒",
+        "外借",
+        "安卓",
+        "F-Droid",
+        "中文",
+        "离线"
       ],
       "steps": [
-        "本机安装 Node.js 22.19 或更新版本后执行 npx cozyclay，按提示在浏览器打开本地工作室（默认 http://127.0.0.1:5180/app/）",
-        "用灰盒搭一场简单对戏，放两个角色、拉一条轨道镜头，导出该镜的 keyframe pack",
-        "把导出的首尾帧、运镜和提示词对照进 StoryFactory 分镜表字段，只做方法对照，不要复制仓库代码进产品"
+        "用 F-Droid 或 GitHub Releases 安装 Personal Stuff（包名 m.co.rh.id.a_personal_stuff），无需注册",
+        "先把最容易找不到或会过期的 10 件物品建档，填存放位置、数量和到期日，需要时打开低库存阈值和提醒",
+        "在设置里打开自动备份或先手动导出一份 ZIP，放到你自己能找到的文件夹"
       ],
-      "risk": "AGPL-3.0：可以本地使用和对照流程，但不能把源码并入商业闭源产品（这一点和近日推荐的非商用协议项目一样，必须先看许可）。官方站点与 npm 包有匿名使用遥测，可用 `cclay telemetry off` 关闭。工作室里的 Agent 面板若接云端模型，需要自备密钥，出片费用在视频模型一侧。它不是一条自动生成成片的漫剧流水线，也替代不了角色一致性工具。",
+      "risk": "仅 Android 5.0+（表格导出需 Android 8.0+）。社区规模较小（46 星），但有 F-Droid 上架且持续维护，GitHub 最新正式版为 2026-11-19 的 v2.5.0，F-Droid 渠道可能略滞后。拍照和扫码会用到相机权限。作者与 11-17 推荐的 Medic Log 是同一人，这是另一款物品台账应用，不是健康笔记的升级版。GPL-3.0，可自用；若改写分发需遵守许可证，跟做教程不要附赠改包安装包。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/README.md"
+          "url": "https://github.com/rh-id/a-personal-stuff/blob/master/README.md"
         },
         {
-          "title": "在线试用",
-          "url": "https://cozyclay.org/#try"
+          "title": "LICENSE（GPL-3.0）",
+          "url": "https://github.com/rh-id/a-personal-stuff/blob/master/LICENSE"
         },
         {
-          "title": "给 AI Agent 的安装说明",
-          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/INSTALL_FOR_AGENTS.md"
+          "title": "GitHub Releases",
+          "url": "https://github.com/rh-id/a-personal-stuff/releases"
         },
         {
-          "title": "隐私与遥测",
-          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/docs/privacy.md"
-        },
-        {
-          "title": "LICENSE（AGPL-3.0）",
-          "url": "https://github.com/HaD0Yun/CozyClay/blob/main/LICENSE"
+          "title": "F-Droid 页面",
+          "url": "https://f-droid.org/packages/m.co.rh.id.a_personal_stuff/"
         }
       ]
     },
     {
-      "id": "electricsheephq-lcm-x",
+      "id": "adrcotfas-goodtime",
       "rank": 3,
-      "name": "LCM-X",
-      "category": "项目",
-      "summary": "给 Hermes Agent 用的本地无损记忆上下文引擎：每一轮对话写入插件自己的 SQLite，压缩后变成可回溯的摘要 DAG，Agent 仍可用工具检索并展开被折叠的原文。默认本地运行、不必 API Key。MIT。",
-      "why": "对 clawkit / star-river-dev-team / 凌霄最有用：近期已推过角色拓扑、多 harness 编排和 Pi/herdr 后台任务，缺的是「上下文被摘要之后还能找回收缩前的原话和工具结果」。可执行：1）在 Hermes 0.21.3 或更新版本上执行 `hermes plugins install hermes-lcm-x --enable` 和 `hermes config set context.engine lcm-x`，重启后让 Agent 调用 `lcm_status` 确认引擎已切换；2）用一条足够长、会触发压缩的任务，验证能否搜索并展开被折叠的工具输出（默认本地即可；云端 embedding / rerank 可选）；3）需要跨 harness 时，再按文档把同一套记忆只读接到 Claude Code，或导入 OpenClaw / lossless-claw。v0.24.0 起插件清单名是 `hermes-lcm-x`、运行时引擎名是 `lcm-x`，旧的 `hermes-lcm` 配置必须迁移。",
-      "url": "https://github.com/electricsheephq/lcm-x",
-      "repo": "electricsheephq/lcm-x",
-      "stars": 168,
+      "name": "Goodtime",
+      "category": "生活",
+      "summary": "开源极简专注计时器：番茄钟（专注与短休交替）、多轮后的长休息，以及正向计时的心流模式（按不间断时长累积休息额度）。可设每日提醒、统计专注时长，工作时段可开勿扰。无广告、不追踪。F-Droid 版会直接视为已解锁高级功能（标签、备份导出、专业统计等）；Google Play 版部分功能需内购。GPL-3.0。界面有简体中文。",
+      "why": "早晨/日程效率（专注计时，不是又一个日程看板或闹钟）：早起后先开一个 25 分钟番茄钟处理最重要的一件事（回复消息、送娃出门前的准备、或安静读完一份材料），到点休息；需要连续做家务或写作时改用心流正向计时，累了再休息。可打包「晨间专注 25 分钟跟做」——模式选择、勿扰开关和国产手机保活核对清单。它不是完整日程本，不必和 Super Productivity 一类规划工具重复建设。",
+      "url": "https://github.com/adrcotfas/goodtime",
+      "repo": "adrcotfas/goodtime",
+      "stars": 1946,
       "tags": [
-        "Hermes",
-        "记忆",
-        "上下文",
-        "SQLite",
-        "clawkit",
-        "凌霄"
+        "早晨",
+        "日程效率",
+        "番茄钟",
+        "专注计时",
+        "安卓",
+        "F-Droid",
+        "中文",
+        "离线"
       ],
       "steps": [
-        "确认本机 Hermes 不低于 0.21.3，然后执行 hermes plugins install hermes-lcm-x --enable 与 hermes config set context.engine lcm-x",
-        "重启 Hermes，发一条消息后让 Agent 调用 lcm_status，确认上下文引擎已是 lcm-x",
-        "用一条会触发压缩的长任务，试一次检索并展开被折叠的原文；不要直接把任意 main 分支当作已安装的稳定版"
+        "优先用 F-Droid 安装 Goodtime（包名 com.apps.adrcotfas.goodtime），该渠道会直接解锁高级功能；不要为了同一功能去买 Play 内购",
+        "明天早晨先用默认番茄钟完成一件最重要的事；若系统杀后台，再按勿扰权限和电池优化（可参考 dontkillmyapp.com）检查"
       ],
-      "risk": "MIT。需要 Hermes 0.21.3+。插件目录锁定的版本可能比 GitHub 最新 Release 晚几天；写作时仓库最新 Release 为 v0.30.0（2026-11-12），请装稳定发行版，不要随便签出 main。v0.24.0 有破坏性改名（hermes-lcm → hermes-lcm-x / lcm-x）。仓库 issues 数量很多、迭代快，README 也写明已知例外见各 Release 的 Known issues。会话会落在本地库，敏感内容可按文档打开脱敏（默认关闭）。默认安装不必 API Key。",
+      "risk": "Android 8.0+。界面有简体中文。Google Play 版把标签、备份导出、专业统计等放在高级功能里需内购；F-Droid 构建在代码里将用户视为 Pro，无应用内购买。F-Droid 上架版本可能滞后于 GitHub（仓库最新正式版为 2026-11-19 的 3.3.0）。部分国产手机省电策略可能杀掉计时通知，需关闭该应用的电池优化。另有 iOS TestFlight，不作为普通人 10 分钟上手路径。GPL-3.0，可自用；跟做不要附赠改包安装包。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/electricsheephq/lcm-x/blob/main/README.md"
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/README.md"
         },
         {
-          "title": "最新 Release",
-          "url": "https://github.com/electricsheephq/lcm-x/releases/latest"
+          "title": "简体中文商店说明",
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/fastlane/metadata/android/zh-CN/full_description.txt"
         },
         {
-          "title": "VISION.md（承诺范围）",
-          "url": "https://github.com/electricsheephq/lcm-x/blob/main/VISION.md"
+          "title": "F-Droid 解锁 Pro 的实现",
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/androidApp/src/fdroid/kotlin/com/apps/adrcotfas/goodtime/billing/FdroidPurchaseManager.kt"
+        },
+        {
+          "title": "COPYING.md（GPL-3.0）",
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/COPYING.md"
+        },
+        {
+          "title": "F-Droid 页面",
+          "url": "https://f-droid.org/packages/com.apps.adrcotfas.goodtime/"
         },
         {
           "title": "项目站点",
-          "url": "https://losslesscontext.com/"
-        },
-        {
-          "title": "LICENSE（MIT）",
-          "url": "https://github.com/electricsheephq/lcm-x/blob/main/LICENSE"
-        }
-      ]
-    },
-    {
-      "id": "tnt-likely-beecount",
-      "rank": 4,
-      "name": "蜜蜂记账（BeeCount）",
-      "category": "生活",
-      "summary": "本地优先的开源跨端记账应用：Android / iOS 可直接安装，支持多账本、多账户、分类预算和超支提醒，并能导入微信 / 支付宝账单 CSV。AI 对话、OCR 和语音记账默认关闭，开启后需自备模型 Key。个人使用免费，商业使用需另获授权。",
-      "why": "消费决策 / 轻理财（不是又一个订阅提醒或储蓄罐：解决「随手记下来，并看这个月有没有超支」）。可执行：1）从 GitHub Releases 安装 4.0.0，或用 App Store / Google Play，先手动记几笔日常开支，并设置月度总预算和一两个分类预算，打开超支提醒；2）若有微信或支付宝账单，用 CSV 导入，按现金 / 银行卡分账户，月底看分类排行和趋势。可打包成「本地记账 + 预算 + 导入账单」跟做方案——分类怎么建、预算怎么设、导入步骤清单。非投资建议。不要二次分发安装包或拿改版当商业产品卖。",
-      "url": "https://github.com/TNT-Likely/BeeCount",
-      "repo": "TNT-Likely/BeeCount",
-      "stars": 2839,
-      "tags": [
-        "消费决策",
-        "记账",
-        "预算",
-        "本地优先",
-        "Android",
-        "iOS",
-        "微信账单"
-      ],
-      "steps": [
-        "从 GitHub Releases 安装 4.0.0（Android APK）或在 App Store / Google Play 搜索蜜蜂记账 / BeeCount",
-        "先不要开 AI：手动记一笔今日开支，设置本月总预算和一个分类预算（例如餐饮）",
-        "如有旧账单，再按文档导入微信或支付宝 CSV，核对账户和分类后看本月分类排行"
-      ],
-      "risk": "自定义许可（非标准开源商用许可）：个人使用、学习和非营利内部使用免费；把本软件作为商业产品或服务提供给客户、或集成进商业软件，需要付费商业授权。AI / OCR / 语音功能默认关闭，开启后会把截图、语音或文字发到你配置的模型（默认智谱 GLM，需自备 API Key），请先看应用内同意提示。同步可选（iCloud / WebDAV / S3 / 自建云等），不是上手前提。不是投资或理财建议。",
-      "sources": [
-        {
-          "title": "README.md",
-          "url": "https://github.com/TNT-Likely/BeeCount/blob/main/README.md"
-        },
-        {
-          "title": "Release 4.0.0",
-          "url": "https://github.com/TNT-Likely/BeeCount/releases/tag/4.0.0"
-        },
-        {
-          "title": "隐私说明（含 AI 默认关闭）",
-          "url": "https://github.com/TNT-Likely/BeeCount/blob/main/PRIVACY.md"
-        },
-        {
-          "title": "许可协议（个人免费 / 商业需授权）",
-          "url": "https://github.com/TNT-Likely/BeeCount/blob/main/LICENSE"
-        },
-        {
-          "title": "官网与文档",
-          "url": "https://count.beejz.com"
-        }
-      ]
-    },
-    {
-      "id": "davidhealey-waistline",
-      "rank": 5,
-      "name": "Waistline",
-      "category": "生活",
-      "summary": "Android 上的开源饮食与体重记录：用日记记下每天各餐吃了什么，可扫码或在 Open Food Facts / USDA 库里搜，也可完全手动自建食物库。无广告、无内购、不用注册。GPLv3。热量和体重数字只供自己归档，不做营养或医学诊断。",
-      "why": "饮食（不是又一套菜谱或冰箱清库存：解决「今天到底吃了什么，留下可回顾的记录」）。可执行：1）从 F-Droid 或 Google Play 安装，先把家里常吃的 3 样食物手动建进食物库（名称和份量即可），在 Diary 里记今天的一顿午饭；2）遇到有条码的预包装食品再试扫码；国内商品在 Open Food Facts 里经常搜不到，不要把在线库当成前提。可打包成「一周三餐记录表」跟做——餐次、食物名、份量、是否扫码成功。不要承诺减肥或健康效果。",
-      "url": "https://github.com/davidhealey/waistline",
-      "repo": "davidhealey/waistline",
-      "stars": 760,
-      "tags": [
-        "饮食",
-        "饮食记录",
-        "扫码",
-        "Open-Food-Facts",
-        "Android",
-        "本地",
-        "不做诊断"
-      ],
-      "steps": [
-        "从 F-Droid（com.waist.line）或 Google Play 安装 Waistline，允许必要时使用相机（仅扫码需要）",
-        "先手动把 3 种常吃食物加入食物库，在今天的 Diary 记一餐",
-        "有预包装条码时再试一次扫码；若搜不到就继续用手动条目，并导出备份一次"
-      ],
-      "risk": "仅 Android 5.0+，没有 iOS 版。仓库内语言包未见完整简体中文（F-Droid 有中文商店文案，Crowdin 可贡献翻译），界面可能以英文为主，但记一笔主要靠图标和数字，可以先用。国内商品条码在 Open Food Facts 覆盖可能很差，需手动建档；扫码或在线搜索会向 Open Food Facts 或 USDA 发送条码或关键词，日记本身留在本机。体重记录只是资料归档，不做诊断，也不是减肥方案。GPLv3，无账号、无广告。最近一次推送约在 2026-10-21。",
-      "sources": [
-        {
-          "title": "README.md",
-          "url": "https://github.com/davidhealey/waistline/blob/master/README.md"
-        },
-        {
-          "title": "使用说明 FAQ",
-          "url": "https://github.com/davidhealey/waistline/blob/master/FAQ.md"
-        },
-        {
-          "title": "F-Droid",
-          "url": "https://f-droid.org/packages/com.waist.line/"
-        },
-        {
-          "title": "许可说明（GPLv3）",
-          "url": "https://github.com/davidhealey/waistline/blob/master/README.md#license"
+          "url": "https://goodtime.tools/"
         }
       ]
     }

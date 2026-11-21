@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-21",
+  "updated": "2026-11-21T10:40:00+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "derdilla-blood-pressure-monitor-fl",
+      "rank": 1,
+      "name": "Blood Pressure Monitor",
+      "category": "生活",
+      "summary": "把家用血压计测得的收缩压、舒张压和脉搏记在手机里的开源血压本：打开即可快速录入，可看趋势和白天差异，也能导出 CSV / PDF / SQLite 带去复诊。支持符合 BLE GATT 血压服务的蓝牙设备自动写入，可选与 Health Connect 同步，还能顺手记下体重或服药记录。无广告、不用注册。GPL-3.0。应用本身不做诊断。",
+      "why": "家庭健康资料整理（血压档案，不是又一本用药笔记或体重本）：家里有人按医嘱自行量血压时，打开应用用启动对话框把三个数字记下来，避免写在纸上找不到；复诊前导出 PDF 或 CSV，把近期读数交给医生，而不是让家人凭记忆口述。图表只用来整理自己的记录、方便对照，不能用来判断正不正常或调整用药。可打包「家庭血压本跟做」——录入字段、导出步骤和「不做诊断」声明清单。",
+      "url": "https://github.com/derdilla/blood-pressure-monitor-fl",
+      "repo": "derdilla/blood-pressure-monitor-fl",
+      "stars": 158,
+      "tags": [
+        "家庭健康资料",
+        "血压档案",
+        "导出",
+        "蓝牙",
+        "不做诊断",
+        "安卓",
+        "F-Droid",
+        "中文",
+        "本地"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub Releases 安装 Blood Pressure Monitor（包名 com.derdilla.bloodPressureApp），无需注册",
+        "用家用血压计测完后，打开应用把收缩压、舒张压和脉搏记进去；有支持 BLE GATT 血压服务的设备再考虑蓝牙写入",
+        "复诊前在应用里导出 PDF 或 CSV，把记录交给医生；不要根据趋势图自行判断或改药"
+      ],
+      "risk": "仅 Android 8.0+。界面有简体中文（商店标题可能仍是英文）。官方明确：这不是医疗器械，不会替你测量血压，也不提供任何医疗建议，必须咨询医生。蓝牙写入只适用于实现 Blood Pressure Service（0x1810）的设备，作者不推荐特定型号；连接时可能申请定位权限。F-Droid 与 Google Play 签名不同，换渠道需卸载重装，请先备份再操作。最新正式版为 2026-10-11 的 v1.8.16，仓库在此后仍有提交。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/README.md"
+        },
+        {
+          "title": "英文商店说明",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/fastlane/metadata/android/en-US/full_description.txt"
+        },
+        {
+          "title": "简体中文商店说明",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/fastlane/metadata/android/zh-CN/full_description.txt"
+        },
+        {
+          "title": "蓝牙设备说明",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/docs/bluetooth.md"
+        },
+        {
+          "title": "LICENSE.md（GPL-3.0）",
+          "url": "https://github.com/derdilla/blood-pressure-monitor-fl/blob/main/LICENSE.md"
+        },
+        {
+          "title": "F-Droid 页面",
+          "url": "https://f-droid.org/packages/com.derdilla.bloodPressureApp/"
+        }
+      ]
+    },
+    {
+      "id": "rh-id-a-personal-stuff",
+      "rank": 2,
+      "name": "Personal Stuff",
+      "category": "生活",
+      "summary": "把家里物品建档、记下存放位置、数量、过期时间和提醒的开源家用台账：看板能看到过期、即将过期和低库存，也可扫条码录入、记录外借归还、保养维修，并导出 ZIP 备份、表格或带照片的物品清单 PDF。无需注册，应用声明不申请网络权限，数据留在手机。GPL-3.0。界面含中文。",
+      "why": "家务/家庭琐事（物品归档与到期提醒，不是又一套家务积分或保修夹）：把充电头、户口本、备用药品、厨房余粮等记上「放在哪、还有多少、何时过期」，到日子会收到汇总通知，少翻柜子；把借给邻居或同事的东西录入外借记录并设归还提醒，搬家或出差时用物品清单勾选打包。可打包「家庭物品台账跟做」——分类字段、低库存阈值和备份步骤，不做代装。",
+      "url": "https://github.com/rh-id/a-personal-stuff",
+      "repo": "rh-id/a-personal-stuff",
+      "stars": 46,
+      "tags": [
+        "家务",
+        "家庭琐事",
+        "物品台账",
+        "过期提醒",
+        "外借",
+        "安卓",
+        "F-Droid",
+        "中文",
+        "离线"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub Releases 安装 Personal Stuff（包名 m.co.rh.id.a_personal_stuff），无需注册",
+        "先把最容易找不到或会过期的 10 件物品建档，填存放位置、数量和到期日，需要时打开低库存阈值和提醒",
+        "在设置里打开自动备份或先手动导出一份 ZIP，放到你自己能找到的文件夹"
+      ],
+      "risk": "仅 Android 5.0+（表格导出需 Android 8.0+）。社区规模较小（46 星），但有 F-Droid 上架且持续维护，GitHub 最新正式版为 2026-11-19 的 v2.5.0，F-Droid 渠道可能略滞后。拍照和扫码会用到相机权限。作者与 11-17 推荐的 Medic Log 是同一人，这是另一款物品台账应用，不是健康笔记的升级版。GPL-3.0，可自用；若改写分发需遵守许可证，跟做教程不要附赠改包安装包。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/rh-id/a-personal-stuff/blob/master/README.md"
+        },
+        {
+          "title": "LICENSE（GPL-3.0）",
+          "url": "https://github.com/rh-id/a-personal-stuff/blob/master/LICENSE"
+        },
+        {
+          "title": "GitHub Releases",
+          "url": "https://github.com/rh-id/a-personal-stuff/releases"
+        },
+        {
+          "title": "F-Droid 页面",
+          "url": "https://f-droid.org/packages/m.co.rh.id.a_personal_stuff/"
+        }
+      ]
+    },
+    {
+      "id": "adrcotfas-goodtime",
+      "rank": 3,
+      "name": "Goodtime",
+      "category": "生活",
+      "summary": "开源极简专注计时器：番茄钟（专注与短休交替）、多轮后的长休息，以及正向计时的心流模式（按不间断时长累积休息额度）。可设每日提醒、统计专注时长，工作时段可开勿扰。无广告、不追踪。F-Droid 版会直接视为已解锁高级功能（标签、备份导出、专业统计等）；Google Play 版部分功能需内购。GPL-3.0。界面有简体中文。",
+      "why": "早晨/日程效率（专注计时，不是又一个日程看板或闹钟）：早起后先开一个 25 分钟番茄钟处理最重要的一件事（回复消息、送娃出门前的准备、或安静读完一份材料），到点休息；需要连续做家务或写作时改用心流正向计时，累了再休息。可打包「晨间专注 25 分钟跟做」——模式选择、勿扰开关和国产手机保活核对清单。它不是完整日程本，不必和 Super Productivity 一类规划工具重复建设。",
+      "url": "https://github.com/adrcotfas/goodtime",
+      "repo": "adrcotfas/goodtime",
+      "stars": 1946,
+      "tags": [
+        "早晨",
+        "日程效率",
+        "番茄钟",
+        "专注计时",
+        "安卓",
+        "F-Droid",
+        "中文",
+        "离线"
+      ],
+      "steps": [
+        "优先用 F-Droid 安装 Goodtime（包名 com.apps.adrcotfas.goodtime），该渠道会直接解锁高级功能；不要为了同一功能去买 Play 内购",
+        "明天早晨先用默认番茄钟完成一件最重要的事；若系统杀后台，再按勿扰权限和电池优化（可参考 dontkillmyapp.com）检查"
+      ],
+      "risk": "Android 8.0+。界面有简体中文。Google Play 版把标签、备份导出、专业统计等放在高级功能里需内购；F-Droid 构建在代码里将用户视为 Pro，无应用内购买。F-Droid 上架版本可能滞后于 GitHub（仓库最新正式版为 2026-11-19 的 3.3.0）。部分国产手机省电策略可能杀掉计时通知，需关闭该应用的电池优化。另有 iOS TestFlight，不作为普通人 10 分钟上手路径。GPL-3.0，可自用；跟做不要附赠改包安装包。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/README.md"
+        },
+        {
+          "title": "简体中文商店说明",
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/fastlane/metadata/android/zh-CN/full_description.txt"
+        },
+        {
+          "title": "F-Droid 解锁 Pro 的实现",
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/androidApp/src/fdroid/kotlin/com/apps/adrcotfas/goodtime/billing/FdroidPurchaseManager.kt"
+        },
+        {
+          "title": "COPYING.md（GPL-3.0）",
+          "url": "https://github.com/adrcotfas/goodtime/blob/master/COPYING.md"
+        },
+        {
+          "title": "F-Droid 页面",
+          "url": "https://f-droid.org/packages/com.apps.adrcotfas.goodtime/"
+        },
+        {
+          "title": "项目站点",
+          "url": "https://goodtime.tools/"
+        }
+      ]
+    }
+  ]
+}
