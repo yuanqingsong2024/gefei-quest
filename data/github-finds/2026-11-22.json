@@ -1,0 +1,134 @@
+{
+  "date": "2026-11-22",
+  "updated": "2026-11-22T10:50:00+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "ryanuo-whattoeat",
+      "rank": 1,
+      "name": "whatToEat（今天吃什么）",
+      "category": "生活",
+      "summary": "打开就能用的「今天吃什么」决策页：老虎机式随机抽菜，可按菜系缩小范围，点开菜名看图文做法，并在页面里搜索、播放 B 站教程。菜谱数据每周从公共领域项目 HowToCook 抓取。可选 AI 助手用自然语言点菜（如「家里有鸡蛋牛肉」），需自备 OpenAI 兼容 Key（内置通义千问 / DeepSeek / Kimi / 智谱等快捷方式），Key 只存在本机浏览器。MIT。无需安装。",
+      "why": "饮食/厨房决策（不是又一本菜谱收藏夹）：下班对着冰箱发呆时，先按菜系筛一下再抽一道今天做的菜，点进去看步骤或看 B 站视频，把「今晚吃什么」在两分钟内定下来。想清库存时，把「家里有鸡蛋和牛肉」交给可选的 AI 栏，让它在现有菜谱里收窄，而不是再打开三个外卖应用比较。可打包「今天吃什么跟做」——抽菜步骤、分类筛选话术和自备 Key 的点菜提示词。",
+      "url": "https://github.com/ryanuo/whatToEat",
+      "repo": "ryanuo/whatToEat",
+      "stars": 114,
+      "tags": [
+        "饮食",
+        "厨房",
+        "今天吃什么",
+        "菜谱",
+        "决策",
+        "中文",
+        "在线",
+        "可选AI"
+      ],
+      "steps": [
+        "用手机或电脑打开 https://eat.ryanuo.cc/ ，无需注册或安装",
+        "若只想吃某类菜，先用分类气泡缩小范围，再点随机抽菜；点菜名查看图文做法，需要演示再打开页内 B 站视频",
+        "只有需要「家里有什么就做什么」时，再在设置里填入你自己的 API Key；不填也能抽菜和看菜谱"
+      ],
+      "risk": "依赖作者部署在 Vercel 上的在线站点，站点若关闭需自行用 Docker、Netlify 或 Vercel 部署。AI 不是默认能力，要自备 Key 且可能产生费用。移动端视频在底部抽屉播放，网络与 B 站可用性会影响这一步。仓库约 114 星，相对较新（2025-10 创建，最近推送 2026-11-02）。菜谱来自 HowToCook 的每周抓取，覆盖面因源仓库而异。本工具只帮你选菜和跟做，不提供营养诊疗。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/ryanuo/whatToEat/blob/main/README.md"
+        },
+        {
+          "title": "在线体验",
+          "url": "https://eat.ryanuo.cc/"
+        },
+        {
+          "title": "菜谱数据来源 HowToCook（Unlicense）",
+          "url": "https://github.com/Anduin2017/HowToCook"
+        }
+      ]
+    },
+    {
+      "id": "saisaharsh3-leftovers",
+      "rank": 2,
+      "name": "Leftovers（今日可花）",
+      "category": "生活",
+      "summary": "本地优先的 Android 开销本：数字键盘先打开，两下就能记一笔，核心问题是「今天还能安全花多少」——用本月剩余预算减去还没到期的账单，再摊到剩下的天数。可记分类、小票照片、订阅和储蓄目标，可选 50/30/20 分账。无账号、无广告、无分析。MIT。F-Droid 与 GitHub Releases 使用同一签名。应用本身不是理财建议。",
+      "why": "消费决策（不是又一本流水账）：发薪日把预算月起始日改成发薪那天，设好月预算和固定订阅，每天先看首页的 Safe to spend today，再决定这杯奶茶或这趟外卖打不打。月初把房租、会员放进订阅，账单到期前一早会提醒；想买的东西放进储蓄目标，而不是看到「账户里还有钱」就下手。可打包「今天还能花多少」跟做——发薪日对齐、订阅清单和「先看今日可花再下单」检查表。",
+      "url": "https://github.com/saisaharsh3/Leftovers",
+      "repo": "saisaharsh3/Leftovers",
+      "stars": 44,
+      "tags": [
+        "消费决策",
+        "轻理财",
+        "今日可花",
+        "预算",
+        "订阅",
+        "本地",
+        "安卓",
+        "F-Droid"
+      ],
+      "steps": [
+        "用 F-Droid 或 GitHub Releases 安装 Leftovers（推荐正式版普通包 leftovers-v1.10.1.apk，不要与预发行版混用）；需 Android 8.0+，无需注册",
+        "在设置里把预算月起始日改成发薪日，填入月预算，并把房租、会员等固定支出加为订阅",
+        "日常打开首页先看「今天还能花多少」，再用数字键盘两下记账；短信/邮件识别和 AI 助手默认关闭，不需要就不要开"
+      ],
+      "risk": "仓库较新（2026-10 创建），约 44 星，但已上架 F-Droid 且仍在更新。界面目前主要是英文，没有独立的简体中文资源。支付通知识别示例以印度 UPI（PhonePe、Paytm、BHIM 等）为主，国内银行短信默认可能识别不全，需自加关键词；SMS 权限在 GitHub/F-Droid 侧载可用，不适合走 Google Play。F-Droid 页面可能滞后于 GitHub 的 v1.10.1（2026-11 初 F-Droid 记录过 1.9.0）。可选 AI 会把部分账目发到你选择的模型供应商（需自备 Key）；邮件识别需要应用专用密码。设备间同步需自备 Syncthing、Nextcloud 或 WebDAV，默认关闭。这不是投资或理财建议，数字只是你自己的预算摊分。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/saisaharsh3/Leftovers/blob/main/README.md"
+        },
+        {
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/com.leftovers.app/"
+        },
+        {
+          "title": "GitHub Releases（v1.10.1）",
+          "url": "https://github.com/saisaharsh3/Leftovers/releases/tag/v1.10.1"
+        }
+      ]
+    },
+    {
+      "id": "rock-zhang-shui",
+      "rank": 3,
+      "name": "Shui（喝水提醒助手）",
+      "category": "生活",
+      "summary": "给久坐上班族用的喝水提醒：桌面端（Windows / macOS / Linux）会全屏打断并在托盘倒计时，开会时（腾讯会议、Zoom、Teams 等）可自动跳过；Android 端用通知一键记下 50/100/200/300 ml。可看近 7/30 天趋势并导出 CSV，也可用 JSON 备份（只补缺失日期）。中英界面。Apache-2.0。最新正式版为 2026-11-21 的 v0.5.2。应用本身不做诊断。",
+      "why": "早晨/日程效率，也是家庭健康资料里的饮水记录（不是医疗建议）：上班打开电脑后设好每日目标和提醒时段，全屏提醒出现就记一杯，避免一上午只喝了咖啡。自己或家人用手机侧载 Android 版，通知里一键记水；周末对照近 7 天曲线看哪天没达标，需要时导出 CSV 自行留档，而不是根据曲线判断「是不是脱水」。可打包「工位喝水提醒跟做」——目标与时段模板、会议白名单说明和「不做诊断」声明。",
+      "url": "https://github.com/rock-zhang/Shui",
+      "repo": "rock-zhang/Shui",
+      "stars": 375,
+      "tags": [
+        "早晨",
+        "日程效率",
+        "家庭健康资料",
+        "喝水提醒",
+        "桌面",
+        "安卓",
+        "中文",
+        "不做诊断"
+      ],
+      "steps": [
+        "从 GitHub Releases 下载 v0.5.2：电脑装对应系统的安装包，手机侧载 app-universal-release.apk（目前仅 arm64 通用包，需允许安装未知来源应用）",
+        "设每日饮水目标和提醒间隔、起止时间；桌面端按需打开工作日提醒和会议应用白名单",
+        "提醒出现时记下水量；换设备时用应用内 JSON 备份导入（只补缺失日期）。不要根据趋势图自行判断健康问题或改饮水医嘱"
+      ],
+      "risk": "官方介绍写「共用同一套数据」，但 2026-11-21 的产品待办明确：自动跨端同步、云备份和账号体系均未实现，不要指望装上电脑和手机就会自动对齐，请用 JSON 备份搬数据。从 GitHub 侧载的 Android 包默认开启 Firebase Analytics / Crashlytics（Play 安装默认关闭），在意隐私请在应用内关掉分析。README 链接的 README-ANDROID.md 当前仓库中不存在。Android 最低为 Android 7.0（minSdk 24），且目前只提供 arm64 包。这不是医疗器械，目标水量不是医嘱，统计不能用来诊断。macOS 若提示「已损坏」，需按说明去掉隔离属性。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/rock-zhang/Shui/blob/main/README.md"
+        },
+        {
+          "title": "产品待办（跨端同步尚未实现）",
+          "url": "https://github.com/rock-zhang/Shui/blob/main/docs/product-todo.md"
+        },
+        {
+          "title": "饮水记录备份说明",
+          "url": "https://github.com/rock-zhang/Shui/blob/main/docs/data-backup.md"
+        },
+        {
+          "title": "GitHub Releases（v0.5.2）",
+          "url": "https://github.com/rock-zhang/Shui/releases/tag/v0.5.2"
+        }
+      ]
+    }
+  ]
+}
