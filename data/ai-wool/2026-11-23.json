@@ -1,0 +1,156 @@
+{
+  "date": "2026-11-23",
+  "updated": "2026-11-23T09:48:51+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "阶跃星辰 StepAudio 3 预览模型限免至今日 11:59:59（realtime/chat/gen/music）",
+      "type": "免费额度",
+      "provider": "阶跃星辰",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "阶跃星辰官方《API 定价》写明：适用限时免费政策的模型限免至北京时间 2026-11-23 上午 11:59:59；同日中午 12:00:00 起，StepAudio 3 系列及相关服务按新价格计费。官方模型页将限免期间的模型 ID 分别写为 stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview、stepaudio-3-music-preview，并写明限免到期后预览版下线、改为正式付费版。其中 gen、music 预览页的计费栏现为「限时免费」。定价页已列出 TTS、音色复刻/设计、ASR 等正式价目，本条只覆盖上述四个已核验的预览模型 ID。11-19 及此前羊毛榜未收录该限免窗口，今日中午即截止。",
+      "value": "四个预览模型限时免费至 2026-11-23 11:59:59（北京时间）· 12:00 起按正式价计费且预览版下线",
+      "deadline": "2026-11-23",
+      "cost": "0 元调用已核验的四个预览模型（须有阶跃开放平台账号与 API Key）。官方定价页已列出 TTS、音色复刻/设计、ASR 等正式价，不要把未写明限免的接口当成免费。不承诺 11:59:59 前一定仍可调用或额度充足。",
+      "difficulty": 2,
+      "threshold": "须注册阶跃星辰开放平台并创建 API Key；只使用带 -preview 后缀的四个官方预览模型 ID。窗口今天中午截止。",
+      "time": "先对照定价页确认窗口未结束，再注册/登录并完成一次小请求，约 15–30 分钟；今日 11:59:59 后不可再按限免调用",
+      "fit": "已有或能马上开通阶跃开放平台、想在今天中午前试用 StepAudio 3 实时语音、语音对话、音频生成或音乐预览接口的开发者；也可把官方模型 ID 与截止时间整理成闲鱼原创教程素材（不是代开账号或代调接口）。",
+      "why": "官方定价页写明限免至今日 11:59:59，四个预览模型 ID 可在官方模型页交叉核验，相对 11-19 榜为未收录且即将截止的窗口。",
+      "steps": [
+        "打开 https://platform.stepfun.com/docs/zh/guides/pricing/details ，确认仍写明适用限时免费政策的模型限免至北京时间 2026-11-23 上午 11:59:59；若已过点则不要再按免费调用",
+        "在 https://platform.stepfun.com/ 注册或登录阶跃星辰开放平台，按控制台创建 API Key（不要把 Key 发到群里或与他人共享）",
+        "对照官方模型页，仅使用 stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview、stepaudio-3-music-preview 发起一次小请求，确认返回与用量",
+        "不要把定价页上的正式模型 ID（如 stepaudio-3-realtime、stepaudio-3-tts、stepaudio-3-asr-max）或音色复刻/设计当成限免范围",
+        "日历标记 2026-11-23 11:59:59（北京时间）：官方写明此后预览版下线并按新价格计费。禁止合租、转卖账号或共享未授权凭证"
+      ],
+      "risk": "风险：窗口今天中午即结束，预览模型将下线；官方可提前结束或调整范围；TTS、音色复刻/设计、ASR 等未在本条核验为限免，误用可能按正式价扣费。不承诺一定能开通、调用成功或在截止前跑完任务。禁止账号合租、转卖或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "阶跃官方定价页写明限免至今日 11:59:59，且 realtime/chat/gen/music 四个预览模型 ID 可在官方模型页核验，相对 11-19 榜为未收录的今日截止窗口。",
+      "tags": [
+        "阶跃星辰",
+        "StepAudio 3",
+        "限时免费",
+        "语音模型",
+        "国内渠道"
+      ],
+      "sources": [
+        {
+          "title": "API 定价（限免截止与 StepAudio 3 新价格说明）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/pricing/details",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-23"
+        },
+        {
+          "title": "StepAudio 3 Realtime（含 chat 预览模型说明）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/models/stepaudio-3-realtime",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-23"
+        },
+        {
+          "title": "StepAudio 3 Gen（预览模型限时免费）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/models/stepaudio-3-gen",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-23"
+        },
+        {
+          "title": "StepAudio 3 Music（预览模型限时免费）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/models/stepaudio-3-music",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-23"
+        }
+      ],
+      "source_url": "https://platform.stepfun.com/docs/zh/guides/pricing/details",
+      "claim_howto": "在 https://platform.stepfun.com/ 登录并创建 API Key 后，于北京时间 2026-11-23 11:59:59 前调用 stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview 或 stepaudio-3-music-preview。",
+      "stack": [
+        "阶跃星辰开放平台",
+        "StepAudio 3 Preview",
+        "API Key"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "智谱 AutoClaw 本周登录福利：国内领 1 亿 Tokens、国际版领 5000 万（11/23–11/29）",
+      "type": "Token福利",
+      "provider": "智谱 AutoClaw（澳龙）",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "智谱 AutoClaw 官方博客于 2026-11-20 发布本周窗口：北京时间 2026-11-23 00:00 至 2026-11-29 23:59，登录即可领取 Tokens，每账号限领一次，奖励统一在 11/29 23:59 失效。国内站（autoclaw.zhipuai.cn）写明领取 100M Tokens（相当于 10,000 积分）；国际站（autoclaw.z.ai）写明领取 50M Tokens（5,000 Credits）。这与已结束的双十一窗口（当时国内 50M、国际 100M）以及 11/16–11/22 的上一周窗口不是同一批额度；11-19 榜未收录本周开窗。官方账户文档写明积分优先消耗奖励积分；官方模型说明列出内置 GLM-5.3、GLM-5-Turbo、GLM-5V-Turbo 与 Auto 模式，并提示自定义/第三方模型由对应服务商另行计费，不能把本条额度当成智谱 BigModel 通用 API 余额。",
+      "value": "国内版 1 亿 Tokens（10,000 积分）/ 国际版 5000 万 Tokens（5,000 Credits）· 登录即领 · 每账号一次 · 11/29 23:59 失效",
+      "deadline": "2026-11-29",
+      "cost": "0 元；需注册对应站点的 AutoClaw 账号并在活动期内登录领取。额度仅在 AutoClaw 产品内使用，不抵扣自接模型或 Coding Plan / BigModel 通用 API 费用。不承诺一定能领到或积分数固定。",
+      "difficulty": 1,
+      "threshold": "活动期内登录对应站点账号；国内版与国际版不互通；额度仅客户端内可用，不能导出为通用 API 余额。",
+      "time": "下载或更新客户端并登录约 5–15 分钟",
+      "fit": "已有或打算安装 AutoClaw 客户端、想在 11/29 前用内置 GLM 跑任务的用户；也可把官方领取规则与国内/国际差额整理成闲鱼原创教程素材（不是代领、代开或转卖额度）。",
+      "why": "官方本周新开窗自今日 00:00 起至 11/29 23:59，国内 1 亿、国际 5000 万，相对 11-19 榜为未收录的可核验登录福利。",
+      "steps": [
+        "打开国内站 https://autoclaw.zhipuai.cn/blog/news/M11W4/ 或国际站 https://autoclaw.z.ai/blog/news/M11W4/ ，确认仍写明 11 月 23 日 00:00 至 11 月 29 日 23:59（北京时间）的领取规则与到账数量",
+        "在对应官网下载或更新 AutoClaw 客户端（Windows / macOS / iOS / Android）；国内站与国际站账号不互通，按自己的站点登录",
+        "在活动期内登录个人账号，按端内提示领取；国内版核对待到账 100M Tokens（约 10,000 积分），国际版 50M Tokens（约 5,000 Credits），以端内显示为准",
+        "在设置中查看积分详情与到期时间，优先用于官方内置模型（GLM-5.3、GLM-5-Turbo、GLM-5V-Turbo、Auto）；自接或 Coding Plan 模型费用另行计算",
+        "日历标记 2026-11-29 23:59（北京时间）：官方写明奖励到期失效、不结转。不要合租、转卖账号或把额度当通用 API 出售"
+      ],
+      "risk": "风险：额度只在 AutoClaw 客户端内有效，不能当通用 API 余额；每账号限领一次且 11/29 23:59 清零不结转；国内与国际到账数字不同，以端内显示为准；官方可调整规则。不承诺能领到或额度多少。禁止账号合租、转卖或共享未授权凭证。",
+      "risk_level": "低",
+      "reason": "智谱 AutoClaw 官方中英文博客写明本周（11/23–11/29）登录领取 Tokens，国内 100M、国际 50M，每账号一次且到期失效，相对 11-19 榜为未收录的新开窗。",
+      "tags": [
+        "智谱",
+        "AutoClaw",
+        "每周福利",
+        "免费Token",
+        "限时"
+      ],
+      "sources": [
+        {
+          "title": "每周福利｜100M Tokens 等你领取！",
+          "url": "https://autoclaw.zhipuai.cn/blog/news/M11W4/",
+          "publisher": "智谱 AutoClaw 博客",
+          "published": "2026-11-20",
+          "kind": "official",
+          "checked": "2026-11-23"
+        },
+        {
+          "title": "Weekly Perk: Login to claim 50M Tokens",
+          "url": "https://autoclaw.z.ai/blog/news/M11W4/",
+          "publisher": "AutoClaw Blog",
+          "published": "2026-11-20",
+          "kind": "official",
+          "checked": "2026-11-23"
+        },
+        {
+          "title": "AutoClaw 账户与订阅：积分明细、充值与套餐",
+          "url": "https://autoclaw.z.ai/cn/docs/account/account-and-subscription/",
+          "publisher": "智谱 AutoClaw 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-23"
+        },
+        {
+          "title": "AutoClaw 模型设置：GLM-5.3 切换与自定义模型",
+          "url": "https://autoclaw.z.ai/cn/docs/advanced/models/",
+          "publisher": "智谱 AutoClaw 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-23"
+        }
+      ],
+      "source_url": "https://autoclaw.zhipuai.cn/blog/news/M11W4/",
+      "claim_howto": "活动期内在国内站 autoclaw.zhipuai.cn 或国际站 autoclaw.z.ai 下载/更新客户端并登录，按端内提示领取；国内/国际分开领，额度 11/29 23:59 失效。",
+      "stack": [
+        "智谱 AutoClaw",
+        "GLM-5.3",
+        "Windows / macOS / iOS / Android"
+      ]
+    }
+  ]
+}

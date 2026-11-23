@@ -1,213 +1,155 @@
 {
-  "date": "2026-11-19",
-  "updated": "2026-11-19T09:50:00+08:00",
+  "date": "2026-11-23",
+  "updated": "2026-11-23T09:48:51+08:00",
   "items": [
     {
       "rank": 1,
-      "name": "阿里云 Token Plan：Qwen4-Max-Preview Credits 低至 2 折，个人版夜间再 4 折，至 11/25 24:00",
-      "type": "限时促销",
-      "provider": "阿里云百炼 / 通义千问",
+      "name": "阶跃星辰 StepAudio 3 预览模型限免至今日 11:59:59（realtime/chat/gen/music）",
+      "type": "免费额度",
+      "provider": "阶跃星辰",
       "region": "国内",
       "origin": "官方",
-      "summary": "阿里云帮助中心《Token Plan 功能更新》（2026-11-11）及个人版、团队版订阅页写明：Qwen4-Max-Preview 预览期为 2026-11-11 10:00 至 2026-11-25 24:00（UTC+8），期间 Credits 消耗低至 2 折（官方称相当于增加 5 倍用量）；个人版每晚 22:00 至次日 08:00 再享 4 折，即原标准的 0.8 折。模型 ID 为 qwen4-max-preview（别名 qwen4.0-max-preview），仅支持 Token Plan，不支持按量计费；官方写明预览结束后下线，并已上线正式版 Qwen4-Max、建议使用正式版。需先订阅个人版或团队版，使用套餐专用 Base URL https://token-plan.cn-beijing.maas.aliyuncs.com。这与 11-17 榜的新客首月 5 折是同一产品下的不同官方活动；11-01 至 11-18 羊毛榜未收录该预览模型 Credits 折扣，窗口只剩至 11/25。",
-      "value": "预览期内 Credits 低至 2 折至 2026-11-25 24:00（UTC+8）· 个人版夜间 22:00–08:00 再 4 折（合计原标准的 0.8 折）· 预览结束后模型下线",
-      "deadline": "2026-11-25",
-      "cost": "须先订阅 Token Plan 个人版或团队版。个人版 Lite 目录价 39 元/月，官方写明新用户限时价 19.5 元/月，至 2026-11-30 23:59:59（UTC+8），仅限从未买过个人版的账号。活动只调所列模型的 Credits 消耗，不改变套餐月费；正式版 Qwen4-Max 不在本条折扣范围内。不承诺 11/25 前一定仍按 2 折结算，或预览延期。",
+      "summary": "阶跃星辰官方《API 定价》写明：适用限时免费政策的模型限免至北京时间 2026-11-23 上午 11:59:59；同日中午 12:00:00 起，StepAudio 3 系列及相关服务按新价格计费。官方模型页将限免期间的模型 ID 分别写为 stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview、stepaudio-3-music-preview，并写明限免到期后预览版下线、改为正式付费版。其中 gen、music 预览页的计费栏现为「限时免费」。定价页已列出 TTS、音色复刻/设计、ASR 等正式价目，本条只覆盖上述四个已核验的预览模型 ID。11-19 及此前羊毛榜未收录该限免窗口，今日中午即截止。",
+      "value": "四个预览模型限时免费至 2026-11-23 11:59:59（北京时间）· 12:00 起按正式价计费且预览版下线",
+      "deadline": "2026-11-23",
+      "cost": "0 元调用已核验的四个预览模型（须有阶跃开放平台账号与 API Key）。官方定价页已列出 TTS、音色复刻/设计、ASR 等正式价，不要把未写明限免的接口当成免费。不承诺 11:59:59 前一定仍可调用或额度充足。",
       "difficulty": 2,
-      "threshold": "须有阿里云账号并开通 Token Plan 个人版或团队版；只支持套餐专用 API Key 与 Base URL，不支持按量计费。预览模型将于 11/25 24:00 后下线。",
-      "time": "对照官方页确认窗口仍在，开通或登录 Token Plan、配置套餐 Key 并发起一次小请求，约 20–40 分钟",
-      "fit": "已有或打算订阅阿里云 Token Plan、想在 11/25 前用预览旗舰模型多跑用量的开发者；也可把官方接入步骤整理成闲鱼原创教程素材（不是代开账号或代充值）。",
-      "why": "官方写明的预览期 Credits 折扣窗口至 11/25 24:00，相对 11-18 榜与此前已推的新客首月 5 折是未收录的可核验新活动。",
+      "threshold": "须注册阶跃星辰开放平台并创建 API Key；只使用带 -preview 后缀的四个官方预览模型 ID。窗口今天中午截止。",
+      "time": "先对照定价页确认窗口未结束，再注册/登录并完成一次小请求，约 15–30 分钟；今日 11:59:59 后不可再按限免调用",
+      "fit": "已有或能马上开通阶跃开放平台、想在今天中午前试用 StepAudio 3 实时语音、语音对话、音频生成或音乐预览接口的开发者；也可把官方模型 ID 与截止时间整理成闲鱼原创教程素材（不是代开账号或代调接口）。",
+      "why": "官方定价页写明限免至今日 11:59:59，四个预览模型 ID 可在官方模型页交叉核验，相对 11-19 榜为未收录且即将截止的窗口。",
       "steps": [
-        "打开 https://help.aliyun.com/zh/model-studio/token-plan-product-updates 与 https://help.aliyun.com/zh/model-studio/token-plan-personal-overview ，确认仍写明 qwen4-max-preview 预览期至 2026-11-25 24:00（UTC+8）、Credits 低至 2 折，个人版夜间再 4 折",
-        "若尚未订阅，在百炼 Token Plan 控制台按官方档位开通个人版或团队版（个人版新客限时价另见订阅页，至 11/30）；已订阅的直接使用套餐专用 API Key",
-        "按官方指南使用 Base URL https://token-plan.cn-beijing.maas.aliyuncs.com ，模型 ID 设为 qwen4-max-preview（或别名 qwen4.0-max-preview），先发一次小请求核对 Credits 扣除",
-        "个人版若走夜间折扣，把可延后的任务放在 22:00–次日 08:00（UTC+8）；团队版官方页只写预览期 2 折，未写额外夜间 4 折",
-        "日历标记 2026-11-25 24:00（UTC+8）：官方写明预览结束后模型下线。不要把 API Key 发到群里，也不要合租或转卖账号"
+        "打开 https://platform.stepfun.com/docs/zh/guides/pricing/details ，确认仍写明适用限时免费政策的模型限免至北京时间 2026-11-23 上午 11:59:59；若已过点则不要再按免费调用",
+        "在 https://platform.stepfun.com/ 注册或登录阶跃星辰开放平台，按控制台创建 API Key（不要把 Key 发到群里或与他人共享）",
+        "对照官方模型页，仅使用 stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview、stepaudio-3-music-preview 发起一次小请求，确认返回与用量",
+        "不要把定价页上的正式模型 ID（如 stepaudio-3-realtime、stepaudio-3-tts、stepaudio-3-asr-max）或音色复刻/设计当成限免范围",
+        "日历标记 2026-11-23 11:59:59（北京时间）：官方写明此后预览版下线并按新价格计费。禁止合租、转卖账号或共享未授权凭证"
       ],
-      "risk": "风险：折扣只覆盖预览模型 qwen4-max-preview，且官方写明预览结束后下线；须先付套餐费，新客首月折扣与本条不是同一活动；官方可调整活动内容或提前结束。不承诺一定按 2 折或夜间 0.8 折成交，效果也不作保证。禁止账号合租、转卖或共享未授权凭证。",
+      "risk": "风险：窗口今天中午即结束，预览模型将下线；官方可提前结束或调整范围；TTS、音色复刻/设计、ASR 等未在本条核验为限免，误用可能按正式价扣费。不承诺一定能开通、调用成功或在截止前跑完任务。禁止账号合租、转卖或共享未授权凭证。",
       "risk_level": "中",
-      "reason": "阿里云官方帮助中心写明 Qwen4-Max-Preview 预览期 Credits 低至 2 折、个人版夜间再 4 折，至 11/25 24:00，相对 11-18 榜为未收录的可核验限时窗口。",
+      "reason": "阶跃官方定价页写明限免至今日 11:59:59，且 realtime/chat/gen/music 四个预览模型 ID 可在官方模型页核验，相对 11-19 榜为未收录的今日截止窗口。",
       "tags": [
-        "阿里云",
-        "Token Plan",
-        "Qwen4-Max-Preview",
-        "限时促销",
+        "阶跃星辰",
+        "StepAudio 3",
+        "限时免费",
+        "语音模型",
         "国内渠道"
       ],
       "sources": [
         {
-          "title": "Token Plan 功能更新（Qwen4-Max-Preview 上线）",
-          "url": "https://help.aliyun.com/zh/model-studio/token-plan-product-updates",
-          "publisher": "阿里云帮助中心",
-          "published": "2026-11-11",
+          "title": "API 定价（限免截止与 StepAudio 3 新价格说明）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/pricing/details",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         },
         {
-          "title": "Token Plan 个人版订阅与权益",
-          "url": "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
-          "publisher": "阿里云帮助中心",
-          "published": "2026-11-11",
+          "title": "StepAudio 3 Realtime（含 chat 预览模型说明）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/models/stepaudio-3-realtime",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         },
         {
-          "title": "qwen4-max-preview 模型页",
-          "url": "https://help.aliyun.com/zh/model-studio/qwen4-max-preview",
-          "publisher": "阿里云帮助中心",
-          "published": "2026-11-11",
+          "title": "StepAudio 3 Gen（预览模型限时免费）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/models/stepaudio-3-gen",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         },
         {
-          "title": "Token Plan 团队版订阅与权益",
-          "url": "https://help.aliyun.com/zh/model-studio/token-plan-team-overview",
-          "publisher": "阿里云帮助中心",
-          "published": "2026-11-11",
+          "title": "StepAudio 3 Music（预览模型限时免费）",
+          "url": "https://platform.stepfun.com/docs/zh/guides/models/stepaudio-3-music",
+          "publisher": "阶跃星辰开放平台文档",
+          "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         }
       ],
-      "source_url": "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
-      "claim_howto": "开通或登录阿里云 Token Plan 个人版/团队版，使用套餐专用 API Key 与 Base URL https://token-plan.cn-beijing.maas.aliyuncs.com，模型 ID 设为 qwen4-max-preview；预览期内 Credits 折扣按官方说明自动适用。",
+      "source_url": "https://platform.stepfun.com/docs/zh/guides/pricing/details",
+      "claim_howto": "在 https://platform.stepfun.com/ 登录并创建 API Key 后，于北京时间 2026-11-23 11:59:59 前调用 stepaudio-3-realtime-preview、stepaudio-3-chat-preview、stepaudio-3-gen-preview 或 stepaudio-3-music-preview。",
       "stack": [
-        "阿里云百炼 Token Plan",
-        "qwen4-max-preview",
-        "OpenAI / Anthropic 兼容 API"
+        "阶跃星辰开放平台",
+        "StepAudio 3 Preview",
+        "API Key"
       ]
     },
     {
       "rank": 2,
-      "name": "腾讯云 Token Plan 个人版：Hy4 积分抵扣 2.5 折至 11/30 12:00（通用与 Hy 套餐）",
-      "type": "限时促销",
-      "provider": "腾讯云 TokenHub / 混元 Hy4",
+      "name": "智谱 AutoClaw 本周登录福利：国内领 1 亿 Tokens、国际版领 5000 万（11/23–11/29）",
+      "type": "Token福利",
+      "provider": "智谱 AutoClaw（澳龙）",
       "region": "国内",
       "origin": "官方",
-      "summary": "腾讯云官方文档《Token Plan 个人版限时优惠活动》（核验时最近更新 2026-11-16）将「优惠活动 1」列为进行中：2026-11-04 至 2026-11-30 12:00:00（北京时间），通用 Token Plan 与 Hy Token Plan 调用 Hy4（模型 ID hy4）按 2.5 折积分价抵扣，到点自动生效、无需申请。官方给出的活动积分价为：未命中缓存输入 30 积分（约 1.5 元）、输出 90 积分（约 4.5 元）、命中缓存输入 1.5 积分（约 0.075 元）/ 百万 tokens，折算按官方「1 元可兑换 20 积分」。这与 11-17 榜的 Hy4 flash 5 折、以及 11-10 榜 TokenHub 按量调用 5 折至 12/31 不是同一活动；11-01 至 11-18 羊毛榜未收录该 Token Plan 2.5 折窗口。官方套餐说明还写明：订阅不支持退款，账号禁止共享，且仅限在 AI 工具中使用、禁止把套餐 Key 用于自动化脚本或自定义应用后端。",
-      "value": "Hy4（hy4）积分抵扣 2.5 折至 2026-11-30 12:00（北京时间）· 活动价约 1.5 / 0.075 / 4.5 元每百万 tokens（输入/缓存命中/输出）· 自动生效无需申请",
-      "deadline": "2026-11-30",
-      "cost": "须先订阅 Token Plan 个人版（通用或 Hy）。Hy Token Plan 体验档官方标价 28 元/月（每订阅月 560 积分），其他档位以购买页为准；官方写明套餐不支持退款。活动只调整所列模型的积分抵扣价，结束后恢复原价。不承诺 11/30 12:00 前价格不变或活动延期。",
-      "difficulty": 2,
-      "threshold": "须有腾讯云账号并开通 Token Plan 个人版（通用或 Hy）；官方要求仅在 Claude Code、Cursor、CodeBuddy 等 AI 工具中使用套餐 Key，禁止账号共享和把 Key 用于自动化脚本或自定义后端。",
-      "time": "对照官方活动页确认窗口仍在，开通或登录套餐并在支持的 AI 工具里配好模型 hy4，约 20–40 分钟",
-      "fit": "已有或打算订阅腾讯云 Token Plan、想在 11/30 12:00 前用 Hy4 正价模型的开发者；也可把官方规则与接入步骤整理成闲鱼原创教程素材（不是代开或代配 Key）。",
-      "why": "官方活动页仍写明 Hy4 2.5 折至 11/30 12:00，相对 11-18 榜及已推过的 Hy4 flash 5 折是未收录的更深折扣窗口。",
+      "summary": "智谱 AutoClaw 官方博客于 2026-11-20 发布本周窗口：北京时间 2026-11-23 00:00 至 2026-11-29 23:59，登录即可领取 Tokens，每账号限领一次，奖励统一在 11/29 23:59 失效。国内站（autoclaw.zhipuai.cn）写明领取 100M Tokens（相当于 10,000 积分）；国际站（autoclaw.z.ai）写明领取 50M Tokens（5,000 Credits）。这与已结束的双十一窗口（当时国内 50M、国际 100M）以及 11/16–11/22 的上一周窗口不是同一批额度；11-19 榜未收录本周开窗。官方账户文档写明积分优先消耗奖励积分；官方模型说明列出内置 GLM-5.3、GLM-5-Turbo、GLM-5V-Turbo 与 Auto 模式，并提示自定义/第三方模型由对应服务商另行计费，不能把本条额度当成智谱 BigModel 通用 API 余额。",
+      "value": "国内版 1 亿 Tokens（10,000 积分）/ 国际版 5000 万 Tokens（5,000 Credits）· 登录即领 · 每账号一次 · 11/29 23:59 失效",
+      "deadline": "2026-11-29",
+      "cost": "0 元；需注册对应站点的 AutoClaw 账号并在活动期内登录领取。额度仅在 AutoClaw 产品内使用，不抵扣自接模型或 Coding Plan / BigModel 通用 API 费用。不承诺一定能领到或积分数固定。",
+      "difficulty": 1,
+      "threshold": "活动期内登录对应站点账号；国内版与国际版不互通；额度仅客户端内可用，不能导出为通用 API 余额。",
+      "time": "下载或更新客户端并登录约 5–15 分钟",
+      "fit": "已有或打算安装 AutoClaw 客户端、想在 11/29 前用内置 GLM 跑任务的用户；也可把官方领取规则与国内/国际差额整理成闲鱼原创教程素材（不是代领、代开或转卖额度）。",
+      "why": "官方本周新开窗自今日 00:00 起至 11/29 23:59，国内 1 亿、国际 5000 万，相对 11-19 榜为未收录的可核验登录福利。",
       "steps": [
-        "打开 https://cloud.tencent.com/document/product/1823/140042 ，确认「优惠活动 1」仍写明 Hy4、2.5 折、至 2026-11-30 12:00:00（北京时间），且适用于通用 Token Plan 与 Hy Token Plan",
-        "对照套餐说明 https://cloud.tencent.com/document/product/1823/130060 与购买页 https://cloud.tencent.com/act/pro/tokenplan ，按需开通个人版套餐，并注意官方「不支持退款、禁止共享、禁止把套餐 Key 用于自动化脚本或自定义后端」等条款",
-        "在官方支持的 AI 工具（如 Claude Code、Cursor、CodeBuddy、OpenCode 等）中配置套餐 API Key，模型 ID 选 hy4，先发一次小请求核对积分扣除",
-        "不要把本条与同页「优惠活动 5」的 Hy4 flash 5 折、或按量调用目录价混淆；本条只覆盖模型 ID hy4 的 Token Plan 积分活动价",
-        "日历标记 2026-11-30 12:00（北京时间）：到点后恢复原积分价。不要合租、转卖账号或把 API Key 发到群里"
+        "打开国内站 https://autoclaw.zhipuai.cn/blog/news/M11W4/ 或国际站 https://autoclaw.z.ai/blog/news/M11W4/ ，确认仍写明 11 月 23 日 00:00 至 11 月 29 日 23:59（北京时间）的领取规则与到账数量",
+        "在对应官网下载或更新 AutoClaw 客户端（Windows / macOS / iOS / Android）；国内站与国际站账号不互通，按自己的站点登录",
+        "在活动期内登录个人账号，按端内提示领取；国内版核对待到账 100M Tokens（约 10,000 积分），国际版 50M Tokens（约 5,000 Credits），以端内显示为准",
+        "在设置中查看积分详情与到期时间，优先用于官方内置模型（GLM-5.3、GLM-5-Turbo、GLM-5V-Turbo、Auto）；自接或 Coding Plan 模型费用另行计算",
+        "日历标记 2026-11-29 23:59（北京时间）：官方写明奖励到期失效、不结转。不要合租、转卖账号或把额度当通用 API 出售"
       ],
-      "risk": "风险：须先付套餐费且官方写明不支持退款；活动只覆盖 Token Plan 内的 Hy4 积分价，截止后恢复原价；官方可调整规则或提前结束；违规把套餐 Key 用于自动化脚本、自定义后端或账号共享，可能导致权益受限或 Key 被封。不承诺一定按活动价成交或活动延期。禁止账号合租、转卖或共享未授权凭证。",
-      "risk_level": "中",
-      "reason": "腾讯云官方限时优惠文档写明 Token Plan 个人版调用 Hy4 按 2.5 折积分价抵扣，至 11/30 12:00，相对 11-18 榜为未收录的可核验窗口。",
+      "risk": "风险：额度只在 AutoClaw 客户端内有效，不能当通用 API 余额；每账号限领一次且 11/29 23:59 清零不结转；国内与国际到账数字不同，以端内显示为准；官方可调整规则。不承诺能领到或额度多少。禁止账号合租、转卖或共享未授权凭证。",
+      "risk_level": "低",
+      "reason": "智谱 AutoClaw 官方中英文博客写明本周（11/23–11/29）登录领取 Tokens，国内 100M、国际 50M，每账号一次且到期失效，相对 11-19 榜为未收录的新开窗。",
       "tags": [
-        "腾讯云",
-        "TokenHub",
-        "Hy4",
-        "限时促销",
-        "国内渠道"
+        "智谱",
+        "AutoClaw",
+        "每周福利",
+        "免费Token",
+        "限时"
       ],
       "sources": [
         {
-          "title": "Token Plan 个人版限时优惠活动",
-          "url": "https://cloud.tencent.com/document/product/1823/140042",
-          "publisher": "腾讯云文档",
-          "published": "2026-11-16",
+          "title": "每周福利｜100M Tokens 等你领取！",
+          "url": "https://autoclaw.zhipuai.cn/blog/news/M11W4/",
+          "publisher": "智谱 AutoClaw 博客",
+          "published": "2026-11-20",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         },
         {
-          "title": "Token Plan 个人版套餐说明",
-          "url": "https://cloud.tencent.com/document/product/1823/130060",
-          "publisher": "腾讯云文档",
-          "published": "2026-11-16",
+          "title": "Weekly Perk: Login to claim 50M Tokens",
+          "url": "https://autoclaw.z.ai/blog/news/M11W4/",
+          "publisher": "AutoClaw Blog",
+          "published": "2026-11-20",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         },
         {
-          "title": "腾讯云大模型 Token Plan 购买页",
-          "url": "https://cloud.tencent.com/act/pro/tokenplan",
-          "publisher": "腾讯云",
-          "published": "2026-11-16",
-          "kind": "official",
-          "checked": "2026-11-19"
-        }
-      ],
-      "source_url": "https://cloud.tencent.com/document/product/1823/140042",
-      "claim_howto": "开通腾讯云 Token Plan 个人版（通用或 Hy），在官方支持的 AI 工具中配置套餐 API Key、模型 ID 选 hy4；活动期内积分折扣按官方说明自动适用，无需申请。",
-      "stack": [
-        "腾讯云 TokenHub Token Plan",
-        "hy4",
-        "Claude Code / Cursor / CodeBuddy"
-      ]
-    },
-    {
-      "rank": 3,
-      "name": "阿里云 Token Plan 个人版：decision-model-preview 限时调用不消耗 Credits",
-      "type": "免费额度",
-      "provider": "阿里云百炼",
-      "region": "国内",
-      "origin": "官方",
-      "summary": "阿里云《Token Plan 个人版订阅与权益》写明：decision-model-preview 限时免费，调用不消耗 Credits；接入方法见《接入决策模型》。模型页在华北 2（北京）与新加坡的价格栏均标「限时免费」，并给出限流：RPM 1,200、TPM 2,000,000。这是专做结构化判定的决策模型，不是对话模型：经 POST /compatible-mode/v1/systemone 传入 state 与 questions，直接返回 choice、probabilities、confidence，不生成自然语言。官方写明目前仅支持 Token Plan 个人版（团队版未列入该接入说明），须使用以 sk-sp- 为前缀的套餐 API Key，Base URL 为 https://token-plan.cn-beijing.maas.aliyuncs.com。官方未公布免费窗口截止日，并声明可根据运营情况变更或调整活动；11-01 至 11-18 羊毛榜未收录该条。",
-      "value": "限时调用不消耗 Token Plan Credits · 官方模型页北京/新加坡均标限时免费 · 未公布截止日，以控制台与文档最新内容为准",
-      "cost": "须先订阅 Token Plan 个人版（Lite 目录价 39 元/月，新客限时价见官方订阅页）。免费的是该决策模型调用本身不扣 Credits，不是套餐月费减免，也不覆盖普通对话模型。官方未写免费截止日，可能随时调整。不承诺一直免费或一定能调用成功。",
-      "difficulty": 3,
-      "threshold": "须有 Token Plan 个人版及套餐专用 API Key；只适用于决策模型 API（systemone），不是聊天补全。团队版官方接入说明写明目前不支持。须自行构造 state/questions，不适合只想网页对话的用户。",
-      "time": "对照官方页确认仍标限时免费，配置套餐 Key 并按文档跑通一次判定请求，约 30–60 分钟",
-      "fit": "已有阿里云 Token Plan 个人版、需要评论审核、分类或路由等结构化判定的开发者；也可把官方示例整理成闲鱼原创教程素材（不是代接或代运维）。",
-      "why": "官方个人版权益页与模型页仍写明限时免费、不消耗 Credits，相对 11-18 榜是未收录的可核验免费调用窗口。",
-      "steps": [
-        "打开 https://help.aliyun.com/zh/model-studio/token-plan-personal-overview 与 https://help.aliyun.com/zh/model-studio/decision-model-preview ，确认仍写明 decision-model-preview 限时免费、调用不消耗 Credits",
-        "若尚未订阅，先开通 Token Plan 个人版；团队版官方接入说明写明目前不支持该决策模型",
-        "阅读 https://help.aliyun.com/zh/model-studio/token-plan-decision-model ，用套餐 Key（sk-sp- 前缀）向 https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1/systemone 发送一次带 state 与 questions 的请求，模型 ID 为 decision-model-preview",
-        "按官方示例解读返回的 choice、probabilities、confidence；可在 Claude Code 等工具里按文档做成 Slash Command 或 Skill",
-        "免费截止日以控制台和文档最新内容为准，官方可随时调整。不要把 API Key 发到群里，也不要合租或转卖账号"
-      ],
-      "risk": "风险：官方未公布免费截止日，可随时调整或结束；须先付个人版套餐费；这是决策 API 而非通用对话额度，返回不含自然语言，用法与聊天模型不同；限流与可用性以控制台为准。不承诺一直免费或判定结果一定准确。禁止账号合租、转卖或共享未授权凭证。",
-      "risk_level": "中",
-      "reason": "阿里云官方个人版权益页与模型页写明 decision-model-preview 限时免费、不消耗 Credits，相对 11-18 榜为未收录的可核验条目。",
-      "tags": [
-        "阿里云",
-        "Token Plan",
-        "决策模型",
-        "免费额度",
-        "国内渠道"
-      ],
-      "sources": [
-        {
-          "title": "Token Plan 个人版订阅与权益",
-          "url": "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
-          "publisher": "阿里云帮助中心",
-          "published": "2026-11-11",
-          "kind": "official",
-          "checked": "2026-11-19"
-        },
-        {
-          "title": "Token Plan 接入决策模型",
-          "url": "https://help.aliyun.com/zh/model-studio/token-plan-decision-model",
-          "publisher": "阿里云帮助中心",
+          "title": "AutoClaw 账户与订阅：积分明细、充值与套餐",
+          "url": "https://autoclaw.z.ai/cn/docs/account/account-and-subscription/",
+          "publisher": "智谱 AutoClaw 文档",
           "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         },
         {
-          "title": "decision-model-preview 模型信息",
-          "url": "https://help.aliyun.com/zh/model-studio/decision-model-preview",
-          "publisher": "阿里云帮助中心",
+          "title": "AutoClaw 模型设置：GLM-5.3 切换与自定义模型",
+          "url": "https://autoclaw.z.ai/cn/docs/advanced/models/",
+          "publisher": "智谱 AutoClaw 文档",
           "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-19"
+          "checked": "2026-11-23"
         }
       ],
-      "source_url": "https://help.aliyun.com/zh/model-studio/token-plan-personal-overview",
-      "claim_howto": "开通 Token Plan 个人版后，用套餐 API Key 调用 /compatible-mode/v1/systemone，模型 ID 为 decision-model-preview；官方写明限时免费期间不消耗 Credits，截止日以文档与控制台为准。",
+      "source_url": "https://autoclaw.zhipuai.cn/blog/news/M11W4/",
+      "claim_howto": "活动期内在国内站 autoclaw.zhipuai.cn 或国际站 autoclaw.z.ai 下载/更新客户端并登录，按端内提示领取；国内/国际分开领，额度 11/29 23:59 失效。",
       "stack": [
-        "阿里云百炼 Token Plan",
-        "decision-model-preview",
-        "systemone API"
+        "智谱 AutoClaw",
+        "GLM-5.3",
+        "Windows / macOS / iOS / Android"
       ]
     }
   ]
