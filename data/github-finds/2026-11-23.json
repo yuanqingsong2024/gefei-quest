@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-23",
+  "updated": "2026-11-23T09:45:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "sherwinvishesh-opengso",
+      "rank": 1,
+      "name": "OpenGSO",
+      "category": "项目",
+      "summary": "让网站对 AI 智能体可读的开源工具：test 按智能体实际拿到的内容打 0–100 分并写出每分原因；generate 为每个页面生成 Markdown 双胞胎，并写出 robots.txt、llms.txt 与 sitemap.xml；prod 中间件在同一 URL 上给智能体 Markdown、给人 HTML，不跳转。有 Vite 插件和静态目录部署方式。核心流程无需账号、无遥测；API Key 只用于可选的 AI 润色和内容检查。Apache-2.0。目前是 1.0 前的早期版本。",
+      "why": "对 autograph-ai（Vue3+Vite+FastAPI）最有用：近期已推过构建期 llms.txt/JSON-LD（aeo.js、agentmarkup、Dualmark）和发布后审计（squirrelscan），OpenGSO 补的是「先测量智能体真正拿到什么，再在同一 URL 提供干净正文」。它不执行页面 JavaScript，所以能直接暴露 Vue 客户端渲染空壳问题。可执行：1）对一条已发布文章跑 `npx opengso test <url>`，看分数和空壳警告；2）把文章路由做成预渲染或 SSR 后再 `generate` 双胞胎；3）生产用 `opengso-prod` 的 Vite 插件，或把 `.md` 放在静态资源旁做 Accept 协商，不必再造一套 llms.txt 生成器。",
+      "url": "https://github.com/sherwinvishesh/OpenGSO",
+      "repo": "sherwinvishesh/OpenGSO",
+      "stars": 397,
+      "tags": [
+        "AEO",
+        "GEO",
+        "GSO",
+        "llms.txt",
+        "markdown-twin",
+        "Vite",
+        "autograph-ai"
+      ],
+      "steps": [
+        "在已发布或 staging 的 autograph 文章 URL 上执行 npx opengso test <url>，先看 0–100 分以及智能体拿到的是正文还是空壳",
+        "若页面是客户端渲染空壳，先把文章路由做成预渲染或 SSR，再执行 npx opengso generate 生成 Markdown 双胞胎",
+        "确认正文可提取后，再用 opengso-prod（Vite 插件或静态目录旁的 .md）在同一 URL 向智能体提供 Markdown"
+      ],
+      "risk": "作者标明 Early release，1.0 前命令、参数和配置字段可能变化。不执行页面 JS，纯 CSR 的 Vue 壳会抽出空内容，generate 仍会写双胞胎但会按字数警告。CDN 对 Vary: Accept 的行为只在文档中说明，并未对所有主机实测。与 Dualmark 的内容协商有部分重叠，但定位是评分 + 双胞胎 + 中间件，不要重复建设。可选 AI 润色需要自备 Key 并可能产生费用。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/sherwinvishesh/OpenGSO/blob/main/README.md"
+        },
+        {
+          "title": "文档站点",
+          "url": "https://sherwinvishesh.github.io/OpenGSO/"
+        },
+        {
+          "title": "npm: opengso",
+          "url": "https://www.npmjs.com/package/opengso"
+        }
+      ]
+    },
+    {
+      "id": "lixiaoxiao-short-drama-factory",
+      "rank": 2,
+      "name": "Short-Drama Factory（短剧工业化编剧）",
+      "category": "项目",
+      "summary": "纯剧本层的短剧/漫剧工业化编剧技能包：以 SKILL.md 为入口，提供立项、分集、连写、剧本医生和终检等交互模式，并按需挂载文档以防上下文爆炸。配套 Python 机检（单集规则、跨集台账、三态终检）和 CI，以及把标准剧本导出为 JSON 以便对接下游分镜。含人物圣经、网文改编和滚动状态包。MIT。它不生成分镜画面或视频。",
+      "why": "对 soloforge-storyfactory 最有用：近期推荐多为分镜画布、运镜预演和短剧拆解，缺的是「剧本能否拍、跨集会不会崩」的上游门禁。可执行：1）把现有一集剧本交给 `validate_episode.py` / `final_qc.py`，先看机检字段和 PASS/BLOCKED；2）用人物圣经四件套（欲望/秘密/弧光/语言指纹）对照 StoryFactory 的角色锁；3）用 `export_script_json.py` 的结构对照分镜/集数字段，做映射而不是把技能包整仓并进产品。仓库里的「付费墙」指短剧叙事分段结构，不是卖号或代运营。",
+      "url": "https://github.com/lixiaoxiao9888-create/short-drama-factory",
+      "repo": "lixiaoxiao9888-create/short-drama-factory",
+      "stars": 649,
+      "tags": [
+        "短剧",
+        "漫剧",
+        "剧本",
+        "SKILL.md",
+        "机检",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "把仓库里的 SKILL.md 装进凌霄或 Claude Code 的技能目录，并用 examples 里的样章跑通 python scripts/run_all_checks.py",
+        "拿一集现有 StoryFactory 剧本执行 python scripts/validate_episode.py，记下机检字段与失败项",
+        "再用 python scripts/export_script_json.py 导出 JSON，对照 StoryFactory 分镜/角色/集数字段做映射表"
+      ],
+      "risk": "这是技能文档加校验脚本，不是带画布的制作软件；产出质量取决于所用模型和写手，仓库文案偏营销，不承诺「爆款」。主要面向中文短剧/红果抖音语境。不要把技能包直接并入商业产品就算集成。与已推荐的分镜、3D 预演工具定位不同，避免重复建设画布。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/lixiaoxiao9888-create/short-drama-factory/blob/main/README.md"
+        },
+        {
+          "title": "SKILL.md",
+          "url": "https://github.com/lixiaoxiao9888-create/short-drama-factory/blob/main/SKILL.md"
+        }
+      ]
+    },
+    {
+      "id": "hashgraph-online-hol-guard",
+      "rank": 3,
+      "name": "HOL Guard",
+      "category": "项目",
+      "summary": "开源的 AI 智能体运行时防护：在工具调用、MCP、插件、技能和软件包安装执行前检查风险，可暂停并要求审批。本地即可用，不必登录；云同步是可选项。文档写明支持 Hermes、OpenClaw、OpenCode、Pi、Grok 等，并提供 `hol-guard hermes bootstrap`。同仓还有 plugin-scanner，可在发布技能或 MCP 前做 CI 检查。Apache-2.0。",
+      "why": "对 clawkit、凌霄（Hermes）和 skillmd-validator 最有用：近期推荐多为编排、记忆和可声明拓扑，缺的是运行时拦危险工具/技能。可执行：1）本机 `pipx install hol-guard` 后执行 `hol-guard hermes bootstrap`，先看会暂停哪些 MCP 和工具；2）把 `plugin-scanner` 接到技能包/MCP 的 CI，补静态 SKILL.md 校验之后的打包、密钥和不安全 MCP 检查；3）用本地 `receipts` 或 `abom` 导出审计材料。不必再上一套编排器，也不必默认打开云同步。",
+      "url": "https://github.com/hashgraph-online/hol-guard",
+      "repo": "hashgraph-online/hol-guard",
+      "stars": 1121,
+      "tags": [
+        "agent-security",
+        "MCP",
+        "skills",
+        "Hermes",
+        "OpenClaw",
+        "OpenCode",
+        "clawkit",
+        "凌霄"
+      ],
+      "steps": [
+        "用 pipx install hol-guard 安装（本地运行，不必登录）",
+        "执行 hol-guard hermes bootstrap，按文档做一次 dry-run，记下会暂停的工具和 MCP",
+        "若要保护技能发布流程，再把同仓 plugin-scanner 接到技能/MCP 的 CI"
+      ],
+      "risk": "可能误拦正常工具调用，需要按支持矩阵核对 Hermes/OpenClaw 的覆盖深度，并调整审批策略。可选 Guard Cloud 不要默认打开。它不能替代代码审计或 skillmd-validator 的静态检查，而是补运行时这一层。Intel macOS 等环境的安装限制见官方入门文档。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/hashgraph-online/hol-guard/blob/main/README.md"
+        },
+        {
+          "title": "Get started（含 Hermes bootstrap）",
+          "url": "https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/get-started.md"
+        },
+        {
+          "title": "Agent support matrix",
+          "url": "https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/harness-support.md"
+        }
+      ]
+    },
+    {
+      "id": "zornslemma-my-price-log",
+      "rank": 4,
+      "name": "My Price Log（到店比价本）",
+      "category": "生活",
+      "summary": "离线的 Android 到店比价本：先建立常去的店和常买的商品，购物时录入或确认价格，应用按单位价对比各店，并自动做度量单位换算。可记录会员折扣，用「新鲜/过时/很旧」标出价格是否还可信，也能查看同一商品的价格历史。首次安装带演示数据，可先点点看。支持包括人民币（CNY）在内的多种货币。无需账号、完全离线。MIT。F-Droid 与 GitHub Releases 可装。",
+      "why": "消费决策里的「到店比价」，不是又一个记账或预算 App：站在货架前对比不同规格的牛奶或粮油时，先看单位价；平时把两家常去超市的同一商品价格记下来，决定这周去哪买。价格新鲜度会提醒你别被几个月前的旧价误导。可打包成「到店比价本」跟做：建店、录入、确认、看单位价。应用本身不是理财建议，也不爬取电商实时价。",
+      "url": "https://github.com/ZornsLemma/my-price-log",
+      "repo": "ZornsLemma/my-price-log",
+      "stars": 24,
+      "tags": [
+        "消费决策",
+        "比价",
+        "到店",
+        "单位价",
+        "离线",
+        "安卓",
+        "F-Droid"
+      ],
+      "steps": [
+        "用 F-Droid 安装 https://f-droid.org/packages/app.zornslemma.mypricelog/ ，先浏览自带演示数据了解界面",
+        "清空或忽略演示数据后，建 2 家常去的店和 5 个常买商品，货币选 CNY",
+        "下次购物时录入或点确认价格，回家看单位价对比和新鲜度，再决定是否改去另一家"
+      ],
+      "risk": "仓库约 24 星，相对较新（2025-12 创建，最近推送 2026-09-28）。界面目前有英、西、法、意，没有完整中文。价格全靠自己手录，过期数据会误导，虽然应用会标新鲜度。Android 11+。不是电商比价爬虫，也不会自动更新门店价。本工具只帮你比较自己记下的单位价，不做理财建议。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/ZornsLemma/my-price-log/blob/main/README.md"
+        },
+        {
+          "title": "使用手册",
+          "url": "https://zornslemma.github.io/my-price-log-docs/"
+        },
+        {
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/app.zornslemma.mypricelog/"
+        }
+      ]
+    },
+    {
+      "id": "jezil-carvita",
+      "rank": 5,
+      "name": "CarVita（车辆保养助理）",
+      "category": "生活",
+      "summary": "管理和提醒家庭车辆保养的 Android 应用：可登记多辆汽车或摩托车，按原厂手册录入时间/里程/首保周期，记录每次保养的日期、里程、项目和费用，并按使用情况估算下次到期日，到期前发本地通知。数据留在本机。有官方中文说明。可从 F-Droid、Google Play 或 GitHub Releases 安装。AGPL-3.0。",
+      "why": "家务/家庭琐事里的「车辆保养与账单台账」：把「该换机油了吗、保险和年检什么时候到期」写成可提醒的计划，而不是靠记忆。每次保养记下费用和里程，年底能复盘养车花了多少（这是开销记录，不是投资建议）。有中文说明，装完就能用，不必自托管。可做成「家庭车辆保养台账」跟做方案。",
+      "url": "https://github.com/JeziL/carvita",
+      "repo": "JeziL/carvita",
+      "stars": 49,
+      "tags": [
+        "家务",
+        "家庭琐事",
+        "车辆保养",
+        "到期提醒",
+        "安卓",
+        "F-Droid",
+        "中文"
+      ],
+      "steps": [
+        "从 F-Droid https://f-droid.org/packages/com.wangjinli.carvita/ 或 GitHub Releases 安装",
+        "先录入一辆常用车，以及手册里的机油、保险或年检周期（时间 + 里程）",
+        "打开本地通知，以后每次保养补记日期、里程和费用"
+      ],
+      "risk": "协议是 AGPL-3.0：可以写跟做教程和模板口径，不要把源码改头换面放进闭源商品。仓库约 49 星，最近代码推送在 2026-09-17，F-Droid 当前版本 1.2.3（2026-09-02 入库）。「预测」只是按你录入的周期和里程推算到期日，不是车辆故障诊断。需要通知权限。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/JeziL/carvita/blob/master/README.md"
+        },
+        {
+          "title": "中文说明",
+          "url": "https://github.com/JeziL/carvita/blob/master/.design/i18n/README_zh.md"
+        },
+        {
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/com.wangjinli.carvita/"
+        }
+      ]
+    }
+  ]
+}

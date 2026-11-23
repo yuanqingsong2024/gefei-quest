@@ -1,132 +1,201 @@
 {
-  "date": "2026-11-22",
-  "updated": "2026-11-22T10:50:00+08:00",
-  "weekday": "weekend",
+  "date": "2026-11-23",
+  "updated": "2026-11-23T09:45:00+08:00",
+  "weekday": "weekday",
   "items": [
     {
-      "id": "ryanuo-whattoeat",
+      "id": "sherwinvishesh-opengso",
       "rank": 1,
-      "name": "whatToEat（今天吃什么）",
-      "category": "生活",
-      "summary": "打开就能用的「今天吃什么」决策页：老虎机式随机抽菜，可按菜系缩小范围，点开菜名看图文做法，并在页面里搜索、播放 B 站教程。菜谱数据每周从公共领域项目 HowToCook 抓取。可选 AI 助手用自然语言点菜（如「家里有鸡蛋牛肉」），需自备 OpenAI 兼容 Key（内置通义千问 / DeepSeek / Kimi / 智谱等快捷方式），Key 只存在本机浏览器。MIT。无需安装。",
-      "why": "饮食/厨房决策（不是又一本菜谱收藏夹）：下班对着冰箱发呆时，先按菜系筛一下再抽一道今天做的菜，点进去看步骤或看 B 站视频，把「今晚吃什么」在两分钟内定下来。想清库存时，把「家里有鸡蛋和牛肉」交给可选的 AI 栏，让它在现有菜谱里收窄，而不是再打开三个外卖应用比较。可打包「今天吃什么跟做」——抽菜步骤、分类筛选话术和自备 Key 的点菜提示词。",
-      "url": "https://github.com/ryanuo/whatToEat",
-      "repo": "ryanuo/whatToEat",
-      "stars": 114,
+      "name": "OpenGSO",
+      "category": "项目",
+      "summary": "让网站对 AI 智能体可读的开源工具：test 按智能体实际拿到的内容打 0–100 分并写出每分原因；generate 为每个页面生成 Markdown 双胞胎，并写出 robots.txt、llms.txt 与 sitemap.xml；prod 中间件在同一 URL 上给智能体 Markdown、给人 HTML，不跳转。有 Vite 插件和静态目录部署方式。核心流程无需账号、无遥测；API Key 只用于可选的 AI 润色和内容检查。Apache-2.0。目前是 1.0 前的早期版本。",
+      "why": "对 autograph-ai（Vue3+Vite+FastAPI）最有用：近期已推过构建期 llms.txt/JSON-LD（aeo.js、agentmarkup、Dualmark）和发布后审计（squirrelscan），OpenGSO 补的是「先测量智能体真正拿到什么，再在同一 URL 提供干净正文」。它不执行页面 JavaScript，所以能直接暴露 Vue 客户端渲染空壳问题。可执行：1）对一条已发布文章跑 `npx opengso test <url>`，看分数和空壳警告；2）把文章路由做成预渲染或 SSR 后再 `generate` 双胞胎；3）生产用 `opengso-prod` 的 Vite 插件，或把 `.md` 放在静态资源旁做 Accept 协商，不必再造一套 llms.txt 生成器。",
+      "url": "https://github.com/sherwinvishesh/OpenGSO",
+      "repo": "sherwinvishesh/OpenGSO",
+      "stars": 397,
       "tags": [
-        "饮食",
-        "厨房",
-        "今天吃什么",
-        "菜谱",
-        "决策",
-        "中文",
-        "在线",
-        "可选AI"
+        "AEO",
+        "GEO",
+        "GSO",
+        "llms.txt",
+        "markdown-twin",
+        "Vite",
+        "autograph-ai"
       ],
       "steps": [
-        "用手机或电脑打开 https://eat.ryanuo.cc/ ，无需注册或安装",
-        "若只想吃某类菜，先用分类气泡缩小范围，再点随机抽菜；点菜名查看图文做法，需要演示再打开页内 B 站视频",
-        "只有需要「家里有什么就做什么」时，再在设置里填入你自己的 API Key；不填也能抽菜和看菜谱"
+        "在已发布或 staging 的 autograph 文章 URL 上执行 npx opengso test <url>，先看 0–100 分以及智能体拿到的是正文还是空壳",
+        "若页面是客户端渲染空壳，先把文章路由做成预渲染或 SSR，再执行 npx opengso generate 生成 Markdown 双胞胎",
+        "确认正文可提取后，再用 opengso-prod（Vite 插件或静态目录旁的 .md）在同一 URL 向智能体提供 Markdown"
       ],
-      "risk": "依赖作者部署在 Vercel 上的在线站点，站点若关闭需自行用 Docker、Netlify 或 Vercel 部署。AI 不是默认能力，要自备 Key 且可能产生费用。移动端视频在底部抽屉播放，网络与 B 站可用性会影响这一步。仓库约 114 星，相对较新（2025-10 创建，最近推送 2026-11-02）。菜谱来自 HowToCook 的每周抓取，覆盖面因源仓库而异。本工具只帮你选菜和跟做，不提供营养诊疗。",
+      "risk": "作者标明 Early release，1.0 前命令、参数和配置字段可能变化。不执行页面 JS，纯 CSR 的 Vue 壳会抽出空内容，generate 仍会写双胞胎但会按字数警告。CDN 对 Vary: Accept 的行为只在文档中说明，并未对所有主机实测。与 Dualmark 的内容协商有部分重叠，但定位是评分 + 双胞胎 + 中间件，不要重复建设。可选 AI 润色需要自备 Key 并可能产生费用。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/ryanuo/whatToEat/blob/main/README.md"
+          "url": "https://github.com/sherwinvishesh/OpenGSO/blob/main/README.md"
         },
         {
-          "title": "在线体验",
-          "url": "https://eat.ryanuo.cc/"
+          "title": "文档站点",
+          "url": "https://sherwinvishesh.github.io/OpenGSO/"
         },
         {
-          "title": "菜谱数据来源 HowToCook（Unlicense）",
-          "url": "https://github.com/Anduin2017/HowToCook"
+          "title": "npm: opengso",
+          "url": "https://www.npmjs.com/package/opengso"
         }
       ]
     },
     {
-      "id": "saisaharsh3-leftovers",
+      "id": "lixiaoxiao-short-drama-factory",
       "rank": 2,
-      "name": "Leftovers（今日可花）",
+      "name": "Short-Drama Factory（短剧工业化编剧）",
+      "category": "项目",
+      "summary": "纯剧本层的短剧/漫剧工业化编剧技能包：以 SKILL.md 为入口，提供立项、分集、连写、剧本医生和终检等交互模式，并按需挂载文档以防上下文爆炸。配套 Python 机检（单集规则、跨集台账、三态终检）和 CI，以及把标准剧本导出为 JSON 以便对接下游分镜。含人物圣经、网文改编和滚动状态包。MIT。它不生成分镜画面或视频。",
+      "why": "对 soloforge-storyfactory 最有用：近期推荐多为分镜画布、运镜预演和短剧拆解，缺的是「剧本能否拍、跨集会不会崩」的上游门禁。可执行：1）把现有一集剧本交给 `validate_episode.py` / `final_qc.py`，先看机检字段和 PASS/BLOCKED；2）用人物圣经四件套（欲望/秘密/弧光/语言指纹）对照 StoryFactory 的角色锁；3）用 `export_script_json.py` 的结构对照分镜/集数字段，做映射而不是把技能包整仓并进产品。仓库里的「付费墙」指短剧叙事分段结构，不是卖号或代运营。",
+      "url": "https://github.com/lixiaoxiao9888-create/short-drama-factory",
+      "repo": "lixiaoxiao9888-create/short-drama-factory",
+      "stars": 649,
+      "tags": [
+        "短剧",
+        "漫剧",
+        "剧本",
+        "SKILL.md",
+        "机检",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "把仓库里的 SKILL.md 装进凌霄或 Claude Code 的技能目录，并用 examples 里的样章跑通 python scripts/run_all_checks.py",
+        "拿一集现有 StoryFactory 剧本执行 python scripts/validate_episode.py，记下机检字段与失败项",
+        "再用 python scripts/export_script_json.py 导出 JSON，对照 StoryFactory 分镜/角色/集数字段做映射表"
+      ],
+      "risk": "这是技能文档加校验脚本，不是带画布的制作软件；产出质量取决于所用模型和写手，仓库文案偏营销，不承诺「爆款」。主要面向中文短剧/红果抖音语境。不要把技能包直接并入商业产品就算集成。与已推荐的分镜、3D 预演工具定位不同，避免重复建设画布。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/lixiaoxiao9888-create/short-drama-factory/blob/main/README.md"
+        },
+        {
+          "title": "SKILL.md",
+          "url": "https://github.com/lixiaoxiao9888-create/short-drama-factory/blob/main/SKILL.md"
+        }
+      ]
+    },
+    {
+      "id": "hashgraph-online-hol-guard",
+      "rank": 3,
+      "name": "HOL Guard",
+      "category": "项目",
+      "summary": "开源的 AI 智能体运行时防护：在工具调用、MCP、插件、技能和软件包安装执行前检查风险，可暂停并要求审批。本地即可用，不必登录；云同步是可选项。文档写明支持 Hermes、OpenClaw、OpenCode、Pi、Grok 等，并提供 `hol-guard hermes bootstrap`。同仓还有 plugin-scanner，可在发布技能或 MCP 前做 CI 检查。Apache-2.0。",
+      "why": "对 clawkit、凌霄（Hermes）和 skillmd-validator 最有用：近期推荐多为编排、记忆和可声明拓扑，缺的是运行时拦危险工具/技能。可执行：1）本机 `pipx install hol-guard` 后执行 `hol-guard hermes bootstrap`，先看会暂停哪些 MCP 和工具；2）把 `plugin-scanner` 接到技能包/MCP 的 CI，补静态 SKILL.md 校验之后的打包、密钥和不安全 MCP 检查；3）用本地 `receipts` 或 `abom` 导出审计材料。不必再上一套编排器，也不必默认打开云同步。",
+      "url": "https://github.com/hashgraph-online/hol-guard",
+      "repo": "hashgraph-online/hol-guard",
+      "stars": 1121,
+      "tags": [
+        "agent-security",
+        "MCP",
+        "skills",
+        "Hermes",
+        "OpenClaw",
+        "OpenCode",
+        "clawkit",
+        "凌霄"
+      ],
+      "steps": [
+        "用 pipx install hol-guard 安装（本地运行，不必登录）",
+        "执行 hol-guard hermes bootstrap，按文档做一次 dry-run，记下会暂停的工具和 MCP",
+        "若要保护技能发布流程，再把同仓 plugin-scanner 接到技能/MCP 的 CI"
+      ],
+      "risk": "可能误拦正常工具调用，需要按支持矩阵核对 Hermes/OpenClaw 的覆盖深度，并调整审批策略。可选 Guard Cloud 不要默认打开。它不能替代代码审计或 skillmd-validator 的静态检查，而是补运行时这一层。Intel macOS 等环境的安装限制见官方入门文档。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/hashgraph-online/hol-guard/blob/main/README.md"
+        },
+        {
+          "title": "Get started（含 Hermes bootstrap）",
+          "url": "https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/get-started.md"
+        },
+        {
+          "title": "Agent support matrix",
+          "url": "https://github.com/hashgraph-online/hol-guard/blob/main/docs/guard/harness-support.md"
+        }
+      ]
+    },
+    {
+      "id": "zornslemma-my-price-log",
+      "rank": 4,
+      "name": "My Price Log（到店比价本）",
       "category": "生活",
-      "summary": "本地优先的 Android 开销本：数字键盘先打开，两下就能记一笔，核心问题是「今天还能安全花多少」——用本月剩余预算减去还没到期的账单，再摊到剩下的天数。可记分类、小票照片、订阅和储蓄目标，可选 50/30/20 分账。无账号、无广告、无分析。MIT。F-Droid 与 GitHub Releases 使用同一签名。应用本身不是理财建议。",
-      "why": "消费决策（不是又一本流水账）：发薪日把预算月起始日改成发薪那天，设好月预算和固定订阅，每天先看首页的 Safe to spend today，再决定这杯奶茶或这趟外卖打不打。月初把房租、会员放进订阅，账单到期前一早会提醒；想买的东西放进储蓄目标，而不是看到「账户里还有钱」就下手。可打包「今天还能花多少」跟做——发薪日对齐、订阅清单和「先看今日可花再下单」检查表。",
-      "url": "https://github.com/saisaharsh3/Leftovers",
-      "repo": "saisaharsh3/Leftovers",
-      "stars": 44,
+      "summary": "离线的 Android 到店比价本：先建立常去的店和常买的商品，购物时录入或确认价格，应用按单位价对比各店，并自动做度量单位换算。可记录会员折扣，用「新鲜/过时/很旧」标出价格是否还可信，也能查看同一商品的价格历史。首次安装带演示数据，可先点点看。支持包括人民币（CNY）在内的多种货币。无需账号、完全离线。MIT。F-Droid 与 GitHub Releases 可装。",
+      "why": "消费决策里的「到店比价」，不是又一个记账或预算 App：站在货架前对比不同规格的牛奶或粮油时，先看单位价；平时把两家常去超市的同一商品价格记下来，决定这周去哪买。价格新鲜度会提醒你别被几个月前的旧价误导。可打包成「到店比价本」跟做：建店、录入、确认、看单位价。应用本身不是理财建议，也不爬取电商实时价。",
+      "url": "https://github.com/ZornsLemma/my-price-log",
+      "repo": "ZornsLemma/my-price-log",
+      "stars": 24,
       "tags": [
         "消费决策",
-        "轻理财",
-        "今日可花",
-        "预算",
-        "订阅",
-        "本地",
+        "比价",
+        "到店",
+        "单位价",
+        "离线",
         "安卓",
         "F-Droid"
       ],
       "steps": [
-        "用 F-Droid 或 GitHub Releases 安装 Leftovers（推荐正式版普通包 leftovers-v1.10.1.apk，不要与预发行版混用）；需 Android 8.0+，无需注册",
-        "在设置里把预算月起始日改成发薪日，填入月预算，并把房租、会员等固定支出加为订阅",
-        "日常打开首页先看「今天还能花多少」，再用数字键盘两下记账；短信/邮件识别和 AI 助手默认关闭，不需要就不要开"
+        "用 F-Droid 安装 https://f-droid.org/packages/app.zornslemma.mypricelog/ ，先浏览自带演示数据了解界面",
+        "清空或忽略演示数据后，建 2 家常去的店和 5 个常买商品，货币选 CNY",
+        "下次购物时录入或点确认价格，回家看单位价对比和新鲜度，再决定是否改去另一家"
       ],
-      "risk": "仓库较新（2026-10 创建），约 44 星，但已上架 F-Droid 且仍在更新。界面目前主要是英文，没有独立的简体中文资源。支付通知识别示例以印度 UPI（PhonePe、Paytm、BHIM 等）为主，国内银行短信默认可能识别不全，需自加关键词；SMS 权限在 GitHub/F-Droid 侧载可用，不适合走 Google Play。F-Droid 页面可能滞后于 GitHub 的 v1.10.1（2026-11 初 F-Droid 记录过 1.9.0）。可选 AI 会把部分账目发到你选择的模型供应商（需自备 Key）；邮件识别需要应用专用密码。设备间同步需自备 Syncthing、Nextcloud 或 WebDAV，默认关闭。这不是投资或理财建议，数字只是你自己的预算摊分。",
+      "risk": "仓库约 24 星，相对较新（2025-12 创建，最近推送 2026-09-28）。界面目前有英、西、法、意，没有完整中文。价格全靠自己手录，过期数据会误导，虽然应用会标新鲜度。Android 11+。不是电商比价爬虫，也不会自动更新门店价。本工具只帮你比较自己记下的单位价，不做理财建议。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/saisaharsh3/Leftovers/blob/main/README.md"
+          "url": "https://github.com/ZornsLemma/my-price-log/blob/main/README.md"
+        },
+        {
+          "title": "使用手册",
+          "url": "https://zornslemma.github.io/my-price-log-docs/"
         },
         {
           "title": "F-Droid",
-          "url": "https://f-droid.org/packages/com.leftovers.app/"
-        },
-        {
-          "title": "GitHub Releases（v1.10.1）",
-          "url": "https://github.com/saisaharsh3/Leftovers/releases/tag/v1.10.1"
+          "url": "https://f-droid.org/packages/app.zornslemma.mypricelog/"
         }
       ]
     },
     {
-      "id": "rock-zhang-shui",
-      "rank": 3,
-      "name": "Shui（喝水提醒助手）",
+      "id": "jezil-carvita",
+      "rank": 5,
+      "name": "CarVita（车辆保养助理）",
       "category": "生活",
-      "summary": "给久坐上班族用的喝水提醒：桌面端（Windows / macOS / Linux）会全屏打断并在托盘倒计时，开会时（腾讯会议、Zoom、Teams 等）可自动跳过；Android 端用通知一键记下 50/100/200/300 ml。可看近 7/30 天趋势并导出 CSV，也可用 JSON 备份（只补缺失日期）。中英界面。Apache-2.0。最新正式版为 2026-11-21 的 v0.5.2。应用本身不做诊断。",
-      "why": "早晨/日程效率，也是家庭健康资料里的饮水记录（不是医疗建议）：上班打开电脑后设好每日目标和提醒时段，全屏提醒出现就记一杯，避免一上午只喝了咖啡。自己或家人用手机侧载 Android 版，通知里一键记水；周末对照近 7 天曲线看哪天没达标，需要时导出 CSV 自行留档，而不是根据曲线判断「是不是脱水」。可打包「工位喝水提醒跟做」——目标与时段模板、会议白名单说明和「不做诊断」声明。",
-      "url": "https://github.com/rock-zhang/Shui",
-      "repo": "rock-zhang/Shui",
-      "stars": 375,
+      "summary": "管理和提醒家庭车辆保养的 Android 应用：可登记多辆汽车或摩托车，按原厂手册录入时间/里程/首保周期，记录每次保养的日期、里程、项目和费用，并按使用情况估算下次到期日，到期前发本地通知。数据留在本机。有官方中文说明。可从 F-Droid、Google Play 或 GitHub Releases 安装。AGPL-3.0。",
+      "why": "家务/家庭琐事里的「车辆保养与账单台账」：把「该换机油了吗、保险和年检什么时候到期」写成可提醒的计划，而不是靠记忆。每次保养记下费用和里程，年底能复盘养车花了多少（这是开销记录，不是投资建议）。有中文说明，装完就能用，不必自托管。可做成「家庭车辆保养台账」跟做方案。",
+      "url": "https://github.com/JeziL/carvita",
+      "repo": "JeziL/carvita",
+      "stars": 49,
       "tags": [
-        "早晨",
-        "日程效率",
-        "家庭健康资料",
-        "喝水提醒",
-        "桌面",
+        "家务",
+        "家庭琐事",
+        "车辆保养",
+        "到期提醒",
         "安卓",
-        "中文",
-        "不做诊断"
+        "F-Droid",
+        "中文"
       ],
       "steps": [
-        "从 GitHub Releases 下载 v0.5.2：电脑装对应系统的安装包，手机侧载 app-universal-release.apk（目前仅 arm64 通用包，需允许安装未知来源应用）",
-        "设每日饮水目标和提醒间隔、起止时间；桌面端按需打开工作日提醒和会议应用白名单",
-        "提醒出现时记下水量；换设备时用应用内 JSON 备份导入（只补缺失日期）。不要根据趋势图自行判断健康问题或改饮水医嘱"
+        "从 F-Droid https://f-droid.org/packages/com.wangjinli.carvita/ 或 GitHub Releases 安装",
+        "先录入一辆常用车，以及手册里的机油、保险或年检周期（时间 + 里程）",
+        "打开本地通知，以后每次保养补记日期、里程和费用"
       ],
-      "risk": "官方介绍写「共用同一套数据」，但 2026-11-21 的产品待办明确：自动跨端同步、云备份和账号体系均未实现，不要指望装上电脑和手机就会自动对齐，请用 JSON 备份搬数据。从 GitHub 侧载的 Android 包默认开启 Firebase Analytics / Crashlytics（Play 安装默认关闭），在意隐私请在应用内关掉分析。README 链接的 README-ANDROID.md 当前仓库中不存在。Android 最低为 Android 7.0（minSdk 24），且目前只提供 arm64 包。这不是医疗器械，目标水量不是医嘱，统计不能用来诊断。macOS 若提示「已损坏」，需按说明去掉隔离属性。",
+      "risk": "协议是 AGPL-3.0：可以写跟做教程和模板口径，不要把源码改头换面放进闭源商品。仓库约 49 星，最近代码推送在 2026-09-17，F-Droid 当前版本 1.2.3（2026-09-02 入库）。「预测」只是按你录入的周期和里程推算到期日，不是车辆故障诊断。需要通知权限。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/rock-zhang/Shui/blob/main/README.md"
+          "url": "https://github.com/JeziL/carvita/blob/master/README.md"
         },
         {
-          "title": "产品待办（跨端同步尚未实现）",
-          "url": "https://github.com/rock-zhang/Shui/blob/main/docs/product-todo.md"
+          "title": "中文说明",
+          "url": "https://github.com/JeziL/carvita/blob/master/.design/i18n/README_zh.md"
         },
         {
-          "title": "饮水记录备份说明",
-          "url": "https://github.com/rock-zhang/Shui/blob/main/docs/data-backup.md"
-        },
-        {
-          "title": "GitHub Releases（v0.5.2）",
-          "url": "https://github.com/rock-zhang/Shui/releases/tag/v0.5.2"
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/com.wangjinli.carvita/"
         }
       ]
     }
