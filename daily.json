@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-21T04:32:31.617Z",
-  "latestId": 109,
-  "latestDate": "2026-11-21",
+  "generatedAt": "2026-11-23T00:43:44.353Z",
+  "latestId": 110,
+  "latestDate": "2026-11-23",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 110,
+      "date": "2026-11-23",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-23",
+      "items": [
+        "No.1 ScalaHosting Affiliate：写主机或云 VPS 选型教程，官方联盟页按月销量列出一次性佣金，例如虚拟主机约50–100美元/单、VPS 约120–200美元/单（须审核；成交后约45天无退款才计佣，以官方页与协议为准）",
+        "No.2 itch.io：免费上架原创游戏、素材、工具或电子书等，官方 Creator FAQ 写明平台不向创作者收取使用费，由你自行决定把销售额的多大比例分给平台（open revenue sharing，以官方说明为准）",
+        "No.3 Railway：按官方入门部署英文工具或指南小站；官方文档写明 Free 档约0美元/月、每月约1美元用量且无须绑卡，空闲约5–10分钟后会休眠（自定义域名须升至 Hobby，约5美元/月）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 109,
       "date": "2026-11-21",
@@ -115,42 +127,30 @@
         "附经济参考报（光明网转载）/ 北京日报（光明网转载）/ 什么值得买三个来源；以报告原文和医生判断为准，不代看报告、不卖药、不承诺替代面诊；与10-29生活后台、11-07家庭事务盯梢员区分。SW 缓存 63"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 100,
-      "date": "2026-11-12",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-12",
-      "items": [
-        "No.1 Squarespace Affiliate：写建站/店铺教程，官方帮助中心写明合资格 Website 订阅打款约100至200美元（Acuity 约45美元，须约45天内开通；以条款为准）",
-        "No.2 Stan Store：上架课程、预约或数字产品，官方称平台成交抽成0%，Creator 约29美元/月或约300美元/年（另计支付处理费）",
-        "No.3 GitLab Pages：按官方文档用 CI 发布英文静态工具小站，官方称在 GitLab 提供的基础设施上无额外托管费，验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-11-19",
+    "date": "2026-11-23",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "DigitalOcean Affiliate：写云主机或开发者工具教程，官方联盟页写明推荐新付费用户可按其月度消费拿约10%佣金、持续约一整年（经 CJ 网络申请，以官方页与协议为准）",
+        "name": "ScalaHosting Affiliate：写主机或云 VPS 选型教程，官方联盟页按月销量列出一次性佣金，例如虚拟主机约50–100美元/单、VPS 约120–200美元/单（须审核；成交后约45天无退款才计佣，以官方页与协议为准）",
         "type": "联盟营销",
-        "source_url": "https://www.digitalocean.com/affiliates"
+        "source_url": "https://www.scalahosting.com/affiliate.html"
       },
       {
         "rank": 2,
-        "name": "Buy Me a Coffee：免月费上架原创数字产品、服务或会员，官方帮助中心写明每笔约收5%平台费（另计 Stripe 等支付处理费，以官方说明为准）",
+        "name": "itch.io：免费上架原创游戏、素材、工具或电子书等，官方 Creator FAQ 写明平台不向创作者收取使用费，由你自行决定把销售额的多大比例分给平台（open revenue sharing，以官方说明为准）",
         "type": "数字产品/接单",
-        "source_url": "https://help.buymeacoffee.com/en/articles/8105744-how-to-calculate-charges-on-your-payment"
+        "source_url": "https://itch.io/docs/creators/faq"
       },
       {
         "rank": 3,
-        "name": "Surge：用一条命令发布英文静态工具小站，官方定价页写明 Free 档约0美元（自定义域名与证书含在各档内，无流量超额计费）",
+        "name": "Railway：按官方入门部署英文工具或指南小站；官方文档写明 Free 档约0美元/月、每月约1美元用量且无须绑卡，空闲约5–10分钟后会休眠（自定义域名须升至 Hobby，约5美元/月）",
         "type": "出海小站",
-        "source_url": "https://surge.sh/pricing"
+        "source_url": "https://docs.railway.com/pricing/free-plan"
       }
     ]
   }
