@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-24",
+  "updated": "2026-11-24T09:50:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "avansaber-seo-monster",
+      "rank": 1,
+      "name": "SEOMonster",
+      "category": "项目",
+      "summary": "跑在本机的开源 SEO MCP：把你自己的 Google Search Console、GA4、PageSpeed/CrUX、Cloudflare 和 IndexNow 接到已有的 AI 助手里（Cursor / Claude / Codex 等），用自然语言问「下一篇写什么、这页能不能发、有没有被收录」。共 70 个工具和 13 条工作流提示，统一返回 JSON。默认读多写少：提交 sitemap 和请求编入索引默认可用，Cloudflare 的缓存清理、跳转和 robots 等写操作需打开 SEO_MCP_ALLOW_DESTRUCTIVE 并按次确认。凭证留在本机配置或系统钥匙串，安装包不含密钥。MIT。当前文档对应 v0.11.2。",
+      "why": "对 autograph-ai（Vue3+Vite+FastAPI SEO/GEO 内容 SaaS）最有用：近期已推过构建期 llms.txt/JSON-LD、发布后审计和智能体实拿内容评分（aeo.js、agentmarkup、squirrelscan、OpenGSO 等），缺的是「用站点自己的 GSC/GA4 数据决定写什么、发完后催收录，并对照排名有没有动」。可执行：1）对已发布文章问 GSC 点击/展示/位置，或跑发布前技术与结构化数据检查；2）用 Indexing API 和 IndexNow 通知搜索引擎，不必另写一套提交脚本；3）用 content_opportunities 从「已有需求但 CTR/位置不够」的查询里排下一篇选题，而不是凭感觉。免费的 ai_citation_readiness 还会先做「爬虫不执行 JS」的空壳检查，和昨天的 OpenGSO 互补，不要重复造 Markdown 双胞胎。",
+      "url": "https://github.com/avansaber/seo-monster",
+      "repo": "avansaber/seo-monster",
+      "stars": 480,
+      "tags": [
+        "SEO",
+        "AEO",
+        "GEO",
+        "MCP",
+        "Search-Console",
+        "IndexNow",
+        "autograph-ai"
+      ],
+      "steps": [
+        "安装 uv 后，在终端执行 uvx --from seo-monster seo-monster auth，完成一次 Google 登录（按文档需自备 Desktop 应用的 OAuth 客户端）",
+        "把 MCP 配进 Cursor：command 为 uvx、args 为 [\"seo-monster\"]（GUI 宿主要用 uvx 的绝对路径），先让助手调用 system_status，确认 GSC 已接通",
+        "选一条已发布的 autograph 文章，先看 GSC 表现或发布前检查，需要催收录时再用 Indexing API / IndexNow；不要打开 SEO_MCP_ALLOW_DESTRUCTIVE，也不要急着接付费 SERP"
+      ],
+      "risk": "要用到 Google 账号和 Cloud Console 里的 OAuth 客户端，国内网络下登录或拉 GSC/GA4 可能失败，失败就先停，不要改走付费的 DataForSEO / SerpBase / 模型调用（这些是可选项，可能产生费用）。sitemap 提交和请求编入索引是写操作且默认打开，先在 staging 或单条 URL 上试。Cloudflare 写工具必须显式开破坏性开关。AI 引用/声量跟踪多依赖可选外部接口，和已推荐的 Limelit、OpenGSO 不要重复建设。文档按 v0.11.x 书写，工具和配置字段还可能变。它不能替代预渲染或 SSR，纯 CSR 的 Vue 壳在智能体和部分爬虫里仍然是空的。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/avansaber/seo-monster/blob/main/README.md"
+        },
+        {
+          "title": "项目站点",
+          "url": "https://seomonster.avansaber.com/"
+        },
+        {
+          "title": "PyPI: seo-monster",
+          "url": "https://pypi.org/project/seo-monster/"
+        }
+      ]
+    },
+    {
+      "id": "tenney95-ai-canvas-tauri",
+      "rank": 2,
+      "name": "AI Canvas Tauri",
+      "category": "项目",
+      "summary": "本地优先的 AI 短剧/多模态画布桌面应用：用可连接的节点组织文本、图像、视频、音频、分镜和素材，并把剧本写作、角色/场景/道具库、ComfyUI 工作流、对话 Agent 与 MCP 放在同一张画布里。一部剧可按集拆画布，整剧共用角色库和素材。技术栈是 Tauri 2 + React 19 + React Flow 12。有在线演示和 GitHub Releases 桌面包，当前文档版本 0.11.12。近期仍在更新。注意：它现在是「源码可用」协议，不是 OSI 意义上的开源；作者写明 Star 到 1 万后才计划改为 MIT。",
+      "why": "对 soloforge-storyfactory 最有用：近期推荐多为剧本机检、拆解方法和完整工业化平台，缺一个能马上点开的「一集一张画布、整剧共用角色库」对照。可执行：1）打开在线演示或桌面包，对照分集画布与共享人物/场景/道具库，映射到 StoryFactory 的集数和角色锁字段；2）看故事关系图（人物、事件、伏笔，AI 提取需预览确认）和原文/分集以 TXT 落在 manuscripts 目录的方式，决定哪些字段值得收回自己的产品；3）桌面版可看 MCP（默认关闭）和只读子智能体边界，不要把整仓代码并进商业产品。许可明确允许自用、学习和对照架构。",
+      "url": "https://github.com/Tenney95/AI-Canvas-tauri",
+      "repo": "Tenney95/AI-Canvas-tauri",
+      "stars": 399,
+      "tags": [
+        "短剧",
+        "画布",
+        "分镜",
+        "React-Flow",
+        "Tauri",
+        "角色库",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "先打开在线演示 https://tenney95.github.io/AI-Canvas-tauri/ ，浏览自带演示画布，重点看「一集一张画布」和整剧共用的角色/素材库",
+        "若要试用本地 ComfyUI、凭据存储或 MCP，再从 GitHub Releases 安装桌面版；MCP 默认关闭，远程连接需手动启用",
+        "把分集画布、角色锁和关系图字段列一张对照表，只吸收字段与交互，不要复制或改头换面并入 StoryFactory"
+      ],
+      "risk": "当前为项目自拟的源码可用许可，不是 MIT/Apache：可以自用、学习和对照，但禁止套壳销售、白标、把本项目作为主要功能并入商业产品或拿去卖源码/模板。10k Star 后改 MIT 只是计划，以仓库 LICENSE 为准。可信 Python 插件以当前用户权限运行，只装自己审查过的插件。在线版能力不完整。生成仍要自备模型或 ComfyUI，可能产生费用。不要与已推荐的 Toonflow、LocalMiniDrama 等画布平台重复建设一整套工作台。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Tenney95/AI-Canvas-tauri/blob/master/README.md"
+        },
+        {
+          "title": "在线演示",
+          "url": "https://tenney95.github.io/AI-Canvas-tauri/"
+        },
+        {
+          "title": "LICENSE（源码可用许可）",
+          "url": "https://github.com/Tenney95/AI-Canvas-tauri/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "javis603-token-monitor",
+      "rank": 3,
+      "name": "Token Monitor",
+      "category": "项目",
+      "summary": "本地优先的桌面用量看板：汇总 56+ 种 AI 编程/智能体工具的 token 消耗、费用和部分额度，支持 macOS / Windows / Linux。可从菜单栏、刘海旁或屏幕边缘查看。费用可显示人民币等货币。单机使用不必搭同步服务；多设备同步是可选项。数据从本机日志或数据库读取，提示词和源代码不会上传。MIT。可用 Homebrew Cask 或 GitHub Releases 安装。",
+      "why": "对 clawkit、凌霄（Hermes）和 Pi 最有用：近期推荐多为编排、记忆和运行时防护，缺的是「各工具一天烧掉多少 token、订阅划不划算」。可执行：1）本机安装后先看 Hermes（~/.hermes/state.db，目前只有用量，没有官方额度或会话明细）和 Pi（~/.pi/agent/sessions/，有用量和会话明细，没有额度）；2）OpenClaw 同样能看用量（~/.openclaw/agents/）；OpenCode、Cursor 等也可一并纳入；3）用导出的 CSV/JSON 做周报，或手填订阅价格，对照当月实际花费是套餐的几倍。不必再自写一套日志采集，也不必默认打开同步 hub。",
+      "url": "https://github.com/Javis603/token-monitor",
+      "repo": "Javis603/token-monitor",
+      "stars": 3833,
+      "tags": [
+        "token",
+        "费用",
+        "Hermes",
+        "Pi",
+        "OpenClaw",
+        "clawkit",
+        "凌霄"
+      ],
+      "steps": [
+        "在 Mac 上执行 brew install --cask token-monitor，或从 GitHub Releases 安装对应系统的桌面包",
+        "启动后先只看本机，确认已识别 Hermes（~/.hermes/state.db）和 Pi（~/.pi/agent/sessions/）的用量",
+        "若路径不在默认位置，在设置里加自定义扫描路径；需要周报再导出 CSV/JSON。默认同步 hub 先不要开"
+      ],
+      "risk": "Hermes 和 OpenClaw 目前只能看 token 用量，不能看官方额度，Hermes 也没有会话明细；Pi 有用量和会话明细，但仍无额度。工具若在 WSL 里且用 SQLite（如 OpenCode、Hermes），可能要按文档加 headless agent。插件 API 仍属实验性质且无沙箱，只启用信任的插件。可选的多设备同步和第三方额度预测不要默认打开。它只统计已经落在本机的用量，不能限制模型乱花，也不能替代 HOL Guard 这类运行时防护。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Javis603/token-monitor/blob/main/README.md"
+        },
+        {
+          "title": "项目站点",
+          "url": "https://javis-ai.com/token-monitor/"
+        },
+        {
+          "title": "Homebrew Cask",
+          "url": "https://formulae.brew.sh/cask/token-monitor"
+        }
+      ]
+    },
+    {
+      "id": "futsch1-medtimer",
+      "rank": 4,
+      "name": "MedTimer（用药提醒与药箱记录）",
+      "category": "生活",
+      "summary": "离线的 Android 用药提醒和服药记录应用：可为每种药设置灵活提醒（含间隔、跳过周末延迟、贪睡和重复通知），在通知里确认或跳过以留下服药历史，并用图表、表格或日历回看。可跟踪药箱库存和有效期，到期或用尽前本地提醒；历史可导出 CSV，药单可备份为 JSON。数据只留在本机，无需账号和联网。MIT。F-Droid 提供不含 Google 服务的 FOSS 版，Play 商店为完整版。界面有简体中文。本工具只做提醒和记录，不做诊断，也不给用药建议。",
+      "why": "家庭健康资料整理里的「药箱和服药档案」，不是又一个体检解读应用：把医嘱上的药名、时间和用量抄进提醒，早晨按通知吃药并点确认，复诊时导出 CSV 交给医生看这段时间的记录；药箱快空了或临期了也会本地提醒。可做成「家庭药箱提醒与服药记录本」跟做：装上、抄医嘱、开库存和有效期提醒。应用本身不解释症状，也不建议加减药。",
+      "url": "https://github.com/Futsch1/medTimer",
+      "repo": "Futsch1/medTimer",
+      "stars": 669,
+      "tags": [
+        "家庭健康资料",
+        "药箱",
+        "服药提醒",
+        "离线",
+        "安卓",
+        "F-Droid"
+      ],
+      "steps": [
+        "用 F-Droid 安装 FOSS 版：https://f-droid.org/packages/com.futsch1.medtimer/ ，先把语言确认到中文",
+        "只把医生或药盒上已经写明的 2–3 种常用药抄进去（名称、时间和用量以医嘱为准），打开库存和有效期提醒",
+        "观察一天的通知是否准时，需要时把服药历史导出为 CSV，复诊时作为记录交给医生"
+      ],
+      "risk": "本工具不做诊断，也不给用药建议；提醒时间、剂量只能按医嘱自行抄录，抄错或漏确认会造成错误记录。F-Droid 的 FOSS 版没有「到家再提醒」的位置贪睡（该功能只在带 Google 服务的完整版里）。Android 应用，不是 iOS。不要在公众号或闲鱼文案里写成治病、推荐用药或替代复诊。库存和有效期也只是你自己登记的结果。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Futsch1/medTimer/blob/main/README.md"
+        },
+        {
+          "title": "F-Droid（FOSS 版）",
+          "url": "https://f-droid.org/packages/com.futsch1.medtimer/"
+        },
+        {
+          "title": "应用内说明",
+          "url": "https://github.com/Futsch1/medTimer/blob/main/docs/help/index.md"
+        }
+      ]
+    },
+    {
+      "id": "techbeeat-jtxboard",
+      "rank": 5,
+      "name": "jtx Board（晨记与今日待办本）",
+      "category": "生活",
+      "summary": "把日记、笔记和任务放在同一个 Android 应用里：带日期的日记是「今天写了什么」，任务是「今天要做什么」，两者可以互相链接。提供列表、网格、看板和周视图，还有闹钟通知、Markdown、桌面小部件，以及 .ics 导入导出。可以完全离线使用本地集合，不必先搭同步服务器；需要跨设备时再通过独立应用 DAVx5 去对接自己的 CalDAV。F-Droid 的 ose 版是开源构建，GPL-3.0。F-Droid 页面列出简体中文。Android 7.0 及以上。",
+      "why": "早晨/日程效率里的「今日重点早报本」：起床后打开今日日记写三件优先事项，再把要办的事建成当天任务，勾完看周视图，而不是再装一个纯日历或纯番茄钟。桌面小部件可以在主屏看到今天还剩什么。可打包成「晨记+今日待办合本」跟做：本地建一个集合、写一条今日日记、加 3 件当天任务。先不要引入日历服务器。",
+      "url": "https://github.com/TechbeeAT/jtxBoard",
+      "repo": "TechbeeAT/jtxBoard",
+      "stars": 711,
+      "tags": [
+        "早晨",
+        "日程效率",
+        "日记",
+        "待办",
+        "离线",
+        "安卓",
+        "F-Droid"
+      ],
+      "steps": [
+        "用 F-Droid 安装 ose 版：https://f-droid.org/packages/at.techbee.jtx/ ，创建一个本地集合，先不要接 DAVx5 或任何日历服务器",
+        "今早写一条带日期的「今日重点」日记，并添加 3 件今天要完成的任务，需要时把日记和任务互相链接",
+        "把「今日任务」或周视图小部件放到主屏，用一周看这个习惯能不能坚持"
+      ],
+      "risk": "界面和文档会提到 VJOURNAL/VTODO 等日历标准术语，第一次可能有点绕，按「日记 / 笔记 / 任务」理解即可。跨设备同步要另装 DAVx5 并自备 CalDAV，这不是 10 分钟能跑通的路径，默认不要上。地理位置提醒只在 Google Play 版本里。Play 商店的 Pro 付费项用于编辑远程条目，F-Droid ose 版本地使用不需要买。许可证是 GPL-3.0：自己用、写跟做教程可以，不能改头换面拿去上架或当商品出售。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/TechbeeAT/jtxBoard/blob/develop/README.md"
+        },
+        {
+          "title": "F-Droid（ose 版）",
+          "url": "https://f-droid.org/packages/at.techbee.jtx/"
+        },
+        {
+          "title": "项目网站",
+          "url": "https://jtx.techbee.at/"
+        }
+      ]
+    }
+  ]
+}
