@@ -1,0 +1,209 @@
+{
+  "date": "2026-11-24",
+  "updated": "2026-11-24T09:46:33+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "Qoder / Qoder CN：匿名模型 HungerG 限时免费至 11/30 24:00（不耗 Credits、不限次数）",
+      "type": "免费额度",
+      "provider": "Qoder / Qoder CN（阿里云）",
+      "region": "全球",
+      "origin": "官方",
+      "summary": "Qoder 官方活动页写明：2026-11-23 24:00 至 2026-11-30 24:00（国际版标注新加坡时间 UTC+8，国内版标注北京时间，时区相同），国际版与 Qoder CN 同步向新老个人用户开放匿名模型 HungerG 限时免费体验。活动期间调用该模型不消耗 Credits、不设每日次数上限，思考强度调至最大（Max）同样按 0.0× 计费；无需领取，模型选择器中选择即可，免费账号及 Credits 余额为 0 的账号也可使用，国内版并写明会员卡用户可参与。仅适用于 Qoder / Qoder IDE（国内对应 Qoder CN / Qoder CN IDE）内实际由 HungerG 完成的调用；JetBrains 插件、CLI、Cloud Agents、网页版等不在国际版活动范围内。团队版/企业版看不到该模型。官方 X @qoder_ai_ide 于 2026-11-23 16:16 UTC（北京时间 11-24 00:16）同步公告，窗口始于今日 00:00，相对 11-23 榜为未收录的新开窗。",
+      "value": "HungerG 调用不消耗 Credits、不设每日次数上限，至 2026-11-30 24:00（UTC+8）· 免费/付费个人用户均可，Max 思考强度同样 0.0×",
+      "deadline": "2026-11-30",
+      "cost": "0 元；需 Qoder 国际版或 Qoder CN 个人账号，并将 Qoder / Qoder IDE 更新至最新版。其他模型仍按各自 Credits 系数计费。不承诺一定排上队或响应速度。",
+      "difficulty": 1,
+      "threshold": "个人版（国际版含体验版、Pro 试用、Lite、Pro、Pro+、Ultra；国内版含体验版、专业/高级/旗舰版及会员卡）。团队版与企业版不适用。仅 Qoder 与 Qoder IDE（国内为 Qoder CN 与 Qoder CN IDE）。",
+      "time": "注册或登录并更新客户端、选择模型约 5–15 分钟",
+      "fit": "已有或打算安装 Qoder / Qoder IDE 的个人用户，想在 11/30 前用真实任务试用这款匿名模型；也可把官方规则（不耗积分、产品范围、高峰排队）整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
+      "why": "官方活动于今日 00:00（11/23 24:00）开窗至 11/30 24:00，国际版与国内版同步，免费账号也可不限次数调用，相对 11-23 榜为未收录的新限免。",
+      "steps": [
+        "打开国际版 https://docs.qoder.com/zh/events/hungerg-free 或国内版 https://docs.qoder.cn/events/hungerg-free ，确认仍写明 2026-11-23 24:00 至 2026-11-30 24:00（UTC+8）且「不消耗 Credits、不设每日次数上限」",
+        "注册或登录对应站点的个人账号（国际版 qoder.com 与国内版 Qoder CN 分开；团队/企业订阅不可见该模型）",
+        "将 Qoder 或 Qoder IDE（国内为 Qoder CN / Qoder CN IDE）更新到最新版本；国际版文档写明插件、CLI、Cloud Agents、网页版等暂不支持本次限免",
+        "在模型选择器中选择 HungerG，用真实任务试用。活动期内该模型不耗 Credits，Max 思考强度同样免费；其他模型或运行时被调到的指定模型仍按标准计费",
+        "高峰可能排队或变慢，付费订阅优先；官方可根据资源调整规则，结束时间以文档与官方通知为准。不要合租、转售或把账号提供给第三方共享"
+      ],
+      "risk": "风险：HungerG 为匿名模型，身份与活动结束后的积分系数均未公布；免费仅覆盖该模型本身，其他模型照常扣费；高峰可能排队，官方可调整或提前结束。不承诺一定能连上、不限速或模型能力。禁止账号合租、转售或共享未授权凭证。",
+      "risk_level": "低",
+      "reason": "Qoder 与 Qoder CN 官方活动页及官方 X 账号写明 11/23 24:00–11/30 24:00 个人用户限免 HungerG，不耗 Credits、不限次数，相对 11-23 榜为今日开窗的新项。",
+      "tags": [
+        "Qoder",
+        "HungerG",
+        "限时免费",
+        "匿名模型",
+        "阿里云"
+      ],
+      "sources": [
+        {
+          "title": "匿名模型 HungerG 限时免费使用",
+          "url": "https://docs.qoder.com/zh/events/hungerg-free",
+          "publisher": "Qoder 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-24"
+        },
+        {
+          "title": "匿名模型 HungerG 限时免费使用",
+          "url": "https://docs.qoder.cn/events/hungerg-free",
+          "publisher": "Qoder CN 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-24"
+        },
+        {
+          "title": "HungerG: Try the Stealth Model Free for a Limited Time",
+          "url": "https://docs.qoder.com/events/hungerg-free",
+          "publisher": "Qoder Docs",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-24"
+        },
+        {
+          "title": "A new stealth model just landed exclusively on Qoder（HungerG 限免公告）",
+          "url": "https://x.com/qoder_ai_ide/status/2124899980632822148",
+          "publisher": "Qoder 官方 X @qoder_ai_ide",
+          "published": "2026-11-23",
+          "kind": "official",
+          "checked": "2026-11-24"
+        }
+      ],
+      "source_url": "https://docs.qoder.com/zh/events/hungerg-free",
+      "claim_howto": "登录 Qoder 国际版或 Qoder CN 个人账号，更新 Qoder / Qoder IDE 至最新版，在模型选择器选择 HungerG 即可，无需领取；活动至 11/30 24:00（UTC+8）。",
+      "stack": [
+        "Qoder",
+        "Qoder IDE",
+        "Qoder CN",
+        "HungerG"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "GitHub Copilot：付费计划使用 Fusion 时模型费用 7 折至 11/30",
+      "type": "限时促销",
+      "provider": "GitHub Copilot",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "GitHub 官方文档《个人基于使用情况的计费》（中英文页一致）注明：到 2026 年 11 月 30 日，付费 Copilot 计划用户在使用 Copilot Fusion 时，模型成本享 30% 折扣（即按模型费用 7 折计）。这不是订阅月费降价，而是 Fusion 路由/编排所调用模型的用量折扣；Fusion 仍可能对同一任务使用多个模型，复杂任务仍会消耗 AI credits（1 credit = $0.01）。文档另有一条未写截止日期的说明：付费计划在 Copilot Chat 或 Copilot cloud agent 中使用 auto model selection 时，模型成本可享 10% 折扣，属常驻说明，不是本条限时点。相对 11-23 及更早榜单均未收录该 Fusion 限时折扣。",
+      "value": "付费 Copilot 计划使用 Fusion 时模型费用 30% 折扣，至 2026-11-30 · 非订阅价减免",
+      "deadline": "2026-11-30",
+      "cost": "需已有或新购付费 Copilot 个人计划（文档列 Pro $10 / Pro+ $39 / Max $100 每月，含每月 AI credits）。折扣只作用于 Fusion 的模型成本，不降低套餐标价。不承诺能省下固定金额。",
+      "difficulty": 2,
+      "threshold": "付费 Copilot 计划（Pro / Pro+ / Max 等）。免费计划与仅学生计划不在该 30% 说明范围内。需在支持 Fusion 的产品中选用 Copilot Fusion。",
+      "time": "确认付费计划并在模型选择器切换到 Fusion 约 5–10 分钟",
+      "fit": "已经在付费使用 Copilot、愿意把部分对话交给 Fusion 自动选模型的人；也可把官方「只折模型费、不折月费、11/30 截止」的口径整理成原创对比素材（不是代开订阅或合租账号）。",
+      "why": "官方计费文档写明 Fusion 模型费 30% 折扣至 11/30，属于未在既往 ai-wool 榜出现过的可核验限时促销。",
+      "steps": [
+        "打开 https://docs.github.com/zh/copilot/concepts/billing-and-usage/individuals/billing 或英文页 https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing ，确认仍有「到 2026 年 11 月 30 日……使用 Copilot Fusion 时会收到 30% 模型成本折扣」的说明",
+        "在 GitHub 账户中确认自己处于付费 Copilot 个人计划（Pro / Pro+ / Max）；免费计划不在该 30% 说明范围内",
+        "在 Visual Studio Code、GitHub.com 或文档所列支持 Fusion 的产品中，于模型选择器选择 Copilot Fusion（可选 Standard / High / Max 等力度）",
+        "在用量看板查看 AI credits 消耗。Fusion 可能对复杂任务调用多个模型，折扣只减模型成本，不保证总消耗一定更低",
+        "日历标记 2026-11-30：官方写明折扣到该日为止，之后恢复常规模型价。不要合租或共享 Copilot 账号"
+      ],
+      "risk": "风险：折扣只覆盖使用 Copilot Fusion 时的模型成本，不降低订阅标价；Fusion 的 Cascade/Critique 模式可能多次调用模型，仍可能较快耗尽月度 AI credits；官方可调整规则。不承诺能省下固定比例的账单。禁止账号合租或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "GitHub 中英文官方计费文档均写明付费计划使用 Copilot Fusion 时模型费用 30% 折扣至 2026-11-30，既往榜单未收录。",
+      "tags": [
+        "GitHub",
+        "Copilot",
+        "Fusion",
+        "模型折扣",
+        "限时"
+      ],
+      "sources": [
+        {
+          "title": "个人基于使用情况的计费",
+          "url": "https://docs.github.com/zh/copilot/concepts/billing-and-usage/individuals/billing",
+          "publisher": "GitHub Docs",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-24"
+        },
+        {
+          "title": "Usage-based billing for individuals",
+          "url": "https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing",
+          "publisher": "GitHub Docs",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-24"
+        },
+        {
+          "title": "About GitHub Copilot Fusion",
+          "url": "https://docs.github.com/en/copilot/concepts/models/copilot-fusion",
+          "publisher": "GitHub Docs",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-24"
+        }
+      ],
+      "source_url": "https://docs.github.com/zh/copilot/concepts/billing-and-usage/individuals/billing",
+      "claim_howto": "确认处于付费 Copilot 计划后，在支持的产品里把模型选为 Copilot Fusion，至 11/30 模型费用自动按 30% 折扣计，无需单独领券。",
+      "stack": [
+        "GitHub Copilot",
+        "Copilot Fusion",
+        "VS Code"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "packet.ai Token Factory：DeepSeek V4.1 Flash / MiniMax M3.1 Flash 等 API 免费至 12/16（免绑卡）",
+      "type": "免费额度",
+      "provider": "packet.ai / Token Factory",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "packet.ai 官方活动页写明：Token Factory 对已上线的开源权重模型按输入/输出 $0 计费，直至 2026-12-16；新老账户均可，无需信用卡，但必须邮箱注册并完成一次手机短信验证。活动页列出当前免费模型为 DeepSeek-V4.1-Flash-NVFP4（131K）、MiniMax-M3.1-Flash（131K）、Qwen2.5-1.5B-Instruct（33K），Kimi K3 标注 Coming soon、不在现免范围内。文档给出调用 ID：nvidia-deepseek-v4-1-flash-nvfp4、minimaxai-minimax-m3-1-flash、qwen-qwen2-5-1-5b-instruct，base URL 为 api.packet.ai/v1（OpenAI 兼容）。文档控制台文案写 Free until 15 Dec 2026、from 16 Dec 2026 起按量（活动页预告约 $0.23/$0.85、$0.15/$0.60、$0.10/$0.10 每百万 tokens），请以控制台当天标价为准，建议按 12 月 16 日起不再免费来安排。相对既往 ai-wool 榜未收录。",
+      "value": "所列模型输入/输出 $0 至 2026-12-16 起按量 · 免绑卡 · 须短信验证 · 新老账户均可",
+      "deadline": "2026-12-16",
+      "cost": "0 美元（活动期内）；需能接收短信的手机号完成验证，无需信用卡。12 月 16 日起按官方公示的每百万 tokens 单价计费。不承诺一直零费率或模型保持上架。",
+      "difficulty": 2,
+      "threshold": "能访问 dash.packet.ai，完成邮箱（或 Google）注册与手机短信验证。这是第三方推理 API，不是 DeepSeek / MiniMax / 阿里云官方接口。",
+      "time": "注册、短信验证并创建 API Key 约 10–20 分钟",
+      "fit": "需要 OpenAI 兼容接口试用 DeepSeek V4.1 Flash 或 MiniMax M3.1 Flash、且能接收国际/国内短信验证的人；也可把官方「免绑卡、12/16 起按量、模型 ID」整理成原创素材（不是转售 Key 或代开账户）。",
+      "why": "官方活动页与文档写明至 12/16 所列模型 $0，免信用卡，既往榜单未收录这条可核验的第三方 API 限免。",
+      "steps": [
+        "打开 https://packet.ai/token-factory-free 与 https://dash.packet.ai/docs/token-factory-models ，确认免费期、模型名单与 12 月 16 日起的预告单价仍在",
+        "在 https://dash.packet.ai 用邮箱或 Google 注册（无需信用卡），按提示完成一次手机短信验证",
+        "在控制台创建 API Key，将 SDK 的 base_url 设为 https://api.packet.ai/v1 ，模型 ID 使用文档所列值（如 nvidia-deepseek-v4-1-flash-nvfp4、minimaxai-minimax-m3-1-flash），不要用网站展示名",
+        "先用小请求确认模型仍标注免费；文档写明模型可能上下架，调用 GET /models 核对本账户当前列表",
+        "日历标记 2026-12-16：活动页写 meter starts December 16，文档写 12/15 前免费、16 日起按量。不要转售 API Key 或把密钥借给他人"
+      ],
+      "risk": "风险：这是第三方推理服务，不是模型厂商官方 API，可用性、数据留存与地区限制以 packet.ai 条款为准；免费期按官方页在 12 月 16 日结束，文档与活动页对「15 日还是 16 日」的表述需以控制台为准；模型可能下架或限流。不承诺一直免费或稳定。禁止转售、共享 API Key。",
+      "risk_level": "中",
+      "reason": "packet.ai 官方活动页与 Token Factory 文档写明所列开源模型输入/输出 $0 至 2026-12-16 起按量，免绑卡但须短信验证，既往榜单未收录。",
+      "tags": [
+        "packet.ai",
+        "Token Factory",
+        "DeepSeek",
+        "MiniMax",
+        "免费API"
+      ],
+      "sources": [
+        {
+          "title": "Token Factory: free until December 16",
+          "url": "https://packet.ai/token-factory-free",
+          "publisher": "packet.ai",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-24"
+        },
+        {
+          "title": "Token Factory Models",
+          "url": "https://dash.packet.ai/docs/token-factory-models",
+          "publisher": "packet.ai Docs",
+          "published": "文档标明核验于 2026-11-13",
+          "kind": "official",
+          "checked": "2026-11-24"
+        }
+      ],
+      "source_url": "https://packet.ai/token-factory-free",
+      "claim_howto": "在 dash.packet.ai 注册并完成短信验证，创建 API Key，将 base_url 设为 api.packet.ai/v1 后按文档模型 ID 调用；无需绑卡，免费期至 12/16 起按量。",
+      "stack": [
+        "packet.ai Token Factory",
+        "OpenAI-compatible API",
+        "DeepSeek-V4.1-Flash",
+        "MiniMax-M3.1-Flash"
+      ]
+    }
+  ]
+}
