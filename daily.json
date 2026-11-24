@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-24T00:39:47.797Z",
-  "latestId": 111,
+  "generatedAt": "2026-11-24T04:31:51.771Z",
+  "latestId": 112,
   "latestDate": "2026-11-24",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 112,
+      "date": "2026-11-24",
+      "tag": "内容",
+      "title": "AI生活合集新增「售后工单整理员」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI当售后工单整理员——先打码拍面单建清单，再整理时间线和证据；申请、寄件、退款本人点，别让它代退；含跟做闭环、提示词两则、小红书与闲鱼跟做包角度",
+        "附 IT之家／潞源、每日经济新闻／李宇彤、第一财经／吕倩、界面新闻、网易转载蓝鲸新闻，以及 IT Yes, OK! 11-17/11-16/11-03 方法稿来源口径；小豆为邀请制公测钩子不是测评，商店页「购物售后」不是记者逐单实测；申请、寄件、退款须本人在官方页面操作，不代申请、不代寄件、不代投诉，不承诺一定退成；与已进站「退货寄件助理」、11-10 购物参谋、11-21 年终账单复盘区分。SW 缓存 68"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 111,
       "date": "2026-11-24",
@@ -116,18 +127,6 @@
         "附《日常AI》 / IT Yes, OK! / 贝果科技三个来源；AI不能判断食物是否变质，不代做菜，不承诺省钱或减少浪费；与10-31断舍离选题区分。SW 缓存 64"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 102,
-      "date": "2026-11-13",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-13",
-      "items": [
-        "No.1 SiteGround Affiliate：写主机/WordPress 教程，官方知识库按自然月销售档写明单笔约50至100美元（1–5笔约50美元，6–10笔约75美元，11–20笔约100美元，21笔以上可谈定制；约60天 Cookie，可周结；以条款为准）",
-        "No.2 Polar：上架原创数字下载/订阅，官方费率文档写明新组织 Starter 档无月费、成交约抽5%+50美分（国际卡另计约1.5%；另计 Stripe 打款费；以费率页为准）",
-        "No.3 Azure Static Web Apps：按官方快速入门部署英文静态工具小站，官方定价页写明 Free 档托管约0美元（每订阅约含100GB流量，超额可能停止服务且无 SLA），验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
