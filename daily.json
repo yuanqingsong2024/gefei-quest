@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-23T00:43:44.353Z",
-  "latestId": 110,
-  "latestDate": "2026-11-23",
+  "generatedAt": "2026-11-24T00:39:47.797Z",
+  "latestId": 111,
+  "latestDate": "2026-11-24",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 111,
+      "date": "2026-11-24",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-24",
+      "items": [
+        "No.1 FastComet Affiliate：写主机或云主机选型教程，官方联盟页按月销量列出一次性佣金，例如1–5单时共享主机约50美元/单、VPS约75美元/单、独立服务器约100美元/单，更高档位递增且同页写明最高约200美元/单（须审核；每月约15日经 PayPal 发放，以官方页与条款为准）",
+        "No.2 Memberful：在自有站点卖会员订阅、课程或数字下载，官方定价页写明可免费试用至正式收款，标准档上线后约49美元/月另加约4.9%交易费（企业档定制，以官方说明为准）",
+        "No.3 Fly.io：按官方定价页用 Free 档部署英文工具或指南小站；官方文档写明新账户先享约1美元试用额度且无须绑卡（约7天），绑卡后每月约5美元用量、约0美元月费，超出将转入按量计费且当月全部按标准价结算（最多约3台 Machines，以官方说明为准）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 110,
       "date": "2026-11-23",
@@ -116,41 +128,30 @@
         "No.3 Azure Static Web Apps：按官方快速入门部署英文静态工具小站，官方定价页写明 Free 档托管约0美元（每订阅约含100GB流量，超额可能停止服务且无 SLA），验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 101,
-      "date": "2026-11-12",
-      "tag": "内容",
-      "title": "AI生活合集新增「家庭健康档案参谋」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：让AI当家庭健康档案参谋——打码整理体检报告和用药清单，问题清单带去门诊；只做参谋，不当大夫；含归档打码闭环、提示词、小红书与闲鱼跟做包角度",
-        "附经济参考报（光明网转载）/ 北京日报（光明网转载）/ 什么值得买三个来源；以报告原文和医生判断为准，不代看报告、不卖药、不承诺替代面诊；与10-29生活后台、11-07家庭事务盯梢员区分。SW 缓存 63"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "ScalaHosting Affiliate：写主机或云 VPS 选型教程，官方联盟页按月销量列出一次性佣金，例如虚拟主机约50–100美元/单、VPS 约120–200美元/单（须审核；成交后约45天无退款才计佣，以官方页与协议为准）",
+        "name": "FastComet Affiliate：写主机或云主机选型教程，官方联盟页按月销量列出一次性佣金，例如1–5单时共享主机约50美元/单、VPS约75美元/单、独立服务器约100美元/单，更高档位递增且同页写明最高约200美元/单（须审核；每月约15日经 PayPal 发放，以官方页与条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.scalahosting.com/affiliate.html"
+        "source_url": "https://www.fastcomet.com/affiliate"
       },
       {
         "rank": 2,
-        "name": "itch.io：免费上架原创游戏、素材、工具或电子书等，官方 Creator FAQ 写明平台不向创作者收取使用费，由你自行决定把销售额的多大比例分给平台（open revenue sharing，以官方说明为准）",
+        "name": "Memberful：在自有站点卖会员订阅、课程或数字下载，官方定价页写明可免费试用至正式收款，标准档上线后约49美元/月另加约4.9%交易费（企业档定制，以官方说明为准）",
         "type": "数字产品/接单",
-        "source_url": "https://itch.io/docs/creators/faq"
+        "source_url": "https://memberful.com/pricing/"
       },
       {
         "rank": 3,
-        "name": "Railway：按官方入门部署英文工具或指南小站；官方文档写明 Free 档约0美元/月、每月约1美元用量且无须绑卡，空闲约5–10分钟后会休眠（自定义域名须升至 Hobby，约5美元/月）",
+        "name": "Fly.io：按官方定价页用 Free 档部署英文工具或指南小站；官方文档写明新账户先享约1美元试用额度且无须绑卡（约7天），绑卡后每月约5美元用量、约0美元月费，超出将转入按量计费且当月全部按标准价结算（最多约3台 Machines，以官方说明为准）",
         "type": "出海小站",
-        "source_url": "https://docs.railway.com/pricing/free-plan"
+        "source_url": "https://fly.io/pricing/"
       }
     ]
   }
