@@ -1,0 +1,211 @@
+{
+  "date": "2026-11-25",
+  "updated": "2026-11-25T09:55:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "auriti-labs-geo-optimizer-skill",
+      "rank": 1,
+      "name": "GEO Optimizer",
+      "category": "项目",
+      "summary": "开源的 AI 回答引擎（GEO/AEO）就绪度审计工具，是托管产品 GeoReady（geoready.dev）背后的同一套引擎。一条命令给网站打 0–100 分（衡量技术就绪，不是「会被引用」的承诺），覆盖爬虫放行、结构化数据、内容与发现信号等 9 个评分项，并检查 27 种 AI 爬虫。可作 CLI、Python 库、MCP 或 GitHub Action；也有无需账号的网页版。geo fix 默认只预览补丁（robots.txt、llms.txt、JSON-LD 等），加 --apply 才写入。MIT。仓库最新正式版 v4.28.0（2026-11-24 发布）。",
+      "why": "对 autograph-ai（Vue3+Vite+FastAPI SEO/GEO 内容 SaaS）最有用：近期已推过构建期产物（aeo.js、agentmarkup）、发布后审计（squirrelscan）、智能体实拿内容与 Markdown 双胞胎（OpenGSO），以及用站点自己的 GSC/GA4 催收录（SEOMonster）。缺的是「对已发布 URL 做无密钥的技术就绪度评分，并在 CI 里当门禁」。可执行：1）用 uvx --from geo-optimizer-skill geo audit --url … 或 geoready.dev 网页版扫一篇已发布文章，重点看 JS Rendering（纯 CSR 的 Vue 壳会被打低分）以及 llms.txt/JSON-LD；2）按 README 把 Auriti-Labs/geo-optimizer-skill@v4.28.0 接进 GitHub Action，设 min-score，分数掉下去就失败，报告可出 SARIF；3）需要补文件时先跑 geo fix 看预览，再决定哪些规则收进自己的 Vite 构建，不要直接 --apply 覆盖仓库。官方框架集成目前是 Astro，不要指望现成的 Vue 插件。geo citations 才会去问回答引擎，需要自备密钥且另计费，和免费审计不是一回事；也不要和 OpenGSO 的双胞胎、Limelit 的引用追踪重复建设。",
+      "url": "https://github.com/Auriti-Labs/geo-optimizer-skill",
+      "repo": "Auriti-Labs/geo-optimizer-skill",
+      "stars": 1384,
+      "tags": [
+        "GEO",
+        "AEO",
+        "AI-SEO",
+        "CI",
+        "MCP",
+        "llms.txt",
+        "autograph-ai"
+      ],
+      "steps": [
+        "先在 https://geoready.dev/ 粘一篇已发布的 autograph 文章 URL，或本地执行 uvx --from geo-optimizer-skill geo audit --url <文章URL>（无需账号和 API 密钥）",
+        "对照 JS Rendering、robots/AI 爬虫、llms.txt 与 JSON-LD 的分项，记下要补的项",
+        "确认预渲染或 SSR 策略后，再按 README 把 GitHub Action 钉到 v4.28.0（或以当时最新 release 为准），为预发/生产 URL 设 min-score；不要一上来跑 geo citations 或开通 GeoReady 付费监控"
+      ],
+      "risk": "分数衡量的是技术就绪，不保证 ChatGPT、Perplexity 或 Google AI Overviews 会引用你。对 Vue 纯 CSR 页面，JS Rendering 检查会暴露空壳问题，不能替代预渲染或 SSR。geo fix --apply 的分数提升是工具自评，写入前必须自己 diff。geo citations 与托管监控（GeoReady 账号，与本开源包分开）会涉及外部 API 或账号，可能产生费用。官方框架集成是 Astro，autograph 应继续走 CLI、Action 或 MCP。文档与 Action 版本还在迭代，以仓库 release 为准。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Auriti-Labs/geo-optimizer-skill/blob/main/README.md"
+        },
+        {
+          "title": "免费网页审计 GeoReady",
+          "url": "https://geoready.dev/"
+        },
+        {
+          "title": "PyPI: geo-optimizer-skill",
+          "url": "https://pypi.org/project/geo-optimizer-skill/"
+        },
+        {
+          "title": "Release v4.28.0",
+          "url": "https://github.com/Auriti-Labs/geo-optimizer-skill/releases/tag/v4.28.0"
+        },
+        {
+          "title": "MCP Server 文档",
+          "url": "https://github.com/Auriti-Labs/geo-optimizer-skill/blob/main/docs/mcp-server.md"
+        }
+      ]
+    },
+    {
+      "id": "arcreel-arcreel",
+      "rank": 2,
+      "name": "ArcReel",
+      "category": "项目",
+      "summary": "开源、可自托管的 AI 视频工作台：把小说、成品剧本或商品素材，变成角色一致、过程可控、费用可追踪、还能继续编辑的短视频。工作流覆盖分集规划、脚本确认、角色/场景/道具资产、分镜图生视频或参考生视频、可选 TTS 配音、剪辑时间线，以及渲染成片或导出剪映国内版草稿（CapCut 兼容性尚未验证）。默认走远程模型 API，通常不必本机 GPU。Docker Compose 即可试用，默认 SQLite 适合试跑，生产建议 PostgreSQL。文档建议内存从 2 GB 起步。当前最新正式版 v0.37.0。AGPL-3.0，附加条款见 NOTICE。",
+      "why": "对 soloforge-storyfactory 最有用：近期推荐多为剧本机检、拆解方法、画布对照和 3D 预演，缺的是「跨镜头资产锁定 → 分镜/参考生视频 → 费用账本 → 剪映草稿」这一段出片管线，只能对照架构，不能并入产品。可执行：1）按文档在 deploy 目录复制 .env 后 docker compose up -d，打开 http://localhost:1241，先看只读演示项目（不必先消耗模型额度），对照分集、资产库、脚本确认与剪辑时间线字段；2）把「角色/场景/道具先锁定再批量出镜」「提交前费用预估、结束后在使用记录核对」映射到 StoryFactory 的角色锁和成本面板；3）若只试一条短剧本，再配置 Agent（需 Anthropic Messages 兼容接口）和媒体供应商密钥，导出剪映国内版草稿看字段。不要整仓并进商业产品。",
+      "url": "https://github.com/ArcReel/ArcReel",
+      "repo": "ArcReel/ArcReel",
+      "stars": 6745,
+      "tags": [
+        "短剧",
+        "分镜",
+        "角色一致性",
+        "剪映",
+        "费用追踪",
+        "AGPL",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "按官方入门在仓库 deploy 目录复制 .env.example 为 .env，用 Docker Compose 启动后打开 http://localhost:1241，先浏览只读演示项目，对照分集、资产库和剪辑/导出字段，先不要生成视频或配置付费模型"
+      ],
+      "risk": "AGPL-3.0 另附 NOTICE：修改后仍提供用户界面的版本，必须在关于页、法律声明或页脚保留「Powered by ArcReel」及指向原仓库的可见链接；名称与标识不在授权范围内。不能把本项目作为主要功能并入商业产品、白标或再分发来规避开源义务，商业部署需另洽 support@arc-reel.com。文本、图片、视频和配音调用都可能产生费用，先看费用预估，最终以供应商账单为准。默认 Compose 把 1241 端口暴露在主机所有网卡，远程访问前要配好认证，并经 HTTPS 反代或 VPN。文档写明实例面向相互信任的使用者。剪映导出针对国内版，CapCut 兼容性尚未验证。自托管和模型编排成本高，只适合对照，不适合当「10 分钟接入」。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/ArcReel/ArcReel/blob/main/README.md"
+        },
+        {
+          "title": "入门教程",
+          "url": "https://docs.arc-reel.com/guide/getting-started"
+        },
+        {
+          "title": "NOTICE（AGPL 附加条款）",
+          "url": "https://github.com/ArcReel/ArcReel/blob/main/NOTICE"
+        },
+        {
+          "title": "Release v0.37.0",
+          "url": "https://github.com/ArcReel/ArcReel/releases/tag/v0.37.0"
+        }
+      ]
+    },
+    {
+      "id": "edonadei-caliper",
+      "rank": 3,
+      "name": "Caliper",
+      "category": "项目",
+      "summary": "给真实 Agent 技能做评测的开源工具：同一套任务在「装了技能」和「去掉技能」（--ablate）两种条件下各跑 k 次，看成功率、技能是否被激活、会不会抢邻居技能的提示，以及 token 与耗时。评测规格是技能旁的 .eval.yaml，不写死引擎；运行时再选 Claude Code、Codex、Pi、Hermes、Antigravity 或 OpenCode。主指标是单次成功率，不是容易夸大的 pass@k。expect 由 LLM 裁判，assert 在本地用 Python 检查产物，activates 检查技能是否被选中。MIT。PyPI 包名为 caliper-eval，当前最新正式版 v0.24.0。",
+      "why": "对 clawkit 与凌霄（Hermes，亦可对照 Pi）最有用：昨天刚推了本机 token 用量看板 Token Monitor，缺的是「这门技能到底有没有用、值不值这些 token」。可执行：1）pipx install caliper-eval，为凌霄里一条关键 SKILL.md 写最小 .eval.yaml（用 assert 检查文件结果，用 activates 检查是否被加载）；2）显式加 --model hermes，先 --k 1 打通，再对同一规格跑 --ablate <技能名>，用 caliper compare 对比；3）同一份规格也可加跑 --model pi，看这门技能在 Hermes 和 Pi 上是否同样值得留。注意评测时 Caliper 会把 Hermes 收成「中性剂」：隔离的 HERMES_HOME 只带认证配置，不带 SOUL.md / MEMORY.md，并加上 --ignore-rules 和 --yolo，分数不能直接当成日常带人设的凌霄表现。",
+      "url": "https://github.com/edonadei/caliper",
+      "repo": "edonadei/caliper",
+      "stars": 239,
+      "tags": [
+        "技能评测",
+        "Hermes",
+        "Pi",
+        "ablate",
+        "token",
+        "clawkit"
+      ],
+      "steps": [
+        "pipx install caliper-eval 后，为凌霄里一条现有 SKILL.md 写最小 .eval.yaml，用 --model hermes --k 1 先跑一遍，再加 --ablate <技能名> 做对照，用 caliper compare 看成功率和 token 是否真有差"
+      ],
+      "risk": "每次尝试都要调用真实 Agent，加上 expect 的 LLM 裁判会明显消耗额度；先 k=1，能用 assert 就不要全靠裁判。默认引擎是 claude-code，测凌霄必须显式 --model hermes，并先用 hermes model 配好有余额的供应商。Hermes 后端不支持规格里的 history（中途接话）。评测会加 --yolo 自动批准工具，规格和 fixtures 不要指向真实密钥、生产数据或不可逆操作。用户自定义 MCP/技能默认会进入环境，若要可移植分数需 --no-user-customizations。美元花费不追踪，只记录 token 与耗时。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/edonadei/caliper/blob/main/README.md"
+        },
+        {
+          "title": "backends.md（含 Hermes）",
+          "url": "https://github.com/edonadei/caliper/blob/main/docs/backends.md"
+        },
+        {
+          "title": "PyPI: caliper-eval",
+          "url": "https://pypi.org/project/caliper-eval/"
+        },
+        {
+          "title": "Release v0.24.0",
+          "url": "https://github.com/edonadei/caliper/releases/tag/v0.24.0"
+        }
+      ]
+    },
+    {
+      "id": "oliexdev-opencook",
+      "rank": 4,
+      "name": "openCook",
+      "category": "生活",
+      "summary": "开源 Android 菜谱与一周菜单应用：可完全离线、不用账号、无广告无追踪。菜谱、周计划和购物清单在手机上就能用完；可选的家庭同步走同一 Wi-Fi 下的手机互相同步（邀请码即可）。购物清单会考虑已有库存，并略过盐、油等日常调料。也可用浏览器「分享到 openCook」导入网页菜谱，不必开服务器。拍菜谱书识别不是装完即用：需要在家里另跑可选服务（默认本机 Ollama + qwen2.5vl:7b），AI 只在你自己的机器上运行。营养信息只保留书上印了的，不会编造。界面有英语、德语和法语，未见完整中文。GPL-3.0。可从 F-Droid 或 GitHub Releases 安装。",
+      "why": "对齐饮食/厨房清库存：先把家里常做的菜收进手机，排出一周，出门前带一份会避开已有库存的购物清单。可执行：1）先用手输或浏览器分享导入 2–3 道常做菜，排出一周菜单，去超市前生成清单；2）大份量的菜可排成「剩菜日」，减少重复采购和浪费。拍书识别留到家里有电脑并能跑 Ollama 再说，不是第一步。本工具只帮整理菜谱和采购，不做营养诊断或减肥建议。",
+      "url": "https://github.com/oliexdev/openCook",
+      "repo": "oliexdev/openCook",
+      "stars": 71,
+      "tags": [
+        "饮食",
+        "菜谱",
+        "一周菜单",
+        "购物清单",
+        "清库存",
+        "Android"
+      ],
+      "steps": [
+        "从 F-Droid（com.food.opencook）或 GitHub Releases 安装稳定版（不要先装 dev-build），用手输或浏览器「分享到 openCook」导入 2–3 道常做菜，排出本周菜单并生成购物清单；先不要自建 Ollama 或把可选服务暴露到公网"
+      ],
+      "risk": "仅 Android。拍书识别要自建家用服务，默认几乎无鉴权，文档写明不要暴露到公网。界面无完整中文，中文菜谱的识别和展示可能较差。开发版可能有缺陷且不会自动更新。可选服务器是进阶能力，不是「10 分钟必做」。不做营养诊疗或减肥建议。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/oliexdev/openCook/blob/main/README.md"
+        },
+        {
+          "title": "F-Droid: openCook",
+          "url": "https://f-droid.org/packages/com.food.opencook/"
+        },
+        {
+          "title": "GitHub Releases",
+          "url": "https://github.com/oliexdev/openCook/releases"
+        }
+      ]
+    },
+    {
+      "id": "donetick-donetick",
+      "rank": 5,
+      "name": "Donetick",
+      "category": "生活",
+      "summary": "面向家庭和室友的开源家务/任务应用：可协同建组、按自然语言添加重复家务（文档例句为英文，例如 “Take the trash out every Monday and Tuesday at 6:15 pm”），并按轮值、完成最少或随机等方式指定下一次负责人。支持到期前后提醒、子任务、积分与完成记录。官网建议先用官方移动应用，也提供 Web；Android 可在 GitHub Releases 取 APK，iOS 仍是 TestFlight 预览。自托管（Docker）和 Home Assistant 是进阶选项，不是上手第一步。当前发布 v0.1.89。AGPL-3.0。",
+      "why": "对齐家务/家庭琐事：把「谁该倒垃圾、该换滤芯了」写成可见的轮值，而不是靠口头提醒。可执行：1）用官方应用或 Web 建一个家庭组，录入 3 件重复家务（倒垃圾、换滤芯、清洁水槽等），选轮值或「完成最少者优先」；2）打开到期提醒，用完成记录看这一周谁做了什么，让付出可见。先不要为了积分墙或看板去付费，也不要一上来自建 Docker。",
+      "url": "https://github.com/donetick/donetick",
+      "repo": "donetick/donetick",
+      "stars": 2779,
+      "tags": [
+        "家务",
+        "轮值",
+        "家庭任务",
+        "提醒",
+        "AGPL"
+      ],
+      "steps": [
+        "打开 https://donetick.com ，按官网「先用官方移动应用或 Web」开始，建一个家庭组并录入 3 件重复家务、设定轮值和提醒；不要先部署 Docker 或接入 Home Assistant"
+      ],
+      "risk": "走官方应用或 Web 通常需要账号，数据在对方服务器。文档和官网以英文为主，自然语言抽取对中文指令可能不好。iOS 仍是 TestFlight 预览；离线能力目前很有限。自托管和 Home Assistant 属于进阶，今天不要当成必做。AGPL-3.0：可以自用和跟做教程，不能闭源改头换面出售。官方应用可能有 Plus 等增值项，先用免费的清单和提醒即可。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/donetick/donetick/blob/develop/README.md"
+        },
+        {
+          "title": "官网",
+          "url": "https://donetick.com"
+        },
+        {
+          "title": "Release v0.1.89",
+          "url": "https://github.com/donetick/donetick/releases/tag/v0.1.89"
+        }
+      ]
+    }
+  ]
+}
