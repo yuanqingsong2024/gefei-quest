@@ -278,6 +278,26 @@
             <a href="../aeo-checklist/#files">AEO checklist</a>.
           </li>
         </ul>
+        <h3 id="cited-vs-recommended">Cited is not the same as recommended</h3>
+        <p>
+          An answer can use your information without naming the brand or linking
+          a page. That is being cited. Being recommended means the answer names
+          the brand and links to a page a person can open. An accurate citation
+          can also be the reason the answer decides you do not fit and points
+          somewhere else.
+        </p>
+        <p>
+          Tutorial and fact pages are the ones to make easy to cite: say the
+          thing clearly, use a table when the comparison is real, and skip an
+          empty call to action. Tool and inquiry pages are the ones to make
+          easy to recommend: the link should open a page someone can use, or a
+          page where they can ask for a price. That follows the split above —
+          guides for classic search, an operable tool page when you want an
+          assistant to send a person somewhere they can act. Being cited is not
+          a visit. On the monthly spot check in Measurement below, read whether
+          the description of you is accurate. Do not turn that note into a
+          separate score.
+        </p>
       </section>
 
       <section class="card" id="checklist" aria-labelledby="checklist-h">
@@ -344,7 +364,19 @@
               <span class="why">Why: citable pages usually look like something a careful editor would trust.</span>
             </span>
           </label>
+          <label>
+            <input type="checkbox" data-key="answer-verifiable" />
+            <span>
+              Write key claims as HTML sentences that can be read on their own, and back them with a table or with numbers and sources a reader can check.
+              <span class="why">Why: a new claim with nothing behind it is one a careful model will not use. A table supports the claim. It does not mean you will be quoted. Points that live only in an image, a video, or client-side script are easy to miss — keep a fragment in the HTML that stands alone.</span>
+            </span>
+          </label>
         </div>
+        <p id="cross-source">
+          State the fact clearly on your own site, and make the same sentence
+          findable in a third-party review, document, or article a reader can
+          open and check. Do not buy articles, ranking slots, or reviews.
+        </p>
 
         <h3 id="intent">Match intent to page type</h3>
         <div class="checklist" data-group="intent">
@@ -377,6 +409,13 @@
             </span>
           </label>
         </div>
+        <p id="intent-situations">
+          People often ask in a full situation — a constraint, a budget, and
+          how they will use the thing. Do not cover a category with one page of
+          broad head terms. Give each high-value situation its own page or an
+          FAQ. That is a writing habit, not a new score, and not a promise the
+          page will be recommended.
+        </p>
 
         <h3 id="tool-pages">Tool / generator pages for answer engines</h3>
         <div class="checklist" data-group="tool-pages">
@@ -416,6 +455,13 @@
             </span>
           </label>
           <label>
+            <input type="checkbox" data-key="tool-self-consistent" />
+            <span>
+              Title, H1, first paragraph, and the pricing block do not contradict each other. If the title or a badge says Free, but the product needs credits, a login, or payment, the page can look suspicious and be left out of a recommendation.
+              <span class="why">Why: the price line above stays the one readers and markup repeat. A contradiction is a reason to skip the page. Support the claim with a table or a source a reader can check. That support is not a promise you will be quoted.</span>
+            </span>
+          </label>
+          <label>
             <input type="checkbox" data-key="tool-launch" />
             <span>
               On launch day, add the URL to the sitemap, add an llms.txt line, and add an internal link from the home page or the tools index.
@@ -445,6 +491,13 @@
             <span>
               Cite primary sources and show last-updated dates on evergreen guides.
               <span class="why">Why: generative answers prefer pages that look current and attributable.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="struct-year-table" />
+            <span>
+              On a list or comparison page, put the year in the title and update it on a schedule. Open with the key points. Put the comparison in a table or a numbered list.
+              <span class="why">Why: the shape is easier to extract. It is not a ranking trick, and a year in the title does not put the page into an AI answer.</span>
             </span>
           </label>
         </div>
@@ -484,6 +537,56 @@
               ·
               <code>Would you recommend [your domain]? What would it need to improve?</code>
               <span class="why">Why: a saved reply shows whether the description of you is accurate. Use these prompts on the monthly spot check above.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="meas-launch-prompt" />
+            <span>
+              On launch day, optional: open a new chat, turn search on, and prefer no memory or a private window. Ask:
+              <code>This is my site: [URL]. Would you recommend it? What would a user ask, and in what situation, for you to recommend it? Why would you recommend it, or why not?</code>
+              Treat the reply only as how it describes you right now. It is not proof of inclusion, and it is not an official grade. A crawler hit is still not a visit. Sending the URL does not bring traffic.
+              <span class="why">Why: use this with the monthly spot check and the saved prompts above. It is an observation of the description, nothing more.</span>
+            </span>
+          </label>
+        </div>
+
+        <h3 id="measure-layers">Four observations — do not stop at mentions</h3>
+        <p>
+          Tick these as observations, not as a promise that a click will follow.
+          A mention rate is only volume, not a sale. A crawler that read the
+          page is not a person who clicked through. An llms.txt fetch is not a
+          visit either; that line stays on the
+          <a href="../aeo-checklist/#checklist">AEO checklist</a>.
+          The third observation uses the separate AI-referral bucket already in
+          the Measurement list above. Do not invent a new total.
+        </p>
+        <div class="checklist" data-group="measure-layers">
+          <label>
+            <input type="checkbox" data-key="meas-layer-crawl" />
+            <span>
+              Search crawlers have requested the key URLs — for example OAI-SearchBot.
+              <span class="why">Why: a fetch in the log shows the crawler came. It does not show a person arrived.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="meas-layer-read" />
+            <span>
+              When a person asks a question, a user-time fetch crawler reads the page in the moment — for example ChatGPT-User.
+              <span class="why">Why: a read during the question is still not a click onto your site.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="meas-layer-referral" />
+            <span>
+              Analytics shows an AI referral such as chatgpt.com, kept apart from Direct and from crawler hits, in the separate bucket the Measurement list above already uses.
+              <span class="why">Why: this only asks whether that bucket has a referral. It does not promise the click, and it does not replace the split already written above.</span>
+            </span>
+          </label>
+          <label>
+            <input type="checkbox" data-key="meas-layer-source" />
+            <span>
+              Signups and inquiries record the first source.
+              <span class="why">Why: this ties a signup or an inquiry to a source you stored. It is an observation, not a forecast, and not a mention tally.</span>
             </span>
           </label>
         </div>
