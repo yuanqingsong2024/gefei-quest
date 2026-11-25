@@ -1088,6 +1088,15 @@
       url: './starters/aeo-checklist/',
     },
     {
+      id: 'ch-geo-seo-column',
+      cat: 'hosting',
+      name: 'AEO / GEO / SEO 专栏',
+      blurb: '原则要点与每周两次公开资讯；每条附来源。',
+      how: '打开学习 → AEO / GEO / SEO，或直接进入 #geo-seo。',
+      caveat: '不承诺流量、排名或引用。清单正文仍在两份练站页。',
+      url: '#geo-seo',
+    },
+    {
       id: 'ch-ai-image-enhancer-starter',
       cat: 'hosting',
       name: 'AI Image Enhancer 英文对比练站页',
@@ -1515,6 +1524,10 @@
     {
       title: 'AEO Checklist / AEO Tools Starter',
       url: './starters/aeo-checklist/',
+    },
+    {
+      title: 'AEO / GEO / SEO 专栏',
+      url: '#geo-seo',
     },
     {
       title: 'AI Image Enhancer Starter',

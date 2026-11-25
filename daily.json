@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-25T00:50:22.975Z",
-  "latestId": 113,
+  "generatedAt": "2026-11-25T05:20:19.430Z",
+  "latestId": 114,
   "latestDate": "2026-11-25",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 114,
+      "date": "2026-11-25",
+      "tag": "学习",
+      "title": "AEO / GEO / SEO 专栏上线",
+      "items": [
+        "学习下新增子页：原则要点、两份练站清单内链，以及每周二、周六各一则附来源的公开资讯。",
+        "首刊两条来自 Google Search Central（生成式 AI 优化指南、SEO Starter Guide），核对时间 2026-11-25。不承诺流量、排名或引用。SW 缓存 69"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#geo-seo"
+    },
     {
       "id": 113,
       "date": "2026-11-25",
@@ -116,18 +127,6 @@
         "附人人都是产品经理／读佳、网经社、i黑马（网易）三个来源；功能可能按版本或地区逐步开放；营业和价格到店前需本人核对；支付本人确认，不替用户下单预约，不保证支持或找店准确；与11-03元宝办事台、11-10购物参谋、11-14冰箱清库存、11-05出游攻略区分。SW 缓存 65"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 104,
-      "date": "2026-11-17",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-17",
-      "items": [
-        "No.1 DreamHost Affiliate：写主机/建站教程，官方联盟页按产品与签约年限列出佣金，例如 Web Hosting Launch 年付约50美元、2年约100美元，DreamPress 20 的3年档写明约1,000美元（无最低打款门槛，约97天冻结后按月银行转账；以官方表与条款为准）",
-        "No.2 SendOwl：自建数字下载店，官方定价页写明平台不抽成、Launch 月付约39美元/月（年付展示约32.50美元/月；按近12个月订单和销售额分档，超额会升档；另计 Stripe/PayPal 处理费）",
-        "No.3 AWS Amplify Hosting：按官方入门部署英文静态工具小站；官方定价页写明 Free Tier 下构建约1000分钟/月、CDN 存储约5GB、出站流量约15GB 无额外费用，超出后标准构建约0.01美元/分钟、出站约0.15美元/GB（2025-07-15 起新客户另有最多约200美元积分等说明，以定价页为准），验证流量后再接 AdSense 或联盟"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {

@@ -15,7 +15,7 @@
     { id: 'home', label: '首页', short: '首页', icon: 'home', hash: '#home', owns: ['home', 'home-*'],
       desc: '从挖词到多站的完整练习路线。' },
     { id: 'learn', label: '学习', short: '学习', icon: 'book-open', hash: '#path', tint: 'learn',
-      desc: '学习路线、任务清单、手册与模板、资源库。',
+      desc: '学习路线、任务清单、手册与模板、AEO / GEO / SEO、资源库。',
       children: [
         { id: 'path', label: '学习路线', icon: 'map', hash: '#path', owns: ['path'],
           desc: '按章节看关卡地图，知道自己在哪一章。' },
@@ -23,6 +23,8 @@
           desc: '勾选当前章节里已经做完的任务。' },
         { id: 'guides', label: '手册与模板', icon: 'file-text', hash: '#guides', owns: ['guides', 'guide-*'],
           desc: '作战手册、单页模板和渠道笔记。' },
+        { id: 'geo-seo', label: 'AEO / GEO / SEO', icon: 'search', hash: '#geo-seo', owns: ['geo-seo'],
+          desc: 'AEO / GEO / SEO 原则要点与每周两次公开资讯；每条附来源，不承诺流量或收益。' },
         { id: 'lib', label: '资源库', icon: 'archive', hash: '#lib', owns: ['lib', 'lib-*'],
           desc: '免费工具、托管、渠道和同路人方法。' },
       ] },
@@ -166,6 +168,7 @@
     xianyu: 'lib-xianyu', tips: 'lib-tips', peers: 'lib-peers', 'lib-docs': 'guides', 'lib-all': 'lib', rank: 'war-rank', ai: 'me-ai', 'ai-settings': 'me-ai', stats: 'me-stats', 'me-changelog': 'changelog', updates: 'changelog', platforms: 'pm', accounts: 'me-accounts', 'account-center': 'me-accounts', publish: 'war-publish', share: 'war-share', dashboard: 'work', 'war-work': 'work', review: 'work-review', 'weekly-review': 'work-review', 'me-review': 'work-review', fupan: 'work-review', distribute: 'war-share', 'war-distribute': 'war-share', deploy: 'war-publish', analytics: 'me-analytics', import: 'me-analytics', 'data-import': 'me-analytics', workbench: 'me-accounts', monetize: 'pm', 'pm-all': 'pm', cn: 'pm-cn', intl: 'pm-global', overseas: 'pm-global', 'cn-short-drama': 'pm-cn-drama', 'guide-start': 'start', onboarding: 'start', newbie: 'start',
     'home-progress': 'me', 'home-sections': 'start', 'home-tools': 'war', 'home-steps': 'start', 'home-res': 'pm', 'home-guides': 'guides',
     learn: 'path', do: 'war', practice: 'war', earn: 'war-rank', money: 'war-rank', 'agent-money': 'war-rank-agent', 'war-agent': 'war-rank-agent', 'ai-wool': 'war-rank-ai-wool', 'war-ai-wool': 'war-rank-ai-wool', 'wool': 'war-rank-ai-wool', opc: 'war-rank-opc', 'github-finds': 'war-tools', 'tool-find': 'war-tools', 'tools-find': 'war-tools', 'war-rank-tools': 'war-tools', res: 'lib',
+    aeo: 'geo-seo', seo: 'geo-seo', geo: 'geo-seo', 'aeo-geo': 'geo-seo', 'geo-aeo': 'geo-seo', 'aeo-geo-seo': 'geo-seo',
   };
   function isDevId(id) { return DEV_DOCS.some(function (d) { return d.id === id; }); }
   function guideById(id) { return GUIDES.filter(function (g) { return g.id === id; })[0]; }
@@ -283,6 +286,7 @@
     if (h === 'lib') return { section: 'lib', view: 'lib', param: 'all', hash: h };
     if (h.indexOf('lib-') === 0) return { section: 'lib', view: 'lib', param: h.slice(4), hash: h };
     if (h === 'guides') return { section: 'guides', view: 'guides', hash: h };
+    if (h === 'geo-seo') return { section: 'geo-seo', view: 'geo-seo', hash: h };
     if (h.indexOf('guide-') === 0) return { section: 'guides', view: 'doc', param: h.slice(6), hash: h };
     if (h === 'dev') return { section: 'dev', view: 'dev', hash: h };
     if (h.indexOf('dev-') === 0) return { section: 'dev', view: 'doc', param: h.slice(4), hash: h };
