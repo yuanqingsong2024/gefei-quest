@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-24T04:31:51.771Z",
-  "latestId": 112,
-  "latestDate": "2026-11-24",
+  "generatedAt": "2026-11-25T00:50:22.975Z",
+  "latestId": 113,
+  "latestDate": "2026-11-25",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 113,
+      "date": "2026-11-25",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-25",
+      "items": [
+        "No.1 Kinsta Affiliate：写 WordPress 托管或迁移教程，官方联盟页写明推荐合资格 Managed Hosting for WordPress 新客可拿一次性约50至500美元奖金，外加约10%按月终身分成（须审核；托管推荐有约2个月合格期，打款走 PayPal 或账户余额，以官方页、文档与条款为准）",
+        "No.2 Podia：上架课程、社群或数字下载，官方定价页写明可免费试用约14天且无须先绑卡；年付展示 Mover 约42美元/月（年付约504美元）另加约5%平台交易费，Shaker 年付展示约84美元/月、Earthquaker 约150美元/月，官方帮助中心写明后两档不再收 Podia 交易费（另计 Stripe 或 PayPal 处理费，月付标价以定价页为准）",
+        "No.3 Render：按官方定价页用 Hobby 档部署英文工具或指南小站；官方写明 Hobby 档约0美元/月另计计算资源，含约5GB流量并可绑定自定义域名，计算资源提供约0美元/月的 Free 档（约512MB内存，以官方定价页为准）"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 112,
       "date": "2026-11-24",
@@ -116,41 +128,30 @@
         "No.3 AWS Amplify Hosting：按官方入门部署英文静态工具小站；官方定价页写明 Free Tier 下构建约1000分钟/月、CDN 存储约5GB、出站流量约15GB 无额外费用，超出后标准构建约0.01美元/分钟、出站约0.15美元/GB（2025-07-15 起新客户另有最多约200美元积分等说明，以定价页为准），验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 103,
-      "date": "2026-11-14",
-      "tag": "内容",
-      "title": "AI生活合集新增「冰箱清库存参谋」场景文选题",
-      "items": [
-        "「AI生活起号选题方案」合集置顶新增：让AI当冰箱清库存参谋——先拍照核对、再套约束，剩菜排成今晚或三天菜单；变质的直接扔，别让它当质检员；含跟做闭环、提示词两则、小红书与闲鱼跟做包角度",
-        "附《日常AI》 / IT Yes, OK! / 贝果科技三个来源；AI不能判断食物是否变质，不代做菜，不承诺省钱或减少浪费；与10-31断舍离选题区分。SW 缓存 64"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
     }
   ],
   "rank": {
-    "date": "2026-11-24",
+    "date": "2026-11-25",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "FastComet Affiliate：写主机或云主机选型教程，官方联盟页按月销量列出一次性佣金，例如1–5单时共享主机约50美元/单、VPS约75美元/单、独立服务器约100美元/单，更高档位递增且同页写明最高约200美元/单（须审核；每月约15日经 PayPal 发放，以官方页与条款为准）",
+        "name": "Kinsta Affiliate：写 WordPress 托管或迁移教程，官方联盟页写明推荐合资格 Managed Hosting for WordPress 新客可拿一次性约50至500美元奖金，外加约10%按月终身分成（须审核；托管推荐有约2个月合格期，打款走 PayPal 或账户余额，以官方页、文档与条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.fastcomet.com/affiliate"
+        "source_url": "https://kinsta.com/affiliates/"
       },
       {
         "rank": 2,
-        "name": "Memberful：在自有站点卖会员订阅、课程或数字下载，官方定价页写明可免费试用至正式收款，标准档上线后约49美元/月另加约4.9%交易费（企业档定制，以官方说明为准）",
+        "name": "Podia：上架课程、社群或数字下载，官方定价页写明可免费试用约14天且无须先绑卡；年付展示 Mover 约42美元/月（年付约504美元）另加约5%平台交易费，Shaker 年付展示约84美元/月、Earthquaker 约150美元/月，官方帮助中心写明后两档不再收 Podia 交易费（另计 Stripe 或 PayPal 处理费，月付标价以定价页为准）",
         "type": "数字产品/接单",
-        "source_url": "https://memberful.com/pricing/"
+        "source_url": "https://www.podia.com/pricing"
       },
       {
         "rank": 3,
-        "name": "Fly.io：按官方定价页用 Free 档部署英文工具或指南小站；官方文档写明新账户先享约1美元试用额度且无须绑卡（约7天），绑卡后每月约5美元用量、约0美元月费，超出将转入按量计费且当月全部按标准价结算（最多约3台 Machines，以官方说明为准）",
+        "name": "Render：按官方定价页用 Hobby 档部署英文工具或指南小站；官方写明 Hobby 档约0美元/月另计计算资源，含约5GB流量并可绑定自定义域名，计算资源提供约0美元/月的 Free 档（约512MB内存，以官方定价页为准）",
         "type": "出海小站",
-        "source_url": "https://fly.io/pricing/"
+        "source_url": "https://render.com/pricing"
       }
     ]
   }
