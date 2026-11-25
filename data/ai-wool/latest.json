@@ -1,208 +1,216 @@
 {
-  "date": "2026-11-24",
-  "updated": "2026-11-24T09:46:33+08:00",
+  "date": "2026-11-25",
+  "updated": "2026-11-25T09:50:58+08:00",
   "items": [
     {
       "rank": 1,
-      "name": "Qoder / Qoder CN：匿名模型 HungerG 限时免费至 11/30 24:00（不耗 Credits、不限次数）",
-      "type": "免费额度",
-      "provider": "Qoder / Qoder CN（阿里云）",
-      "region": "全球",
+      "name": "智谱 GLM Coding Plan：GLM-5.3-Flash 限时按原抵扣系数 50% 结算（11/24–12/24），可用额度约 2 倍",
+      "type": "限时促销",
+      "provider": "智谱 / GLM Coding Plan",
+      "region": "国内",
       "origin": "官方",
-      "summary": "Qoder 官方活动页写明：2026-11-23 24:00 至 2026-11-30 24:00（国际版标注新加坡时间 UTC+8，国内版标注北京时间，时区相同），国际版与 Qoder CN 同步向新老个人用户开放匿名模型 HungerG 限时免费体验。活动期间调用该模型不消耗 Credits、不设每日次数上限，思考强度调至最大（Max）同样按 0.0× 计费；无需领取，模型选择器中选择即可，免费账号及 Credits 余额为 0 的账号也可使用，国内版并写明会员卡用户可参与。仅适用于 Qoder / Qoder IDE（国内对应 Qoder CN / Qoder CN IDE）内实际由 HungerG 完成的调用；JetBrains 插件、CLI、Cloud Agents、网页版等不在国际版活动范围内。团队版/企业版看不到该模型。官方 X @qoder_ai_ide 于 2026-11-23 16:16 UTC（北京时间 11-24 00:16）同步公告，窗口始于今日 00:00，相对 11-23 榜为未收录的新开窗。",
-      "value": "HungerG 调用不消耗 Credits、不设每日次数上限，至 2026-11-30 24:00（UTC+8）· 免费/付费个人用户均可，Max 思考强度同样 0.0×",
-      "deadline": "2026-11-30",
-      "cost": "0 元；需 Qoder 国际版或 Qoder CN 个人账号，并将 Qoder / Qoder IDE 更新至最新版。其他模型仍按各自 Credits 系数计费。不承诺一定排上队或响应速度。",
-      "difficulty": 1,
-      "threshold": "个人版（国际版含体验版、Pro 试用、Lite、Pro、Pro+、Ultra；国内版含体验版、专业/高级/旗舰版及会员卡）。团队版与企业版不适用。仅 Qoder 与 Qoder IDE（国内为 Qoder CN 与 Qoder CN IDE）。",
-      "time": "注册或登录并更新客户端、选择模型约 5–15 分钟",
-      "fit": "已有或打算安装 Qoder / Qoder IDE 的个人用户，想在 11/30 前用真实任务试用这款匿名模型；也可把官方规则（不耗积分、产品范围、高峰排队）整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
-      "why": "官方活动于今日 00:00（11/23 24:00）开窗至 11/30 24:00，国际版与国内版同步，免费账号也可不限次数调用，相对 11-23 榜为未收录的新限免。",
+      "summary": "智谱官方《套餐概览》与 GLM-5.3-Flash 模型页写明：2026 年 11 月 24 日至 12 月 24 日，在 GLM Coding Plan 中调用 GLM-5.3-Flash（含视觉理解 MCP）所产生的消耗全部按原抵扣系数的 50% 结算，文档称可用额度为原来的 2 倍。系数表已将 Flash 的 Input / Cached Input / Output 从 2.3 / 0.56 / 8 调整为 1.15 / 0.28 / 4。该活动写在个人套餐用量说明中，适用于已订阅的个人档（Lite / Pro / Max）；套餐仅限官方支持的编码工具与产品环境，不能用套餐额度直接打标准 API。文档另写非高峰时段模型调用按基础积分消耗的 50% 抵扣，高峰为周一至周五 14:00–18:00（UTC+8）。是否与本次限时系数同时生效，以控制台实际扣减为准，不承诺折上折。相对 11-24 榜未收录；窗口于 11-24 开、昨日晨间例程之后才在文档中核到。",
+      "value": "11/24–12/24 调用 GLM-5.3-Flash（含视觉理解 MCP）按原抵扣系数 50% 结算，文档称可用额度为原来的 2 倍 · 需有效个人套餐",
+      "deadline": "2026-12-24",
+      "cost": "需有效的 GLM Coding Plan 个人订阅（Lite / Pro / Max），价格以订阅页当天为准。标准 API 余额不能抵这张套餐活动。不承诺一定省到一倍额度或高峰仍可用。",
+      "difficulty": 2,
+      "threshold": "已有或准备订阅智谱开放平台 GLM Coding Plan 个人套餐，并在官方支持的工具（如 ZCode、Claude Code、Codex、AutoClaw、WorkBuddy、OpenCode、Cursor 等）中调用。团队版请另阅官方「团队版权益」，不承诺同样适用。",
+      "time": "确认文档仍在有效期、登录订阅并在支持的工具里把模型切到 GLM-5.3-Flash，约 10–20 分钟",
+      "fit": "已经在用或打算订阅 GLM Coding Plan、日常任务可用 Flash 的人，适合在 12/24 前把官方「系数减半、工具范围、高峰规则」核清再用；也可整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
+      "why": "官方套餐概览与模型页写明 11/24–12/24 的新开窗，Flash 按原系数 50% 结算；相对 11-24 榜未收录。",
       "steps": [
-        "打开国际版 https://docs.qoder.com/zh/events/hungerg-free 或国内版 https://docs.qoder.cn/events/hungerg-free ，确认仍写明 2026-11-23 24:00 至 2026-11-30 24:00（UTC+8）且「不消耗 Credits、不设每日次数上限」",
-        "注册或登录对应站点的个人账号（国际版 qoder.com 与国内版 Qoder CN 分开；团队/企业订阅不可见该模型）",
-        "将 Qoder 或 Qoder IDE（国内为 Qoder CN / Qoder CN IDE）更新到最新版本；国际版文档写明插件、CLI、Cloud Agents、网页版等暂不支持本次限免",
-        "在模型选择器中选择 HungerG，用真实任务试用。活动期内该模型不耗 Credits，Max 思考强度同样免费；其他模型或运行时被调到的指定模型仍按标准计费",
-        "高峰可能排队或变慢，付费订阅优先；官方可根据资源调整规则，结束时间以文档与官方通知为准。不要合租、转售或把账号提供给第三方共享"
+        "打开 https://docs.bigmodel.cn/cn/coding-plan/overview 与 https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash ，确认仍写明 11 月 24 日至 12 月 24 日、Flash 按原抵扣系数 50% 结算，并核对系数表是否仍为 1.15 / 0.28 / 4",
+        "登录智谱开放平台，在 https://www.bigmodel.cn/glm-coding 查看或订阅个人套餐（Lite / Pro / Max）。若已订阅，进入套餐概览确认额度仍有效",
+        "按 https://docs.bigmodel.cn/cn/coding-plan/quick-start 在官方支持的工具中配置套餐专用 API Key 与正确 Base URL（个人编程套餐 Key 与标准 API Key 不通用）",
+        "将模型切到 GLM-5.3-Flash（套餐当前暂未开放 GLM-5.3-FlashX）。日常编码可参考 https://docs.bigmodel.cn/cn/coding-plan/learning-resources/flash-and-glm-5-4",
+        "先用小任务对照控制台「用量统计 / 费用明细」看实际扣减是否约为原系数的一半；高峰（周一至周五 14:00–18:00 UTC+8）与非高峰的扣减可能不同，不要假设折上折",
+        "日历标记 2026-12-24：活动结束后将恢复原系数。不要转售、共享套餐 Key 或把账号借给他人"
       ],
-      "risk": "风险：HungerG 为匿名模型，身份与活动结束后的积分系数均未公布；免费仅覆盖该模型本身，其他模型照常扣费；高峰可能排队，官方可调整或提前结束。不承诺一定能连上、不限速或模型能力。禁止账号合租、转售或共享未授权凭证。",
-      "risk_level": "低",
-      "reason": "Qoder 与 Qoder CN 官方活动页及官方 X 账号写明 11/23 24:00–11/30 24:00 个人用户限免 HungerG，不耗 Credits、不限次数，相对 11-23 榜为今日开窗的新项。",
+      "risk": "风险：必须先有付费套餐，活动不能用在标准 API 或未支持的工具里；团队版是否同权以官方团队版说明为准；非高峰 50% 与本次限时系数是否叠加不承诺；官方可调整或提前结束，额度仍受 5 小时/周上限约束。不承诺一定获得两倍可用量或稳定响应。禁止合租、转卖账号或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "智谱官方套餐概览与 GLM-5.3-Flash 模型页写明 11/24–12/24 调用 Flash 按原抵扣系数 50% 结算，相对 11-24 榜为未收录的新开窗。",
       "tags": [
-        "Qoder",
-        "HungerG",
-        "限时免费",
-        "匿名模型",
-        "阿里云"
+        "智谱",
+        "GLM Coding Plan",
+        "GLM-5.3-Flash",
+        "限时促销",
+        "积分折扣"
       ],
       "sources": [
         {
-          "title": "匿名模型 HungerG 限时免费使用",
-          "url": "https://docs.qoder.com/zh/events/hungerg-free",
-          "publisher": "Qoder 文档",
+          "title": "套餐概览",
+          "url": "https://docs.bigmodel.cn/cn/coding-plan/overview",
+          "publisher": "智谱 BigModel 文档",
           "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
         },
         {
-          "title": "匿名模型 HungerG 限时免费使用",
-          "url": "https://docs.qoder.cn/events/hungerg-free",
-          "publisher": "Qoder CN 文档",
+          "title": "GLM-5.3-Flash/FlashX",
+          "url": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash",
+          "publisher": "智谱 BigModel 文档",
           "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
         },
         {
-          "title": "HungerG: Try the Stealth Model Free for a Limited Time",
-          "url": "https://docs.qoder.com/events/hungerg-free",
-          "publisher": "Qoder Docs",
+          "title": "模型搭配使用指南",
+          "url": "https://docs.bigmodel.cn/cn/coding-plan/learning-resources/flash-and-glm-5-4",
+          "publisher": "智谱 BigModel 文档",
           "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
         },
         {
-          "title": "A new stealth model just landed exclusively on Qoder（HungerG 限免公告）",
-          "url": "https://x.com/qoder_ai_ide/status/2124899980632822148",
-          "publisher": "Qoder 官方 X @qoder_ai_ide",
-          "published": "2026-11-23",
+          "title": "GLM Coding Plan 产品页",
+          "url": "https://www.bigmodel.cn/glm-coding",
+          "publisher": "智谱开放平台",
+          "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
         }
       ],
-      "source_url": "https://docs.qoder.com/zh/events/hungerg-free",
-      "claim_howto": "登录 Qoder 国际版或 Qoder CN 个人账号，更新 Qoder / Qoder IDE 至最新版，在模型选择器选择 HungerG 即可，无需领取；活动至 11/30 24:00（UTC+8）。",
+      "source_url": "https://docs.bigmodel.cn/cn/coding-plan/overview",
+      "claim_howto": "确认官方文档仍写明 11/24–12/24 后，在已订阅的 GLM Coding Plan 个人套餐、官方支持的工具里选择 GLM-5.3-Flash 即可按活动系数结算，无需单独领券。",
       "stack": [
-        "Qoder",
-        "Qoder IDE",
-        "Qoder CN",
-        "HungerG"
+        "GLM Coding Plan",
+        "GLM-5.3-Flash",
+        "ZCode",
+        "Claude Code",
+        "Cursor"
       ]
     },
     {
       "rank": 2,
-      "name": "GitHub Copilot：付费计划使用 Fusion 时模型费用 7 折至 11/30",
-      "type": "限时促销",
-      "provider": "GitHub Copilot",
-      "region": "海外",
+      "name": "腾讯云 TokenHub：主账号可领一次新人免费体验包，语言模型/多模态理解各 100 万 Tokens（领至 12/31）",
+      "type": "免费额度",
+      "provider": "腾讯云 TokenHub",
+      "region": "国内",
       "origin": "官方",
-      "summary": "GitHub 官方文档《个人基于使用情况的计费》（中英文页一致）注明：到 2026 年 11 月 30 日，付费 Copilot 计划用户在使用 Copilot Fusion 时，模型成本享 30% 折扣（即按模型费用 7 折计）。这不是订阅月费降价，而是 Fusion 路由/编排所调用模型的用量折扣；Fusion 仍可能对同一任务使用多个模型，复杂任务仍会消耗 AI credits（1 credit = $0.01）。文档另有一条未写截止日期的说明：付费计划在 Copilot Chat 或 Copilot cloud agent 中使用 auto model selection 时，模型成本可享 10% 折扣，属常驻说明，不是本条限时点。相对 11-23 及更早榜单均未收录该 Fusion 限时折扣。",
-      "value": "付费 Copilot 计划使用 Fusion 时模型费用 30% 折扣，至 2026-11-30 · 非订阅价减免",
-      "deadline": "2026-11-30",
-      "cost": "需已有或新购付费 Copilot 个人计划（文档列 Pro $10 / Pro+ $39 / Max $100 每月，含每月 AI credits）。折扣只作用于 Fusion 的模型成本，不降低套餐标价。不承诺能省下固定金额。",
-      "difficulty": 2,
-      "threshold": "付费 Copilot 计划（Pro / Pro+ / Max 等）。免费计划与仅学生计划不在该 30% 说明范围内。需在支持 Fusion 的产品中选用 Copilot Fusion。",
-      "time": "确认付费计划并在模型选择器切换到 Fusion 约 5–10 分钟",
-      "fit": "已经在付费使用 Copilot、愿意把部分对话交给 Fusion 自动选模型的人；也可把官方「只折模型费、不折月费、11/30 截止」的口径整理成原创对比素材（不是代开订阅或合租账号）。",
-      "why": "官方计费文档写明 Fusion 模型费 30% 折扣至 11/30，属于未在既往 ai-wool 榜出现过的可核验限时促销。",
+      "summary": "腾讯云官方文档《新人免费体验包》（最近更新 2026-11-16 19:32）写明：TokenHub 当前为每个主账号提供一次免费体验额度，本期活动领取截至 2026 年 12 月 31 日，后续是否延续以页面或公告为准。语言模型与多模态理解模型均提供 100 万 Tokens，有效期 1 年，自领取时起算；视频生成（YT-Video-HumanActor）为 50 积分、混元生 3D 相关模型各 100 积分，有效期同样 1 年。可在控制台「模型广场」右上角「新用户福利免费体验」，或「开通管理」领取免费资源，勾选模型后立即领取；对支持免费体验的模型，首次调用时平台也可能自动领取。文档提醒领取后请在有效期内使用，建议只领近期计划使用的模型；免费额度在主账号维度生效，每个账号每个模型仅可领取一次，不可转让、叠加或兑现。调用时优先消耗免费额度，用尽后若未开启后付费则服务自动停止。相对既往 ai-wool 榜未收录。",
+      "value": "每主账号可领一次 · 语言模型/多模态理解各 100 万 Tokens（有效期 1 年）· 领取截止 2026-12-31",
+      "deadline": "2026-12-31",
+      "cost": "0 元领取体验额度；需腾讯云主账号并开通 TokenHub。免费额度用尽后，若自行开启后付费将按量计费。不承诺所有模型都在领取名单里或一定能领到。",
+      "difficulty": 1,
+      "threshold": "拥有腾讯云主账号，能登录并开通大模型服务平台 TokenHub。每个主账号仅此一次免费体验包。",
+      "time": "开通 TokenHub、在模型广场或开通管理勾选并领取，约 5–15 分钟",
+      "fit": "还没用过 TokenHub、想先用官方免费额度试用语言模型或混元 3D/视频能力的人；也可把官方领取路径、有效期和后付费开关整理成闲鱼原创教程素材（不是代领或转卖额度）。",
+      "why": "官方文档写明领至 12/31 的新人免费体验包，语言模型/多模态理解各 100 万 Tokens，既往榜单未收录。",
       "steps": [
-        "打开 https://docs.github.com/zh/copilot/concepts/billing-and-usage/individuals/billing 或英文页 https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing ，确认仍有「到 2026 年 11 月 30 日……使用 Copilot Fusion 时会收到 30% 模型成本折扣」的说明",
-        "在 GitHub 账户中确认自己处于付费 Copilot 个人计划（Pro / Pro+ / Max）；免费计划不在该 30% 说明范围内",
-        "在 Visual Studio Code、GitHub.com 或文档所列支持 Fusion 的产品中，于模型选择器选择 Copilot Fusion（可选 Standard / High / Max 等力度）",
-        "在用量看板查看 AI credits 消耗。Fusion 可能对复杂任务调用多个模型，折扣只减模型成本，不保证总消耗一定更低",
-        "日历标记 2026-11-30：官方写明折扣到该日为止，之后恢复常规模型价。不要合租或共享 Copilot 账号"
+        "打开 https://cloud.tencent.com/document/product/1823/130053 ，确认仍写明活动领取截至 2026 年 12 月 31 日，以及 100 万 Tokens / 1 年有效期等规则",
+        "登录腾讯云，按文档开通大模型服务平台 TokenHub（如已开通可跳过）",
+        "进入「模型广场」，单击右上角「新用户福利免费体验」；或进入「开通管理」，点击左上角免费体验卡片中的「领取免费资源」",
+        "在弹窗中只勾选近期要用的模型后单击立即领取。文档写明过期未用将失效，且每个账号每个模型仅可领取一次",
+        "先用小请求确认免费额度在扣减。不要急着打开后付费：文档写明免费额度用尽且未开启后付费时服务会自动停止。不要转让或转售额度"
       ],
-      "risk": "风险：折扣只覆盖使用 Copilot Fusion 时的模型成本，不降低订阅标价；Fusion 的 Cascade/Critique 模式可能多次调用模型，仍可能较快耗尽月度 AI credits；官方可调整规则。不承诺能省下固定比例的账单。禁止账号合租或共享未授权凭证。",
-      "risk_level": "中",
-      "reason": "GitHub 中英文官方计费文档均写明付费计划使用 Copilot Fusion 时模型费用 30% 折扣至 2026-11-30，既往榜单未收录。",
+      "risk": "风险：仅主账号领取一次，子账号不能另开一份；部分模型可能不在名单或领取入口变更；有效期从领取日起算，领多了也可能浪费；若开启后付费，免费额度用尽后会开始计费。不承诺一定能领到所列全部模型或额度始终到账。禁止代领、转售或共享账号。",
+      "risk_level": "低",
+      "reason": "腾讯云官方《新人免费体验包》文档写明每主账号一次、领取截至 2026-12-31，语言模型与多模态理解各 100 万 Tokens，既往 ai-wool 榜未收录。",
       "tags": [
-        "GitHub",
-        "Copilot",
-        "Fusion",
-        "模型折扣",
-        "限时"
+        "腾讯云",
+        "TokenHub",
+        "免费额度",
+        "新人礼包",
+        "混元"
       ],
       "sources": [
         {
-          "title": "个人基于使用情况的计费",
-          "url": "https://docs.github.com/zh/copilot/concepts/billing-and-usage/individuals/billing",
-          "publisher": "GitHub Docs",
-          "published": "官方未标日期",
+          "title": "大模型服务平台 TokenHub 新人免费体验包",
+          "url": "https://cloud.tencent.com/document/product/1823/130053",
+          "publisher": "腾讯云文档",
+          "published": "2026-11-16 19:32",
           "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
         },
         {
-          "title": "Usage-based billing for individuals",
-          "url": "https://docs.github.com/en/copilot/concepts/billing-and-usage/individuals/billing",
-          "publisher": "GitHub Docs",
+          "title": "大模型服务平台 TokenHub 快速入门",
+          "url": "https://cloud.tencent.com/document/product/1823/130058",
+          "publisher": "腾讯云文档",
           "published": "官方未标日期",
           "kind": "official",
-          "checked": "2026-11-24"
-        },
-        {
-          "title": "About GitHub Copilot Fusion",
-          "url": "https://docs.github.com/en/copilot/concepts/models/copilot-fusion",
-          "publisher": "GitHub Docs",
-          "published": "官方未标日期",
-          "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
         }
       ],
-      "source_url": "https://docs.github.com/zh/copilot/concepts/billing-and-usage/individuals/billing",
-      "claim_howto": "确认处于付费 Copilot 计划后，在支持的产品里把模型选为 Copilot Fusion，至 11/30 模型费用自动按 30% 折扣计，无需单独领券。",
+      "source_url": "https://cloud.tencent.com/document/product/1823/130053",
+      "claim_howto": "登录并开通 TokenHub 后，在模型广场右上角「新用户福利免费体验」或开通管理「领取免费资源」勾选模型领取；也可对支持该功能的模型首次调用由平台自动领取。领取截止 12/31。",
       "stack": [
-        "GitHub Copilot",
-        "Copilot Fusion",
-        "VS Code"
+        "腾讯云 TokenHub",
+        "混元",
+        "OpenAI-compatible API"
       ]
     },
     {
       "rank": 3,
-      "name": "packet.ai Token Factory：DeepSeek V4.1 Flash / MiniMax M3.1 Flash 等 API 免费至 12/16（免绑卡）",
+      "name": "AMD Radeon Cloud Token Factory：中国站免费 OpenAI 兼容 API，按 pts 计每日上限（北京时间 0 点重置）",
       "type": "免费额度",
-      "provider": "packet.ai / Token Factory",
-      "region": "海外",
+      "provider": "AMD Radeon Cloud / Token Factory",
+      "region": "国内",
       "origin": "官方",
-      "summary": "packet.ai 官方活动页写明：Token Factory 对已上线的开源权重模型按输入/输出 $0 计费，直至 2026-12-16；新老账户均可，无需信用卡，但必须邮箱注册并完成一次手机短信验证。活动页列出当前免费模型为 DeepSeek-V4.1-Flash-NVFP4（131K）、MiniMax-M3.1-Flash（131K）、Qwen2.5-1.5B-Instruct（33K），Kimi K3 标注 Coming soon、不在现免范围内。文档给出调用 ID：nvidia-deepseek-v4-1-flash-nvfp4、minimaxai-minimax-m3-1-flash、qwen-qwen2-5-1-5b-instruct，base URL 为 api.packet.ai/v1（OpenAI 兼容）。文档控制台文案写 Free until 15 Dec 2026、from 16 Dec 2026 起按量（活动页预告约 $0.23/$0.85、$0.15/$0.60、$0.10/$0.10 每百万 tokens），请以控制台当天标价为准，建议按 12 月 16 日起不再免费来安排。相对既往 ai-wool 榜未收录。",
-      "value": "所列模型输入/输出 $0 至 2026-12-16 起按量 · 免绑卡 · 须短信验证 · 新老账户均可",
-      "deadline": "2026-12-16",
-      "cost": "0 美元（活动期内）；需能接收短信的手机号完成验证，无需信用卡。12 月 16 日起按官方公示的每百万 tokens 单价计费。不承诺一直零费率或模型保持上架。",
+      "summary": "AMD 中国开发者站 Radeon Cloud 官方文档（中文页标注最近更新 2026 年 11 月 24 日）写明：Token Factory 只在中国站提供，在 Radeon GPU 上托管一批模型，通过兼容 OpenAI 的接口服务；不需要启动实例，也不消耗账户积分，登录控制台复制以 rc- 开头的 API Key 即可调用。文档示例 base URL 为 https://developer.amd.com.cn/radeon/api/v1 ，并可用 GET /v1/models 核对当前模型。模型目录列出 DeepSeek-V4-Flash、DeepSeek-V4.1-Flash、Qwen3.8-27B、GLM-5.3-Flash、Gemma-4-31B-IT 等，平台会不定期调整，下线模型（如 DeepSeek-V4-Flash-Vision-Exp）不可再调。用量以 pts 计量（字段名带 _usd 但文档明确不会产生费用、也与积分无关），每日上限因账号而异、会调整，北京时间 0 点重置，超限返回 429。文档强调这是免费的试用和开发服务，不适合生产环境，禁止转售访问权限。相对既往 ai-wool 榜未收录。",
+      "value": "中国站免费调用 Token Factory 模型（不消耗积分）· 每日 pts 上限因账号而异，北京时间 0 点重置 · 模型名单以 GET /v1/models 为准",
+      "cost": "0 元（文档写明不消耗积分、pts 不是费用）；需能登录 AMD 中国开发者站 Radeon Cloud。不承诺固定每日额度、不限速或模型一直在线。",
       "difficulty": 2,
-      "threshold": "能访问 dash.packet.ai，完成邮箱（或 Google）注册与手机短信验证。这是第三方推理 API，不是 DeepSeek / MiniMax / 阿里云官方接口。",
-      "time": "注册、短信验证并创建 API Key 约 10–20 分钟",
-      "fit": "需要 OpenAI 兼容接口试用 DeepSeek V4.1 Flash 或 MiniMax M3.1 Flash、且能接收国际/国内短信验证的人；也可把官方「免绑卡、12/16 起按量、模型 ID」整理成原创素材（不是转售 Key 或代开账户）。",
-      "why": "官方活动页与文档写明至 12/16 所列模型 $0，免信用卡，既往榜单未收录这条可核验的第三方 API 限免。",
+      "threshold": "能访问并登录 https://developer.amd.com.cn/radeon 中国站控制台。这是 AMD 中国站的托管推理服务，不是 DeepSeek / 智谱 / 阿里云官方接口。",
+      "time": "注册或登录控制台、复制 API Key 并改 base URL，约 10–20 分钟",
+      "fit": "需要 OpenAI 兼容接口、在国内试用 DeepSeek / Qwen / GLM Flash 等、且能接受每日限额和模型调整的人；也可把官方「不耗积分、pts 日上限、禁止转售」整理成原创素材（不是转售 Key 或代开账户）。",
+      "why": "官方中文文档写明 Token Factory 免费、不耗积分、仅中国站，并给出调用方式与日上限规则，既往榜单未收录。",
       "steps": [
-        "打开 https://packet.ai/token-factory-free 与 https://dash.packet.ai/docs/token-factory-models ，确认免费期、模型名单与 12 月 16 日起的预告单价仍在",
-        "在 https://dash.packet.ai 用邮箱或 Google 注册（无需信用卡），按提示完成一次手机短信验证",
-        "在控制台创建 API Key，将 SDK 的 base_url 设为 https://api.packet.ai/v1 ，模型 ID 使用文档所列值（如 nvidia-deepseek-v4-1-flash-nvfp4、minimaxai-minimax-m3-1-flash），不要用网站展示名",
-        "先用小请求确认模型仍标注免费；文档写明模型可能上下架，调用 GET /models 核对本账户当前列表",
-        "日历标记 2026-12-16：活动页写 meter starts December 16，文档写 12/15 前免费、16 日起按量。不要转售 API Key 或把密钥借给他人"
+        "打开 https://amd-aim.github.io/radeon-cloud-docs/zh-cn/guides/token-factory/ 与 https://amd-aim.github.io/radeon-cloud-docs/zh-cn/api/usage/ ，确认仍写明免费、不消耗积分、每日 pts 上限及北京时间 0 点重置",
+        "登录 https://developer.amd.com.cn/radeon ，打开 Token Factory，在顶部「您的 API 密钥」卡片复制 Base URL 与以 rc- 开头的 Key（先点显示再复制，勿泄露）",
+        "将客户端 base_url 设为 https://developer.amd.com.cn/radeon/api/v1 ，先调用 GET /v1/models 核对本账号当前可调用的模型 ID，不要只看文档或卡片标题",
+        "先用小请求试用。可用 GET /v1/usage 或控制台「积分与用量」查看当日剩余；文档写明不同账号限额不同，不要套用示例里的数字",
+        "仅用于试用和开发。超限会 429，模型可能下架或限流。不要转售 API Key，也不要把服务当生产网关"
       ],
-      "risk": "风险：这是第三方推理服务，不是模型厂商官方 API，可用性、数据留存与地区限制以 packet.ai 条款为准；免费期按官方页在 12 月 16 日结束，文档与活动页对「15 日还是 16 日」的表述需以控制台为准；模型可能下架或限流。不承诺一直免费或稳定。禁止转售、共享 API Key。",
+      "risk": "风险：仅中国站；每日额度因账号而异且可能调整；模型会上下架，文档与线上名单可能不一致；文档明确不适合生产、禁止转售访问权限；数据留存与地区限制以 AMD 条款为准。不承诺固定日额度或稳定可用。禁止转售、共享 API Key。",
       "risk_level": "中",
-      "reason": "packet.ai 官方活动页与 Token Factory 文档写明所列开源模型输入/输出 $0 至 2026-12-16 起按量，免绑卡但须短信验证，既往榜单未收录。",
+      "reason": "AMD Radeon Cloud 官方中文文档写明 Token Factory 免费、不消耗积分、按 pts 设每日上限且仅中国站，既往 ai-wool 榜未收录。",
       "tags": [
-        "packet.ai",
+        "AMD",
+        "Radeon Cloud",
         "Token Factory",
-        "DeepSeek",
-        "MiniMax",
-        "免费API"
+        "免费API",
+        "国内"
       ],
       "sources": [
         {
-          "title": "Token Factory: free until December 16",
-          "url": "https://packet.ai/token-factory-free",
-          "publisher": "packet.ai",
-          "published": "官方未标日期",
+          "title": "Token Factory",
+          "url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/guides/token-factory/",
+          "publisher": "Radeon Cloud 文档",
+          "published": "2026-11-24",
           "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
         },
         {
-          "title": "Token Factory Models",
-          "url": "https://dash.packet.ai/docs/token-factory-models",
-          "publisher": "packet.ai Docs",
-          "published": "文档标明核验于 2026-11-13",
+          "title": "用量和配额",
+          "url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/api/usage/",
+          "publisher": "Radeon Cloud 文档",
+          "published": "2026-11-24",
           "kind": "official",
-          "checked": "2026-11-24"
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "模型目录",
+          "url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/models/overview/",
+          "publisher": "Radeon Cloud 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "AMD Radeon Cloud 中国站",
+          "url": "https://developer.amd.com.cn/radeon",
+          "publisher": "AMD 中国开发者站",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
         }
       ],
-      "source_url": "https://packet.ai/token-factory-free",
-      "claim_howto": "在 dash.packet.ai 注册并完成短信验证，创建 API Key，将 base_url 设为 api.packet.ai/v1 后按文档模型 ID 调用；无需绑卡，免费期至 12/16 起按量。",
+      "source_url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/guides/token-factory/",
+      "claim_howto": "登录 AMD 中国开发者站 Radeon Cloud 控制台，打开 Token Factory，复制 API Key，将 base_url 设为 developer.amd.com.cn/radeon/api/v1 后按 GET /v1/models 的 ID 调用；无需消耗积分，受每日 pts 上限约束。",
       "stack": [
-        "packet.ai Token Factory",
-        "OpenAI-compatible API",
-        "DeepSeek-V4.1-Flash",
-        "MiniMax-M3.1-Flash"
+        "AMD Radeon Cloud",
+        "Token Factory",
+        "OpenAI-compatible API"
       ]
     }
   ]

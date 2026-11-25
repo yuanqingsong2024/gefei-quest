@@ -1,0 +1,217 @@
+{
+  "date": "2026-11-25",
+  "updated": "2026-11-25T09:50:58+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "智谱 GLM Coding Plan：GLM-5.3-Flash 限时按原抵扣系数 50% 结算（11/24–12/24），可用额度约 2 倍",
+      "type": "限时促销",
+      "provider": "智谱 / GLM Coding Plan",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "智谱官方《套餐概览》与 GLM-5.3-Flash 模型页写明：2026 年 11 月 24 日至 12 月 24 日，在 GLM Coding Plan 中调用 GLM-5.3-Flash（含视觉理解 MCP）所产生的消耗全部按原抵扣系数的 50% 结算，文档称可用额度为原来的 2 倍。系数表已将 Flash 的 Input / Cached Input / Output 从 2.3 / 0.56 / 8 调整为 1.15 / 0.28 / 4。该活动写在个人套餐用量说明中，适用于已订阅的个人档（Lite / Pro / Max）；套餐仅限官方支持的编码工具与产品环境，不能用套餐额度直接打标准 API。文档另写非高峰时段模型调用按基础积分消耗的 50% 抵扣，高峰为周一至周五 14:00–18:00（UTC+8）。是否与本次限时系数同时生效，以控制台实际扣减为准，不承诺折上折。相对 11-24 榜未收录；窗口于 11-24 开、昨日晨间例程之后才在文档中核到。",
+      "value": "11/24–12/24 调用 GLM-5.3-Flash（含视觉理解 MCP）按原抵扣系数 50% 结算，文档称可用额度为原来的 2 倍 · 需有效个人套餐",
+      "deadline": "2026-12-24",
+      "cost": "需有效的 GLM Coding Plan 个人订阅（Lite / Pro / Max），价格以订阅页当天为准。标准 API 余额不能抵这张套餐活动。不承诺一定省到一倍额度或高峰仍可用。",
+      "difficulty": 2,
+      "threshold": "已有或准备订阅智谱开放平台 GLM Coding Plan 个人套餐，并在官方支持的工具（如 ZCode、Claude Code、Codex、AutoClaw、WorkBuddy、OpenCode、Cursor 等）中调用。团队版请另阅官方「团队版权益」，不承诺同样适用。",
+      "time": "确认文档仍在有效期、登录订阅并在支持的工具里把模型切到 GLM-5.3-Flash，约 10–20 分钟",
+      "fit": "已经在用或打算订阅 GLM Coding Plan、日常任务可用 Flash 的人，适合在 12/24 前把官方「系数减半、工具范围、高峰规则」核清再用；也可整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
+      "why": "官方套餐概览与模型页写明 11/24–12/24 的新开窗，Flash 按原系数 50% 结算；相对 11-24 榜未收录。",
+      "steps": [
+        "打开 https://docs.bigmodel.cn/cn/coding-plan/overview 与 https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash ，确认仍写明 11 月 24 日至 12 月 24 日、Flash 按原抵扣系数 50% 结算，并核对系数表是否仍为 1.15 / 0.28 / 4",
+        "登录智谱开放平台，在 https://www.bigmodel.cn/glm-coding 查看或订阅个人套餐（Lite / Pro / Max）。若已订阅，进入套餐概览确认额度仍有效",
+        "按 https://docs.bigmodel.cn/cn/coding-plan/quick-start 在官方支持的工具中配置套餐专用 API Key 与正确 Base URL（个人编程套餐 Key 与标准 API Key 不通用）",
+        "将模型切到 GLM-5.3-Flash（套餐当前暂未开放 GLM-5.3-FlashX）。日常编码可参考 https://docs.bigmodel.cn/cn/coding-plan/learning-resources/flash-and-glm-5-4",
+        "先用小任务对照控制台「用量统计 / 费用明细」看实际扣减是否约为原系数的一半；高峰（周一至周五 14:00–18:00 UTC+8）与非高峰的扣减可能不同，不要假设折上折",
+        "日历标记 2026-12-24：活动结束后将恢复原系数。不要转售、共享套餐 Key 或把账号借给他人"
+      ],
+      "risk": "风险：必须先有付费套餐，活动不能用在标准 API 或未支持的工具里；团队版是否同权以官方团队版说明为准；非高峰 50% 与本次限时系数是否叠加不承诺；官方可调整或提前结束，额度仍受 5 小时/周上限约束。不承诺一定获得两倍可用量或稳定响应。禁止合租、转卖账号或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "智谱官方套餐概览与 GLM-5.3-Flash 模型页写明 11/24–12/24 调用 Flash 按原抵扣系数 50% 结算，相对 11-24 榜为未收录的新开窗。",
+      "tags": [
+        "智谱",
+        "GLM Coding Plan",
+        "GLM-5.3-Flash",
+        "限时促销",
+        "积分折扣"
+      ],
+      "sources": [
+        {
+          "title": "套餐概览",
+          "url": "https://docs.bigmodel.cn/cn/coding-plan/overview",
+          "publisher": "智谱 BigModel 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "GLM-5.3-Flash/FlashX",
+          "url": "https://docs.bigmodel.cn/cn/guide/models/vlm/glm-5.3-flash",
+          "publisher": "智谱 BigModel 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "模型搭配使用指南",
+          "url": "https://docs.bigmodel.cn/cn/coding-plan/learning-resources/flash-and-glm-5-4",
+          "publisher": "智谱 BigModel 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "GLM Coding Plan 产品页",
+          "url": "https://www.bigmodel.cn/glm-coding",
+          "publisher": "智谱开放平台",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        }
+      ],
+      "source_url": "https://docs.bigmodel.cn/cn/coding-plan/overview",
+      "claim_howto": "确认官方文档仍写明 11/24–12/24 后，在已订阅的 GLM Coding Plan 个人套餐、官方支持的工具里选择 GLM-5.3-Flash 即可按活动系数结算，无需单独领券。",
+      "stack": [
+        "GLM Coding Plan",
+        "GLM-5.3-Flash",
+        "ZCode",
+        "Claude Code",
+        "Cursor"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "腾讯云 TokenHub：主账号可领一次新人免费体验包，语言模型/多模态理解各 100 万 Tokens（领至 12/31）",
+      "type": "免费额度",
+      "provider": "腾讯云 TokenHub",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "腾讯云官方文档《新人免费体验包》（最近更新 2026-11-16 19:32）写明：TokenHub 当前为每个主账号提供一次免费体验额度，本期活动领取截至 2026 年 12 月 31 日，后续是否延续以页面或公告为准。语言模型与多模态理解模型均提供 100 万 Tokens，有效期 1 年，自领取时起算；视频生成（YT-Video-HumanActor）为 50 积分、混元生 3D 相关模型各 100 积分，有效期同样 1 年。可在控制台「模型广场」右上角「新用户福利免费体验」，或「开通管理」领取免费资源，勾选模型后立即领取；对支持免费体验的模型，首次调用时平台也可能自动领取。文档提醒领取后请在有效期内使用，建议只领近期计划使用的模型；免费额度在主账号维度生效，每个账号每个模型仅可领取一次，不可转让、叠加或兑现。调用时优先消耗免费额度，用尽后若未开启后付费则服务自动停止。相对既往 ai-wool 榜未收录。",
+      "value": "每主账号可领一次 · 语言模型/多模态理解各 100 万 Tokens（有效期 1 年）· 领取截止 2026-12-31",
+      "deadline": "2026-12-31",
+      "cost": "0 元领取体验额度；需腾讯云主账号并开通 TokenHub。免费额度用尽后，若自行开启后付费将按量计费。不承诺所有模型都在领取名单里或一定能领到。",
+      "difficulty": 1,
+      "threshold": "拥有腾讯云主账号，能登录并开通大模型服务平台 TokenHub。每个主账号仅此一次免费体验包。",
+      "time": "开通 TokenHub、在模型广场或开通管理勾选并领取，约 5–15 分钟",
+      "fit": "还没用过 TokenHub、想先用官方免费额度试用语言模型或混元 3D/视频能力的人；也可把官方领取路径、有效期和后付费开关整理成闲鱼原创教程素材（不是代领或转卖额度）。",
+      "why": "官方文档写明领至 12/31 的新人免费体验包，语言模型/多模态理解各 100 万 Tokens，既往榜单未收录。",
+      "steps": [
+        "打开 https://cloud.tencent.com/document/product/1823/130053 ，确认仍写明活动领取截至 2026 年 12 月 31 日，以及 100 万 Tokens / 1 年有效期等规则",
+        "登录腾讯云，按文档开通大模型服务平台 TokenHub（如已开通可跳过）",
+        "进入「模型广场」，单击右上角「新用户福利免费体验」；或进入「开通管理」，点击左上角免费体验卡片中的「领取免费资源」",
+        "在弹窗中只勾选近期要用的模型后单击立即领取。文档写明过期未用将失效，且每个账号每个模型仅可领取一次",
+        "先用小请求确认免费额度在扣减。不要急着打开后付费：文档写明免费额度用尽且未开启后付费时服务会自动停止。不要转让或转售额度"
+      ],
+      "risk": "风险：仅主账号领取一次，子账号不能另开一份；部分模型可能不在名单或领取入口变更；有效期从领取日起算，领多了也可能浪费；若开启后付费，免费额度用尽后会开始计费。不承诺一定能领到所列全部模型或额度始终到账。禁止代领、转售或共享账号。",
+      "risk_level": "低",
+      "reason": "腾讯云官方《新人免费体验包》文档写明每主账号一次、领取截至 2026-12-31，语言模型与多模态理解各 100 万 Tokens，既往 ai-wool 榜未收录。",
+      "tags": [
+        "腾讯云",
+        "TokenHub",
+        "免费额度",
+        "新人礼包",
+        "混元"
+      ],
+      "sources": [
+        {
+          "title": "大模型服务平台 TokenHub 新人免费体验包",
+          "url": "https://cloud.tencent.com/document/product/1823/130053",
+          "publisher": "腾讯云文档",
+          "published": "2026-11-16 19:32",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "大模型服务平台 TokenHub 快速入门",
+          "url": "https://cloud.tencent.com/document/product/1823/130058",
+          "publisher": "腾讯云文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        }
+      ],
+      "source_url": "https://cloud.tencent.com/document/product/1823/130053",
+      "claim_howto": "登录并开通 TokenHub 后，在模型广场右上角「新用户福利免费体验」或开通管理「领取免费资源」勾选模型领取；也可对支持该功能的模型首次调用由平台自动领取。领取截止 12/31。",
+      "stack": [
+        "腾讯云 TokenHub",
+        "混元",
+        "OpenAI-compatible API"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "AMD Radeon Cloud Token Factory：中国站免费 OpenAI 兼容 API，按 pts 计每日上限（北京时间 0 点重置）",
+      "type": "免费额度",
+      "provider": "AMD Radeon Cloud / Token Factory",
+      "region": "国内",
+      "origin": "官方",
+      "summary": "AMD 中国开发者站 Radeon Cloud 官方文档（中文页标注最近更新 2026 年 11 月 24 日）写明：Token Factory 只在中国站提供，在 Radeon GPU 上托管一批模型，通过兼容 OpenAI 的接口服务；不需要启动实例，也不消耗账户积分，登录控制台复制以 rc- 开头的 API Key 即可调用。文档示例 base URL 为 https://developer.amd.com.cn/radeon/api/v1 ，并可用 GET /v1/models 核对当前模型。模型目录列出 DeepSeek-V4-Flash、DeepSeek-V4.1-Flash、Qwen3.8-27B、GLM-5.3-Flash、Gemma-4-31B-IT 等，平台会不定期调整，下线模型（如 DeepSeek-V4-Flash-Vision-Exp）不可再调。用量以 pts 计量（字段名带 _usd 但文档明确不会产生费用、也与积分无关），每日上限因账号而异、会调整，北京时间 0 点重置，超限返回 429。文档强调这是免费的试用和开发服务，不适合生产环境，禁止转售访问权限。相对既往 ai-wool 榜未收录。",
+      "value": "中国站免费调用 Token Factory 模型（不消耗积分）· 每日 pts 上限因账号而异，北京时间 0 点重置 · 模型名单以 GET /v1/models 为准",
+      "cost": "0 元（文档写明不消耗积分、pts 不是费用）；需能登录 AMD 中国开发者站 Radeon Cloud。不承诺固定每日额度、不限速或模型一直在线。",
+      "difficulty": 2,
+      "threshold": "能访问并登录 https://developer.amd.com.cn/radeon 中国站控制台。这是 AMD 中国站的托管推理服务，不是 DeepSeek / 智谱 / 阿里云官方接口。",
+      "time": "注册或登录控制台、复制 API Key 并改 base URL，约 10–20 分钟",
+      "fit": "需要 OpenAI 兼容接口、在国内试用 DeepSeek / Qwen / GLM Flash 等、且能接受每日限额和模型调整的人；也可把官方「不耗积分、pts 日上限、禁止转售」整理成原创素材（不是转售 Key 或代开账户）。",
+      "why": "官方中文文档写明 Token Factory 免费、不耗积分、仅中国站，并给出调用方式与日上限规则，既往榜单未收录。",
+      "steps": [
+        "打开 https://amd-aim.github.io/radeon-cloud-docs/zh-cn/guides/token-factory/ 与 https://amd-aim.github.io/radeon-cloud-docs/zh-cn/api/usage/ ，确认仍写明免费、不消耗积分、每日 pts 上限及北京时间 0 点重置",
+        "登录 https://developer.amd.com.cn/radeon ，打开 Token Factory，在顶部「您的 API 密钥」卡片复制 Base URL 与以 rc- 开头的 Key（先点显示再复制，勿泄露）",
+        "将客户端 base_url 设为 https://developer.amd.com.cn/radeon/api/v1 ，先调用 GET /v1/models 核对本账号当前可调用的模型 ID，不要只看文档或卡片标题",
+        "先用小请求试用。可用 GET /v1/usage 或控制台「积分与用量」查看当日剩余；文档写明不同账号限额不同，不要套用示例里的数字",
+        "仅用于试用和开发。超限会 429，模型可能下架或限流。不要转售 API Key，也不要把服务当生产网关"
+      ],
+      "risk": "风险：仅中国站；每日额度因账号而异且可能调整；模型会上下架，文档与线上名单可能不一致；文档明确不适合生产、禁止转售访问权限；数据留存与地区限制以 AMD 条款为准。不承诺固定日额度或稳定可用。禁止转售、共享 API Key。",
+      "risk_level": "中",
+      "reason": "AMD Radeon Cloud 官方中文文档写明 Token Factory 免费、不消耗积分、按 pts 设每日上限且仅中国站，既往 ai-wool 榜未收录。",
+      "tags": [
+        "AMD",
+        "Radeon Cloud",
+        "Token Factory",
+        "免费API",
+        "国内"
+      ],
+      "sources": [
+        {
+          "title": "Token Factory",
+          "url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/guides/token-factory/",
+          "publisher": "Radeon Cloud 文档",
+          "published": "2026-11-24",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "用量和配额",
+          "url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/api/usage/",
+          "publisher": "Radeon Cloud 文档",
+          "published": "2026-11-24",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "模型目录",
+          "url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/models/overview/",
+          "publisher": "Radeon Cloud 文档",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        },
+        {
+          "title": "AMD Radeon Cloud 中国站",
+          "url": "https://developer.amd.com.cn/radeon",
+          "publisher": "AMD 中国开发者站",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-25"
+        }
+      ],
+      "source_url": "https://amd-aim.github.io/radeon-cloud-docs/zh-cn/guides/token-factory/",
+      "claim_howto": "登录 AMD 中国开发者站 Radeon Cloud 控制台，打开 Token Factory，复制 API Key，将 base_url 设为 developer.amd.com.cn/radeon/api/v1 后按 GET /v1/models 的 ID 调用；无需消耗积分，受每日 pts 上限约束。",
+      "stack": [
+        "AMD Radeon Cloud",
+        "Token Factory",
+        "OpenAI-compatible API"
+      ]
+    }
+  ]
+}
