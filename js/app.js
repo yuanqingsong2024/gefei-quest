@@ -8,7 +8,7 @@
   const N = window.QuestNav;
   const I = N.icon;
   const $ = (sel) => document.querySelector(sel);
-  const PANELS = ['home', 'path', 'war', 'lib', 'guides', 'weekly', 'me', 'start', 'sitemap'];
+  const PANELS = ['home', 'path', 'war', 'lib', 'guides', 'geo-seo', 'weekly', 'me', 'start', 'sitemap'];
 
   function persist() {
     state = QuestSave.saveSave(state);
@@ -165,7 +165,7 @@
   function pageBgScene(r) {
     var s = r.section, v = r.view;
     if (s === 'home') return '';
-    if (s === 'start' || s === 'path') return 'learn';
+    if (s === 'start' || s === 'path' || s === 'geo-seo') return 'learn';
     if (s === 'war') {
       if (v === 'rank') return 'earn';
       if (v === 'rank-agent' || v === 'rank-ai-wool' || v === 'rank-opc' || v === 'tools') return 'agent';
@@ -330,6 +330,11 @@
         renderAll();
       });
       ensureGroupTabs($('#panel-weekly'));
+    } else if (sec === 'geo-seo') {
+      const root = $('#panel-geo-seo');
+      root.innerHTML = groupTabs(route) + '<div id="geo-seo-body"></div>';
+      if (window.QuestGeoSeo) QuestGeoSeo.render(state, document.getElementById('geo-seo-body'));
+      else document.getElementById('geo-seo-body').innerHTML = '<div class="empty-illo"><p><b>AEO / GEO / SEO 模块未加载</b><br>请确认 js/geo-seo.js 已在 app.js 之前加载。</p></div>';
     } else if (sec === 'me') {
       const root = $('#panel-me');
       if (route.view === 'accounts' || route.view === 'analytics') {

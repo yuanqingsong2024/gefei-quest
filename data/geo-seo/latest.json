@@ -1,0 +1,29 @@
+{
+  "updated": "2026-11-25",
+  "items": [
+    {
+      "id": "geo-seo-2026-11-25-a",
+      "date": "2026-11-25",
+      "slot": "launch",
+      "title": "Google 官方：为生成式 AI 搜索做优化，从 Search 角度看仍是 SEO",
+      "source_url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "source_name": "Google Search Central",
+      "type": "官方口径",
+      "summary": "文档面向站点负责人，给出 Google Search 生成式功能（如 AI Overviews、AI Mode）的官方做法。文中写明 SEO 最佳实践仍然适用，因为这些功能植根于核心检索与质量系统，并用 RAG（grounding）从索引取回页面、用 query fan-out 并发相关查询。同一节解释 AEO（answer engine optimization）和 GEO（generative engine optimization）是业界用来描述「提升 AI 搜索可见度」的用语；从 Google Search 的视角，为生成式 AI 搜索做优化仍是在为搜索体验做优化，也就是 SEO。文档还写明：Google Search（含其生成式功能）本身不使用 llms.txt 这类机器可读文件来让站点出现在搜索中；为其他服务制作它们对 Google 搜索可见度既不帮助也不伤害。页面注明最近更新于 2026-07-10 UTC。",
+      "takeaway": "读官方原文，把「官方口径」和本栏从业词汇分开记；不要把 AEO/GEO 写成 Google 设立的独立官方学科或排名系统；也不要把 llms.txt 写成 Google 官方要求。本栏 AEO checklist 讨论的是其他回答引擎的文件层。",
+      "tags": ["AEO", "GEO", "SEO", "llms.txt"]
+    },
+    {
+      "id": "geo-seo-2026-11-25-b",
+      "date": "2026-11-25",
+      "slot": "launch",
+      "title": "Google SEO Starter Guide：先让搜索引擎能抓、能懂、能判断要不要点进来",
+      "source_url": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "source_name": "Google Search Central",
+      "type": "SEO",
+      "summary": "官方入门指南写明，SEO 是帮助搜索引擎理解内容，并帮助用户决定要不要从搜索结果访问你的站点。Search Essentials 列出出现在 Google 搜索中的基本资格；遵循这些更可能出现在结果中，但不能保证任何特定站点一定会被加入索引。文中明确：没有能自动让站点排第一的秘诀。改动反映到 Google 可能只要几小时，也可能要数月；一般建议等几周再评估，而且不是每次改动能看见效果。页面注明最近更新于 2025-12-10 UTC。",
+      "takeaway": "先用 site: 查询或 Search Console / URL 检查确认页面能被找到和抓取，再谈 AI 搜索可见度。不要期待改完立刻排第一，也不要保证一定收录。",
+      "tags": ["SEO", "Search Essentials"]
+    }
+  ]
+}

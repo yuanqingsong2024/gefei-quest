@@ -23,6 +23,7 @@
     'me-analytics': { what: '只显示你导入或拉取的数字。', go: '先登记站点', href: '#me-sites', goal: '只看你导入或拉取的真实数字。' },
     'me-ai': { what: '选择 AI 服务商；不填也能用内置模板。', go: '添加一个服务商', focus: '#ai-new', goal: '选好服务商；不填也能用模板。' },
     'me-sites': { what: '记下站名、域名和主词。', go: '填写站点名称', focus: '#site-name', goal: '登记站名、域名和主词。' },
+    'geo-seo': { what: '原则要点和每周两次公开资讯，每条附来源。', go: '先看被引用和被推荐', href: './starters/geo-checklist/#cited-vs-recommended', goal: '分清从业词汇和 Google 官方口径，再打开两份练站清单。' },
   };
 
   /** 与菜单顺序一致，由 SITE_NAV 生成。 */
@@ -221,7 +222,7 @@
     return esc(spec.go);
   }
   function panelFor(route) {
-    var panelId = { home: 'panel-home', path: 'panel-path', war: 'panel-war', lib: 'panel-lib', me: 'panel-me', start: 'panel-start', guides: 'panel-guides', weekly: 'panel-weekly' }[route && route.section];
+    var panelId = { home: 'panel-home', path: 'panel-path', war: 'panel-war', lib: 'panel-lib', me: 'panel-me', start: 'panel-start', guides: 'panel-guides', weekly: 'panel-weekly', 'geo-seo': 'panel-geo-seo' }[route && route.section];
     return panelId ? document.getElementById(panelId) : null;
   }
   function mount(route) {

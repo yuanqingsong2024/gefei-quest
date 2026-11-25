@@ -4244,3 +4244,35 @@ body.is-home .home-band .sec-head h2,
 .reduce-motion button.home-card:hover {
   transform: none;
 }
+
+/* AEO / GEO / SEO · #geo-seo */
+.geo-seo-lead { margin: 0 0 8px; line-height: 1.7; }
+.geo-seo-cadence { margin: 0 0 8px; font-weight: 700; color: var(--gold-text); }
+.geo-seo-sec { margin: 18px 0 8px; scroll-margin-top: 96px; }
+.geo-seo-sec > h2 { margin: 0 0 6px; font-size: 1.2rem; }
+.geo-seo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 8px 0 0; }
+.geo-seo-card {
+  padding: 14px 16px; min-width: 0; overflow-wrap: anywhere;
+  display: flex; flex-direction: column; gap: 8px;
+  border-left: 4px solid rgba(125, 211, 252, .85);
+}
+.geo-seo-card h3 { margin: 0; font-size: 1rem; font-weight: 800; }
+.geo-seo-card p { margin: 0; line-height: 1.65; }
+.geo-seo-links { display: flex; flex-wrap: wrap; gap: 6px 12px; }
+.geo-seo-links a { font-weight: 700; }
+.geo-seo-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.geo-seo-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.geo-seo-when { color: var(--muted); font-size: var(--fs-sm); }
+.geo-seo-take { color: var(--ink); }
+.geo-seo-points { margin: 8px 0 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; }
+.geo-seo-official { margin: 10px 0 0; line-height: 1.65; }
+.geo-seo-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+.geo-seo-history-note { margin: 8px 0 0; color: var(--muted); }
+.geo-seo-card.geo-seo-type-官方口径 { border-left-color: rgba(96, 165, 250, .9); }
+.geo-seo-card.geo-seo-type-SEO { border-left-color: rgba(74, 222, 128, .9); }
+.geo-seo-card.geo-seo-type-AEO { border-left-color: rgba(251, 191, 36, .9); }
+.geo-seo-card.geo-seo-type-GEO { border-left-color: rgba(167, 139, 250, .9); }
+.geo-seo-card.geo-seo-type-交叉 { border-left-color: rgba(244, 114, 182, .9); }
+@media (max-width: 860px) {
+  .geo-seo-grid { grid-template-columns: minmax(0, 1fr); }
+}

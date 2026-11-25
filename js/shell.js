@@ -87,6 +87,7 @@
       'war-publish': 'github pages 部署 发布 token pat',
       'war-keywords': '灵感 联想 autocomplete trends datamuse wikipedia hn 关键词灵感',
       'war-rank-opc': '一人公司 一人有限责任公司 OPC 公司法 认缴 年报 小规模 小微 接活 合规 登记',
+      'geo-seo': 'AEO GEO SEO AI搜索 引用 推荐 llms.txt AI Overviews 生成式搜索',
       pm: '平台变现 流量主 创作激励 分成 副业 新手怎么选',
     };
     function addNav(n) {
