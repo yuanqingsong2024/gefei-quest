@@ -1,0 +1,210 @@
+{
+  "date": "2026-11-26",
+  "updated": "2026-11-26T09:50:00+08:00",
+  "weekday": "weekday",
+  "items": [
+    {
+      "id": "illyism-seo-skills",
+      "rank": 1,
+      "name": "SEO Skills",
+      "category": "项目",
+      "summary": "30 个面向编码代理的 SEO/GEO 技能包（SKILL.md，遵循 Agent Skills 规范）。定位不是再出一份审计 PDF，而是在仓库里直接产出可合并的 diff：标题与 H1、文章刷新、robots.txt、301 映射、/vs/ 对照页、正文内链等。覆盖技术与调研（seo-roast、internal-linking、proof-kb、关键词簇）、AI 搜索（customer-journey、content-coverage）和去 AI 腔（unslop-seo）。用 `npx skills add Illyism/seo-skills` 可装到 Claude Code、Cursor、Codex、OpenCode 等。README 末尾写明 MIT，但仓库没有 LICENSE 文件，GitHub 许可字段为空。约 2141 星，2026-11-25 仍有推送。",
+      "why": "对 autograph-ai（Vue3+Vite+FastAPI SEO/GEO 内容 SaaS）最有用：近期已推过构建期产物（aeo.js、agentmarkup）、发布后审计（squirrelscan）、就绪度评分（GEO Optimizer）、GSC 催收录（SEOMonster）和引用追踪（Limelit、OpenGSO），缺的是「把内链、第一手证据和关键词簇变成仓库里可合并的改动，并沉淀成产品功能」。可执行：1）先只装 `internal-linking` 和 `proof-kb`，对照技能自带的 `internal-link-graph.mjs`，给已发布文章补指向定价/功能/对比页的正文内链，并建品牌事实与基准卡，供多模型写作引用，而不是再写空泛 E-E-A-T 套话；2）把「流量页指向转化页」「数字变更时同步相关页面」收进 autograph 的内容工作流或门禁，自己实现，不要把技能原文粘进商业产品；3）`dataforseo-serp` / `ahrefs-research` 需要付费 API 或 MCP，`aiseotracker`、LinkDR 是作者相关商业服务，不要当默认第一步。技能示例偏 Next/MDX/SaaS 路由，Vue 仓库要改路径映射。",
+      "url": "https://github.com/Illyism/seo-skills",
+      "repo": "Illyism/seo-skills",
+      "stars": 2141,
+      "tags": [
+        "SEO",
+        "GEO",
+        "SKILL.md",
+        "internal-linking",
+        "E-E-A-T",
+        "autograph-ai"
+      ],
+      "steps": [
+        "在 autograph 仓库执行 `npx skills add Illyism/seo-skills --list`，先只加 `internal-linking` 和 `proof-kb`（Cursor 可用 `-a cursor`）",
+        "选 1–2 篇已发布或仓库里的文章，按技能说明生成内链图或 proof 卡，在单独分支上审 diff，不要直接改 main",
+        "不要一上来接通 Ahrefs、DataForSEO、LinkDR 或 AI SEO Tracker 等付费/账号服务"
+      ],
+      "risk": "README 声明 MIT，但未附 LICENSE 文件、GitHub license 为空，并入或再分发前应保留作者声明或向作者确认，不要把技能原文复制进商业产品。Ahrefs、DataForSEO、LinkDR、AI SEO Tracker 等会花钱或要账号。internal-linking 默认改正文，必须人工审 diff。不保证排名或被 AI 引用。目录提交和外链购买类技能，与站内质量建设不是一回事。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Illyism/seo-skills/blob/main/README.md"
+        },
+        {
+          "title": "internal-linking 技能",
+          "url": "https://github.com/Illyism/seo-skills/blob/main/seo/internal-linking/SKILL.md"
+        },
+        {
+          "title": "技能目录 il.ly/skills",
+          "url": "https://il.ly/skills"
+        }
+      ]
+    },
+    {
+      "id": "anning01-novelvids",
+      "rank": 2,
+      "name": "猫影短剧 NovelVids",
+      "category": "项目",
+      "summary": "开源 AI 漫剧与短剧创作工作台。本地管理作品，可接自有模型或独立的猫影开放平台（Cat API）。流程覆盖故事导入与分章、角色/场景/道具资产（参考图、别名、变装、声音绑定）、可编辑分镜、图片与视频生成、无限画布、镜头衔接与章节成片，以及从参考视频进入的重制工坊。前端 Vue 3 + TypeScript + Vue Flow，后端 FastAPI + Tortoise ORM + Deep Agents + Pydantic AI；创作规则在 `prompts/skills/`（story、screenplay、assets、storyboard、image、video、remake 等），可用 `scripts/export_skill.py` 把单个技能打成带 MIT 许可的独立目录。默认 SQLite 的 Docker 部署，也可用 `make dev` 本地开发（Python 3.12+、Node 22.12+、uv、FFmpeg）。MIT。约 393 星，2026-11-25 仍活跃。",
+      "why": "对 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）最有用：近期已对照过出片管线（ArcReel）、画布（AI Canvas、LocalMiniDrama）、3D 预演（CozyClay）和剧本体机检（Short-Drama Factory），缺的是「可单独导出的中文创作 Skills，以及一套与自身接近的 FastAPI 工作台架构（资产跨章复用、分镜可改、画布与故事板双视图）」。可执行：1）先不要整仓并入，运行 `python scripts/export_skill.py --list`，再导出 `novelvids-screenplay`、`novelvids-assets`、`novelvids-storyboard` 到对照目录，拿一章小说跑规则，对照自己的分镜字段、角色资产和提示词版本；2）对照「设定与分镜关联、只重跑一个镜头、任务与用量可追踪、规则与模型适配分离」，补 StoryFactory 的资产一致性和可撤销修改，不要对接其商业站接口；3）若要看完整界面，再考虑 Docker 或 `make dev`，默认 `NOVELVIDS_ROLE=studio`，模型用自己的服务。开放平台要另配 Cat API Key 并可能产生费用；升级服务会挂载 Docker socket，不要当第一步。",
+      "url": "https://github.com/Anning01/novelvids",
+      "repo": "Anning01/novelvids",
+      "stars": 393,
+      "tags": [
+        "漫剧",
+        "短剧",
+        "storyboard",
+        "FastAPI",
+        "Vue3",
+        "SKILL.md",
+        "soloforge-storyfactory"
+      ],
+      "steps": [
+        "克隆仓库后执行 `python scripts/export_skill.py --list`，确认可导出的技能名",
+        "用 `python scripts/export_skill.py novelvids-screenplay --dest <对照目录>`（以及 assets、storyboard）导出到 StoryFactory 对照项目，拿一章小说试规则与字段",
+        "先不要 Docker 全量部署，也不要先注册或充值猫影开放平台"
+      ],
+      "risk": "MIT 只覆盖本仓库代码和文档；演示小说、音乐、声音与第三方依赖见 NOTICE，不授予那些素材的使用权。商业站与 Cat API 是独立服务，账号、充值和模型费用分开。更新容器需要 Docker socket 权限。生成会耗模型额度，失败重试可能产生新费用。前端是 Vue 不是 React，只能对照架构，不能直接搬组件。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/Anning01/novelvids/blob/main/README.md"
+        },
+        {
+          "title": "LICENSE (MIT)",
+          "url": "https://github.com/Anning01/novelvids/blob/main/LICENSE"
+        },
+        {
+          "title": "export_skill.py",
+          "url": "https://github.com/Anning01/novelvids/blob/main/scripts/export_skill.py"
+        },
+        {
+          "title": "创作 Skills 目录",
+          "url": "https://github.com/Anning01/novelvids/tree/main/prompts/skills"
+        }
+      ]
+    },
+    {
+      "id": "strands-agents-box",
+      "rank": 3,
+      "name": "Strands Box",
+      "category": "项目",
+      "summary": "在本机用操作系统沙箱跑编程代理的工具（官方标明预览）。把 Claude Code、Codex、Kiro CLI 或 Pi 放进 box：代理只能触达你授予的项目文件，密钥留在盒子外、由 Box 在请求出站时注入；每条 shell、网络和 MCP 调用都按 Dogwood 策略在模型之外先检查。支持 Apple silicon 的 macOS 15+，以及 Linux ARM64/x86-64。可用 Homebrew cask 或官方安装脚本；另有可单独运行或嵌入的 Box Core（`box.toml` + `policy.dw`）。Apache-2.0。约 613 星，2026-11-26 仍有推送。",
+      "why": "对 clawkit 与凌霄（Hermes 多角色，也用 Pi）最有用：近期已推过运行时防护（HOL Guard）、用量看板（Token Monitor）和技能评测（Caliper），缺的是「把代理放进 OS 级沙箱，默认拒绝出站与额外文件，密钥不进上下文」。可执行：1）在 Mac 上安装后，用已有的 Claude Pro，按文档使用 `@box/claude-subscription` 建 profile（不必先开 AWS Bedrock），在一个无关紧要的练习目录运行 `box run claude`，确认无权文件和出站会被拦截；2）对照其策略包和凭证注入，思考凌霄/clawkit 的工具与网络边界——README 点名的是 Claude Code、Codex、Kiro CLI 和 Pi，Hermes 没有现成官方 profile，不要当成开箱即用的凌霄集成；3）先读 Limitations：策略里的文件规则默认只约束 box 的 shell/Python，代理自带文件工具仍能碰到 profile 授予的文件；代理若改了项目里的 git hook、`.claude/settings.json` 或构建脚本，下次在盒子外执行可能跑到沙箱外。先不要打开 `agent.skip-permissions`，也不要给家目录级写权限。",
+      "url": "https://github.com/strands-agents/box",
+      "repo": "strands-agents/box",
+      "stars": 613,
+      "tags": [
+        "sandbox",
+        "AI-safety",
+        "Claude-Code",
+        "Pi",
+        "policy",
+        "clawkit",
+        "hermes"
+      ],
+      "steps": [
+        "在 Mac 按文档安装 box（Homebrew cask `strands-agents/tap/box` 或审阅后使用官方 install.sh），用 `box --version` 确认",
+        "用已有 Claude Pro 按文档创建 `@box/claude-subscription` profile，在练习目录执行 `box run claude`，验证无权文件和出站会被拦截",
+        "先不要打开 skip-permissions，也不要授予家目录或 PATH 级写权限；跑完先检查 `.git/hooks` 与 `git status --ignored` 再在盒子外操作该目录"
+      ],
+      "risk": "官方标明预览，不是完整安全保证。未提供 Hermes 官方 profile。macOS 上为支持文件时间戳，代理还可能改 setuid 位或 ACL（见 Limitations）。运行记录在 `~/.strands/box/r/`，不是防篡改审计日志。curl | sh 安装脚本需自行审阅。关掉代理自己的权限提示后，策略允许的事都会直接执行，包括删除项目文件。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/strands-agents/box/blob/main/README.md"
+        },
+        {
+          "title": "Limitations",
+          "url": "https://github.com/strands-agents/box/blob/main/docs/cli/limitations.md"
+        },
+        {
+          "title": "Get started",
+          "url": "https://github.com/strands-agents/box/blob/main/docs/cli/getting-started.md"
+        },
+        {
+          "title": "项目主页",
+          "url": "https://strandsagents.com/box"
+        }
+      ]
+    },
+    {
+      "id": "isaacsa51-minus",
+      "rank": 4,
+      "name": "Minus",
+      "category": "生活",
+      "summary": "Android 周期预算与开支记录应用。用计算器式数字键盘随手记账；预算可按日、周、双周或月拆开；追踪订阅和固定支出，并提醒信用卡还款日；可按当前周期、即将到来的固定支出和历史周期查看，带图表。支持 CSV 导出、桌面小组件和 Wear OS 伴侣应用。Apache-2.0。从 Google Play 安装（`com.serranoie.app.minus`）。Crowdin 翻译，仓库含 `values-zh` 中文资源。约 320 星，2026-11-23 仍有更新。不是理财建议。",
+      "why": "适合「发工资或刷完信用卡之后，这个预算周期还能不能花」的消费决策，而不是再做一本全量账或只盯订阅清单（11-16 已推过 Recurring Expense Tracker）。可执行：1）设置与发薪日对齐的预算周期，再记下一张卡的还款日，开销记在当前周期里，看还完卡还剩多少；2）把流媒体、云盘等订阅设成重复项并打开提前提醒，减少漏缴和忘记取订；3）定期把 CSV 导出到自己的文件夹做月度复盘。有中文资源，完整度以应用内为准。非投资或理财建议。",
+      "url": "https://github.com/isaacsa51/Minus",
+      "repo": "isaacsa51/Minus",
+      "stars": 320,
+      "tags": [
+        "消费决策",
+        "预算",
+        "信用卡还款日",
+        "Android",
+        "轻理财"
+      ],
+      "steps": [
+        "从 Google Play 安装 Minus（https://play.google.com/store/apps/details?id=com.serranoie.app.minus），无需注册账号",
+        "设一个与发薪日对齐的预算周期，并添加一张信用卡的还款提醒，先手动记几天日常开支",
+        "不要把应用内的图表或「省钱建议」当成理财方案；先确认备份/导出路径再长期使用"
+      ],
+      "risk": "官方安装入口是 Google Play，README 未提供 F-Droid；国内安装可能不便。中文来自 Crowdin 与 `values-zh`，不保证界面全部译完。应用内分析和提醒只是记录工具，不是投资或理财建议。使用前阅读其隐私政策，不要把账单同步到来路不明的云端。仅 Android（可另装 Wear OS 伴侣）。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/isaacsa51/Minus/blob/master/README.md"
+        },
+        {
+          "title": "LICENSE.md (Apache-2.0)",
+          "url": "https://github.com/isaacsa51/Minus/blob/master/LICENSE.md"
+        },
+        {
+          "title": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.serranoie.app.minus"
+        }
+      ]
+    },
+    {
+      "id": "fossifyorg-calendar",
+      "rank": 5,
+      "name": "Fossify Calendar",
+      "category": "生活",
+      "summary": "无广告、注重隐私的开源 Android 日历。支持事件的精确时间、时长、提醒和复杂重复规则；可与 Google Calendar、Outlook、Nextcloud、Exchange 等同步；提供日/周/月/年与事件列表多种视图、桌面小组件、节日与纪念日导入、事件筛选和主题。无追踪、无多余权限。GPL-3.0。包名 `org.fossify.calendar`，仓库当前版本名 1.12.2。F-Droid 与 Google Play 均可安装。仓库含简体、香港和台湾中文资源。约 2300 星，2026-11-23 仍有推送。与 11-15 推荐过的 Fossify Clock 是同一出品方，这次是日历不是闹钟。",
+      "why": "适合早晨打开「日视图」看当天时间冲突和提醒，把通勤、会议、家庭事项放在同一天轴上，避免只靠聊天记录记事。可执行：1）从 F-Droid 安装后先完全离线用，把明天的出发时间和关键事项建成带提醒的事件，主屏放日历小组件当今日早报；2）需要时再同步已有的 Google 或 Outlook 日历，用筛选把工作/家庭分开看；3）导入节假日或纪念日，减少漏记调休（生日若已用 Birday，不必重复建设）。",
+      "url": "https://github.com/FossifyOrg/Calendar",
+      "repo": "FossifyOrg/Calendar",
+      "stars": 2300,
+      "tags": [
+        "早晨",
+        "日程效率",
+        "日历",
+        "Android",
+        "FOSS"
+      ],
+      "steps": [
+        "优先从 F-Droid 安装（https://f-droid.org/packages/org.fossify.calendar/），也可以用 Google Play",
+        "打开日视图，为明天的出发或会议加上时间和提醒，并把小组件放到主屏",
+        "默认同步先不要开；确认需要后再接入自己已有的日历账号，不要连接来路不明的 CalDAV"
+      ],
+      "risk": "GPL-3.0，不能闭源改头换面去售卖。同步 Google 或 Outlook 会把事件交给对应服务。仅 Android。与 Fossify Clock 是同一系列，但功能不同，不必重复装来「再买一个闹钟」。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/FossifyOrg/Calendar/blob/main/README.md"
+        },
+        {
+          "title": "F-Droid",
+          "url": "https://f-droid.org/packages/org.fossify.calendar/"
+        },
+        {
+          "title": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=org.fossify.calendar"
+        }
+      ]
+    }
+  ]
+}
