@@ -2,8 +2,8 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-26T00:43:09.689Z",
-  "latestId": 115,
+  "generatedAt": "2026-11-26T04:44:31.964Z",
+  "latestId": 116,
   "latestDate": "2026-11-26",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
@@ -13,6 +13,17 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 116,
+      "date": "2026-11-26",
+      "tag": "内容",
+      "title": "AI生活合集新增「代打电话办生活小事」场景文选题",
+      "items": [
+        "「AI生活起号选题方案」合集置顶新增：让AI代打电话办生活小事——先写清诉求再授权，问排队、订包间、找失物、问快递；结果对照录音核对，预订和付款本人确认；含跟做闭环、提示词两则、小红书与闲鱼跟做包角度",
+        "附 IT之家／潞源、新京报贝壳财经／程子姣、每日经济新闻／可杨与李宇彤、钛媒体／字母AI 来源口径；千问Go全面开放免费是11-25媒体报道，不要写成我们的实测；每经排队咨询与耗时「与自行拨打差别不大」为记者实测，钛媒体「一两分钟」、烤鸭店未订上为作者体验，不得写成读者案例；小豆仍为邀请制公测，代打暂不支持境外与私人号码；能在官方App完成的预订和查询优先走官方入口；外呼须本人授权，打完对照录音，预订、改约、付款本人确认；不代拨私人号码，不索要验证码或支付信息，不承诺一定打通、订上或找回失物；与11-03元宝生活办事台、11-17豆包找店、11-07家庭事务盯梢员、11-24售后工单整理员区分。SW 缓存 70"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
+    },
     {
       "id": 115,
       "date": "2026-11-26",
@@ -114,18 +125,6 @@
         "No.1 DigitalOcean Affiliate：写云主机或开发者工具教程，官方联盟页写明推荐新付费用户可按其月度消费拿约10%佣金、持续约一整年（经 CJ 网络申请，以官方页与协议为准）",
         "No.2 Buy Me a Coffee：免月费上架原创数字产品、服务或会员，官方帮助中心写明每笔约收5%平台费（另计 Stripe 等支付处理费，以官方说明为准）",
         "No.3 Surge：用一条命令发布英文静态工具小站，官方定价页写明 Free 档约0美元（自定义域名与证书含在各档内，无流量超额计费）"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
-    },
-    {
-      "id": 106,
-      "date": "2026-11-18",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-18",
-      "items": [
-        "No.1 hosting.com（原 A2 Hosting）Affiliate：写主机/WordPress 教程，官方联盟页写明合资格主机首张账单约50%佣金、单笔上限约400美元（约45天核准，满约100美元后每月15日打款）",
-        "No.2 Leanpub：上架原创电子书、组合包或课程，官方帮助中心写明大多数自出版销售约80%版税（约60天冻结后按月打款，以官方说明为准）",
-        "No.3 Deno Deploy：按官方入门部署英文静态工具小站，官方定价页写明 Free 档约0美元/月（约100万次请求、约20GiB出站、约10小时CPU等额度），验证流量后再接 AdSense 或联盟"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
