@@ -1,208 +1,194 @@
 {
-  "date": "2026-11-26",
-  "updated": "2026-11-26T09:50:00+08:00",
+  "date": "2026-11-27",
+  "updated": "2026-11-27T09:40:44+08:00",
   "weekday": "weekday",
   "items": [
     {
-      "id": "illyism-seo-skills",
+      "id": "ouranos-labs-pseolint",
       "rank": 1,
-      "name": "SEO Skills",
+      "name": "pseolint",
       "category": "项目",
-      "summary": "30 个面向编码代理的 SEO/GEO 技能包（SKILL.md，遵循 Agent Skills 规范）。定位不是再出一份审计 PDF，而是在仓库里直接产出可合并的 diff：标题与 H1、文章刷新、robots.txt、301 映射、/vs/ 对照页、正文内链等。覆盖技术与调研（seo-roast、internal-linking、proof-kb、关键词簇）、AI 搜索（customer-journey、content-coverage）和去 AI 腔（unslop-seo）。用 `npx skills add Illyism/seo-skills` 可装到 Claude Code、Cursor、Codex、OpenCode 等。README 末尾写明 MIT，但仓库没有 LICENSE 文件，GitHub 许可字段为空。约 2141 星，2026-11-25 仍有推送。",
-      "why": "对 autograph-ai（Vue3+Vite+FastAPI SEO/GEO 内容 SaaS）最有用：近期已推过构建期产物（aeo.js、agentmarkup）、发布后审计（squirrelscan）、就绪度评分（GEO Optimizer）、GSC 催收录（SEOMonster）和引用追踪（Limelit、OpenGSO），缺的是「把内链、第一手证据和关键词簇变成仓库里可合并的改动，并沉淀成产品功能」。可执行：1）先只装 `internal-linking` 和 `proof-kb`，对照技能自带的 `internal-link-graph.mjs`，给已发布文章补指向定价/功能/对比页的正文内链，并建品牌事实与基准卡，供多模型写作引用，而不是再写空泛 E-E-A-T 套话；2）把「流量页指向转化页」「数字变更时同步相关页面」收进 autograph 的内容工作流或门禁，自己实现，不要把技能原文粘进商业产品；3）`dataforseo-serp` / `ahrefs-research` 需要付费 API 或 MCP，`aiseotracker`、LinkDR 是作者相关商业服务，不要当默认第一步。技能示例偏 Next/MDX/SaaS 路由，Vue 仓库要改路径映射。",
-      "url": "https://github.com/Illyism/seo-skills",
-      "repo": "Illyism/seo-skills",
-      "stars": 2141,
+      "summary": "面向程序化 SEO（pSEO）的开源审计工具：分析单位不是单页，而是模板簇（例如 /listing/:slug）。它会抽样同一模板下的页面，给出模板级结论、方差/一致性，以及 65 条规则、8 个类别上的 SpamBrain 风险分和独立的 AEO（AI 引用就绪）子分。用法是开发者工作流，不是 SaaS 后台：npx pseolint <url 或目录>、GitHub Action、MCP，以及可装到编码代理的 pseolint / aeo 技能。默认规则本身可无密钥跑；--ai 才是自带密钥的可选归因（支持 Anthropic、OpenAI、Ollama 等，有花费预估和预算上限）。pseolint grow 可读 Search Console 导出的 Pages.csv，比较「已被展示」与「被忽略」的同模板页面并给出内链/改标题计划；indexnow 可通知 Bing 等（README 写明 Google 不走 IndexNow）。CLI / core / MCP / Action 为 MIT（npm 包 pseolint 与 @pseolint/core 当前 0.8.1）；仓库里的 apps/web 单独是 AGPL-3.0-only，不要把 Web 应用并进商业产品。约 8 星，2026-11-15 仍有推送；GitHub Releases 停在较旧的 v0.2.1，以源码和 npm 为准。仓库仍较新，星数不多。",
+      "why": "对 autograph-ai（Vue3+Vite+FastAPI SEO/GEO 内容 SaaS）最有用：近期已推过构建期产物（aeo.js、agentmarkup）、发布后单页审计（squirrelscan）、就绪度评分（GEO Optimizer）、GSC 催收录（SEOMonster）、引用追踪（Limelit、OpenGSO）和内链技能（SEO Skills），缺的是「按模板看一批程序化/目录页会不会像门口页、近重复或薄内容，并把它收成发布前门禁」。可执行：1）先不要开 --ai，对 1–2 个已发布或可预渲染的栏目/模板页跑 npx pseolint --render <url>（Vue SPA 客户端空壳会误报，README 建议对真实渲染后的页面或开发服务器跑，构建目录里的 CSR 壳不够）；看模板级的 near-duplicate、thin-content、doorway、citable facts，改模板而不是逐页打补丁。2）把同样的命令收进预览环境或 CI（--ci-threshold / JSON 报告），只把门禁接到自己的发布流程，不要把 apps/web 或技能原文并入产品。3）grow 和 IndexNow 放到第二步：需要 GSC 导出，且 IndexNow 到不了 Google。风险分是权威度无关的方向性下限，不保证排名或被 AI 引用；部分爬取（truncated）只能当下限，不能当全站通过。",
+      "url": "https://github.com/ouranos-labs/pseolint",
+      "repo": "ouranos-labs/pseolint",
+      "stars": 8,
       "tags": [
+        "pSEO",
         "SEO",
-        "GEO",
-        "SKILL.md",
-        "internal-linking",
-        "E-E-A-T",
+        "AEO",
+        "CLI",
+        "MCP",
         "autograph-ai"
       ],
       "steps": [
-        "在 autograph 仓库执行 `npx skills add Illyism/seo-skills --list`，先只加 `internal-linking` 和 `proof-kb`（Cursor 可用 `-a cursor`）",
-        "选 1–2 篇已发布或仓库里的文章，按技能说明生成内链图或 proof 卡，在单独分支上审 diff，不要直接改 main",
-        "不要一上来接通 Ahrefs、DataForSEO、LinkDR 或 AI SEO Tracker 等付费/账号服务"
+        "在已发布或可预渲染的预览地址上先跑 npx pseolint --render <url>，不要加 --ai",
+        "只看模板级发现（近重复、薄内容、门口页、可引用事实），改栏目模板，不要对着空壳 HTML 下结论",
+        "不要把 apps/web（AGPL）或技能原文并进商业产品；CI 门禁可随后再加"
       ],
-      "risk": "README 声明 MIT，但未附 LICENSE 文件、GitHub license 为空，并入或再分发前应保留作者声明或向作者确认，不要把技能原文复制进商业产品。Ahrefs、DataForSEO、LinkDR、AI SEO Tracker 等会花钱或要账号。internal-linking 默认改正文，必须人工审 diff。不保证排名或被 AI 引用。目录提交和外链购买类技能，与站内质量建设不是一回事。",
+      "risk": "仓库仍较早、星数不多，GitHub Release 标签落后于 npm 0.8.1。autograph 若是纯 CSR、未预渲染，不加 --render 或对着构建空壳跑会误报。风险分不测量外链/品牌权威，也不保证收录或 AI 引用；爬取中断时结果是部分报告。--ai 与自动开 PR 会消耗模型额度，须人工审 diff。Web 应用是 AGPL-3.0-only，与 MIT 的 CLI/core 分开。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/Illyism/seo-skills/blob/main/README.md"
+          "url": "https://github.com/ouranos-labs/pseolint/blob/main/README.md"
         },
         {
-          "title": "internal-linking 技能",
-          "url": "https://github.com/Illyism/seo-skills/blob/main/seo/internal-linking/SKILL.md"
+          "title": "packages/cli（MIT，pseolint 0.8.1）",
+          "url": "https://github.com/ouranos-labs/pseolint/tree/main/packages/cli"
         },
         {
-          "title": "技能目录 il.ly/skills",
-          "url": "https://il.ly/skills"
+          "title": "apps/web LICENSE（AGPL-3.0-only）",
+          "url": "https://github.com/ouranos-labs/pseolint/blob/main/apps/web/LICENSE"
         }
       ]
     },
     {
-      "id": "anning01-novelvids",
+      "id": "chrischen667788-wind-comic",
       "rank": 2,
-      "name": "猫影短剧 NovelVids",
+      "name": "Wind Comic",
       "category": "项目",
-      "summary": "开源 AI 漫剧与短剧创作工作台。本地管理作品，可接自有模型或独立的猫影开放平台（Cat API）。流程覆盖故事导入与分章、角色/场景/道具资产（参考图、别名、变装、声音绑定）、可编辑分镜、图片与视频生成、无限画布、镜头衔接与章节成片，以及从参考视频进入的重制工坊。前端 Vue 3 + TypeScript + Vue Flow，后端 FastAPI + Tortoise ORM + Deep Agents + Pydantic AI；创作规则在 `prompts/skills/`（story、screenplay、assets、storyboard、image、video、remake 等），可用 `scripts/export_skill.py` 把单个技能打成带 MIT 许可的独立目录。默认 SQLite 的 Docker 部署，也可用 `make dev` 本地开发（Python 3.12+、Node 22.12+、uv、FFmpeg）。MIT。约 393 星，2026-11-25 仍活跃。",
-      "why": "对 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）最有用：近期已对照过出片管线（ArcReel）、画布（AI Canvas、LocalMiniDrama）、3D 预演（CozyClay）和剧本体机检（Short-Drama Factory），缺的是「可单独导出的中文创作 Skills，以及一套与自身接近的 FastAPI 工作台架构（资产跨章复用、分镜可改、画布与故事板双视图）」。可执行：1）先不要整仓并入，运行 `python scripts/export_skill.py --list`，再导出 `novelvids-screenplay`、`novelvids-assets`、`novelvids-storyboard` 到对照目录，拿一章小说跑规则，对照自己的分镜字段、角色资产和提示词版本；2）对照「设定与分镜关联、只重跑一个镜头、任务与用量可追踪、规则与模型适配分离」，补 StoryFactory 的资产一致性和可撤销修改，不要对接其商业站接口；3）若要看完整界面，再考虑 Docker 或 `make dev`，默认 `NOVELVIDS_ROLE=studio`，模型用自己的服务。开放平台要另配 Cat API Key 并可能产生费用；升级服务会挂载 Docker socket，不要当第一步。",
-      "url": "https://github.com/Anning01/novelvids",
-      "repo": "Anning01/novelvids",
-      "stars": 393,
+      "summary": "开源的多 Agent AI 短剧工作室（v13.18）：一句话进，经过编剧、导演、风格圣经、角色设计、分镜（Vision 质检低于阈值会重跑）、多引擎视频竞赛、按角色 TTS、口型同步和剪辑，出带中文字幕的成片 mp4。强调角色一致性（三视图转身图 + 8 维 DNA + 参考图）、节奏/冲突审计（可把 PACING_GATE=block 设成生成前的硬门禁）、导演台（上游改动会标记过期并支持按依赖重跑），以及用 3 个环境变量替换 OpenAI 兼容 LLM。前端 Next.js 16，Node 20+，默认 SQLite（可选 Postgres）。可以用一条 Docker 命令零密钥试用：MOCK_ENGINES=1 走确定性的占位引擎（SVG 分镜、色块视频、正弦波音频），演示的是管线形状而不是成片质量；登录 demo@qfmanju.ai / wind-comic-demo，项目页可导入演示工程《雨夜信号》。仓库自有源码是 MIT，但打包分发时注意 ffmpeg-static 等依赖的 GPL/非自由二进制。约 727 星，2026-11-26 仍活跃；国内可用 AtomGit 镜像。",
+      "why": "对 soloforge-storyfactory（React+FastAPI AI 漫剧故事工厂）最有用：近期已对照过出片管线（ArcReel）、画布（AI Canvas、LocalMiniDrama）、剧本体机检（Short-Drama Factory）和可导出中文 Skills（NovelVids），缺的是「角色 DNA/转身图、分镜视觉质检重跑、节奏门禁、导演台过期重跑」这套可运行的一致性契约。可执行：1）先不要整仓并入，也不要先配付费视频密钥；用官方 demo 镜像跑通并导入《雨夜信号》，对照 types/agents.ts 的角色交接、DNA 字段、分镜质检和导演台「上游变更 → 下游过期」与自己的资产/分镜模型。2）把「角色锁 + 单镜可重跑 + 节奏审计可升级为阻断门禁 + 中文字幕后烧而非让模型画字」收成 StoryFactory 的对照清单，自己实现。3）真出片再按需加自己的 LLM/视频密钥；默认演示档月预算很低，不够跑完整真实引擎成片。发布到国内平台的 AI 标识与备案责任在运营方，工具只提供角标等手段。",
+      "url": "https://github.com/ChrisChen667788/wind-comic",
+      "repo": "ChrisChen667788/wind-comic",
+      "stars": 727,
       "tags": [
         "漫剧",
         "短剧",
         "storyboard",
-        "FastAPI",
-        "Vue3",
-        "SKILL.md",
+        "multi-agent",
+        "MIT",
         "soloforge-storyfactory"
       ],
       "steps": [
-        "克隆仓库后执行 `python scripts/export_skill.py --list`，确认可导出的技能名",
-        "用 `python scripts/export_skill.py novelvids-screenplay --dest <对照目录>`（以及 assets、storyboard）导出到 StoryFactory 对照项目，拿一章小说试规则与字段",
-        "先不要 Docker 全量部署，也不要先注册或充值猫影开放平台"
+        "用官方文档中的 Docker 零密钥命令启动 demo（MOCK_ENGINES=1），浏览器打开 localhost:3100，用 demo@qfmanju.ai / wind-comic-demo 登录",
+        "在项目页导入演示工程《雨夜信号》，只对照角色 DNA、分镜质检和导演台，不要先配置付费视频 API",
+        "不要把整仓并入 StoryFactory 商业产品；打包分发镜像时须单独处理 ffmpeg-static 等非 MIT 二进制"
       ],
-      "risk": "MIT 只覆盖本仓库代码和文档；演示小说、音乐、声音与第三方依赖见 NOTICE，不授予那些素材的使用权。商业站与 Cat API 是独立服务，账号、充值和模型费用分开。更新容器需要 Docker socket 权限。生成会耗模型额度，失败重试可能产生新费用。前端是 Vue 不是 React，只能对照架构，不能直接搬组件。",
+      "risk": "Demo 模式是占位引擎，不能代表真实出片质量。真实图像/视频/TTS 要自备密钥并产生费用。源码 MIT，但再分发含 ffmpeg-static 等二进制的镜像或桌面包时有 GPL/非自由约束。默认注册可能需要邀请码；演示账号密码不要用于生产。把成片放到中国大陆平台时，AI 标识与备案是运营者的责任。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/Anning01/novelvids/blob/main/README.md"
+          "url": "https://github.com/ChrisChen667788/wind-comic/blob/main/README.md"
         },
         {
-          "title": "LICENSE (MIT)",
-          "url": "https://github.com/Anning01/novelvids/blob/main/LICENSE"
+          "title": "简体中文 README",
+          "url": "https://github.com/ChrisChen667788/wind-comic/blob/main/README.zh-CN.md"
         },
         {
-          "title": "export_skill.py",
-          "url": "https://github.com/Anning01/novelvids/blob/main/scripts/export_skill.py"
-        },
-        {
-          "title": "创作 Skills 目录",
-          "url": "https://github.com/Anning01/novelvids/tree/main/prompts/skills"
+          "title": "AtomGit 镜像",
+          "url": "https://atomgit.com/ChrisChen667788/wind-comic"
         }
       ]
     },
     {
-      "id": "strands-agents-box",
+      "id": "enderfga-claw-orchestrator",
       "rank": 3,
-      "name": "Strands Box",
+      "name": "Claw Orchestrator",
       "category": "项目",
-      "summary": "在本机用操作系统沙箱跑编程代理的工具（官方标明预览）。把 Claude Code、Codex、Kiro CLI 或 Pi 放进 box：代理只能触达你授予的项目文件，密钥留在盒子外、由 Box 在请求出站时注入；每条 shell、网络和 MCP 调用都按 Dogwood 策略在模型之外先检查。支持 Apple silicon 的 macOS 15+，以及 Linux ARM64/x86-64。可用 Homebrew cask 或官方安装脚本；另有可单独运行或嵌入的 Box Core（`box.toml` + `policy.dw`）。Apache-2.0。约 613 星，2026-11-26 仍有推送。",
-      "why": "对 clawkit 与凌霄（Hermes 多角色，也用 Pi）最有用：近期已推过运行时防护（HOL Guard）、用量看板（Token Monitor）和技能评测（Caliper），缺的是「把代理放进 OS 级沙箱，默认拒绝出站与额外文件，密钥不进上下文」。可执行：1）在 Mac 上安装后，用已有的 Claude Pro，按文档使用 `@box/claude-subscription` 建 profile（不必先开 AWS Bedrock），在一个无关紧要的练习目录运行 `box run claude`，确认无权文件和出站会被拦截；2）对照其策略包和凭证注入，思考凌霄/clawkit 的工具与网络边界——README 点名的是 Claude Code、Codex、Kiro CLI 和 Pi，Hermes 没有现成官方 profile，不要当成开箱即用的凌霄集成；3）先读 Limitations：策略里的文件规则默认只约束 box 的 shell/Python，代理自带文件工具仍能碰到 profile 授予的文件；代理若改了项目里的 git hook、`.claude/settings.json` 或构建脚本，下次在盒子外执行可能跑到沙箱外。先不要打开 `agent.skip-permissions`，也不要给家目录级写权限。",
-      "url": "https://github.com/strands-agents/box",
-      "repo": "strands-agents/box",
-      "stars": 613,
+      "summary": "把多种编码 Agent CLI 收进同一运行时的开源头工具（npm：@enderfga/claw-orchestrator，CLI 为 clawo）。一次运行只有在「Agent 自己没写过的验收检查」通过后才算完成：由运行时执行命令、HTTP 探测、截图、diff 策略等，并在磁盘留下证据，结论为 verified / refuted / unverified。支持崩溃后按检查点恢复、跨引擎 fan-out 与 session handoff、council 投票、maxBudgetUsd 花费上限，以及按回合记录模型、token 与费用。一等引擎包括 Claude Code、Codex、Antigravity、Grok Build、Cursor、OpenCode，另可用 ACP 或自定义 CLI；提供 CLI/本地看板、MCP、TypeScript SDK、OpenAI 兼容接口和 OpenClaw 插件。README 把 Hermes Agent 列为 MCP 宿主之一，但兼容表里没有把 Hermes 写成一等引擎。需要 Node 22+，并至少安装且登录其中一个引擎 CLI。MIT。约 623 星；GitHub 最新 Release 为 2026-11-26 的 v7.36.0，当日源码仍在更新。",
+      "why": "对 clawkit 与凌霄（OpenClaw/OpenCode 研发编排，Hermes 多角色团队）最有用：近期已推过多 harness 编排（Omnigent）、角色流转（AgenTopology）、运行时防护（HOL Guard）、技能评测（Caliper）和沙箱（Strands Box），缺的是「运行时亲自跑验收、Agent 改不了结论，并能把 Grok Build 与 OpenCode 放在同一套花费账本和扇出里」。可执行：1）本机安装 @enderfga/claw-orchestrator 后只在 127.0.0.1 起 clawo serve，选已登录的 grok 或 opencode，对一个测试仓库跑 clawo solve … --check \"<你的测试命令>\" --wait，用 clawo verify 看证据，不要先做 OpenClaw 全量插件或把端口暴露到公网。2）对照「验收合同由运行时执行」「maxBudgetUsd」「fan-out / handoff」这几项，决定 clawkit 里哪些检查要从 Agent 自报改成外部门禁。3）若要用凌霄，按文档把 clawo-mcp 接到 Hermes；把 Hermes 当引擎跑需自行走 ACP/自定义 CLI，仓库未把它列为已测一等引擎。访问令牌写在 ~/.openclaw/server-token，能以服务器用户身份跑命令，务必留在本机。",
+      "url": "https://github.com/Enderfga/claw-orchestrator",
+      "repo": "Enderfga/claw-orchestrator",
+      "stars": 623,
       "tags": [
-        "sandbox",
-        "AI-safety",
-        "Claude-Code",
-        "Pi",
-        "policy",
-        "clawkit",
-        "hermes"
+        "OpenClaw",
+        "OpenCode",
+        "Grok Build",
+        "verification",
+        "MCP",
+        "clawkit"
       ],
       "steps": [
-        "在 Mac 按文档安装 box（Homebrew cask `strands-agents/tap/box` 或审阅后使用官方 install.sh），用 `box --version` 确认",
-        "用已有 Claude Pro 按文档创建 `@box/claude-subscription` profile，在练习目录执行 `box run claude`，验证无权文件和出站会被拦截",
-        "先不要打开 skip-permissions，也不要授予家目录或 PATH 级写权限；跑完先检查 `.git/hooks` 与 `git status --ignored` 再在盒子外操作该目录"
+        "安装 Node 22+ 与至少一个已登录的引擎 CLI（grok 或 opencode）后，执行 npm install -g @enderfga/claw-orchestrator，再 clawo serve（仅 127.0.0.1）",
+        "在测试仓库跑一次带 --check 的 clawo solve，用 clawo verify 查看运行时自己的验收证据",
+        "不要把看板端口暴露到公网，也不要把 ~/.openclaw/server-token 提交进仓库"
       ],
-      "risk": "官方标明预览，不是完整安全保证。未提供 Hermes 官方 profile。macOS 上为支持文件时间戳，代理还可能改 setuid 位或 ACL（见 Limitations）。运行记录在 `~/.strands/box/r/`，不是防篡改审计日志。curl | sh 安装脚本需自行审阅。关掉代理自己的权限提示后，策略允许的事都会直接执行，包括删除项目文件。",
+      "risk": "令牌对本地运行时有完整控制权，暴露端口等于把本机命令权交给持有令牌的人。Hermes 不是文档中的一等引擎，只明确支持作为 MCP 宿主。各引擎需自行安装并登录，会消耗对应订阅或 API 额度。验收检查配置若被 Agent 改掉，运行时会视为驳回，须把检查放在 Agent 写不了的位置。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/strands-agents/box/blob/main/README.md"
+          "url": "https://github.com/Enderfga/claw-orchestrator/blob/main/README.md"
         },
         {
-          "title": "Limitations",
-          "url": "https://github.com/strands-agents/box/blob/main/docs/cli/limitations.md"
+          "title": "npm @enderfga/claw-orchestrator",
+          "url": "https://www.npmjs.com/package/@enderfga/claw-orchestrator"
         },
         {
-          "title": "Get started",
-          "url": "https://github.com/strands-agents/box/blob/main/docs/cli/getting-started.md"
-        },
-        {
-          "title": "项目主页",
-          "url": "https://strandsagents.com/box"
+          "title": "Getting started",
+          "url": "https://github.com/Enderfga/claw-orchestrator/blob/main/skills/references/getting-started.md"
         }
       ]
     },
     {
-      "id": "isaacsa51-minus",
+      "id": "chesterguan-medme",
       "rank": 4,
-      "name": "Minus",
+      "name": "MedMe 医我",
       "category": "生活",
-      "summary": "Android 周期预算与开支记录应用。用计算器式数字键盘随手记账；预算可按日、周、双周或月拆开；追踪订阅和固定支出，并提醒信用卡还款日；可按当前周期、即将到来的固定支出和历史周期查看，带图表。支持 CSV 导出、桌面小组件和 Wear OS 伴侣应用。Apache-2.0。从 Google Play 安装（`com.serranoie.app.minus`）。Crowdin 翻译，仓库含 `values-zh` 中文资源。约 320 星，2026-11-23 仍有更新。不是理财建议。",
-      "why": "适合「发工资或刷完信用卡之后，这个预算周期还能不能花」的消费决策，而不是再做一本全量账或只盯订阅清单（11-16 已推过 Recurring Expense Tracker）。可执行：1）设置与发薪日对齐的预算周期，再记下一张卡的还款日，开销记在当前周期里，看还完卡还剩多少；2）把流媒体、云盘等订阅设成重复项并打开提前提醒，减少漏缴和忘记取订；3）定期把 CSV 导出到自己的文件夹做月度复盘。有中文资源，完整度以应用内为准。非投资或理财建议。",
-      "url": "https://github.com/isaacsa51/Minus",
-      "repo": "isaacsa51/Minus",
-      "stars": 320,
+      "summary": "本地优先的个人医疗数据保险箱（中文产品）。把散落的病历、化验单、出院小结、CT/MRI 和 DICOM 收集起来，在设备上 OCR 和分类，做成按就诊/住院/手术排列的健康档案时间线，并保留原件。手机端（Flutter，iOS + Android）是当前主力：Android 可在 GitHub Releases 下载 APK（仅 arm64）；移动端 OCR 使用编进应用的 PP-OCRv5，不联网下载模型。桌面端（Tauri）与手机共用 Rust 内核，但 README 写明目前没有公开安装包，需自行从源码构建。可把加密后的自包含网页分享给医生，口令在本地解密、不经服务器保管明文；手机端当面出示改为二维码，密文可能短暂经过即时中转，密钥在二维码 # 之后、不上行。默认无账号、不上传云端档案。AGPL-3.0。约 14 星，源码 2026-11-26 仍有推送；当前公开安装包是 2026-08-06 的 v1.6.0（MedMe-Android.apk），可能落后于源码。仓库和官网都写明：不是医疗器械，不提供诊断或建议，一切以原始文件为准。",
+      "why": "对日常生活里「家庭健康资料整理」最有用（不做诊断）。可执行：1）家人做完体检或从医院带走化验单后，用手机拍下来导入 MedMe，让它按时间线归类，自己再打开原件核对识别结果，尤其是低置信度警告的条目。2）复诊或换医院前，按时间线导出或生成给医生看的资料包（加密分享或打印用 HTML），带齐近期化验和影像，而不是翻相册临时找图。这不是问诊建议，也不能替代医院系统里的正式记录。",
+      "url": "https://github.com/Chesterguan/medme",
+      "repo": "Chesterguan/medme",
+      "stars": 14,
       "tags": [
-        "消费决策",
-        "预算",
-        "信用卡还款日",
-        "Android",
-        "轻理财"
+        "家庭健康资料",
+        "OCR",
+        "本地优先",
+        "不做诊断",
+        "Android"
       ],
       "steps": [
-        "从 Google Play 安装 Minus（https://play.google.com/store/apps/details?id=com.serranoie.app.minus），无需注册账号",
-        "设一个与发薪日对齐的预算周期，并添加一张信用卡的还款提醒，先手动记几天日常开支",
-        "不要把应用内的图表或「省钱建议」当成理财方案；先确认备份/导出路径再长期使用"
+        "到 GitHub Releases 下载 MedMe-Android.apk（需 arm64 手机；来源为仓库发布页，自行判断侧载风险）",
+        "导入一份化验单或体检报告照片，对照纸质/PDF 原件核对识别结果，不要根据 App 里的数字做医疗决定",
+        "先不要依赖桌面端公开包（目前没有），也不要把未加密的病历同步到公共云盘"
       ],
-      "risk": "官方安装入口是 Google Play，README 未提供 F-Droid；国内安装可能不便。中文来自 Crowdin 与 `values-zh`，不保证界面全部译完。应用内分析和提醒只是记录工具，不是投资或理财建议。使用前阅读其隐私政策，不要把账单同步到来路不明的云端。仅 Android（可另装 Wear OS 伴侣）。",
+      "risk": "不做诊断，也不给用药或治疗建议；识别可能有误，必须以原件为准。公开 APK 停在 v1.6.0（2026-08-06），且仅 arm64，需侧载。iOS 目前走 TestFlight。桌面端暂无公开安装包。二维码分享的密文可能经过短暂中转（密钥不上行）。AGPL-3.0：可自用和写跟做教程，不可改成闭源「代管病历」服务。医疗数据一旦泄漏风险高，请只存在自己控制的设备上。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/isaacsa51/Minus/blob/master/README.md"
+          "url": "https://github.com/Chesterguan/medme/blob/main/README.md"
         },
         {
-          "title": "LICENSE.md (Apache-2.0)",
-          "url": "https://github.com/isaacsa51/Minus/blob/master/LICENSE.md"
+          "title": "Releases（Android APK）",
+          "url": "https://github.com/Chesterguan/medme/releases"
         },
         {
-          "title": "Google Play",
-          "url": "https://play.google.com/store/apps/details?id=com.serranoie.app.minus"
+          "title": "官网",
+          "url": "https://medmenow.com/"
         }
       ]
     },
     {
-      "id": "fossifyorg-calendar",
+      "id": "enricofrigo-dispensa",
       "rank": 5,
-      "name": "Fossify Calendar",
+      "name": "Dispensa",
       "category": "生活",
-      "summary": "无广告、注重隐私的开源 Android 日历。支持事件的精确时间、时长、提醒和复杂重复规则；可与 Google Calendar、Outlook、Nextcloud、Exchange 等同步；提供日/周/月/年与事件列表多种视图、桌面小组件、节日与纪念日导入、事件筛选和主题。无追踪、无多余权限。GPL-3.0。包名 `org.fossify.calendar`，仓库当前版本名 1.12.2。F-Droid 与 Google Play 均可安装。仓库含简体、香港和台湾中文资源。约 2300 星，2026-11-23 仍有推送。与 11-15 推荐过的 Fossify Clock 是同一出品方，这次是日历不是闹钟。",
-      "why": "适合早晨打开「日视图」看当天时间冲突和提醒，把通勤、会议、家庭事项放在同一天轴上，避免只靠聊天记录记事。可执行：1）从 F-Droid 安装后先完全离线用，把明天的出发时间和关键事项建成带提醒的事件，主屏放日历小组件当今日早报；2）需要时再同步已有的 Google 或 Outlook 日历，用筛选把工作/家庭分开看；3）导入节假日或纪念日，减少漏记调休（生日若已用 Birday，不必重复建设）。",
-      "url": "https://github.com/FossifyOrg/Calendar",
-      "repo": "FossifyOrg/Calendar",
-      "stars": 2300,
+      "summary": "离线优先的开源 Android 家庭库存应用：按冰箱、冷冻、橱柜等位置管理食物，记录数量和到期日，支持同一商品多个批次。可用条码查询 OpenFoodFacts（本地缓存，断网也能用已缓存的条目），也可用相机 OCR 读保质期；快过期或已开封的物品在首页用颜色标出，系统会按设定提前发本地通知。用完的东西可一键进购物清单。无账号、无广告、无第三方分析。界面目前有意大利语、英语和德语，没有完整中文。F-Droid 的 FOSS 构建用 ZXing 扫码，同步只提供 WebDAV 或本地文件夹（可选、端到端加密）；Google Drive 同步只在 Play 版。需要 Android 8.1+。GPL-3.0。约 28 星，2026-11-24 仍有推送。F-Droid 包名 eu.frigo.dispensa。",
+      "why": "对日常生活里「饮食/厨房清库存」最有用。可执行：1）打开冰箱时，先把临期和已开封的食品录进对应位置（冰箱/冷冻/橱柜），打开到期提醒，减少忘记吃掉而浪费。2）周末采购前先看购物清单和「即将用完」的条目再出门，而不是重复买已经有的东西。条码在国内可能对不上 OpenFoodFacts，对不上就手改名称和日期。这不是营养或食品安全鉴定。",
+      "url": "https://github.com/enricofrigo/dispensa",
+      "repo": "enricofrigo/dispensa",
+      "stars": 28,
       "tags": [
-        "早晨",
-        "日程效率",
-        "日历",
-        "Android",
-        "FOSS"
+        "饮食",
+        "厨房清库存",
+        "临期提醒",
+        "购物清单",
+        "F-Droid"
       ],
       "steps": [
-        "优先从 F-Droid 安装（https://f-droid.org/packages/org.fossify.calendar/），也可以用 Google Play",
-        "打开日视图，为明天的出发或会议加上时间和提醒，并把小组件放到主屏",
-        "默认同步先不要开；确认需要后再接入自己已有的日历账号，不要连接来路不明的 CalDAV"
+        "优先从 F-Droid 安装 Dispensa（https://f-droid.org/packages/eu.frigo.dispensa/），系统语言可先改为英语或意大利语",
+        "把冰箱里几件临期食物按位置录入，打开本地到期提醒，不要先配置 WebDAV/网盘同步",
+        "条码查不到时手动填写名称和保质期，不要把它当成食品安全检测"
       ],
-      "risk": "GPL-3.0，不能闭源改头换面去售卖。同步 Google 或 Outlook 会把事件交给对应服务。仅 Android。与 Fossify Clock 是同一系列，但功能不同，不必重复装来「再买一个闹钟」。",
+      "risk": "没有完整中文界面。国内商品条码在 OpenFoodFacts 上可能缺失或信息不准。只支持 Android 8.1+。可选同步不要作为第一步；F-Droid 版不含 Google Drive。GPL-3.0：可自用和写跟做教程，不可闭源改头换面再分发。不是营养建议，也不能判断食物是否仍可食用。",
       "sources": [
         {
           "title": "README.md",
-          "url": "https://github.com/FossifyOrg/Calendar/blob/main/README.md"
+          "url": "https://github.com/enricofrigo/dispensa/blob/main/README.md"
         },
         {
-          "title": "F-Droid",
-          "url": "https://f-droid.org/packages/org.fossify.calendar/"
-        },
-        {
-          "title": "Google Play",
-          "url": "https://play.google.com/store/apps/details?id=org.fossify.calendar"
+          "title": "F-Droid：Dispensa: Pantry & Expiry",
+          "url": "https://f-droid.org/packages/eu.frigo.dispensa/"
         }
       ]
     }
