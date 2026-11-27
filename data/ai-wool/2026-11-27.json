@@ -1,0 +1,246 @@
+{
+  "date": "2026-11-27",
+  "updated": "2026-11-27T09:42:25+08:00",
+  "items": [
+    {
+      "rank": 1,
+      "name": "ElevenLabs 黑色星期五：Creator / Pro 年付首年最高减 55%（至美国东部时间 12/1 23:59）",
+      "type": "订阅折扣",
+      "provider": "ElevenLabs",
+      "region": "全球",
+      "origin": "官方",
+      "summary": "ElevenLabs 官方黑色星期五活动页与促销条款写明：活动期为 2026 年 11 月 16 日 3:00 a.m. ET 至 12 月 1 日 11:59 p.m. ET（北京时间约 12 月 2 日 12:59），Creator 与 Pro 年付首个 12 个月最高减 55%。Creator 年付首年 $99（刊例年付 $220）；符合条件的新购或升级用户 Pro 年付首年 $445.50（刊例 $990）；已在用 Pro 月付、活动期内改为年付的，首年 $495（减 50%）。资格以 2026-11-16 12:00 UTC 的账户记录为准：New Subscriber 指从未在任何工作区有过付费订阅；Upgrading Subscriber 指当时未订阅 Creator 年付、Pro 年付或更高档。取消后再订不能因此获得资格，不符合条件的账户看不到优惠。仅限在 elevenlabs.io 直接购买，不适用于应用商店、经销商或合作伙伴渠道，也不能与其他优惠叠加；不适用于 Free / Starter / Scale / Business / Enterprise、预付积分或 API 用量另计费用。折扣只覆盖首个年付周期，到期除非提前取消，将按当时常规年付价自动续订。相对 11-26 榜未收录。官方同期另有创作比赛，本条不把它当作优惠、也不建议为领奖去参赛。",
+      "value": "Creator 年付首年 $99（刊例 $220，减 55%）· 符合条件的 Pro 年付首年 $445.50（刊例 $990）· 至美国东部时间 2026-12-01 23:59（北京时间约 12/2 12:59）",
+      "deadline": "2026-12-01",
+      "cost": "需用官方支持的支付方式在 elevenlabs.io 直接订阅年付。折扣仅首年有效，次年按常规年付价自动续订。不承诺一定符合资格或一定按表内价格成交，也不承诺活动不提前结束。",
+      "difficulty": 2,
+      "threshold": "尚未订阅 Creator 年付、Pro 年付或更高档，或正在使用 Pro 月付并打算改为年付的用户。已经在更高年付档、只想走应用商店/第三方渠道，或主要买预付积分/按量 API 的，不在本次优惠范围内。",
+      "time": "核对官方活动页与条款仍在有效期、登录后确认账户能看到优惠并完成年付下单，约 15–30 分钟。",
+      "fit": "本来就打算用 ElevenLabs 做语音、图片、视频或 API 创作，并可以接受年付、也记得在续订前决定是否取消的人；也可整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
+      "why": "官方活动页与促销条款写明年付首年最高减 55%，有明确截止时间，相对 11-26 榜未收录。",
+      "steps": [
+        "打开 https://elevenlabs.io/black-friday-promo 与 https://join.elevenlabs.io/bfcm/terms ，确认活动仍写明至 2026-12-01 11:59 p.m. ET，并核对 Creator / Pro 首年价格与资格说明",
+        "使用本人 ElevenLabs 账号登录 elevenlabs.io（不要走应用商店或第三方代充），看结算页是否显示本次优惠；看不到优惠即可能不符合 11/16 的资格判定",
+        "按需选择 Creator 年付（首年 $99）或 Pro 年付（新购/升级首年 $445.50；Pro 月付转年付首年 $495），看清到期后将按常规年付价续订",
+        "下单后在账户中确认档位、积分配额与续订日期；若中途改档或改计费周期，条款写明优惠价不一定带到新方案",
+        "日历标记美国东部时间 2026-12-01 23:59，以及自己的首年到期日。不要合租、转卖账号或共享未授权凭证"
+      ],
+      "risk": "资格以 2026-11-16 12:00 UTC 的账户记录为准，取消再订不能重新获得资格。折扣仅首个年付周期，到期自动按常规年付价续订，需在续订前自行取消才可避免下一年原价。仅限官网直购，不能与其他优惠叠加，也不覆盖预付积分或 API 另计费用。支付与地区以官方结算为准，不承诺一定能买到或一定按表内价格成交。禁止合租、转卖账号或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "ElevenLabs 官方黑色星期五页与促销条款写明年付首年最高减 55%，至美国东部时间 12/1 23:59，相对 11-26 榜未收录。",
+      "tags": [
+        "ElevenLabs",
+        "订阅折扣",
+        "黑色星期五",
+        "年付",
+        "语音创作"
+      ],
+      "sources": [
+        {
+          "title": "Black Friday & Cyber Monday: up to 55% off select ElevenLabs plans",
+          "url": "https://elevenlabs.io/black-friday-promo",
+          "publisher": "ElevenLabs",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-27"
+        },
+        {
+          "title": "Black Friday & Cyber Monday: Promotional Terms",
+          "url": "https://join.elevenlabs.io/bfcm/terms",
+          "publisher": "ElevenLabs",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-27"
+        }
+      ],
+      "source_url": "https://elevenlabs.io/black-friday-promo",
+      "claim_howto": "在官网活动页与条款核对仍有效后，登录 elevenlabs.io 确认结算页显示本次年付优惠再下单，价格与资格以结算页为准。",
+      "stack": [
+        "ElevenLabs",
+        "Creator 年付",
+        "Pro 年付"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Microsoft 365 Premium 限时首个账期减 30%（年付首年 $139.99 / 月付首月 $13.99），含 Copilot",
+      "type": "订阅折扣",
+      "provider": "Microsoft / Microsoft 365 / Copilot",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "微软官方 Microsoft 365 个人 Copilot 方案页写明：限时优惠，Save 30% on your first month or year，Microsoft 365 Premium 月付由 $19.99 现为首月 $13.99。微软商店 Premium 产品页写明年付刊例 $199.99，现价 $139.99/first year。微软商店续订/购买页补充条款：Offer available while advertised（广告期内有效，官方未写死截止日期）；折扣只适用于首个账期，之后按所选手付或年付的常规价自动续订，除非在 Microsoft 账户中取消；已兑换过 Microsoft 365 试用的用户不符合资格；不可与其他优惠叠加；并非在所有市场提供。Premium 面向 1–6 人，含更高 Copilot 用量与 Premium/Pro 独占功能、约 2 TB 云存储及带 Copilot 的桌面应用；官方同时写明，Family / Premium / Pro 中的 AI 功能仅向订阅所有者提供，不能分享给其他成员。相对 11-26 榜未收录。同一商店页还写明 Microsoft 365 Personal 年付首年 $69.99（刊例 $99.99），本条主推含更高 Copilot 用量的 Premium，下单以对应产品页为准。",
+      "value": "Premium 年付首年 $139.99（刊例 $199.99）或月付首月 $13.99（刊例 $19.99）· 其后按常规价自动续订 · 广告期内有效",
+      "cost": "需用官方支持的微软账户与支付方式，在微软商店或官方方案页订阅。折扣仅首个账期，之后按常规价续订。已兑换试用的用户除外。不承诺一定符合资格、一定在所在地区可买，或一定按表内美元价成交。",
+      "difficulty": 2,
+      "threshold": "尚未订阅、也未兑换过 Microsoft 365 试用、并能在官方支持的市场用支持的支付方式购买的个人用户。主要给家人分享 AI 功能、或只在中国大陆商店查找同等价的，请先核对当地产品页，可能不适用。",
+      "time": "核对官方方案页与商店页的现价和条款、登录微软账户完成订阅，约 15–30 分钟。",
+      "fit": "本来就打算用 Microsoft 365 里的 Copilot 做文档、表格或演示，并可以接受首个账期后按常规价续订或到期取消的人；也可整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
+      "why": "官方方案页与商店页写明 Premium 首个账期减 30%，并给出年付/月付现价，相对 11-26 榜未收录。",
+      "steps": [
+        "打开 https://www.microsoft.com/en-us/copilot/solutions/individuals 与 https://www.microsoft.com/en-us/microsoft-365/p/microsoft-365-Premium/cfq7ttc11z3q ，确认仍显示首月 $13.99 或年付首年 $139.99，并阅读「广告期内有效、试用用户除外」等条款",
+        "登录本人微软账户，确认所在市场是否提供该优惠、自己是否兑换过 Microsoft 365 试用，价格以结算页为准",
+        "选择月付或年付并完成官方结账；看清首个账期后的续订价，以及 Copilot / AI 功能仅订阅所有者可用",
+        "在 Microsoft 账户的「服务与订阅」中核对档位、续订日期与支付方式",
+        "若不打算按常规价续订，在首个账期结束前于微软账户中取消。不要合租、转卖账号或共享未授权凭证"
+      ],
+      "risk": "官方只写广告期内有效，未写死截止日期，可能随时结束或因地区、账户而不可见。已兑换试用的用户不符合资格，且不可与其他优惠叠加。折扣仅首个账期，到期按常规价自动续订。AI 功能不能分享给其他成员。美元标价，并非所有市场提供，支付与税务以结算页为准。不承诺一定买到 30% 或表内价格。禁止合租、转卖账号或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "微软官方 Copilot 方案页与 Microsoft 365 Premium 商店页写明首个账期减 30%，相对 11-26 榜未收录。",
+      "tags": [
+        "Microsoft 365",
+        "Copilot",
+        "订阅折扣",
+        "限时促销",
+        "海外"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft Copilot Plans for Individuals",
+          "url": "https://www.microsoft.com/en-us/copilot/solutions/individuals",
+          "publisher": "Microsoft",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-27"
+        },
+        {
+          "title": "Buy Microsoft 365 Premium",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/p/microsoft-365-Premium/cfq7ttc11z3q",
+          "publisher": "Microsoft Store",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-27"
+        },
+        {
+          "title": "Renew Your Microsoft 365 Subscription",
+          "url": "https://www.microsoft.com/en-us/microsoft-365/buy/microsoft-365-family",
+          "publisher": "Microsoft Store",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-27"
+        }
+      ],
+      "source_url": "https://www.microsoft.com/en-us/copilot/solutions/individuals",
+      "claim_howto": "在官方 Copilot 方案页与 Premium 商店页确认首个账期仍显示 30% 折扣后，用本人微软账户按下单页价格订阅，并看清续订价与试用排除条款。",
+      "stack": [
+        "Microsoft 365 Premium",
+        "Microsoft Copilot"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "ChatGPT Business：11/23–11/30 新建工作区，Standard / Premium 席位每周计入用量翻倍至 12/31",
+      "type": "限时促销",
+      "provider": "OpenAI / ChatGPT",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "OpenAI 官方 ChatGPT Business 介绍页写明：在 11 月 30 日前创建新的 ChatGPT Business 工作区，Standard 与 Premium 席位可在 12 月 31 日前获得双倍计入用量。帮助中心《Sign up for ChatGPT Business》进一步写明：须在 2026 年 11 月 23 日至 11 月 30 日期间创建新工作区，符合条件的 Standard 与 Premium 席位每周计入用量翻倍至 2026 年 12 月 31 日；在 12 月 31 日前向该新工作区新增的符合条件席位同样适用。帮助中心《ChatGPT Business models and limits》补充：翻倍针对 Work 与 Codex 的每周计入用量，Standard 的 5 小时上限仍然适用；已有或重新激活的工作区即使加席或续订，仍保持原来的每周额度。席位价格不变：帮助中心列出 Standard 为年付合每月 $20 或月付 $25，Premium 为年付合每月 $100 或月付 $125；现已可从 1 个付费席位起开通。这不是个人 Plus / Pro 降价，也不改变席位标价。相对 11-26 榜未收录；与此前榜上的「订阅附赠每月 API 积分」不是同一批额度。",
+      "value": "2026-11-23 至 11-30 新建工作区 · 符合条件席位的 Work / Codex 每周计入用量翻倍至 2026-12-31 · 席位价格不变",
+      "deadline": "2026-11-30",
+      "cost": "需创建新的 ChatGPT Business 工作区并至少购买 1 个付费席位，按官方标价支付（Standard 月付 $25 / 年付合每月 $20 起）。不是免费升级，也不降低席位单价。不承诺所在地区或支付方式一定能开通，也不承诺用量一定够用到 12/31。",
+      "difficulty": 3,
+      "threshold": "能在官方支持的地区与支付方式下，新开 ChatGPT Business 工作区的个人或小团队。已有或准备重开旧工作区的，以及只想给个人 Plus / Pro 找黑五降价的，不在本次范围内。",
+      "time": "核对官方介绍页与帮助中心条款、注册并完成至少 1 个席位的结账，约 20–40 分钟。",
+      "fit": "本来就打算为团队或自己新开 ChatGPT Business、需要更高 Work / Codex 计入用量的人，适合在 11/30 前核清「必须新建、价格不变、只翻倍到 12/31」再开通；也可整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
+      "why": "官方介绍页与帮助中心写明新建工作区可获每周计入用量翻倍至 12/31，相对 11-26 榜未收录，也不是个人订阅降价。",
+      "steps": [
+        "打开 https://chatgpt.com/business/ 与 https://help.openai.com/en/articles/8980713-sign-up-for-chatgpt-business ，确认仍写明须在 11 月 30 日前新建工作区，以及双倍用量至 12 月 31 日",
+        "对照 https://help.openai.com/en/articles/12003714-chatgpt-business-models-and-limits ，确认翻倍适用于 Work 与 Codex 的每周计入用量，且 Standard 的 5 小时上限仍在",
+        "用本人账号走官方 Business 注册流程，选择新建工作区（不要指望给已有或重开的工作区补这次优惠），至少选 1 个 Standard 或 Premium 付费席位，看清月付/年付总价后再结账",
+        "开通后在工作区核对席位类型与用量显示；若还要加人，注意官方写明 12/31 前加到该新工作区的符合条件席位也可享受",
+        "日历标记 2026-11-30（须在此日前建好新工作区）和 2026-12-31（翻倍结束）。不要合租、转卖账号或共享未授权凭证"
+      ],
+      "risk": "必须在窗口期内新建工作区，已有或重新激活的工作区不适用。这是用量翻倍而非降价，Standard 的 5 小时上限仍在。席位需按官方标价支付，地区与支付方式（含发卡地区限制）可能导致无法开通。官方可调整或提前结束。不承诺一定能开通，也不承诺翻倍后的用量一定够用。禁止合租、转卖账号或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "OpenAI 官方 Business 页与帮助中心写明 11/23–11/30 新建工作区可获每周计入用量翻倍至 12/31，相对 11-26 榜未收录。",
+      "tags": [
+        "ChatGPT Business",
+        "限时促销",
+        "用量翻倍",
+        "OpenAI",
+        "海外"
+      ],
+      "sources": [
+        {
+          "title": "ChatGPT Business",
+          "url": "https://chatgpt.com/business/",
+          "publisher": "OpenAI",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-27"
+        },
+        {
+          "title": "Sign up for ChatGPT Business",
+          "url": "https://help.openai.com/en/articles/8980713-sign-up-for-chatgpt-business",
+          "publisher": "OpenAI Help Center",
+          "published": "2026-11-26",
+          "kind": "official",
+          "checked": "2026-11-27"
+        },
+        {
+          "title": "ChatGPT Business models and limits",
+          "url": "https://help.openai.com/en/articles/12003714-chatgpt-business-models-and-limits",
+          "publisher": "OpenAI Help Center",
+          "published": "2026-11-24",
+          "kind": "official",
+          "checked": "2026-11-27"
+        }
+      ],
+      "source_url": "https://chatgpt.com/business/",
+      "claim_howto": "在官方介绍页与帮助中心确认窗口仍有效后，于 11/30 前用官方流程新建 ChatGPT Business 工作区并购买至少 1 个付费席位，价格与是否到账以工作区显示为准。",
+      "stack": [
+        "ChatGPT Business",
+        "ChatGPT Work",
+        "Codex"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Runway：Kling 4.0 生成限时减 25% 积分消耗（至 11/30）",
+      "type": "限时促销",
+      "provider": "Runway",
+      "region": "海外",
+      "origin": "官方",
+      "summary": "Runway 官方定价页在 Kling 4.0 1080p 一行写明：25% off Kling 4.0 generations until November 30，并把积分从 118 credits/5s 标为 89 credits/5s。这是指定模型的积分消耗折扣，不是套餐月费或年费降价；页面另列的 Yearly-20% off 是年付常规差价，不是本次限时活动。官方未在该页写明截止时区，请以定价页最新表述为准，建议按 2026-11-30 当天结束前核对。使用仍需相应套餐或积分，具体可生成条数因档位而异。相对 11-26 榜未收录。",
+      "value": "Kling 4.0 1080p 由 118 credits/5s 降至 89 credits/5s（减 25%）· 官方写至 November 30 · 非套餐降价",
+      "deadline": "2026-11-30",
+      "cost": "需已有或订阅 Runway 付费档并消耗积分。不是免费无限生成，也不降低套餐标价。不承诺活动不提前结束，也不承诺高峰时段一定能排到。",
+      "difficulty": 2,
+      "threshold": "已经在用或打算用 Runway 生成 Kling 4.0 视频，并且有足够积分或付费套餐的人。只想找套餐月费打折、或只用其他模型的，本条价值有限。",
+      "time": "打开定价页确认折扣仍在、登录后用一小段生成核对实际扣分，约 10–20 分钟。",
+      "fit": "近期就要用 Runway 出 Kling 4.0 成片、希望同一积分多做几段的人；也可整理成闲鱼原创教程素材（不是代开、合租或转卖账号）。",
+      "why": "官方定价页写明 Kling 4.0 生成减 25% 积分消耗至 11/30，相对 11-26 榜未收录。",
+      "steps": [
+        "打开 https://runway.com/pricing ，在 Kling 4.0 1080p 一行确认仍写明 25% off until November 30，以及 89 credits/5s（相对 118 credits/5s）",
+        "登录本人 Runway 账号，确认当前套餐与剩余积分，不要把页面上的年付 20% 差价当成这次限时折扣",
+        "先生成一段短视频，对照用量明细看实际扣分是否约为折扣后积分，再批量使用",
+        "日历标记 2026-11-30，到期前再看定价页是否仍显示折扣。不要合租、转卖账号或共享未授权凭证"
+      ],
+      "risk": "这是单模型积分折扣，不是套餐降价；官方未写死时区，可能按 11/30 结束或提前撤下。实际扣分、排队与模型可用性以账户明细为准。支付与地区以官方结算为准。不承诺一定按 89 credits/5s 成交，也不承诺活动延续到当天结束。禁止合租、转卖账号或共享未授权凭证。",
+      "risk_level": "中",
+      "reason": "Runway 官方定价页写明 Kling 4.0 生成减 25% 积分消耗至 11/30，相对 11-26 榜未收录。",
+      "tags": [
+        "Runway",
+        "Kling 4.0",
+        "限时促销",
+        "积分折扣",
+        "视频生成"
+      ],
+      "sources": [
+        {
+          "title": "Runway Pricing",
+          "url": "https://runway.com/pricing",
+          "publisher": "Runway",
+          "published": "官方未标日期",
+          "kind": "official",
+          "checked": "2026-11-27"
+        }
+      ],
+      "source_url": "https://runway.com/pricing",
+      "claim_howto": "在官方定价页确认 Kling 4.0 仍显示 25% off 后，用本人套餐积分先做一小段生成核对实际扣分，再继续使用。",
+      "stack": [
+        "Runway",
+        "Kling 4.0"
+      ]
+    }
+  ]
+}
