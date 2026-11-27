@@ -2,9 +2,9 @@
   "site": "出海小站练站营",
   "url": "https://yuanqingsong2024.github.io/gefei-quest/",
   "schema": 1,
-  "generatedAt": "2026-11-26T04:44:31.964Z",
-  "latestId": 116,
-  "latestDate": "2026-11-26",
+  "generatedAt": "2026-11-27T00:44:33.676Z",
+  "latestId": 117,
+  "latestDate": "2026-11-27",
   "links": {
     "stats": "https://yuanqingsong2024.github.io/gefei-quest/#me-stats",
     "changelog": "https://yuanqingsong2024.github.io/gefei-quest/#changelog",
@@ -13,6 +13,18 @@
     "rank": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
   },
   "entries": [
+    {
+      "id": 117,
+      "date": "2026-11-27",
+      "tag": "赚钱榜",
+      "title": "每日赚钱榜 · 2026-11-27",
+      "items": [
+        "No.1 GreenGeeks Affiliate：写主机或 WordPress 教程，官方联盟页与条款写明按自然月合资格销售档支付一次性佣金：当月第1单约50美元/单，第2至第6单分别把当月全部订单上调至约60、70、80、90、100美元/单，10单以上可谈定制；约在销售月结束后35–40天经 PayPal 发放（须审核退款期，以官方页与条款为准）",
+        "No.2 Lulu：在官方书店上架自己拥有版权的纸质书或电子书，官方书店页与《Creator Revenue Guide》（约2026-11-24更新）写明出版上架免费；纸质书在扣除印刷和发行费用后的毛利约80%归创作者、约20%归平台，电子书毛利约90%归创作者；PayPal 满约5美元可按月打款（以官方说明为准）",
+        "No.3 Sevalla：按官方定价页用静态站点托管部署英文工具或指南小站；官方写明静态托管无月费，每个账户账期内含约100GB流量、约600分钟构建和最多约100个站点（单站约1GB），超出后流量约0.10美元/GB、构建约0.05美元/分钟，须绑卡并遵守公平使用政策"
+      ],
+      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
+    },
     {
       "id": 116,
       "date": "2026-11-26",
@@ -115,42 +127,30 @@
         "附光明日报／邵君（人民网与光明网）、澎湃号「特别家教」、人民日报／新华网徐琳、北京日报／央视网尹传红、北京日报／首都之窗五个来源口径；小学须家长陪同，不代写不代改，不承诺提分；与11-07家庭事务盯梢员、家长群待办区分。SW 缓存 66"
       ],
       "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank-ai-life"
-    },
-    {
-      "id": 107,
-      "date": "2026-11-19",
-      "tag": "赚钱榜",
-      "title": "每日赚钱榜 · 2026-11-19",
-      "items": [
-        "No.1 DigitalOcean Affiliate：写云主机或开发者工具教程，官方联盟页写明推荐新付费用户可按其月度消费拿约10%佣金、持续约一整年（经 CJ 网络申请，以官方页与协议为准）",
-        "No.2 Buy Me a Coffee：免月费上架原创数字产品、服务或会员，官方帮助中心写明每笔约收5%平台费（另计 Stripe 等支付处理费，以官方说明为准）",
-        "No.3 Surge：用一条命令发布英文静态工具小站，官方定价页写明 Free 档约0美元（自定义域名与证书含在各档内，无流量超额计费）"
-      ],
-      "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank"
     }
   ],
   "rank": {
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "url": "https://yuanqingsong2024.github.io/gefei-quest/#war-rank",
     "json": "https://yuanqingsong2024.github.io/gefei-quest/data/rank.json",
     "top3": [
       {
         "rank": 1,
-        "name": "Hostinger Affiliate：写主机或 WordPress 教程，官方联盟协议写明合资格 Shared/Cloud/VPS 等服务的首次购买（须约12个月及以上）可拿最高约40%佣金；收入分成类报价单笔上限约300美元，一个月期、续费和升级不产生佣金（以协议与打款说明为准）",
+        "name": "GreenGeeks Affiliate：写主机或 WordPress 教程，官方联盟页与条款写明按自然月合资格销售档支付一次性佣金：当月第1单约50美元/单，第2至第6单分别把当月全部订单上调至约60、70、80、90、100美元/单，10单以上可谈定制；约在销售月结束后35–40天经 PayPal 发放（须审核退款期，以官方页与条款为准）",
         "type": "联盟营销",
-        "source_url": "https://www.hostinger.com/affiliates"
+        "source_url": "https://www.greengeeks.com/affiliates"
       },
       {
         "rank": 2,
-        "name": "Teachable：上架课程、教练服务或数字下载，官方定价页写明可免费试用约7天并提供约30天退款保证；月付展示 Starter 约39美元/月且每笔另收约7.5%交易费，Builder 约89美元/月、Growth 约189美元/月在使用 Teachable Payments 时不再收平台交易费（另计支付处理费，促销价以定价页当时显示为准）",
+        "name": "Lulu：在官方书店上架自己拥有版权的纸质书或电子书，官方书店页与《Creator Revenue Guide》（约2026-11-24更新）写明出版上架免费；纸质书在扣除印刷和发行费用后的毛利约80%归创作者、约20%归平台，电子书毛利约90%归创作者；PayPal 满约5美元可按月打款（以官方说明为准）",
         "type": "数字产品/接单",
-        "source_url": "https://www.teachable.com/pricing"
+        "source_url": "https://www.lulu.com/sell-on-lulu"
       },
       {
         "rank": 3,
-        "name": "Vercel：按官方条款用 Pro 档部署可商业化的英文工具或指南小站；官方服务条款写明 Hobby 档仅限个人或非商业用途，商业站点应使用 Pro（官方定价页写明约20美元/月，含更高流量与请求额度，超出按定价页计费）",
+        "name": "Sevalla：按官方定价页用静态站点托管部署英文工具或指南小站；官方写明静态托管无月费，每个账户账期内含约100GB流量、约600分钟构建和最多约100个站点（单站约1GB），超出后流量约0.10美元/GB、构建约0.05美元/分钟，须绑卡并遵守公平使用政策",
         "type": "出海小站",
-        "source_url": "https://vercel.com/pricing"
+        "source_url": "https://sevalla.com/pricing/"
       }
     ]
   }

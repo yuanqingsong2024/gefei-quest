@@ -1,0 +1,470 @@
+{
+  "date": "2026-11-27",
+  "items": [
+    {
+      "rank": 1,
+      "name": "GreenGeeks Affiliate：写主机或 WordPress 教程，官方联盟页与条款写明按自然月合资格销售档支付一次性佣金：当月第1单约50美元/单，第2至第6单分别把当月全部订单上调至约60、70、80、90、100美元/单，10单以上可谈定制；约在销售月结束后35–40天经 PayPal 发放（须审核退款期，以官方页与条款为准）",
+      "type": "联盟营销",
+      "summary": "GreenGeeks 官方联盟页写明加入免费，合资格销售可拿最高约100美元的一次性佣金，并按当月推荐单量分档。官方条款写明：同一自然月内第1单约50美元，第2单起把当月全部订单佣金上调至约60、70、80、90美元，第6单及以后约100美元；当月若有退单，档位会降到下一档。官方打款说明写明：佣金在销售月结束后约35–40天、于隔月15日左右发放（例如1月销售约在3月15日打款，15日逢周末则顺延至下一工作日），因为主机提供约30天退款保证，被推荐客户须连续使用满约30天。首次打款须累计约50美元佣金；打款走 PayPal（电汇仅适用于单期佣金约1万美元及以上的账户）。附属机构须自行确认能否接收来自美国的款项，并承担银行或兑换费用。必须披露联盟关系，不承诺成交。公开 X 只作线索，本条交叉核验依据是官方联盟页、打款说明与联盟条款。",
+      "cost": "0（需自备可发布教程的站点或渠道；不包含你自己购买 GreenGeeks 服务的费用。PayPal 或银行侧可能另计手续费）",
+      "difficulty": 2,
+      "threshold": "能写清楚的主机、WordPress 或建站教程/评测，并按条款披露联盟关系；接受约30天退款复核、PayPal 打款和约50美元首次起付门槛",
+      "time": "申请与准备教程通常1–3天；出单、过退款期和打款取决于流量与客户是否持续付费，不保证",
+      "fit": "已有或准备做英文主机/WordPress 评测内容的人；预估投入：每周4–8小时写内容和维护披露",
+      "why": "官方把按月分档的一次性佣金、约30天退款复核和隔月15日打款写进联盟页、条款和打款说明，可核验。上榜理由：相对上一份基线 Hostinger「合资格首购最高约40%，续费不计佣」，今天换成 GreenGeeks「按当月单量一次性约50至100美元」。公开 X 仅作线索。",
+      "steps": [
+        "打开官方联盟页、打款说明和联盟条款，确认分档佣金、约30天退款复核、隔月15日打款和约50美元起付后再申请",
+        "用真实评测或教程介绍合资格主机方案，放置跟踪链接并明确披露联盟关系，不要承诺佣金或成功率，也不要把「每天推荐1单约3000美元」的营销测算写成已核实收益",
+        "只统计过约30天退款期后仍有效的订单；提现以 PayPal、首次约50美元门槛和官方发放日为准"
+      ],
+      "risk": "风险等级：中。客户在约30天内退款或账户未连续使用满约30天，该笔会被冲回并可能拉低当月档位。打款依赖 PayPal 是否对你所在地区可用，接收来自美国的款项可能产生手续费或被拒。不承诺收益。",
+      "risk_level": "中",
+      "reason": "佣金档位和打款周期公开可核验，和上期按比例首购分成的托管联盟错开，适合做主机或 WordPress 内容的人。",
+      "tags": [
+        "联盟营销",
+        "GreenGeeks",
+        "主机",
+        "WordPress"
+      ],
+      "sources": [
+        {
+          "title": "Web Hosting Affiliate Program – Earn up to $100/Sale",
+          "url": "https://www.greengeeks.com/affiliates",
+          "publisher": "GreenGeeks",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "When Are the Affiliate Sales Commissions Paid?",
+          "url": "https://www.greengeeks.com/support/article/when-are-the-affiliate-sales-commissions-paid/",
+          "publisher": "GreenGeeks",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "Affiliate Program: Terms & Conditions",
+          "url": "https://www.greengeeks.com/legal/atoc/",
+          "publisher": "GreenGeeks",
+          "published": "",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://www.greengeeks.com/affiliates"
+    },
+    {
+      "rank": 2,
+      "name": "Lulu：在官方书店上架自己拥有版权的纸质书或电子书，官方书店页与《Creator Revenue Guide》（约2026-11-24更新）写明出版上架免费；纸质书在扣除印刷和发行费用后的毛利约80%归创作者、约20%归平台，电子书毛利约90%归创作者；PayPal 满约5美元可按月打款（以官方说明为准）",
+      "type": "数字产品/接单",
+      "summary": "Lulu 是按需印刷和电子书平台。官方「Sell on Lulu」页写明在 Lulu 书店制作和销售免费，创作者在扣除印刷成本后可获约80%分成，并自定零售价。官方《Creator Revenue Guide》（约2026-11-24更新）写得更完整：毛利是零售价减去印刷成本和发行/托管费后的余额，纸质书按约80/20分成，电子书按约90/10分成；在 Lulu 书店销售没有额外发行费，但零售分销渠道会先抽成，再按上述比例分配剩余毛利，因此店外利润通常更低。首次把电子书送审分销约收4.99美元，不影响之后的约90%分成。打款仅支持 PayPal（USD、CAD、AUD、EUR、GBP）或美元纸质支票：PayPal 须上一月累计满约5美元（税后），在当月月底前发放；支票须一个财季累计满约20美元，约在季末后45天内寄出。使用 Lulu 自有 ISBN 时，收益按版税处理，可能按美国税法预扣。不承诺销量。公开 X 只作线索，本条交叉核验依据是官方销售页与收入指南。",
+      "cost": "在 Lulu 书店制作和上架免费；纸质书成本已从零售价中扣除后再分成。电子书首次送审分销约4.99美元。打款走 PayPal 或美元支票，PayPal 可能另计手续费",
+      "difficulty": 3,
+      "threshold": "已有或能完成拥有版权的书稿，并接受印刷成本、分销抽成和 PayPal 或美元支票打款；若使用 Lulu ISBN，可能涉及美国预扣税",
+      "time": "首次排版和上架通常数天到两周；零售分销官方写明可能需要约12周才能在外部渠道完整上架。销量不保证",
+      "fit": "想同时做按需印刷和电子书、能接受 PayPal 或美元支票收款的人；预估投入：先集中数周完成稿件和排版，上架后每周2–5小时更新与宣传",
+      "why": "官方把书店免费上架、纸质约80%/电子书约90%毛利分成和 PayPal 约5美元月结写进销售页与收入指南，可核验。上榜理由：相对上一份基线 Teachable「按月订阅卖课或数字下载」，今天换成 Lulu「按需印刷加电子书，按件分成」。公开 X 仅作线索。",
+      "steps": [
+        "阅读官方销售页和《Creator Revenue Guide》，确认毛利分成、印刷成本、零售分销差异以及 PayPal 约5美元或支票约20美元门槛后再注册",
+        "只上架自己拥有版权的作品，用定价计算器覆盖印刷成本并设定零售价，指定 PayPal 或支票收款人",
+        "优先在 Lulu 书店销售并自行推广；若开通零售分销，须预留约12周上架时间，不承诺销量"
+      ],
+      "risk": "风险等级：中。印刷成本和外部渠道抽成会明显降低单本利润；可能长期没有销量。打款货币和方式有限，PayPal 款项约30天未领取会退回待付。使用 Lulu ISBN 可能被预扣税。不承诺收益。",
+      "risk_level": "中",
+      "reason": "分成和打款规则公开可核验，和上期按月订课程平台错开，适合有完整书稿、愿做按需印刷的人。",
+      "tags": [
+        "数字产品",
+        "Lulu",
+        "按需印刷",
+        "电子书"
+      ],
+      "sources": [
+        {
+          "title": "Sell Self-Published Books on Lulu's Online Bookstore | Lulu",
+          "url": "https://www.lulu.com/sell-on-lulu",
+          "publisher": "Lulu",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "Creator Revenue Guide",
+          "url": "https://help.lulu.com/en/support/solutions/articles/64000262744-creator-revenue-guide",
+          "publisher": "Lulu",
+          "published": "2026-11-24",
+          "kind": "official"
+        },
+        {
+          "title": "Book Cost Calculator | Lulu",
+          "url": "https://www.lulu.com/pricing",
+          "publisher": "Lulu",
+          "published": "",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://www.lulu.com/sell-on-lulu"
+    },
+    {
+      "rank": 3,
+      "name": "Sevalla：按官方定价页用静态站点托管部署英文工具或指南小站；官方写明静态托管无月费，每个账户账期内含约100GB流量、约600分钟构建和最多约100个站点（单站约1GB），超出后流量约0.10美元/GB、构建约0.05美元/分钟，须绑卡并遵守公平使用政策",
+      "type": "出海小站",
+      "summary": "Sevalla 官方定价页写明静态站点托管为 Free，可 git push 自动部署，含约260个以上边缘节点、单站约1GB大小限制、每账户约100GB免费流量、约600分钟免费构建和最多约100个站点，并须遵守公平使用政策。官方静态托管页与定价文档写明：静态托管无月费，额度按公司/账户在每个账期共享；超出后面站仍可继续运行，流量按约0.10美元/GB、构建按约0.05美元/分钟（按秒计）计费。新用户可获约20美元、有效期约1个月的试用额度（主要用于应用或数据库等按量服务），官方定价页写明须预留信用卡作身份核验，当时不会立即扣款。验证有稳定访问后再申请 AdSense 或相关联盟。公开 X 上出现过程序化大量生成相似页面后流量下滑的讨论，只作线索，本条不推荐用自动生成的薄页面堆站。交叉核验依据是官方定价页、静态托管页和定价文档。",
+      "cost": "静态托管在官方包含额度内约0美元/月，须绑卡；超出约100GB流量或约600分钟构建后，按官方定价约0.10美元/GB、约0.05美元/分钟计费。域名另计。新账户另有约20美元、有效约1个月的试用额度（以定价页为准）",
+      "difficulty": 2,
+      "threshold": "能把静态站点推到 GitHub、GitLab 或 Bitbucket 并完成构建；接受绑卡和公平使用政策；商业变现须另申请广告或联盟审核",
+      "time": "按官方流程部署通常半天到2天；做出内容和等到有稳定访问，往往需要数周到数月，不保证",
+      "fit": "愿意做英文工具或指南小站、能接受静态托管限制的人；预估投入：每周5–10小时写页面和维护",
+      "why": "官方把静态托管无月费、包含额度和超出单价写进定价页与文档，可核验。上榜理由：相对上一份基线 Vercel「商业用途须用 Pro，约20美元/月」，今天换成 Sevalla「静态托管无月费，超出再按量计费」。公开 X 仅作线索。",
+      "steps": [
+        "阅读官方定价页、静态托管页和定价文档，确认无月费、约100GB流量、约600分钟构建、约100个站点以及超出单价后再注册并按要求绑卡",
+        "用 git 部署一个有明确用途的英文工具或指南页（含可访问的 About/Privacy），不要用程序化堆砌近重复页面",
+        "有稳定访问后再申请 AdSense 或相关联盟；超额流量或构建按官方单价结算，不承诺广告或联盟通过"
+      ],
+      "risk": "风险等级：中。须绑卡，超出包含额度会按量产生费用；公平使用政策可能限制滥用。广告或联盟审核可能拒绝空站或薄内容。公开讨论里程序化薄页面有过流量下滑的例子，只作线索，不能当成你的结果。不承诺收益。",
+      "risk_level": "中",
+      "reason": "免费额度和超出单价公开可核验，和上期按月付费的商业托管错开，适合先验证英文小站的人。",
+      "tags": [
+        "出海小站",
+        "Sevalla",
+        "静态托管",
+        "SEO"
+      ],
+      "sources": [
+        {
+          "title": "Pricing - Sevalla",
+          "url": "https://sevalla.com/pricing/",
+          "publisher": "Sevalla",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "Static site hosting",
+          "url": "https://sevalla.com/static-site-hosting/",
+          "publisher": "Sevalla",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "Pricing",
+          "url": "https://docs.sevalla.com/billing/pricing",
+          "publisher": "Sevalla",
+          "published": "",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://sevalla.com/pricing/"
+    },
+    {
+      "rank": 4,
+      "name": "网易号：发布原创图文，官方常见问题页写明符合条件的自媒体等账号可获按流量、跟贴和分享综合计算的补贴奖励，目前暂无广告分成或自营广告；收益周期为上月26日至本月25日，次月6–30日可提现至绑定的网易宝，个税由平台代扣代缴（企业号无收益）",
+      "type": "平台激励",
+      "summary": "网易号官方常见问题页写明：账号每月补贴奖励根据每月流量、跟贴和分享数据综合计算；目前暂无广告分成和自营广告计划。收益统计周期为上一自然月26日至本自然月25日，次月6日至30日可在收益后台提取税后奖金，个人所得税（劳务费）由平台按法规代扣代缴；同一身份证下多个账号若都有收益，将合并计税。提现为线上发放，奖金出炉后提至账号绑定的网易宝（一般为登录用的网易通行证邮箱）。官方还写明企业号主要用于商业推广，没有收益；入驻申请通常在一个工作日内给出审核结果，一个身份证目前可注册2个网易号。不承诺阅读量或补贴金额。公开 X 只作线索，本条交叉核验依据是官方常见问题页。",
+      "cost": "0（须自备可运营的网易通行证/邮箱并完成入驻；不包含你可选的拍摄、设计或投流费用）",
+      "difficulty": 2,
+      "threshold": "能持续发布符合规范的原创图文，完成入驻审核，并绑定可提现的网易宝；企业号官方写明无收益，不适用于本条",
+      "time": "入驻审核官方写明通常一个工作日；写出稳定作品并等到一个结算周期，往往需要数周到数月，不保证",
+      "fit": "能持续写中文原创图文、并以个人或自媒体身份入驻的人；预估投入：每周4–8小时写作和运营",
+      "why": "官方把补贴计算口径、无广告分成、结算周期和网易宝提现写进常见问题页，可核验。上榜理由：相对上一份基线 YouTube 合作伙伴计划「订阅和观看时长门槛」，今天换成网易号「按流量、跟贴和分享发放补贴」。公开 X 仅作线索。",
+      "steps": [
+        "阅读官方常见问题，确认补贴计算方式、企业号无收益、统计周期和网易宝提现后再申请入驻（官方写明通常一个工作日内出审核结果）",
+        "以自媒体等可获收益的类型运营，持续发布原创图文，不把补贴金额写成可承诺收入",
+        "在次月6–30日于收益后台提取税后奖金到绑定的网易宝；个税由平台代扣，不承诺到账金额"
+      ],
+      "risk": "风险等级：中。补贴随流量和互动波动，官方明确暂无广告分成。企业号无收益；审核、推荐和提现规则可能调整。须正确绑定网易宝，提现金额可能在1–3个工作日后同步。不承诺收益。",
+      "risk_level": "中",
+      "reason": "补贴和提现规则公开可核验，和上期海外视频分成错开，适合能持续写中文图文的人。",
+      "tags": [
+        "平台激励",
+        "网易号",
+        "图文",
+        "补贴"
+      ],
+      "sources": [
+        {
+          "title": "网易号常见问题",
+          "url": "https://dy.163.com/media_static/html/faq.html",
+          "publisher": "网易号",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "网易号媒体开放平台",
+          "url": "https://mp.163.com/",
+          "publisher": "网易号",
+          "published": "",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://dy.163.com/media_static/html/faq.html"
+    },
+    {
+      "rank": 5,
+      "name": "Codementor：申请成为导师后提供一对一编程辅导或项目制零工，官方帮助中心写明成为导师本身不另收费，平台服务费约13%至22%，随当周活跃度变化，最低可降至约13%（以官方说明为准）",
+      "type": "副业",
+      "summary": "Codementor 官方首页写明平台提供一对一实时编程辅导，以及代码审查、功能开发或 MVP 等项目制零工。官方帮助中心《Is there a fee for being a Codementor?》写明：成为导师不另收会员费，只收取约13%至22%的平台服务费，具体随该导师当周活跃度变化。官方《How does the weekly bonus work?》写明：每周统计从周一 00:00 PDT 到周日 23:59 PDT，表现较好时可把服务费降至约13%。只接自己能交付的合法辅导或开发任务，用英文沟通。公开 X 只作线索，不能当成已核实需求量。交叉核验依据是官方首页与帮助中心。",
+      "cost": "成为导师不另收平台会员费；成交后按当周规则收取约13–22%服务费。提现可能另计支付机构费用，以官方说明为准",
+      "difficulty": 3,
+      "threshold": "具备可远程交付的编程或开发能力，能用英文做一对一辅导或接小项目；接受约13–22%服务费随当周活跃度变化，并可能需要通过平台审核或评级",
+      "time": "完善档案通常1–3天；拿到首单取决于技能、时区和评价，可能数天到数周，不保证",
+      "fit": "能用英文做编程辅导、代码审查或小功能开发的人；预估投入：每周5–12小时在线或接项目",
+      "why": "官方把「导师不另收费、服务费约13–22%且可随当周活跃度降至约13%」写进帮助中心，可核验。上榜理由：相对上一份基线 Twine「平台不向自由职业者抽项目佣金，客户另付服务费」，今天换成 Codementor「按单向导师收约13–22%服务费」。公开 X 仅作线索。",
+      "steps": [
+        "阅读官方首页和帮助中心费用说明，确认约13–22%服务费和每周统计规则后再注册导师档案",
+        "只开放自己能按时交付的辅导时段或项目，用英文写清技术栈和边界，不要转包或夸大能力",
+        "按约定完成会话或交付代码；提现方式以官方收款说明为准，不承诺接单量"
+      ],
+      "risk": "风险等级：中。竞争和时差可能让档期空置；服务费随当周活跃度浮动，低活跃可能接近约22%。评价下降会影响接单。不承诺收益。",
+      "risk_level": "中",
+      "reason": "费用结构公开可核验，和上期不向自由职业者抽项目佣金的平台错开，适合能用英文做编程辅导或小项目的人。",
+      "tags": [
+        "副业",
+        "Codementor",
+        "编程辅导",
+        "远程接单"
+      ],
+      "sources": [
+        {
+          "title": "Codementor | Get live 1:1 coding help, hire a developer, & more",
+          "url": "https://www.codementor.io/",
+          "publisher": "Codementor",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "Is there a fee for being a Codementor?",
+          "url": "https://support.codementor.io/en/articles/4226113",
+          "publisher": "Codementor",
+          "published": "2025-02-03",
+          "kind": "official"
+        },
+        {
+          "title": "How does the weekly bonus work?",
+          "url": "https://support.codementor.io/en/articles/4225601",
+          "publisher": "Codementor",
+          "published": "2025-02-03",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://www.codementor.io/"
+    },
+    {
+      "rank": 6,
+      "name": "Apple Books for Authors：上架自己拥有版权的电子书，官方作者页写明无论定价如何均可获约70%版税，不收文件传输费，也不要求独家；官方打款说明写明须完成银行和税务信息，且达到所在地区最低打款门槛后，约不晚于每月第一个周五之后45天打款",
+      "type": "数字产品/接单",
+      "summary": "Apple Books for Authors 官方页写明可通过网页门户自助出版电子书，版税约为每本电子书的70%，不论定价高低，不收文件传输费，不要求独家，也不做价格匹配或向读者展示第三方广告。官方《Publish your book from the web》写明须有 Apple Books 的 iTunes Connect 账户，上传通过 EPUBCheck 的 EPUB、封面和样章，再在 iTunes Connect 设定价格和销售地区。官方《Apple Books payments》写明：须提交银行和税务资料并达到最低打款门槛；多数未单列的银行地区和币种最低约为40美元，部分地区以 iTunes Connect Payments and Financial Reports Guide 为准；打款不晚于每月第一个周五之后45天，通常以电子转账发出。不承诺销量。公开 X 只作线索，本条交叉核验依据是官方作者页、出版说明和打款页。",
+      "cost": "注册和上架不另收平台月费；约70%版税按标价计算，官方写明不收文件传输费。封面、排版或校对如需外包则另计。打款须有可接收电子转账的银行账户",
+      "difficulty": 3,
+      "threshold": "已有或能完成通过 EPUBCheck 的电子书，并完成 iTunes Connect 的银行与税务登记；须达到所在地区最低打款门槛（多数情况约40美元，以官方指南为准）",
+      "time": "准备符合规范的 EPUB 和账户资料通常数天到两周；审核、上架和首次结算取决于质量和打款门槛，不保证",
+      "fit": "能完成一本有明确读者的原创电子书、并能量化定价的人；预估投入：先集中数周完稿和格式化，上架后每周2–5小时更新与宣传",
+      "why": "官方把不论定价约70%、不要求独家和不收传输费，以及打款周期与约40美元门槛写进作者页和打款说明，可核验。上榜理由：相对上一份基线 Amazon KDP「约35%或约70%两档」，今天换成 Apple Books「非独家、不论定价约70%」。公开 X 仅作线索。",
+      "steps": [
+        "阅读官方作者页、网页出版说明和打款页，确认约70%版税、EPUB 要求和最低打款门槛后再注册 iTunes Connect",
+        "只上架自己拥有版权、并通过 EPUBCheck 的作品，上传封面和样章，在后台设定价格和销售地区",
+        "完成银行与税务信息后等待官方打款周期；不承诺销量或推荐位"
+      ],
+      "risk": "风险等级：中。电子书市场竞争激烈，可能长期没有销量。须通过格式审核并完成税务登记，部分地区银行可能无法满足打款要求。不承诺收益。",
+      "risk_level": "中",
+      "reason": "版税和打款规则公开可核验，和上期 Amazon KDP 分档版税错开，适合有原创电子书、希望非独家上架的人。",
+      "tags": [
+        "数字产品",
+        "Apple Books",
+        "电子书",
+        "自助出版"
+      ],
+      "sources": [
+        {
+          "title": "Self-publish an ebook - Apple Books for Authors",
+          "url": "https://authors.apple.com/",
+          "publisher": "Apple",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "Publish your book from the web - Apple Books for Authors",
+          "url": "https://authors.apple.com/support/4574-publish-book-from-web",
+          "publisher": "Apple",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "Payments - Apple Books Partner Support",
+          "url": "https://itunespartner.apple.com/books/support/44-payments",
+          "publisher": "Apple",
+          "published": "",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://authors.apple.com/"
+    },
+    {
+      "rank": 7,
+      "name": "闲鱼技能服务：独立站帮助中心/知识库英文 How-to 条目定制，按篇或按主题套餐接单（原创交付，不构成法律意见，不承诺转化，不卖券码账号）",
+      "type": "闲鱼非实物",
+      "summary": "面向已有或正在搭建跨境独立站的卖家，按篇或按主题套餐交付可放进帮助中心的英文 How-to 条目，例如下单流程、账户与密码、物流查询、尺寸对照、保养说明或常见故障排查。须按客户提供的真实后台路径、政策和实测步骤原创改写，不编造承诺，也不构成法律、清关或安全认证意见。全程走闲鱼站内交易，遵守卖家服务协议（版本生效日期约2025-09-17）：不卖账号、券码、代领或任何非原创资料包。公开 X 上出现过闲鱼卖虚拟资料、自动发货、AI 代充或保证月入等讨论，一律只作线索，且已过滤不合规说法，不能当成已核实需求量或收入证明；本条可核验依据是闲鱼卖家服务协议，以及你自己按协议交付原创文案。不承诺转化或出单。",
+      "cost": "0；需实名，并准备可演示的脱敏样例（不得含客户隐私、未授权品牌或虚构政策）",
+      "difficulty": 2,
+      "threshold": "能根据后台截图和真实政策写出清楚的英文操作说明，并接受修改轮次；须实名，只用站内交易",
+      "time": "准备样例和上架通常1–2天；接单和修改周期因题目而异，不保证",
+      "fit": "英文书写清楚、了解独立站后台常见路径，愿意按篇或按套交付的人；预估投入：有单时每篇2–6小时（含修改）",
+      "why": "上架和交易规则可对照闲鱼卖家服务协议核验。上榜理由：相对上一份基线「产品说明书/规格参数表英文」，今天换成「帮助中心 How-to 知识库条目」，仍是原创技能服务而非资料包。公开 X 仅作线索。",
+      "steps": [
+        "阅读闲鱼卖家服务协议，只用站内交易上架「独立站帮助中心英文条目定制」类技能，明确不卖账号、券码或资料包",
+        "准备一套脱敏样例（下单、物流查询或账户问题等 How-to），接单后只按客户提供的真实路径和政策原创改写，并注明不构成法律或认证意见",
+        "按约定轮次修改并交付可直接发布的英文条目；不承诺转化或收入，也不把公开讨论里的需求当成已核实订单"
+      ],
+      "risk": "风险等级：中。需求不稳定，议价和修改轮次可能拉长；若客户要求你编造退款、质保或认证政策，须拒绝，否则可能被牵连。不承诺收益。",
+      "risk_level": "中",
+      "reason": "交付物清晰、规则可核验，和上期规格表英文错开，适合能写独立站操作说明的人。",
+      "tags": [
+        "闲鱼",
+        "技能服务",
+        "帮助中心",
+        "英文"
+      ],
+      "sources": [
+        {
+          "title": "闲鱼社区卖家服务协议",
+          "url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html",
+          "publisher": "terms.alicdn.com",
+          "published": "2025-09-17",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://terms.alicdn.com/legal-agreement/terms/platform_service/20220929192826912/20220929192826912.html"
+    },
+    {
+      "rank": 8,
+      "name": "出海新词：盯 Uneed 公开的每日新品榜，做英文「是什么/替代品/怎么用」单页，再挂 AdSense 或相关联盟",
+      "type": "出海新词",
+      "summary": "Uneed 官方首页每日列出正在发布的新产品，并写明每日、每周、每月和年度榜，前三名可获徽章，周/月榜还会进入其通讯。可用它发现尚未被写滥的英文工具或小产品，立刻做一页「它是什么、和谁比较、怎么上手」的指南，再申请 AdSense 或相关联盟。公开 X 近期有不少 GEO/AEO 和 ChatGPT 推荐讨论，只作线索：页面应把事实、适用场景和限制写清楚，便于人或模型引用，但不保证会被任何 AI 推荐，更不要程序化生成近重复薄页。本条交叉核验依据是 Uneed 官方首页、发布指南和 AdSense 入门页。不承诺收录、推荐或广告通过。",
+      "cost": "0（域名和托管另计；不包含你自己付费投放的广告）",
+      "difficulty": 2,
+      "threshold": "能每天浏览新品并在一两天内写出一篇不抄官方文案的英文说明；广告或联盟须先通过平台审核",
+      "time": "选词和先发一页通常1–2天；等到有搜索或推荐流量，往往需要数周到数月，不保证",
+      "fit": "愿意跟踪新品目录、能写清楚英文对比页的人；预估投入：每周5–8小时盯榜和更新页面",
+      "why": "Uneed 每日新品和 AdSense 申请入口都是可打开的官方页。上榜理由：相对上一份基线 BetaList 每日初创列表，今天换成 Uneed 每日产品榜，主路径仍然是「新品说明页 + 广告或联盟」。公开 X 仅作线索。",
+      "steps": [
+        "每天打开 Uneed 首页，记下尚未被广泛评测的工具，先核对官方网站确认它确实存在且可说明用途",
+        "做一页英文「是什么/替代品/怎么用」，写清适用场景和限制，避免复制官方营销句或堆砌近重复页面",
+        "有稳定访问后再申请 AdSense 或相关联盟；不承诺排名、AI 推荐或广告通过"
+      ],
+      "risk": "风险等级：中。新品可能很快改名、停运或被写滥；广告或联盟可能拒空站。程序化薄页面有搜索更新风险，公开讨论只作线索。不承诺收益。",
+      "risk_level": "中",
+      "reason": "信息源和变现入口都可核验，和上期 BetaList 错开，适合能快速写英文说明页的人。",
+      "tags": [
+        "出海新词",
+        "Uneed",
+        "工具评测",
+        "AdSense"
+      ],
+      "sources": [
+        {
+          "title": "Daily Product Launches: Discover the Best New Tools | Uneed",
+          "url": "https://www.uneed.best/",
+          "publisher": "Uneed",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "How to Launch Your Product on Uneed (and Get Your First Users) | Uneed",
+          "url": "https://www.uneed.best/launch-guide",
+          "publisher": "Uneed",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "",
+          "url": "https://adsense.google.com/start/",
+          "publisher": "Google AdSense",
+          "published": "",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://www.uneed.best/"
+    },
+    {
+      "rank": 9,
+      "name": "案例拆解：Floor Plan AI——2026-11-26 Indie Hackers 文中，作者自称此前7个项目失败，这次因自己装修房屋做自然语言生成平面图工具，只做自己会用的功能，并把付费放在更高分辨率、更多积分和专业导出上，文中自称月收入约8000美元（只拆方法，收入均为作者自称）",
+      "type": "案例拆解",
+      "summary": "2026-11-26 一篇 Indie Hackers 公开文章中，作者 Mallory Tran 自称与小团队把 Floor Plan AI 做到约8000美元月收入，并称这是自己第一个成功项目，此前7个项目都失败了。作者自称失败的共同点是自己并不是真实用户、只是在猜测需求；这一次则源于给自己的小房子装修时，面对设计师图纸却很难改布局、等3D预览和跨过专业软件门槛。于是先做给自己用的「用自然语言生成可编辑平面图」工具，再逐步加上编辑器、2D转3D、室内效果和 DXF/DWG 导出；每加功能先问「我自己会不会用」。作者自称免费积分相对充足，付费点放在更高分辨率、更多积分和专业导出等真正痛点上，用户包括装修屋主、给客户出方案的人、中介和把工具当初稿的独立设计师。评论区里作者又称付费用户主要来自 Google 搜索相关词。以上收入、失败次数、来源和排名一律为作者自称，不是已核实收入，也不得当成可复制结果。可核验的是 https://floor-plan.ai/ 产品页仍在，功能描述与文中一致，以及文章里写清的方法：先做自己的真实需求，用「我会不会用」过滤功能，把付费放在导出和额度而不是先堆炫技。公开 X 只作线索。",
+      "cost": "0（只学方法；若自己做产品，开发、合规说明与获客成本另计）",
+      "difficulty": 1,
+      "threshold": "能读完公开复盘并区分「作者自称」与可核验的产品事实；若跟做需自备产品和获取用户的能力",
+      "time": "阅读和整理方法通常1–2小时；若跟做则是独立的产品周期，不在本条范围内",
+      "fit": "正在做工具或内容产品、容易把功能做成「看起来很酷但自己也不用」的人；预估投入：先花1–2小时拆方法",
+      "why": "产品页可打开，方法写在2026-11-26的公开文章里，收入均标作者自称。上榜理由：相对上一份基线拼豆AI「先观察重度用户导出后还要手工补的步骤再做成付费功能」，今天换成 Floor Plan AI「先做自己的真实需求，并用会不会用过滤功能」。公开 X 仅作线索。",
+      "steps": [
+        "打开产品页和该篇 Indie Hackers 文章，把可核对的功能（文本生成平面图、编辑、3D、DXF/DWG 导出）和作者自称的收入、失败次数分开记",
+        "只提炼方法：从自己正在面对的麻烦起步，每加功能先问自己会不会用，付费点对准导出和额度，而不是先卖炫技",
+        "不要复制其品类或把约8000美元月收入当成可达到的目标；若自己做产品，开发和获客成本须另行评估"
+      ],
+      "risk": "风险等级：低（仅阅读）。文中收入、来源和搜索排名均为作者自称，未在独立支付核验页交叉证实。跟做平面图或装修工具仍有版权、专业责任和获客风险，且不保证有付费。不承诺收益。",
+      "risk_level": "低",
+      "reason": "复盘足够具体、产品仍在线，收入已标明作者自称，适合只学方法、不把数字当目标的人。",
+      "tags": [
+        "案例拆解",
+        "Floor Plan AI",
+        "Indie Hackers",
+        "方法"
+      ],
+      "sources": [
+        {
+          "title": "Floor Plan – Create and Edit House Layouts Online Free",
+          "url": "https://floor-plan.ai/",
+          "publisher": "Floor Plan AI",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "My eighth project reached a monthly revenue of $8K just because I'm a Real Customer - Indie Hackers",
+          "url": "https://www.indiehackers.com/post/my-eighth-project-reached-a-monthly-revenue-of-8k-just-because-im-a-real-customer-4MO7Xzu2TpNOY2BkAnVa",
+          "publisher": "Indie Hackers",
+          "published": "2026-11-26",
+          "kind": "community"
+        }
+      ],
+      "source_url": "https://floor-plan.ai/"
+    },
+    {
+      "rank": 10,
+      "name": "ActiveCampaign Affiliate：写邮件营销、自动化或 CRM 教程，官方联盟页写明合资格推荐可拿约30%循环佣金；申请走 PartnerStack，须审核通过并提交税务资料后才打款（以官方联盟页与条款为准）",
+      "type": "工具活动",
+      "summary": "ActiveCampaign 官方联盟页写明：通过你的联盟链接推荐客户，可获约30%循环佣金，申请后会得到跟踪链接。官方《Affiliate Partner Program Terms》（约2025-09-02更新）写明申请须经审核，跟踪和打款走 PartnerStack，须向平台提交税务等文件后才会发放佣金；现任或前任员工及特定关联人不能参加。必须披露联盟关系，不承诺成交。官方营销页上的「平均每笔推荐」金额是宣传口径，本条不以它作为已核实收益。公开 X 只作线索，交叉核验依据是官方联盟页与条款。",
+      "cost": "0（需自备可发布教程的站点或渠道；不包含你自己订阅 ActiveCampaign 的费用）",
+      "difficulty": 2,
+      "threshold": "能写清楚邮件营销、自动化或 CRM 教程/评测，并按要求披露联盟关系；接受申请审核、PartnerStack 打款和税务资料要求",
+      "time": "申请与准备教程通常1–3天；出单和打款取决于流量与客户是否持续付费，不保证",
+      "fit": "已有或准备做英文邮件营销/自动化内容的人；预估投入：每周4–8小时写内容和维护披露",
+      "why": "官方把约30%循环佣金和 PartnerStack 审核打款写进联盟页与条款，可核验。上榜理由：相对上一份基线 Shopify「合资格全价方案一次性最高约150美元」，今天换成 ActiveCampaign「合资格推荐约30%循环佣金」。公开 X 仅作线索。",
+      "steps": [
+        "打开官方联盟页和联盟条款，确认约30%循环佣金、申请审核和税务资料要求后再通过 PartnerStack 提交申请",
+        "申请通过后，用真实评测或教程介绍合资格付费方案，放置跟踪链接并明确披露联盟关系；不要把营销页上的「平均每笔推荐」金额写成已核实收益",
+        "只统计条款允许的合资格订阅；提现以 PartnerStack 和所在地区支持的方式为准"
+      ],
+      "risk": "风险等级：中。申请可能被拒；未提交税务资料不会打款；客户取消后循环佣金可能停止，具体以条款和后台为准。打款依赖 PartnerStack 对你所在地区的支付方式。不承诺收益。",
+      "risk_level": "中",
+      "reason": "佣金比例和申请规则公开可核验，和上期一次性电商建站联盟错开，适合做邮件营销或自动化内容的人。",
+      "tags": [
+        "工具活动",
+        "ActiveCampaign",
+        "联盟营销",
+        "邮件营销"
+      ],
+      "sources": [
+        {
+          "title": "Become an Affiliate Partner | ActiveCampaign",
+          "url": "https://www.activecampaign.com/partners/affiliate",
+          "publisher": "ActiveCampaign",
+          "published": "",
+          "kind": "official"
+        },
+        {
+          "title": "The ActiveCampaign Affiliate Partner Program Terms",
+          "url": "https://www.activecampaign.com/legal/affiliate-partner-terms",
+          "publisher": "ActiveCampaign",
+          "published": "2025-09-02",
+          "kind": "official"
+        }
+      ],
+      "source_url": "https://www.activecampaign.com/partners/affiliate"
+    }
+  ]
+}
