@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-28",
+  "updated": "2026-11-28T10:39:48+08:00",
+  "weekday": "weekend",
+  "items": [
+    {
+      "id": "rozpierog-cofi",
+      "rank": 1,
+      "name": "Cofi（冲泡定时器）",
+      "category": "生活",
+      "summary": "开源的咖啡（也可用于茶）冲泡计时器：按预置或自建步骤加粉、注水、等候，屏幕上按秒走完一轮。预置含「终极 V60」、法压壶、Chemex 等（其中若干默认配方来自 James Hoffmann 并获授权），也可自建步骤并按份量缩放。支持画中画、步骤提示音，可选 Wear OS 手表计时。无广告、无用户跟踪。GPL-3.0。有简体中文（应用内 zh 与商店说明）。Android 7.1+，F-Droid 包名 com.omelan.cofi。",
+      "why": "饮食/厨房（不是又一本菜谱或清库存清单）：周末在家手冲时，打开预置的「终极 V60」或「法压壶」，按屏幕步骤加粉、注水、旋动和等候，不必一边看视频一边掐表。家里有固定喝法时，把粉水比和秒数存成自己的配方，早上点一下开始；有 Wear OS 手表可在腕上计时，手机可开画中画。可打包「手冲计时跟做」——预置配方怎么用、自建步骤怎么填，不承诺「完美咖啡」。",
+      "url": "https://github.com/rozPierog/Cofi",
+      "repo": "rozPierog/Cofi",
+      "stars": 446,
+      "tags": [
+        "饮食",
+        "厨房",
+        "咖啡",
+        "冲泡计时",
+        "手冲",
+        "中文",
+        "安卓",
+        "F-Droid",
+        "WearOS"
+      ],
+      "steps": [
+        "用 F-Droid 安装 Cofi（包名 com.omelan.cofi），不要侧载来路不明的 APK",
+        "先选一道预置配方（如「终极 V60」或「法压壶」）完整走完一轮，熟悉加粉、注水和等候步骤",
+        "再按自己的粉水比另存一条配方；有手表可再装 Wear OS 配套应用。计时器不保证更好喝"
+      ],
+      "risk": "F-Droid 建议版与 GitHub Releases 均停在 1.21.5（2024-05-17 发布，F-Droid 2024-05-22 上架）。仓库 changelog 写过 1.21.11（2025-02）及之后的未发布改动，最近一次推送约在 2026-06，不要指望频繁更新；对单纯计时器来说现有功能通常够用。仅 Android（可选 Wear OS）。国内 Google Play 可能无法打开，建议走 F-Droid。GPL-3.0，不要把源码并进闭源商业包。本应用只负责计时和步骤提示，不提供营养建议，也不保证咖啡更好喝。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/rozPierog/Cofi/blob/main/README.md"
+        },
+        {
+          "title": "项目主页",
+          "url": "https://rozpierog.github.io/Cofi/"
+        },
+        {
+          "title": "F-Droid（com.omelan.cofi，建议版 1.21.5）",
+          "url": "https://f-droid.org/en/packages/com.omelan.cofi/"
+        },
+        {
+          "title": "默认配方说明（含 Hoffmann 授权）",
+          "url": "https://github.com/rozPierog/Cofi/blob/main/docs/Contribute/Recipe.md"
+        },
+        {
+          "title": "简体中文商店说明",
+          "url": "https://github.com/rozPierog/Cofi/blob/main/fastlane/metadata/android/zh-CN/full_description.txt"
+        }
+      ]
+    },
+    {
+      "id": "vmiklos-plees-tracker",
+      "rank": 2,
+      "name": "Plees Tracker（睡眠档案）",
+      "category": "生活",
+      "summary": "极简睡眠起止记录本：像秒表一样手动开始和结束，睡眠期间不做监测、不额外耗电。可查看一段时间内的场次、每日合计均值，结束后可自行打分；支持桌面小组件和快捷设置磁贴，以及 CSV 导入导出。日历同步、本机文件夹自动备份，以及 Health Connect（默认关闭，只写本应用的睡眠时段、不读取其他应用）都是可选项。MIT。建议走 F-Droid 的 foss 版本（无 Google 专有依赖，自动备份只能到本机文件夹）。最新 v26.8.2（2026-11-21 发布，F-Droid 2026-11-25 上架）。Android 7.0+。本工具只做记录和统计，不做诊断。",
+      "why": "家庭健康资料整理（睡眠档案，不是监测手环、更不是诊疗）：睡前把小组件放到床头屏，点一下开始，起床再点结束，周末补觉或工作日作息都能留下起止时间，而不靠回忆。周一打开看「过去一周」的每日合计均值（默认看板是近一周；「理想睡眠时长」只用于图表），需要换机时再导出 CSV。不要根据均值自行下诊断或改用药。可打包「床头一键睡眠档案」跟做——小组件、周统计和 CSV 备份步骤，必须标明不做诊断。",
+      "url": "https://github.com/vmiklos/plees-tracker",
+      "repo": "vmiklos/plees-tracker",
+      "stars": 241,
+      "tags": [
+        "家庭健康",
+        "睡眠记录",
+        "档案",
+        "不做诊断",
+        "本地",
+        "安卓",
+        "F-Droid"
+      ],
+      "steps": [
+        "用 F-Droid 安装 plees-tracker（包名 hu.vmiklos.plees_tracker）",
+        "把开始/结束小组件放到床头屏，今晚只用来手动开始和结束一晚，先不要开日历或 Health Connect",
+        "过后在看板上查看近一周统计；换机前再导出 CSV。平均值不是诊疗建议"
+      ],
+      "risk": "无完整中文界面（仓库内有捷克语、西班牙语、韩语、巴西葡萄牙语、瑞典语等）。必须手动按开始/结束，忘了就没有记录。F-Droid 列出日历、勿扰、Health Connect 等权限，默认不必全开：日历同步和 Health Connect 都是可选项，且不应当作唯一备份。foss 版自动备份只能到本机文件夹；Google Drive 备份仅在 Play 商店的 gplay 构建中提供。均值和「理想睡眠时长」都不是睡眠诊疗或用药建议。仅 Android。仓库约 241 星。README 仍写 BSD-style，LICENSE 文件为 MIT。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/vmiklos/plees-tracker/blob/master/README.md"
+        },
+        {
+          "title": "用户手册：用法（手动起止、小组件、备份与 Health Connect）",
+          "url": "https://vmiklos.hu/plees-tracker/usage.html"
+        },
+        {
+          "title": "F-Droid（hu.vmiklos.plees_tracker，建议版 26.8.2）",
+          "url": "https://f-droid.org/en/packages/hu.vmiklos.plees_tracker/"
+        },
+        {
+          "title": "LICENSE（MIT）",
+          "url": "https://github.com/vmiklos/plees-tracker/blob/master/LICENSE"
+        }
+      ]
+    },
+    {
+      "id": "kylecorry31-trail-sense",
+      "rank": 3,
+      "name": "Trail Sense（郊游多工具）",
+      "category": "生活",
+      "summary": "完全离线的 Android 郊游多工具：出门前规划打包清单、日落前提醒、指南针（需设备有指南针传感器）、路径与 Backtrack 折返、把照片当作地图、手电筒等。气压计天气预测仅在手机有气压传感器时可用，且不是官方预报。应用声明永不联网，数据只存在本机。应用代码 MIT；内置生存手册另为 CC BY-SA 4.0。商店说明有简体中文。F-Droid 包名 com.kylecorry.trail_sense。GitHub 最新 8.3.0（2026-11-25）；查阅 F-Droid 页面时更新说明仍写 8.2.0，先用 F-Droid 即可使用打包和日落提醒。约 3056 星。",
+      "why": "早晨/日程效率里的周末出行准备（不是重自托管导航站，也不是生存挑战）：去公园或近郊徒步前，先用「规划行李」列出水和鞋、充电宝，出门前逐项勾掉，减少忘带。打开日落提醒（需定位，后台定位可选），方便在天黑前开始返回；若走了不熟的小路，可开 Backtrack 原路折返。可打包「周末郊游出发包」——打包模板加日落提醒步骤。不要把应用当作唯一导航或官方天气。",
+      "url": "https://github.com/kylecorry31/Trail-Sense",
+      "repo": "kylecorry31/Trail-Sense",
+      "stars": 3056,
+      "tags": [
+        "日程",
+        "周末出行",
+        "打包清单",
+        "日落提醒",
+        "离线",
+        "安卓",
+        "F-Droid",
+        "中文说明"
+      ],
+      "steps": [
+        "用 F-Droid 安装 Trail Sense（包名 com.kylecorry.trail_sense）；想用 GitHub 上更新的 8.3.0 再自行对照签名",
+        "先只做两件事：写一份周末出门打包清单，并打开日落提醒（按需授予定位）",
+        "不要用应用内天气预测当作出行依据，也不要把它当成唯一的指南针或地图"
+      ],
+      "risk": "作者写明：这是工具，野外须有备用装备和技能，不能单独依赖它。指南针、天气功能受手机硬件限制；气压计「预测」不是气象台预警，也不是出行安全保证。中国城市的兴趣点和路径精细度可能不如常用地图，更适合公园、步道和营地。应用声明永不联网，后台定位仅用于日落提醒等本地功能。生存手册许可证（CC BY-SA 4.0）与应用 MIT 不同，不要未按许可再分发手册内容。单一开发者维护，开放议题较多。仅 Android。",
+      "sources": [
+        {
+          "title": "README.md",
+          "url": "https://github.com/kylecorry31/Trail-Sense/blob/main/README.md"
+        },
+        {
+          "title": "用户指南",
+          "url": "https://kylecorry.com/Trail-Sense/user-guide/"
+        },
+        {
+          "title": "F-Droid（com.kylecorry.trail_sense）",
+          "url": "https://f-droid.org/en/packages/com.kylecorry.trail_sense/"
+        },
+        {
+          "title": "简体中文商店说明",
+          "url": "https://github.com/kylecorry31/Trail-Sense/blob/main/fastlane/metadata/android/zh-CN/full_description.txt"
+        },
+        {
+          "title": "GitHub Release 8.3.0",
+          "url": "https://github.com/kylecorry31/Trail-Sense/releases/tag/8.3.0"
+        }
+      ]
+    }
+  ]
+}
